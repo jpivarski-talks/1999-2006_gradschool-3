@@ -1,0 +1,76 @@
+#!/usr/local/bin/tcsh
+
+cd $HOME/sialignment/run/
+. /nfs/cleo3/scripts/cleo3defs
+c3rel cleo3_Pass2_Oct09_2001
+
+#  OSAGENT_PORT=31416
+#  export OSAGENT_PORT
+#  C3_CONST=/nfs/c3con/ccon3/constants/Codi
+#  export C3_CONST
+
+suez -q > $USER_TMP/overlap.log << EOF
+
+module sel HbookHistogramModule
+hbook file dafedir/overlap.rzn
+hbook init
+
+default prompt off
+exception continueEventLoop off
+
+module sel CorbaModule
+corba init
+module sel ConstantsModule
+constants in \$env(C3_CONST) meta Offline MetaListRetrieval exclude_streams svalignment
+constants in \$env(C3_CONST) meta CesrOffset MetaListRetrieval
+constants in \$env(C3_CONST) meta BaseGeometry MetaListRetrieval
+constants in \$env(C3_CONST) meta SVHybridEfficiency MetaListRetrieval
+
+source_format sel AsciiSourceFormat
+file in \$env(C3_DATA)/material.asc basegeometry
+
+source_format sel SVAlignmentGlobalFileSourceFormat
+file in nov_24.svalignmentglobal
+source_format sel SVAlignmentLayerFileSourceFormat
+file in nov_24.svalignmentlayer
+source_format sel SVAlignmentLadderFileSourceFormat
+file in nov_24.svalignmentladder
+source_format sel SVAlignmentSensorFileSourceFormat
+file in nov_24.svalignmentsensor
+
+prod sel SiGeom
+prod sel ASiStorePro
+prod sel IRGeomProd
+
+prod sel DRGeom
+prod sel ADRGeomProd
+prod sel DRHitCorrectorProd
+
+prod sel MagFieldProd
+param MagFieldProd alwaysUseDefault true
+
+prod sel TrackDeliveryProd
+prod sel SeedToTRTrackProd
+prod sel NavigationProd
+
+prod sel EventPropertiesProd
+
+source_format sel PDSSourceFormat
+source create pdschain
+file add pdschain ../loose_tracks/dual_chi_newalignment_loose1.pds beginrun startrun event
+file add pdschain ../loose_tracks/dual_chi_newalignment_loose2.pds beginrun startrun event
+file add pdschain ../loose_tracks/dual_chi_newalignment_loose3.pds beginrun startrun event
+file add pdschain ../loose_tracks/dual_chi_newalignment_loose4.pds beginrun startrun event
+file add pdschain ../loose_tracks/dual_chi_newalignment_loose5.pds beginrun startrun event
+file add pdschain ../loose_tracks/dual_chi_newalignment_loose6.pds beginrun startrun event
+file add pdschain ../loose_tracks/dual_chi_newalignment_loose7.pds beginrun startrun event
+file add pdschain ../loose_tracks/dual_chi_newalignment_loose8.pds beginrun startrun event
+file add pdschain ../loose_tracks/dual_chi_newalignment_loose9.pds beginrun startrun event
+source activate pdschain beginrun startrun event
+
+proc sel ../build_SunOS/shlib/MyOverlapHits
+
+go
+exit
+
+EOF

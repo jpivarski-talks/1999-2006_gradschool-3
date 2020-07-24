@@ -1,0 +1,42 @@
+
+Module : CalibratedZDHitProd
+Date   : Fri Sep 27 16:57:14 2002
+User   : bkh
+Old Tag: 
+New Tag: v01_00_00
+Message: 
+first tag
+Module : CalibratedZDHitProd
+Date   : Tue Feb  4 10:33:00 2003
+User   : huanggs
+Old Tag: v01_00_00
+New Tag: v02_00_00
+Message: make ZD code effective
+
+Module : CalibratedZDHitProd
+Date   : Thu Mar 20 10:28:04 2003
+User   : bkh
+Old Tag: v02_00_00
+New Tag: v02_00_01
+Message: 
+Make dummy version work for now
+Module : CalibratedZDHitProd
+Date   : Tue Apr 15 18:05:02 2003
+User   : bkh
+Old Tag: v02_00_01
+New Tag: v02_00_02
+Message: Throw no data exception for incorrect config
+
+Module : CalibratedZDHitProd
+Date   : Thu Jun 26 13:44:08 2003
+User   : huanggs
+Old Tag: v02_00_02
+New Tag: v03_00_00
+Message: first workable version
+
+Module : CalibratedZDHitProd
+Date   : Thu Jun 26 14:10:27 2003
+User   : huanggs
+Old Tag: v03_00_00
+New Tag: v04_00_00
+Message: fix

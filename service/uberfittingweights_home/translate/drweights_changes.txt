@@ -1,0 +1,54 @@
+Runs: 1 114137, version 4           prehistory - data8
+Runs: 114138 115029, version 12     data9 beginning
+Runs: 115030 115072, version 4      data9 end
+Runs: 115073 117158, version 12     data10 - data11
+Runs: 117159 117409, version 15     data12 beginning
+Runs: 117410 118192, version 13     data12 end
+Runs: 118193 118619, version 16     data13 beginning
+Runs: 118620 119032, version 14     data13 end
+Runs: 119033 0, version 12          data14 - forever
+
+4 4 5	   data9 end
+4 4 5      prehistory - data8
+
+12 11 12   data10 - data11
+12 11 12   data14 - forever
+12 11 12   data9 beginning
+
+13 12 13   data12 end
+
+14 13 14   data13 end
+
+15 14 15   data12 beginning
+
+16 15 16   data13 beginning
+
+
+
+perl translate.pl 4 4 5 115030 115072
+perl translate.pl 4 4 5 1 114137
+
+perl translate.pl 12 11 12 115073 117158
+perl translate.pl 12 11 12 119033 0
+perl translate.pl 12 11 12 114138 115029
+
+perl translate.pl 13 12 13 117410 118192
+
+perl translate.pl 14 13 14 118620 119032
+
+perl translate.pl 15 14 15 117159 117409
+
+perl translate.pl 16 15 16 118193 118619
+
+
+
+
+1 114137
+114138 115029
+115030 115072
+115073 117158
+117159 117409
+117410 118192
+118193 118619
+118620 119032
+119033 0

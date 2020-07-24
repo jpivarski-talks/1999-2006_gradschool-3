@@ -1,0 +1,50 @@
+*** Begin of history file: Wed Apr  4 16:02:29 2001
+opt nbox
+opt zfl1
+opt sta
+ve/read runlist 'pawtmp_runlist.txt'
+ve/read loadtime 'pawtmp_loadtime.txt'
+ve/read startuptime 'pawtmp_startuptime.txt'
+ve/read processtime 'pawtmp_processtime.txt'
+ve/read secperevent 'pawtmp_secperevent.txt'
+ve/read luminosity 'pawtmp_luminosity.txt'
+ve/read bharatio 'pawtmp_bharatio.txt'
+ve/read l4ratio 'pawtmp_l4ratio.txt'
+zone 1 2
+h/cr/title 'loadtime VS. run'
+graph 217 runlist loadtime
+graph 217 runlist loadtime '*'
+ve/plot loadtime
+pict/print 'display.1_loadtime.gif'
+h/cr/title 'startuptime VS. run'
+graph 217 runlist startuptime
+graph 217 runlist startuptime '*'
+ve/plot startuptime
+pict/print 'display.1_startuptime.gif'
+h/cr/title 'processtime VS. run'
+graph 217 runlist processtime
+graph 217 runlist processtime '*'
+ve/plot processtime
+pict/print 'display.1_processtime.gif'
+h/cr/title 'secperevent VS. run'
+graph 217 runlist secperevent
+graph 217 runlist secperevent '*'
+ve/plot secperevent
+pict/print 'display.1_secperevent.gif'
+h/cr/title 'luminosity VS. run'
+graph 217 runlist luminosity
+graph 217 runlist luminosity '*'
+ve/plot luminosity
+pict/print 'display.1_luminosity.gif'
+h/cr/title 'bharatio VS. run'
+graph 217 runlist bharatio
+graph 217 runlist bharatio '*'
+ve/plot bharatio
+pict/print 'display.1_bharatio.gif'
+h/cr/title 'l4ratio VS. run'
+graph 217 runlist l4ratio
+graph 217 runlist l4ratio '*'
+ve/plot l4ratio
+pict/print 'display.1_l4ratio.gif'
+exit
+*** End   of history file: Wed Apr  4 16:02:42 2001

@@ -1,0 +1,198 @@
+h/file 21 ../rzn/zdalign_test0.rzn
+h/file 22 ../rzn/zdalign_testrotz.rzn
+h/file 23 ../rzn/zdalign_testx.rzn
+h/file 24 ../rzn/zdalign_testy.rzn
+h/file 25 ../rzn/zdalign_testz.rzn
+h/file 26 ../rzn/zdalign_iter1.rzn
+h/file 27 ../rzn/zdalign_justy.rzn
+h/file 28 ../rzn/zdalign_serious.rzn
+
+fortran/file 65 'zdalign_test.ps'
+graphics/metafile 65 -111
+igset mtype 1
+
+do i=21,28
+  h/copy //lun[i]/comparedrandzd/701 [i]01
+  h/copy //lun[i]/comparedrandzd/702 [i]02
+  h/copy //lun[i]/comparedrandzd/703 [i]03
+  h/copy //lun[i]/comparedrandzd/704 [i]04
+
+  ve/cr uplus(3)
+  ve/inp uplus 0 0 0
+  ve/cr euplus(3)
+  ve/inp euplus 0 0 0
+  h/fit [i]01 sincos.f '0' 3 uplus ! ! ! euplus
+  ve/cr vplus(3)
+  ve/inp vplus 0 0 0
+  ve/cr evplus(3)
+  ve/inp evplus 0 0 0
+  h/fit [i]02 sincos.f '0' 3 vplus ! ! ! evplus
+  ve/cr uminus(3)
+  ve/inp uminus 0 0 0
+  ve/cr euminus(3)
+  ve/inp euminus 0 0 0
+  h/fit [i]03 sincos.f '0' 3 uminus ! ! ! euminus
+  ve/cr vminus(3)
+  ve/inp vminus 0 0 0
+  ve/cr evminus(3)
+  ve/inp evminus 0 0 0
+  h/fit [i]04 sincos.f '0' 3 vminus ! ! ! evminus
+
+  sigma phish = uplus(1) + vplus(1) + uminus(1) + vminus(1)
+  sigma xsh = uplus(2) + vplus(2) + uminus(2) + vminus(2)
+  sigma ysh = uplus(3) + vplus(3) + uminus(3) + vminus(3)
+  sigma zsh = uplus(1) - vplus(1) - uminus(1) + vminus(1)
+
+  h/copy [i]01 1000 'Residual versus phi'
+
+  if [i].eq.21 then
+    h/cr/title 'test0 (no motion)'
+  elseif [i].eq.22 then
+    h/cr/title 'testrotz (move rotz 0.001)'
+  elseif [i].eq.23 then
+    h/cr/title 'testx (move x 0.001)'
+  elseif [i].eq.24 then
+    h/cr/title 'testy (move y 0.001)'
+  elseif [i].eq.25 then
+    h/cr/title 'testz (move z 0.001)'
+  elseif [i].eq.26 then
+    h/cr/title 'iter1 (move to ideal location)'
+  elseif [i].eq.27 then
+    h/cr/title 'justy (only move y)'
+  elseif [i].eq.28 then
+    h/cr/title 'serious (full matrix motion)'
+  endif
+
+  set ncol 16
+  palette 1
+
+  zone 1 2
+  min 1000 -0.001
+  max 1000 0.001
+  set hcol 1
+  set fcol 1
+  h/plot 1000
+  set hcol 2
+  set fcol 2
+  h/plot [i]02 s
+  set hcol 4
+  set fcol 4
+  h/plot [i]03 s
+  set hcol 15
+  set fcol 15
+  h/plot [i]04 s
+
+  null 0 1 0 1
+  set txci 1
+  text 0.2 0.8 'Layers 1,2,3 +Z' 0.4 ! c
+  set txci 2
+  text 0.2 0.6 'Layers 4,5,6 +Z' 0.4 ! c
+  set txci 4
+  text 0.2 0.4 'Layers 1,2,3 -Z' 0.4 ! c
+  set txci 15
+  text 0.2 0.2 'Layers 4,5,6 -Z' 0.4 ! c
+  set txci 1
+  text 0.45 0.8 'phi shift =' 0.4 ! l
+  text 0.45 0.6 'x shift =' 0.4 ! l
+  text 0.45 0.4 'y shift =' 0.4 ! l
+  text 0.45 0.2 'z shift =' 0.4 ! l
+
+  text 0.95 0.8 $SIGMA(phish) 0.4 ! r
+  text 0.95 0.6 $SIGMA(xsh) 0.4 ! r
+  text 0.95 0.4 $SIGMA(ysh) 0.4 ! r
+  text 0.95 0.2 $SIGMA(zsh) 0.4 ! r
+
+enddo
+
+close 65
+
+
+
+
+h/cr/title 'test0 (no motion)'
+
+zone 2 2
+
+opt sta
+set stat 0001110
+set fit 001
+h/plot //lun21/comparedrandzd/100
+set ltyp 3
+sigma down = $HINFO(100, 'MEAN') - $HINFO(100, 'RMS') / sqrt($HINFO(100, 'ENTRIES'))
+sigma up   = $HINFO(100, 'MEAN') + $HINFO(100, 'RMS') / sqrt($HINFO(100, 'ENTRIES'))
+dline $SIGMA(down) $SIGMA(down) $GRAFINFO('WNYMIN') $GRAFINFO('WNYMAX')
+dline $SIGMA(up) $SIGMA(up) $GRAFINFO('WNYMIN') $GRAFINFO('WNYMAX')
+
+ve/cr par(3)
+ve/inp par 0 0 0
+opt nsta
+opt fit
+set fit 111
+min 200 -0.5e-2
+max 200 0.5e-2
+h/fit //lun21/comparedrandzd/200 sincos.f ! 3 par
+
+opt sta
+set stat 0001110
+set fit 001
+h/plot //lun21/comparedrandzd/300
+set ltyp 3
+sigma down = $HINFO(300, 'MEAN') - $HINFO(300, 'RMS') / sqrt($HINFO(300, 'ENTRIES'))
+sigma up   = $HINFO(300, 'MEAN') + $HINFO(300, 'RMS') / sqrt($HINFO(300, 'ENTRIES'))
+dline $SIGMA(down) $SIGMA(down) $GRAFINFO('WNYMIN') $GRAFINFO('WNYMAX')
+dline $SIGMA(up) $SIGMA(up) $GRAFINFO('WNYMIN') $GRAFINFO('WNYMAX')
+
+ve/cr par(3)
+ve/inp par 0 0 0
+opt nsta
+opt fit
+set fit 111
+min 400 -0.5
+max 400 0.5
+h/fit //lun21/comparedrandzd/400 sincos.f ! 3 par
+
+pict/print 'check_test0.ps'
+
+h/cr/title 'iter1 (move to ideal location)'
+
+zone 2 2
+
+opt sta
+set stat 0001110
+set fit 001
+h/plot //lun26/comparedrandzd/100
+set ltyp 3
+sigma down = $HINFO(100, 'MEAN') - $HINFO(100, 'RMS') / sqrt($HINFO(100, 'ENTRIES'))
+sigma up   = $HINFO(100, 'MEAN') + $HINFO(100, 'RMS') / sqrt($HINFO(100, 'ENTRIES'))
+dline $SIGMA(down) $SIGMA(down) $GRAFINFO('WNYMIN') $GRAFINFO('WNYMAX')
+dline $SIGMA(up) $SIGMA(up) $GRAFINFO('WNYMIN') $GRAFINFO('WNYMAX')
+
+ve/cr par(3)
+ve/inp par 0 0 0
+opt nsta
+opt fit
+set fit 111
+min 200 -0.5e-2
+max 200 0.5e-2
+h/fit //lun26/comparedrandzd/200 sincos.f ! 3 par
+
+opt sta
+set stat 0001110
+set fit 001
+h/plot //lun26/comparedrandzd/300
+set ltyp 3
+sigma down = $HINFO(300, 'MEAN') - $HINFO(300, 'RMS') / sqrt($HINFO(300, 'ENTRIES'))
+sigma up   = $HINFO(300, 'MEAN') + $HINFO(300, 'RMS') / sqrt($HINFO(300, 'ENTRIES'))
+dline $SIGMA(down) $SIGMA(down) $GRAFINFO('WNYMIN') $GRAFINFO('WNYMAX')
+dline $SIGMA(up) $SIGMA(up) $GRAFINFO('WNYMIN') $GRAFINFO('WNYMAX')
+
+ve/cr par(3)
+ve/inp par 0 0 0
+opt nsta
+opt fit
+set fit 111
+min 400 -0.5
+max 400 0.5
+h/fit //lun26/comparedrandzd/400 sincos.f ! 3 par
+
+pict/print 'check_iter1.ps'

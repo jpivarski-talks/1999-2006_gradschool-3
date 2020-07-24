@@ -1,0 +1,458 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 4.0,
+MathReader 4.0, or any compatible application. The data for the notebook 
+starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     17322,        382]*)
+(*NotebookOutlinePosition[     18328,        414]*)
+(*  CellTagsIndexPosition[     18284,        410]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[{
+    \(Off[General::spell1]\), "\[IndentingNewLine]", 
+    \(<< Statistics`DiscreteDistributions`\), "\[IndentingNewLine]", 
+    \(<< Statistics`ContinuousDistributions`\), "\[IndentingNewLine]", 
+    \(<< Graphics`MultipleListPlot`\), "\[IndentingNewLine]", 
+    \(<< Statistics`NonlinearFit`\), "\[IndentingNewLine]", 
+    \(<< Graphics`Graphics`\), "\[IndentingNewLine]", 
+    \(<< Statistics`DescriptiveStatistics`\)}], "Input"],
+
+Cell[BoxData[{
+    \(Chi2ToFunction[func_, params_List, 
+        data_List] := \(\(Plus @@ \((\(\((\((func @@ 
+                          Prepend[
+                            params, #[\([1]\)]] - \
+#[\([2]\)])\)^2/#[\([3]\)]^2)\) &\) /@ 
+            data)\)\)\(\[IndentingNewLine]\)\)\), "\[IndentingNewLine]", 
+    \(FitToFunction[func_, params_List, start_List, 
+        data_List] := \(\(\(\(({#1, Length[data] - Length[params], 
+              params /. #2})\) &\) @@ \((FindMinimum @@ 
+            Prepend[Table[{params[\([ftfi]\)], start[\([ftfi]\)]}, {ftfi, 1, 
+                  Length[params]}], 
+              Chi2ToFunction[func, params, 
+                data]])\)\)\(\[IndentingNewLine]\)\)\), \
+"\[IndentingNewLine]", 
+    \(FitReplacements[params_List, values_List] := 
+      Table[params[\([fri]\)] \[Rule] values[\([fri]\)], {fri, 1, 
+          Length[params]}]\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(ErrorMatrix[func_, params_List, values_List, 
+        data_List] := \(\(Inverse[
+          Table[ReplaceAll[
+              D[D[Chi2ToFunction[func, params, data], params[\([emi]\)]], 
+                params[\([emj]\)]], FitReplacements[params, values]], {emi, 
+              1, Length[params]}, {emj, 1, 
+              Length[params]}]]\)\(//\)\(Chop\)\(\[IndentingNewLine]\)\)\), "\
+\[IndentingNewLine]", 
+    \(FitCovariance[func_, params_List, values_List, data_List, param1_, 
+        param2_] := \(\(ErrorMatrix[func, params, values, 
+            data]\)[\([\(Position[params, param1] // Flatten\) // 
+              First]\)]\)[\([\(Position[params, param2] // Flatten\) // 
+            First]\)]\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(FitVariance[func_, params_List, values_List, data_List, param_] := 
+      FitCovariance[func, params, values, data, param, 
+        param]\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(FitError[func_, params_List, values_List, data_List, param_] := 
+      Sqrt[FitVariance[func, params, values, data, 
+          param]]\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(FitValueError[func_, params_List, start_List, data_List, 
+        interestingParams_List] := \((fveBestParams = \(FitToFunction[func, 
+              params, start, data]\)[\([3]\)]; 
+        fveErrorMatrix = ErrorMatrix[func, params, fveBestParams, data]; \ 
+        Table[\((fvePosition = \(Position[params, 
+                    interestingParams[\([fvei]\)]] // Flatten\) // 
+                First; {fveBestParams[\([fvePosition]\)], 
+              Sqrt[\(fveErrorMatrix[\([fvePosition]\)]\)[\([fvePosition]\)]]})\
+\), {fvei, 1, 
+            Length[interestingParams]}])\)\[IndentingNewLine]\), "\
+\[IndentingNewLine]", 
+    \(FitValueError[func_, params_List, start_List, data_List, 
+        interestingParam_Symbol] := \(\(FitValueError[func, params, start, 
+          data, {interestingParam}]\)\(//\)\(First\)\(\n\)\)\), "\n", 
+    \(PlotFit[func_, values_List, data_List] := 
+      Show[MultipleListPlot[\(\(({{#[\([1]\)], #[\([2]\)]}, 
+                  ErrorBar[#[\([3]\)]]})\) &\) /@ data, 
+          DisplayFunction \[Rule] Identity], \[IndentingNewLine]Plot[
+          func @@ Prepend[values, x], {x, 
+            Min @@ \((\(\((#[\([1]\)])\) &\) /@ data)\) - 0.005, 
+            Max @@ \((\(\((#[\([1]\)])\) &\) /@ data)\) + 0.005}, 
+          DisplayFunction \[Rule] Identity], 
+        DisplayFunction \[Rule] $DisplayFunction]\[IndentingNewLine]\), "\
+\[IndentingNewLine]", 
+    \(PlotFitFrame[func_, values_List, data_List, lower_Real, upper_Real, 
+        background_Real] := 
+      Show[MultipleListPlot[\(\(({{#[\([1]\)], #[\([2]\)]}, 
+                  ErrorBar[#[\([3]\)]]})\) &\) /@ data, 
+          PlotRange \[Rule] {{lower, upper}, {0. , 8. }}, Frame \[Rule] True, 
+          FrameLabel \[Rule] {"\<Energy in GeV\>", "\<Cross-section in \
+nb\>"}, Axes \[Rule] False, 
+          DisplayFunction \[Rule] 
+            Identity], \[IndentingNewLine]Plot[{func @@ Prepend[values, x], 
+            background*2.89966*\((2*5.17779)\)^2/x^2}, {x, lower, upper}, 
+          PlotStyle \[Rule] {Dashing[{1, 0}], Dashing[{0.03, 0.02}]}, 
+          DisplayFunction \[Rule] Identity], 
+        DisplayFunction \[Rule] $DisplayFunction]\[IndentingNewLine]\), "\
+\[IndentingNewLine]", 
+    \(FitAndPlot[func_, params_List, start_List, 
+        data_List] := \((fapBestFit = 
+          FitToFunction[func, params, start, data]; 
+        PlotFitFrame[func, fapBestFit[\([3]\)], data]; 
+        fapBestFit)\)\n\), "\n", 
+    \(DifferencePlot[func_, values_List, data_List] := \((\n
+        dpMin = Min @@ \((\(\((#[\([1]\)])\) &\) /@ data)\) - 0.005; \n
+        dpMax = Max @@ \((\(\((#[\([1]\)])\) &\) /@ data)\) + 0.005; \n
+        Show[ListPlot[\({#[\([1]\)], \((func @@ 
+                          Prepend[
+                            values, #[\([1]\)]] - #[\([2]\)])\)/#[\([3]\)]} &\
+\) /@ data, Axes \[Rule] True, AxesOrigin \[Rule] {dpMin, 0}, 
+            DisplayFunction \[Rule] Identity], 
+          Graphics[{Line[{{dpMin, 1. }, {dpMax, 1. }}], 
+              Line[{{dpMin, \(-1. \)}, {dpMax, \(-1. \)}}]}], 
+          DisplayFunction \[Rule] $DisplayFunction])\)\)}], "Input"],
+
+Cell[BoxData[{
+    \(\(Y3s1stScan = {{5.18941, 3.43371, 0.107719}, {5.1734, 3.13466, 
+            0.101312}, {5.18648, 3.3852, 0.106021}, {5.17551, 4.16032, 
+            0.340117}, {5.17551, 3.98765, 0.139877}, {5.18138, 5.98455, 
+            0.167333}, {5.18341, 4.30918, 0.129267}, {5.17741, 5.45795, 
+            0.154483}, {5.16508, 3.07526, 0.0991695}, {5.16483, 3.14906, 
+            0.111506}, {5.16483, 3.00661, 0.193479}, {5.16486, 3.3601, 
+            0.109346}, {5.16489, 3.13507, 0.101292}, {5.16483, 3.15949, 
+            0.111912}, {5.16483, 3.183, 0.159566}, {5.16486, 2.61204, 
+            0.287386}, {5.16486, 3.1558, 0.0980276}, {5.16486, 3.07679, 
+            0.099223}, {5.16486, 2.97249, 0.148004}, {5.16483, 3.11546, 
+            0.100595}, {5.17917, 6.66271, 0.180426}, {5.17923, 6.48963, 
+            0.163639}, {5.17921, 6.64381, 0.179825}, {5.17923, 6.46328, 
+            0.178405}, {5.17922, 6.76698, 0.343769}, {5.17923, 6.76078, 
+            0.179334}};\)\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(\(Y3s1stScanCOM = \(\(({2*#[\([1]\)], #[\([2]\)], #[\([3]\)]})\) &\) /@ 
+          Y3s1stScan;\)\)}], "Input"],
+
+Cell[BoxData[{
+    \(\(jacksonSharreOnly[x_, norm_, mean_, 
+          sigma_] := \((\[IndentingNewLine]t = 
+              2*\((\(1/137.0359997650\)/
+                    Pi)\)*\((Log[\((x*1000)\)^2/0.51099890221^2 - 
+                      1. ])\); \[IndentingNewLine]z = \((x - mean)\)/
+                sigma; \[IndentingNewLine]F = 
+              Gamma[1 + t]*
+                  Exp[\(-z^2\)/2]/
+                    Sqrt[2*Pi]*\[IndentingNewLine]\((0.31 - 
+                        0.73*z/
+                            Sqrt[1 + \((z/\((1 + 
+                                        1.37*t)\))\)^2]\[IndentingNewLine] + 
+                        z^2)\)^\((\(-t\)/2)\) + \[IndentingNewLine]If[z > 0, 
+                    1, 0]*t*
+                  z^t*\[IndentingNewLine]\((z^2.18/\((1 + 
+                          z^3.18)\))\)*\[IndentingNewLine]\((1 + \((1 - 
+                            t)\)*\(\((2 - t)\)/
+                            2\)/\[IndentingNewLine]\((1.5*t + 
+                              2.44 + \((z - 
+                                    46/\((z^2 + 
+                                        21)\))\)^2)\))\); \
+\[IndentingNewLine]norm*\((2*sigma/mean)\)^t*F/sigma\[IndentingNewLine])\) // 
+          Chop;\)\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(\(jacksonSharre[x_, norm_, mean_, sigma_, 
+          back_] := \[IndentingNewLine]jacksonSharreOnly[x, norm, mean, 
+            sigma] + 
+          back*2.89966*\((2*5.17779)\)^2/
+              x^2;\)\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(\(jsParams = {norm, mean, sigma, back};\)\)}], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+    \({chi2, ndf, bestfitValues} = \[IndentingNewLine]FitToFunction[
+        jacksonSharre, jsParams, {0.0762, 10.3587, 0.00468, 1.07}, 
+        Y3s1stScanCOM]\), "\[IndentingNewLine]", 
+    \(errormatrix = 
+      ErrorMatrix[jacksonSharre, jsParams, bestfitValues, 
+        Y3s1stScanCOM]\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(\(Print["\<norm = \>", bestfitValues[\([1]\)], "\< +/- \>", 
+        Sqrt[\(errormatrix[\([1]\)]\)[\([1]\)]]];\)\), "\[IndentingNewLine]", \
+
+    \(\(Print["\<mean = \>", bestfitValues[\([2]\)], "\< +/- \>", 
+        Sqrt[\(errormatrix[\([2]\)]\)[\([2]\)]]];\)\), "\[IndentingNewLine]", \
+
+    \(\(Print["\<sigma = \>", bestfitValues[\([3]\)], "\< +/- \>", 
+        Sqrt[\(errormatrix[\([3]\)]\)[\([3]\)]]];\)\), "\[IndentingNewLine]", \
+
+    \(\(Print["\<back = \>", bestfitValues[\([4]\)], "\< +/- \>", 
+        Sqrt[\(errormatrix[\([4]\)]\)[\([4]\)]]];\)\[IndentingNewLine]\), "\
+\[IndentingNewLine]", 
+    \(\(PlotFitFrame[jacksonSharre, bestfitValues, Y3s1stScanCOM, 10.32, 
+        10.39, bestfitValues[\([4]\)]];\)\), "\[IndentingNewLine]", 
+    \(\(DifferencePlot[jacksonSharre, bestfitValues, 
+        Y3s1stScanCOM];\)\)}], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`{16.08088560126113`, 
+      22, {0.0783573657181237`, 10.358658793652276`, 0.004663534660704103`, 
+        1.0722018475274486`}}\)], "Output"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+            {"3.839663704131112`*^-6", "2.6534127148583186`*^-8", 
+              "1.8175776175765275`*^-7", \(-7.898982111189094`*^-6\)},
+            {"2.653412714858318`*^-8", 
+              "1.9895208498392923`*^-8", \(-9.030772928899275`*^-10\), 
+              "3.272133645291578`*^-8"},
+            {"1.817577617576528`*^-7", \(-9.030772928899263`*^-10\), 
+              "1.423289327876474`*^-8", \(-2.983757602098422`*^-7\)},
+            {\(-7.898982111189096`*^-6\), 
+              "3.2721336452915776`*^-8", \(-2.983757602098421`*^-7\), 
+              "0.0000571464424209755`"}
+            },
+          ColumnAlignments->{Decimal}], "\[NoBreak]", ")"}], 
+      TraditionalForm]], "Output"],
+
+Cell[BoxData[
+    FormBox[
+      InterpretationBox[\("norm = "\[InvisibleSpace]0.0783573657181237`\
+\[InvisibleSpace]" +/- "\[InvisibleSpace]0.0019595059847142882`\),
+        SequenceForm[ 
+        "norm = ", 0.078357365718123698, " +/- ", 0.0019595059847142882],
+        Editable->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+    FormBox[
+      InterpretationBox[\("mean = "\[InvisibleSpace]10.358658793652276`\
+\[InvisibleSpace]" +/- "\[InvisibleSpace]0.00014105037574708166`\),
+        SequenceForm[ 
+        "mean = ", 10.358658793652276, " +/- ", 0.00014105037574708166],
+        Editable->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+    FormBox[
+      InterpretationBox[\("sigma = "\[InvisibleSpace]0.004663534660704103`\
+\[InvisibleSpace]" +/- "\[InvisibleSpace]0.00011930169017564144`\),
+        SequenceForm[ 
+        "sigma = ", 0.004663534660704103, " +/- ", 0.00011930169017564144],
+        Editable->False], TraditionalForm]], "Print"],
+
+Cell[BoxData[
+    FormBox[
+      InterpretationBox[\("back = "\[InvisibleSpace]1.0722018475274486`\
+\[InvisibleSpace]" +/- "\[InvisibleSpace]0.007559526600321974`\),
+        SequenceForm[ 
+        "back = ", 1.0722018475274486, " +/- ", 0.007559526600321974],
+        Editable->False], TraditionalForm]], "Print"]
+}, Open  ]],
+
+Cell["\<\
+I can't seem to get this area integration thing to work/make \
+sense... perhaps it was not intended to be used with the approximate analytic \
+expression.\
+\>", "Text"],
+
+Cell[BoxData[{
+    \(\(newt[x_] := 
+        2*\((\(1/137.0359997650\)/
+              Pi)\)*\((Log[\((x*1000)\)^2/0.51099890221^2 - 
+                1. ])\);\)\), "\[IndentingNewLine]", 
+    \(\(epsilon[t_] := \(2/137.0359997650\)/Pi*\((Pi^2/6 - 17/36)\) + 
+          13/12*t;\)\), "\[IndentingNewLine]", 
+    \(\(damp[
+          x_] := \((\(bestfitValues[\([2]\)]/2\)/
+              Abs[x - bestfitValues[\([2]\)]])\)^
+          newt[x];\)\), "\[IndentingNewLine]", 
+    \(\(damp2[x_] := 
+        damp[x]/\((1 + 
+              epsilon[newt[
+                    x]]*\((\(bestfitValues[\([2]\)]/2\)/
+                      Abs[x - bestfitValues[\([2]\)]])\)^
+                  newt[x])\);\)\)}], "Input"],
+
+Cell[BoxData[{
+    \(\(areaobs[lower_, upper_] := 
+        NIntegrate[
+          jacksonSharreOnly[x, bestfitValues[\([1]\)], 
+            bestfitValues[\([2]\)], bestfitValues[\([3]\)]], {x, lower, 
+            upper}, MaxRecursion \[Rule] 20];\)\), "\[IndentingNewLine]", 
+    \(\(area0[lower_, upper_] := 
+        damp2[upper]*\((areaobs[lower, 10.4] + 
+              areaobs[10.4, upper])\);\)\)}], "Input"],
+
+Cell[BoxData[
+    \(ListPlot[Table[area0[10.32, x], {x, 10.5, 13, 0.1}], 
+      PlotJoined \[Rule] True]\)], "Input"],
+
+Cell["\<\
+This is the so-called \"quick and dirty\" area measurement. It \
+nearly agrees with the \"norm\" parameter, maybe I should trust that as being \
+an area (after all, F(z,t) ought to be normalized!).\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+    \(bestfitValues[\([1]\)]\), "\[IndentingNewLine]", 
+    \(1.0645*\((\(bestfitValues[\([2]\)]/2.3548\)/bestfitValues[\([3]\)])\)^
+        newt[10.36]*
+      jacksonSharreOnly[bestfitValues[\([2]\)], bestfitValues[\([1]\)], 
+        bestfitValues[\([2]\)], bestfitValues[\([3]\)]]*2.3548*
+      bestfitValues[\([3]\)]\)}], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`0.0783573657181237`\)], "Output"],
+
+Cell[BoxData[
+    \(TraditionalForm\`0.07776741477077623`\)], "Output"]
+}, Open  ]],
+
+Cell["\<\
+This is 76% more than I would have had assuming no high-end tail.\
+\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+    \(\(gaussOnly[x_, norm_, mean_, sigma_] := 
+        norm*\(Exp[\(\(-\((x - mean)\)^2\)/2\)/sigma^2]/Sqrt[2\ Pi]\)/
+            sigma;\)\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(\(gauss[x_, norm_, mean_, sigma_, back_] := 
+        gaussOnly[x, norm, mean, sigma] + 
+          back*2.89966*\((2*5.17779)\)^2/
+              x^2;\)\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \({chi2gauss, ndofgauss, bestgauss} = 
+      FitToFunction[gauss, jsParams, {0.0762, 10.3587, 0.00468, 1.07}, 
+        Y3s1stScanCOM]\)}], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`{26.042500860220912`, 
+      22, {0.04422969947796578`, 10.359487528195405`, 0.004975630542097749`, 
+        1.0841464361496054`}}\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(Show[
+        LogPlot[jacksonSharreOnly[x, bestfitValues[\([1]\)], 
+            bestfitValues[\([2]\)], bestfitValues[\([3]\)]], {x, 10.33, 11}, 
+          PlotRange \[Rule] {{10.32, 10.5}, {0.001, 4}}, 
+          AxesOrigin \[Rule] {10.32, 0.001}, 
+          DisplayFunction \[Rule] 
+            Identity], \[IndentingNewLine]LogPlot[{gaussOnly[x, 
+              bestgauss[\([1]\)], bestgauss[\([2]\)], bestgauss[\([3]\)]], 
+            0.1}, {x, 10.36, 11}, 
+          PlotRange \[Rule] {{10.32, 11}, {0.001, 4}}, 
+          AxesOrigin \[Rule] {10.32, 0.001}, 
+          PlotStyle \[Rule] Dashing[{0.03, 0.02}], 
+          DisplayFunction \[Rule] Identity], 
+        DisplayFunction \[Rule] $DisplayFunction];\)\)], "Input"]
+},
+FrontEndVersion->"4.0 for X",
+ScreenRectangle->{{0, 1024}, {0, 768}},
+WindowSize->{705, 479},
+WindowMargins->{{1, Automatic}, {Automatic, 37}},
+PrintingPageRange->{Automatic, Automatic},
+PrintingOptions->{"PaperSize"->{612, 792},
+"PaperOrientation"->"Portrait",
+"PostScriptOutputFile":>FrontEnd`FileName[{$RootDirectory, "a", "lns101", \
+"nfs", "homes", "cleo", "mccann", "scan_strategy"}, "just_fits.nb.ps", \
+CharacterEncoding -> "ISO8859-1"],
+"Magnification"->1},
+CellLabelAutoDelete->True,
+Magnification->1
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1717, 49, 446, 7, 123, "Input"],
+Cell[2166, 58, 5156, 90, 1083, "Input"],
+Cell[7325, 150, 1147, 16, 187, "Input"],
+Cell[8475, 168, 1578, 29, 283, "Input"],
+
+Cell[CellGroupData[{
+Cell[10078, 201, 1199, 22, 187, "Input"],
+Cell[11280, 225, 179, 3, 28, "Output"],
+Cell[11462, 230, 766, 15, 89, "Output"],
+Cell[12231, 247, 317, 6, 24, "Print"],
+Cell[12551, 255, 317, 6, 24, "Print"],
+Cell[12871, 263, 323, 6, 24, "Print"],
+Cell[13197, 271, 313, 6, 24, "Print"]
+}, Open  ]],
+Cell[13525, 280, 178, 4, 32, "Text"],
+Cell[13706, 286, 701, 16, 75, "Input"],
+Cell[14410, 304, 411, 8, 59, "Input"],
+Cell[14824, 314, 117, 2, 27, "Input"],
+Cell[14944, 318, 221, 4, 50, "Text"],
+
+Cell[CellGroupData[{
+Cell[15190, 326, 348, 6, 75, "Input"],
+Cell[15541, 334, 70, 1, 28, "Output"],
+Cell[15614, 337, 71, 1, 28, "Output"]
+}, Open  ]],
+Cell[15700, 341, 91, 3, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[15816, 348, 555, 10, 91, "Input"],
+Cell[16374, 360, 181, 3, 28, "Output"]
+}, Open  ]],
+Cell[16570, 366, 748, 14, 91, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

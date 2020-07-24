@@ -1,0 +1,49 @@
+
+Module : MinuitInterface
+Date   : Thu Dec  9 10:41:03 1999
+User   : lyon
+Old Tag: 
+New Tag: v01_00_00
+Message: First issue
+
+Module : MinuitInterface
+Date   : Sat Dec 11 23:27:22 1999
+User   : lyon
+Old Tag: v01_00_00
+New Tag: v01_01_00
+Message: Simplified adding parameters and added documentation
+
+Module : MinuitInterface
+Date   : Sun Dec 12 16:16:24 1999
+User   : lyon
+Old Tag: v01_01_00
+New Tag: v01_02_00
+Message: Added extensive doxygen documentation
+
+Module : MinuitInterface
+Date   : Tue Dec 14 00:16:49 1999
+User   : lyon
+Old Tag: v01_02_00
+New Tag: v01_03_00
+Message: Renamed LeastSquaresFcn to ExampleFcn
+
+Module : MinuitInterface
+Date   : Thu Jul 13 11:22:18 2000
+User   : lyon
+Old Tag: v01_03_00
+New Tag: v01_04_00
+Message: rumMigrad now returns command status ; flush fortran buffers so printouts appear correctly ; prescale minuit command error message
+
+Module : MinuitInterface
+Date   : Fri Aug 16 11:24:53 2002
+User   : cleo3
+Old Tag: v01_04_00
+New Tag: v01_05_00
+Message: replaced iostream.h with C++/iostream.h
+
+Module : MinuitInterface
+Date   : Wed Jan 29 17:00:46 2003
+User   : cleo3
+Old Tag: v01_05_00
+New Tag: v01_06_00
+Message: use pointer to function type rather than void * when declaring FORTRAN interface

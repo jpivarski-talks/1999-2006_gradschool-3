@@ -1,0 +1,71 @@
+h/file 31 flat1.rzn
+h/file 32 flat2.rzn
+h/file 33 flat3.rzn
+h/file 34 flat4.rzn
+h/file 35 flat5.rzn
+h/file 36 flat6.rzn
+h/file 37 flat7.rzn
+h/file 38 flat8.rzn
+h/file 39 flat9.rzn
+
+h/cr/1d 1 'pos tracks' 100 0.8 1.265
+h/cr/1d 2 'pos tracks' 100 -1.265 -0.8
+h/cr/1d 3 'neg tracks' 100 0.8 1.265
+h/cr/1d 4 'neg tracks' 100 -1.265 -0.8
+
+add //lun31/cakealignflat/1001 1 1
+add //lun32/cakealignflat/1001 1 1
+add //lun33/cakealignflat/1001 1 1
+add //lun34/cakealignflat/1001 1 1
+add //lun35/cakealignflat/1001 1 1
+add //lun36/cakealignflat/1001 1 1
+add //lun37/cakealignflat/1001 1 1
+add //lun38/cakealignflat/1001 1 1
+add //lun39/cakealignflat/1001 1 1
+
+add //lun31/cakealignflat/1002 2 2
+add //lun32/cakealignflat/1002 2 2
+add //lun33/cakealignflat/1002 2 2
+add //lun34/cakealignflat/1002 2 2
+add //lun35/cakealignflat/1002 2 2
+add //lun36/cakealignflat/1002 2 2
+add //lun37/cakealignflat/1002 2 2
+add //lun38/cakealignflat/1002 2 2
+add //lun39/cakealignflat/1002 2 2
+
+add //lun31/cakealignflat/1003 3 3
+add //lun32/cakealignflat/1003 3 3
+add //lun33/cakealignflat/1003 3 3
+add //lun34/cakealignflat/1003 3 3
+add //lun35/cakealignflat/1003 3 3
+add //lun36/cakealignflat/1003 3 3
+add //lun37/cakealignflat/1003 3 3
+add //lun38/cakealignflat/1003 3 3
+add //lun39/cakealignflat/1003 3 3
+
+add //lun31/cakealignflat/1004 4 4
+add //lun32/cakealignflat/1004 4 4
+add //lun33/cakealignflat/1004 4 4
+add //lun34/cakealignflat/1004 4 4
+add //lun35/cakealignflat/1004 4 4
+add //lun36/cakealignflat/1004 4 4
+add //lun37/cakealignflat/1004 4 4
+add //lun38/cakealignflat/1004 4 4
+add //lun39/cakealignflat/1004 4 4
+
+min 1 0
+min 2 0
+min 3 0
+min 4 0
+
+max 1 160
+max 2 160
+max 3 160
+max 4 160
+
+zone 4 4
+h/plot 1
+h/plot 2
+zone 4 4 5 s
+h/plot 3
+h/plot 4

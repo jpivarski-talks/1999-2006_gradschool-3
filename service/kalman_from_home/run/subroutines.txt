@@ -1,0 +1,188 @@
+0x65244a74 in
+__0fSHIHelixIntersectorWswimToNextIntersectionC65NKTMoveControlNMoveDirection
+()
+(gdb) where
+#0  0x65244a74 in
+__0fSHIHelixIntersectorWswimToNextIntersectionC65NKTMoveControlNMoveDirection
+()
+#1  0x5aeaf218 in
+__0fWKalmanHelixTransporterYtransportThroughMaterialR6HKTHelixdR6KHepPoint3DK
+()
+#2  0x5adc9160 in
+__0fXVXFitVeeConversionProxyMfaultHandlerRC6GRecordRC6HDataKey ()
+#3  0x5ae34a6c in
+__0fNProxyTemplate76KFAPtrTable76SVXFitVeeConversion__DgetRC6GRecordRC6HDataKeyK
+()
+#4  0x5ae45268 in
+__0fNSMProxyWriter76KFAPtrTable76SVXFitVeeConversion__LextractDataRC6HDataKeyRC6GRecordR6MSMSinkStream
+
+
+%% DEBUG-VFinderProd.VXFitVeeConversionProxy: Conversion minimally OK.
+%% DEBUG-HelixIntersection.HIMSDedxOperation: Energy < mass after dE/dx.
+%% DEBUG-HelixIntersection.HIHelixIntersector: Problem with surface
+Had the Vee fitting begun the next line would have been
+something 
+like:
+
+%% DEBUG-VXFit.VXFitInterfaceVertex: Adding "KTKinematicFixedBz" (7) as
+track.
+
+
+
+0x65244a74 in
+__0fSHIHelixIntersectorWswimToNextIntersectionC65NKTMoveControlNMoveDirection
+()
+(gdb) where
+#0  0x65244a74 in
+__0fSHIHelixIntersectorWswimToNextIntersectionC65NKTMoveControlNMoveDirection
+()
+#1  0x5aeaf218 in
+__0fWKalmanHelixTransporterYtransportThroughMaterialR6HKTHelixdR6KHepPoint3DK
+()
+#2  0x5adc9160 in
+__0fXVXFitVeeConversionProxyMfaultHandlerRC6GRecordRC6HDataKey ()
+#3  0x5ae34a6c in
+__0fNProxyTemplate76KFAPtrTable76SVXFitVeeConversion__DgetRC6GRecordRC6HDataKeyK
+()
+#4  0x5ae45268 in
+__0fNSMProxyWriter76KFAPtrTable76SVXFitVeeConversion__LextractDataRC6HDataKeyRC6GRecordR6MSMSinkStream
+
+
+
+
+0x752a38a0 in
+__0fQHICompositePlaneOpropagateHelixR6HHIHelix65NKTMoveControlNMoveDirection
+()
+   from /nfs/cleo3/Offline/rel/Jul13_02_P2/shlib/SunOS/CC/KalmanProd.so
+(gdb) wher
+#0  0x752a38a0 in
+__0fQHICompositePlaneOpropagateHelixR6HHIHelix65NKTMoveControlNMoveDirection
+()
+   from /nfs/cleo3/Offline/rel/Jul13_02_P2/shlib/SunOS/CC/KalmanProd.so
+#1  0x75244be0 in
+__0fSHIHelixIntersectorWswimToNextIntersectionC65NKTMoveControlNMoveDirection
+()
+   from /nfs/cleo3/Offline/rel/Jul13_02_P2/shlib/SunOS/CC/KalmanProd.so
+#2  0x6aaaf218 in
+__0fWKalmanHelixTransporterYtransportThroughMaterialR6HKTHelixdR6KHepPoint3DK
+()
+   from /nfs/cleo3/Offline/rel/Jul13_02_P2/shlib/SunOS/CC/VFinderProd.so
+#3  0x6a9c918c in
+__0fXVXFitVeeConversionProxyMfaultHandlerRC6GRecordRC6HDataKey () from
+/nfs/cleo3/Offline/rel/Jul13_02_P2/shlib/SunOS/CC/VFinderProd.so
+#4  0x6aa34a6c in
+__0fNProxyTemplate76KFAPtrTable76SVXFitVeeConversion__DgetRC6GRecordRC6HDataKeyK
+()
+   from /nfs/cleo3/Offline/rel/Jul13_02_P2/shlib/SunOS/CC/VFinderProd.so
+
+
+
+
+0x7bf1dea8 in __0oHKTHelixctRC6HKTHelix ()
+   from
+/nfs/cleo3/Offline/rel/Jul13_02_P2/shlib/SunOS/CC/AsciiSourceFormat.so
+(gdb) where
+#0  0x7bf1dea8 in __0oHKTHelixctRC6HKTHelix ()
+   from
+/nfs/cleo3/Offline/rel/Jul13_02_P2/shlib/SunOS/CC/AsciiSourceFormat.so
+#1  0x75242314 in __0fHHIHelixLnewSnapshotv ()
+   from /nfs/cleo3/Offline/rel/Jul13_02_P2/shlib/SunOS/CC/KalmanProd.so
+#2  0x752447ac in
+__0fSHIHelixIntersectorWswimToNextIntersectionC65NKTMoveControlNMoveDirection
+()
+   from /nfs/cleo3/Offline/rel/Jul13_02_P2/shlib/SunOS/CC/KalmanProd.so
+#3  0x6aaaf218 in
+__0fWKalmanHelixTransporterYtransportThroughMaterialR6HKTHelixdR6KHepPoint3DK
+()
+   from /nfs/cleo3/Offline/rel/Jul13_02_P2/shlib/SunOS/CC/VFinderProd.so
+#4  0x6a9c918c in
+__0fXVXFitVeeConversionProxyMfaultHandlerRC6GRecordRC6HDataKey () from
+/nfs/cleo3/Offline/rel/Jul13_02_P2/shlib/SunOS/CC/VFinderProd.so
+#5  0x6aa34a6c in
+__0fNProxyTemplate76KFAPtrTable76SVXFitVeeConversion__DgetRC6GRecordRC6HDataKeyK
+()
+   from /nfs/cleo3/Offline/rel/Jul13_02_P2/shlib/SunOS/CC/VFinderProd.so
+#6  0x6aa45268 in
+__0fNSMProxyWriter76KFAPtrTable76SVXFitVeeConversion__LextractDataRC6HDataKeyRC6GRecordR6MSMSinkStream
+()
+
+
+
+
+
+(/opt/SUNWspro/bin/../WS6U2/bin/sparcv9/dbx) where
+=>[1] KTHelix::position(0xffbecc70, 0x3c8dc70, 0x3c8dc70, 0x5, 0x5,
+0x30), at 0x7bf22838
+  [2] KalmanHelixTransporter::transportThroughMaterial(0x6aaaeca8,
+0x3c8dda8, 0x0, 0x24e59296, 0xffbed968, 0x6ae4fe38), at 0x6aaaf290
+  [3] VXFitVeeConversionProxy::faultHandler(0x1776568, 0x6ae64b34,
+0x6ae4fe38, 0x7ded58, 0x2e47630, 0x1), at 0x6a9c9184
+
+
+
+
+
+
+
+
+(/opt/SUNWspro/bin/../WS6U2/bin/sparcv9/dbx) cont
+^Csignal INT (Interrupt) in KTHelix::KTHelix at 0x7bf1df24
+0x7bf1df24: KTHelix+0x00b8:     ld      [%i2 - 0x14], %o0
+(/opt/SUNWspro/bin/../WS6U2/bin/sparcv9/dbx) where
+=>[1] KTHelix::KTHelix(0xffbec470, 0x3c8dda8, 0x7bf9f220, 0x3c8ddd0,
+0xffbec4b0, 0xffbec350), at 0x7bf1df24
+  [2] HIHelix::HIHelix(0xffbec310, 0x3c8dc48, 0x0, 0x75640c88,
+0x3ff7a60c, 0x0), at 0x7524160c
+  [3] HICompositePlane::propagateHelix(0x2e48bf0, 0x752a37f8, 0x0,
+0x75640c88, 0xf5741c24, 0x3c8dc48), at 0x752a387c
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(/opt/SUNWspro/bin/../WS6U2/bin/sparcv9/dbx) cont
+^Csignal INT (Interrupt) in ..mul at 0x7f3bee08
+0x7f3bee08: ..mul+0x000c:       smul    %o0, %o1, %o0
+(/opt/SUNWspro/bin/../WS6U2/bin/sparcv9/dbx) where
+=>[1] ..mul(0x5, 0x4, 0x0, 0x75640c88, 0x237d0, 0x75245380), at
+0x7f3bee08
+  [2] HIHelix::errorMatrixOK(0x7bf9f118, 0x2, 0x75640c88, 0x3, 0x4,
+0x18), at 0x75241e58
+  [3] KalmanHelixTransporter::transportThroughMaterial(0x6aaaeca8,
+0x3c8dda8, 0x0, 0x24e59296, 0xffbed968, 0x6ae4fe38), at 0x6aaaf248
+  [4] VXFitVeeConversionProxy::faultHandler(0x1776568, 0x6ae64b34,
+0x6ae4fe38, 0x7ded58, 0x2e47630, 0x1), at 0x6a9c9184
+
+
+
+
+
+
+
+(gdb) where
+#0  0x752a4aac in __0oKHep3VectorctdNCB ()
+   from /nfs/cleo3/Offline/rel/Jul13_02_P2/shlib/SunOS/CC/KalmanProd.so
+#1  0x752a3d9c in
+__0fQHICompositePlaneOpropagateHelixR6HHIHelix65NKTMoveControlNMoveDirection
+()
+   from /nfs/cleo3/Offline/rel/Jul13_02_P2/shlib/SunOS/CC/KalmanProd.so
+#2  0x75244be0 in
+__0fSHIHelixIntersectorWswimToNextIntersectionC65NKTMoveControlNMoveDirection
+()
+   from /nfs/cleo3/Offline/rel/Jul13_02_P2/shlib/SunOS/CC/KalmanProd.so
+#3  0x6aaaf218 in
+__0fWKalmanHelixTransporterYtransportThroughMaterialR6HKTHelixdR6KHepPoint3DK
+()
+   from /nfs/cleo3/Offline/rel/Jul13_02_P2/shlib/SunOS/CC/VFinderProd.so
+#4  0x6a9d01c4 in
+__0fTVXFitVeeKShortProxyMfaultHandlerRC6GRecordRC6HDataKey ()
+   from /nfs/cleo3/Offline/rel/Jul13_02_P2/shlib/SunOS/CC/VFinderProd.so

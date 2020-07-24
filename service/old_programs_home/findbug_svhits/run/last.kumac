@@ -1,0 +1,21 @@
+*** Begin of history file: Fri Nov  9 16:34:52 2001
+h/file 2 hbook_kal_big.rzn
+h/plot 210
+cd findbug
+h/plot 210
+h/plot 110
+h/plot 120
+h/plot 10
+h/plot 20
+h/plot 351
+h/plot 352
+h/plot 362
+h/plot 130
+h/plot 352
+h/plot 130
+h/plot 110
+h/plot 120
+opt logy
+h/plot 120
+quit
+*** End   of history file: Fri Nov  9 16:43:39 2001

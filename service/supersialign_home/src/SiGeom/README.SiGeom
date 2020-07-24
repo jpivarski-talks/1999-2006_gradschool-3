@@ -1,0 +1,54 @@
+This is the README file for SiGeom. It shows you how to write 
+a producer in the new CLEO3 Suez environment.
+
+1.) You should find the following files:
+
+SiGeom/
+
+README.SiGeom
+Makefile
+
+SiGeom/SiGeom/
+SiGeom.h
+
+SiGeom/Class/
+SiGeom.cc
+SiGeom_DONT_TOUCH.cc
+
+2.) You should only need to edit the SiGeom.cc file (and
+    potentially also SiGeom.h). Fill SiGeom.cc with your
+    producer code, registering your proxies.
+
+3.) Make a shared library: "gmake shared_module CXX=g++ or cxx"
+This step requires that you have a standard type of build area,
+consisting of (../bin, ../lib, and ../shlib) directories.
+The shared processor library will end up in ../shlib!
+
+4.) Set the environment variable C_PROC_DIR to include the ../shlib
+directory above: setenv C_PROC_DIR /home/mkl/build/shlib
+
+4.) Start up Suez: (on lns111) /cleo3/dlib/bin/cxx or g++/suez
+
+5.) Here is a sample job:
+
+suez> file in test.rp
+suez> producer ls
+
+Listing all available Producers:
+
+in memory:
+
+and on disk:
+/home/mkl/build/shlib/ SiGeom
+
+suez> processor sel SiGeom
+... other code: selecting processors etc ...
+suez> nexstop 1
+... 
+suez> exit
+
+
+ Please read the documentation: 
+     http://w4.lns.cornell.edu/restricted/CLEO/CLEO3/soft/index.html
+
+ That's It! Questions, Suggestions, Complaints --> Martin Lohner

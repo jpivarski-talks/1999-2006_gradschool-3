@@ -1,0 +1,180 @@
+#!/usr/local/bin/tcsh
+
+cd $HOME/sialignment/bug_magnitude
+. /nfs/cleo3/scripts/cleo3defs
+c3rel cleo3_Pass2_Oct09_2001
+
+#  OSAGENT_PORT=31416
+#  export OSAGENT_PORT
+#  C3_CONST=/nfs/c3con/ccon3/constants/Codi
+#  export C3_CONST
+
+suez -q > $USER_TMP/bugless_mlayer4.log << EOF
+
+default prompt off
+
+module sel CorbaModule
+corba init
+module sel ConstantsModule
+constants in \$env(C3_CONST) meta Online
+constants in \$env(C3_CONST) meta Offline MetaListRetrieval exclude_streams svalignment svresolution
+constants in \$env(C3_CONST) meta CesrOffset MetaListRetrieval
+# constants in \$env(C3_CONST) meta RunByRun MetaListRetrieval
+constants in \$env(C3_CONST) meta BaseGeometry MetaListRetrieval
+constants in \$env(C3_CONST) meta SVHybridEfficiency MetaListRetrieval
+constants in \$env(C3_CONST) meta Alignment MetaListRetrieval
+# constants in \$env(C3_CONST) meta FieldMap MetaListRetrieval
+
+source_format sel AsciiSourceFormat
+file in \$env(C3_DATA)/material.asc basegeometry
+
+# module sel RunStatisticsSourceModule
+# runstatistics in
+
+source_format sel SVResolutionGlobalFileSourceFormat
+file in loose.svresolutionglobal
+
+source_format sel ../build_\$env(OS_NAME)/shlib/SVResolutionLayerFileSourceFormat
+file in loose.svresolutionlayer
+
+# source_format sel SVHybridEfficiencyFileSourceFormat
+# file in normal.svhybridefficiency
+
+#########################################################
+# Load DR Geometry-------
+	prod sel ADRGeomProd
+	prod sel DRGeom
+
+# Load Silicon and IR geometry-------
+	prod sel ASiStorePro
+	prod sel SiGeom
+	prod sel IRGeomProd
+
+# Load Raw data---
+	prod sel RawDataProd
+
+# Convert Raw cathode hits to DRCACorrectHits----
+	prod sel DRCACorrectHitProd
+
+# Cluster cathodes---
+	prod sel DRCAClusterProd
+
+# Make PreliminaryDRHits-----
+#	prod sel PreliminaryDRHitProd
+
+# Make CalibratedDRHits-----
+	prod sel CalibratedDRHitProd
+
+# Make Si Hits-----
+#	prod sel CorrectedSVStripProd
+	prod sel SiHitsProd
+
+# Load the magnetic field----
+	prod sel MagFieldProd
+	param MagFieldProd alwaysUseDefault true
+	param MagFieldProd defaultHallProbeReading 1.49123
+
+# CDOffCal
+	prod sel ../build_\$env(OS_NAME)/shlib/CDOffCal
+
+# Get trigger information
+	prod sel TriggerL1DataProd
+
+# Get bunch decision
+	prod sel TrackletBunchFinder
+
+# Load Doit
+	prod sel DoitProd
+	param DoitProd ContinueIfHitsMissing true
+
+# Load DRHitCorrections
+	prod sel DRHitCorrectorProd
+	 param DRHitCorrectorProd ApplyEntranceAngleCorr false           
+         param DRHitCorrectorProd ApplyStandardCorrections false   
+
+# Load Kalman fit
+	prod sel ../build_\$env(OS_NAME)/shlib/KalmanProd
+# Set Kalman to only fit pion kaon and proton since that is all
+#  we want store from Pass2
+	param KalmanProd HyposToFit pion kaon proton
+	param KalmanProd OptimizeForAllHypos true
+        param KalmanProd HitListFromOneHypo true
+	param KalmanProd ScaleCathodeResolution true 
+	param KalmanProd CathodeResolutionScale 0.7     
+
+# If someone requests electrons or muons, give them the pion fit
+	prod sel ElectronFromPionFitProd
+	prod sel MuonFromPionFitProd
+
+# Set up NavTrack
+	prod sel NavigationProd
+	prod sel TrackDeliveryProd
+	prod sel SeedToTRTrackProd
+#########################################################
+
+# param KalmanProd MaxHitsToDelete 0
+
+prod sel ../build_SunOS/shlib/DualTrackHelicesProd
+
+prod sel DBRunHeaderProd
+prod sel DBEventHeaderProd
+# prod sel CesrBeamEnergyProd
+
+# prod sel CcfcReconProd
+# prod sel C3ccReconProd
+# proc sel CcEventSelectProc
+# prod sel C3ccProd
+# prod sel CcGeomProd
+# prod sel C3ccConProd
+# param CcEventSelectProc BhabhaKeep true
+
+#  source_format sel BinarySourceFormat
+#  file in cont_123592.bin event beginrun startrun endrun
+#  source act cont_123592.bin event beginrun startrun endrun
+
+module sel DBModule
+database in /nfs/cleo3/database/data16/db beginrun event startrun endrun
+source activate db beginrun event startrun endrun
+database read_collection rawdata bhabha
+
+emptysource def svalignment svalignment
+
+module sel ../build_SunOS/shlib/EnderSiAlignmentMod
+param EnderSiAlignmentMod target_hits 2000
+
+param EnderSiAlignmentMod global_init normal.svalignmentglobal
+param EnderSiAlignmentMod layer_init  normal.svalignmentlayer
+param EnderSiAlignmentMod ladder_init normal.svalignmentladder
+param EnderSiAlignmentMod sensor_init normal.svalignmentsensor
+
+param EnderSiAlignmentMod file_output "bugless-mini-summary.log"
+
+param EnderSiAlignmentMod device "layer"
+param EnderSiAlignmentMod number 4
+
+param EnderSiAlignmentMod rphi_cut 0.00012
+param EnderSiAlignmentMod z_cut 0.0011
+
+param EnderSiAlignmentMod rphi_norm 0.0013
+param EnderSiAlignmentMod z_norm 0.0053
+
+param EnderSiAlignmentMod deltaX_step 0.000050
+param EnderSiAlignmentMod deltaY_step 0.000050
+param EnderSiAlignmentMod deltaZ_step 0.002500
+param EnderSiAlignmentMod phiX_step 0.002000
+param EnderSiAlignmentMod phiY_step 0.005000
+param EnderSiAlignmentMod phiZ_step 0.001000
+
+param EnderSiAlignmentMod deltaX_limit 0.001000
+param EnderSiAlignmentMod deltaY_limit 0.001000
+param EnderSiAlignmentMod deltaZ_limit 0.010000
+param EnderSiAlignmentMod phiX_limit 0.050000
+param EnderSiAlignmentMod phiY_limit 0.050000
+param EnderSiAlignmentMod phiZ_limit 0.050000
+
+report level INFO
+iterator go
+
+exit
+
+EOF

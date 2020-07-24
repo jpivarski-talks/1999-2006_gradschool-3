@@ -1,0 +1,1376 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<title>CLEO III Constants/Snapshot DR bdl types</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h2 align="center">DR BDL types</h2>
+
+<hr>
+
+<p>Changes: </p>
+
+<ul>
+    <li>10/15/99 H. Schwarthoff: Added comments by J.McLean, added link to
+        J.O'Neill's DRMC documentation.</li>
+    <li>11/30/99 I.Karliner: Added DRAlignedConstants and comments for
+all DRAlignment constants.
+    <li>11/10/02 T. Meyer: Added DROnline documentation, touched up look
+of page
+    <li>09/19/03 J. Pivarski: Added DRWeight2*.bdl documentation
+    <li>11/11/03 J. Pivarski: Added notes about units and how they
+    differ from the corresponding DR types, as well as previously
+    missing documentation for <a
+    href="#drgeomalignment">DRGeomAlignment</a>.
+    <li>01/21/04 J. Pivarski: Fixed my misunderstanding of lines 1 and
+    2 of <a href="#drgeomalignment">DRGeomAlignment</a>.
+
+</ul>
+
+<hr>
+
+<h2>Tracking Drift Chamber</h2>
+
+<p>A list of all constants types related to the Drift Chamber. Follow a
+link to see the contents of the BDL and a brief description further down
+on this page.
+
+<!-- Index -->
+<ul>
+  <li><a href="#geometry">Geometry</a></li>
+    <ul>
+    <li><a href="#adrgeomglobal">ADRGeomGlobal</a></li>
+    <li><a href="#adrgeomlayer">ADRGeomLayer</a></li>
+    <li><a href="#adrgeomwiresurvey">ADRGeomWireSurvey</a></li>
+    </ul>
+  <li><a href="#alignment">Alignment</a></li>
+    <ul>
+    <li><a href="#dralignedconstants">DRAlignedConstants</a></li>
+    <li><a href="#drgeomalignment">DRGeomAlignment</a></li>
+    </ul>
+  <li><a href="#offline">Offline</a></li>
+    <ul>
+    <li><a href="#dradcpedestal">DRadcpedestal</a></li>
+    <li><a href="#dradcsaturation">DRadcsaturation</a></li>
+    <li><a href="#dradc2charge">DRadc2charge</a></li>
+    <li><a href="#drtdc2time">DRtdc2time</a></li>
+    <li><a href="#drt0global">DRt0global</a></li>
+    <li><a href="#drt0crate">DRt0crate</a></li>
+    <li><a href="#drt0card">DRt0card</a></li>
+    <li><a href="#drt0channel">DRt0channel</a></li>
+    <li><a href="#drt0channelv2">DRt0channelv2</a></li>
+    <li><a href="#drt0hvcard">DRt0hvcard</a></li>
+    <li><a href="#drdaqcellidmap">DRDaqCellIDMap</a></li>
+    <li><a href="#drdriftdata">DRDriftData</a></li>
+    <li><a href="#drdriftdatav2">DRDriftDatav2</a></li>
+    <li><a href="#drgarfield_distancecorrection">DRGarfield_DistanceCorrection</a></li>
+    <li><a href="#drgarfield_timecorrection">DRGarfield_TimeCorrection</a></li>
+    <li><a href="#drweightlayer">DRWeightLayer</a> <i>(Cleo-III only)</i></li>
+    <li><a href="#drweightdrift">DRWeightDrift</a> <i>(Cleo-III only)</i></li>
+    <li><a href="#drweighttheta">DRWeightTheta</a> <i>(Cleo-III only)</i></li>
+    <li><a href="#drweightphi">DRWeightPhi</a> <i>(Cleo-III only)</i></li>
+    <li><a href="#drweight2layerdriftentang">DRWeight2LayerDriftEntAng</a></li>
+    <li><a href="#drweight2layertheta">DRWeight2LayerTheta</a></li>
+    <li><a href="#drweight2layerphi">DRWeight2LayerPhi</a></li>
+    <li><a href="#drwirequality">DRWireQuality</a></li>
+    </ul>
+  <li><a href="#online">Online</a></li>
+    <ul>
+    <li><a href="#drfbus1877s">DRFBUS1877S</a></li>
+    <li><a href="#drfbuschannel">DRFBUSChannel</a></li>
+    <li><a href="#drfbussequencerlist">DRFBUSSequencerList</a></li>
+    <li><a href="#drtqtcrate">DRTQTCrate</a></li>
+    <li><a href="#drtqtboard">DRTQTBoard</a></li>
+    <li><a href="#drtqtchannel">DRTQTChannel</a></li>
+    <li><a href="#drtstrigboard">DRTSTrigBoard</a></li>
+    <li><a href="#drtsgateboard">DRTSGateBoard</a></li>
+    </ul>
+  <li><a href="#miscellaneous">Miscellaneous</a></li>
+    <ul>
+    <li><a href="#drelecmap">DRElecMap</a></li>
+    <li><a href="#drtqttofbus">DRTQTtoFBUS</a></li>
+    <li><a href="#drpreamptotqt">DRPreAmpToTQT</a></li>
+    <li><a href="#drdeadwires">DRDeadWires</a></li>
+    <li><a href="#drvarious">DRvarious</a></li>
+    </ul>
+  <li><a href="#montecarlo">Monte Carlo</a></li>
+</ul>
+
+
+<a name="geometry"></a>
+<h3>DRGeometry</h3>
+
+<ul>
+<a name="adrgeomglobal"></a>
+<li><font color="#4b3d8b"><b>ADRGeomGlobal</b></font><br>
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: ADRGeomGlobal
+{
+   UInt16 DRGlobalNumber
+   UInt16 NumberOfWiresTotal
+   UInt16 NumberOfLayers
+   UInt16 NumberOfAxialLayers
+   UInt16 NumberOfStereoLayers
+   UInt16 NumberOfULayers
+   UInt16 NumberOfVLayers
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  <U>Entire DR</U><br>
+  <blockquote>
+    # of wires in the DR<BR>
+    # of  layers in the DR<BR>
+    # of Axial (nominally) layers<BR>
+    # of Stereo layers<BR>
+    # of U layers <BR>
+    # of V layers<BR>
+  </blockquote>
+  
+  <p>Detailed description is available in <a href=
+  "http://www.lns.cornell.edu/restricted/CLEO/CLEO3/soft/LibraryDocs/ADRGeomConst">
+  DR3 Geometry: CLEO III constants</A><br>
+  
+  Data come from the DR design.<br>
+  Currently hard-wired, DB is not used.<br> 
+  If the DB is used, the script should include:
+  <blockquote><tt>
+    &gt; source_format sel ADRGeomGlobalFileSourceFormat<br>
+    &gt; file in $env(C3_LIB)/data/dr3.adrgeomglobal basegeometry<br>
+  </tt></blockquote></p>
+</li><br>
+
+<a name="adrgeomlayer"></a>
+<li><font color="#4b3d8b"><b>ADRGeomLayer</b></font><br>
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: ADRGeomLayer
+{
+    UInt16 DRLayerNumber
+    UInt16 NumberOfWires
+    Int8   ReadoutEnd
+    double RadiusEndCapCM
+    double Phi0EastInDegrees
+    double Phi0WestInDegrees
+    double TwistCakeInDegrees
+    UInt16 CakeNumber_Axial
+    UInt16 ZStepPolycone_StereoLayer
+    double ZBowingInch
+    double ZBushing
+    double ZPin
+    double Pin_WireRadiusInch
+    double SagXMicron
+    double SagYMicron
+    double FieldRadiusLessEndCapCM
+    double FieldRadiusMoreEndCapCM
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  <U>Each DR Layer:</U><br>
+  <blockquote>
+    # of wires <br>
+    design radius at the endcaps <br>
+    design phi0 of wire 0, East <br>
+    design phi0 of wire 0, West <br>
+    twist (lyrs 1-16 endcaps are twisted w/r to each other) <br>
+    the index of the z-step in the polycone endcap for lyrs 17-47 <br>
+    bowing of the endplates <br>
+    bushings' length <br>
+    pins' length <br>
+    (pin radius -wire radius) <br>
+    sagx <br>
+    sagy <br>
+    field layer radius less    than  sense layer radius, at the end cap <br>
+    field layer radius greater then  sense wire radius,  at the end cap<br>
+  </blockquote>
+
+  <p>Detailed description is available in <a href=
+"http://www.lns.cornell.edu/restricted/CLEO/CLEO3/soft/LibraryDocs/ADRGeomConst">
+DR3 Geometry: CLEO III constants</A><br>
+
+  Data come from the DR design, or were measured during DR construction<br>
+  Currently hard-wired, DB not is used.<br> 
+  If the DB is used, the script should include:
+  <blockquote><tt>
+    &gt; source_format sel ADRGeomLayerFileSourceFormat<br>
+    &gt; file in $env(C3_LIB)/data/dr3.adrgeomlayer basegeometry<br>
+  </tt></blockquote></p>
+
+  <p>Note from Jim Pivarski: "SagXMicron" and "SagYMicron" are
+  actually in meters.  This is <i>not true</i> for the corresponding <a
+  href="bdlTypesZD.html#azdgeomlayer">AZDGeomlayer</a>.
+
+</li><br>
+
+<a name="adrgeomwiresurvey"></a>
+<li><font color="#4b3d8b"><b>ADRGeomWireSurvey</b></font><br>
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: ADRGeomWireSurvey
+{
+   UInt16 DRWireNumber
+   double EastXMicron
+   double EastXMicron
+   double EastYMicron
+   double EastZMicron
+   double WestXMicron
+   double WestYMicron
+   double WestZMicron
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  <U>Each DR Sense Wire:</U><br>
+  For each sense wire, we have survey corrections that give, in the local
+endcaps' coordinates, the deviation of the surveyed holes positions from
+the ideal positions in microns: East(X,Y,Z)Micron and
+West(X,Y,Z)Micron.<br>
+   The order of wires, and detailed description is available in <a href=
+"http://www.lns.cornell.edu/restricted/CLEO/CLEO3/soft/LibraryDocs/ADRGeomConst">
+DR3 Geometry: CLEO III constants</A><br>
+
+  Data come from the survey done during DR construction<br> 
+  Nominal data were written to ascii file C3_LIB/data/dr3.adrgeomwiresurvey<br>
+  ADRGeomWireSurvey data are used by ADRGeom. The script includes:
+  <blockquote><tt>
+    &gt; source_format sel ADRGeomWireSurveyFileSourceFormat<br>
+    &gt; file in $env(C3_LIB)/data/dr3.adrgeomwiresurvey basegeometry<br>
+  </tt></blockquote></p>
+</li>
+
+</ul>
+
+
+<a name="alignment"></a>
+<h3>DRAlignment</h3>
+
+<ul>
+<a name="dralignedconstants"></a>
+<li><font color="#4b3d8b"><b>DRAlignedConstants</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRAlignedConstants
+{
+   UInt16 id
+   double deltaX
+   double deltaY
+   double deltaZ
+   double eulerPhi
+   double eulerTheta
+   double eulerPsi
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  <U>Translation (x,y,z) and 3 Euler angles for 29 DR materials:</U><br>
+  <blockquote>
+    BulkAlignment <br>
+    PlacedWeddingCakeWest <br>
+    PlacedWeddingCakeEast <br>
+    ConicalWestAlignment<br>   
+    ConicalEastAlignment<br>
+    8*CakeWestLayerAlignment<br>
+    8*CakeEastLayerAlignment<br> 
+    8*CathodePanelAlignment<br> 
+  </blockquote>
+
+  <p>Detailed description is available in <a href=
+"http://www.lns.cornell.edu/restricted/CLEO/CLEO3/soft/LibraryDocs/ADRGeomConst">
+DR3 Geometry: CLEO III constants</A><br>
+
+  How to create data: Tracking will create these data. <br>
+  DRAlignedConstants are used by DRGeom. The script includes:
+  <blockquote><tt>
+   source_format sel DRAlignedConstantsFileSourceFormat<br>
+   file in $env(C3_LIB)/data/test.dralignedconstants <br>
+  </tt></blockquote></p>
+</li>
+
+</ul>
+
+<ul>
+<a name="drgeomalignment"></a>
+<li><font color="#4b3d8b"><b>DRGeomAlignment</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRGeomAlignment
+{
+   UInt16 id
+   double deltaX
+   double deltaY
+   double deltaZ
+   double rotX
+   double rotY
+   double rotZ
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+
+  <p> "deltaX,Y,Z" are in inches, and "rotX,Y,Z" are also in inches:
+  measured at an outer radius.  The first line is the bulk alignment
+  of the whole DR, the second is the east endplate, indexes 3-10
+  describe the east wedding cake rings (from innermost to outermost),
+  and indexes 11-18 describe the west wedding cake rings.  This is
+  <i>not true</i> for the corresponding <a
+  href="bdlTypesZD.html#zdgeomalignment">ZDGeomAlignment</a>.
+
+  <p>(I wasn't able to find documentation for this type, so I included
+  it here.  If this is the wrong place, <a
+  href="mailto:mccann@lns.cornell.edu">let me know</a>.)
+
+</li>
+
+</ul>
+
+<a name="offline"></a>
+<h3>DROffline</h3>
+
+<ul>
+
+<a name="dradcpedestal"></a>
+<li><font color="#4b3d8b"><b>DRadcpedestal</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRadcpedestal
+{ 
+   UInt32 CellID
+   float  pedestal
+   float  pedestal_RMS
+} 
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  Charge pedestals and widths as measured in a DR BigCal. One for each
+wire; units are in TDC counts. The "charge pedestal" is the digitized
+response of the charge circuit when there is no input signal.</p>
+</li>
+
+<a name="dradcsaturation"></a>
+<li><font color="#4b3d8b"><b>DRadcsaturation</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRadcsaturation
+{ 
+   UInt32 CellID
+   float  saturation
+   float  saturation_RMS
+} 
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  Charge signal in TDC counts when the charge circuit is saturated. One
+for each wire. Measured in a DR Big Cal by injecting a huge amount of
+charge and recording the charge circuit's response. This is the largest
+possible charge signal that can be recorded, and is used to distinguish
+time hits from charge hits. So-called "seed thresholds" (see <a
+href="#drfbuschannel">DRFBUSChannel</a>) are computed from these measured
+values.</p>
+</li>
+
+<a name="dradc2charge"></a>
+<li><font color="#4b3d8b"><b>DRadc2charge</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRadc2charge
+{
+   UInt32 CellID
+   float  offset
+   float  slope
+   float  quadratic
+   float  cubic
+   float  pedestal_noise
+   float  slope_error
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  Converts raw ADC measurement to uncorrected charge deposited in cell.<br>
+  There is a 3rd order polynomial for each cell/wire along with errors on
+the first two terms that may be useful for Monte Carlo someday.<br>
+  Used in CDOffCal/DriftFunction:adc2charge.</p>
+</li>
+
+<a name="drtdc2time"></a>
+<li><font color="#4b3d8b"><b>DRtdc2time</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRtcd2time
+{
+   UInt32 CellID 
+   float  offset 
+   float  slope 
+   float  quadratic 
+   float  cubic 
+   float  pedestal_noise 
+   float  slope_error 
+   float  saturation
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  Converts raw TDC to time for each hit (t-zero's, flight-time,
+propagation and pulse height dependent time-slewing must still be
+subtracted). Used in <tt>CDOffCal/DriftFunction::tdc2time</tt>.</p>
+</li>
+
+<a name="drt0global"></a>
+<li><font color="#4b3d8b"><b>DRt0global</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRt0global
+{
+   UInt32 index
+   float  tzero
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  <i>Please fill in!</i></p>
+</li>
+
+<a name="drt0crate"></a>
+<li><font color="#4b3d8b"><b>DRt0crate</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRt0crate
+{
+   UInt32 crate
+   float  tzero
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  The t-zeros are split into 3 components which must be summed for each
+wire/cell.</p>
+</li>
+
+<a name="drt0card"></a>
+<li><font color="#4b3d8b"><b>DRt0card</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRt0card
+{
+   UInt32 indexNumber
+   UInt32 card
+   UInt32 crate
+   float  tzero
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  See <a href="#drt0crate">DRt0crate</a>.</p>
+</li>
+
+<a name="drt0channel"></a>
+<li><font color="#4b3d8b"><b>DRt0channel</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRt0channel
+{
+   UInt32 indexNumber
+   UInt32 channel
+   UInt32 card
+   UInt32 crate
+   float  tzero
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  See <a href="#drt0crate">DRt0crate</a>. These will be used in
+<tt>CDOffCal/DriftFunction/tdc2time</tt>.</p>
+</li>
+
+<a name="drt0channelv2"></a>
+<li><font color="#4b3d8b"><b>DRt0channelv2</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRt0channelv2
+{
+   UInt32 indexNumber
+   UInt32 cellID
+   UInt32 hvcard
+   UInt32 card
+   UInt32 crate
+   float  t0CommonMode
+   float  t0Channel
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  <i>Please fill in!</i></p>
+</li>
+
+<a name="drt0hvcard"></a>
+<li><font color="#4b3d8b"><b>DRt0hvcard</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRt0hvcard
+{ 
+   UInt32 indexNumber
+   UInt32 hvcard
+   UInt32 card
+   UInt32 crate 
+   float  tzero
+} 
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  <i>Please fill in!</i></p>
+</li>
+
+<a name="drdaqcellidmap"></a>
+<li><font color="#4b3d8b"><b>DRDaqCellIDMap</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRDaqCellIDMap
+{
+   UInt16 DaqId
+   UInt16 CellId
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  This indexes the &quot;software&quot; cell ID to the hardware cell ID
+in order to correct for miscablings.</p>
+</li>
+
+<a name="drdriftdata"></a>
+<li><font color="#4b3d8b"><b>DRDriftData</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRDriftData
+{
+   UInt32 Identifier
+   float  Time
+   float  Dist
+   float  Indx
+}
+</</td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  This contains the drift function for the entire DR. The Identifier is
+not used. The &quot;Indx&quot; contains packed information as to which
+drift function (layer) and which type of drift function (left+right average, left, right, Z bin etc.) the particular (time,distance) point
+belongs to. See the constructor of <tt>CDOffCal/DriftFunction.cc</tt> for more
+information.</p>
+</li>
+
+<a name="drdriftdatav2"></a>
+<li><font color="#4b3d8b"><b>DRDriftDatav2</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRDriftDatav2
+{
+   UInt32 Identifier
+   float  Time
+   float  Dist
+   UInt32 Indx
+}
+</</td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  <i>Please fill in!</i></p>
+</li>
+
+<a name="drgarfield_distancecorrection"></a>
+<li><font color="#4b3d8b"><b>DRGarfield_DistanceCorrection</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRGarfield_DistanceCorrection
+{
+   UInt32 entry 
+   float  drifttime
+   float  z_position
+   float  entrance_angle
+   float  driftdistance_correction
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+ These contain corrections to drift-distance due to the field cage
+geometry and magnetic field described as a function of time, entrance
+angle and z-position.</p>
+</li>
+
+<a name="drgarfield_timecorrection"></a>
+<li><font color="#4b3d8b"><b>DRGarfield_TimeCorrection</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRGarfield_TimeCorrection
+{
+   UInt32 entry
+   float  driftdistance
+   float  z_position
+   float  entrance_angle
+   float  drifttime_correction
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  These contain corrections to drift-distance due to the field cage
+geometry and magnetic field described as a function of the drift-distance
+one would expect for a zero-degree track, entrance angle, and
+z-position.</p>
+</li>
+
+<a name="drweightlayer"></a>
+<li><font color="#4b3d8b"><b>DRWeightLayer</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRWeightLayer
+{
+   UInt32 layer
+   float  fittingweight
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  <font color="#555555">This is the <i>inverse average resolution squared </i>for each
+layer. The absolute <i>fitting weight.</i> <br> Note that the other
+&quot;DRWeight*&quot; entities are <i>multiplicative corrections </i>to
+this number with various binnings.</font></p>
+
+  <p>J. Pivarski: the value of &quot;fittingweight&quot; above has always been a
+  multiplicative correction on the standard DR resolution on 123
+  microns (e.g. if fittingweight for a hit is 2, the resolution of
+  that hit will be taken to be 246 microns (doubled, <i>not</i>
+  quadrupled), and the hit will be weighted <i>less</i> in the fit).</p>
+  <center>
+  Fit chi<sup>2</sup> = Sum (residual_i)<sup>2</sup> / (&quot;fittingweight&quot;_i * 123 microns)<sup>2</sup>
+  </center>
+
+  <p><a href="#drweightlayer">DRWeightLayer</a>,
+  <a href="#drweightdrift">DRWeightDrift</a>,
+  <a href="#drweighttheta">DRWeightTheta</a> and
+  <a href="#drweightphi">DRWeightPhi</a> are valid for CLEO-III runs
+  (104100 - 132285, which is data3 - data29), and are used by code
+  from releases July10_03 (pre-ZD) and earlier.  CLEO-c data must use
+  <a href="#drweight2layerdriftentang">DRWeight2LayerDriftEntAng</a>,
+  <a href="#drweight2layertheta">DRWeight2LayerTheta</a> and
+  <a href="#drweight2layerphi">DRWeight2LayerPhi</a>.</p>
+
+</li>
+
+<a name="drweightdrift"></a>
+<li><font color="#4b3d8b"><b>DRWeightDrift</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRWeightDrift
+{
+   UInt32 indexNumber
+   UInt32 layer
+   UInt32 bin
+   float  fittingweight
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  Renormalization of fitting weight dependent on drift distance. We will
+include details of the data format (binsize, interpolation method)
+later.</p>
+
+  <p>J. Pivarski: binsize is determined by &quot;fake layers&quot; 0 and 48:
+<center><table><tr><td><pre>
+1 48    1    <font color="#006600">minValue</font>
+2  0 <font color="#006600">numbins</font> <font color="#006600">maxValue</font>
+</pre></td></tr></table></center>
+
+  where <font color="#006600">minValue</font> and
+  <font color="#006600">maxValue</font> define the applicable range in
+  unsigned drift distance, normalized to cell width (1.0 is the cell
+  boundary for a zero-entrance angle track), and
+  <font color="#006600">numbins</font> sets the number of bin
+  divisions.</p>
+
+  <p>The interpolation method gives bin values in the middles of the
+  bins, a linear interpolation between them, and a linear
+  extrapolation outside of the range.  (Yes, it's also an
+  extrapolation in the low half of the first bin and the high half of
+  the last bin.)</p>
+
+  <p><a href="#drweightlayer">DRWeightLayer</a>,
+  <a href="#drweightdrift">DRWeightDrift</a>,
+  <a href="#drweighttheta">DRWeightTheta</a> and
+  <a href="#drweightphi">DRWeightPhi</a> are valid for CLEO-III runs
+  (104100 - 132285, which is data3 - data29), and are used by code
+  from releases July10_03 (pre-ZD) and earlier.  CLEO-c data must use
+  <a href="#drweight2layerdriftentang">DRWeight2LayerDriftEntAng</a>,
+  <a href="#drweight2layertheta">DRWeight2LayerTheta</a> and
+  <a href="#drweight2layerphi">DRWeight2LayerPhi</a>.</p>
+
+</li>
+
+<a name="drweighttheta"></a>
+<li><font color="#4b3d8b"><b>DRWeightTheta</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRWeightTheta
+{
+   UInt32 indexNumber
+   UInt32 layer
+   UInt32 bin
+   float  fittingweight
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  Renormalization of fitting weight dependent on polar angle. This mainly
+expresses the effects of saturation at 90 degrees and the increased path
+length and improvement in resolution as theta increases.<br>
+  We will include details of the data format (binsize, interpolation
+method) later.</p>
+
+  <p>J. Pivarski: binsize is determined by &quot;fake layers&quot; 0 and 48:
+<center><table><tr><td><pre>
+1 48    1    <font color="#006600">minValue</font>
+2  0 <font color="#006600">numbins</font> <font color="#006600">maxValue</font>
+</pre></td></tr></table></center>
+
+  where <font color="#006600">minValue</font> and
+  <font color="#006600">maxValue</font> define the applicable range in
+  cos(theta), and <font color="#006600">numbins</font> sets the number
+  of bin divisions.</p>
+
+  <p>The interpolation method gives bin values in the middles of the
+  bins, a linear interpolation between them, and a linear
+  extrapolation outside of the range.  (Yes, it's also an
+  extrapolation in the low half of the first bin and the high half of
+  the last bin.)</p>
+
+  <p><a href="#drweightlayer">DRWeightLayer</a>,
+  <a href="#drweightdrift">DRWeightDrift</a>,
+  <a href="#drweighttheta">DRWeightTheta</a> and
+  <a href="#drweightphi">DRWeightPhi</a> are valid for CLEO-III runs
+  (104100 - 132285, which is data3 - data29), and are used by code
+  from releases July10_03 (pre-ZD) and earlier.  CLEO-c data must use
+  <a href="#drweight2layerdriftentang">DRWeight2LayerDriftEntAng</a>,
+  <a href="#drweight2layertheta">DRWeight2LayerTheta</a> and
+  <a href="#drweight2layerphi">DRWeight2LayerPhi</a>.</p>
+
+</li>
+
+<a name="drweightphi"></a>
+<li><font color="#4b3d8b"><b>DRWeightPhi</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRWeightPhi
+{
+   UInt32 indexNumber
+   UInt32 layer
+   UInt32 bin
+   float  fittingweight
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  Renormalization of fitting weight dependent on azimuthal angle. <br>
+  These probably will not be used early in CLEO III. They were relevant
+in CLEO II/II.5 only because of radiation damage to VD and PT.</p>
+
+  <p>J. Pivarski: binsize is determined by &quot;fake layers&quot; 0 and 48:
+<center><table><tr><td><pre>
+1 48    1    <font color="#006600">minValue</font>
+2  0 <font color="#006600">numbins</font> <font color="#006600">maxValue</font>
+</pre></td></tr></table></center>
+
+  where <font color="#006600">minValue</font> and
+  <font color="#006600">maxValue</font> define the applicable range in
+  phi, and <font color="#006600">numbins</font> sets the number
+  of bin divisions.</p>
+
+  <p>The interpolation method gives bin values in the middles of the
+  bins and a linear interpolation between them.  Interpolation between
+  the first bin and the last bin for phi values near 0 == 2 pi are now
+  handled correctly.</p>
+
+  <p><a href="#drweightlayer">DRWeightLayer</a>,
+  <a href="#drweightdrift">DRWeightDrift</a>,
+  <a href="#drweighttheta">DRWeightTheta</a> and
+  <a href="#drweightphi">DRWeightPhi</a> are valid for CLEO-III runs
+  (104100 - 132285, which is data3 - data29), and are used by code
+  from releases July10_03 (pre-ZD) and earlier.  CLEO-c data must use
+  <a href="#drweight2layerdriftentang">DRWeight2LayerDriftEntAng</a>,
+  <a href="#drweight2layertheta">DRWeight2LayerTheta</a> and
+  <a href="#drweight2layerphi">DRWeight2LayerPhi</a>.</p>
+
+</li>
+
+<a name="drweight2layerdriftentang"></a>
+<li><font color="#4b3d8b"><b>DRWeight2LayerDriftEntAng</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRWeight2LayerDriftEntAng
+{
+   UInt32 layer
+   UInt32 driftbin
+   UInt32 entangbin
+   float resolution
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  This is the main constants type for assigning hit resolutions for
+  CLEO-c onward.  These hit resolutions are assigned as a function of
+  three variables: DR layer number, unsigned drift distance
+  (normalized to the cell size at zero entrance angle), and the sine
+  of the entrance angle.  Since the last two parameters are
+  continuous, the hit resolution is determined via a 2-D linear
+  interpolation, where the bin values themselves are given at the
+  <i>centers</i> of the bins.  Outside of the defined range,
+  resolutions are given as an extrapolation (so be sure the last two
+  drift bins have non-negative slope!).</p>
+
+  <p>Validity ranges of drift and entang, as well as numbers of bin
+  divisions, are set using a &quot;fake layer zero&quot;, like
+  this:</p>
+<center><table><tr><td><pre>
+layer    driftBin  EntAngBin  Resolution
+  0       1          0           <font color="#006600">0.0 (min absDrift value)</font>
+  0      <font color="#006600">15 (max)</font>    0           <font color="#006600">1.5 (max absDrift value)</font>
+  0       0          1          <font color="#006600">-1.0 (min sinalpha value)</font>
+  0       0         <font color="#006600">20 (max)</font>     <font color="#006600">1.0 (max sinalpha value)</font>
+</pre></td></tr></table></center>
+
+  <p>&quot;resolution&quot; is a multiplicative factor on 123 microns:
+  a track fit chi<sup>2</sup> is defined like this:</p>
+  <center>
+  Fit chi<sup>2</sup> = Sum (residual_i)<sup>2</sup> / (&quot;resolution&quot;_i * 123 microns)<sup>2</sup>
+  </center>
+
+  <p>Note that <a href="#drweight2layertheta">DRWeight2LayerTheta</a>
+  and <a href="#drweight2layerphi">DRWeight2LayerPhi</a> can also
+  affect hit resolution.
+  </p>
+</li>
+
+<a name="drweight2layertheta"></a>
+<li><font color="#4b3d8b"><b>DRWeight2LayerTheta</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRWeight2LayerTheta
+{
+   UInt32 layer
+   UInt32 thetabin
+   float resolution
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  Since the resolution of a hit also depends on dip angle, this
+  constants type provides a multiplicative correction.  Bins of
+  <i>cos</i>(theta) are interpolated/extrapolated in the same way as
+  <a href="#drweight2layerdriftentang">DRWeight2LayerDriftEntAng</a>.
+  By convention, these corrections should always be normalized such
+  that cos(theta) == 0 has a &quot;resolution&quot; value of 1.0.
+  This way, the layer-by-layer dependence is characterized only by
+  <a href="#drweight2layerdriftentang">DRWeight2LayerDriftEntAng</a>.</p>
+
+  <p>Validity range and number of bins in cos(theta) are set using a
+  &quot;fake layer zero&quot;, like this:</p>
+<center><table><tr><td><pre>
+layer    thetaBin  Resolution
+  0       1          <font color="#006600">-1.0 (min cosTheta value)</font>
+  0      <font color="#006600">20 (max)</font>     <font color="#006600">1.0 (max cosTheta value)</font>
+</pre></td></tr></table></center>
+
+  <p>This correction doesn't need to be set by hand (from data).  If
+  DRWeight2LayerTheta contains only
+<center><table><tr><td><pre>
+layer    thetaBin  Resolution
+  0       0           0.0
+</pre></td></tr></table></center>
+  then a &quot;standard&quot; correction of (1 -
+  cos(theta)<sup>2</sup>)<sup>-1/4</sup> will be applied.  This is
+  proportional to the square root of the track length through a drift
+  cell.</p>
+</li>
+
+<a name="drweight2layerphi"></a>
+<li><font color="#4b3d8b"><b>DRWeight2LayerPhi</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRWeight2LayerPhi
+{
+   UInt32 layer
+   UInt32 phibin
+   float resolution
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  The only justification for this constant is that it provides for
+  future flexibility in assigning hit resolutions.  Bins of phi are
+  interpolated cyclically, and the resolution correction (usually 1.0,
+  I hope) is multiplied to that given by
+  <a href="#drweight2layerdriftentang">DRWeight2LayerDriftEntAng</a>
+  and <a href="#drweight2layertheta">DRWeight2LayerTheta</a>.
+
+  <p>The number of bins is set using a &quot;fake layer zero&quot;,
+  like this:</p>
+<center><table><tr><td><pre>
+layer    phiBin    Resolution
+  0      <font color="#006600">20 (max)</font>      0.0
+</pre></td></tr></table></center>
+
+  <p>This correction doesn't need to be set by hand (from data).  If
+  DRWeight2LayerPhi contains only
+<center><table><tr><td><pre>
+layer    thetaBin  Resolution
+  0       0           0.0
+</pre></td></tr></table></center>
+  then no correction will be applied (which is what you probably want
+  to do!).</p>
+</li>
+
+<a name="drwirequality"></a>
+<li><font color="#4b3d8b"><b>DRWireQuality</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRWireQuality
+{
+   UInt32 CellID
+   UInt32 Quality
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  These are bitmapped codes meant as a more flexible &quot;bad wire
+list&quot; (definitions undecided as yet but this will be a good place to
+put it), a nonzero value of Quality means that the hit should probably
+not be used.</p>
+</li>
+
+</ul>
+
+
+<a name="online"></a>
+<h3>DROnline</h3>
+
+<ul>
+
+<a name="drfbus1877s"></a>
+<li><font color="#4b3d8b"><b>DRFBUS1887S</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRFBUS1877S
+{
+   UInt16  CSR0
+   UInt32  CSR1
+   UInt16  CSR18
+   UInt16  BroadcastClass
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  The contents of the control and status registers (CSRs) of the LeCroy Fastbus 1877S TDCs in the DR Fastbus crates. These settings configure the
+boards for normal operation, controlling things like sparsification,
+number of hits stored per event, start/stop mode, and so on.<br>
+  All boards within a single broadcast class can be written to in a
+single operation. All DR boards are members of the same broadcast
+class. In those crates with MU baords as well, the MU boards are members
+of a different broadcast class.</p>
+</li>
+
+<a name="drfbuschannel"></a>
+<li><font color="#4b3d8b"><b>DRFBUSChannel</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRFBUSChannel
+{
+   UInt16  ChannelAddress  
+   UInt16  DaqId
+   UInt16  Crate           SelectBy
+   UInt16  SparsThreshold
+   UInt16  SeedThreshold
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  The information used by Fritz and the CPU in a DR Fastbus crate to
+process each raw TDC hit before putting it in the event stream. The
+channel address is a bit-packed code that contains the Fastbus crate,
+slot, and channel. Thus this word and the DaqId determine one part of the
+DR electronics map, from Fastbus channel to DaqId. (See <a
+href="#drelecmap">DRElecMap</a> for more.) This map is used to label each
+raw hit with a unique address describing from where it came. (For
+handling miscablings, see <a href="#drdaqcellidmap">DRDaqCellIDMap</a>.)
+The sparsification threshold is used in the TDC board itself to discard
+charge hits below a given threshold, typically just above pedestal (see <a href="#dradcpedestal">DRadcpedestal</a>). The seed threshold is used
+by Fritz to flag those hits that are above a particular level. In the DR,
+hits above the seed threshold are guaranteed to be time hits, since the
+threshold is set at the maximum possible charge value (see <a
+href="#adcsaturation">DRadcsaturation</a>).<br>
+  See the ConstantsMapping code for the details of the bit-packing.</p>
+</li>
+
+<a name="drfbussequencerlist"></a>
+<li><font color="#4b3d8b"><b>DRFBUSSequencerList</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRFBUSSequencerList
+{
+   UInt32  Offset
+   UInt32  Command
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  Allows great flexibility in programming the details of the readout
+sequence used to pull data from the Fastbus TDCs across the backplane
+into Fritz. A list of special instructions (basically Fastbus backplane
+cycles) can be stored here. In typical operation, these constants just
+hold a single instruction indicating a standard readout sequence is to be
+used.</p>
+</li>
+
+<a name=""drtqtcrate></a>
+<li><font color="#4b3d8b"><b>DRTQTCrate</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRTQTCrate
+{
+   UInt16  Crate           SelectBy
+   UInt16  CalDAC
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  Constants used by DRSbus. The height of the calibration pulse sent to
+the DR preamps during a DR BigCal is controlled here&mdash;one setting
+per TQT crate. The value is used to set an 8-bit DAC.</p>
+</li>
+
+<a name="drtqtboard"></a>
+<li><font color="#4b3d8b"><b>DRTQTBoard</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRTQTBoard
+{
+   UInt16  BoardAddress
+   UInt16  Crate           SelectBy
+   UInt8   CalEnable
+   UInt8   CalDriverEnable
+   UInt16  Preamp0Voltage
+   UInt16  Preamp1Voltage
+   UInt16  Preamp2Voltage
+   UInt16  Preamp3Voltage
+   UInt16  TriggerPulseWidth
+   UInt8   TriggerMode
+   UInt32  KillRegisterHi
+   UInt32  KillRegisterLo
+   UInt32  TestRegisterHi
+   UInt32  TestRegisterLo
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  Constants used by DRSbus to configure a TQT board for data-taking or a BigCal. The BoardAddress is a bit-packed word combining the TQT crate and
+slot number. The other quantities are as follows: <table>
+  <tr><td>CalEnable</td>
+      <td>Determine what combination of the four preamps attached to a
+board are to be pulsed in a
+calibration cycle</td></tr>
+  <tr><td>CalDriverEnable</td>
+      <td>A single bit that enables the circuit that produces the
+calibration pulse that is sent to the preamps during calibration pulsing
+(a BigCal)</td></tr>
+  <tr><td>PreampNVoltage</td>
+      <td>An 8-bit setting controlling the power supplied to each of the
+four preamps attached to a single TQT board</td></tr>
+  <tr><td>TriggerPulseWidth</td>
+      <td>An 8-bit setting that controls how much the trigger timing
+pulse is stretched before being sent to the tracking trigger.</td></tr>
+  <tr><td>TriggerMode</td>
+      <td>Controls the operation of the trigger FPGA on the TQT board</td></tr>
+  <tr><td>KillRegister</td>
+      <td>A 64-bit register inside the trigger FPGA used for testing or
+to mask bad (noisy) channels</td></tr>
+  <tr><td>TestRegister</td>
+      <td>A 64-bit register inside the trigger FPGA used for testing ot to force on dead channels</td></tr>
+  </table></p>
+</li>
+
+<a name="drtqtchannel"></a>
+<li><font color="#4b3d8b"><b>DRTQTChannel</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRTQTChannel
+{
+   UInt16  ChannelAddress
+   UInt16  Crate              SelectBy
+   UInt16  TimeThreshold
+   UInt16  TriggerThreshold
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  Constants used by DRSbus to configure each TQT channel. The ChannelAddress is a bit-packed word that combines the TQT crate, slot,
+and channel into a single word. The thresholds are 8-bit values that
+control the discriminator threshold on the timing circuits for a
+channel. A separate threshold is applied for the trigger to reduce noise
+without reducing hit efficiency.</p>
+</li>
+
+<a name="drtstrigboard"></a>
+<li><font color="#4b3d8b"><b>DRTSTrigBoard</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRTSTrigBoard
+{
+   UInt16   index
+   String   Component    SelectBy
+   String   BoardName
+   UInt16   L1width
+   UInt16   L1delay
+   boolean  L1enable
+   UInt16   CALwidth
+   UInt16   CALdelay
+   boolean  CALenable
+   boolean  InternalTrigEnable
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  Constants used by the DR Timing System to set up its Trig board. The InternalTrigEnable bit controls whether a special stand-alone mode is
+used, where software commands can be used to trigger the system. In
+normal operation (data-taking or BigCal), the trigger system provides the
+triggers, "internal triggering" is disabled, and none of these settings
+are used. For more information, see the <a
+href="/~tom/doc/TimingSystem.pdf">Timing System documentation</a>.</p>
+</li>
+
+<a name="drtsgateboard"></a>
+<li><font color="#4b3d8b"><b>DRTSGateBoard</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRTSGateBoard
+{
+   UInt16   index
+   String   Component    SelectBy
+   String   BoardName
+   UInt16   FBUSCrate
+   UInt16   G1width
+   UInt16   G1delay
+   UInt16   G2width
+   UInt16   G2delay
+   UInt16   G3width
+   UInt16   G3delay
+   UInt16   G1enable
+   UInt16   G2enable
+   UInt16   G3enable
+   UInt16   CALenable
+   UInt16   InvertMask
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  Constants used by the DR Timing System that determine the width and
+delay of various gating signals sent to the Fastbus and TQT crates to
+coordinate digitization of drift chamber data. For more information, see
+the <a href="/~tom/doc/TimingSystem.pdf">Timing System
+documentation</a>. Note that the widths and delays are the raw values as
+stored in the registers, which happen to determine not the width and
+delay of each gate, but (0x3FF - width or delay) of each gate. Sorry,
+that's the way it is. So widths will become <i>smaller</i> linearly as
+the width register value is <i>increased</i>, etc.<br>
+  The FBUSCrate field is not used.<br>
+  The InvertMask (a 6-bit register) allows one to determine the polarity
+of the signals sent out by the timing system. (Positive or negative
+logic, basically.)<br>
+  The various Enables (each a 6-bit register) determine which of the four
+possible signals (G1-3, CAL) are output on each of the 6 connectors on a
+given Gate board.</p>
+</li>
+
+</ul>
+
+
+<a name="miscellaneous"></a>
+<h3>DRMiscellaneous</h3>
+
+<ul>
+
+<a name="drelecmap"></a>
+<li><font color="#4b3d8b"><b>DRElecMap</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRElecMap
+{
+   UInt16   DaqId
+   UInt16   TQTChannelAddress
+   UInt16   PreAmpChannelAddress
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  Contains the rest of the information required to build a complete
+electronics map for the drift chamber. <a
+href="#drfbuschannel">DRFBUSChannel</a> above contains the DaqId to Fastbus mapping, and this contains the mapping to TQT channel and preamp
+channel. Each of the "address" words above is again a bit-packed word
+combining crate, slot, and channel (TQT) or layer, sector,
+channel-in-sector (preamp) information into a single 16-bit word.<br>
+  See the ConstantsMapping code for the details of the bit-packing.</p>
+</li>
+
+<a name="drtqttofbus"></a>
+<li><font color="#4b3d8b"><b>DRTQTtoFBUS</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRTQTtoFBUS
+{
+   UInt16  TQTChannelAddress
+   UInt16  FBUSChannelAddress
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  An alternative description of the same electronics map stored in <a
+href="#drelecmap">DRElecMap</a>, but here the mapping is directly from Fastbus channel to TQT channel, without an intervening DaqId lookup. Also
+see <a href="#drpreamptotqt">DRPreAmpToTQT</a> below for the second part
+of the map formulated in this fashion.<br>
+  See the ConstantsMapping code for the details of the bit-packing.</p>
+</li>
+
+<a name="drpreamptotqt"></a>
+<li><font color="#4b3d8b"><b>DRPreAmpToTQT</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRPreAmpToTQT
+{
+   UInt16  PreAmpChannelAddress
+   UInt16  TQTChannelAddress
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  The second part of the alternative description of the drift chamber
+electronics map.(For this first part, see <a
+href="#drtqttofbus">DRTQTtoFBUS</a> above.) Here the mapping is from
+preamp channel to TQT channel, again with bit-packed words.<br>
+  See the ConstantsMapping code for the details of the bit-packing.</p>
+</li>
+
+<a name="drdeadwires"></a>
+<li><font color="#4b3d8b"><b>DRDeadWires</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRDeadWires
+{
+   UInt16   Index
+   UInt16   CellID
+   UInt16   Layer
+   UInt32   Code
+   float    Efficiency
+   float    Noise
+   UInt32   Notes
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  <i>Probably not used.</i></p>
+</li>
+
+<a name="drvarious"></a>
+<li><font color="#4b3d8b"><b>DRvarious</b></font><br> 
+
+  <table bgcolor="#dcdcdc" border="0" cellpadding="3"><tr><td>
+<pre>Type: Constants
+Name: DRvarious
+{ 
+   UInt32 Identifier
+   int    integer1 
+   int    integer2
+   float  float1
+   float  float2 
+}
+</pre></td></tr></table>
+
+  <p><b>Explanation</b>:<br>
+  <i>Placeholder that was added before its usage was known.<br></i>Only the float1 parameter is used as the signal propagation speed on the wire, in multiples of c. Extracted in DriftFunctionProxy.cc, CDOffCal package.</p>
+</li>
+
+</ul>
+
+
+<a name="montecarlo"></a>
+<h3>DRMonteCarlo</h3>
+
+<p>See <a
+href="http://www.lns.cornell.edu/~cleo3/development/src/DRMCUtil/Doc/DRMCConstants.html">separate
+documentation</a> by J. O'Neill.</p>
+
+<ul>
+
+<li><font color="#4b3d8b"><b>DRMCLyreff</b></font></li>
+<li><font color="#4b3d8b"><b>DRMCWireff</b></font></li>
+<li><font color="#4b3d8b"><b>DRMCPhlayr</b></font></li>
+<li><font color="#4b3d8b"><b>DRMCCathname</b></font></li>
+<li><font color="#4b3d8b"><b>DRMCPhwire</b></font></li>
+<li><font color="#4b3d8b"><b>DRMCCoseff</b></font></li>
+<li><font color="#4b3d8b"><b>DRMCResolutions</b></font></li>
+<li><font color="#4b3d8b"><b>DRMCEff</b></font></li>
+<li><font color="#4b3d8b"><b>DRMCSmear</b></font></li>
+<li><font color="#4b3d8b"><b>DRMCHitJump</b></font></li>
+<li><font color="#4b3d8b"><b>DRMCSpefud</b></font></li>
+<li><font color="#4b3d8b"><b>DRMCIons</b></font></li>
+<li><font color="#4b3d8b"><b>DRMCTmlayr</b></font></li>
+
+</ul>
+
+
+
+<hr>
+
+<p><a href="mailto:hubert@lns.cornell.edu">Hubert Schwarthoff</a>,
+10/99 </p>
+</body>
+</html>

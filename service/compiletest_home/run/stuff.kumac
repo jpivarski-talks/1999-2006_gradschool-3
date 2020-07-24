@@ -1,0 +1,59 @@
+h/file 1 stuff.rzn
+cd TESTDUALTRACK
+
+ ********************************************************
+ * NTUPLE ID=    1  ENTRIES=      0   vars
+ ********************************************************
+ *  Var numb  *   Name    *    Lower     *    Upper     *
+ ********************************************************
+ *      1     * id        * 0.100000E+32 * -.100000E+32 *
+ *      2     * oldcurv   * 0.100000E+32 * -.100000E+32 *
+ *      3     * oldphi0   * 0.100000E+32 * -.100000E+32 *
+ *      4     * oldd0     * 0.100000E+32 * -.100000E+32 *
+ *      5     * oldcotth  * 0.100000E+32 * -.100000E+32 *
+ *      6     * oldz0     * 0.100000E+32 * -.100000E+32 *
+ *      7     * curv      * 0.100000E+32 * -.100000E+32 *
+ *      8     * phi0      * 0.100000E+32 * -.100000E+32 *
+ *      9     * d0        * 0.100000E+32 * -.100000E+32 *
+ *     10     * cotth     * 0.100000E+32 * -.100000E+32 *
+ *     11     * z0        * 0.100000E+32 * -.100000E+32 *
+ *     12     * resid     * 0.100000E+32 * -.100000E+32 *
+ *     13     * reserr    * 0.100000E+32 * -.100000E+32 *
+ *     14     * p         * 0.100000E+32 * -.100000E+32 *
+ *     15     * pointx    * 0.100000E+32 * -.100000E+32 *
+ *     16     * pointy    * 0.100000E+32 * -.100000E+32 *
+ *     17     * pointz    * 0.100000E+32 * -.100000E+32 *
+ *     18     * dca       * 0.100000E+32 * -.100000E+32 *
+ *     19     * dcaerr    * 0.100000E+32 * -.100000E+32 *
+ *     20     * sinalph   * 0.100000E+32 * -.100000E+32 *
+ *     21     * time      * 0.100000E+32 * -.100000E+32 *
+ *     22     * fw        * 0.100000E+32 * -.100000E+32 *
+ *     23     * drift     * 0.100000E+32 * -.100000E+32 *
+ *     24     * oldresid  * 0.100000E+32 * -.100000E+32 *
+ *     25     * oldreser  * 0.100000E+32 * -.100000E+32 *
+ *     26     * oldp      * 0.100000E+32 * -.100000E+32 *
+ *     27     * oldptx    * 0.100000E+32 * -.100000E+32 *
+ *     28     * oldpty    * 0.100000E+32 * -.100000E+32 *
+ *     29     * oldptz    * 0.100000E+32 * -.100000E+32 *
+ *     30     * olddca    * 0.100000E+32 * -.100000E+32 *
+ *     31     * olddcaer  * 0.100000E+32 * -.100000E+32 *
+ *     32     * oldsinal  * 0.100000E+32 * -.100000E+32 *
+ ********************************************************
+
+nt/plot 1.curv-oldcurv
+nt/plot 1.phi0-oldphi0
+nt/plot 1.d0-oldd0
+nt/plot 1.cotth-oldcotth
+nt/plot 1.z0-oldz0
+
+opt logy
+nt/plot 1.(resid-oldresid)/resid
+nt/plot 1.(reserr-oldreser)/reserr
+nt/plot 1.(p-oldp)/p
+nt/plot 1.(pointx-oldptx)/pointx
+nt/plot 1.(pointy-oldpty)/pointy
+nt/plot 1.(pointz-oldptz)/pointz
+nt/plot 1.(dca-olddca)/dca
+nt/plot 1.olddcaer
+nt/plot 1.(sinalph-oldsinal)/sinalph
+

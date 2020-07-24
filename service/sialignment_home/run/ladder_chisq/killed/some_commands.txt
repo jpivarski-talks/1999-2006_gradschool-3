@@ -1,0 +1,5 @@
+cat bested/ladder*-move.txt | awk '{ printf( "%03d | %9.3f %9.3f %9.3f | %9.3f %9.3f %9.3f | %9.3f\n", $2, $4*1E6, $5*1E6, $6*1E6, $7*1E6, $8*1E6, $9*1E6, $11 ) }' | less
+
+grep MOVE ladder49-summary.log | awk '{l++} ( l>2&&$11<=minchi ){ minchi=$11; print $0 }' | less
+
+setenv USER_ITER 049 ; setenv USER_ONUM 49 ; grep "MOVE:  $USER_ITER" ladder$USER_ONUM-summary.log > ladder$USER_ONUM-move.txt ; grep "CONST: $USER_ITER" ladder$USER_ONUM-summary.log > ladder$USER_ONUM-best.txt ; head ladder$USER_ONUM-best.txt ; head ladder$USER_ONUM-move.txt

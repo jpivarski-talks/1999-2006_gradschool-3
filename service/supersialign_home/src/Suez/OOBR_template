@@ -1,0 +1,39 @@
+
+(setq
+br-env-version
+"02.09.11"
+
+br-sys-search-dirs
+'nil
+
+br-lib-search-dirs
+'("ActiveElements" "AsciiDelivery" "AsciiStorage" "BlankRecordDelivery" "C++Std" "C3tr" "C3trProc" "CDOffCal" "CLHEP" "CalibratedData" "CalibratedDataProcessor" "ChainDelivery" "Cleo" "CleoDB" "ClusterSvxFort" "CommandPattern" "CompositeDelivery" "DRWireExample" "DataDelivery" "DataHandler" "DataStorage" "DataStream" "DetectorGeometry" "DriverDelivery" "Experiment" "ExtractProcessor" "FortEventNumberProc" "FortranCleoDB" "FortranInterface" "FortranProcessor" "FrameAccess" "Gmake" "InsertProcessor" "InteractiveDelivery" "Interpreter" "JobControl" "KinematicTrajectory"
+"Makefile" "MaterialDelivery" "OOBR" "Processor" "ProxyDict" "ProxyExample" "RawData" "RawDataProcessor" "RawEvent" "ReconTracks" "RunEventNumberProc" "STLUtility" "SampleAnalysisProc" "SampleCOTrackFitProc" "SampleDynamicLoadableAlgorithm"
+"SampleParameterProc" "Suez" "ToolBox" "UserObject" "Utility" "VDAlignmentExample")
+
+br-lang-prefix
+'"c++-"
+
+br-env-spec
+'t
+
+br-children-alist
+'(
+)
+
+br-sys-paths-alist
+'(
+)
+
+br-lib-paths-alist
+'(
+)
+
+br-sys-parents-alist
+'(
+)
+
+br-lib-parents-alist
+'(
+)
+)

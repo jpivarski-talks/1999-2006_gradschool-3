@@ -1,0 +1,8 @@
+*** Begin of history file: Thu Feb 13 16:02:17 2003
+sh ls *rzn
+h/file 1 r-4.2.rzn
+h/file 2 r-4.2_w_standardcuts.rzn
+h/plot //lun1/karlsplots/600
+h/plot //lun2/karlsplots/600
+exit
+*** End   of history file: Thu Feb 13 16:03:02 2003

@@ -1,0 +1,48 @@
+h/file 1 ../rzn/old/fitdrzd3.rzn
+cd COMPAREDRANDZD
+
+zone 2 2
+
+h/cr/1d 100 'delta phi0' 50 -0.2 0.2
+opt sta
+set stat 0001110
+set fit 001
+nt/plot 1.delphi ! ! ! ! ! 100
+set ltyp 3
+sigma down = $HINFO(100, 'MEAN') - $HINFO(100, 'RMS') / sqrt($HINFO(100, 'ENTRIES'))
+sigma up   = $HINFO(100, 'MEAN') + $HINFO(100, 'RMS') / sqrt($HINFO(100, 'ENTRIES'))
+dline $SIGMA(down) $SIGMA(down) $GRAFINFO('WNYMIN') $GRAFINFO('WNYMAX')
+dline $SIGMA(up) $SIGMA(up) $GRAFINFO('WNYMIN') $GRAFINFO('WNYMAX')
+
+h/cr/prof 200 'delta d0 VS phi0' 20 0. 6.28 -0.05 0.05
+nt/plot 1.deld%phi ! ! ! ! 'N' 200
+ve/cr par(3)
+ve/inp par 0 0 0
+opt nsta
+opt fit
+set fit 111
+min 200 -0.5e-2
+max 200 0.5e-2
+h/fit 200 sincos.f ! 3 par
+
+h/cr/1d 300 'delta z0' 50 -0.2 0.2
+opt sta
+set stat 0001110
+set fit 001
+nt/plot 1.delz ! ! ! ! ! 300
+set ltyp 3
+sigma down = $HINFO(300, 'MEAN') - $HINFO(300, 'RMS') / sqrt($HINFO(300, 'ENTRIES'))
+sigma up   = $HINFO(300, 'MEAN') + $HINFO(300, 'RMS') / sqrt($HINFO(300, 'ENTRIES'))
+dline $SIGMA(down) $SIGMA(down) $GRAFINFO('WNYMIN') $GRAFINFO('WNYMAX')
+dline $SIGMA(up) $SIGMA(up) $GRAFINFO('WNYMIN') $GRAFINFO('WNYMAX')
+
+h/cr/prof 400 'delta cotTheta VS phi0' 20 0. 6.28 -4 4
+nt/plot 1.delct%phi ! ! ! ! 'N' 400
+ve/cr par(3)
+ve/inp par 0 0 0
+opt nsta
+opt fit
+set fit 111
+min 400 -0.5
+max 400 0.5
+h/fit 400 sincos.f ! 3 par

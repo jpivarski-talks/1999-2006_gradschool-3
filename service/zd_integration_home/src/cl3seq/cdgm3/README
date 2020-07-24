@@ -1,0 +1,13 @@
+*
+* $Id: README,v 1.1.1.1 1995/11/01 21:18:32 lkg Exp $
+*
+* $Log: README,v $
+* Revision 1.1.1.1  1995/11/01 21:18:32  lkg
+* Import renamed CLEO3 include repository: cl3seq
+*
+# Revision 1.1.1.1  1994/05/17  21:43:39  lkg
+# Include files for cleoIII code go here (counterpart of "seq" for CLEO2)
+#
+*
+* This directory was created from /cleo/dlib/car/seq.car patch cdgeom
+*CMZ :  1.01/02 17/05/89  12.56.54  by  CLEO II Librarian

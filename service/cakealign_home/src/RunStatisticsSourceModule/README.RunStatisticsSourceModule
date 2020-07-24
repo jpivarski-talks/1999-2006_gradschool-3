@@ -1,0 +1,31 @@
+This is the README file for RunStatisticsSourceModule. It shows you how to write
+a Module, the basic Suez building block.
+
+1.) Modules come with at least one external command (the command which
+is announced to Suez, and by which you can call the module). It may
+have more than one external command! And it may have ANY number of
+internal commands (including none!).
+
+2.) Don't touch "*_DONT_TOUCH.cc"! Else you'll die.
+
+3.) Make a shared library: "gmake CXX=<compiler>"
+This step requires that you have a standard type of build area,
+consisting of (../bin, ../lib, and ../shlib) directories.
+The shared processor library will end up in ../shlib!
+
+3.) Set the environment variable C3_SHLIB to include the ../shlib
+directory above: setenv C3_SHLIB /home/mkl/build/shlib
+
+4.) Start up Suez: suez
+
+5.) Here is a sample job:
+
+suez> module sel RunStatisticsSourceModule
+suez> module inter RunStatisticsSourceModule
+suez> help
+<shows all internal commands>
+RunStatisticsSourceModule> exit
+suez> help
+<shows all external commands including your new external module command>
+
+ That's It! Questions, Suggestions, Complaints --> Martin Lohner

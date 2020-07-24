@@ -1,0 +1,1012 @@
+
+Module : doit
+
+Date   : Fri Jan 29 10:48:01 1999
+User   : dpp
+Old Tag: v01_00_00
+New Tag: v01_01_00
+Message: 
+extend SFMERG to stereo, other stereo upgrades
+
+Module : doit
+
+Date   : Fri Jan 29 12:04:29 1999
+User   : lyon
+Old Tag: v01_01_00
+New Tag: v01_01_01
+Message: Added CLEO_SFZFIT to pro versions
+
+Module : doit
+Date   : Mon Feb  1 15:56:21 1999
+User   : pg
+Old Tag: v01_01_01
+New Tag: v01_01_02
+Message: Fixed bug im Makefile.master to set preprocessor flags correctly
+
+Module : doit
+Date   : Tue Feb  2 09:39:43 1999
+User   : pg
+Old Tag: v01_01_02
+New Tag: v01_01_03
+Message: Fixed diags_noz target in Makefile.master
+
+Module : doit
+Date   : Mon Feb  8 17:33:13 1999
+User   : pg
+Old Tag: v01_01_03
+New Tag: v01_01_04
+Message: Fixed bug in setting proper doit.defs. Caused havoc for concurrent rebuilds
+
+Module : doit
+
+Date   : Wed Mar 10 10:56:30 1999
+User   : lkg
+Old Tag: v01_01_04
+New Tag: v01_01_05
+Message: Fix minor typo in tfgeompa.inc
+
+Module : doit
+
+Date   : Tue Apr 27 16:33:20 1999
+User   : dpp
+Old Tag: v01_01_05
+New Tag: v01_02_00
+Message: 
+revisions/tuning for pattern recognition in 4-track pile-up
+
+Module : doit
+
+Date   : Wed Apr 28 10:14:01 1999
+User   : dpp
+Old Tag: v01_02_00
+New Tag: v01_02_01
+Message: 
+add compile switches to a couple of annoying diagnostic measages
+
+Module : doit
+
+Date   : Thu Apr 29 10:14:23 1999
+User   : dpp
+Old Tag: v01_02_01
+New Tag: v01_02_02
+Message: 
+fix a stupid syntax error
+
+
+Module : doit
+
+Date   : Fri May 14 17:37:15 1999
+User   : dpp
+Old Tag: v01_02_02
+New Tag: v01_02_03
+Message: 
+statement out of order in SFNEXT: "go to 87" after lower limit test
+
+Module : doit
+Date   : Fri May 28 10:59:17 1999
+User   : mkl
+Old Tag: v01_02_03
+New Tag: v02_00_00
+Message: Zfiles, Clever, Kalman removed
+
+Module : doit
+
+Date   : Fri May 28 11:28:55 1999
+User   : mkl
+Old Tag: v02_00_00
+New Tag: v02_00_01
+Message: test
+
+Module : doit
+
+Date   : Tue Jun  8 17:30:02 1999
+User   : lyon
+Old Tag: v02_00_01
+New Tag: v02_00_02
+Message: Withhold projecting into cathodes for now
+
+Module : doit
+
+Date   : Thu Jul  8 17:33:53 1999
+User   : lyon
+Old Tag: v02_00_02
+New Tag: v02_00_03
+Message: Fix divide by zero error in sfmerg
+
+Module : doit
+
+Date   : Tue Jul 20 09:56:33 1999
+User   : lyon
+Old Tag: v02_00_03
+New Tag: v02_00_04
+Message: Added CLEO_SUNOS to USER_DEFS for Solaris only
+
+Module : doit
+
+Date   : Tue Jul 27 11:48:50 1999
+User   : lyon
+Old Tag: v02_00_04
+New Tag: v02_01_00
+Message: Increased NHITDM in tfindpar.inc to 300
+
+Module : doit
+
+Date   : Tue Aug  3 18:14:38 1999
+User   : dpp
+Old Tag: v02_01_00
+New Tag: v02_02_00
+Message: 
+require hits in later staereo superlayer to certify current layer,
+major change to fast_trak to create and pick "best" amb resolution solution,
+proper handling of hit buffer saturation
+
+
+Module : doit
+
+Date   : Tue Aug 10 17:42:27 1999
+User   : dpp
+Old Tag: v02_02_00
+New Tag: v02_02_01
+Message: 
+bug in sf/sfchan.F: now check chain length after hit deletion
+Module : doit
+
+Date   : Wed Aug 11 13:43:31 1999
+User   : dpp
+Old Tag: v02_02_01
+New Tag: v02_02_02
+Message: 
+added spare array to sfcom, indexed by hit
+Module : doit
+
+Date   : Sun Sep 12 18:49:21 1999
+User   : dpp
+Old Tag: v02_02_02
+New Tag: v02_02_03
+Message: 
+use the status flags STRFFT and STSZRF to allow keeping
+all the hits in the fit list even though they are not allowed
+in some of the fits
+and
+properly call TFSTKC before TFXFIT so new fit lists are not lost
+
+Module : doit
+
+Date   : Mon Sep 13 11:17:55 1999
+User   : dpp
+Old Tag: v02_02_03
+New Tag: v02_02_04
+Message: 
+fix fortran bug
+
+Module : doit
+
+Date   : Wed Oct  6 09:30:28 1999
+User   : dpp
+Old Tag: v02_02_04
+New Tag: v02_02_05
+Message: 
+improved width at stereo transions
+change in starting layer for SFNEXT
+
+Module : doit
+
+Date   : Fri Oct  8 09:46:08 1999
+User   : lyon
+Old Tag: v02_02_05
+New Tag: v02_02_06
+Message: Fixed some Solaris compiler complaints
+
+Module : doit
+
+Date   : Tue Oct 12 11:25:22 1999
+User   : dpp
+Old Tag: v02_02_06
+New Tag: v02_02_07
+Message: 
+use array for threshold pointer in SFCHAN
+and add "NEXT PASS" control button option
+
+Module : doit
+
+Date   : Tue Oct 12 11:59:49 1999
+User   : lyon
+Old Tag: v02_02_07
+New Tag: v02_03_00
+Message: Reduce annoying, but informative to Dan, print outs
+
+Module : doit
+Date   : Wed Nov  3 18:10:22 1999
+User   : dpp
+Old Tag: v02_03_00
+New Tag: v02_04_00
+Message: 
+the break-up of FAST_TRAK
+switches for the fast version
+beginning of use of new cathode data structure
+speed changes that do not change output
+Module : doit
+Date   : Thu Nov  4 12:02:00 1999
+User   : dpp
+Old Tag: v02_04_00
+New Tag: v02_04_01
+Message: 
+fix bugs in version of 03-Nov-99
+
+Module : doit
+Date   : Thu Nov  4 12:43:49 1999
+User   : dpp
+Old Tag: v02_04_01
+New Tag: v02_04_02
+Message: 
+a few more bugs
+
+Module : doit
+Date   : Tue Nov  9 16:48:12 1999
+User   : dpp
+Old Tag: v02_04_02
+New Tag: v02_04_03
+Message: 
+fix the crash in LFCTHT by overwriting error in cathode geometry
+
+Module : doit
+Date   : Thu Nov 11 11:56:14 1999
+User   : dpp
+Old Tag: v02_04_03
+New Tag: v02_05_00
+Message: 
+new version of fast_trak_alternate_amb....
+
+
+Module : doit
+Date   : Thu Nov 11 17:06:16 1999
+User   : dpp
+Old Tag: v02_05_00
+New Tag: v02_05_01
+Message: 
+delete the obsolete Taylor based ATN2PI
+
+Module : doit
+Date   : Sun Nov 14 13:27:37 1999
+User   : dpp
+Old Tag: v02_05_01
+New Tag: v02_06_00
+Message: 
+using fast_trak_alternate_ambiguity_......2!
+alternate ambiguity on all local ambiguity groups
+uses and sorts only best chains of solutions
+
+Module : doit
+Date   : Wed Nov 17 16:57:56 1999
+User   : dpp
+Old Tag: v02_06_00
+New Tag: v02_06_01
+Message: 
+fix the index error in the CUR SAV comparison in 
+fast_trak_populat_amb_grp
+
+Module : doit
+Date   : Fri Nov 19 10:29:00 1999
+User   : lyon
+Old Tag: v02_06_01
+New Tag: v02_06_02
+Message: TCWCD -> TDCWCD in sf_data_access.inc
+
+Module : doit
+Date   : Sat Nov 20 18:04:20 1999
+User   : lyon
+Old Tag: v02_06_02
+New Tag: v02_07_00
+Message: Changes for SF tracker
+
+Module : doit
+Date   : Mon Nov 22 16:11:00 1999
+User   : dpp
+Old Tag: v02_07_00
+New Tag: v02_07_01
+Message: 
+DoitFast is set up for wire position fitting
+with "STARTUP" SF cut set
+
+Module : doit
+Date   : Tue Nov 23 18:34:38 1999
+User   : dpp
+Old Tag: v02_07_01
+New Tag: v02_07_02
+Message: 
+tuning changes of 11/23/99
+
+Module : doit
+Date   : Mon Nov 29 16:47:06 1999
+User   : lyon
+Old Tag: v02_07_02
+New Tag: v02_07_03
+Message: Changes to include files to remove references to old Cleo II include areas
+
+Module : doit
+Date   : Mon Nov 29 17:28:12 1999
+User   : dpp
+Old Tag: v02_07_03
+New Tag: v02_07_04
+Message: 
+<Please type your Tag Message>
+Module : doit
+Date   : Tue Nov 30 18:37:23 1999
+User   : dpp
+Old Tag: v02_07_04
+New Tag: v02_07_05
+Message: 
+fix wayward compile switch in control/fast_trak_alt_amb_grp_2
+
+Module : doit
+Date   : Thu Dec  9 17:16:14 1999
+User   : dpp
+Old Tag: v02_07_05
+New Tag: v02_07_06
+Message: 
+big improvements of 09-dec-99
+<Please type your Tag Message>
+Module : doit
+Date   : Fri Dec 10 17:35:44 1999
+User   : dpp
+Old Tag: v02_07_06
+New Tag: v02_07_07
+Message: 
+well, there was an NLMNVD left out of trindpar
+and, had to add DWTFIT to compress_fit
+
+Module : doit
+Date   : Fri Jan  7 10:55:02 2000
+User   : dpp
+Old Tag: v02_07_07
+New Tag: v02_07_08
+Message: 
+fixed bugs in TFXFIT: now use correct layer sigma
+fixed bugs in SFCHAN: now preserve V in extend
+                    : stop layer after wide hit in transition
+changes to SFCHAN: change Z fit weights
+                 : treatment of not radial tracks
+delete bad fits in preliminary passes of DUFIND
+changed acceptance criteria in FAST_TRACK_ALTERNATE_AMB_2
+added contraints on Z0 if not enough Z hits
+zero the stale Z result from SF if the Z hits are lost
+tighten road for deleting bad hits in FAST_TRAK
+
+Module : doit
+Date   : Mon Jan 24 15:09:19 2000
+User   : dpp
+Old Tag: v02_07_08
+New Tag: v02_07_09
+Message: 
+fix error in fast_trak_check_hit_layers (no ABS in Z test)
+other diagnostics stuff for real data
+
+Module : doit
+Date   : Sat Feb 12 15:46:29 2000
+User   : dpp
+Old Tag: v02_07_09
+New Tag: v02_07_10
+Message: 
+use NEXPT to control conditions: Doit,DoitFAst, others
+clean up  time and distance cuts in SF; uses cut sets in SFTCUT
+allow scan of z hits with NEXPT bit=2
+bug fixes in sfcahn for hit prediction after stereo superlayer change
+
+Module : doit
+Date   : Fri Feb 18 17:11:14 2000
+User   : dpp
+Old Tag: v02_07_10
+New Tag: v02_07_11
+Message: 
+unravel the interference between Doit and DoitFast
+Module : doit
+Date   : Mon Feb 21 18:50:33 2000
+User   : dpp
+Old Tag: v02_07_11
+New Tag: v02_07_12
+Message: 
+serious wrap around bug in sf/sfchan.F
+Module : doit
+Date   : Wed Mar  1 18:18:51 2000
+User   : dpp
+Old Tag: v02_07_12
+New Tag: v02_07_13
+Message: 
+today we have: array bound protection in scan_z_roads
+               and redefinition of NEXPT bits
+               revised startup_t_d
+Module : doit
+Date   : Fri Mar  3 10:13:53 2000
+User   : lyon
+Old Tag: v02_07_13
+New Tag: v02_08_00
+Message: Added variables to cdscrtcd.inc
+
+Module : doit
+Date   : Mon Mar 13 15:01:01 2000
+User   : dpp
+Old Tag: v02_08_00
+New Tag: v02_08_01
+Message: 
+extricate erroneous diagnostic dependent logic in FAST_TRAK.
+Module : doit
+Date   : Thu Mar 16 17:29:57 2000
+User   : dpp
+Old Tag: v02_08_01
+New Tag: v02_08_02
+Message: 
+remove selection of BOTH signs of the drift for some wires
+which should get rid of the nasty lattice violation for
+scan_z_hit type tracks
+
+Module : doit
+Date   : Mon Mar 20 17:36:49 2000
+User   : dpp
+Old Tag: v02_08_02
+New Tag: v02_08_03
+Message: 
+repeat TFXFIT (r-phi) if hits were added
+fix bug in SCAN_Z_HIT which used wronf DZ for the best hit on wire
+
+Module : doit
+Date   : Tue Mar 28 10:57:09 2000
+User   : pg
+Old Tag: v02_08_03
+New Tag: v02_09_00
+Message: Added svscratch.inc and svgeometry.inc to store Si hits and geometry information for doit
+
+Module : doit
+Date   : Mon Apr  3 11:08:22 2000
+User   : pg
+Old Tag: v02_09_00
+New Tag: v02_09_01
+Message: Updated svgeometry.inc with new information
+
+Module : doit
+Date   : Wed Apr 26 11:51:35 2000
+User   : dpp
+Old Tag: v02_09_01
+New Tag: v02_10_00
+Message: 
+prepare for silicon
+<Please type your Tag Message>
+Module : doit
+Date   : Thu May  4 17:37:34 2000
+User   : dpp
+Old Tag: v02_10_00
+New Tag: v02_10_01
+Message: 
+remove reference to NHITDM (in tfindpar.inc) from sfxtsp.inc
+Module : doit
+Date   : Wed May 17 16:21:58 2000
+User   : pg
+Old Tag: v02_10_01
+New Tag: v02_11_00
+Message: Modifications to include Si
+
+Module : doit
+Date   : Fri May 26 13:06:33 2000
+User   : dpp
+Old Tag: v02_11_00
+New Tag: v02_12_00
+Message: 
+1st tuning for unaligned silicon
+pulse height cut for SF
+Module : doit
+Date   : Fri Jul  7 18:12:51 2000
+User   : dpp
+Old Tag: v02_12_00
+New Tag: v02_12_01
+Message: 
+fix bug: now require same SV_TYPE in CDNEWT to delete sv hits
+wide road for silicon r-phi search
+de-weight silicon r-phi and z, and cathodes
+
+Module : doit
+Date   : Mon Jul 10 11:12:39 2000
+User   : dpp
+Old Tag: v02_12_01
+New Tag: v02_12_02
+Message: 
+block sqrt of neg number in tfexer
+
+Module : doit
+Date   : Fri Aug 18 15:39:24 2000
+User   : dpp
+Old Tag: v02_12_02
+New Tag: v02_13_00
+Message: 
+  ...to improve short tracks...
+     -> add D0 constraint based on (lack of) stereo hits
+        to address problem of tracks with only two stereo super layers
+        fitting to a larger curvature rather than a larger Z
+     -> retain D0 constraint through the first iteration
+     -> saturate TANDLF
+     -> fix error in expected number of layers for large NEGATIVE TANSLF
+ 
+  ...to improve curlers...
+     -> remove Z test near top of curler
+
+  ...diagnostics...
+     -> implement new choice: multi-hit
+     -> skyline plot of cathodes
+
+  ...extrapolation
+     -> major change in extrapolation calculations; no more mixed units
+
+  ...silicon hit finding in TFXFIT
+     -> change scattering road calculation to use DOIT scattering definitions
+     -> use a more sensible scattering amount
+     -> error handling for PARXTR,INVERS; argument for TFEXER
+     -> kink for energy loss
+     -> minimum granularity for curvature in routiunes calling PARXTR
+
+  ...bug fix in SF
+     -> fix bug: zero LN_SINCE_Z_CHANGE at initialization, was stale
+
+Module : doit
+Date   : Thu Aug 24 15:08:14 2000
+User   : dpp
+Old Tag: v02_13_00
+New Tag: v02_13_01
+Message: 
+  -> new DCLEO_DIAG_DUFIND compile switch, dump w/o prompt
+
+Module : doit
+Date   : Mon Aug 28 13:52:09 2000
+User   : dpp
+Old Tag: v02_13_01
+New Tag: v02_13_02
+Message: 
+fix error in tfxfit.F
+remove HBOOK calls from dufind.F
+change some roads in tfxfin.F
+change some formatting in the diagnostics
+Module : doit
+Date   : Mon Oct  2 13:45:20 2000
+User   : dpp
+Old Tag: v02_13_02
+New Tag: v02_13_03
+Message: 
+fix cathode hit deletion
+
+
+Module : doit
+Date   : Mon Oct  2 17:39:13 2000
+User   : dpp
+Old Tag: v02_13_03
+New Tag: v02_14_00
+Message: 
+     -> create link list for SAMEAS groups with more than 2 entries
+     -> various modifications to allow double hits without double entries
+
+     -> z test on hits in standard
+
+     -> change energy loss curvature threshold from 1.1 to 1.5
+     -> deweight reduced drift distance hits
+
+     -> set SRCFIT, program indicator, for each hit in fit
+
+     -> boot_si_z_hits.F for CURLERS
+
+     -> reduce ISHTRD for r-phi wire hits from 4200 micron to 2500 micron
+     -> increase SAMHRD for r-phi wire hits from 120 micron to 550 micron
+     -> increase SAMHRD for r-phi wire hits from 2mm for calibration
+     -> increase WSRDRD for r-phi wire hits from 350 micron to 550 micron
+
+     -> allow muli-hits in DR r-phi
+
+     -> turn off silicon for calibration 
+
+
+
+     -> change artificial deweight of cathode from .0001 to .01
+
+     -> count  COUNTER_Z_CHANGE, LN_SINCE_Z_CHANGE even when Z test is
+        not active,  this has the the side effect that LN_SINCE_Z_CHANGE
+        can be different (and more correct) when tested to continue
+        with smoothing. Previously, there was no smoothing if the Z test
+        was not active.
+     -> remove smoothing if LN_SINCE_Z_CHANGE is 1 or 2 (not just 1)
+        to partially restore condition of no smoothing if there is
+        no Z test.
+
+     -> create new cut definition "2NDPASS" which is 
+        the same as "SHORT" except ZTST_RMV_OUTER(2) to cut straglers
+
+     -> new use of STAT words
+
+     -> call TFXFIT-LF with and without z0 constraint for intermediate
+        extrapolated z0 range
+
+      -> change CU granularity to .001 (fixed; not scaled)
+
+<Please type your Tag Message>
+Module : doit
+Date   : Tue Oct  3 09:31:21 2000
+User   : dpp
+Old Tag: v02_14_00
+New Tag: v02_14_01
+Message: 
+fix header lines on boot_si_z_hits.F
+Module : doit
+Date   : Thu Oct  5 18:01:56 2000
+User   : dpp
+Old Tag: v02_14_01
+New Tag: v02_14_02
+Message: 
+emergency fix in BOOT_SI_Z_HITS to stop "same hit twice on same track"
+
+Module : doit
+Date   : Tue Oct 24 19:00:42 2000
+User   : dpp
+Old Tag: v02_14_02
+New Tag: v02_14_03
+Message: 
+     -> TO PREVENT HISTORY DEPENDENT RESULTS
+        return {x,y} on layer radius for non-intersecting curlers
+     -> TO PREVENT HISTORY DEPENDENT RESULTS
+        test/set UPTODATE_LYR flag and recalulate SLYRLR
+
+     -> graphics changes for bigger graphics window
+     -> set program indicator with parameter
+     -> force correction of SVBOUNDARY_Z
+     -> default is to run REPLACE_Z_HITS; turn off with bit 64
+     -> label the hit if it is not to be used in the fit
+     -> increase SAMHRD for silicon r-phi and Z
+     -> require z match for silicon phi hits
+
+Module : doit
+Date   : Wed Nov 15 12:10:32 2000
+User   : dpp
+Old Tag: v02_14_03
+New Tag: v02_14_04
+Message: 
+     -> "CDHITS" changed to "ROADHITS" to make way for MC infringement
+     -> NO OTHER MEANINGFUL CHANGES
+
+Module : doit
+Date   : Tue Nov 21 14:23:09 2000
+User   : dpp
+Old Tag: v02_14_04
+New Tag: v02_14_05
+Message: 
+ Remove 2nd call to fast_trak_del_bad_and_add in fast_trak forDoitFast
+ to get rid of nasty lattice violation.
+
+Module : doit
+Date   : Mon Dec  4 11:03:04 2000
+User   : dpp
+Old Tag: v02_14_05
+New Tag: v02_14_06
+Message: 
+     -> FIX ERROR; added one subroutine call in control/fast_trak.F
+        refresh with WIRES_2_HITS after the TFPOPF at end of iteration
+
+Module : doit
+Date   : Mon Dec 11 14:47:15 2000
+User   : dpp
+Old Tag: v02_14_06
+New Tag: v02_14_07
+Message: 
+     -> FIX ERROR: order dependence of chain preference in SFNEXT
+
+Module : doit
+Date   : Tue Dec 19 19:07:50 2000
+User   : dpp
+Old Tag: v02_14_07
+New Tag: v02_15_00
+Message: 
+     -> recall FAST_TRAK for solutions with far fewer layers in the fit
+         than the number of layers in the road using 
+         fast_trak_recall_dz_windo.F
+     -> limit of Z outside endplate in fast_trak_close_fit_store.F
+        and in fast_trak_populat_amb_grp.F
+     -> change ISHFRD for drift chamber, .0084 -> .0040 in tfxfin.F
+     -> apply separate "u" and "v" stereo layer requirements to 
+        "pass z criteria" in control/fast_trak_check_hit_layrs.F
+     -> allow tracks starting further out in "short" in sfcuts.F
+
+Module : doit
+Date   : Tue Dec 19 19:33:49 2000
+User   : dpp
+Old Tag: v02_15_00
+New Tag: v02_15_01
+Message: 
+recover from someone deleting cvssrc/Klmn3Fort/klmnctrl.inc
+Module : doit
+Date   : Thu Jan  4 11:50:28 2001
+User   : dpp
+Old Tag: v02_15_01
+New Tag: v02_15_02
+Message: 
+tweaks for ghosts:
+     -> allow triggering fast_trak recall based on total number missing
+     -> cut badly fit, large D0, tracks in first pass
+<Please type your Tag Message>
+Module : doit
+Date   : Tue Jan 30 19:22:06 2001
+User   : dpp
+Old Tag: v02_15_02
+New Tag: v02_15_03
+Message: 
+fix infinite loop in findhs.F
+
+Module : doit
+Date   : Tue Mar  6 15:44:32 2001
+User   : dpp
+Old Tag: v02_15_03
+New Tag: v02_15_04
+Message: 
+-> remove possible infinite loop in kabg2.F, 
+   calculating pre-energy-loss momentum
+-> remove source of crazy track parameters in cfdfit.F
+   by testing for divergence
+
+Module : doit
+Date   : Thu Mar 29 19:11:26 2001
+User   : dpp
+Old Tag: v02_15_04
+New Tag: v02_16_00
+Message: 
+ Scaling of resolution to create road used in the STANDARD section
+ of TFXFIT is dependent on the efficiency of the silicon.
+
+
+Module : doit
+Date   : Wed Apr  4 22:01:04 2001
+User   : lyon
+Old Tag: v02_16_00
+New Tag: v02_17_00
+Message: Remove hard wiring of SV Hybrid Efficiency constants
+
+Module : doit
+Date   : Mon Apr  9 15:13:43 2001
+User   : lyon
+Old Tag: v02_17_00
+New Tag: v02_17_01
+Message: Add back hidden initialization in tfxfin
+
+Module : doit
+Date   : Thu Apr 19 13:28:45 2001
+User   : dpp
+Old Tag: v02_17_01
+New Tag: v02_17_02
+Message: 
+ -> test logical before applying efficiency dependent scaling
+    in STANDARD TFXFIT
+
+Module : doit
+Date   : Tue May  1 13:31:27 2001
+User   : dpp
+Old Tag: v02_17_02
+New Tag: v02_17_03
+Message: 
+     -> fixed error in local ambiguity TFXFIT
+        error: status=0 hit caused susequent hits in layer to be ignored
+     -> use  efficiency dependent scaling  LOC AMB TFXFIT
+
+Module : doit
+Date   : Thu May  3 15:33:10 2001
+User   : dpp
+Old Tag: v02_17_03
+New Tag: v02_17_04
+Message: 
+fix bug introdeced May1: had killed all Z hits in TFXFIT
+
+Module : doit
+Date   : Tue Aug 21 10:18:47 2001
+User   : dpp
+Old Tag: v02_17_04
+New Tag: v02_17_05
+Message: 
+clean up a few print statements
+take care of this issue that some new compilier doesn't like empty files
+
+Module : doit
+Date   : Thu Aug 23 10:44:41 2001
+User   : dpp
+Old Tag: v02_17_05
+New Tag: v02_17_06
+Message: 
+fixed sf/sfeff.F again
+Module : doit
+Date   : Wed Sep 12 18:24:18 2001
+User   : dpp
+Old Tag: v02_17_06
+New Tag: v02_18_00
+Message: 
+deweight hits at top of curler
+add call to FAST_TRAK_DEL_BAD_AND_ADD after TFXFIT
+change artificial deweight of silicon sz from .0001 to .01 (weight)
+Module : doit
+Date   : Fri Sep 14 17:34:20 2001
+User   : dpp
+Old Tag: v02_18_00
+New Tag: v02_18_01
+Message: 
+this should fix the same wire being on a track twice
+
+Module : doit
+Date   : Mon Nov 19 19:28:31 2001
+User   : dpp
+Old Tag: v02_18_01
+New Tag: v02_19_00
+Message: 
+big changes of Nov 19, 2001
+remove all commons from dufind
+see /home/ds/dpp/cvssrc/doit_history
+<Please type your Tag Message>
+Module : doit
+Date   : Tue Nov 20 13:05:48 2001
+User   : dpp
+Old Tag: v02_19_00
+New Tag: v02_19_01
+Message: 
+remove some usage of deleted include files
+fix up the new widened road for TFXFIT
+Module : doit
+Date   : Thu May 23 14:06:25 2002
+User   : dpp
+Old Tag: v02_19_01
+New Tag: v02_20_00
+Message: 
+treatment of decays-in-flight
+
+Module : doit
+Date   : Mon Jun  3 12:24:02 2002
+User   : cdj
+Old Tag: v02_20_01
+New Tag: 
+Message: Deleting v02_20_01
+
+Module : doit
+Date   : Tue Jun  4 23:08:04 2002
+User   : atems
+Old Tag: v02_20_00
+New Tag: v02_20_01
+Message: minor fixes to compile under linux
+
+Module : doit
+Date   : Thu Jun  6 12:03:42 2002
+User   : atems
+Old Tag: v02_20_01
+New Tag: v02_20_02
+Message:         conditionalise definition of variable used as both INTEGER and CHARACTER*1 (for Linux)
+
+Module : doit
+Date   : Thu Jun  6 14:38:45 2002
+User   : atems
+Old Tag: v02_20_02
+New Tag: v02_20_03
+Message:         ACCEPT changed to READ on all platforms in parxtr.F
+
+Module : doit
+Date   : Mon Jun 17 12:15:54 2002
+User   : atems
+Old Tag: v02_20_03
+New Tag: v02_20_04
+Message:         removed fortran comments from #include directives in cfexer.F
+
+Module : doit
+Date   : Thu Aug 15 15:06:12 2002
+User   : dpp
+Old Tag: v02_20_04
+New Tag: v02_20_05
+Message: 
+patch this in to stop those nasty infinite loops
+Module : doit
+Date   : Thu Sep  5 16:05:04 2002
+User   : dpp
+Old Tag: v02_20_05
+New Tag: v02_21_00
+Message: 
+modifications to address the Kshort efficiency,
+more specifically, 
+tracks with curv>1.5 and D0 > ~1.5 cm.
+
+also, TPC compatibilty 
+
+there are accompanying changes in 
+doityomama,Doit,and cl3seq/cdgm3
+Module : doit
+Date   : Mon Sep 23 20:41:38 2002
+User   : dpp
+Old Tag: v02_21_00
+New Tag: v02_21_01
+Message: 
+corrects error of 05-sept-2002: replaced call to lfctht in lfxyht
+and
+limits selection of single silicon-z hits: hits will not
+be added in standard tfxfit unless hits were added in loc-amb tfxfit
+
+
+Module : doit
+Date   : Tue Sep 24 19:02:25 2002
+User   : dpp
+Old Tag: v02_21_01
+New Tag: v02_21_02
+Message: 
+     this is a change to make the d0 constraint fit match the 
+     result previous to the Sept 5 2002 submission
+     -> do not change d0 constraint condition from that set in 
+        fast_trak_fit_wire_positn for the first pass
+
+     this is a  bug fixes from the Sept 5 2002 submission
+     -> get new hit list after selecting fast_trak_fit_wire_positn rep.
+
+Module : doit
+Date   : Fri Oct 25 09:45:05 2002
+User   : dpp
+Old Tag: v02_21_02
+New Tag: v02_21_03
+Message: 
+fixed findhw.F so that 
+only one cathode panel is searched for hits, 
+even for large entrance angle tracks
+Module : doit
+Date   : Fri Dec  6 12:08:33 2002
+User   : dpp
+Old Tag: v02_21_03
+New Tag: v02_21_04
+Message: 
+   changes to avoid nasty float exceptions
+          doit/fitter/parxtr.F  and
+          doit/hitsontrak/scan_z_hits.F
+
+Module : doit
+Date   : Tue Feb  4 14:02:00 2003
+User   : huanggs
+Old Tag: v02_21_04
+New Tag: v02_22_00
+Message: zdscrtzd.inc, sfextrazd.inc added
+
+Module : doit
+Date   : Tue Feb  4 15:53:13 2003
+User   : huanggs
+Old Tag: v02_22_00
+New Tag: 
+Message: Deleting v02_22_00
+
+Module : doit
+Date   : Wed Mar  5 14:18:10 2003
+User   : dpp
+Old Tag: v02_21_04
+New Tag: v02_22_00
+Message: 
+major changes for TPC compatibility; no change to CLEO3 production PASS2
+
+Module : doit
+Date   : Thu Mar  6 12:04:14 2003
+User   : dpp
+Old Tag: v02_22_00
+New Tag: v02_22_01
+Message: 
+     clean up after big submit on previous day
+     still claim "no change to production pass2 result"
+     -> changed compile switch from CLEO_SUNOS to CLEO_SunOS
+
+Module : doit
+Date   : Fri Mar  7 12:43:53 2003
+User   : dpp
+Old Tag: v02_22_01
+New Tag: v02_22_02
+Message: 
+     -> guard against input zero kappa; because
+        the cosmic fraction has daramtically increased
+
+Module : doit
+Date   : Mon Apr  7 13:31:29 2003
+User   : cleo3
+Old Tag: v02_22_02
+New Tag: v02_23_00
+Message: now compiles under Linux
+
+Module : doit
+Date   : Mon May 12 12:14:52 2003
+User   : dpp
+Old Tag: v02_23_00
+New Tag: v02_23_01
+Message: 
+Hide the use of private include files and 
+random number function from production use.

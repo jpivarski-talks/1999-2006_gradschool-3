@@ -1,0 +1,131 @@
+#=============================================================================
+#
+# Purpose: Build a user library with name <name>
+#
+# How to use:
+#
+#   1.) Copy this file to your build area. (Please don't build code in your
+#       source area!)
+#
+#   2.) This makefile includes "M.tail", which contains all the "meat".
+#       (suffix rules, platform dependencies etc.)
+#
+#   3.) Dependencies (ala makedepend) are done via a ".depend" file 
+#       which gets created and include by "M.tail".
+#
+#   4.) Make sure the environment variable USER_SRC is set to the
+#       directory *above* the source code:
+#         e.g. "setenv USER_SRC /home/mkl/work/cleo3/cvssrc"
+#
+#   5.) To compile the library, do"
+#         unix> gmake CXX=<compiler>
+#         e.g. "gmake CXX=cxx"
+#
+#   6.) The library will appear by default as "../lib/lib<directory>.a", 
+#
+#   7.) To compile and link in debug mode, use "DEBUG=y":
+#          e.g. "gmake CXX=cxx DEBUG=y"
+#        This will result in an appended "_g" to the library name.
+#
+#   8.) You can OVERRIDE any symbol used in a makefile by specifying the new
+#       symbol on the command line, for example, 
+#          e.g. "gmake USER_OBJS=myfunc.o"
+#       Please remember that this will OVERRIDE any value specified in the 
+#       Makefile. If you just which to add extra information to the current
+#       makefile value the 'XTRA_????' symbols have been created. Look through
+#       this file to see which symbols add to the makefile symbols. 
+#
+#=============================================================================
+SHELL := /bin/sh
+USER_LINK := CXX
+#
+#----------------------------
+# name of job and executable
+#----------------------------
+
+ifeq "$(JOB)" ""
+  WHERE := $(shell pwd)
+  JOB := $(notdir $(WHERE))
+endif
+EXE = 
+
+#----------------------------------------
+# List of subdirectories containing code
+#----------------------------------------
+
+DIR_LIST := 	Class \
+		Instantiate \
+		Class/Storage \
+		Instantiate/Storage \
+		$(XTRA_DIR)
+
+#-------------------------------------------------------
+# list of include directories
+# USER_INCS should be defined with respect to USER_SRC
+# CLEO3_INCS should be set to C3_INC; $USER_SRC/include is implicitly included
+# OTHR_INCS should be defined with respect to C3_OTHER
+# CLEO_INCS should be defined with respect to C_CVSSRC
+# (don't forget to leave the "." in the CLEO_INCS list)
+#-------------------------------------------------------
+
+USER_INCS  :=	$(XTRA_INCS) . 
+CLEO3_INCS :=	$(C3_INC)
+OTHR_INCS  :=	.
+CLEO_INCS  :=	.
+
+#--------------------------------------------------------------
+# extra compiler flags
+#--------------------------------------------------------------
+
+USER_FFLAGS   := $(XTRA_FFLAGS)
+USER_CFLAGS   := $(XTRA_CFLAGS)
+USER_CXXFLAGS := $(XTRA_CXXFLAGS)
+
+#---------------------------------------------
+# #define for cpp, define SELECT symbols here
+#---------------------------------------------
+
+USER_DEFS :=	$(XTRA_DEFS)
+
+#--------------------------------------------------------------
+# invoke standard tail to Makefile to execute compile and link
+#--------------------------------------------------------------
+
+include $(C3_GMAKE)/M.tail
+
+# --------------------------------------------------------------------
+# if you need something special done for a particular file, put here:
+#
+#$(LIBRARY)(special_file.o) : $(USER_SRC)/<Library>/Class/special_file.cc
+#	$(CXX) $(CXXFLAGS) $(GUNG_FIX) $(CLEO_DEFS) $(LIST_INCS) $(CXX_INCS) -c $<
+#	@$(AR) r $@ $%
+#	@$(RM) $%
+# --------------------------------------------------------------------
+
+#
+# $Id: Makefile,v 1.3 2000/01/05 18:57:13 cdj Exp $
+#
+# $Log: Makefile,v $
+# Revision 1.3  2000/01/05 18:57:13  cdj
+# gets code from Storage sub-subdirectory
+#
+# Revision 1.2  1998/10/08 15:59:00  marsh
+# Changed to new Makefile structure.
+#
+# Revision 1.1.1.1  1998/07/20 21:16:10  marsh
+# New library for base-level track objects
+#
+# Revision 1.4  1998/07/17 17:00:37  cleo3
+# change to pwd from awd (only supported on DEC systems)
+#
+# Revision 1.3  1998/06/25 17:54:28  mkl
+# replaced C_GMAKE by C3_GMAKE
+#
+# Revision 1.2  1998/01/13 15:49:42  cleo3
+# added USER_LINK
+#
+# Revision 1.1  1997/12/08 18:20:58  mkl
+# sample Makefiles
+#
+#
+# DO NOT DELETE

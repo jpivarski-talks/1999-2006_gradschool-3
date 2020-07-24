@@ -1,0 +1,21 @@
+
+Module : DualTrackHelices
+Date   : Tue Jan 30 19:03:54 2001
+User   : llh14
+Old Tag: 
+New Tag: v01_00_00
+Message: First Tag
+
+Module : DualTrackHelices
+Date   : Thu Aug 16 12:44:35 2001
+User   : mccann
+Old Tag: v01_00_00
+New Tag: v01_01_00
+Message: Added chisq() and ndof() of constraint to DualTrackHelices object for testing for final-state radiation
+
+Module : DualTrackHelices
+Date   : Fri Aug 31 16:36:00 2001
+User   : mccann
+Old Tag: v01_01_00
+New Tag: v01_02_00
+Message: added some diagnostics to DualTrackHelices object

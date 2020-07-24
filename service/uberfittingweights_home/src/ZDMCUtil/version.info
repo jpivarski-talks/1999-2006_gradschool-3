@@ -1,0 +1,91 @@
+
+Module : ZDMCUtil
+Date   : Mon Feb  3 15:14:50 2003
+User   : huanggs
+Old Tag: 
+New Tag: v01_00_00
+Message: first tag
+
+Module : ZDMCUtil
+Date   : Thu Feb  6 16:11:32 2003
+User   : huanggs
+Old Tag: v01_00_00
+New Tag: v01_01_00
+Message: revise variable names
+
+Module : ZDMCUtil
+Date   : Mon Feb 10 13:05:43 2003
+User   : huanggs
+Old Tag: v01_01_00
+New Tag: v02_00_00
+Message: specify ZD routines
+
+Module : ZDMCUtil
+Date   : Mon Feb 10 15:07:14 2003
+User   : huanggs
+Old Tag: v02_00_00
+New Tag: v02_01_00
+Message: rename fortran files
+
+Module : ZDMCUtil
+Date   : Tue Mar 18 18:04:25 2003
+User   : bkh
+Old Tag: v02_01_00
+New Tag: v02_01_01
+Message: 
+First kind of working version
+Module : ZDMCUtil
+Date   : Wed Mar 19 17:57:20 2003
+User   : bkh
+Old Tag: v02_01_01
+New Tag: v02_01_02
+Message: 
+make work in dummy mode
+Module : ZDMCUtil
+Date   : Wed Mar 19 17:58:02 2003
+User   : bkh
+Old Tag: v02_01_02
+New Tag: v02_01_03
+Message: 
+Make work in dummy mode
+Module : ZDMCUtil
+Date   : Mon Apr  7 13:34:34 2003
+User   : cleo3
+Old Tag: v02_01_03
+New Tag: v02_02_00
+Message: now compiles under Linux
+
+Module : ZDMCUtil
+Date   : Thu Jun 26 14:12:53 2003
+User   : huanggs
+Old Tag: v02_02_00
+New Tag: v03_00_00
+Message: ZD codes workable
+
+Module : ZDMCUtil
+Date   : Fri Jun 27 16:10:21 2003
+User   : huanggs
+Old Tag: v03_00_00
+New Tag: v04_00_00
+Message: check if extracting ZD and comment out call filFortranCDGeometry for now
+
+Module : ZDMCUtil
+Date   : Mon Jun 30 16:27:35 2003
+User   : cdj
+Old Tag: v04_00_00
+New Tag: v04_00_01
+Message: do not intialize ZD info if ZD is not in this run
+
+Module : ZDMCUtil
+Date   : Mon Oct 13 10:57:12 2003
+User   : mccann
+Old Tag: v04_00_01
+New Tag: v04_01_00
+Message: updated zdmc_resolution_ call to use new ZDDriftFunction::resolution(-, -, -, -, -) interface
+
+Module : ZDMCUtil
+Date   : Mon Oct 13 15:54:39 2003
+User   : mccann
+Old Tag: v04_01_00
+New Tag: v04_01_01
+Message: removing zdmc_resolution_ (temporarily?) to see if anything depends on it

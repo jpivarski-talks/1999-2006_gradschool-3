@@ -1,0 +1,19 @@
+#if !defined(NAVIGATION_NAVSHOWER_ICC)
+#define NAVIGATION_NAVSHOWER_ICC
+
+inline
+NavShower::Identifier                
+NavShower::identifier()   const 
+{
+   return attributes().identifier() ;
+}
+
+inline
+const CcShowerAttributes& 
+NavShower::attributes()   const 
+{
+   return m_attributes ;
+}
+
+
+#endif

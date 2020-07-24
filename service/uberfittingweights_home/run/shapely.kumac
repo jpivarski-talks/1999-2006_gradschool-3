@@ -1,0 +1,141 @@
+nt/cr 1 'shapely' 3 ! ! 'drift' 'ea' 'fw'
+nt/read 1 ../rzn/shapely.ntuple
+nt/cr 2 'zshapely' 3 ! ! 'drift' 'ea' 'fw'
+nt/read 2 ../rzn/zshapely.ntuple
+
+fortran/file 65 'shapely.ps'
+graphics/metafile 65 -111
+igset mtype 1
+
+zone 2 2
+
+null 0 1.5 0 2.3
+set pmci 4
+nt/plot 1.fw%drift abs(ea)>0.2 5000 ! ! 's'
+set pmci 2
+nt/plot 1.fw%drift abs(ea)<0.2 5000 ! ! 's'
+set pmci 1
+set fais 1
+set faci 1
+fpoint 0.55 1 0.02
+fpoint 0.65 1 0.02
+fpoint 0.75 1.5 0.02
+fpoint 0.85 1 0.02
+fpoint 0.95 1 0.02
+fpoint 0.55 1.5 0.02
+fpoint 0.65 1.5 0.02
+fpoint 0.75 2 0.02
+fpoint 0.85 1.5 0.02
+fpoint 0.95 1.5 0.02
+text 0.75 0.6 'DR fw (no theta cor) VS drift' ! ! 'c'
+text 0.75 0.4 'red = abs(ea).lt.0.2' ! ! 'c'
+
+null -1 1 0 2.3
+set pmci 4
+nt/plot 1.fw%ea !(0.65<drift<0.85) 5000 ! ! 's'
+set pmci 2
+nt/plot 1.fw%ea  (0.65<drift<0.85) 5000 ! ! 's'
+set pmci 1
+set fais 1
+set faci 1
+fpoint -0.4 1 0.02
+fpoint -0.2 1 0.02
+fpoint 	0.0 1.5 0.02
+fpoint 	0.2 1 0.02
+fpoint 	0.4 1 0.02
+fpoint -0.4 1.5 0.02
+fpoint -0.2 1.5 0.02
+fpoint 	0.0 2 0.02
+fpoint 	0.2 1.5 0.02
+fpoint 	0.4 1.5 0.02
+text 0 0.6 'DR fw (no theta cor) VS EA' ! ! 'c'
+text 0 0.4 'red = 0.65.lt.drift.lt.0.85' ! ! 'c'
+
+null 0 1.5 0 2.3
+set pmci 4
+nt/plot 2.fw%drift abs(ea)>0.2 5000 ! ! 's'
+set pmci 2
+nt/plot 2.fw%drift abs(ea)<0.2 5000 ! ! 's'
+set pmci 1
+set fais 1
+set faci 1
+fpoint 0.55 1 0.02
+fpoint 0.65 1 0.02
+fpoint 0.75 1.5 0.02
+fpoint 0.85 1 0.02
+fpoint 0.95 1 0.02
+fpoint 0.55 1.5 0.02
+fpoint 0.65 1.5 0.02
+fpoint 0.75 2 0.02
+fpoint 0.85 1.5 0.02
+fpoint 0.95 1.5 0.02
+text 0.75 0.6 'ZD fw (no theta cor) VS drift' ! ! 'c'
+text 0.75 0.4 'red = abs(ea).lt.0.2' ! ! 'c'
+
+null -1 1 0 2.3
+set pmci 4
+nt/plot 2.fw%ea !(0.65<drift<0.85) 5000 ! ! 's'
+set pmci 2
+nt/plot 2.fw%ea  (0.65<drift<0.85) 5000 ! ! 's'
+set pmci 1
+set fais 1
+set faci 1
+fpoint -0.4 1 0.02
+fpoint -0.2 1 0.02
+fpoint 	0.0 1.5 0.02
+fpoint 	0.2 1 0.02
+fpoint 	0.4 1 0.02
+fpoint -0.4 1.5 0.02
+fpoint -0.2 1.5 0.02
+fpoint 	0.0 2 0.02
+fpoint 	0.2 1.5 0.02
+fpoint 	0.4 1.5 0.02
+text 0 0.6 'ZD fw (no theta cor) VS EA' ! ! 'c'
+text 0 0.4 'red = 0.65.lt.drift.lt.0.85' ! ! 'c'
+
+zone 2 2
+set pmci 1
+angle 50 30
+palette 0
+
+h/delete 100
+h/delete 200
+h/delete 300
+h/cr/2d 100 'average DR fw for drift VS EA' 50 -1 1 50 0. 1.5
+h/cr/2d 200 'drift VS EA' 50 -1 1 50 0. 1.5
+nt/plot 1.drift%ea fw ! ! ! 'N' 100
+nt/plot 1.drift%ea ! ! ! ! 'N' 200
+divide 100 200 300
+h/plot 300 surf
+
+h/delete 100
+h/delete 200
+h/delete 300
+h/cr/2d 100 'average DR fw for drift VS EA' 100 -1 1 100 0. 1.5
+h/cr/2d 200 'drift VS EA' 100 -1 1 100 0. 1.5
+nt/plot 1.drift%ea fw ! ! ! 'N' 100
+nt/plot 1.drift%ea ! ! ! ! 'N' 200
+divide 100 200 300
+h/plot 300 surf4
+
+h/delete 1100
+h/delete 1200
+h/delete 1300
+h/cr/2d 1100 'average ZD fw for drift VS EA' 50 -1 1 50 0. 1.5
+h/cr/2d 1200 'drift VS EA' 50 -1 1 50 0. 1.5
+nt/plot 2.drift%ea fw ! ! ! 'N' 1100
+nt/plot 2.drift%ea ! ! ! ! 'N' 1200
+divide 1100 1200 1300
+h/plot 1300 surf
+
+h/delete 1100
+h/delete 1200
+h/delete 1300
+h/cr/2d 1100 'average ZD fw for drift VS EA' 100 -1 1 100 0. 1.5
+h/cr/2d 1200 'drift VS EA' 100 -1 1 100 0. 1.5
+nt/plot 2.drift%ea fw ! ! ! 'N' 1100
+nt/plot 2.drift%ea ! ! ! ! 'N' 1200
+divide 1100 1200 1300
+h/plot 1300 surf4
+
+close 65

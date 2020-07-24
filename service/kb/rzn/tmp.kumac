@@ -1,0 +1,59 @@
+h/file 1 mc_5.3gev_continuum_w_hadroncuts_and_standardcuts.rzn
+cd karlsplots
+
+
+
+
+*         100 (1)   momentum of charged tracks  
+*         101 (1)   Z momentum of charged tracks
+*         102 (1)   Perp momentum of charged tracks 
+*         110 (1)   cos(theta) of charged tracks
+*         120 (2)   momentum VS cos(theta) of charged tracks
+*         130 (1)   momentum VS cos(theta) of charged tracks
+*         200 (1)   energy of neutral particles 
+*         210 (2)   energy VS cos(theta) of neutral particles   
+*         220 (1)   energy VS cos(theta) of neutral particles   
+*         300 (1)   total multiplicity  
+*         310 (1)   charged track multiplicity  
+*         320 (1)   neutral shower multiplicity 
+*         400 (1)   total energy
+*         410 (1)   charged energy  
+*         420 (1)   neutral energy  
+*         450 (1)   energy in hemisphere with the most energy   
+*         460 (1)   energy in hemisphere with the least energy  
+*         500 (1)   scalar sum of particle pt   
+*         510 (1)   scalar sum of charged particle pt   
+*         520 (1)   scalar sum of neutral particle pt   
+*         600 (1)   charged track pmag  
+*         610 (1)   charged track pt
+*         620 (1)   charged track pz
+*         700 (1)   neutral shower E
+*         710 (1)   neutral shower track Et 
+*         720 (1)   neutral shower track Ez 
+
+h/plot 100
+h/plot 101
+h/plot 102
+h/plot 110
+h/plot 120
+h/plot 130
+h/plot 200
+h/plot 210
+h/plot 220
+h/plot 300
+h/plot 310
+h/plot 320
+h/plot 400
+h/plot 410
+h/plot 420
+h/plot 450
+h/plot 460
+h/plot 500
+h/plot 510
+h/plot 520
+h/plot 600
+h/plot 610
+h/plot 620
+h/plot 700
+h/plot 710
+h/plot 720

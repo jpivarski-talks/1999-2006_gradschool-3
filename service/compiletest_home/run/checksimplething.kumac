@@ -1,0 +1,4 @@
+h/file 1 ../rzn/checksimplething.rzn
+cd checksimplething
+
+nt/plot 1.cresid

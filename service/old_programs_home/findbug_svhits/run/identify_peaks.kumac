@@ -1,0 +1,68 @@
+h/file 1 hbook_chi_big.rzn
+h/file 2 hbook_kal_big.rzn
+
+* zone 2 2
+* opt fit
+* 
+* h/fit //lun2/findbug/351(-0.05:0.05) p0
+* h/fit //lun2/findbug/352(-0.05:0.05) p0
+* h/fit //lun2/findbug/353(-0.1:0.1) p0
+* h/fit //lun2/findbug/354(-0.15:0.15) p0
+* 
+* wait
+* 
+* h/fit //lun2/findbug/361(-0.05:0.05) p0
+* h/fit //lun2/findbug/362(-0.05:0.05) p0
+* h/fit //lun2/findbug/363(-0.1:0.1) p0
+* h/fit //lun2/findbug/364(-0.15:0.15) p0
+* 
+* wait
+* 
+* zone 2 2
+* h/plot //lun2/findbug/421
+* h/plot //lun2/findbug/1  
+* h/plot //lun2/findbug/2
+* h/plot //lun2/findbug/3
+* 
+* wait
+* 
+* zone 1 1
+* h/plot //lun2/findbug/410
+* 
+* wait
+
+h/cr/title 'ChisqFitProd                                                  KalmanProd'
+zone 2 2
+
+h/plot //lun1/findbug/10
+h/plot //lun2/findbug/10
+h/plot //lun1/findbug/20
+h/plot //lun2/findbug/20
+
+wait
+
+h/cr/title 'ChisqFitProd                                                  KalmanProd'
+zone 2 2
+opt sta
+
+h/plot //lun1/findbug/130
+h/plot //lun2/findbug/130
+h/plot //lun1/findbug/140
+h/plot //lun2/findbug/140
+
+wait
+
+h/cr/title 'all KalmanProd'
+zone 1 2
+opt nsta
+h/plot //lun2/findbug/130(-0.1:1.2)
+text 0.06 8000 'layer1' ! ! 'c'
+text 0.27 3500 'layer2' ! ! 'c'
+text 0.37 4900 'layer3' ! ! 'c'
+text 0.9 2000 'layer4' ! ! 'c'
+h/plot //lun2/findbug/140(-0.1:0.5)
+text 0.15 15100 'layer1' ! ! 'c'
+text 0.225 8000 'layer2' ! ! 'c'
+text 0.29 4800 'layer3' ! ! 'c'
+text 0.45 2500 'layer4...' ! ! 'c'
+

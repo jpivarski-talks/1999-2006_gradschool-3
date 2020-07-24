@@ -1,0 +1,54 @@
+#!/usr/local/bin/tcsh
+
+cd $HOME/diagnostics/wsunplots
+. /nfs/cleo3/scripts/cleo3defs
+c3rel cleo3_Pass2_Jan30_2002
+
+#  OSAGENT_PORT=31416
+#  export OSAGENT_PORT
+#  C3_CONST=/nfs/c3con/ccon3/constants/Codi
+#  export C3_CONST
+
+suez -q > $USER_TMP/kalman.log << EOF
+
+module sel LoadHbook4MModule
+module sel HbookHistogramModule
+hbook file ../dafedir/kalman_124733.rzn
+hbook init
+
+run_file \$env(C3_SCRIPTS)/getConstants.tcl
+
+default prompt off
+exception continueEventLoop on
+
+run_file \$env(C3_SCRIPTS)/trackingDataFull.tcl
+prod desel ElectronFromPionFitProd
+prod desel MuonFromPionFitProd
+param KalmanProd OptimizeForAllHypos false
+
+prod sel CesrBeamEnergyProd
+prod sel DBEventHeaderProd
+
+prod sel CcfcReconProd
+prod sel C3ccReconProd
+proc sel CcEventSelectProc
+prod sel C3ccProd
+prod sel CcGeomProd
+prod sel C3ccConProd
+param CcEventSelectProc BhabhaKeep true
+
+source_format sel BinarySourceFormat
+file in run_124733.bin beginrun startrun event endrun
+
+proc sel SeedDiagProc
+proc sel FitDiagProc
+param FitDiagProc FitHypo electron
+#param FitDiagProc BeamSpotX -0.000741
+#param FitDiagProc BeamSpotY  0.000097
+
+report level INFO
+go 10000
+hbook terminate
+exit
+
+EOF

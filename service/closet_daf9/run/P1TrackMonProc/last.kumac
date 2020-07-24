@@ -1,0 +1,9 @@
+*** Begin of history file: Wed Nov 14 17:09:32 2001
+h/file 1 hist_doit_109304_10000.rzn
+ldir
+cd P1TRACKMONPROC
+h/list
+h/plot 25
+qujit
+quit
+*** End   of history file: Wed Nov 14 17:10:14 2001

@@ -1,0 +1,28 @@
+dep runn = @1
+dep clcut = @2
+
+hb_o bhabhaChisq.rzn
+exec /home/wsun/c3lib/run/mnf/layerEff.mnf 'Bhabha, Run @1' 1
+squeeze
+exec /home/wsun/c3lib/run/mnf/resids.mnf 'Bhabha, Run @1' clcut
+squeeze
+exec /home/wsun/c3lib/run/mnf/resVsDriftSum.mnf 'Bhabha, Run @1' clcut
+squeeze
+
+hb_o bhabhaKalman.rzn
+exec /home/wsun/c3lib/run/mnf/bhabha.mnf 'Bhabha, Run @1' clcut
+
+squeeze
+
+!dep clcut = @3
+
+!hb_o mupairChisq.rzn
+!exec /home/wsun/c3lib/run/mnf/layerEff.mnf '[m]-pair, Run @1'
+!exec /home/wsun/c3lib/run/mnf/resids.mnf '[m]-pair, Run @1' clcut
+!exec /home/wsun/c3lib/run/mnf/resVsDriftSum.mnf '[m]-pair, Run @1' clcut
+
+!hb_o mupairKalman.rzn
+!!exec /home/wsun/c3lib/run/mnf/mupair.mnf '[m]-pair, Run @1' clcut
+!exec /home/wsun/c3lib/run/mnf/bhabha.mnf '[m]-pair, Run @1' clcut
+
+!squeeze

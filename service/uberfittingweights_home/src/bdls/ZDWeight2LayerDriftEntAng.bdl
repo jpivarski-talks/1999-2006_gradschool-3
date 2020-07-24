@@ -1,0 +1,10 @@
+RCSID: "$Id: ZDWeight2LayerDriftEntAng.bdl,v 1.0 2003/9/12 15:31:51 mccann Exp $"
+Type: Constants
+Name: ZDWeight2LayerDriftEntAng
+{
+   UInt32 indexNumber
+   UInt32 layer
+   UInt32 driftbin
+   UInt32 entangbin
+   float resolution
+}

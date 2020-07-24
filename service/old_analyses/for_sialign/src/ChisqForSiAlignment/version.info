@@ -1,0 +1,42 @@
+
+Module : ChisqForSiAlignment
+Date   : Fri Feb  2 13:06:41 2001
+User   : llh14
+Old Tag: 
+New Tag: v01_00_00
+Message: first tag
+
+Module : ChisqForSiAlignment
+Date   : Fri Feb  2 15:50:17 2001
+User   : llh14
+Old Tag: v01_00_00
+New Tag: v02_00_00
+Message: Fixed Norm Bug
+
+Module : ChisqForSiAlignment
+Date   : Tue Feb  6 15:33:43 2001
+User   : llh14
+Old Tag: v02_00_00
+New Tag: v03_00_00
+Message: Added dof, and MaxEvent parameters
+
+Module : ChisqForSiAlignment
+Date   : Wed Feb 21 13:12:17 2001
+User   : llh14
+Old Tag: v03_00_00
+New Tag: v04_00_00
+Message: added dof parameters
+
+Module : ChisqForSiAlignment
+Date   : Thu Mar 29 12:01:16 2001
+User   : llh14
+Old Tag: v04_00_00
+New Tag: v05_00_00
+Message: Saving Curvature instead of Hybrid Number
+
+Module : ChisqForSiAlignment
+Date   : Mon Jun 25 18:21:44 2001
+User   : llh14
+Old Tag: v05_00_00
+New Tag: v06_00_00
+Message: Changed type returned from Lattice code from pointer to ref

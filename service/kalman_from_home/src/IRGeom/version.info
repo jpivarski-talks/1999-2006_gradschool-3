@@ -1,0 +1,67 @@
+
+Module : IRGeom
+
+Date   : Thu Jul 22 18:05:41 1999
+User   : lkg
+Old Tag: 
+New Tag: v01_00_00
+Message: first release
+
+Module : IRGeom
+
+Date   : Fri Jul 23 18:38:06 1999
+User   : lkg
+Old Tag: v01_00_00
+New Tag: v01_00_01
+Message: minor fixes for SunOs/CC incompatibities
+
+Module : IRGeom
+Date   : Wed Feb  2 10:40:27 2000
+User   : lkg
+Old Tag: v01_00_01
+New Tag: v01_00_02
+Message: Bug fix for the ExtraVolumeSpecs, proper CoilGeom mother volume use, better debugging info
+
+Module : IRGeom
+Date   : Mon Mar  6 13:39:56 2000
+User   : lkg
+Old Tag: v01_00_02
+New Tag: v01_00_03
+Message: Break Cu pipe into two sections to avoid GEANT limit on volume parameters
+
+Module : IRGeom
+Date   : Wed Mar 15 16:35:36 2000
+User   : pg
+Old Tag: v01_00_03
+New Tag: v01_00_04
+Message: After futile attempts to fix a crash on OSF, it is gone on its own. After print statement was added. I am sure it will come back.
+
+Module : IRGeom
+Date   : Wed Nov 15 16:59:12 2000
+User   : cdj
+Old Tag: v01_00_04
+New Tag: v01_01_00
+Message: proxies no longer inherit from ProxyBindableTemplate to aid static linking
+
+Module : IRGeom
+Date   : Thu Mar 15 16:59:33 2001
+User   : bkh
+Old Tag: v01_01_00
+New Tag: v01_01_01
+Message: 
+Extra Vol Specs now lives in Start Run not Base Geometry
+Module : IRGeom
+Date   : Fri May 31 13:21:29 2002
+User   : bkh
+Old Tag: v01_01_01
+New Tag: v01_01_02
+Message: 
+Sculpt mother volume to not interfere with DR or CC Endcap.
+Also make one sided in z and replicate for negative z.
+Module : IRGeom
+Date   : Fri Oct 25 16:41:42 2002
+User   : bkh
+Old Tag: v01_01_02
+New Tag: v01_01_03
+Message: 
+Correct beam pipe thickness (was 0.038in too thick)

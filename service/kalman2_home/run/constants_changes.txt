@@ -1,0 +1,1397 @@
+===== Wedding Cake Alignment =============================================
+
+Validity info for DRGeomAlignment, tag Offline:
+
+Created EST: 04/03/2003 12:17:20.118166 by ccon3
+Runs: 1 - 0, version 5
+
+Validity info for DRGeomAlignment, tag PASS2_3Offline:
+
+Created EDT: 04/21/2003 14:17:33.010280 by ccon3
+Runs: 109762 - 110278, version 5
+Runs: 110904 - 113216, version 5
+Runs: 113239 - 115063, version 5
+Runs: 115096 - 116093, version 5
+Runs: 116128 - 117105, version 5
+Runs: 117159 - 118166, version 5
+Runs: 118193 - 119022, version 5
+Runs: 119033 - 119927, version 5
+Runs: 120790 - 121321, version 5
+Runs: 121339 - 121643, version 5
+Runs: 121648 - 122179, version 5
+Runs: 122245 - 123304, version 5
+Runs: 123314 - 124575, version 5
+Runs: 124624 - 125416, version 5
+Runs: 125422 - 126206, version 5
+Runs: 126252 - 127545, version 5
+Runs: 127550 - 128401, version 5
+Runs: 129257 - 129488, version 5
+
+Type: DBDRGeomAlignment
+Destination: /cdat/solon2/disk1/DataBases/new/Codi
+Source: /cdat/sol406/disk1/drcal/test_sag120_x_18.drgeomalignment
+Version: 1.2
+Run Range: from 1 to 0
+Date: Tue Feb  6 17:47:45 2001
+
+------------
+
+Type: DBDRGeomAlignment
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /cdat/sol406/disk1/drcal/test_sag120_x_42.drgeomalignment
+Version: 1.3
+Run Range: from 1 to 0
+Date: Tue Feb 13 18:57:18 2001
+
+------------
+
+Type: DBDRGeomAlignment
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/unaligned-hand_moved.drgeomalignment
+Version: 1.4
+Run Range: from 113239 to 114137
+Date: Wed Sep 12 18:46:30 2001
+
+------------
+
+Type: DBDRGeomAlignment
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/unaligned-hand_moved.drgeomalignment
+Version: 1.5
+Run Range: from 1 to 0
+Date: Wed Sep 19 15:31:47 2001
+
+------------
+
+0 0 0 0 0 0 1 5 DEFAULT
+18
+1 0 0 0 0 0 0.135
+2 0 0 0 0 0 0
+3 0.000793 -0.001728 0 0 0 0.000743
+4 0.002129 6.3e-05 0 0 0 0.001747
+5 0.003232 8.3e-05 0 0 0 0.006203
+6 0.001617 -0.002246 0 0 0 0.001035
+7 -0.001445 6.4e-05 0 0 0 0.002159
+8 0.00336 0.000395 0 0 0 -0.003336
+9 0.000884 -0.000772 0 0 0 -0.002562
+10 0.000363 0.000656 0 0 0 -0.005232
+11 0.004529 -0.008599 0 0 0 -0.001213
+12 0.00341 -0.00668 0 0 0 -0.001168
+13 0.001066 -0.00456 0 0 0 0.000838
+14 0.002469 0.000337 0 0 0 0.001459
+15 0.000814 -0.000818 0 0 0 0.00033
+16 0.002412 0.000189 0 0 0 0.006811
+17 -0.000869 0.000401 0 0 0 0.008309
+18 0.000614 -0.000404 0 0 0 0.005806
+
+===== Fitting Weights ====================================================
+
+Validity info for DRWeightLayer, tag Offline:
+
+Created EST: 04/03/2003 12:17:20.118166 by ccon3
+Runs: 1 - 114137, version 4           prehistory - data8
+Runs: 114138 - 115029, version 12     data9 beginning
+Runs: 115030 - 115072, version 4      data9 end
+Runs: 115073 - 117158, version 12     data10 - data11
+Runs: 117159 - 117409, version 15     data12 beginning
+Runs: 117410 - 118192, version 13     data12 end
+Runs: 118193 - 118619, version 16     data13 beginning
+Runs: 118620 - 119032, version 14     data13 end
+Runs: 119033 - 0, version 12          data14 - forever
+
+Validity info for DRWeightLayer, tag PASS2_3Offline:
+
+Created EDT: 04/21/2003 14:17:33.010280 by ccon3
+Runs: 109762 - 110278, version 4      data5
+Runs: 110904 - 113216, version 4      data6, data7
+Runs: 113239 - 114137, version 4      data8
+Runs: 114138 - 115029, version 12     data9 beginning
+Runs: 115030 - 115063, version 4      data9 end
+Runs: 115096 - 116093, version 12     data10
+Runs: 116128 - 117105, version 12     data11
+Runs: 117159 - 117409, version 15     data12 beginning
+Runs: 117410 - 118166, version 13     data12 end
+Runs: 118193 - 118619, version 16     data13 beginning
+Runs: 118620 - 119022, version 14     data13 end
+Runs: 119033 - 119927, version 12     data14
+Runs: 120790 - 121321, version 12     data15ish
+Runs: 121339 - 121643, version 12     data16 beginning
+Runs: 121648 - 122179, version 12     data16 end
+Runs: 122245 - 123304, version 12     data17
+Runs: 123314 - 124575, version 12     data18
+Runs: 124624 - 125416, version 12     data19
+Runs: 125422 - 126206, version 12     data20
+Runs: 126252 - 127545, version 12     data21
+Runs: 127550 - 128401, version 12     data22
+Runs: 129257 - 129488, version 12     data24 
+
+Validity info for DRWeightDrift, tag Offline:
+
+Created EST: 04/03/2003 12:17:20.118166 by ccon3
+Runs: 1 - 114137, version 4           prehistory - data8
+Runs: 114138 - 115029, version 11     data9 beginning
+Runs: 115030 - 115072, version 4      data9 end
+Runs: 115073 - 117158, version 11     data10 - data11
+Runs: 117159 - 117409, version 14     data12 beginning
+Runs: 117410 - 118192, version 12     data12 end
+Runs: 118193 - 118619, version 15     data13 beginning
+Runs: 118620 - 119032, version 13     data13 end
+Runs: 119033 - 0, version 11	      data14 - forever
+
+Validity info for DRWeightDrift, tag PASS2_3Offline:
+
+Created EDT: 04/21/2003 14:17:33.010280 by ccon3
+Runs: 109762 - 110278, version 4      data5
+Runs: 110904 - 113216, version 4      data6, data7
+Runs: 113239 - 114137, version 4      data8
+Runs: 114138 - 115029, version 11     data9 beginning
+Runs: 115030 - 115063, version 4      data9 end
+Runs: 115096 - 116093, version 11     data10
+Runs: 116128 - 117105, version 11     data11
+Runs: 117159 - 117409, version 14     data12 beginning
+Runs: 117410 - 118166, version 12     data12 end
+Runs: 118193 - 118619, version 15     data13 beginning
+Runs: 118620 - 119022, version 13     data13 end
+Runs: 119033 - 119927, version 11     data14
+Runs: 120790 - 121321, version 11     data15ish
+Runs: 121339 - 121643, version 11     data16 beginning
+Runs: 121648 - 122179, version 11     data16 end
+Runs: 122245 - 123304, version 11     data17
+Runs: 123314 - 124575, version 11     data18
+Runs: 124624 - 125416, version 11     data19
+Runs: 125422 - 126206, version 11     data20
+Runs: 126252 - 127545, version 11     data21
+Runs: 127550 - 128401, version 11     data22
+Runs: 129257 - 129488, version 11     data24
+
+Validity info for DRWeightTheta, tag Offline:
+
+Created EST: 04/03/2003 12:17:20.118166 by ccon3
+Runs: 1 - 114137, version 5           prehistory - data8
+Runs: 114138 - 115029, version 12     data9 beginning
+Runs: 115030 - 115072, version 5      data9 end
+Runs: 115073 - 117158, version 12     data10 - data11
+Runs: 117159 - 117409, version 15     data12 beginning
+Runs: 117410 - 118192, version 13     data12 end
+Runs: 118193 - 118619, version 16     data13 beginning
+Runs: 118620 - 119032, version 14     data13 end
+Runs: 119033 - 0, version 12	      data14 - forever
+
+Validity info for DRWeightTheta, tag PASS2_3Offline:
+
+Created EDT: 04/21/2003 14:17:33.010280 by ccon3
+Runs: 109762 - 110278, version 5      data5
+Runs: 110904 - 113216, version 5      data6, data7
+Runs: 113239 - 114137, version 5      data8
+Runs: 114138 - 115029, version 12     data9 beginning
+Runs: 115030 - 115063, version 5      data9 end
+Runs: 115096 - 116093, version 12     data10
+Runs: 116128 - 117105, version 12     data11
+Runs: 117159 - 117409, version 15     data12 beginning
+Runs: 117410 - 118166, version 13     data12 end
+Runs: 118193 - 118619, version 16     data13 beginning
+Runs: 118620 - 119022, version 14     data13 end
+Runs: 119033 - 119927, version 12     data14
+Runs: 120790 - 121321, version 12     data15ish
+Runs: 121339 - 121643, version 12     data16 beginning
+Runs: 121648 - 122179, version 12     data16 end
+Runs: 122245 - 123304, version 12     data17
+Runs: 123314 - 124575, version 12     data18
+Runs: 124624 - 125416, version 12     data19
+Runs: 125422 - 126206, version 12     data20
+Runs: 126252 - 127545, version 12     data21
+Runs: 127550 - 128401, version 12     data22
+Runs: 129257 - 129488, version 12     data24
+
+Offline:
+
+4 4 5      prehistory - data8
+12 11 12   data9 beginning
+4 4 5	   data9 end
+12 11 12   data10 - data11
+15 14 15   data12 beginning
+13 12 13   data12 end
+16 15 16   data13 beginning
+14 13 14   data13 end
+12 11 12   data14 - forever
+
+PASS2_3Offline:
+
+4 4 5      data5
+4 4 5	   data6, data7
+4 4 5	   data8
+12 11 12   data9 beginning
+4 4 5	   data9 end
+12 11 12   data10
+12 11 12   data11
+15 14 15   data12 beginning
+13 12 13   data12 end
+16 15 16   data13 beginning
+14 13 14   data13 end
+12 11 12   data14
+12 11 12   data15ish
+12 11 12   data16 beginning
+12 11 12   data16 end
+12 11 12   data17
+12 11 12   data18
+12 11 12   data19
+12 11 12   data20
+12 11 12   data21
+12 11 12   data22
+12 11 12   data24
+
+Combinations:
+
+4 4 5
+12 11 12
+13 12 13
+14 13 14
+15 14 15
+16 15 16
+
+Type: DBDRWeightLayer
+Destination: /cdat/solon2/disk1/DataBases/new/Codi
+Source: /home/mccann/public/fitweight_01-02-01/lambdas.drweightlayer
+Version: 1.3
+Run Range: from 1 to 0
+Date: Tue Feb  6 17:42:49 2001
+
+Type: DBDRWeightDrift
+Destination: /cdat/solon2/disk1/DataBases/new/Codi
+Source: /home/mccann/public/fitweight_01-02-01/lambdas.drweightdrift
+Version: 1.3
+Run Range: from 1 to 0
+Date: Tue Feb  6 17:44:02 2001
+
+Type: DBDRWeightTheta
+Destination: /cdat/solon2/disk1/DataBases/new/Codi
+Source: /home/mccann/public/fitweight_01-02-01/lambdas.drweighttheta
+Version: 1.3
+Run Range: from 1 to 0
+Date: Tue Feb  6 17:45:00 2001
+
+------------
+
+Type: DBDRWeightLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/mccann/public/fitweight_13-02-01/lambdas.drweightlayer
+Version: 1.4
+Run Range: from 1 to 0
+Date: Tue Feb 13 18:57:03 2001
+
+Type: DBDRWeightDrift
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/mccann/public/fitweight_13-02-01/lambdas.drweightdrift
+Version: 1.4
+Run Range: from 1 to 0
+Date: Tue Feb 13 18:57:08 2001
+
+Type: DBDRWeightTheta
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/mccann/public/fitweight_13-02-01/lambdas.drweighttheta
+Version: 1.4
+Run Range: from 1 to 0
+Date: Tue Feb 13 18:57:13 2001
+
+------------
+
+Type: DBDRWeightTheta
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/mccann/run/MakeFittingWeights/iter6.drweighttheta
+Version: 1.5
+Run Range: from 1 to 0
+Date: Fri Mar 16 16:40:50 2001
+
+------------
+
+Type: DBDRWeightLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/data13_bhabhas.drweightlayer
+Version: 1.5
+Run Range: from 118193 to 0
+Date: Fri May 25 22:39:13 2001
+
+Type: DBDRWeightDrift
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/data13_bhabhas.drweightdrift
+Version: 1.5
+Run Range: from 118193 to 0
+Date: Fri May 25 22:39:23 2001
+
+Type: DBDRWeightTheta
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/data13_bhabhas.drweighttheta
+Version: 1.6
+Run Range: from 118193 to 0
+Date: Fri May 25 22:39:32 2001
+
+------------
+
+Type: DBDRWeightLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/newconst.drweightlayer
+Version: 1.6
+Run Range: from 117159 to 118192
+Date: Wed May 30 18:07:46 2001
+
+Type: DBDRWeightLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/newconst2.drweightlayer
+Version: 1.7
+Run Range: from 118428 to 0
+Date: Wed May 30 18:07:55 2001
+
+Type: DBDRWeightDrift
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/newconst.drweightdrift
+Version: 1.6
+Run Range: from 117159 to 118192
+Date: Wed May 30 18:08:05 2001
+
+Type: DBDRWeightDrift
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/newconst2.drweightdrift
+Version: 1.7
+Run Range: from 118428 to 0
+Date: Wed May 30 18:08:15 2001
+
+Type: DBDRWeightTheta
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/newconst.drweighttheta
+Version: 1.7
+Run Range: from 117159 to 118192
+Date: Wed May 30 18:08:26 2001
+
+Type: DBDRWeightTheta
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/newconst2.drweighttheta
+Version: 1.8
+Run Range: from 118428 to 0
+Date: Wed May 30 18:08:36 2001
+
+------------
+
+Type: DBDRWeightLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/data12_234.drweightlayer
+Version: 1.8
+Run Range: from 117410 to 118192
+Date: Thu Jun  7 00:40:08 2001
+
+Type: DBDRWeightLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/data13_34.drweightlayer
+Version: 1.9
+Run Range: from 118620 to 0
+Date: Thu Jun  7 00:40:16 2001
+
+Type: DBDRWeightDrift
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/data12_234.drweightdrift
+Version: 1.8
+Run Range: from 117410 to 118192
+Date: Thu Jun  7 00:40:25 2001
+
+Type: DBDRWeightDrift
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/data13_34.drweightdrift
+Version: 1.9
+Run Range: from 118620 to 0
+Date: Thu Jun  7 00:40:33 2001
+
+Type: DBDRWeightTheta
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/data12_234.drweighttheta
+Version: 1.9
+Run Range: from 117410 to 118192
+Date: Thu Jun  7 00:40:43 2001
+
+Type: DBDRWeightTheta
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/data13_34.drweighttheta
+Version: 1.10
+Run Range: from 118620 to 0
+Date: Thu Jun  7 00:40:51 2001
+
+------------
+
+Type: DBDRWeightLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/data9.drweightlayer
+Version: 1.10
+Run Range: from 114146 to 114478
+Date: Tue Jun 19 23:18:10 2001
+
+Type: DBDRWeightLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/data9.drweightlayer
+Version: 1.11
+Run Range: from 114146 to 114478
+Date: Tue Jun 19 23:35:04 2001
+
+Type: DBDRWeightDrift
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/data9.drweightdrift
+Version: 1.10
+Run Range: from 114146 to 114478
+Date: Tue Jun 19 23:35:12 2001
+
+Type: DBDRWeightTheta
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/data9.drweighttheta
+Version: 1.11
+Run Range: from 114146 to 114478
+Date: Tue Jun 19 23:35:20 2001
+
+------------
+
+Type: DBDRWeightLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/data14.drweightlayer
+Version: 1.12
+Run Range: from 109033 to 0
+Date: Thu Jun 21 18:53:36 2001
+
+Type: DBDRWeightDrift
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/data14.drweightdrift
+Version: 1.11
+Run Range: from 109033 to 0
+Date: Thu Jun 21 18:53:45 2001
+
+Type: DBDRWeightTheta
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/data14.drweighttheta
+Version: 1.12
+Run Range: from 109033 to 0
+Date: Thu Jun 21 18:53:53 2001
+
+------------
+
+Type: DBDRWeightLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/data12_234.drweightlayer
+Version: 1.13
+Run Range: from 117410 to 118192
+Date: Thu Jun 28 17:04:20 2001
+
+Type: DBDRWeightLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/data13_34.drweightlayer
+Version: 1.14
+Run Range: from 118620 to 119032
+Date: Thu Jun 28 17:04:27 2001
+
+Type: DBDRWeightLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/raised_outside_cell_d12w1.drweightlayer
+Version: 1.15
+Run Range: from 117159 to 117409
+Date: Thu Jun 28 17:04:33 2001
+
+Type: DBDRWeightLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/raised_outside_cell_d13w12.drweightlayer
+Version: 1.16
+Run Range: from 118193 to 118619
+Date: Thu Jun 28 17:04:40 2001
+
+Type: DBDRWeightDrift
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/data12_234.drweightdrift
+Version: 1.12
+Run Range: from 117410 to 118192
+Date: Thu Jun 28 17:04:48 2001
+
+Type: DBDRWeightDrift
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/data13_34.drweightdrift
+Version: 1.13
+Run Range: from 118620 to 119032
+Date: Thu Jun 28 17:04:55 2001
+
+Type: DBDRWeightDrift
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/raised_outside_cell_d12w1.drweightdrift
+Version: 1.14
+Run Range: from 117159 to 117409
+Date: Thu Jun 28 17:05:02 2001
+
+Type: DBDRWeightDrift
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/raised_outside_cell_d13w12.drweightdrift
+Version: 1.15
+Run Range: from 118193 to 118619
+Date: Thu Jun 28 17:05:10 2001
+
+Type: DBDRWeightTheta
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/data12_234.drweighttheta
+Version: 1.13
+Run Range: from 117410 to 118192
+Date: Thu Jun 28 17:05:18 2001
+
+Type: DBDRWeightTheta
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/data13_34.drweighttheta
+Version: 1.14
+Run Range: from 118620 to 119032
+Date: Thu Jun 28 17:05:25 2001
+
+Type: DBDRWeightTheta
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/raised_outside_cell_d12w1.drweighttheta
+Version: 1.15
+Run Range: from 117159 to 117409
+Date: Thu Jun 28 17:05:32 2001
+
+Type: DBDRWeightTheta
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/raised_outside_cell_d13w12.drweighttheta
+Version: 1.16
+Run Range: from 118193 to 118619
+Date: Thu Jun 28 17:05:39 2001
+
+===== Silicon Alignment ==================================================
+
+Validity info for SVAlignmentGlobal, tag Offline:
+
+Created EST: 04/03/2003 12:17:20.118166 by ccon3
+Runs: 1 - 0, version 16
+
+Validity info for SVAlignmentGlobal, tag PASS2_3Offline:
+
+Created EDT: 04/21/2003 14:17:33.010280 by ccon3
+Runs: 109762 - 110278, version 16
+Runs: 110904 - 113216, version 16
+Runs: 113239 - 115063, version 16
+Runs: 115096 - 116093, version 16
+Runs: 116128 - 117105, version 16
+Runs: 117159 - 118166, version 16
+Runs: 118193 - 119022, version 16
+Runs: 119033 - 119927, version 16
+Runs: 120790 - 121321, version 16
+Runs: 121339 - 121643, version 16
+Runs: 121648 - 122179, version 16
+Runs: 122245 - 123304, version 16
+Runs: 123314 - 124575, version 16
+Runs: 124624 - 125416, version 16
+Runs: 125422 - 126206, version 16
+Runs: 126252 - 127545, version 16
+Runs: 127550 - 128401, version 16
+Runs: 129257 - 129488, version 16
+
+Validity info for SVAlignmentLayer, tag Offline:
+
+Created EST: 04/03/2003 12:17:20.118166 by ccon3
+Runs: 1 - 0, version 18
+
+Validity info for SVAlignmentLayer, tag PASS2_3Offline:
+
+Created EDT: 04/21/2003 14:17:33.010280 by ccon3
+Runs: 109762 - 110278, version 18
+Runs: 110904 - 113216, version 18
+Runs: 113239 - 115063, version 18
+Runs: 115096 - 116093, version 18
+Runs: 116128 - 117105, version 18
+Runs: 117159 - 118166, version 18
+Runs: 118193 - 119022, version 18
+Runs: 119033 - 119927, version 18
+Runs: 120790 - 121321, version 18
+Runs: 121339 - 121643, version 18
+Runs: 121648 - 122179, version 18
+Runs: 122245 - 123304, version 18
+Runs: 123314 - 124575, version 18
+Runs: 124624 - 125416, version 18
+Runs: 125422 - 126206, version 18
+Runs: 126252 - 127545, version 18
+Runs: 127550 - 128401, version 18
+Runs: 129257 - 129488, version 18
+
+Validity info for SVAlignmentLadder, tag Offline:
+
+Created EST: 04/03/2003 12:17:20.118166 by ccon3
+Runs: 1 - 0, version 18
+
+Validity info for SVAlignmentLadder, tag PASS2_3Offline:
+
+Created EDT: 04/21/2003 14:17:33.010280 by ccon3
+Runs: 109762 - 110278, version 18
+Runs: 110904 - 113216, version 18
+Runs: 113239 - 115063, version 18
+Runs: 115096 - 116093, version 18
+Runs: 116128 - 117105, version 18
+Runs: 117159 - 118166, version 18
+Runs: 118193 - 119022, version 18
+Runs: 119033 - 119927, version 18
+Runs: 120790 - 121321, version 18
+Runs: 121339 - 121643, version 18
+Runs: 121648 - 122179, version 18
+Runs: 122245 - 123304, version 18
+Runs: 123314 - 124575, version 18
+Runs: 124624 - 125416, version 18
+Runs: 125422 - 126206, version 18
+Runs: 126252 - 127545, version 18
+Runs: 127550 - 128401, version 18
+Runs: 129257 - 129488, version 18
+
+Validity info for SVAlignmentSensor, tag Offline:
+
+Created EST: 04/03/2003 12:17:20.118166 by ccon3
+Runs: 1 - 0, version 7
+
+Validity info for SVAlignmentSensor, tag PASS2_3Offline:
+
+Created EDT: 04/21/2003 14:17:33.010280 by ccon3
+Runs: 109762 - 110278, version 7
+Runs: 110904 - 113216, version 7
+Runs: 113239 - 115063, version 7
+Runs: 115096 - 116093, version 7
+Runs: 116128 - 117105, version 7
+Runs: 117159 - 118166, version 7
+Runs: 118193 - 119022, version 7
+Runs: 119033 - 119927, version 7
+Runs: 120790 - 121321, version 7
+Runs: 121339 - 121643, version 7
+Runs: 121648 - 122179, version 7
+Runs: 122245 - 123304, version 7
+Runs: 123314 - 124575, version 7
+Runs: 124624 - 125416, version 7
+Runs: 125422 - 126206, version 7
+Runs: 126252 - 127545, version 7
+Runs: 127550 - 128401, version 7
+Runs: 129257 - 129488, version 7
+
+Type: DBSVAlignmentGlobal
+Destination: /cdat/solon2/disk1/DataBases/new/Codi
+Source: /home/llh14/suez/sharedFiles/si3.svalignmentglobal8
+Version: 1.4
+Run Range: from 1 to 0
+Date: Thu Dec 21 23:52:23 2000
+
+Type: DBSVAlignmentLayer
+Destination: /cdat/solon2/disk1/DataBases/new/Codi
+Source: /home/llh14/suez/sharedFiles/si3.svalignmentlayer_fixedShells
+Version: 1.6
+Run Range: from 1 to 0
+Date: Thu Dec 21 23:52:00 2000
+
+Type: DBSVAlignmentLadder
+Destination: /cdat/solon2/disk1/DataBases/new/Codi
+Source: /home/llh14/suez/sharedFiles/si3.svalignmentladder_fixedShells
+Version: 1.7
+Run Range: from 1 to 0
+Date: Thu Dec 21 23:51:27 2000
+
+Type: DBSVAlignmentSensor
+Destination: /cdat/solon2/disk1/DataBases/new/Codi
+Source: /home/llh14/suez/sharedFiles/si3.svalignmentsensor8_w
+Version: 1.4
+Run Range: from 1 to 0
+Date: Thu Dec 21 23:50:58 2000
+
+------------
+
+Type: DBSVAlignmentGlobal
+Destination: /cdat/solon2/disk1/DataBases/new/Codi
+Source: /home/llh14/suez/sharedFiles/si3.svalignmentglobal_Feb_04b
+Version: 1.5
+Run Range: from 1 to 0
+Date: Tue Feb  6 17:48:41 2001
+
+Type: DBSVAlignmentLayer
+Destination: /cdat/solon2/disk1/DataBases/new/Codi
+Source: /home/llh14/suez/sharedFiles/si3.svalignmentlayer_Feb_04
+Version: 1.7
+Run Range: from 1 to 0
+Date: Tue Feb  6 17:50:32 2001
+
+Type: DBSVAlignmentLadder
+Destination: /cdat/solon2/disk1/DataBases/new/Codi
+Source: /home/llh14/suez/sharedFiles/si3.svalignmentladder_Feb_04
+Version: 1.8
+Run Range: from 1 to 0
+Date: Tue Feb  6 17:49:34 2001
+
+------------
+
+Type: DBSVAlignmentGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/llh14/suez/sharedFiles/si3.svalignmentglobal_Feb_08b
+Version: 1.6
+Run Range: from 1 to 0
+Date: Tue Feb 13 18:56:50 2001
+
+Type: DBSVAlignmentLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/llh14/suez/sharedFiles/si3.svalignmentlayer_Feb_08
+Version: 1.8
+Run Range: from 1 to 0
+Date: Tue Feb 13 18:56:54 2001
+
+Type: DBSVAlignmentLadder
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/llh14/suez/sharedFiles/si3.svalignmentladder_Feb_08
+Version: 1.9
+Run Range: from 1 to 0
+Date: Tue Feb 13 18:56:59 2001
+
+------------
+
+Type: DBSVAlignmentGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/llh14/suez/sharedFiles/si3.svalignmentglobal_Feb_15
+Version: 1.7
+Run Range: from 109165 to 111254
+Date: Tue Feb 20 20:12:00 2001
+
+Type: DBSVAlignmentLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/llh14/suez/sharedFiles/si3.svalignmentlayer_Feb_15
+Version: 1.9
+Run Range: from 109165 to 111254
+Date: Tue Feb 20 20:12:05 2001
+
+Type: DBSVAlignmentLadder
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/llh14/suez/sharedFiles/si3.svalignmentladder_Feb_15
+Version: 1.10
+Run Range: from 109165 to 111254
+Date: Tue Feb 20 20:12:10 2001
+
+------------
+
+Type: DBSVAlignmentGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/llh14/suez/sharedFiles/si3.svalignmentglobal_111888a
+Version: 1.8
+Run Range: from 111255 to 115093
+Date: Tue Feb 27 17:18:15 2001
+
+Type: DBSVAlignmentGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/llh14/suez/sharedFiles/si3.svalignmentglobal_115096a
+Version: 1.9
+Run Range: from 115094 to 0
+Date: Tue Feb 27 17:18:21 2001
+
+Type: DBSVAlignmentLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/llh14/suez/sharedFiles/si3.svalignmentlayer_111888a
+Version: 1.10
+Run Range: from 111255 to 115093
+Date: Tue Feb 27 17:18:27 2001
+
+Type: DBSVAlignmentLadder
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/llh14/suez/sharedFiles/si3.svalignmentladder_111888a
+Version: 1.11
+Run Range: from 111255 to 115093
+Date: Tue Feb 27 17:18:32 2001
+
+------------
+
+Type: DBSVAlignmentGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/llh14/daf/sillycone/finalConstants/si3.svalignmentglobal_111888b
+Version: 1.10
+Run Range: from 111255 to 115093
+Date: Thu Mar  8 12:36:41 2001
+
+Type: DBSVAlignmentLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/llh14/daf/sillycone/finalConstants/si3.svalignmentlayer_111888b
+Version: 1.11
+Run Range: from 111255 to 115093
+Date: Thu Mar  8 12:36:47 2001
+
+Type: DBSVAlignmentLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/llh14/daf/sillycone/finalConstants/si3.svalignmentlayer_115096a
+Version: 1.12
+Run Range: from 115094 to 0
+Date: Thu Mar  8 12:36:52 2001
+
+Type: DBSVAlignmentLadder
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/llh14/daf/sillycone/finalConstants/si3.svalignmentladder_111888b
+Version: 1.12
+Run Range: from 111255 to 115093
+Date: Thu Mar  8 12:36:57 2001
+
+Type: DBSVAlignmentLadder
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/llh14/daf/sillycone/finalConstants/si3.svalignmentladder_115096a
+Version: 1.13
+Run Range: from 115094 to 0
+Date: Thu Mar  8 12:37:02 2001
+
+------------
+
+Type: DBSVAlignmentGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/sialign/finalConstants/si3.svalignmentglobal_115096b
+Version: 1.11
+Run Range: from 115094 to 0
+Date: Tue Mar 13 21:10:17 2001
+
+Type: DBSVAlignmentLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/sialign/finalConstants/si3.svalignmentlayer_115096b
+Version: 1.13
+Run Range: from 115094 to 0
+Date: Tue Mar 13 21:10:23 2001
+
+Type: DBSVAlignmentLadder
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/sialign/finalConstants/si3.svalignmentladder_115096b
+Version: 1.14
+Run Range: from 115094 to 0
+Date: Tue Mar 13 21:10:29 2001
+
+------------
+
+Type: DBSVAlignmentGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/sialign/finalConstants/si3.svalignmentglobal_116330b
+Version: 1.12
+Run Range: from 116324 to 0
+Date: Tue Apr 17 21:24:28 2001
+
+Type: DBSVAlignmentLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/sialign/finalConstants/si3.svalignmentlayer_116330b
+Version: 1.14
+Run Range: from 116324 to 0
+Date: Tue Apr 17 21:24:34 2001
+
+------------
+
+Type: DBSVAlignmentLadder
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/sialign/finalConstants/si3.svalignmentladder_116330c
+Version: 1.15
+Run Range: from 116324 to 0
+Date: Thu Apr 19 17:56:54 2001
+
+Type: DBSVAlignmentSensor
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/sialign/finalConstants/si3.svalignmentsensor_116330c
+Version: 1.5
+Run Range: from 116324 to 0
+Date: Thu Apr 19 17:57:00 2001
+
+------------
+
+Type: DBSVAlignmentGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/sialign/finalConstants/si3.svalignmentglobal_116589b
+Version: 1.13
+Run Range: from 116567 to 0
+Date: Wed May  2 01:01:22 2001
+
+Type: DBSVAlignmentLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/sialign/finalConstants/si3.svalignmentlayer_116589b
+Version: 1.15
+Run Range: from 116567 to 0
+Date: Wed May  2 01:01:49 2001
+
+Type: DBSVAlignmentLadder
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/sialign/finalConstants/si3.svalignmentladder_116589b
+Version: 1.16
+Run Range: from 116567 to 0
+Date: Wed May  2 01:02:00 2001
+
+Type: DBSVAlignmentSensor
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/sialign/finalConstants/si3.svalignmentsensor_115096g
+Version: 1.6
+Run Range: from 116567 to 0
+Date: Wed May  2 01:02:07 2001
+
+------------
+
+Type: DBSVAlignmentGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/si3.svalignmentglobal_117611b
+Version: 1.14
+Run Range: from 117610 to 0
+Date: Wed May  9 17:14:18 2001
+
+Type: DBSVAlignmentLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/si3.svalignmentlayer_117611b
+Version: 1.16
+Run Range: from 117610 to 0
+Date: Wed May  9 17:14:24 2001
+
+------------
+
+Type: DBSVAlignmentGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/si3_118193b.svalignmentglobal
+Version: 1.15
+Run Range: from 118428 to 0
+Date: Fri Jun  1 21:48:11 2001
+
+Type: DBSVAlignmentLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/si3_118193b.svalignmentlayer
+Version: 1.17
+Run Range: from 118428 to 0
+Date: Fri Jun  1 21:48:18 2001
+
+Type: DBSVAlignmentLadder
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/si3_118193b.svalignmentladder
+Version: 1.17
+Run Range: from 118428 to 0
+Date: Fri Jun  1 21:48:26 2001
+
+------------
+
+Type: DBSVAlignmentGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/repass2.svalignmentglobal
+Version: 1.16
+Run Range: from 113239 to 114137
+Date: Fri Oct  5 19:57:57 2001
+
+Type: DBSVAlignmentLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/repass2.svalignmentlayer
+Version: 1.18
+Run Range: from 113239 to 114137
+Date: Fri Oct  5 19:58:07 2001
+
+Type: DBSVAlignmentLadder
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/repass2.svalignmentladder
+Version: 1.18
+Run Range: from 113239 to 114137
+Date: Fri Oct  5 19:58:21 2001
+
+Type: DBSVAlignmentSensor
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/repass2.svalignmentsensor
+Version: 1.7
+Run Range: from 113239 to 114137
+Date: Fri Oct  5 19:58:30 2001
+
+===== Silicon Fitting Weights ============================================
+
+Validity info for SVResolutionGlobal, tag Offline:
+
+Created EST: 04/03/2003 12:17:20.118166 by ccon3
+Runs: 1 - 0, version 29
+
+Validity info for SVResolutionGlobal, tag PASS2_3Offline:
+
+Created EDT: 04/21/2003 14:17:33.010280 by ccon3
+Runs: 109762 - 110278, version 29
+Runs: 110904 - 113216, version 29
+Runs: 113239 - 115063, version 29
+Runs: 115096 - 116093, version 29
+Runs: 116128 - 117105, version 29
+Runs: 117159 - 118166, version 29
+Runs: 118193 - 119022, version 29
+Runs: 119033 - 119927, version 29
+Runs: 120790 - 121321, version 29
+Runs: 121339 - 121643, version 29
+Runs: 121648 - 122179, version 29
+Runs: 122245 - 123304, version 29
+Runs: 123314 - 124575, version 29
+Runs: 124624 - 125416, version 29
+Runs: 125422 - 126206, version 29
+Runs: 126252 - 127545, version 29
+Runs: 127550 - 128401, version 29
+Runs: 129257 - 129488, version 29
+
+Validity info for SVResolutionLayer, tag Offline:
+
+Created EST: 04/03/2003 12:17:20.118166 by ccon3
+Runs: 1 - 0, version 9
+
+Validity info for SVResolutionLayer, tag PASS2_3Offline:
+
+Created EDT: 04/21/2003 14:17:33.010280 by ccon3
+Runs: 109762 - 110278, version 9
+Runs: 110904 - 113216, version 9
+Runs: 113239 - 115063, version 9
+Runs: 115096 - 116093, version 9
+Runs: 116128 - 117105, version 9
+Runs: 117159 - 118166, version 9
+Runs: 118193 - 119022, version 9
+Runs: 119033 - 119927, version 9
+Runs: 120790 - 121321, version 9
+Runs: 121339 - 121643, version 9
+Runs: 121648 - 122179, version 9
+Runs: 122245 - 123304, version 9
+Runs: 123314 - 124575, version 9
+Runs: 124624 - 125416, version 9
+Runs: 125422 - 126206, version 9
+Runs: 126252 - 127545, version 9
+Runs: 127550 - 128401, version 9
+Runs: 129257 - 129488, version 9
+
+Type: DBSVResolutionGlobal
+Destination: /cdat/solon2/disk1/DataBases/new/Codi
+Source: /home/llh14/suez/sharedFiles/si3.svresolutionglobal_current
+Version: 1.2
+Run Range: from 1 to 0
+Date: Thu Dec 21 23:52:58 2000
+
+------------
+
+Type: DBSVResolutionGlobal
+Destination: /cdat/solon2/disk1/DataBases/new/Codi
+Source: /home/llh14/suez/sharedFiles/si3.svresolutionglobal_original
+Version: 1.3
+Run Range: from 1 to 0
+Date: Tue Feb  6 17:51:27 2001
+
+------------
+
+Type: DBSVResolutionGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/llh14/suez/sharedFiles/si3.svresolutionglobal_Feb_15
+Version: 1.4
+Run Range: from 109165 to 111254
+Date: Tue Feb 20 20:33:58 2001
+
+------------
+
+Type: DBSVResolutionGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/llh14/suez/sharedFiles/si3.svresolutionglobal_111888a
+Version: 1.5
+Run Range: from 111255 to 115093
+Date: Tue Feb 27 17:18:38 2001
+
+Type: DBSVResolutionGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/llh14/suez/sharedFiles/si3.svresolutionglobal_115096a
+Version: 1.6
+Run Range: from 115094 to 0
+Date: Tue Feb 27 17:18:43 2001
+
+------------
+
+Type: DBSVResolutionGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/llh14/daf/sillycone/finalConstants/si3.svresolutionglobal_111888b
+Version: 1.7
+Run Range: from 111255 to 115093
+Date: Thu Mar  8 12:37:14 2001
+
+------------
+
+Type: DBSVResolutionGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/sialign/finalConstants/si3.svresolutionglobal_111888c
+Version: 1.8
+Run Range: from 111255 to 115093
+Date: Tue Mar 13 21:12:08 2001
+
+Type: DBSVResolutionGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/sialign/finalConstants/si3.svresolutionglobal_115096b
+Version: 1.9
+Run Range: from 115094 to 0
+Date: Tue Mar 13 21:12:12 2001
+
+------------
+
+Type: DBSVResolutionLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/sialign/finalConstants/si3.svresolutionlayer
+Version: 1.1
+Run Range: from 1 to 0
+Date: Wed Mar 21 05:59:41 2001
+
+------------
+
+Type: DBSVResolutionLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /cdat/sol202/disk1/ccon3/Install/ASCII/si3.svresolutionlayer_115096
+Version: 1.2
+Run Range: from 115094 to 0
+Date: Wed Mar 28 16:10:40 2001
+
+------------
+
+Type: DBSVResolutionGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/sialign/finalConstants/si3.svresolutionglobal_115356a
+Version: 1.10
+Run Range: from 115356 to 0
+Date: Thu Apr  5 20:24:14 2001
+
+------------
+
+Type: DBSVResolutionGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/sialign/finalConstants/si3.svresolutionglobal_116330b
+Version: 1.11
+Run Range: from 116324 to 0
+Date: Tue Apr 17 21:32:34 2001
+
+------------
+
+Type: DBSVResolutionGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/sialign/finalConstants/si3.svresolutionglobal_116330c
+Version: 1.12
+Run Range: from 116324 to 0
+Date: Thu Apr 19 17:57:06 2001
+
+------------
+
+Type: DBSVResolutionGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/sialign/finalConstants/si3.svresolutionglobal_116589b
+Version: 1.13
+Run Range: from 116567 to 0
+Date: Wed May  2 01:02:36 2001
+
+Type: DBSVResolutionLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/sialign/finalConstants/si3.svresolutionlayer_116589b
+Version: 1.3
+Run Range: from 116567 to 0
+Date: Wed May  2 01:02:43 2001
+
+------------
+
+Type: DBSVResolutionGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/si3.svresolutionglobal_117611b
+Version: 1.14
+Run Range: from 117610 to 0
+Date: Wed May  9 17:14:30 2001
+
+------------
+
+Type: DBSVResolutionGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/si3_no_code_change.svresolutionglobal
+Version: 1.15
+Run Range: from 117610 to 0
+Date: Thu May 24 15:03:56 2001
+
+------------
+
+Type: DBSVResolutionGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/layer_fixed_117159.svresolutionglobal
+Version: 1.16
+Run Range: from 117159 to 117409
+Date: Tue May 29 16:19:34 2001
+
+Type: DBSVResolutionGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/layer_fixed_117410.svresolutionglobal
+Version: 1.17
+Run Range: from 117410 to 117698
+Date: Tue May 29 16:19:50 2001
+
+Type: DBSVResolutionGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/layer_fixed_117699.svresolutionglobal
+Version: 1.18
+Run Range: from 117699 to 117952
+Date: Tue May 29 16:19:56 2001
+
+Type: DBSVResolutionGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/layer_fixed_117953.svresolutionglobal
+Version: 1.19
+Run Range: from 117953 to 118192
+Date: Tue May 29 16:20:05 2001
+
+Type: DBSVResolutionGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/layer_fixed_118193.svresolutionglobal
+Version: 1.20
+Run Range: from 118193 to 118427
+Date: Tue May 29 16:20:13 2001
+
+Type: DBSVResolutionGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/layer_fixed_118428.svresolutionglobal
+Version: 1.21
+Run Range: from 118428 to 118619
+Date: Tue May 29 16:20:20 2001
+
+Type: DBSVResolutionGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/layer_fixed_118620.svresolutionglobal
+Version: 1.22
+Run Range: from 118620 to 0
+Date: Tue May 29 16:20:28 2001
+
+Type: DBSVResolutionLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/layer_fixed.svresolutionlayer
+Version: 1.4
+Run Range: from 117159 to 0
+Date: Tue May 29 16:20:35 2001
+
+------------
+
+Type: DBSVResolutionLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/si3.svresolutionlayer
+Version: 1.5
+Run Range: from 115094 to 117158
+Date: Wed May 30 18:08:56 2001
+
+------------
+
+Type: DBSVResolutionGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/layer_fixed_118847.svresolutionglobal
+Version: 1.23
+Run Range: from 118847 to 0
+Date: Tue Jun  5 17:38:45 2001
+
+------------
+
+Type: DBSVResolutionGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/data9.svresolutionglobal
+Version: 1.24
+Run Range: from 114146 to 114478
+Date: Tue Jun 19 23:35:35 2001
+
+Type: DBSVResolutionLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/data9.svresolutionlayer
+Version: 1.6
+Run Range: from 114146 to 114478
+Date: Tue Jun 19 23:35:42 2001
+
+------------
+
+Type: DBSVResolutionGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/data14w1.svresolutionglobal
+Version: 1.25
+Run Range: from 119033 to 119265
+Date: Thu Jun 21 18:55:36 2001
+
+Type: DBSVResolutionGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/data14w23.svresolutionglobal
+Version: 1.26
+Run Range: from 119266 to 0
+Date: Thu Jun 21 18:55:42 2001
+
+------------
+
+Type: DBSVResolutionGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/data8.svresolutionglobal
+Version: 1.27
+Run Range: from 113239 to 114146
+Date: Thu Jun 28 17:05:46 2001
+
+Type: DBSVResolutionLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/data8.svresolutionlayer
+Version: 1.7
+Run Range: from 113239 to 114146
+Date: Thu Jun 28 17:05:53 2001
+
+------------
+
+Type: DBSVResolutionGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/repass2.svresolutionglobal
+Version: 1.28
+Run Range: from 113239 to 114137
+Date: Fri Oct  5 19:58:38 2001
+
+Type: DBSVResolutionLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/repass2.svresolutionlayer
+Version: 1.8
+Run Range: from 113239 to 114137
+Date: Fri Oct  5 19:58:47 2001
+
+------------
+
+Type: DBSVResolutionGlobal
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/fixed_repass2.svresolutionglobal
+Version: 1.29
+Run Range: from 113239 to 114137
+Date: Wed Oct 10 17:43:42 2001
+
+Type: DBSVResolutionLayer
+Destination: /cdat/solon2/disk2/DataBases/Codi
+Source: /home/ccon3/ccon3/Install/ASCII/fixed_repass2.svresolutionlayer
+Version: 1.9
+Run Range: from 113239 to 114137
+Date: Wed Oct 10 17:43:50 2001
+
+------------
+
+===== Garfield Corrections ===============================================
+
+Validity info for DRGarfield_DistanceCorrection, tag Offline:
+
+Created EST: 04/03/2003 12:17:20.118166 by ccon3
+Runs: 1 - 0, version 5
+
+Validity info for DRGarfield_DistanceCorrection, tag PASS2_3Offline:
+
+Created EDT: 04/21/2003 14:17:33.010280 by ccon3
+Runs: 109762 - 110278, version 5
+Runs: 110904 - 113216, version 5
+Runs: 113239 - 114137, version 4
+Runs: 114138 - 115063, version 5
+Runs: 115096 - 116093, version 5
+Runs: 116128 - 117105, version 5
+Runs: 117159 - 118166, version 5
+Runs: 118193 - 119022, version 5
+Runs: 119033 - 119927, version 5
+Runs: 120790 - 121321, version 4
+Runs: 121339 - 121643, version 5
+Runs: 121648 - 122179, version 5
+Runs: 122245 - 123304, version 5
+Runs: 123314 - 124575, version 5
+Runs: 124624 - 125416, version 5
+Runs: 125422 - 126206, version 5
+Runs: 126252 - 127545, version 5
+Runs: 127550 - 128401, version 5
+Runs: 129257 - 129488, version 5
+
+Validity info for DRGarfield_TimeCorrection, tag Offline:
+
+Created EST: 04/03/2003 12:17:20.118166 by ccon3
+Runs: 1 - 0, version 1
+
+Validity info for DRGarfield_TimeCorrection, tag PASS2_3Offline:
+
+Created EDT: 04/21/2003 14:17:33.010280 by ccon3
+Runs: 109762 - 110278, version 1
+Runs: 110904 - 113216, version 1
+Runs: 113239 - 115063, version 1
+Runs: 115096 - 116093, version 1
+Runs: 116128 - 117105, version 1
+Runs: 117159 - 118166, version 1
+Runs: 118193 - 119022, version 1
+Runs: 119033 - 119927, version 1
+Runs: 120790 - 121321, version 1
+Runs: 121339 - 121643, version 1
+Runs: 121648 - 122179, version 1
+Runs: 122245 - 123304, version 1
+Runs: 123314 - 124575, version 1
+Runs: 124624 - 125416, version 1
+Runs: 125422 - 126206, version 1
+Runs: 126252 - 127545, version 1
+Runs: 127550 - 128401, version 1
+Runs: 129257 - 129488, version 1

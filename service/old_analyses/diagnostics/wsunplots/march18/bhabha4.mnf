@@ -1,0 +1,83 @@
+set def
+cd fitdiagproc
+fetch 0
+
+cut del 0
+cut new cl > clcut
+cut new seedsev .eq. 2
+cut new abs(costfit) < 0.9
+cut use 1&2&3
+
+nt/pr 1 momfit &1 60 4 5.5
+copy 1&1 100
+
+set ssize .1
+
+set plot 100 default
+dep start1 = r125 * 0.75
+dep start2 = r125 * 0.25
+dep norm = r125 * 0.1 * (5.5-4)
+
+fun del 0
+!fun add bif sig
+!start1
+!5.3
+!0.07
+!0.04
+fun add gau sig
+start1
+4.8
+0.04
+fun add bif sig
+start2
+4.7
+.4
+.2
+!fun add pol 2
+!norm
+!0
+!0
+!5.3
+
+fit 100
+1
+!exc 5.6 6
+inc 4.5 5
+minim
+dep area = P1(1)
+dep darea = ERR1(1)
+dep avg = P1(2)
+dep davg = ERR1(2)
+dep sig = P1(3)
+dep dsig = ERR1(3)
+!dep sig2 = P1(4)
+!dep dsig2 = ERR1(4)
+dis
+exit
+
+set thick 5
+set header off
+set title user 'Momentum from Kalman filter (@1)'
+dep ylimit = r208 * 1.25
+set y limits 0 ylimit
+set x label 'momentum (GeV)'
+
+set colour symbol red
+pl 100
+set colour symbol green
+over 100&981 -1
+
+comment
+100
+new
+Fit to Gaussian + bifurcated Gaussian
+10.5 15.5 .45 0 centre cm 2000 blue 5
+new
+'mean {avg,(F6.4)} "a# {davg,(F6.4)} GeV'
+10.5 14.5 .4 0 centre cm 2000 green 5
+new
+'sigma {sig,(F6.4)} "a# {dsig,(F6.4)} GeV'
+10.5 13.5 .4 0 centre cm 2000 green 5
+
+hard post
+

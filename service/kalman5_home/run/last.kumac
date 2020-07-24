@@ -1,0 +1,27 @@
+*** Begin of history file: Tue Jun  3 10:18:50 2003
+nt/cr 1 'both' 8 ! ! 'ped' 'phi' 'phd' 'pff' 'eed' 'ehi' 'ehd' 'eff'
+nt/cr 2 'both' 8 ! ! 'ped' 'phi' 'phd' 'pff' 'eed' 'ehi' 'ehd' 'eff'
+nt/read 2 '../pds/another.ntuple'
+nt/cr 3 'both' 8 ! ! 'ped' 'phi' 'phd' 'pff' 'eed' 'ehi' 'ehd' 'eff'
+nt/read 3 '../pds/another_ba.ntuple'
+h/cr/2d 9999 'hits actually dropped VS HitsDropped() --- current' 12 -0.5 3.5 4 -0.5 3.5
+h/cr/2d 9998 'hits actually dropped VS HitsDropped() --- downgraded' 12 -0.5 3.5 4 -0.5 3.5
+nt/plot 2.phi-ped%phd ! ! ! ! text 9999
+nt/plot 3.phi-ped%phd ! ! ! ! text 9998
+h/cr/2d 9999 'hits actually dropped VS HitsDropped() --- new' 12 -0.5 3.5 4 -0.5 3.5
+h/cr/2d 9998 'hits actually dropped VS HitsDropped() --- old' 12 -0.5 3.5 4 -0.5 3.5
+nt/plot 2.phi-ped%phd ! ! ! ! text 9999
+nt/plot 3.phi-ped%phd ! ! ! ! text 9998
+nt/plot 2.phi-ped%phd ! ! ! ! text 9999
+nt/plot 2.phi-ped%phd ! ! ! ! text 9999
+nt/plot 3.phi-ped%phd ! ! ! ! text 9998
+nt/plot 2.phi-ped%phd ! ! ! ! text 9999
+nt/plot 3.phi-ped%phd ! ! ! ! text 9998
+nt/plot 2.phi-ped%phd ! ! ! ! text 9999
+nt/plot 3.phi-ped%phd ! ! ! ! text 9998
+nt/plot 2.phi-ped%phd ! ! ! ! text 9999
+pict/print another.ps
+nt/plot 3.phi-ped%phd ! ! ! ! text 9998
+pict/print another_ba.ps
+exit
+*** End   of history file: Tue Jun  3 14:13:45 2003

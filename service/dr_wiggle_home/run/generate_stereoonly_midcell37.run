@@ -1,0 +1,14 @@
+#!/usr/local/bin/tcsh
+
+cd $HOME/dr_wiggle/run
+. /nfs/cleo3/scripts/cleo3defs
+c3rel Nov04_02_P2
+
+USER_N="37"
+export USER_N
+USER_RUNSTART="127016"
+export USER_RUNSTART
+USER_RUNEND="127032"
+export USER_RUNEND
+
+suez -f generate_stereoonly_midcell.tcl > $USER_TMP/generate_stereoonly_midcell37.log

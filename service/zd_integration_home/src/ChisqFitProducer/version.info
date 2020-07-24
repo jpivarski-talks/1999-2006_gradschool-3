@@ -1,0 +1,259 @@
+
+Module : ChisqFitProducer
+
+Date   : Fri Jun 18 15:40:22 1999
+User   : wsun
+Old Tag: 
+New Tag: v01_00_00
+Message: First submission.
+
+Module : ChisqFitProducer
+
+Date   : Sun Jun 20 18:50:39 1999
+User   : wsun
+Old Tag: v01_00_00
+New Tag: v01_01_00
+Message: Added proxies for all ten fit hypotheses.
+
+Module : ChisqFitProducer
+
+Date   : Thu Jun 24 18:57:17 1999
+User   : wsun
+Old Tag: v01_01_00
+New Tag: v01_02_00
+Message: Added use of HIMagField.
+
+Module : ChisqFitProducer
+
+Date   : Wed Jun 30 19:57:37 1999
+User   : wsun
+Old Tag: v01_02_00
+New Tag: v01_02_01
+Message: Added SiHits to CLEO3_LIBS in Makefile.
+
+Module : ChisqFitProducer
+
+Date   : Wed Jul  7 12:45:53 1999
+User   : wsun
+Old Tag: v01_02_01
+New Tag: v02_00_00
+Message: Added mechanism for applying constraints in track fitter.
+
+Module : ChisqFitProducer
+
+Date   : Sat Jul 17 16:29:34 1999
+User   : cdj
+Old Tag: v02_00_00
+New Tag: v02_01_00
+Message: now compiles when CC optimization is on
+
+Module : ChisqFitProducer
+
+Date   : Mon Aug 30 18:15:45 1999
+User   : wsun
+Old Tag: v02_01_00
+New Tag: v02_01_01
+Message: More accurate hit counting in ChisqCandidateQualityProxy.cc.
+
+Module : ChisqFitProducer
+
+Date   : Tue Sep  7 19:08:07 1999
+User   : wsun
+Old Tag: v02_01_01
+New Tag: v02_01_02
+Message: Removed ASiSensor from CLEO3_LIBS in Makefile.
+
+Module : ChisqFitProducer
+
+Date   : Fri Sep 10 18:13:49 1999
+User   : wsun
+Old Tag: v02_01_02
+New Tag: v02_02_00
+Message: Moved ChisqCandidateQuality.h to ChisqFitter.
+
+Module : ChisqFitProducer
+
+Date   : Sun Sep 12 14:26:05 1999
+User   : wsun
+Old Tag: v02_02_00
+New Tag: v02_02_01
+Message: Added DR cathodes.
+
+Module : ChisqFitProducer
+
+Date   : Tue Oct  5 19:01:36 1999
+User   : wsun
+Old Tag: v02_02_01
+New Tag: v02_03_00
+Message: Changed shared module name to ChisqFitProd.
+
+Module : ChisqFitProducer
+Date   : Mon Nov 29 23:30:35 1999
+User   : wsun
+Old Tag: v02_03_00
+New Tag: v02_03_01
+Message: 
+Switched to FAPtrTable::eraseWithoutDeleteAll() instead of eraseAll() in
+ChisqBaseQualityProxy.cc because the FAPtrTable does not own the memory --
+quality objects get deleted by ChisqCandidateQualityProxy::faultHandler().
+
+Module : ChisqFitProducer
+Date   : Tue Jan 11 15:19:28 2000
+User   : wsun
+Old Tag: v02_03_01
+New Tag: v02_04_00
+Message: Added parameters to control exception handling.
+
+Module : ChisqFitProducer
+Date   : Mon Feb 28 18:17:55 2000
+User   : lyon
+Old Tag: v02_04_00
+New Tag: v02_05_00
+Message: Added code to lattice proxies to avoid exceptions
+
+Module : ChisqFitProducer
+Date   : Mon Feb 28 18:18:29 2000
+User   : lyon
+Old Tag: none
+New Tag: cleo3_engineering_a
+Message: Added code to lattice proxies to avoid exceptions
+
+Module : ChisqFitProducer
+Date   : Wed Mar  1 18:48:29 2000
+User   : wsun
+Old Tag: v02_05_00
+New Tag: v02_05_01
+Message: Added StorageManagement to CLEO3_LIBS in Makefile.
+
+Module : ChisqFitProducer
+Date   : Thu Jun  8 21:43:13 2000
+User   : wsun
+Old Tag: v02_05_01
+New Tag: v02_06_00
+Message: Updated to new HIFitHelix::HitAndLinkData.
+
+Module : ChisqFitProducer
+Date   : Sat Jun 10 02:28:21 2000
+User   : wsun
+Old Tag: v02_06_00
+New Tag: v02_06_01
+Message: Added parameters to dis/enable corrections to DR, SVR, SVZ, DRCA hits.
+
+Module : ChisqFitProducer
+Date   : Fri Jun 16 14:21:58 2000
+User   : wsun
+Old Tag: v02_06_01
+New Tag: v02_06_02
+Message: Replaced TBThreeVector with HepVector3D.
+
+Module : ChisqFitProducer
+Date   : Wed Aug 16 17:07:22 2000
+User   : wsun
+Old Tag: v02_06_02
+New Tag: v02_07_00
+Message: Added usage and prod tag for TRSeedTrack and updated to TRSeedTrackQuality.
+
+Module : ChisqFitProducer
+Date   : Tue Sep  5 16:44:22 2000
+User   : wsun
+Old Tag: v02_07_00
+New Tag: v02_08_00
+Message: Mods to allow user to force fitting weight to a given value.
+
+Module : ChisqFitProducer
+Date   : Tue Sep  5 17:03:20 2000
+User   : wsun
+Old Tag: v02_08_00
+New Tag: v02_08_01
+Message: Forgot to catch exception when no TRSeedTrackQuality (ChisqCandidateQualityProxy.cc
+
+Module : ChisqFitProducer
+Date   : Wed Sep  6 17:58:47 2000
+User   : wsun
+Old Tag: v02_08_01
+New Tag: v02_08_02
+Message: Included <vector> in ChisqDBTrackerValuesProxy.cc (for OSF).
+
+Module : ChisqFitProducer
+Date   : Fri Nov 17 19:22:17 2000
+User   : wsun
+Old Tag: v02_08_02
+New Tag: v02_09_00
+Message: Allow cathode fitting weight to be scaled by user-defined parameter.
+
+Module : ChisqFitProducer
+Date   : Thu Dec 14 15:25:42 2000
+User   : wsun
+Old Tag: v02_09_00
+New Tag: v02_10_00
+Message: Added #hits, avg residuals, and rms residuals by subdetector to fit quality.
+
+Module : ChisqFitProducer
+Date   : Fri Jan  5 00:43:42 2001
+User   : lyon
+Old Tag: v02_10_00
+New Tag: v02_11_00
+Message: Added layer map
+
+Module : ChisqFitProducer
+Date   : Wed Feb 14 20:52:46 2001
+User   : wsun
+Old Tag: v02_11_00
+New Tag: v02_11_01
+Message: Extract ChisqTrackFitter in ChisqDBTrackerValuesProxy to initialize HIMagField.
+
+Module : ChisqFitProducer
+Date   : Sun Mar 11 09:20:36 2001
+User   : cdj
+Old Tag: v02_11_01
+New Tag: v02_12_00
+Message: now get MagneticField from StartRun
+
+Module : ChisqFitProducer
+Date   : Thu Mar 29 11:55:15 2001
+User   : llh14
+Old Tag: v02_12_00
+New Tag: v03_00_00
+Message: Added C3sv to Makefile
+
+Module : ChisqFitProducer
+Date   : Wed Jun 12 15:27:05 2002
+User   : cleo3
+Old Tag: v03_00_00
+New Tag: v03_01_00
+Message: added missing typename
+
+Module : ChisqFitProducer
+Date   : Thu Aug  8 09:39:42 2002
+User   : cleo3
+Old Tag: v03_01_00
+New Tag: v03_01_01
+Message: removed invalid use of reinterpret_cast
+
+Module : ChisqFitProducer
+Date   : Fri Aug  9 10:29:41 2002
+User   : cdj
+Old Tag: v03_01_01
+New Tag: v03_02_00
+Message: replaced C style casts with static_cast
+
+Module : ChisqFitProducer
+Date   : Fri Sep 27 17:06:07 2002
+User   : bkh
+Old Tag: v03_02_00
+New Tag: v04_00_00
+Message: 
+Updated Makefile
+Module : ChisqFitProducer
+Date   : Thu Apr 17 13:01:10 2003
+User   : bkh
+Old Tag: v04_00_00
+New Tag: v04_00_01
+Message: Add ZD options & throw exceptions for wrong config
+
+Module : ChisqFitProducer
+Date   : Fri Jul 25 19:29:07 2003
+User   : mccann
+Old Tag: v04_00_01
+New Tag: v05_00_00
+Message: Added the ZD to track fitting

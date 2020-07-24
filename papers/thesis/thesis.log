@@ -1,0 +1,662 @@
+This is pdfTeX, Version 3.14159-14h-released-20010417 (Web2C 7.3.3.1) (format=pdflatex 2003.2.18)  8 MAR 2006 10:05
+**thesis.tex
+(./thesis.tex{/usr/share/texmf/pdftex/config/pdftex.cfg}
+LaTeX2e <2001/06/01>
+Babel <v3.7h> and hyphenation patterns for american, french, german, ngerman, i
+talian, nohyphenation, loaded.
+(./cornell.cls
+Document Class: cornell 2002/06/14 v2.6 Cornell University thesis class
+(/usr/share/texmf/tex/latex/base/report.cls
+Document Class: report 2001/04/21 v1.4e Standard LaTeX document class
+(/usr/share/texmf/tex/latex/base/size12.clo
+File: size12.clo 2001/04/21 v1.4e Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+\@abhdskip=\skip43
+)
+(/usr/share/texmf/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip44
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/share/texmf/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks14
+\ex@=\dimen103
+))
+(/usr/share/texmf/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen104
+)
+(/usr/share/texmf/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count88
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count89
+\leftroot@=\count90
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count91
+\DOTSCASE@=\count92
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen105
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count93
+\c@MaxMatrixCols=\count94
+\dotsspace@=\muskip10
+\c@parentequation=\count95
+\dspbrk@lvl=\count96
+\tag@help=\toks15
+\row@=\count97
+\column@=\count98
+\maxfields@=\count99
+\andhelp@=\toks16
+\eqnshift@=\dimen106
+\alignsep@=\dimen107
+\tagshift@=\dimen108
+\tagwidth@=\dimen109
+\totwidth@=\dimen110
+\lineht@=\dimen111
+\@envbody=\toks17
+\multlinegap=\skip45
+\multlinetaggap=\skip46
+\mathdisplay@stack=\toks18
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+(/usr/share/texmf/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2002/01/22 v2.2d
+
+(/usr/share/texmf/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2001/10/25 v2.2f
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 132.
+))
+(/usr/share/texmf/tex/latex/misc/rotating.sty
+Package: rotating 1997/09/26, v2.13 Rotation package
+
+(/usr/share/texmf/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks19
+)
+(/usr/share/texmf/tex/latex/graphics/graphics.sty
+Package: graphics 2001/07/07 v1.0n Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texmf/tex/latex/config/graphics.cfg)
+Package graphics Info: Driver file: pdftex.def on input line 80.
+
+(/usr/share/texmf/tex/latex/graphics/pdftex.def
+File: pdftex.def 2001/11/29 v0.03i graphics/color for pdftex
+\Gread@gobject=\count100
+))
+\Gin@req@height=\dimen112
+\Gin@req@width=\dimen113
+)
+(/usr/share/texmf/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\c@r@tfl@t=\count101
+\rot@float@box=\box28
+)
+\Mheight=\skip47
+\cwidth=\skip48
+ (./thesis.aux)
+\openout1 = `thesis.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+
+(/usr/share/texmf/tex/context/base/supp-pdf.tex
+(/usr/share/texmf/tex/context/base/supp-mis.tex
+loading : Context Support Macros / Missing
+\protectiondepth=\count102
+\scratchcounter=\count103
+\scratchtoks=\toks20
+\scratchdimen=\dimen114
+\scratchskip=\skip49
+\scratchmuskip=\muskip11
+\scratchbox=\box29
+\scratchread=\read1
+\scratchwrite=\write3
+\zeropoint=\dimen115
+\nextbox=\box30
+\nextdepth=\dimen116
+\everyline=\toks21
+\!!counta=\count104
+\!!countb=\count105
+\recursecounter=\count106
+)
+loading : Context Support Macros / PDF
+\nofMPsegments=\count107
+\nofMParguments=\count108
+\everyMPtoPDFconversion=\toks22
+)
+Title page
+[1
+
+{/usr/share/texmf/dvips/config/pdftex.map}]
+Copyleft page
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 65.
+(/usr/share/texmf/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 65.
+ [2
+
+]
+Abstract
+LaTeX Font Info:    Try loading font information for U+msa on input line 68.
+(/usr/share/texmf/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2002/01/19 v2.2g AMS font definitions
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 68.
+
+(/usr/share/texmf/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2002/01/19 v2.2g AMS font definitions
+) [3
+
+]
+Vita
+[3
+
+
+] <newnewplots/dedication.pdf, id=26, 985.6825pt x 262.9825pt>
+File: newnewplots/dedication.pdf Graphic file (type pdf)
+
+<use newnewplots/dedication.pdf> [4
+
+ <./newnewplots/dedication.pdf>] [5
+
+
+]
+(./thesis.toc [6
+
+
+])
+\tf@toc=\write4
+\openout4 = `thesis.toc'.
+
+ [7] (./thesis.lot
+Overfull \hbox (17.63351pt too wide) in paragraph at lines 11--11
+ [][] []/cmr12/Fractional sys-tem-atic un-cer-tain-ties in efficiency-weighted 
+cross-sections 
+ []
+
+)
+\tf@lot=\write5
+\openout5 = `thesis.lot'.
+
+ [8
+
+
+] (./thesis.lof [9
+
+
+] [10])
+\tf@lof=\write6
+\openout6 = `thesis.lof'.
+
+ [11]
+Chapter 1.
+[1
+
+
+] [2] <plots/gluejunk.pdf, id=79, 490.83376pt x 111.41624pt>
+File: plots/gluejunk.pdf Graphic file (type pdf)
+
+<use plots/gluejunk.pdf>
+<newnewplots/cornellpotential.pdf, id=80, 454.69875pt x 161.60374pt>
+File: newnewplots/cornellpotential.pdf Graphic file (type pdf)
+
+<use newnewplots/cornellpotential.pdf> [3] [4 <./plots/gluejunk.pdf> <./newnewp
+lots/cornellpotential.pdf>]
+<newplots/diagramgee.pdf, id=100, 443.6575pt x 167.62625pt>
+File: newplots/diagramgee.pdf Graphic file (type pdf)
+
+<use newplots/diagramgee.pdf> [5]
+<plots/pathintegrals.pdf, id=104, 537.00626pt x 179.67125pt>
+File: plots/pathintegrals.pdf Graphic file (type pdf)
+
+<use plots/pathintegrals.pdf> [6] [7 <./newplots/diagramgee.pdf> <./plots/pathi
+ntegrals.pdf>]
+<newplots/vacuumpolarization.pdf, id=139, 81.30376pt x 30.1125pt>
+File: newplots/vacuumpolarization.pdf Graphic file (type pdf)
+
+<use newplots/vacuumpolarization.pdf>
+<plots/latticevictory.pdf, id=140, 255.95625pt x 194.7275pt>
+File: plots/latticevictory.pdf Graphic file (type pdf)
+
+<use plots/latticevictory.pdf> [8 <./newplots/vacuumpolarization.pdf>] [9 <./pl
+ots/latticevictory.pdf>] [10]
+<newplots/latticespacing.pdf, id=192, 528.97626pt x 495.8525pt>
+File: newplots/latticespacing.pdf Graphic file (type pdf)
+
+<use newplots/latticespacing.pdf>
+<plots/vtdvertex.pdf, id=193, 312.16624pt x 239.89626pt>
+File: plots/vtdvertex.pdf Graphic file (type pdf)
+
+<use plots/vtdvertex.pdf> <plots/bmixing.pdf, id=194, 506.89375pt x 666.49pt>
+File: plots/bmixing.pdf Graphic file (type pdf)
+
+<use plots/bmixing.pdf> [11] [12 <./newplots/latticespacing.pdf>]
+<plots/btomunu.pdf, id=212, 393.47pt x 167.62625pt>
+File: plots/btomunu.pdf Graphic file (type pdf)
+ <use plots/btomunu.pdf>
+[13 <./plots/vtdvertex.pdf>] [14 <./plots/bmixing.pdf>]
+<plots/fbresults.pdf, id=232, 677.53125pt x 476.78125pt>
+File: plots/fbresults.pdf Graphic file (type pdf)
+
+<use plots/fbresults.pdf> [15] [16 <./plots/btomunu.pdf> <./plots/fbresults.pdf
+>] [17]
+Chapter 2.
+<plots/timereversed.pdf, id=274, 517.935pt x 407.5225pt>
+File: plots/timereversed.pdf Graphic file (type pdf)
+
+<use plots/timereversed.pdf> [18
+
+]
+<plots/cartoon.pdf, id=278, 507.8975pt x 301.125pt>
+File: plots/cartoon.pdf Graphic file (type pdf)
+ <use plots/cartoon.pdf>
+<newplots/continuum.pdf, id=279, 741.77126pt x 583.17876pt>
+File: newplots/continuum.pdf Graphic file (type pdf)
+
+<use newplots/continuum.pdf> [19] [20 <./plots/timereversed.pdf> <./plots/carto
+on.pdf>] [21 <./newplots/continuum.pdf>] [22] [23]
+<newnewplots/newmumu.pdf, id=360, 387.4475pt x 486.81876pt>
+File: newnewplots/newmumu.pdf Graphic file (type pdf)
+
+<use newnewplots/newmumu.pdf> [24] [25 <./newnewplots/newmumu.pdf>]
+<plots/bbtransitions.pdf, id=370, 465.74pt x 279.0425pt>
+File: plots/bbtransitions.pdf Graphic file (type pdf)
+
+<use plots/bbtransitions.pdf> Adding sideways figure on  right hand page
+[26] [27 <./plots/bbtransitions.pdf>] [28] [29]
+Chapter 3.
+<plots/greetingsfromcesr.pdf, id=404, 615.29875pt x 226.8475pt>
+File: plots/greetingsfromcesr.pdf Graphic file (type pdf)
+
+<use plots/greetingsfromcesr.pdf> [30
+
+]
+<newplots/beamenergyspread.pdf, id=408, 437.635pt x 137.51375pt>
+File: newplots/beamenergyspread.pdf Graphic file (type pdf)
+
+<use newplots/beamenergyspread.pdf> [31] [32 <./plots/greetingsfromcesr.pdf> <.
+/newplots/beamenergyspread.pdf>]
+Overfull \hbox (4.29016pt too wide) in paragraph at lines 1129--1144
+ [] 
+ []
+
+[33] [34] [35] <plots/cleoiii.pdf, id=437, 755.82375pt x 524.96124pt>
+File: plots/cleoiii.pdf Graphic file (type pdf)
+
+<use plots/cleoiii.pdf> Adding sideways figure on  right hand page
+<newplots/coordinatesystem.pdf, id=438, 918.43124pt x 296.10625pt>
+File: newplots/coordinatesystem.pdf Graphic file (type pdf)
+
+<use newplots/coordinatesystem.pdf>
+<plots/sidiagram.pdf, id=439, 262.9825pt x 266.9975pt>
+File: plots/sidiagram.pdf Graphic file (type pdf)
+
+<use plots/sidiagram.pdf> [36] [37 <./plots/cleoiii.pdf>]
+<newplots/driftcell.pdf, id=459, 477.785pt x 328.22626pt>
+File: newplots/driftcell.pdf Graphic file (type pdf)
+
+<use newplots/driftcell.pdf>
+<newplots/stereotwist.pdf, id=460, 895.345pt x 950.55125pt>
+File: newplots/stereotwist.pdf Graphic file (type pdf)
+
+<use newplots/stereotwist.pdf> [38] [39 <./newplots/coordinatesystem.pdf> <./pl
+ots/sidiagram.pdf>] [40 <./newplots/driftcell.pdf> <./newplots/stereotwist.pdf>
+] <plots/quarterview.pdf, id=499, 759.83875pt x 547.04375pt>
+File: plots/quarterview.pdf Graphic file (type pdf)
+
+<use plots/quarterview.pdf> Adding sideways figure on  right hand page [41]
+[42 <./plots/quarterview.pdf>]
+<plots/topher.pdf, id=517, 245.91875pt x 168.63pt>
+File: plots/topher.pdf Graphic file (type pdf)
+ <use plots/topher.pdf>
+[43] [44 <./plots/topher.pdf>]
+Overfull \hbox (0.10443pt too wide) in paragraph at lines 1421--1442
+/cmr12/Monte Carlo sim-u-la-tions are most im-por-tant in de-ter-min-ing the ef
+ficiency-corrected
+ []
+
+[45] [46]
+Chapter 4.
+[47
+
+] <plots/pmax.pdf, id=540, 524.96124pt x 513.92pt>
+File: plots/pmax.pdf Graphic file (type pdf)
+ <use plots/pmax.pdf>
+[48] [49 <./plots/pmax.pdf>]
+<plots/visen.pdf, id=554, 524.96124pt x 509.905pt>
+File: plots/visen.pdf Graphic file (type pdf)
+ <use plots/visen.pdf>
+[50] [51 <./plots/visen.pdf>] [52]
+<plots/dxy.pdf, id=570, 511.9125pt x 464.73625pt>
+File: plots/dxy.pdf Graphic file (type pdf)
+ <use plots/dxy.pdf>
+<newplots/biastowardzero.pdf, id=571, 440.64626pt x 249.93375pt>
+File: newplots/biastowardzero.pdf Graphic file (type pdf)
+
+<use newplots/biastowardzero.pdf> [53] [54 <./plots/dxy.pdf>]
+<plots/dz.pdf, id=585, 508.90125pt x 479.7925pt>
+File: plots/dz.pdf Graphic file (type pdf)
+ <use plots/dz.pdf> [55 <./newplots/biastowardzero.pdf>] [56 <./plots/dz.pdf>]
+<plots/smallbeamwall.pdf, id=607, 493.845pt x 502.87875pt>
+File: plots/smallbeamwall.pdf Graphic file (type pdf)
+
+<use plots/smallbeamwall.pdf>
+<plots/crashruns.pdf, id=608, 480.79625pt x 300.12125pt>
+File: plots/crashruns.pdf Graphic file (type pdf)
+
+<use plots/crashruns.pdf> [57] [58 <./plots/smallbeamwall.pdf>] [59 <./plots/cr
+ashruns.pdf>] <plots/crashruns2.pdf, id=622, 423.5825pt x 490.83376pt>
+File: plots/crashruns2.pdf Graphic file (type pdf)
+
+<use plots/crashruns2.pdf> [60] [61 <./plots/crashruns2.pdf>] [62]
+<newplots/highptracks.pdf, id=635, 443.6575pt x 149.55875pt>
+File: newplots/highptracks.pdf Graphic file (type pdf)
+
+<use newplots/highptracks.pdf>
+<newplots/higheshowers.pdf, id=636, 453.695pt x 176.66pt>
+File: newplots/higheshowers.pdf Graphic file (type pdf)
+
+<use newplots/higheshowers.pdf>
+<newplots/higheendcapvisen.pdf, id=637, 447.6725pt x 148.555pt>
+File: newplots/higheendcapvisen.pdf Graphic file (type pdf)
+
+<use newplots/higheendcapvisen.pdf> [63] [64 <./newplots/highptracks.pdf> <./ne
+wplots/higheshowers.pdf> <./newplots/higheendcapvisen.pdf>]
+<newnewplots/apr03scan.pdf, id=650, 461.725pt x 240.9pt>
+File: newnewplots/apr03scan.pdf Graphic file (type pdf)
+
+<use newnewplots/apr03scan.pdf>
+<newplots/awesome.pdf, id=651, 421.575pt x 486.81876pt>
+File: newplots/awesome.pdf Graphic file (type pdf)
+
+<use newplots/awesome.pdf> [65]
+<plots/logsfit.pdf, id=655, 464.73625pt x 250.9375pt>
+File: plots/logsfit.pdf Graphic file (type pdf)
+ <use plots/logsfit.pdf>
+[66 <./newnewplots/apr03scan.pdf>] [67 <./newplots/awesome.pdf>]
+<plots/extrapolatevisen.pdf, id=667, 548.0475pt x 522.95375pt>
+File: plots/extrapolatevisen.pdf Graphic file (type pdf)
+
+<use plots/extrapolatevisen.pdf> [68] [69 <./plots/logsfit.pdf>] [70 <./plots/e
+xtrapolatevisen.pdf>] [71] [72]
+<plots/dxydzcontaminationa.pdf, id=692, 483.8075pt x 237.88875pt>
+File: plots/dxydzcontaminationa.pdf Graphic file (type pdf)
+
+<use plots/dxydzcontaminationa.pdf> [73] [74 <./plots/dxydzcontaminationa.pdf>]
+[75] <plots/beamgaspz.pdf, id=705, 469.755pt x 261.97874pt>
+File: plots/beamgaspz.pdf Graphic file (type pdf)
+
+<use plots/beamgaspz.pdf>
+<plots/dxydzcontaminationb.pdf, id=706, 483.8075pt x 237.88875pt>
+File: plots/dxydzcontaminationb.pdf Graphic file (type pdf)
+
+<use plots/dxydzcontaminationb.pdf>
+<plots/backgroundsvsrun.pdf, id=707, 397.485pt x 495.8525pt>
+File: plots/backgroundsvsrun.pdf Graphic file (type pdf)
+
+<use plots/backgroundsvsrun.pdf> [76] [77 <./plots/beamgaspz.pdf>] [78 <./plots
+/dxydzcontaminationb.pdf>] [79 <./plots/backgroundsvsrun.pdf>]
+Chapter 5.
+[80
+
+] [81] <plots/cascadescartoon.pdf, id=733, 739.76375pt x 298.11375pt>
+File: plots/cascadescartoon.pdf Graphic file (type pdf)
+
+<use plots/cascadescartoon.pdf> [82 <./plots/cascadescartoon.pdf>] [83]
+[84] <newplots/pipitwotrack.pdf, id=777, 539.01375pt x 272.01625pt>
+File: newplots/pipitwotrack.pdf Graphic file (type pdf)
+
+<use newplots/pipitwotrack.pdf> [85] [86 <./newplots/pipitwotrack.pdf>]
+[87] <plots/pipihadron.pdf, id=802, 551.05875pt x 266.9975pt>
+File: plots/pipihadron.pdf Graphic file (type pdf)
+
+<use plots/pipihadron.pdf> [88] [89 <./plots/pipihadron.pdf>]
+<plots/cascadeagreement.pdf, id=820, 569.12625pt x 569.12625pt>
+File: plots/cascadeagreement.pdf Graphic file (type pdf)
+
+<use plots/cascadeagreement.pdf>
+<plots/triggeragreement.pdf, id=821, 528.97626pt x 508.90125pt>
+File: plots/triggeragreement.pdf Graphic file (type pdf)
+
+<use plots/triggeragreement.pdf> [90] [91 <./plots/cascadeagreement.pdf>]
+[92 <./plots/triggeragreement.pdf>] [93]
+<plots/invariantmumass.pdf, id=847, 485.815pt x 235.88126pt>
+File: plots/invariantmumass.pdf Graphic file (type pdf)
+
+<use plots/invariantmumass.pdf> [94] [95 <./plots/invariantmumass.pdf>]
+Chapter 6.
+[96
+
+] <plots/asymmetriccartoon.pdf, id=859, 326.21875pt x 326.21875pt>
+File: plots/asymmetriccartoon.pdf Graphic file (type pdf)
+
+<use plots/asymmetriccartoon.pdf>
+<newplots/allee.pdf, id=860, 446.66875pt x 223.83624pt>
+File: newplots/allee.pdf Graphic file (type pdf)
+
+<use newplots/allee.pdf> [97] [98 <./plots/asymmetriccartoon.pdf> <./newplots/a
+llee.pdf>] [99] [100] <plots/eeagreementb.pdf, id=882, 437.635pt x 305.14pt>
+File: plots/eeagreementb.pdf Graphic file (type pdf)
+
+<use plots/eeagreementb.pdf>
+<plots/eeagreementc.pdf, id=883, 436.63126pt x 305.14pt>
+File: plots/eeagreementc.pdf Graphic file (type pdf)
+
+<use plots/eeagreementc.pdf>
+<plots/eeagreementa.pdf, id=884, 433.62pt x 319.1925pt>
+File: plots/eeagreementa.pdf Graphic file (type pdf)
+
+<use plots/eeagreementa.pdf>
+Underfull \hbox (badness 1406) in paragraph at lines 2894--2894
+[]/cmr12/Figure 6.5: []Sum of two largest-momentum track en-er-gies and as-so-c
+i-ated
+ []
+
+<plots/eeagreementd.pdf, id=885, 454.69875pt x 300.12125pt>
+File: plots/eeagreementd.pdf Graphic file (type pdf)
+
+<use plots/eeagreementd.pdf>
+<plots/eeagreementf.pdf, id=886, 437.635pt x 306.14375pt>
+File: plots/eeagreementf.pdf Graphic file (type pdf)
+
+<use plots/eeagreementf.pdf>
+<plots/eeagreementg.pdf, id=887, 437.635pt x 310.15875pt>
+File: plots/eeagreementg.pdf Graphic file (type pdf)
+
+<use plots/eeagreementg.pdf>
+<plots/eeagreemente.pdf, id=888, 443.6575pt x 300.12125pt>
+File: plots/eeagreemente.pdf Graphic file (type pdf)
+
+<use plots/eeagreemente.pdf>
+<plots/eeagreementh.pdf, id=889, 437.635pt x 300.12125pt>
+File: plots/eeagreementh.pdf Graphic file (type pdf)
+
+<use plots/eeagreementh.pdf>
+<plots/comparelumis.pdf, id=890, 456.70625pt x 274.02374pt>
+File: plots/comparelumis.pdf Graphic file (type pdf)
+
+<use plots/comparelumis.pdf> [101] [102 <./plots/eeagreementb.pdf> <./plots/eea
+greementc.pdf>] [103 <./plots/eeagreementa.pdf> <./plots/eeagreementd.pdf>]
+[104 <./plots/eeagreementf.pdf> <./plots/eeagreementg.pdf>] [105 <./plots/eeagr
+eemente.pdf> <./plots/eeagreementh.pdf>] [106] [107 <./plots/comparelumis.pdf>]
+[108] <newplots/lumigamgam.pdf, id=971, 472.76625pt x 329.23pt>
+File: newplots/lumigamgam.pdf Graphic file (type pdf)
+
+<use newplots/lumigamgam.pdf> [109] [110 <./newplots/lumigamgam.pdf>] [111]
+Chapter 7.
+<plots/energycalibration.pdf, id=984, 458.71375pt x 239.89626pt>
+File: plots/energycalibration.pdf Graphic file (type pdf)
+
+<use plots/energycalibration.pdf> [112
+
+] [113 <./plots/energycalibration.pdf>]
+<plots/beamenergydrift.pdf, id=993, 481.8pt x 488.82625pt>
+File: plots/beamenergydrift.pdf Graphic file (type pdf)
+
+<use plots/beamenergydrift.pdf> [114] [115 <./plots/beamenergydrift.pdf>]
+<plots/miscalhours.pdf, id=1003, 464.73625pt x 247.92625pt>
+File: plots/miscalhours.pdf Graphic file (type pdf)
+
+<use plots/miscalhours.pdf> [116]
+<newplots/energylj.pdf, id=1010, 445.665pt x 149.55875pt>
+File: newplots/energylj.pdf Graphic file (type pdf)
+
+<use newplots/energylj.pdf> [117] [118 <./plots/miscalhours.pdf> <./newplots/en
+ergylj.pdf>]
+Chapter 8.
+[119
+
+] [120] [121] [122]
+Overfull \hbox (7.2749pt too wide) in paragraph at lines 3440--3444
+[]/cmr12/The $^^G(3/cmmi12/S/cmr12/)$ fit has a to-tal of six-teen float-ing pa
+-ram-e-ters: $^^@[]^^@[]/cmmi12/=/cmr12/^^@[]$, $/cmmi12/M[]; [] ; M[]$
+ []
+
+[123] <plots/fitresults.pdf, id=1043, 503.8825pt x 166.6225pt>
+File: plots/fitresults.pdf Graphic file (type pdf)
+
+<use plots/fitresults.pdf> Adding sideways figure on  right hand page
+<newnewplots/allscanss.pdf, id=1044, 337.26pt x 485.815pt>
+File: newnewplots/allscanss.pdf Graphic file (type pdf)
+
+<use newnewplots/allscanss.pdf>
+<newnewplots/allscansss.pdf, id=1045, 342.27875pt x 485.815pt>
+File: newnewplots/allscansss.pdf Graphic file (type pdf)
+
+<use newnewplots/allscansss.pdf>
+<newnewplots/allscanssss.pdf, id=1046, 336.25626pt x 485.815pt>
+File: newnewplots/allscanssss.pdf Graphic file (type pdf)
+
+<use newnewplots/allscanssss.pdf>
+<plots/pullsone.pdf, id=1047, 407.5225pt x 483.8075pt>
+File: plots/pullsone.pdf Graphic file (type pdf)
+
+<use plots/pullsone.pdf>
+<plots/pullstwo.pdf, id=1048, 407.5225pt x 482.80376pt>
+File: plots/pullstwo.pdf Graphic file (type pdf)
+
+<use plots/pullstwo.pdf>
+<plots/pullsthree.pdf, id=1049, 407.5225pt x 482.80376pt>
+File: plots/pullsthree.pdf Graphic file (type pdf)
+
+<use plots/pullsthree.pdf> [124] [125 <./plots/fitresults.pdf>] [126 <./newnewp
+lots/allscanss.pdf>] [127 <./newnewplots/allscansss.pdf>] [128 <./newnewplots/a
+llscanssss.pdf>] [129 <./plots/pullsone.pdf>] [130 <./plots/pullstwo.pdf>]
+[131 <./plots/pullsthree.pdf>] [132]
+<newplots/simpleintfit.pdf, id=1092, 489.83pt x 494.84875pt>
+File: newplots/simpleintfit.pdf Graphic file (type pdf)
+
+<use newplots/simpleintfit.pdf> [133] [134 <./newplots/simpleintfit.pdf>]
+<plots/intconstraint.pdf, id=1102, 462.72874pt x 249.93375pt>
+File: plots/intconstraint.pdf Graphic file (type pdf)
+
+<use plots/intconstraint.pdf> [135]
+<plots/areaconstraint.pdf, id=1109, 464.73625pt x 249.93375pt>
+File: plots/areaconstraint.pdf Graphic file (type pdf)
+
+<use plots/areaconstraint.pdf> [136] [137 <./plots/intconstraint.pdf> <./plots/
+areaconstraint.pdf>]
+Chapter 9.
+
+Overfull \hbox (11.91275pt too wide) in paragraph at lines 3785--3789
+/cmr12/In this Chap-ter, we present fi-nal re-sults for $^^@[]^^@[]/cmmi12/=/cm
+r12/^^@[]$, for $^^@[]$, for $^^@[](/cmmi12/nS/cmr12/)/cmmi12/=/cmr12/^^@[](/cm
+mi12/mS/cmr12/)$,
+ []
+
+[138
+
+] [139] <plots/historyplot.pdf, id=1127, 602.25pt x 459.7175pt>
+File: plots/historyplot.pdf Graphic file (type pdf)
+
+<use plots/historyplot.pdf> Adding sideways figure on  right hand page [140]
+[141 <./plots/historyplot.pdf>] [142]
+<newplots/latticespacingagain.pdf, id=1148, 528.97626pt x 495.8525pt>
+File: newplots/latticespacingagain.pdf Graphic file (type pdf)
+
+<use newplots/latticespacingagain.pdf> [143] [144 <./newplots/latticespacingaga
+in.pdf>] [145] [146
+
+]
+Overfull \hbox (26.2521pt too wide) in paragraph at lines 4135--4137
+[]/cmr12/Electronic ad-dress: /cmtt12/http://seal.web.cern.ch/seal/snapshot/wor
+k-packages/
+ []
+
+[147] (./thesis.aux) ) 
+Here is how much of TeX's memory you used:
+ 2634 strings out of 50453
+ 35574 string characters out of 688420
+ 80679 words of memory out of 1500001
+ 5522 multiletter control sequences out of 10000+25000
+ 19142 words of font info for 71 fonts, out of 400000 for 1000
+ 14 hyphenation exceptions out of 10000
+ 32i,11n,24p,330b,438s stack positions out of 3000i,500n,3000p,50000b,5000s
+</usr/share/texmf/fonts/type1/bluesky/cm/cmsl12.pfb></usr
+/share/texmf/fonts/type1/bluesky/cm/cmti12.pfb></usr/share/texmf/fonts/type1/bl
+uesky/symbols/msam10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy6.pfb></u
+sr/share/texmf/fonts/type1/bluesky/cm/cmr6.pfb></usr/share/texmf/fonts/type1/bl
+uesky/cm/cmmi6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmbx8.pfb></usr/sha
+re/texmf/fonts/type1/bluesky/cm/cmcsc10.pfb></usr/share/texmf/fonts/type1/blues
+ky/cm/cmbx7.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmbx10.pfb></usr/share
+/texmf/fonts/type1/bluesky/cmextra/cmbsy7.pfb></usr/share/texmf/fonts/type1/blu
+esky/cm/cmbsy10.pfb></usr/share/texmf/fonts/type1/bluesky/cmextra/cmmib7.pfb></
+usr/share/texmf/fonts/type1/bluesky/cm/cmex10.pfb></usr/share/texmf/fonts/type1
+/bluesky/cm/cmmi10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi7.pfb></usr
+/share/texmf/fonts/type1/bluesky/cm/cmr7.pfb></usr/share/texmf/fonts/type1/blue
+sky/cm/cmmi5.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr10.pfb></usr/share
+/texmf/fonts/type1/bluesky/cm/cmtt12.pfb></usr/share/texmf/fonts/type1/bluesky/
+cm/cmmi8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmib10.pfb></usr/share/t
+exmf/fonts/type1/bluesky/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/
+cmr8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi12.pfb></usr/share/texmf/
+fonts/type1/bluesky/cm/cmbx12.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy
+10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr12.pfb></usr/share/texmf/fon
+ts/type1/bluesky/cm/cmr17.pfb>
+Output written on thesis.pdf (159 pages, 3087467 bytes).

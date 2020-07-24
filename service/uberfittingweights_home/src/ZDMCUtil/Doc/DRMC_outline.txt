@@ -1,0 +1,57 @@
+DR Response Notes
+=================
+
+MCResponseProd/Class/MCDRResponseProxy.cc
+-----------------------------------------
+C++ proxy that serves DR Response objects.
+Calls mc_dr_responses.F to calculate the responses
+and puts the responses into the Frame.
+
+
+
+MCResponseProd/Fortran/mc_dr_responses.F
+----------------------------------------
+Main Fortran subroutine for DR Responses - based on cleog/crawm/cdrawm.F
+routine from cleo2.
+
+
+
+
+Constants Access 
+----------------
+
+DRMCUtil/Class/DRMCUpdateBeginRun.cc
+  C++ function to make begin run calls for DR MC simulation
+  calls DRMCUtil/Class/InitDRMCFrameBrokers() and 
+  DRMCUtil/Fortran/drmc_beginrun
+
+DRMCUtil/Class/InitDRMCFrameBrokers.cc
+  C++ function that initializes DRMC Frame brokers - provide
+  f77 access to frame objects - DRMC constants.
+
+  1) updates cdgeom - fillFortranCDGeometry
+  2) DR Calibration for this run - DRMCDriftFB
+  3) Extract DR MC Constants
+
+DRMCUtil/Fortran/drmc_beginrun.F
+  Fortran subroutine that calls the Fortran routines 
+  (DRMCUtil/Fortran/get_xxx.F) that serve the DRMC constants.  
+  The constants are updated for this run number and are saved 
+  in Fortran routines.  The simulation gets the constants by
+  calling these Fortran subroutines.
+
+
+
+
+Routines That aren't currently being used
+-----------------------------------------
+The cathode simulation in general isn't being called
+
+DRMCUtil/Fortran/drmc_cdctbr.F - cd cathode begin run 
+  Wait until we get cathode simulation going
+
+DRMCUtil/Fortran/drmc_cdanbr.F - currently not used
+  Should have duplicated this code.
+  Need to check we get the EFF_LAYER CONSTANTS CORRECTLY.
+  THIS IS DONE IN DRMCUtil/Fortran/get_layer_eff.F.
+

@@ -1,0 +1,146 @@
+
+Module : HistogramInterface
+
+Date   : Tue Feb 23 15:32:14 1999
+User   : cdj
+Old Tag: 
+New Tag: v01_00_00
+Message: first tag
+
+Module : HistogramInterface
+Date   : Tue Sep  7 14:53:53 1999
+User   : mkl
+Old Tag: v01_00_00
+New Tag: v01_01_00
+Message: new histogram interface
+
+Module : HistogramInterface
+Date   : Tue Sep  7 17:20:57 1999
+User   : mkl
+Old Tag: v01_01_00
+New Tag: v01_01_01
+Message: make cxx happy
+
+Module : HistogramInterface
+Date   : Thu Sep  9 21:11:39 1999
+User   : mkl
+Old Tag: v01_01_01
+New Tag: v01_02_00
+Message: now allow booking of histograms with automatic id allocation
+
+Module : HistogramInterface
+
+Date   : Wed Sep 29 13:52:27 1999
+User   : cdj
+Old Tag: v01_02_00
+New Tag: v01_03_00
+Message: added histogram directories
+
+Module : HistogramInterface
+
+Date   : Wed Oct  6 16:25:46 1999
+User   : cdj
+Old Tag: v01_03_00
+New Tag: v01_04_00
+Message: added setDefaultDir to Manager interface
+
+Module : HistogramInterface
+
+Date   : Thu Oct  7 14:05:51 1999
+User   : hufnagel
+Old Tag: v01_04_00
+New Tag: v01_05_00
+Message: Numbers now use float instead of double
+
+Module : HistogramInterface
+
+Date   : Thu Oct  7 14:53:06 1999
+User   : hufnagel
+Old Tag: v01_05_00
+New Tag: v01_06_00
+Message: added name method for Numbers
+
+Module : HistogramInterface
+Date   : Thu Dec 23 18:26:46 1999
+User   : cdj
+Old Tag: v01_06_00
+New Tag: v02_00_00
+Message: added arithmetic operations to histograms
+
+Module : HistogramInterface
+Date   : Tue Feb 15 11:17:09 2000
+User   : cdj
+Old Tag: v02_00_00
+New Tag: v03_00_00
+Message: arithmetic operations now use expression templates
+
+Module : HistogramInterface
+Date   : Wed Feb 16 09:47:11 2000
+User   : cdj
+Old Tag: v03_00_00
+New Tag: v03_00_01
+Message: made arithmetic templates only work with BinaryOps
+
+Module : HistogramInterface
+Date   : Tue Jun 20 16:30:35 2000
+User   : bkh
+Old Tag: v03_00_01
+New Tag: v03_00_02
+Message: 
+Tag version with addition virtual fcns
+Module : HistogramInterface
+Date   : Sat Jul 21 11:44:02 2001
+User   : cdj
+Old Tag: v03_00_02
+New Tag: v04_00_00
+Message: can now iterate through HIHistDir's contents
+
+Module : HistogramInterface
+Date   : Mon Jul 23 16:02:59 2001
+User   : cdj
+Old Tag: v04_00_00
+New Tag: v04_01_00
+Message: added instantiation of vector<void*> so stand alone code will work
+
+Module : HistogramInterface
+Date   : Fri Aug  3 13:28:18 2001
+User   : bkh
+Old Tag: v04_01_00
+New Tag: v04_01_01
+Message: 
+Implement necessary functions for access to 
+channel location and contents in profile histogram
+Module : HistogramInterface
+Date   : Tue Aug 28 11:19:54 2001
+User   : cdj
+Old Tag: v04_01_01
+New Tag: v04_01_02
+Message: fixed bug with HINtuple not copying title and labels.  Added HINtupleArray.
+
+Module : HistogramInterface
+Date   : Fri Sep  7 12:57:43 2001
+User   : cleo3
+Old Tag: v04_01_02
+New Tag: v04_02_00
+Message: use cleo_math.h instead of math.h
+
+Module : HistogramInterface
+Date   : Sat Sep 15 10:22:46 2001
+User   : tom
+Old Tag: v04_02_00
+New Tag: v04_02_01
+Message: Bugfix in HINtupleArray.h
+
+Module : HistogramInterface
+Date   : Mon Dec 17 14:34:24 2001
+User   : ajm36
+Old Tag: v04_02_01
+New Tag: v04_02_02
+Message: add another ctor to HINtupleArray, allow default copy ctor
+
+Module : HistogramInterface
+Date   : Mon May  6 13:47:13 2002
+User   : mccann
+Old Tag: v04_02_02
+New Tag: v04_03_00
+Message: added weighted profiles and the HIHistProf option kWeightedError

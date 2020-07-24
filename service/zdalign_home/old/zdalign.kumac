@@ -1,0 +1,140 @@
+h/file 21 ../rzn/zdalign_test0.rzn
+h/file 22 ../rzn/zdalign_testrotz.rzn
+h/file 23 ../rzn/zdalign_testx.rzn
+h/file 24 ../rzn/zdalign_testy.rzn
+h/file 25 ../rzn/zdalign_testz.rzn
+
+fortran/file 65 'zdalign_test.ps'
+graphics/metafile 65 -111
+igset mtype 1
+
+do i=21,25
+  h/copy //lun[i]/comparedrandzd/601 [i]01
+  h/copy //lun[i]/comparedrandzd/602 [i]02
+  h/copy //lun[i]/comparedrandzd/603 [i]03
+  h/copy //lun[i]/comparedrandzd/604 [i]04
+  h/copy //lun[i]/comparedrandzd/605 [i]05
+
+  ve/cr p1(3)
+  ve/inp p1 0 0 0
+  ve/cr e1(3)
+  ve/inp e1 0 0 0
+  h/fit [i]01 sincos.f '0' 3 p1 ! ! ! e1
+  ve/cr p2(3)
+  ve/inp p2 0 0 0
+  ve/cr e2(3)
+  ve/inp e2 0 0 0
+  h/fit [i]02 sincos.f '0' 3 p2 ! ! ! e2
+  ve/cr p3(3)
+  ve/inp p3 0 0 0
+  ve/cr e3(3)
+  ve/inp e3 0 0 0
+  h/fit [i]03 sincos.f '0' 3 p3 ! ! ! e3
+  ve/cr p4(3)
+  ve/inp p4 0 0 0
+  ve/cr e4(3)
+  ve/inp e4 0 0 0
+  h/fit [i]04 sincos.f '0' 3 p4 ! ! ! e4
+  ve/cr p5(3)
+  ve/inp p5 0 0 0
+  ve/cr e5(3)
+  ve/inp e5 0 0 0
+  h/fit [i]05 sincos.f '0' 3 p5 ! ! ! e5
+  ve/cr p6(3)
+  ve/inp p6 0 0 0
+  ve/cr e6(3)
+  ve/inp e6 0 0 0
+  h/fit [i]06 sincos.f '0' 3 p6 ! ! ! e6
+
+  ve/cr const(6)
+  ve/inp const $SIGMA(p1(1)) $SIGMA(p2(1)) $SIGMA(p3(1)) $SIGMA(p4(1)) $SIGMA(p5(1)) $SIGMA(p6(1))
+  ve/print const
+  ve/cr econst(6)
+  ve/inp econst $SIGMA(e1(1)) $SIGMA(e2(1)) $SIGMA(e3(1)) $SIGMA(e4(1)) $SIGMA(e5(1)) $SIGMA(e6(1))
+  ve/print econst
+  ve/cr sin(6)
+  ve/inp sin $SIGMA(p1(2)) $SIGMA(p2(2)) $SIGMA(p3(2)) $SIGMA(p4(2)) $SIGMA(p5(2)) $SIGMA(p6(2))
+  ve/print sin
+  ve/cr esin(6)
+  ve/inp esin $SIGMA(e1(2)) $SIGMA(e2(2)) $SIGMA(e3(2)) $SIGMA(e4(2)) $SIGMA(e5(2)) $SIGMA(e6(2))
+  ve/print esin
+  ve/cr cos(6)
+  ve/inp cos $SIGMA(p1(3)) $SIGMA(p2(3)) $SIGMA(p3(3)) $SIGMA(p4(3)) $SIGMA(p5(3)) $SIGMA(p6(3))
+  ve/print cos
+  ve/cr ecos(6)
+  ve/inp ecos $SIGMA(e1(3)) $SIGMA(e2(3)) $SIGMA(e3(3)) $SIGMA(e4(3)) $SIGMA(e5(3)) $SIGMA(e6(3))
+  ve/print ecos
+
+  h/cr/1d 700 'constant term VS layer' 6 0.5 6.5
+  h/put_vect/contents 700 const
+  h/put_vect/errors 700 econst
+  h/cr/1d 701 'sin term VS layer' 6 0.5 6.5
+  h/put_vect/contents 701 sin
+  h/put_vect/errors 701 esin
+  h/cr/1d 702 'cos term VS layer' 6 0.5 6.5
+  h/put_vect/contents 702 cos
+  h/put_vect/errors 702 ecos
+
+  sigma phish = (p1(1) + p2(1) + p3(1) + p4(1) + p5(1) + p6(1))
+  sigma xsh = (p1(2) + p2(2) + p3(2) + p4(2) + p5(2) + p6(2))
+  sigma ysh = (p1(3) + p2(3) + p3(3) + p4(3) + p5(3) + p6(3))
+  sigma zsh = (p1(1) + p2(1) + p3(1) - p4(1) - p5(1) - p6(1))
+
+  set ncol 16
+  palette 1
+
+  h/copy [i]01 1000 'Residual versus phi'
+
+  if [i].eq.21 then
+    h/cr/title 'test0 (no motion)'
+  elseif [i].eq.22 then
+    h/cr/title 'testrotz (move rotz 0.001)'
+  elseif [i].eq.23 then
+    h/cr/title 'testx (move x 0.001)'
+  elseif [i].eq.24 then
+    h/cr/title 'testy (move y 0.001)'
+  elseif [i].eq.25 then
+    h/cr/title 'testz (move z 0.001)'
+  endif
+
+  zone 1 1
+  min 1000 -0.001
+  max 1000 0.001
+  set hcol 8
+  set fcol 8
+  h/plot 1000
+  set hcol 9
+  set fcol 9
+  h/plot [i]02 s
+  set hcol 10
+  set fcol 10
+  h/plot [i]03 s
+  set hcol 11
+  set fcol 11
+  h/plot [i]04 s
+  set hcol 12
+  set fcol 12
+  h/plot [i]05 s
+  set hcol 13
+  set fcol 13
+  h/plot [i]06 s
+
+  zone 2 2
+  set hcol 0
+  h/plot 700 e1
+  h/plot 701 e1
+  h/plot 702 e1
+
+  null -3 3 -3 3
+  text -2   1.5 'phish =' ! 0.3 l
+  text -2   0.5 'xsh =' ! 0.3 l
+  text -2  -0.5 'ysh =' ! 0.3 l
+  text -2  -1.5 'zsh =' ! 0.3 l
+  text 1.2  1.5 $SIGMA(phish) ! 0.3 c
+  text 1.2  0.5 $SIGMA(xsh) ! 0.3 c
+  text 1.2 -0.5 $SIGMA(ysh) ! 0.3 c
+  text 1.2 -1.5 $SIGMA(zsh) ! 0.3 c
+
+enddo
+
+close 65

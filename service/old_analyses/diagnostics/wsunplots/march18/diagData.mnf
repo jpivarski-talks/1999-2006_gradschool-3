@@ -1,0 +1,11 @@
+
+hb_o chisqfit.rzn
+
+set hard plots_124733.ps
+
+dep clcut = 0.01
+
+exec layerEff.mnf 'Bhabha, Run 124733' 1
+exec resids.mnf 'Bhabha, Run 124733' 0.01
+exec resVsDriftSum.mnf 'Bhabha, Run 124733' 0.01
+

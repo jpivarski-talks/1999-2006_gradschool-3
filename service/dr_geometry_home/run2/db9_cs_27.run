@@ -1,0 +1,10 @@
+#$ -l calibration
+#$ -o /cdat/tem/mccann/db9_cs_27.log
+#$ -S /bin/bash
+#$ -j y
+
+cd /home/mccann/dr_geometry/run2
+. /nfs/cleo3/scripts/cleo3defs
+c3rel Jul10_03
+
+suez -f db9_cs_27.tcl

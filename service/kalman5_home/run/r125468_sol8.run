@@ -1,0 +1,10 @@
+#$ -l calibration
+#$ -o /cdat/tem/mccann/r125468_sol8.out
+#$ -S /bin/bash
+#$ -j y
+
+cd /home/mccann/kalman5/run
+. /nfs/cleo3/scripts/cleo3defs
+c3rel Feb11_03_P2_sol8
+
+suez -f r125468_sol8.tcl > /cdat/tem/mccann/r125468_sol8.log

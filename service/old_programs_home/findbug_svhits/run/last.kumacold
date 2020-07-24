@@ -1,0 +1,7 @@
+*** Begin of history file: Fri Nov  9 16:08:02 2001
+fortran/file 65 'residual_multiplicative_factors.ps'
+graphics/metafile 65 -111
+igset mtype 1
+exec identify_peaks.kumac
+quit
+*** End   of history file: Fri Nov  9 16:09:17 2001

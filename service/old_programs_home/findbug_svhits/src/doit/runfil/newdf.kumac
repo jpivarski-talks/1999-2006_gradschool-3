@@ -1,0 +1,35 @@
+*
+* $Id: newdf.kumac,v 1.1.1.1 1998/02/06 19:11:48 dpp Exp $
+*
+* $Log: newdf.kumac,v $
+* Revision 1.1.1.1  1998/02/06 19:11:48  dpp
+* DOIT first release.
+*
+* Revision 1.1.1.1  1997/04/30 12:31:40  clib
+* Developmental version of DUET.
+*
+* Revision 1.3  1996/12/04 10:13:42  clib
+* Change toggles for VD Z corrections.
+*
+* Revision 1.1.2.1  1996/06/21 10:13:44  clib
+* Updates from Ken for recompress.
+*
+* Revision 1.2  1996/06/21 09:04:05  clib
+* Update from Ken - change ZCOR numbers.
+*
+* Revision 1.1  1996/05/30 22:53:56  clib
+* First version.
+*
+* Created: Ken Mclean  May 30, 1996
+*
+* Tell clever that the drift functions and associated corrections 
+* are in the style used for the summer 1996 recompress.
+*
+CDCAL/CHOOSEDF NEW NEW NEW
+CDCAL/PROP     F 
+CDCAL/PULSE    3   3   3
+CDCAL/ZCOR     5   6   5  3
+CDCAL/S2MAP FFFFFFTTTTTTTTTTTTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTT
+CDCAL/ZMAP  TFFFFTTTTTTTTTTTFFFTFFFTFFFTFFFTFFFTFFFTFFFTFFFTFFFTFFFTFFFFFTFFFFF
+*           PPPPPPVVVVVVVVVVAAASAAASAAASAAASAAASAAASAAASAAASAAASAAASAAAAASAAAAA
+CDCAL/TGLCOR  3 1 1 1 -1

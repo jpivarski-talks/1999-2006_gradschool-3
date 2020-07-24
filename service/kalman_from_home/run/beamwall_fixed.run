@@ -1,0 +1,7 @@
+#!/usr/local/bin/tcsh
+
+cd $HOME/kalman/run
+. /nfs/cleo3/scripts/cleo3defs
+c3rel Jul13_02_P2
+
+suez -f beamwall_fixed.tcl > ../rzn/beamwall_fixed.log

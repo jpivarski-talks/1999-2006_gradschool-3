@@ -1,0 +1,707 @@
+% Prepared by Karl Ecklund September 2002
+% Questions, Improvements, Comments to kme and CLEOAC
+%
+% LATEX 2e Template for CLEO Papers
+% YOU MUST USE REVTEX4 and latex 2e
+%
+% Checklist for Paper Drafts:
+% ---------------------------
+% 0) Use appropriate \documetclass line as indicated below
+% 1) Draft Number: Use latest CBX number, append A for the first vote
+%                                (B,C,... for subsequent if any votes)
+% 2) Don't use CLNS or CLEO numbers - this happens after your vote.
+% 3) Title; use \\ to break title over several lines.
+% 4) Abstract
+% 5) For the Author list use CLEO Collaboration only
+% 6) Body
+% 
+% Checklist for Journal Submissions:
+% ----------------------------------
+% 0) Use appropriate \documetclass line as indicated below
+%    - For CLNS, hep-ex, preprints, conf. paper use CLNS version
+%    - For PRL submission use PRL version
+%    - For PRD submission use PRD version 
+%      AND use \author{(CLEO Collaboration)} instead of \collaboration{CLEO}
+%      SEE PRD_SPECIAL_CHANGEME in author list during step 5 below
+% 1) CLEO paper number (from CLEOAC)
+% 2) CLNS preprint number (from CLEOAC)
+% 3) Title; use \\ to break title over several lines.
+% 4) Abstract
+% 5) Author list (from CLEOAC)
+% 6) PACS codes
+% 7) Body
+% 8) Add acknowledgments
+% 9) Hardcode the \date when ready to submit to journal and hep-ex.
+%
+% Checklist for Conference Papers:
+% --------------------------------
+% 0) Use appropriate \documetclass line as indicated below
+%    - For conf. paper use CLNS version
+% 1) CLEO conference paper number (from CLEOAC) (don't use CLNS)
+% 2) Title; use \\ to break title over several lines.
+% 3) To \thanks after title, add appropriate conference info.
+% 4) Abstract
+% 5) Author list (from CLEOAC)
+% 6) Body
+% 7) Add acknowledgments
+% 8) Hardcode the \date when ready to submit to conference and hep-ex.
+% 
+% KNOWN PROBLEMS with template and REVTEX4
+% - can't have \collaboration in PRD style grouped author list
+%   Using \author{(CLEO Collaboration)} instead
+% - can't make abstract appear before full author list ala CLNS notes
+%   Abandoning this as the format for CLNS.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Select one of the \documentclass lines below for your paper
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% Use for CLNS preprint (hep-ex) and Paper Drafts
+%\documentclass[aps,prd,preprint,superscriptaddress,tightenlines,nofootinbib]{revtex4}
+
+%%%%%%%%%%%%%% Use for PRL
+\documentclass[aps,prl,superscriptaddress,showpacs,floatfix]{revtex4}
+
+%%%%%%%%%%%%%% Use for PRD
+%\documentclass[aps,prd,twocolumn,nofootinbib,showpacs]{revtex4}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\renewcommand{\baselinestretch}{2}
+
+\begin{document}
+
+%\preprint line(s) will be ignored for PRL/PRD
+%\preprint{CLEO Draft YY-NNA} % For paper draft CBX YY-NN -> Draft YY-NNA
+%\preprint{CLEO CONF YY-NN}   % For conference papers
+%\preprint{ICHEP ABSnnn}      % For conference papers
+\preprint{CLNS 05/1944}       % for CLNS notes
+\preprint{CLEO 05-30}         % for CLNS notes
+
+\title{Di-electron Widths of the Upsilon(1S,2S,3S) Resonances}
+% for conference papers (ask CLEOAC for appropriate text)
+%\thanks{Submitted to the 31$^{\rm st}$ International Conference on High Energy
+%Physics, July 2002, Amsterdam}
+
+%-------- INSERT HERE ------------
+% Your author list goes here  REMOVE EVERYTHING to END INSERT and
+% replace with your authorlist (ask cleoac).
+
+\author{J.~L.~Rosner}
+\affiliation{Enrico Fermi Institute, University of
+Chicago, Chicago, Illinois 60637}
+\author{N.~E.~Adam}
+\author{J.~P.~Alexander}
+\author{K.~Berkelman}
+\author{D.~G.~Cassel}
+\author{J.~E.~Duboscq}
+\author{K.~M.~Ecklund}
+\author{R.~Ehrlich}
+\author{L.~Fields}
+\author{R.~S.~Galik}
+\author{L.~Gibbons}
+\author{R.~Gray}
+\author{S.~W.~Gray}
+\author{D.~L.~Hartill}
+\author{B.~K.~Heltsley}
+\author{D.~Hertz}
+\author{C.~D.~Jones}
+\author{J.~Kandaswamy}
+\author{D.~L.~Kreinick}
+\author{V.~E.~Kuznetsov}
+\author{H.~Mahlke-Kr\"uger}
+\author{T.~O.~Meyer}
+\author{P.~U.~E.~Onyisi}
+\author{J.~R.~Patterson}
+\author{D.~Peterson}
+\author{E.~A.~Phillips}
+\author{J.~Pivarski}
+\author{D.~Riley}
+\author{A.~Ryd}
+\author{A.~J.~Sadoff}
+\author{H.~Schwarthoff}
+\author{X.~Shi}
+\author{S.~Stroiney}
+\author{W.~M.~Sun}
+\author{T.~Wilksen}
+\author{M.~Weinberger}
+\affiliation{Cornell University, Ithaca, New York 14853}
+\author{S.~B.~Athar}
+\author{P.~Avery}
+\author{L.~Breva-Newell}
+\author{R.~Patel}
+\author{V.~Potlia}
+\author{H.~Stoeck}
+\author{J.~Yelton}
+\affiliation{University of Florida, Gainesville, Florida 32611}
+\author{P.~Rubin}
+\affiliation{George Mason University, Fairfax, Virginia 22030}
+\author{C.~Cawlfield}
+\author{B.~I.~Eisenstein}
+\author{I.~Karliner}
+\author{D.~Kim}
+\author{N.~Lowrey}
+\author{P.~Naik}
+\author{C.~Sedlack}
+\author{M.~Selen}
+\author{E.~J.~White}
+\author{J.~Wiss}
+\affiliation{University of Illinois, Urbana-Champaign, Illinois 61801}
+\author{M.~R.~Shepherd}
+\affiliation{Indiana University, Bloomington, Indiana 47405 }
+\author{D.~M.~Asner}
+\author{K.~W.~Edwards}
+\affiliation{Carleton University, Ottawa, Ontario, Canada K1S 5B6 \\
+and the Institute of Particle Physics, Canada}
+\author{D.~Besson}
+\affiliation{University of Kansas, Lawrence, Kansas 66045}
+\author{T.~K.~Pedlar}
+\affiliation{Luther College, Decorah, Iowa 52101}
+\author{D.~Cronin-Hennessy}
+\author{K.~Y.~Gao}
+\author{D.~T.~Gong}
+\author{J.~Hietala}
+\author{Y.~Kubota}
+\author{T.~Klein}
+\author{B.~W.~Lang}
+\author{R.~Poling}
+\author{A.~W.~Scott}
+\author{A.~Smith}
+\affiliation{University of Minnesota, Minneapolis, Minnesota 55455}
+\author{S.~Dobbs}
+\author{Z.~Metreveli}
+\author{K.~K.~Seth}
+\author{A.~Tomaradze}
+\author{P.~Zweber}
+\affiliation{Northwestern University, Evanston, Illinois 60208}
+\author{J.~Ernst}
+\affiliation{State University of New York at Albany, Albany, New York 12222}
+\author{K.~Arms}
+\affiliation{Ohio State University, Columbus, Ohio 43210}
+\author{H.~Severini}
+\affiliation{University of Oklahoma, Norman, Oklahoma 73019}
+\author{S.~A.~Dytman}
+\author{W.~Love}
+\author{S.~Mehrabyan}
+\author{V.~Savinov}
+\affiliation{University of Pittsburgh, Pittsburgh, Pennsylvania 15260}
+\author{O.~Aquines}
+\author{Z.~Li}
+\author{A.~Lopez}
+\author{H.~Mendez}
+\author{J.~Ramirez}
+\affiliation{University of Puerto Rico, Mayaguez, Puerto Rico 00681}
+\author{X.~Bo}
+\author{G.~S.~Huang}
+\author{D.~H.~Miller}
+\author{V.~Pavlunin}
+\author{B.~Sanghi}
+\author{I.~P.~J.~Shipsey}
+\affiliation{Purdue University, West Lafayette, Indiana 47907}
+\author{G.~S.~Adams}
+\author{M.~Anderson}
+\author{J.~P.~Cummings}
+\author{I.~Danko}
+\author{J.~Napolitano}
+\affiliation{Rensselaer Polytechnic Institute, Troy, New York 12180}
+\author{Q.~He}
+\author{J.~Insler}
+\author{H.~Muramatsu}
+\author{C.~S.~Park}
+\author{E.~H.~Thorndike}
+\affiliation{University of Rochester, Rochester, New York 14627}
+\author{T.~E.~Coan}
+\author{Y.~S.~Gao}
+\author{F.~Liu}
+\author{R.~Stroynowski}
+\affiliation{Southern Methodist University, Dallas, Texas 75275}
+\author{M.~Artuso}
+\author{S.~Blusk}
+\author{J.~Butt}
+\author{J.~Li}
+\author{N.~Menaa}
+\author{R.~Mountain}
+\author{S.~Nisar}
+\author{K.~Randrianarivony}
+\author{R.~Redjimi}
+\author{R.~Sia}
+\author{T.~Skwarnicki}
+\author{S.~Stone}
+\author{J.~C.~Wang}
+\author{K.~Zhang}
+\affiliation{Syracuse University, Syracuse, New York 13244}
+\author{S.~E.~Csorna}
+\affiliation{Vanderbilt University, Nashville, Tennessee 37235}
+\author{G.~Bonvicini}
+\author{D.~Cinabro}
+\author{M.~Dubrovin}
+\author{A.~Lincoln}
+\affiliation{Wayne State University, Detroit, Michigan 48202}
+\author{R.~A.~Briere}
+\author{J.~Chen}
+\author{T.~Ferguson}
+\author{G.~Tatishvili}
+\author{H.~Vogel}
+\author{M.~E.~Watkins}
+\affiliation{Carnegie Mellon University, Pittsburgh, Pennsylvania 15213}
+%\author{(CLEO Collaboration)} %FOR PRD_SPECIAL_CHANGEME
+\collaboration{CLEO Collaboration} %FOR PRL,CLNS
+\noaffiliation
+
+%-------- END INSERT ------------
+
+%please hard code the date when you have a final draft and submit to CLEOAC
+\date{\today}
+
+\newcommand{\gee}{$\Gamma_{ee}$}
+\newcommand{\ups}{$\Upsilon$}
+\newcommand{\us}{$\Upsilon(1S)$}
+\newcommand{\uss}{$\Upsilon(2S)$}
+\newcommand{\usss}{$\Upsilon(3S)$}
+\newcommand{\ee}{$e^+e^-$}
+\newcommand{\mm}{$\mu^+\mu^-$}
+\newcommand{\tautau}{$\tau^+\tau^-$}
+\newcommand{\ellell}{$\ell^+\ell^-$}
+\newcommand{\pipi}{$\pi^+\pi^-$}
+\newcommand{\PM}{$\pm$}
+\newcommand{\inv}{$^{-1}$}
+\newcommand{\bmm}{${\mathcal B}_{\mu\mu}$}
+\newcommand{\btt}{${\mathcal B}_{\tau\tau}$}
+\newcommand{\geehadtot}{\Gamma_{ee}\Gamma_{\mbox{\scriptsize had}}/\Gamma_{\mbox{\scriptsize tot}}}
+\newcommand{\pvis}{P_{\mbox{\scriptsize vis}}}
+\newcommand{\ppass}{P_{\mbox{\scriptsize pass given vis}}}
+\newcommand{\ehtrig}{\epsilon_{\mbox{\scriptsize htrig}}}
+\newcommand{\ecuts}{\epsilon_{\mbox{\scriptsize cuts}}}
+\newcommand{\chired}{\chi^2_{\mbox{\scriptsize red}}}
+
+\begin{abstract} 
+We determine the di-electron widths of the \us, \uss, and \usss\
+resonances with sub-2\% precision by integrating the cross-section of
+$e^+e^- \to \Upsilon$ over \ee\ center-of-mass energy.  Using energy
+scans at the Cornell Electron Storage Ring and measuring \ups\
+production with the CLEO detector, we find di-electron widths of
+%
+1.252 \PM\ 0.005 {\it (stat)} \PM\ 0.019 {\it (syst)} keV,
+0.581 \PM\ 0.006 \PM\ 0.009 keV, and
+0.413 \PM\ 0.004 \PM\ 0.006 keV for the \us, \uss, and \usss,
+respectively.
+
+%% (1.354 \PM\ 0.005 \PM\ 0.020) keV,
+%% (0.619 \PM\ 0.007 \PM\ 0.009) keV, and
+%% (0.446 \PM\ 0.004 \PM\ 0.007) keV.  We also report ratios of widths,
+%% (in which some systematic uncertainties cancel.
+%% $\Gamma_{ee}(2S)/\Gamma_{ee}(1S)$ = (0.457 \PM\ 0.006 \PM\ 0.003),
+%% $\Gamma_{ee}(3S)/\Gamma_{ee}(1S)$ = (0.329 \PM\ 0.004 \PM\ 0.002), and
+%% $\Gamma_{ee}(3S)/\Gamma_{ee}(2S)$ = (0.720 \PM\ 0.011 \PM\ 0.006).
+\end{abstract}
+
+\pacs{14.40.Nd} % \pacs{13.20.He}
+\maketitle
+
+The widths of the \ups\ meson, a $b\bar{b}$ bound state discovered in
+1977 \cite{discovery}, are related to the quark-antiquark spatial wave
+function at the origin \cite{wavefunction}.  Recently, these widths
+have been recognized as a testing ground for QCD lattice gauge theory
+calculations \cite{lattice}.  Improvements in the lattice
+calculations, such as the avoidance of the quenched approximation
+\cite{unquenched}, provide an incentive for more accurate experimental
+tests.  The di-electron widths, \gee, of the \us, \uss, and \usss\ are
+currently measured to 2.2\%, 4.2\%, and 9.4\% \cite{pdg}.  Validation
+of these lattice calculations at the few percent level will increase
+confidence in similar calculations used to extract important weak
+interaction parameters from data.  In particular, \gee\ and $f_D$
+\cite{fd} are complimentary tests of the calculation of
+$f_B$, which is used to determine the CKM parameter $V_{td}$.
+
+Our measurement of \gee\ follows the method of \cite{pdg}: we
+integrate the production cross section of \ups\ over incident \ee\
+energies.  Then,
+\begin{equation}
+\label{eqn:gee}
+\Gamma_{ee} = \frac{{M_\Upsilon}^2}{6\pi^2}\int \sigma(e^+e^- \to
+\Upsilon) \, dE \mbox{,}
+\end{equation}
+ignoring initial state radiation and beam energy spread.  We also
+determine the \ups\ full widths using $\Gamma = \Gamma_{ee}/{\mathcal
+B}_{ee}$ where ${\mathcal B}_{ee}$ is the $\Upsilon \to e^+e^-$
+branching fraction, and assume ${\mathcal B}_{ee}$ = \bmm\ to take
+advantage of the well-measured $\Upsilon \to \mu^+\mu^-$ branching
+fractions \cite{istvan}.
+
+The Cornell Electron Storage Ring (CESR), a symmetric \ee\ collider,
+scanned center-of-mass energies in the vicinity of the \us, \uss, and
+\usss\ and the CLEO-III detector collected the \ups\ decay products to
+determine the cross section at each energy.  A fit to this resonance
+lineshape yields $\int \sigma(e^+e^- \to \Upsilon) \, dE$.  This fit
+includes the effects of initial state radiation, beam energy spread,
+backgrounds, and interference between \ups\ and continuum final
+states.  The eleven \us, six \uss, and seven \usss\ scans have an
+integrated luminosity of 0.27, 0.08, and 0.22 fb\inv, with 0.19, 0.41,
+and 0.14 fb\inv\ of data below each peak to constrain backgrounds.
+
+The CLEO-III detector is a nearly 4$\pi$ tracking volume surrounded by
+a CsI crystal calorimeter \cite{cleoiii}.  Charged tracks are
+reconstructed in a 47-layer wire drift chamber and 4-layer silicon
+strip detector, and their momenta are inferred from their radii of
+curvature in a 1.5 T magnetic field.  The calorimeter forms a
+cylindrical barrel around the tracking volume, reaching angles
+$\theta$ with respect to the beam axis of $|\cos\theta|$ $<$ 0.85,
+with endcaps extending this range to $|\cos\theta|$ $<$ 0.98.
+Electron showers have a resolution of 75 MeV at beam energy (5 GeV).
+
+The \ups\ mesons are produced nearly at rest and decay into leptonic
+final states $e^+e^-$, $\mu^+\mu^-$, or $\tau^+\tau^-$, or into
+approximately ten hadrons through strong decay via $ggg$ or $gg\gamma$
+intermediate states, or through electroweak decay via a $q\bar{q}$
+intermediate state.  The \uss\ and \usss\ can also make transitions
+into other $b\bar{b}$ resonances such as $\chi_{bJ}(nP)$, \us, and
+\uss.  The leptonic decays together account for only about 7\% of the
+decays of each resonance and are difficult to distinguish from
+background, so we select hadrons, fit the hadronic cross section, and
+report $\geehadtot$.  We then correct for the missing leptonic modes
+to report \gee.
+
+Bhabha scattering ($e^+e^- \to e^+e^-$) is our largest background.  We
+suppress these events by requiring the greatest track momentum
+($P_{\mbox{\scriptsize max}}$) to be less than 80\% of the beam
+energy, shown in Figure \ref{fig:cuts}-a, which reduces the Bhabha
+background to approximately the same magnitude as the hadronic
+continuum ($e^+e^- \to q\bar{q}$) background.  Continuum annihilation
+processes such as these are accounted for by including a $1/s$ term in
+the lineshape fit, where $s = {E_{\mbox{\scriptsize CM}}}^2 = (2
+E_{\mbox{\scriptsize beam}})^2$.
+
+\begin{figure}
+  \includegraphics[width=0.5\linewidth]{cuts}
+  \caption{\label{fig:cuts} Two of the distributions used to identify
+hadronic \ups\ decays.  Solid histograms are data, dashed are
+simulated \ups\ decays, both with all hadronic selection criteria
+applied except the one shown.}
+\end{figure}
+
+Two-photon fusion events ($e^+e^- \to e^+e^- X$) contribute a
+non-$1/s$ background, so we suppress these by requiring the total
+visible energy (energy sum of all charged tracks and neutral showers)
+to be more than 40\% of the center-of-mass energy, shown in Figure
+\ref{fig:cuts}-b.  A small $\log s$ term (8\% of continuum below \us)
+and a $1/(\sqrt{s}-M_\Upsilon)$ term for each of the lighter \ups\
+resonances (about 0.5\% of continuum) are also added to the fit
+function.  Because the off-resonance data points are only 20 MeV below
+each resonance, the different functional forms affect the background
+estimation at the peak by less than 0.04\%.
+
+Cosmic rays and beam-gas (collisions between a beam electron and a gas
+nucleus inside the beampipe) are suppressed by requiring charged
+tracks to point toward the collision point.  We reduce this to less
+than 1\% of the continuum by demanding that at least one reconstructed
+track pass within 5 mm of the beam axis and the vertex reconstructed
+from all primary tracks be within 7.5 cm of the collision point along
+the beam axis.  We determine and subtract the remaining contamination
+at each energy using special single-beam and no-beam data runs
+normalized using events with a solitary large impact parameter track
+(for cosmic rays) or vertices along the beam axis but far from the
+collision point (for beam gas).
+
+Backgrounds are summarized in Figure \ref{fig:backgrounds}.
+
+\begin{figure}
+  \includegraphics[width=0.5\linewidth]{backgrounds}
+  \caption{\label{fig:backgrounds} The event yield as a function of
+center-of-mass energy in the region of the \usss.  The top points are
+data, with the fit superimposed, and the dashed curve represents the
+sum of all backgrounds.  The lower points and lines show the
+individual non-1/s background contributions.}
+\end{figure}
+
+While our hadronic selection criteria eliminate essentially all
+$\Upsilon \to e^+e^-$ and $\Upsilon \to \mu^+\mu^-$ decays, they
+accept 57\% of $\Upsilon \to \tau^+\tau^-$, according to a GEANT-based
+Monte Carlo simulation \cite{mc} including final state radiation
+\cite{photos}.  We therefore include in the fit function an $\Upsilon
+\to \tau^+\tau^-$ background term, including interference with
+continuum $e^+e^- \to \tau^+\tau^-$, using the measured ${\mathcal
+B}_{\tau\tau}$ \cite{jean}.
+
+A small fraction of hadronic \ups\ decays fail our event selection
+criteria.  Instead of estimating this inefficiency with the Monte
+Carlo simulation, which would introduce dependence on the decay and
+hadronization models, as well as the detector simulation, we use a
+data-based approach.  We select $\Upsilon(2S) \to \pi^+\pi^-
+\Upsilon(1S)$ to study \us\ decays tagged by \pipi.  If the \pipi\
+were sufficient to satisfy the trigger, the efficiency would be the
+ratio of \us\ events satisfying our selection criteria (excluding the
+\pipi\ tracks and showers) to all \us\ events.
+
+We can apply the above procedure directly using a 1.3 fb\inv\ sample
+at the \uss\ peak and a special two-track trigger, but this trigger is
+prescaled, so this procedure can only determine the hadronic
+efficiency to 3\% of itself.  Therefore, we use the two-track trigger
+to determine the efficiency of an unprescaled but more restrictive
+hadronic trigger ($\ehtrig$), and then use the full statistics from
+the hadronic trigger to determine our selection efficiency, once this
+trigger has been satisfied ($\ecuts$).  Our selection efficiency is
+then the product of $\ehtrig$ and $\ecuts$.
+
+The mass of the system recoiling against the \pipi\ candidates in the
+two-track trigger sample is shown in Figure \ref{fig:cascades}-a and
+the subset of events that fail the hadronic trigger is shown in Figure
+\ref{fig:cascades}-b.  After correcting for leptonic decays in the
+\us\ sample, we find $\ehtrig$ = (99.59 $^{+0.29}_{-0.45}$)\% from the
+ratio of fit yields.
+
+\begin{figure}
+  \includegraphics[width=0.5\linewidth]{cascades}
+  \caption{\label{fig:cascades} Mass of the system recoiling against
+the \pipi\ in $\Upsilon(2S) \to \pi^+\pi^- \Upsilon(1S)$ candidates
+satisfying the two-track trigger.  The solid curve is a double
+Gaussian fit and the dashed curve is a linear background.}
+\end{figure}
+
+From $\Upsilon(2S) \to \pi^+\pi^- \Upsilon(1S)$ events that satisfy
+the hadronic trigger, we find $\ecuts$ = (98.33 \PM\ 0.33)\%.  This
+has been corrected for leptonic decays, the boost of the \us, track
+and shower confusion from the \pipi, and the efficiency of the full
+set of triggers.  Only the first correction is significant.  Our event
+selection and trigger efficiency is therefore (97.93
+$^{+0.44}_{-0.56}$)\% for the sum of all non-leptonic \us\ decays.
+
+To find the \uss\ and \usss\ efficiencies, we correct the \us\
+efficiency for energy dependence and for transitions specific to these
+excited states, using simulations.  Only transitions to lower \ups\
+resonances which then decay to \ee\ or \mm\ introduce a significant
+correction.  We measure the branching fractions of these
+$X\ell^+\ell^-$ decays to be (1.58 \PM\ 0.16)\% and (1.34 \PM\
+0.13)\%, respectively, resulting in \uss\ and \usss\ efficiencies of
+(96.18 $^{+0.44}_{-0.56}$ \PM\ 0.15)\% and (96.41 $^{+0.44}_{-0.56}$
+\PM\ 0.13)\%, where the first uncertainty is common to all three
+resonances.
+
+We use Bhabha events to determine the relative luminosity of each scan
+point.  We select the Bhabhas by requiring two or more central tracks
+with momenta between 50\% and 110\% of the beam energy, and $E/p$
+consistent with $e^+$ and $e^-$.  Contamination from $\Upsilon \to
+e^+e^-$ is 2--5\% and is readily calculated given \bmm\ once we have
+done our \ups\ lineshape fit.  Our subtraction includes
+energy-dependent interference between $\Upsilon \to e^+e^-$ and
+Bhabhas.
+
+We determine the overall luminosity scale using the method of
+\cite{oldlumi} from Bhabhas, $e^+e^- \to \mu^+\mu^-$, and $e^+e^- \to
+\gamma\gamma$, with the {\textsc Babayaga} event generator
+\cite{babayaga}.  The systematic uncertainties from the three
+processes are 1.6\%, 1.6\%, and 1.8\%, respectively, dominated by
+track finding and resonance interference for \ee\ and \mm, and by
+photon finding and angular resolution for $\gamma\gamma$.  The three
+measurements give consistent results off-resonance, where \ups\
+contamination is negligible.  We use the weighted mean to determine
+the luminosity, and take the RMS scatter of 1.3\% as the systematic
+uncertainty.
+
+Bhabha and $\gamma\gamma$ luminosities, normalized to the same value
+off-resonance, deviate by (0.8 \PM\ 0.2)\%, (0.3 \PM\ 0.4)\%, and (0.7
+\PM\ 0.2)\% at the \us, \uss, and \usss\ peaks.  We correct each \gee\
+by half of its discrepancy and take half the discrepancy and its
+uncertainty in quadrature as a systematic uncertainty.
+
+Accurate measurement of beam energy is also important for determining
+\gee.  An NMR probe calibrates the field of the CESR dipole magnets
+and hence provides the beam energy, after corrections for RF frequency
+shifts, steering and focusing magnets, and electrostatic
+electron-positron separators.  To limit our sensitivity to drifts in
+this measurement, we limit scans to 48 hours and alternate
+measurements above and below the peak.  By repeating a resonance
+cross-section measurement at a point of high slope, we find that beam
+energy calibration drifts by less than 0.04 MeV within each scan (68\%
+C.L.), which implies a 0.2\% uncertainty in \gee.
+
+The data for each resonance are separately fit to a lineshape function
+that consists of a three-fold convolution of (a) a Breit-Wigner
+resonance including interference between $\Upsilon \to q\bar{q}$ and
+$e^+e^- \to q\bar{q}$, (b) an initial state radiation distribution as
+given in Equation 28 of \cite{kf}, and (c) the Gaussian spread in CESR
+beam energy, plus the background terms described above.  The radiative
+corrections account for emission of real and virtual photons by the
+initial \ee.  We do not correct for vacuum polarization, which is
+absorbed into the definition of \gee.  The resulting \gee\ values
+therefore should represent the Born diagram coupling a pure \ee\ state
+to the \ups.  The lineshape fits are insensitive to the Breit-Wigner
+widths, which are fixed to the PDG values \cite{pdg}.  The \us\
+lineshape is sensitive to the amount of hadronic interference, which
+would increase if \ups\ decays via $ggg$ interfered with $q\bar{q}$
+decays from the continuum.  Assuming that $\Upsilon \to ggg$ and
+$\Upsilon \to q\bar{q}$ processes have no relative phase, the data
+disfavor such additional interference.  The value of $\geehadtot$ of
+each resonance is allowed to float, as is the continuum normalization,
+and, to remove sensitivity to beam energy shifts between scans, the
+peak energy of each scan.  In addition, we fit for the beam energy
+spread of groups of scans with common CESR horizontal steerings, but
+allow shifts when the steerings change, since they can change the beam
+energy spread by 1\%.  Uncertainties from radiative corrections,
+$\tau^+\tau^-$ normalization, and continuum interference add 0.2\% to
+the uncertainty in $\geehadtot$.
+
+The results are plotted in Figure \ref{fig:fits}.  The fit function
+describes the data well, though the \us\ and \uss\ have large $\chi^2$
+values.  The $\chi^2$ per degree of freedom ($N_{\mbox{\scriptsize
+dof}}$) for \us\ is $240/187$ (0.5\% confidence), for \uss\ is
+$107/66$ (0.1\% confidence), and for \usss\ is $155/159$ (59\%
+confidence).  Pull distributions versus energy and versus date show no
+obvious trends, so we take the large $\chi^2$ values as an indication
+that point-by-point uncertainties are underestimated, and increase the
+statistical uncertainty by $\sqrt{\chi^2/N_{\mbox{\scriptsize dof}}}$
+if it is greater than unity.
+
+\begin{figure*}
+  \includegraphics[width=\linewidth]{fits}
+  \caption{\label{fig:fits} The hadronic yield versus center-of-mass
+energy in the vicinity of the three \ups\ resonances.  Points are
+data, corrected for fitted beam energy shifts between scans, the solid
+line is the fit, the dashed line is sum of all backgrounds, and the
+insets show high-energy measurements.  Above each fit is the pull
+distribution (residual divided by uncertainty).}
+\end{figure*}
+
+All uncertainties are listed in Table \ref{tab:unc}.
+
+\begin{table}
+  \caption{\label{tab:unc} All uncertainties in \gee\ in the order in
+which they are discussed in the text.  Uncertainties common to all
+resonances are indicated with an asterisk ($*$).  Statistical
+uncertainty is multiplied by the $\sqrt{\chi^2/N_{\mbox{\scriptsize dof}}}$
+of the fit (see text).}  \renewcommand{\arraystretch}{1.25}
+  \begin{tabular}{l c c c}
+    \hline\hline Contribution to \gee & \hspace{0 cm}\us\hspace{0 cm} & \hspace{0 cm}\uss\hspace{0 cm} & \hspace{0 cm}\usss\hspace{0 cm} \\\hline
+    Correction for leptonic modes                    & 0.2\% 	          & 0.2\%  	       & 0.3\% \\
+    $^*$Hadronic efficiency                          & 0.5\%              & 0.5\%  	       & 0.5\% \\
+    $Xe^+e^-$, $X\mu^+\mu^-$ correction              & 0                  & 0.15\% 	       & 0.13\% \\
+    $^*$Overall luminosity scale                     & 1.3\%              & 1.3\%  	       & 1.3\% \\
+    Bhabha/$\gamma\gamma$ inconsistency              & 0.4\%  	      	  & 0.4\%  	       & 0.4\% \\
+    Beam energy measurement drift                    & 0.2\%  	      	  & 0.2\%  	       & 0.2\% \\
+    Fit function shape                               & 0.2\% 	      	  & 0.2\%  	       & 0.2\% \\\hline
+    Total systematic uncertainty                     & 1.5\%              & 1.5\%              & 1.5\% \\
+    Scaled statistical uncertainty                   & 1.1$\times$0.3\%   & 1.3$\times$0.7\%   & 1.0\% \\\hline
+    Total                                            & 1.5\%    	  & 1.7\%  	       & 1.8\% \\\hline\hline
+  \end{tabular}
+\end{table}
+
+Our values of $\geehadtot$, listed in Table \ref{tab:results}, are
+consistent with, but more precise than, but PDG world averages
+\cite{pdg} and our \usss\ measurement is substantially more precise
+than the previous one.  To determine \gee\ for each resonance, also
+listed in the Table, we assume ${\mathcal B}_{ee} = {\mathcal
+B}_{\mu\mu} = {\mathcal B}_{\tau\tau}$ and obtain \bmm\ from
+\cite{istvan}.  Also assuming ${\mathcal B}_{ee} = {\mathcal
+B}_{\mu\mu}$, we obtain new values of the \ups\ full widths: 54.4 \PM\
+0.2 {\it (stat)} \PM\ 0.8 {\it (syst)} \PM\ 1.6 {\it (}\bmm{\it )}
+keV, 30.5 \PM\ 0.3 \PM\ 0.5 \PM\ 1.3 keV, and 18.6 \PM\ 0.2 \PM\ 0.3
+\PM\ 0.9 keV.
+
+\begin{table}
+  \caption{\label{tab:results} The results of $\geehadtot$ for the
+three resonances, the di-electron widths \gee, and their ratios.
+The first uncertainty is scaled statistical and the second
+is systematic.}
+  \renewcommand{\arraystretch}{1.25}
+  \begin{tabular}{c c c}
+    \hline\hline 
+    $\geehadtot(1S)$ & & (1.252 \PM\ 0.004 \PM\ 0.019) keV \\
+    $\geehadtot(2S)$ & & (0.581 \PM\ 0.005 \PM\ 0.009) keV \\
+    $\geehadtot(3S)$ & & (0.413 \PM\ 0.004 \PM\ 0.006) keV \\\hline
+    $\Gamma_{ee}(1S)$ & \hspace{1.52 cm} & (1.354 \PM\ 0.005 \PM\ 0.020) keV \\
+    $\Gamma_{ee}(2S)$ & & (0.619 \PM\ 0.006 \PM\ 0.009) keV \\
+    $\Gamma_{ee}(3S)$ & & (0.446 \PM\ 0.004 \PM\ 0.007) keV \\\hline
+    $\Gamma_{ee}(2S)/\Gamma_{ee}(1S)$ & & (0.457 \PM\ 0.004 \PM\ 0.003) \\
+    $\Gamma_{ee}(3S)/\Gamma_{ee}(1S)$ & & (0.329 \PM\ 0.003 \PM\ 0.002) \\
+    $\Gamma_{ee}(3S)/\Gamma_{ee}(2S)$ & & (0.720 \PM\ 0.010 \PM\ 0.006) \\\hline\hline
+  \end{tabular}
+\end{table}
+
+We gratefully acknowledge the effort of the CESR staff 
+in providing us with excellent luminosity and running conditions.
+This work was supported by 
+the A.P.~Sloan Foundation,
+the National Science Foundation,
+and the U.S. Department of Energy.
+
+\begin{thebibliography}{99}
+
+\bibitem{discovery}
+S.~W.~Herb {\it et al.},
+%``Observation Of A Dimuon Resonance At 9.5-Gev In 400-Gev Proton - Nucleus
+%Collisions,''
+Phys.\ Rev.\ Lett.\  {\bf 39}, 252 (1977).
+%%CITATION = PRLTA,39,252;%%
+
+\bibitem{wavefunction}
+R.~Van Royen and V.~F.~Weisskopf,
+%``Hadron Decay Processes And The Quark Model,''
+Nuovo Cim.\ A {\bf 50}, 617 (1967)
+[Erratum-ibid.\ A {\bf 51}, 583 (1967)].
+%%CITATION = NUCIA,A50,617;%%
+
+\bibitem{lattice}
+A.~Gray, I.~Allison, C.~T.~H.~Davies, E.~Gulez, G.~P.~Lepage, J.~Shigemitsu and M.~Wingate,
+%``The Upsilon spectrum and m(b) from full lattice QCD,''
+arXiv:hep-lat/0507013.
+%%CITATION = HEP-LAT 0507013;%%
+
+\bibitem{unquenched}
+C.~T.~H.~Davies {\it et al.}  [HPQCD Collaboration],
+%``High-precision lattice QCD confronts experiment,''
+Phys.\ Rev.\ Lett.\  {\bf 92}, 022001 (2004)
+[arXiv:hep-lat/0304004].
+%%CITATION = HEP-LAT 0304004;%%
+
+\bibitem{pdg}
+S.~Eidelman {\it et al.}  [Particle Data Group],
+%``Review of particle physics,''
+Phys.\ Lett.\ B {\bf 592}, 1 (2004).
+%%CITATION = PHLTA,B592,1;%%
+
+\bibitem{fd}
+M.~Artuso {\it et al.}  [CLEO Collaboration],
+%``Improved measurement of B(D+ $\to$ mu+ nu) and the pseudoscalar decay
+%constant f(D+),''
+arXiv:hep-ex/0508057.
+%%CITATION = HEP-EX 0508057;%%
+
+\bibitem{istvan}
+G.~S.~Adams {\it et al.}  [CLEO Collaboration],
+%``Measurement of the muonic branching fractions of the narrow Upsilon resonances,''
+Phys.\ Rev.\ Lett.\  {\bf 94}, 012001 (2005).
+% [arXiv:hep-ex/0409027].
+%%CITATION = HEP-EX 0409027;%%
+
+\bibitem{cleoiii}
+G. Viehhauser {\it CLEO III Operation},
+Nucl. Instrum. Methods A {\bf 462}, 146 (2001).
+
+\bibitem{mc}
+R. Brun {\it et al.}, {\textsc Geant} 3.21, CERN Program Library Long
+Writeup W5013 (1993), unpublished.
+
+\bibitem{photos}
+E. Barberio and Z. W\c{a}s, Comput. Phys. Commun. {\bf 79}, 291 (1994).
+
+\bibitem{jean}
+{\tt http://www.lip.pt/events/2005/hep2005/talks/ hep2005\_talk\_JeanDuboscq.pdf},
+pages 14--18.
+
+\bibitem{oldlumi}
+G.D. Crawford {\it et al.} (CLEO Collaboration),
+Nucl. Instrum. Methods Phys. Res., Sect A {\bf 345}, 429 (1994).
+
+\bibitem{babayaga}
+C.M.~Carloni~Calame {\sl et al.},
+Nucl. Phys. Proc. Suppl. B {\bf 131}, 48 (2004).
+
+\bibitem{kf}
+E.~A.~Kuraev and V.~S.~Fadin,
+%``On Radiative Corrections To E+ E- Single Photon Annihilation At High-Energy,''
+Sov.\ J.\ Nucl.\ Phys.\  {\bf 41}, 466 (1985)
+[Yad.\ Fiz.\  {\bf 41}, 733 (1985)].
+%%CITATION = SJNCA,41,466;%%
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,10 @@
+*** Begin of history file: Mon Apr 14 19:16:20 2003
+h/file 1 ../rzn/d0missthetadependence.rzn
+cd d0missthetadependence
+nt/print 1
+nt/plot 1.phi0%plphi0
+nt/plot 1.phi0%plphi0 ! ! ! prof
+nt/plot 1.phi0%plphi0 ! ! ! ! prof
+nt/plot 1.phi0%miphi0 ! ! ! ! prof
+exit
+*** End   of history file: Mon Apr 14 19:17:34 2003

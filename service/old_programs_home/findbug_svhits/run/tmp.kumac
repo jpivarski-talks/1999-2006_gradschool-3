@@ -1,0 +1,109 @@
+h/file 1 fb_chi_position.rzn
+cd findbug2
+
+nt/cuts $1 abs(residual)<0.001
+
+sigma upper=0.0004
+sigma lower=-0.0004
+h/cr/2d 200 'track y VS track x' 100 -0.02 0.01 100 $SIGMA(lower) $SIGMA(upper)
+h/cr/2d 241 'sensors 1, 4, 7, 13, 16, 19' 100 -0.02 0.01 100 $SIGMA(lower) $SIGMA(upper)
+h/cr/2d 242 'sensors 2, 5, 8, 14, 17, 20' 100 -0.02 0.01 100 $SIGMA(lower) $SIGMA(upper)
+h/cr/2d 243 'sensors 3, 6, 9, 15, 18, 21' 100 -0.02 0.01 100 $SIGMA(lower) $SIGMA(upper)
+h/cr/prof 251 'sensors 1, 4, 7, 13, 16, 19' 20 -0.02 0.01 -0.03 0.03
+h/cr/prof 252 'sensors 2, 5, 8, 14, 17, 20' 20 -0.02 0.01 -0.03 0.03
+h/cr/prof 253 'sensors 3, 6, 9, 15, 18, 21' 20 -0.02 0.01 -0.03 0.03
+
+sigma t=0.0003
+sigma y=0.02506
+nt/plot 2.-$SIGMA(y)+cos($SIGMA(t))*trackY-sin($SIGMA(t))*trackX%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&ladder==1 ! ! ! 'N' 200
+nt/project 241 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==1
+nt/project 242 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==2
+nt/project 243 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==3
+nt/project 251 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==1
+nt/project 252 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==2
+nt/project 253 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==3
+h/copy 200 201 'ladder 1'
+
+sigma t=t+2.*3.1415926/7.-0.0005
+sigma y=0.02453
+nt/plot 2.-$SIGMA(y)+cos($SIGMA(t))*trackY-sin($SIGMA(t))*trackX%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&ladder==2 ! ! ! 'N' 200
+nt/project 241 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==4
+nt/project 242 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==5
+nt/project 243 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==6
+nt/project 251 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==4
+nt/project 252 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==5
+nt/project 253 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==6
+h/copy 200 202 'ladder 2'
+
+sigma t=t+2.*3.1415926/7.-0.0025
+sigma y=0.02423
+nt/plot 2.-$SIGMA(y)+cos($SIGMA(t))*trackY-sin($SIGMA(t))*trackX%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&ladder==3 ! ! ! 'N' 200
+nt/project 241 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==7
+nt/project 242 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==8
+nt/project 243 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==9
+nt/project 251 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==7
+nt/project 252 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==8
+nt/project 253 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==9
+h/copy 200 203 'ladder 3'
+
+sigma t=t+2.*3.1415926/7.
+
+sigma t=t+2.*3.1415926/7.
+sigma y=0.02524
+nt/plot 2.-$SIGMA(y)+cos($SIGMA(t))*trackY-sin($SIGMA(t))*trackX%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&ladder==5 ! ! ! 'N' 200
+nt/project 241 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==13
+nt/project 242 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==14
+nt/project 243 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==15
+nt/project 251 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==13
+nt/project 252 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==14
+nt/project 253 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==15
+h/copy 200 205 'ladder 5'
+
+sigma t=t+2.*3.1415926/7.
+sigma y=0.0255
+nt/plot 2.-$SIGMA(y)+cos($SIGMA(t))*trackY-sin($SIGMA(t))*trackX%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&ladder==6 ! ! ! 'N' 200
+nt/project 241 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==16
+nt/project 242 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==17
+nt/project 243 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==18
+nt/project 251 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==16
+nt/project 252 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==17
+nt/project 253 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==18
+h/copy 200 206 'ladder 6'
+
+sigma t=t+2.*3.1415926/7.+0.0026
+sigma y=0.02552
+nt/plot 2.-$SIGMA(y)+cos($SIGMA(t))*trackY-sin($SIGMA(t))*trackX%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&ladder==7 ! ! ! 'N' 200
+nt/project 241 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==19
+nt/project 242 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==20
+nt/project 243 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==21
+nt/project 251 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==19
+nt/project 252 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==20
+nt/project 253 2.residual%cos($SIGMA(t))*trackX+sin($SIGMA(t))*trackY $1&&sensor==21
+h/copy 200 207 'ladder 7'
+
+max 251 0.001
+min 251 -0.001
+max 252 0.001 
+min 252 -0.001
+max 253 0.001 
+min 253 -0.001
+
+h/cr/title 'track intersection Y vs X (what if I used 200um)'
+zone 2 3
+h/plot 201
+h/plot 202
+h/plot 203
+h/plot 205
+h/plot 206
+h/plot 207
+
+* wait
+
+h/cr/title 'residual vs track intersection X (what if I used 200um)'
+zone 1 3
+h/plot 251
+h/plot 252
+h/plot 253
+
+* wait
+

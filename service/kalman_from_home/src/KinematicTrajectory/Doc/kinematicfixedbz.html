@@ -1,0 +1,130 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>The KTKinematicFixedBz Class</TITLE>
+<META NAME="Template" CONTENT="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot">
+</HEAD>
+<BODY LINK="#0000ff" VLINK="#800080">
+
+<H1 ALIGN="CENTER">The KTKinematicFixedBz Class</H1>
+<H2>Introduction</H2>
+<B><P>KTKinematicFixedBz</B> is one of the <A HREF="basetracks.html">basic track classes</A> in the CLEO3 infrastructure. Inheriting from the <A HREF="kinematicmoveable.html">KTKinematicMoveable</A> class, it implements movement of <A HREF="kinematicdata.html">KTKinematicData</A> objects through a constant solenoidal field.</P>
+<H2><A HREF="kinematicfixedbz.gif">KTKinematicFixedbz class diagram</A></H2>
+<H2>Equations of motion in a solenoidal field</H2>
+<P>Given the momentum and position of a particle on a helix, it is relatively straightforward to calculate the momentum and position as a function of the arc length <I>s</I>, where <I>s</I> = 0 at the original point. Let (<FONT FACE="Courier New">x0,y0,z0</FONT>) be an initial point on the helix and (<FONT FACE="Courier New">px0,py0,pz0</FONT>) be its momentum there. Then the position and momentum of any other point on the helix can be written</P><DIR>
+<DIR>
+
+<PRE>x  = x0 + (px0/a) * sin(rho*s) - (py0/a) * [1-cos(rho*s)]
+y  = y0 + (py0/a) * sin(rho*s) + (px0/a) * [1-cos(rho*s)]
+x  = z0 + (pz0/p) * s
+px = px0*cos(rho*s) - py0*sin(rho*s)
+py = px0*sin(rho*s) + py0*cos(rho*s)
+pz = pz0</PRE></DIR>
+</DIR>
+
+<P>where</P><DIR>
+<DIR>
+
+<PRE>s = arc length from (x0,y0,z0)
+a = -0.0299792458 * Bfield * charge (Bfield in Kgauss)
+rho = a / p</PRE></DIR>
+</DIR>
+
+<P>For a straight line, these equations simplify to</P><DIR>
+<DIR>
+
+<PRE>x = x0 + (px0/p) * s
+y = y0 + (py0/p) * s
+x = z0 + (pz0/p) * s
+px = px0
+py = px0
+pz = pz0</PRE>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<H2>Building KTKinematicFixedBz objects</H2>
+<H4>Build from helix information</H4>
+<P>This example takes a helix and builds <B>KTKinematicFixedBz</B> objects pion1 and pion2, with and without an error matrix, respectively.</P><DIR>
+<DIR>
+
+<PRE>KTHelix helix(...);
+double mass = 0.1396;
+double bMag = -15.;
+DABoolean noErrorMatrix = false;
+
+KTKinematicFixedBz pion1(helix, mass, bMag);
+KTKinematicFixedBz pion2(helix, mass, bMag, massnoErrorMatrix);</PRE>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<H4>Build from kinematic information</H4>
+<P>All that needs to be added is the B field magnitude. Again we build <B>KTKinematicFixedBz</B> objects pion1 and pion2, without and with an error matrix, respectively.</P><DIR>
+<DIR>
+
+<PRE>KTKinematicData particle(...);
+double bMag = -15.;
+DABoolean noErrorMatrix = false;
+
+KTKinematicFixedBz pion1(particle, bMag);
+KTKinematicFixedBz pion2(particle, bMag, noErrorMatrix);</PRE>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<H4>Build from scratch</H4>
+<P>You can also build <B>KTKinematicFixedBz</B> objects from momentum and position information, similar to the method used for <B>KTKinematicData</B> objects. Once again we build two objects, one with and one without the error matrix.</P><DIR>
+<DIR>
+
+<PRE>TBThreeVector momentum(1.2, -0.5, 0.6);
+TBThreePoint  position(0.002, 0.003, 0.);
+double mass = 0.1396;
+double charge = -1.0;
+double bMag = -15.;
+TBSymMatrix errMatrix(7,1);  Create a 7x7 unit matrix for now
+
+KTKinematicFixedBz pion1(momentum, position, mass, charge, bMag,
+                         errMatrix);
+KTKinematicFixedBz pion2(momentum, position, mass, charge, bMag);</PRE></DIR>
+</DIR>
+
+<H2>Examples of how to use KTKinematicFixedBz objects</H2>
+<P>Assume that we have already built a particle of type <B>KTKinematicFixedBz</B>. Let's try to move the object. Remember that when you move any <A HREF="kinematicmoveable.html">KTKinematicMoveable</A> object you can specify the direction of the move as being forward, backard or either (the specification of "either" means that the object will take the shortest path to the desired point, either forward or backward). The definitions of these directions can be found in the <A HREF="movecontrol.gif">KTMoveControl</A> class. For coding clarity it is better to typedef them as shown below:</P><DIR>
+<DIR>
+
+<PRE>typedef KTMoveControl::kDirectionForward  kForward;
+typedef KTMoveControl::kDirectionBackward kBackward;
+typedef KTMoveControl::kDirectionEither   kEither;</PRE></DIR>
+</DIR>
+
+<P>You can also typedef the return argument in a similar way.</P><DIR>
+<DIR>
+
+<PRE>typedef KTMoveControl::MoveStatus MoveStatus;
+// Move forward to a plane
+TBThreePoint  aPlanePoint (0.2, 0.5, 1.2);
+TBThreeVector aPlaneNormal(0.8, 0.6, 0.);
+MoveStatus status = pion.moveToPlane(aPlanePoint, aPlaneNormal, kForward);
+
+// Move to the specified radius (pick closest path)
+double radius = 1.2;
+MoveStatus status = pion.moveToRadius(radius);
+
+// Move to the point of closest approach to a point (pick closest path)
+TBThreePoint aPoint(0.22, 0.55, 1.22);
+MoveStatus status2 = pion.moveToPoint(aPoint);
+
+// Calculate the DCA to origin (in XY plane)
+MoveStatus status2 = pion.dcaXY( TBThreePoint(0.,0.,0.) );</PRE></DIR>
+</DIR>
+
+<P><HR></P>
+<ADDRESS><A HREF="mailto:avery@phys.ufl.edu/">Paul Avery &lt;avery@phys.ufl.edu&gt;</A></ADDRESS>
+<P>$Id: kinematicfixedbz.html,v 1.2 1998/07/09 21:33:14 avery Exp $ <!-- 
+$Log: kinematicfixedbz.html,v $
+Revision 1.2  1998/07/09 21:33:14  avery
+Bug fixes, finished implementation of move routines, updated documentation.
+
+Revision 1.1  1998/05/27 17:06:13  avery
+First submission of documentation
+--></BODY>
+</HTML>

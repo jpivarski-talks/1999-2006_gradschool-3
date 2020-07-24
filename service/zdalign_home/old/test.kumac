@@ -1,0 +1,13 @@
+nt/cr 1 'test' 5 ! ! 'phi' 'dphi' 'dd' 'dz' 'dct'
+nt/read 1 test.ntuple
+
+nt/plot 1.dphi
+* +/- 0.5e-4
+
+nt/plot 1.dd
+* +/- 0.5e-6
+
+nt/plot 1.dz
+* +/- 0.5e-7
+
+nt/plot 1.dct

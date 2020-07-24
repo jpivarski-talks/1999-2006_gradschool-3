@@ -1,0 +1,19 @@
+/STL_vectorOfHypos.cc/1.1/Sat Jun 10 00:15:17 2000//
+/T_McCannBaseQualityProxy.cc/1.1/Sat Sep 11 19:37:57 1999//
+/T_McCannElectronQualityProxy.cc/1.2/Wed Aug 16 20:18:25 2000//
+/T_McCannExitElectronQualityProxy.cc/1.2/Wed Aug 16 20:18:25 2000//
+/T_McCannExitKaonQualityProxy.cc/1.2/Wed Aug 16 20:18:26 2000//
+/T_McCannExitMuonQualityProxy.cc/1.2/Wed Aug 16 20:18:26 2000//
+/T_McCannExitPionQualityProxy.cc/1.2/Wed Aug 16 20:18:27 2000//
+/T_McCannExitProtonQualityProxy.cc/1.2/Wed Aug 16 20:18:27 2000//
+/T_McCannFitCathodeHitLatticeProxy.cc/1.1.1.1/Fri Sep 10 21:58:59 1999//
+/T_McCannFitDRHitLatticeProxy.cc/1.1.1.1/Fri Sep 10 21:58:59 1999//
+/T_McCannFitSVRHitLatticeProxy.cc/1.1.1.1/Fri Sep 10 21:58:59 1999//
+/T_McCannFitSVZHitLatticeProxy.cc/1.1.1.1/Fri Sep 10 21:58:59 1999//
+/T_McCannFitZDHitLatticeProxy.cc/1.1/Thu Apr 17 17:05:07 2003//
+/T_McCannHelixFitProxy.cc/1.1.1.1/Fri Sep 10 21:58:58 1999//
+/T_McCannKaonQualityProxy.cc/1.2/Wed Aug 16 20:18:27 2000//
+/T_McCannMuonQualityProxy.cc/1.2/Wed Aug 16 20:18:28 2000//
+/T_McCannPionQualityProxy.cc/1.2/Wed Aug 16 20:18:28 2000//
+/T_McCannProtonQualityProxy.cc/1.2/Wed Aug 16 20:18:29 2000//
+D

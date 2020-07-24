@@ -1,0 +1,27 @@
+*** Begin of history file: Thu Nov  6 09:53:22 2003
+exec fiter9.kumac
+h/list
+h/plot 5
+h/file 1 aligncake.rzn
+h/plot //lun1/fipassproc/fiteration9/diagnostics/both/1
+h/plot //lun1/fipassproc/fiteration9/diagnostics/both/2
+h/plot //lun1/fipassproc/fiteration9/diagnostics/both/3
+h/plot //lun1/fipassproc/fiteration9/diagnostics/both/4
+h/plot 5
+h/plot //lun1/fipassproc/fiteration9/diagnostics/phi0/4
+h/plot //lun1/fipassproc/fiteration9/diagnostics/phi0/1
+h/file 1 aligncake.rzn
+h/plot //lun1/fipassproc/fiteration9/diagnostics/phi0/1
+ldir //lun1/fipassproc/fiteration9/diagnostics/
+ldir //lun1/fipassproc/fiteration9/diagnostics
+ldir //lun1/fipassproc/fiteration9/diagnostics/phi
+h/plot 5
+ldir //lun1/fipassproc/fiteration9/diagnostics/phi
+ldir //lun1/fipassproc/fiteration9/diagnostics/phi/4
+h/plot //lun1/fipassproc/fiteration9/diagnostics/phi/4
+h/plot 5
+h/plot //lun1/fipassproc/fiteration9/diagnostics/phi/4
+sub 5 //lun1/fipassproc/fiteration9/diagnostics/phi/4 1000 ! ! 'e'
+h/plot 1000
+exit
+*** End   of history file: Thu Nov  6 10:39:01 2003

@@ -1,0 +1,10 @@
+#$ -l calibration
+#$ -o /cdat/tem/mccann/mctest.out
+#$ -S /bin/bash
+#$ -j y
+
+cd /home/mccann/tracking_accuracy/run
+. /nfs/cleo3/scripts/cleo3defs
+c3rel Jan24_03_P2
+
+suez -f mctest.tcl > /cdat/tem/mccann/mctest.log

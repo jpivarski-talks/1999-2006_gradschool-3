@@ -1,0 +1,55 @@
+#!/usr/local/bin/tcsh
+
+cd /home/mccann/run/MakeTrueMu
+. /nfs/cleo3/scripts/cleo3defs
+c3rel cleo3_Pass2_May29_2001
+
+OSAGENT_PORT=31416
+export OSAGENT_PORT
+C3_CONST=/nfs/c3con/ccon3/constants/Codi
+export C3_CONST
+echo Using OSAGENT_PORT $OSAGENT_PORT and constants server $C3_CONST > $USER_DAF/truemu/logs/mtm113266.log
+which suez >> $USER_DAF/truemu/logs/mtm113266.log
+
+suez -q >> $USER_DAF/truemu/logs/mtm113266.log << EOF
+
+default prompt off
+exception continueEventLoop on
+
+module sel HbookHistogramModule
+hbook file \$env(USER_DAF)/truemu/plots/mtm113266.rzn
+hbook init
+
+run_file \$env(C3_SCRIPTS)/getConstants.tcl
+run_file \$env(C3_SCRIPTS)/Ccfc.tcl
+
+# Load Raw data (for CC hits)
+prod sel RawDataProd
+
+# Load the magnetic field
+prod sel MagFieldProd
+
+# Set up NavTrack
+prod sel NavigationProd
+prod sel TrackDeliveryProd
+prod sel SeedToTRTrackProd
+prod sel SeedTrackToFit
+
+# Get event properties object to quickly find mupairs
+prod sel EventPropertiesProd
+
+proc sel \$env(USER_BUILD)/shlib/MakeTrueMu
+
+module sel DBModule
+database in /nfs/cleo3/database/data8/db beginrun startrun event endrun
+source activate db beginrun startrun event endrun
+database read_collection pass2 mupair
+database run 113266 113271
+
+report level DEBUG
+go 100
+report level INFO
+go
+exit
+
+EOF

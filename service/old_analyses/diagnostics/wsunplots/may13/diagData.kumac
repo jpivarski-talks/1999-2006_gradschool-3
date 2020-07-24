@@ -1,0 +1,17 @@
+h/file 1 kalman.rzn
+cd FITDIAGPROC
+
+* h/cr/1d 100 'Kalman Bhabha Momentum' 100 4.4 5.1
+h/cr/1d 100 'Kalman Bhabha Momentum' 100 5.4 6.1
+
+nt/plot 1.momfit ! ! ! ! ! 100
+
+* h/fit 100(4.66:4.83) g
+h/fit 100(5.63:5.8) g
+
+opt sta
+opt fit
+h/cr/title 'Run 126046'
+h/plot 100 e
+
+pict/print 'momplot_126046.ps'

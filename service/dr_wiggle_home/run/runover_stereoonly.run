@@ -1,0 +1,11 @@
+#$ -l calibration
+#$ -o /cdat/tem/mccann/runover_stereoonly.out
+#$ -e /cdat/tem/mccann/runover_stereoonly.err
+#$ -S /bin/bash
+#$ -j y
+
+cd /home/mccann/dr_wiggle/run
+. /nfs/cleo3/scripts/cleo3defs
+c3rel Jul13_02_P2
+
+suez -f runover_stereoonly.tcl > /cdat/tem/mccann/runover_stereoonly.log

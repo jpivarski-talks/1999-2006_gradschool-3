@@ -1,0 +1,83 @@
+From mccann@watson.org Mon Dec  3 17:20:51 2001
+Date: Mon, 3 Dec 2001 17:21:16 -0500
+From: "Jim Pivarski (McCann)" <mccann@watson.org>
+To: Dan Cronin-Hennessy <hennessy@mail.lns.cornell.edu>,
+	"Richard S. Galik" <rsg@mail.lns.cornell.edu>,
+	Ritchie Patterson <ritchie@mail.lns.cornell.edu>,
+	Karl Berkelman <KB@lns61.tn.CORNELL.EDU>
+Subject: first Y(3s) scan UPDATE
+Message-ID: <20011203172116.A11725@mail.lns.cornell.edu>
+References: <20011130183448.C10935@mail.lns.cornell.edu>
+Mime-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+User-Agent: Mutt/1.2.5i
+In-Reply-To: <20011130183448.C10935@mail.lns.cornell.edu>; from mccann@watson.org on Fri, Nov 30, 2001 at 06:34:48PM -0500
+Status: RO
+Content-Length: 3027
+Lines: 63
+
+I'm going to print out this and the previous e-mail. It is what I have
+to say for the meeting tomorrow.
+
+On Fri, Nov 30, 2001 at 06:34:48PM -0500, Jim Pivarski (McCann) wrote:
+
+> I haven't done any measurement of cross-sections using tracking yet.
+
+I have found the ("ungainly") expression offered in Jackson & Sharre
+1975 to approximate the high-energy tail, and have saved plots both as
+eps and as gif. They can be found at:
+   /home/mccann/scan_strategy/prep_web/Y3s1stScan.{eps,gif}
+   /home/mccann/scan_strategy/prep_web/Y3s1stScan_diff.{eps,gif}
+   /home/mccann/scan_strategy/prep_web/how_far_for_scan.{eps,gif}
+
+The fit parameters to this fit are:
+         CENTER OF MASS             	    BEAM ENERGY
+   norm = 0.0784 +/- 0.0020 GeV nb   norm = 0.03918 +/- 0.00098 GeV nb
+   mean = 10.35866 +/- 0.00014 GeV   mean = 5.179329 +/- 0.000071 GeV
+   sigma = 0.00466 +/- 0.00012 GeV   sigma = 0.002332 +/- 0.000060 GeV
+   back = 1.0722 +/- 0.0076          back = 1.0722 +/- 0.0076
+
+Using this function, rather than a Gaussian has shifted the peak by
+0.10 MeV (this is within uncertainty) and the sigma here is the same
+as the sigmaLeft in the bifurcated Gaussian fit.
+
+The big difference is the area (which I have some reason to believe is
+the same as "norm"). When only the peak is fit and integrated, the
+area is 22 MeV nb; when the tail is fit and integrated, the area is
+39 MeV nb. This is a very long tail--- most of my time was spent having
+difficulty with convergence and stability of numerical integrations.
+
+I've also worked out the data necessary to identify an energy shift of
+0.2 MeV by repeating a point during a scan. Seeing that one fill of
+data gives about 0.1 nb of uncertainty,
+
+     number       /    sqrt(2) 0.1  nsig      \ 2
+       of    ==  (  -------------------------  )
+     fills        \   0.8643  shiftsize(MeV)  /
+
+This is the number of fills necessary for each of two datapoints (at
+the beginning and end of the scan) taken at what is supposed to be the
+same energy. "nsig" is the number of standard deviations we can afford
+and "shiftsize" is the size of the shift we want to be able to
+resolve. To see a 0.2 MeV shift separated by one sigma, we'll only
+need 70% of a fill for each of the two data points. For a two sigma
+separation, we'll need two long (1.3 X) or three short (0.9 X) fills
+for each of the two points.
+
+For a tail measurement, assuming the same uncertainty of 0.1 nb, we
+can take one-fill datapoints up to 25 MeV above the peak in beam
+energy (up to 5.205 GeV) before the tail gets lost in the noise (to
+one sigma). This should be done once to check the line shape, but the
+curve that I am using doesn't parameterize the tail separately. In
+theory, fitting the peak will constrain the tail, but I don't yet know
+how well it will be constrained because I haven't yet integrated the
+line shape properly.
+
+-- Jim
+
+===================================================
+   Jim Pivarski (a.k.a. McCann)
+   Physics graduate student, CLEO, Cornell University
+   mailto:mccann@watson.org
+

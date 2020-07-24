@@ -1,0 +1,341 @@
+Table of Contents
+
+I. Commandline
+    Introduction
+    A. STDOUT
+    B. Help
+    C. Exit
+
+II. Search String
+    Introduction
+    A. Examples
+    B. Logfile Variables
+        1..30 Detailed explanations of each variable
+    C. Clear
+    D. Search
+    * Warning *
+
+III. Run Comments
+    Introduction
+    A. Clear
+    B. Comment Run ###### (or "Comment Run")
+    C. Comment Selected Range
+
+IV. Run View
+    Introduction
+
+V. Run Table
+    Introduction
+    A. Format String
+    B. Examples
+    C. Update Table
+    D. Save Table
+    E. Free Window / Attach Window
+    F. Exit
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+I. Commandline
+
+As you work, this keeps up-to-date a commandline with sufficient arguments to restore a particular state of the GUI. It contains the search string, the window state and the table format string. I expect people to create an alias to a commandline that suits their needs.
+
+Editing the commandline in this box doesn't alter the state of the GUI.
+
+    A. STDOUT
+
+    Prints the current commandline to standard out, usually an xterm. This is useful if you need to copy the commandline to a login file but aren't able to use X-windows copy-paste.
+
+    B. Help
+
+    This. This is help.
+
+    C. Exit
+
+    This will quit the GUI. It will also print out a commandline for the final state, so that it can be retrieved if necessary (see I.A above.) This is the same as the button described in V.F. Two exit buttons were included for convenience in the case where the user has the Run Table frame broken off in a separate window (see V.E).
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+II. Search String
+
+This picks out which runs you are interested in. I expect most users would routinely use simple search strings, such as "true" (all runs) and "run > ######". The string is a boolean expression which is applied to every processed run. If it evaluates to true, the run will appear in the table. If it evaluates to false, it won't. The following can be used in the search string:
+
+ * true, false, and, or, not, parentheses: the usual logical constants and operators
+ * logfile variables: any name that appears in the "Logfile Variables" pop-up menu below the search string text-box. Each is defined in terms of what was found in the pass2 logfile, and will be individually described below (see II.B).
+v * numerical relations: ==, !=, >, <, >=, <=
+ * string relations: eq (strings are the same), ne (strings are different)
+ * numbers in the usual format: -.639e-12, etc.
+ * quoted strings: 'unformatted "string"' or "formatted \"string\""
+ * time differences: "##:##:##" for hours, minutes and seconds or "# d ##:##:##" for days, hours, minutes and seconds or a plain number for the number of seconds.
+ * absolute dates: "##/##/## ##:##:##" for month, day, year, hours, minutes and seconds (American style). If you're courageous, you could just use the number of seconds since January 1, 1970 (the internal format).
+ * arithmetic operations: "+", "-", "*" and "/", as well as functions such as "sqrt" and "abs" can also be used, but I don't know how useful they could be.
+ * regular expression pattern matching: "varname =~ /pattern/" and "varname !~ /pattern/" will select matching and non-matching patterns, respectively. Look in a perl reference for information on the syntax of pattern matching.
+
+If there is a syntax error in the search string, a complaint will be posted in the Run View box (see IV). The error message will be accompanied by the perl error message. Keep in mind that perl is seeing a modified version of the string you type. To report persistent error messages, e-mail me at mccann@mail.lns.cornell.edu.
+
+    A. Examples:
+
+    * [ true ] to view everything
+    * [ run > 112010 ] to view all runs above 112010
+    * [ secperevent > 4.1 ] to view slow runs
+    * [ stillrunning ne "done" ] to view runs on the queue
+    * [ mixedreleases ne "n/a" ] to view any runs that used libraries from releases other than the one that the job was executed in
+    * [ laststoptime - firststoptime > processtime and processtime ne "n/a" ] A few runs have the time between the first and last event stops actually being longer than the time difference reported by TimerModule (for example, /home/pass2/Pass2Production/pass2/Pass2Scripts/Log5/109964_pass2.log). This is strange.
+    * [ release =~ /feb|mar/i ] to view all runs processed using any February or March release.
+
+    B. Logfile Variables
+
+    This pop-up menu is provided for convenience: it simply pastes the name of a logfile variable at the position of the cursor. It is always up-to-date because it is automatically-generated. It is useful for remembering the spelling or the existence of my internal variable names. The meanings of each of the variables is as follows:
+
+	The following are numbers and ought to be compared using numerical relations ==, !=, >, <, >=, <= (see II).
+
+	 0.5 p1fed                         The federation (data11, data12, etc.) that the run belongs to.
+
+	 0.6 p1events                      The number of events pass1 thinks the run should have.
+
+	 0.7 p1lumi                        The luminosity that pass1 thinks the run should have.
+
+	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+        The following, with the exception of controlWriteoutVersion, are text strings and ought to be compared using "eq" (equals), "ne" (doesn't equal) and regular expressions "=~ /blah/" or "!~ /blah/" (for the brave).
+
+         0. logfile                        The directory number for the logfile version all this information represents. The logfile itself can be found in /home/pass2/Pass2Production/pass2/Pass2Scripts/Log"logfile"/"run"_pass2.log where "logfile" is the value of this variable and "run" is the run number.
+
+         1. machine                        The machine that the pass2 process was run on. Taken directly from the first line of the logfile.
+
+         2. release                        The release the pass2 process was run under. Taken from the last line:
+	 [ C3LIB     = cleo3_Pass2_Feb07_2001 ]
+
+         3. mixedreleases                  If there are any shared libraries loaded (lines ending with ".so") which don't contain the release name (2), this will be a list of them. Normally (and hopefully), it is "n/a".
+
+         4. diskpath                       The objectivity diskpath. This is taken from the line:
+	[ Suez> # diskpath sol502::/cdat/sol502/disk4/objy/data5 ]
+
+	 4.5. percentHighWaterMark         The highWaterMark disk usage on the disk when the run was submitted, taken from the line
+	 [ percentHighWaterMark, percentUsed= 0.85 0.687475298618 ]
+	 in the file /home/pass2/Pass2Production/pass2/Pass2Scripts/Log###/logfile (NOT the actual logfile!).
+
+	 4.6. percentUsed                  The part of the disk which was in use when the run was submitted, taken from the same line as percentHighWaterMark (4.5).
+
+         5. controlWriteoutVersion         The version of controlWriteout used. This is taken from the line:
+	[ Suez> # This is version 1.2 of controlWriteout_pass2.tcl ]
+	or if such a line is missing from the file, it defaults to 1.1 (the older version). This is a number and ought to be compared using numerical relations ==, !=, >, <, >=, <= (see II).
+
+         6. RichPexact                     The value of the parameter RichAnglesProd Pexact or "commented" if the line is commented out or "n/a" if the line is nonexistent. In either of the last two cases, the default value is used.
+
+         7. RichExactSawtoothOnly	   The value of the parameter RichAnglesProd ExactForSawtoothOnly or "commented" if the line is commented out or "n/a" if the line is nonexistant. In either of the last two cases, the default value is used.
+
+	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+	The following are numbers and ought to be compared using numerical relations ==, !=, >, <, >=, <= (see II).
+
+         8. numevents                      The number of events processed, taken from SummaryModule at the end of the processing.
+
+         9. firstevent			   The first event number reported in an event stop header. The event stop header looks like this:
+	 [  >> Thu Mar 15 13:49:58 2001 Run:  110082 Event:       4 Stop: event << ]
+	 This ought to be within the first ten, or the logfile isn't producing enough output!
+
+	 9.5 eventThousand                 The event number chosen to represent the thousandth event. (It should be a few greater than 1000. If it isn't, then not many stops were reported.)
+
+        10. lastevent			   The last event number reported in an event stop. The advantage of this over numevents (8) is that it can be updated while the process is still running on the queue--- it doesn't need to wait for SummaryModule.
+
+        11. secperevent			   processtime (21) / numevents (8)
+
+        12. secpereventsofar		   ( laststoptime (23) - firststoptime (22) ) / ( lastevent (10) - firstevent (9) )
+	This is always defined, and if secperevent is not "n/a" (because the run didn't finish yet), it should be close to secperevent.
+
+	13. secpereventThousand            ( stoptimeThousand (22.5) - firststoptime (22) ) / ( eventThousand (9.5) - firstevent (9) )
+
+	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+	The following are numbers and ought to be compared using numerical relations ==, !=, >, <, >=, <= (see II).
+
+        13. l4rej                          The number of events rejected by the Level 4 trigger. Taken from the line:
+	[  %% NOTICE-Processor.Level4Proc: L4Kill     : 64826 ]
+
+        14. l4ratio			   l4rej (13) / numevents (8)
+
+        15. bharej			   Bhabha events filtered out by LumiMonProc, taken from the line:
+	[ Filtered out a total of 27058 Bhabha events: ]
+
+        16. bharatio                       bharej (15) / numevents (8)
+
+        17. bbblumi			   Barrel bhabha luminosity, taken from the line:
+	[    *   Barrel Bhabha Lum = BBLM =    1250.8 +-  10.1 /nb ( 15351)   * ]
+
+        18. bbblumierr                     The uncertainty in bbblumi (17), taken from the same line.
+
+	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+	The following are time differences and ought to be matched using a string of the form: "# d ##:##:##" (see II).
+
+        19. loadtime                       The "Delta t" of the second time that TimerModule is called (the first time it is non-zero). This represents the time necessary to load all the producers, sources, etc.
+
+        20. startuptime			   The "Delta t" of the third time TimerModule is called. This represents the time necessary to "go 1".
+
+        21. processtime			   The "Delta t" of the fourth time TimerModule is called. This represents the time necessary to "go" (and process all events).
+
+	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+	The following are absolute times and ought to be matched using a string of the form: "##/##/## ##:##:##" (see II).
+
+        22. firststoptime                  This is the time reported in the first event stop header. The event stop header looks like this:
+	[  >> Thu Mar 15 13:49:58 2001 Run:  110082 Event:       4 Stop: event << ]
+	This time is stored internally as the number of seconds since Jan 1, 1970.
+
+	22.5 stoptimeThousand              The stop time of the thousandth stop (or actually, the eventThousand-th stop: see 9.5).
+
+        23. laststoptime                   The time reported in the last event stop header, much like firststoptime (22). The advantage of this over lasttimertime (25) is that it is continuously updated as the run is processed on the queue. This is the variable which is compared to the current time to determine if a job is "unresponsive" (value of stillrunning (30)).
+
+        24. firsttimertime		   The time of the first call to TimerModule.
+
+        25. lasttimertime		   The time of the last call to TimerModule. Note that unlike laststoptime (23), this variable changes drastically when the job finishes.
+
+	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+	With the exception of badlogformat and runstatus, the following are numbers and ought to be compared using numerical relations ==, !=, >, <, >=, <= (see II).
+
+        26. badlogformat                   If all of my assumptions about the structure of the logfile are correct, this variable is set to "no". If not, it contains an error message explaining the problem. If this variable is not "no", don't trust any of the others. This is a text string and can be compared using "eq" (equals) or "ne" (doesn't equal) (see II).
+
+        27. fatalerrors			   The number of errors from this run which were reported to:
+	/home/pass2/Stats/majorErrors.$n.txt
+	where $n is the execution number of checkStatus.pl. Fatal errors indicate a run which needs to be reprocessed.
+
+        28. daexceptions                   The number of DAExceptions found in the file.
+
+        29. diskspaceerrors                The number of times the logfile complained about disk space (not much or not enough).
+
+	29.5. runstatus			   Initailly "ok" unless there are any fatal errors. This can be set by hand using /home/pass2/Stats/markrun.pl.
+
+	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+	Variables defined in /home/pass2/Stats/flexvars.pl do not have a definition here. See the code in flexvars.pl.
+
+	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+	30. stillrunning                   One of the following messages:
+	 * "done" if the job is not on the queue
+	 * "unresponsive" if laststoptime was more than twelve hours before the status check was last run
+	 * "pending" if it is waiting to go onto the queue
+	 * "still running" otherwise.
+
+    In all cases, the variables refer to the most recent attempt to process a given run.
+
+    C. Clear
+
+    Erases the search string.
+
+    D. Search
+
+    Applies the boolean expression to every run in memory to obtain a subset of desired runs. Note that this also executes "Update Table" (see V.C).
+
+ * * *  WARNING! The search string would be a potential security risk if it is accessible outside the lab. It is a string which is modified slightly and evaluated directly in perl.  * * *
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+III. Run Comments
+
+This allows users to associate arbitrary comments with a given run. When a run is selected by clicking on a line in the run table (see V), all comments for that run are shown chronologically in the list-box. The comments are text files which are stored in:
+
+/home/pass2/Stats/comments/######/c##_USER.txt
+
+where ###### is the run number, ## is the comment number and USER is the userid of the person who made the comment. There is no GUI way to delete unwanted comments (that wouldn't be very log-like), but a user can delete his or her own comment files individually by deleting these files. The GUI will not be broken if the comments in one of these directories skips a number (1, 2, 4, 5...).
+
+Comments can either be added to one run at a time or to a set of runs at once, using the buttons "Comment Run ######" and "Comment Selected Range", respectively.
+
+(Selecting a comment in the list doesn't do anything useful.)
+
+The reason that run comments are not available on OSF1 is because the GUI elements that I use to display them are not available on OSF1's old version of Perl/Tk. The availability of the more up-to-date SunOS version makes a work-around unnecessary.
+
+    A. Clear
+
+    Clears the comment entry box--- not any of the submitted comments.
+
+    B. Comment Run ###### (or disabled "Comment Run")
+
+    (If this button is disabled, click on one of the lines in run table (see V).) This button appends the comment typed in the text-box to the comments list shown above. The comments list ought to be updated immediately.
+
+    C. Comment Selected Range
+
+    This button will append the comment typed in the text-box to the comment list of each run line selected in the run table (see V). (This is a dangerous button as it can change a lot of things at once.) Make a selection by dragging across whichever lines you wish in the run table--- the selection will be automatically extended to the newline boundaries to disambiguate the set of runs selected. If this button is clicked without a selection existing in the run table, a complaint will be put into Run View (see IV). If all goes well, a summary message will be posted in the Run View.
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+IV. Run View
+
+This is a text box which usually contains information about the run last clicked in the run table (see V). The run view may
+ * be empty: in this case, click on a run line in the run table!
+ * contain an error message: it pertains to the syntax of the search string (see II), the status of a multi-run comment submission (see III) or the syntax of the run table format string (see V.A), whichever was most recently executed. In the case of a search string or format string error, this information is provided to debug your strings.
+ * contain information about a run. It is in the form of an itemized list of everything which is known about a run: each logfile variable and its value, followed by a list of databases that contain data for that run with filepaths, server, database and federation ID numbers.
+
+This box doesn't do anything functional, it only displays information.
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+V. Run Table
+
+This is the point of the program: a formatted table of selected run statistics. The table is drawn as ASCII text for portability and speed. The table frame itself is slightly functional:
+ * If you click on any run line, the Run Comments (see III) and Run View (see IV) will show information relevant to that run.
+ * If you make any selection, the selection is expanded to include an unambiguous set of runs.
+ * If a selection exists, comments can be submitted for every run in the selection (see III.C).
+
+    A. Format String
+
+    The format string is basically the header line. If a logfile variable name appears (see II.B), it will go into the header, and subsequent lines will contain values of that variable for each of the displayed runs. If a vertical bar ("|") appears, there will be a vertical bar all the way down the table. If a space appears, there will be a space all the way down the table.
+
+    If a variable name is immediately followed by a parenthetical number, that number will be given priority in the sort order. The format is:
+    [ variablename(#+) ]
+    where # is an arbitrary number (may be negative and/or fractional) and + is an optional sort direction: "+" means increasing and "-" means decreasing. The default, if unstated, is "+". No spaces may be put between the variablename and the parenthesis.
+
+    The run lines in the table will be sorted first by the variable with the earliest sort number, and following that by variables with later sort numbers, and finally by run number. If none of the variables have sort numbers, the list will be sorted by run number only. Numerical and time/time difference variables will be sorted numerically, text variables will be sorted alphabetically. Sorting can be very useful for getting a group of runs adjacent to each other so that they can be selected as a block to apply a comment to similar runs (see III.C).
+
+    If the format string is itself not formatted correctly, nothing will happen in the run table and an error message will be put into the Run View (see IV). Be aware that if you get it right afterward, the old error message is not removed. (This is a feature: suppose you resort a table but don't want to lose run information in the Run View--- it may be annoying to have to search around the table for the run you were last looking at.)
+
+    B. Examples:
+
+    Suppose we start with this:
+    [ run | release | numevents | secperevent | processtime | laststoptime | daexceptions ]
+    it's sorted by run number.
+
+    Now we'd like to see if our set contains any DAExceptions, so we stick on a sort:
+    [ run | release | numevents | secperevent | processtime | laststoptime | daexceptions(1-) ]
+    The few runs with DAExceptions come up first.
+
+    Suppose a block of them have four DAExceptions. We'd like to see if this has anything to do with processtime, so we sub-sort by that:
+    [ run | release | numevents | secperevent | processtime(2) | laststoptime | daexceptions(1-) ]
+    Maybe this shows us that the smallest processtime with four DAExceptions is larger than the smallest processtime without DAExceptions. Then we can reverse the sort:
+    [ run | release | numevents | secperevent | processtime(2-) | laststoptime | daexceptions(1-) ]
+    and perhaps find that the processtime with DAExceptions is always longer than the processtime without DAExceptions. Or something like that. Sorting wouldn't help to find general correlations, but it's an easy way to pick out glaring, obvious dependencies.
+
+    Then we can go all-out and sort things for no particular reason whatsoever:
+    [ run | release(-1) | numevents | secperevent | processtime(2-) | laststoptime | daexceptions(1-) ]
+    Now release is sorted first (which separates nicely into big chunks), and then afterward by the same criteria that we had before. We can also sneak a sort criteria in between two existing ones:
+    [ run | release(-1) | numevents | secperevent(1.5) | processtime(2-) | laststoptime | daexceptions(1-) ]
+    So now the runs are sorted by release, then DAExceptions (reversed), then seconds per event, processtime (reversed) and finally by run number (although it is very unlikely that secperevent will be the same for any two runs, let alone adjacent ones).
+
+    If we don't have enough room and would like to sneak more data into a narrower width, we can do this:
+    [ run|release(-1)|numevents|secperevent(1.5)|processtime(2-)|laststoptime|daexceptions(1-) ]
+    The bars will still be in the table, and there may be space between the headers (if the data takes up a lot of room), or there may be space between the data (if the header takes up a lot of room, on account of being a long name). We can replace the bars with nothing but spaces:
+    [ run release(-1) numevents secperevent(1.5) processtime(2-) laststoptime daexceptions(1-) ]
+    but this would probably be harder to read.
+
+    If you're trying to squeeze a table even narrower than that (narrower than the headers-- if my variable names are too long), consider saving the table (see V.D) and using emacs's great "kill-rect" command.
+
+    C. Update Table
+
+    This will redraw the table using the subset of runs you most recently searched for in the format given by the format string. It is faster than clicking "Search" above (see II) because the subset doesn't need to be recreated, only the table itself. If the format string is improperly formatted (see V.A), it will put an error in the Run View (see IV).
+
+    D. Save Table
+
+    This will pop up a dialog box asking where you would like to save the table. The table is saved exactly as it is shown, as a text file. If you are using OSF1, the directory browser can't be shown, but you can type in the desired directory by hand.
+
+    E. Free Window / Attach Window
+
+    The whole Run Table frame can be broken off into a separate window or attached to the command window. Depending on the size of your table and your desktop, one of the two options will be more convenient.
+
+    F. Exit
+
+    This will quit the GUI. It will also print out a commandline for the final state, so that it can be retrieved if necessary (see I.A above.) This is the same as the button described in I.C. Two exit buttons were included for convenience in the case where the user has the Run Table frame broken off in a separate window (see V.E).
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+I hope this is enough to satisfy all questions on general use. But if there is something that isn't clear, e-mail me at: mccann@mail.lns.cornell.edu.

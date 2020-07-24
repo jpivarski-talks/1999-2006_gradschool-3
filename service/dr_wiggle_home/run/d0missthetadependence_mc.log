@@ -1,0 +1,181 @@
+------- Setting ulimits -------
+core file size (blocks)     0
+data seg size (kbytes)      2097148
+file size (blocks)          unlimited
+open files                  1024
+pipe size (512 bytes)       10
+stack size (kbytes)         2097148
+cpu time (seconds)          unlimited
+max user processes          7957
+virtual memory (kbytes)     unlimited
+ %% INFO-Suez: 
+// -----------------------------------------------------------
+//  Welcome to Suez, the CLEO III data access program         
+// -----------------------------------------------------------
+
+ %% INFO-Suez: $Id: SuezMain.cc,v 1.69 2002/10/16 20:46:36 cdj Exp $
+
+ %% SYSTEM-Interpreter.TclInterpreter: 
+//  For a list of available commands, type "help".              
+//                                                                
+//  Since the command interpreter is based on a Tcl interpreter,  
+//  all Tcl commands are available.                               
+//  For info on tcl: "http://www.scriptics.com/resource/doc"    
+
+ %% SYSTEM-Interpreter.TclInterpreter: 
+// Renaming the following Tcl commands:
+//  (because they collide with Suez commands!)
+// -------------------------------------------
+//  source --> tcl_source
+//  proc   --> tcl_proc
+//  file   --> tcl_file
+
+ %% SYSTEM-Module: added command "summary" from SummaryModule
+ %% SYSTEM-Module: added command "source_format" from SourceFormatMap
+ %% SYSTEM-Module: added command "sink_format" from SinkFormatMap
+ %% SYSTEM-Module: added command "source" from SourceManager
+ %% SYSTEM-Module: added command "stream" from SourceManager
+ %% SYSTEM-Module: added command "sink" from SinkManager
+ %% SYSTEM-Module: added command "default" from DefaultModule
+ %% SYSTEM-Module: added command "prod" from MasterProducer
+ %% SYSTEM-Module: added command "proc" from MasterProcessor
+ %% SYSTEM-Module: added command "file" from FileModule
+ %% SYSTEM-Module: added command "emptysource" from EmptySourceModule
+Suez.d0missthetadependence_mc> default prompt off
+off
+Suez.d0missthetadependence_mc> exception continueEventLoop on
+on
+Suez.d0missthetadependence_mc> module sel HbookHistogramModule
+ %% SYSTEM-Loader: trying to load "HbookHistogramModule"...
+ %% SYSTEM-Module: added command "hbook" from HbookHistogramModule
+Suez.d0missthetadependence_mc> hbook file ../rzn/d0missthetadependence_mc.rzn
+Suez.d0missthetadependence_mc> hbook init
+Suez.d0missthetadependence_mc> run_file $env(C3_SCRIPTS)/runOnPass2.tcl
+Suez.runOnPass2> ##########################################################################
+Suez.runOnPass2> ## This is a script that loads some of the producers you might need
+Suez.runOnPass2> ## to run on the official pass2 or on privately made "pass2" files.
+Suez.runOnPass2> ## To use, add to your tcl script
+Suez.runOnPass2> ##
+Suez.runOnPass2> ## run_file $env(C3_SCRIPTS)/runOnPass2.tcl
+Suez.runOnPass2> ##
+Suez.runOnPass2> ##########################################################################
+Suez.runOnPass2> ## produce navigation objects
+Suez.runOnPass2> prod sel NavigationProd
+ %% SYSTEM-Loader: trying to load "NavigationProd"...
+Suez.runOnPass2> prod sel TrackDeliveryProd
+ %% SYSTEM-Loader: trying to load "TrackDeliveryProd"...
+Suez.runOnPass2> ## produce high level CC info
+Suez.runOnPass2> prod sel C3ccProd
+ %% SYSTEM-Loader: trying to load "C3ccProd"...
+Suez.runOnPass2> ## make pi0s, etas
+Suez.runOnPass2> prod sel PhotonDecaysProd
+ %% SYSTEM-Loader: trying to load "PhotonDecaysProd"...
+Suez.runOnPass2> ## Some people's local "pass2" already has k shorts stored
+Suez.runOnPass2> ## If you want k shorts in pass2, you will need VFinderProd
+Suez.runOnPass2> #prod sel VFinderProd
+Suez.runOnPass2> ## magnetic field
+Suez.runOnPass2> prod sel MagFieldProd
+ %% SYSTEM-Loader: trying to load "MagFieldProd"...
+Suez.runOnPass2> ## does analysis time corrections to Dedx
+Suez.runOnPass2> prod sel DedxConstProd
+ %% SYSTEM-Loader: trying to load "DedxConstProd"...
+Suez.runOnPass2> prod sel DedxInfoProd
+ %% SYSTEM-Loader: trying to load "DedxInfoProd"...
+Suez.runOnPass2> # Electron and Muon fits (and sometimes Proton) were not done in Pass2
+Suez.runOnPass2> prod sel ElectronFromPionFitProd
+ %% SYSTEM-Loader: trying to load "ElectronFromPionFitProd"...
+Suez.runOnPass2> prod sel MuonFromPionFitProd
+ %% SYSTEM-Loader: trying to load "MuonFromPionFitProd"...
+Suez.runOnPass2> #prod sel ProtonFromPionFitProd
+Suez.runOnPass2> ## get magnetic field and beam energy from run statistics
+Suez.runOnPass2> module sel CorbaModule
+ %% SYSTEM-Loader: trying to load "CorbaModule"...
+ %% SYSTEM-Module: added command "corba" from CorbaModule
+Suez.runOnPass2> corba init
+Suez.runOnPass2> module sel RunStatisticsSourceModule
+ %% SYSTEM-Loader: trying to load "RunStatisticsSourceModule"...
+ %% SYSTEM-Module: added command "runstatistics" from RunStatisticsSourceModule
+Suez.runOnPass2> runstatistics in
+ %% INFO-JobControl.SourceManager: creating Source Name "RunStatistics" 
+Suez.runOnPass2> ## these are the constants needed by Dedx
+Suez.runOnPass2> module sel ConstantsModule
+ %% SYSTEM-Loader: trying to load "ConstantsModule"...
+ %% SYSTEM-Module: added command "constants" from ConstantsModule
+Suez.runOnPass2> constants in $env(C3_CONST) meta Dedx MetaListRetrieval
+ %% INFO-JobControl.SourceManager: creating Source Name "Codi" 
+Suez.runOnPass2> constants in $env(C3_CONST) meta FieldMap MetaListRetrieval
+ %% INFO-JobControl.SourceManager: creating Source Name "Codi_2" 
+Suez.runOnPass2> constants in $env(C3_CONST) meta MagFudge MetaListRetrieval
+ %% INFO-JobControl.SourceManager: creating Source Name "Codi_3" 
+Suez.d0missthetadependence_mc> prod sel CustomBeamEnergyProd
+ %% SYSTEM-Loader: trying to load "CustomBeamEnergyProd"...
+Suez.d0missthetadependence_mc> param CustomBeamEnergyProd BeamEnergy 5.29
+ %% SYSTEM-Suez: float: 5.29
+Suez.d0missthetadependence_mc> source_format sel BeamSpotFileSourceFormat
+ %% SYSTEM-Loader: trying to load "BeamSpotFileSourceFormat"...
+Suez.d0missthetadependence_mc> file in $env(C3_INFO)/mc/zeromc.beamspot beginrun
+ %% INFO-JobControl.SourceManager: creating Source Name "zeromc" 
+zeromc
+Suez.d0missthetadependence_mc> proc sel ../build_SunOS/shlib/D0MissThetaDependence
+ %% SYSTEM-Loader: trying to load "../build_SunOS/shlib/D0MissThetaDependence"...
+Suez.d0missthetadependence_mc> source_format sel PDSSourceFormat
+ %% SYSTEM-Loader: trying to load "PDSSourceFormat"...
+Suez.d0missthetadependence_mc> source create pdschain
+ %% INFO-JobControl.SourceManager: creating Source Name "pdschain" 
+pdschain
+Suez.d0missthetadependence_mc> file add pdschain /cdat/sol221/disk3/c3mc/data7/bhabha/output/bhabha-cleo3_MCPS2_Jan30_2002-MN-1-R112802-E3387-pass2.pds event startrun
+pdschain
+Suez.d0missthetadependence_mc> file add pdschain /cdat/sol221/disk3/c3mc/data7/bhabha/output/bhabha-cleo3_MCPS2_Jan30_2002-MN-1-R112803-E5539-pass2.pds event startrun
+pdschain
+Suez.d0missthetadependence_mc> file add pdschain /cdat/sol221/disk3/c3mc/data7/bhabha/output/bhabha-cleo3_MCPS2_Jan30_2002-MN-1-R112804-E4832-pass2.pds event startrun
+pdschain
+Suez.d0missthetadependence_mc> file add pdschain /cdat/sol221/disk3/c3mc/data7/bhabha/output/bhabha-cleo3_MCPS2_Jan30_2002-MN-1-R112805-E5269-pass2.pds event startrun
+pdschain
+Suez.d0missthetadependence_mc> file add pdschain /cdat/sol221/disk3/c3mc/data7/bhabha/output/bhabha-cleo3_MCPS2_Jan30_2002-MN-1-R112806-E4977-pass2.pds event startrun
+pdschain
+Suez.d0missthetadependence_mc> go
+ %% INFO-JobControl.SourceManager: Opened data source "RunStatistics".
+ %% INFO-JobControl.SourceManager: Opened data source "Codi".
+ %% INFO-JobControl.SourceManager: Opened data source "Codi_2".
+ %% INFO-JobControl.SourceManager: Opened data source "Codi_3".
+ %% INFO-JobControl.SourceManager: Opened data source "zeromc".
+ %% INFO-JobControl.SourceManager: Opened data source "pdschain".
+ %% WARNING-HbookHistogram.HbookHistDir: 
+directory name D0MissThetaDependence exceeds hbook size limit of 16
+name has been truncated to D0MissThetaDepen
+ %% INFO-JobControl.SourceManager: Using pdschain for active streams: event 
+ %% INFO-JobControl.SourceManager: Defined active streams.
+
+ >> Mon Apr 21 12:16:49 2003 Run:  112802 Event:       1 Stop: event << 
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBMagFudge using version 1.3
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBSuperConductingQuadFieldMap using version 1.1
+ %% WARNING-MagFieldProd.MagneticFieldProxy: No field map for superconducting quads! Continuing with only solenoid field.
+
+ >> Mon Apr 21 12:16:52 2003 Run:  112803 Event:       1 Stop: event << 
+ %% WARNING-MagFieldProd.MagneticFieldProxy: No field map for superconducting quads! Continuing with only solenoid field.
+
+ >> Mon Apr 21 12:16:57 2003 Run:  112804 Event:       1 Stop: event << 
+ %% WARNING-MagFieldProd.MagneticFieldProxy: No field map for superconducting quads! Continuing with only solenoid field.
+
+ >> Mon Apr 21 12:17:01 2003 Run:  112805 Event:       1 Stop: event << 
+ %% WARNING-MagFieldProd.MagneticFieldProxy: No field map for superconducting quads! Continuing with only solenoid field.
+
+ >> Mon Apr 21 12:17:06 2003 Run:  112806 Event:       1 Stop: event << 
+ %% WARNING-MagFieldProd.MagneticFieldProxy: No field map for superconducting quads! Continuing with only solenoid field.
+
+ >> Mon Apr 21 12:17:10 2003 Run:  112806 Stop: none << 
+ %% INFO-JobControl.JobControl: Reached end of an active source
+ %% INFO-JobControl.SourceManager: Removed source-in-use "pdschain"
+Suez.d0missthetadependence_mc> hbook terminate
+Suez.d0missthetadependence_mc> exit
+ %% INFO-JobControl.SummaryModule: 
+ ***** Summary Info *****
+
+ Stream event : 24004
+   Processed 24004 stops.
+
+
+EDT: 04/21/2003 12:17:11.059100 | xitman.cxx:272: info: (C) xitman starts cleaning...
+EDT: 04/21/2003 12:17:11.060366 | runtime.cxx:135: info: (C) BDT checks out...
+EDT: 04/21/2003 12:17:11.061290 | runtime.cxx:140: info: (C) Removed basics::theDict.
+EDT: 04/21/2003 12:17:11.062226 | xitman.cxx:282: info: (C) xitman done!

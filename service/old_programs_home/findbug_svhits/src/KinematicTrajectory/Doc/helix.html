@@ -1,0 +1,268 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>The KTHelix Track Class</TITLE>
+<META NAME="Template" CONTENT="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot">
+</HEAD>
+<BODY LINK="#0000ff" VLINK="#800080">
+
+<H1 ALIGN="CENTER">The KTHelix Class</H1>
+<H2>Motion along the helix</H2>
+<B><P>KTHelix</B> describes the helical path traversed by a charged particle in a solenoidal B field (B along z direction). You can think of a helix as the path traced by a particle moving in a circle in the XY plane while the circle moves at constant velocity along the z axis. The helix is described by five parameters defined relative to a "reference point" (<FONT FACE="Courier New">xr,yr,zr</FONT>). In CLEO the reference point is normally chosen to be at the origin, but it is useful to maintain full generality here.</P>
+<P>Let PCAxy be defined as the point on the trajectory nearest the reference point in the XY plane. Then the 5 helix parameters are defined as follows:</P>
+<P ALIGN="CENTER"><CENTER><TABLE CELLSPACING=0 BORDER=0 CELLPADDING=7 WIDTH=696>
+<TR><TD WIDTH="21%" VALIGN="TOP">
+<P>curvature</TD>
+<TD WIDTH="79%" VALIGN="TOP">
+<P>1 / (2*radius of curvature)</TD>
+</TR>
+<TR><TD WIDTH="21%" VALIGN="TOP">
+<P>phi0</TD>
+<TD WIDTH="79%" VALIGN="TOP">
+<P>Phi angle of momentum at PCAxy =<FONT FACE="Courier New"> atan(py/px)</FONT></TD>
+</TR>
+<TR><TD WIDTH="21%" VALIGN="TOP">
+<P>d0</TD>
+<TD WIDTH="79%" VALIGN="TOP">
+<P>Signed distance of closest approach to ref. point (in XY plane)</TD>
+</TR>
+<TR><TD WIDTH="21%" VALIGN="TOP">
+<P>cot(theta)</TD>
+<TD WIDTH="79%" VALIGN="TOP">
+<P>cotangent of angle wrt +z axis =<FONT FACE="Courier New"> Ptot / Pz</FONT></TD>
+</TR>
+<TR><TD WIDTH="21%" VALIGN="TOP">
+<P>z0</TD>
+<TD WIDTH="79%" VALIGN="TOP">
+<P>z of PCAxy</TD>
+</TR>
+</TABLE>
+</CENTER></P>
+
+<P ALIGN="CENTER">&nbsp;</P>
+<P>The position and momentum for any point on the helix can be parametrized in terms of these parameters and the XY arc length (the arc length is 0 at PCAxy):</P><DIR>
+<DIR>
+
+<PRE>x = xr + x0 + (u0/rho) * sin(rho*sp) - (v0/rho) * [1-cos(rho*sp)]
+y = yr + y0 + (v0/rho) * sin(rho*sp) + (u0/rho) * [1-cos(rho*sp)]
+x = zr + z0 + cot(theta) * sp
+px = px0*cos(rho*sp) - py0*sin(rho*sp)
+py = px0*sin(rho*sp) + py0*cos(rho*sp)
+pz = pz0</PRE></DIR>
+</DIR>
+
+<P>where</P><DIR>
+<DIR>
+
+<PRE>(xr,yr,zr) = reference point
+sp = arc length in the xy plane (0 starting at PCAxy)
+rho = 2 * curvature
+u0 = cos(phi0)
+v0 = sin(phi0)
+x0 = -d0*v0
+y0 = +d0*u0
+px0 = Pperp * u0
+py0 = Pperp * v0
+pz0 = Pperp * cot(theta)
+Pperp = Ptot / sqrt(1 + cot(theta)**2)</PRE>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>For a straight line, these simplify to</P><DIR>
+<DIR>
+
+<PRE>x = xr + x0 + u0 * sp
+y = yr + y0 + v0 * sp
+x = zr + z0 + cot(theta) * sp
+px = px0
+py = px0
+pz = pz0</PRE>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>The point (<FONT FACE="Courier New">xr+x0, yr+y0, zr+z0</FONT>) is the point of closest approach (PCAxy) of the helix to the reference point in the x-y plane. Kinematic quantities are normally evaluated at this point. Note that <FONT FACE="Courier New">Pperp</FONT> and <FONT FACE="Courier New">Ptot</FONT> are constant on the helix.</P>
+<P>&nbsp;</P>
+<H2><A HREF="helix.gif">KTHelix class diagram</A></H2>
+<H2>Building a simple KTHelix object</H2>
+<P>In addition to the usual copy constructor, KTHelix objects can be built from basic information, e.g.,</P><DIR>
+<DIR>
+
+<PRE>double curvature = 0.300;
+double phi0 = 0.5;
+double d0 = 0.001;
+double cotTheta = 0.9;
+double z0 = 0.02;
+TBThreePoint refPoint(0.002, 0.003, 0.);
+KTHelix helix(curvature, phi0, d0, cotTheta, z0, refPoint);</PRE>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>The reference point defaults to (0,0,0) if not provided.</P>
+<H2>Building a KTHelix object with an error matrix</H2>
+<P>To build a KTHelix object with a 5x5 error matrix, you can construct it as follows:</P><DIR>
+<DIR>
+
+<PRE>double curvature = 0.300;
+double phi0 = 0.5;
+double d0 = 0.001;
+double cotTheta = 0.9;
+double z0 = 0.02;
+TBThreePoint refPoint(0.002, 0.003, 0.);
+TBSymMatrix errMatrix(5,1); Create a 5x5 unit matrix for now
+KTHelix aHelix(curvature, phi0, d0, cotTheta, z0, errMatrix, refPoint)</PRE>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>Note: The error information is stored internally as a pointer to a symmetric matrix. If <FONT FACE="Courier New">errMatrix</FONT> is not provided in the constructor call, a null pointer is stored. If error information is requested and the pointer is null, a matrix filled with zeros is returned. Users should be aware that an error matrix will always slow operations such as helix movement and creation of <FONT FACE="Courier New">KTKinematicData</FONT> objects because of the CPU time needed to transport or convert the error matrix.</P>
+<P>&nbsp;</P>
+<H2>Building a KTHelix object from a KTKinematicData object</H2>
+<P>Helix objects can also be constructed from KTKinematicData objects, which contain the four momentum and position. You must supply the KTKinematicData object and the B field. For example:</P><DIR>
+<DIR>
+
+<PRE>TBThreeVector momentum(0.5, 0.6, 1.6);
+TBThreePoint position(0.002, -0.004, 0.03);
+double mass = 0.1396;
+double charge = 1.;
+KTKinematicData kineTrack(momentum, position, mass, charge);
+TBThreeVector bField(0., 0., -15.);
+KTHelix helix(kineTrack, bField);</PRE></DIR>
+</DIR>
+
+<P>Note that the <I>B</I> field is specified in kilogauss.</P>
+<P>&nbsp;</P>
+<H2>Setting and retrieving helix parameters</H2>
+<P>All 5 helix parameters, the reference point and the error matrix can be set or retrieved individually. For example, define a null helix object</P><DIR>
+<DIR>
+
+<PRE>KTHelix helix;
+TBThreePoint refPoint(0.002, 0.003, 0.03);
+TBSymMatrix errMatrix;</PRE>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>Set the parameters one at a time</P><DIR>
+<DIR>
+
+<PRE>helix.setCurvature(0.30);
+helix.setPhi0(2.5);
+helix.setD0(0.002);
+helix.setCotTheta(-0.5);
+helix.setZ0(0.03);
+helix.setReferencePoint(refPoint);
+helix.setErrorMatrix(errMatrix);</PRE>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>Retrieve the parameters</P><DIR>
+<DIR>
+
+<PRE>double curvature = helix.curvature();
+double phi0 = helix.phi0();
+double d0 = helix.d0();
+double cotTheta = helix.cotTheta();
+double z0 = helix.z0();
+TBThreepoint refPoint = helix.referencePoint();
+TBSymMatrix errMatrix = helix.errorMatrix();</PRE>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>Get the point of closest approach to a specified point in the XY plane</P><DIR>
+<DIR>
+
+<PRE>TBThreePoint point(0.3, 0.4, 0.0);
+double pcaXY = helix.pcaBend(point);</PRE>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>Check if the error information is present</P><DIR>
+<DIR>
+
+<PRE>if(helix.hasNullErrorMatrix()) {
+  cout &lt;&lt; "Helix has no error matrix" &lt;&lt; endl;
+}</PRE></DIR>
+</DIR>
+
+<H2>How to move helices</H2>
+<P>Member functions are provided which change the reference point, in effect "moving" the helix because the parameters phi, d0 and z0 are defined at the point of closest approach to the reference point. If the helix has an error matrix it is also moved. The following move routines are implemented:</P>
+<P ALIGN="CENTER"><CENTER><TABLE CELLSPACING=0 BORDER=0 CELLPADDING=7 WIDTH=696>
+<TR><TD WIDTH="42%" VALIGN="TOP">
+<P><FONT FACE="Courier New">moveToReferencePoint</FONT></TD>
+<TD WIDTH="58%" VALIGN="TOP">
+<P>Move to specified reference point</TD>
+</TR>
+<TR><TD WIDTH="42%" VALIGN="TOP">
+<FONT FACE="Courier New"><P>moveToLine</FONT></TD>
+<TD WIDTH="58%" VALIGN="TOP">
+<P>Move to specified line</TD>
+</TR>
+<TR><TD WIDTH="42%" VALIGN="TOP">
+<FONT FACE="Courier New"><P>moveToZPosition</FONT></TD>
+<TD WIDTH="58%" VALIGN="TOP">
+<P>Move to specified z coordinate</TD>
+</TR>
+<TR><TD WIDTH="42%" VALIGN="TOP">
+<FONT FACE="Courier New"><P>moveToPlane</FONT></TD>
+<TD WIDTH="58%" VALIGN="TOP">
+<P>Move to specified plane</TD>
+</TR>
+<TR><TD WIDTH="42%" VALIGN="TOP">
+<FONT FACE="Courier New"><P>moveToRadius</FONT></TD>
+<TD WIDTH="58%" VALIGN="TOP">
+<P>Move to specified radius</TD>
+</TR>
+<TR><TD WIDTH="42%" VALIGN="TOP">
+<FONT FACE="Courier New"><P>moveToCylinder</FONT></TD>
+<TD WIDTH="58%" VALIGN="TOP">
+<P>Move to specified cylinder</TD>
+</TR>
+</TABLE>
+</CENTER></P>
+
+<P ALIGN="CENTER">&nbsp;</P>
+<P>The following code explains these functions are invoked. Suppose we want to move a helix to a radius of 1 meter from the origin.</P><DIR>
+<DIR>
+
+<PRE>double radius = 1.0;
+KTHelix helix1, helix2;
+KTMoveControl::MoveStatus status1, status2;
+KTMoveControl::MoveDirection direction;
+direction = KTMoveControl::kDirectionForward;
+status1 = helix1.moveToRadius(radius, direction);
+if(status1 != KTMoveControl::kMoveOK) {
+  (code to deal with bad move goes here)
+}
+status2 = helix2.moveToRadius(radius);
+if(status2 != KTMoveControl::kMoveOK) {
+  (code to deal with bad move goes here)
+}
+&nbsp;</PRE></DIR>
+</DIR>
+
+<P>The second call to <FONT FACE="Courier New">moveToRadius</FONT> is equivalent to</P><DIR>
+<DIR>
+
+<PRE>status2 = helix2.moveToRadius(radius,
+                              KTMoveControl::kDirectionEither);</PRE>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>There are several important features about the move routines:</P>
+<OL>
+
+<LI>All the move routines take an argument that specifies the direction to move along the helix. The directions correspond to forward, backward or either. If not specified, the direction is assumed to be "either", i.e., move by the minimum path necessary. This default is useful when you may not know if a given reference point is just before or just behind a silicon plane and you do not want to move the helix by a full turn.</LI>
+<LI>All the move routines have a return value that tells if the move was successful.</LI>
+<LI>The direction and status words used by the move routines are part of another class, <B>KTMoveControl</B> (it is also used by the <B>KTKinematicMoveable</B> classes). This class handles the machinery needed for moves which require multiple iterations to converge.</LI>
+<LI>For the <FONT FACE="Courier New">moveToZPosition</FONT>, <FONT FACE="Courier New">moveToRadius</FONT> and <FONT FACE="Courier New">MoveToPlane</FONT> routines, the point of intersection of the helix with the surface is found and it is used as the new reference point. Thus <FONT FACE="Courier New">d0 = z0 = 0</FONT> for these functions.</LI></OL>
+
+<P><HR></P>
+<ADDRESS><A HREF="mailto:avery@phys.ufl.edu/">Paul Avery &lt;avery@phys.ufl.edu&gt;</A></ADDRESS>
+<P>$Id: helix.html,v 1.2 1998/07/09 21:33:03 avery Exp $ <!-- 
+$Log: helix.html,v $
+Revision 1.2  1998/07/09 21:33:03  avery
+Bug fixes, finished implementation of move routines, updated documentation.
+
+Revision 1.1  1998/05/27 17:06:05  avery
+First submission of documentation
+--></BODY>
+</HTML>

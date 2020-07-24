@@ -1,0 +1,10 @@
+#$ -l calibration
+#$ -o /cdat/tem/mccann/kaonmonitor.log
+#$ -S /bin/bash
+#$ -j y
+
+cd /home/mccann/compiletest/run
+. /nfs/cleo3/scripts/cleo3defs
+c3rel Oct15_03_MC
+
+suez -f kaonmonitor.tcl | grep MCSTUDY | awk '{print $2, $3}' > ../rzn/mcstudy.ntuple 

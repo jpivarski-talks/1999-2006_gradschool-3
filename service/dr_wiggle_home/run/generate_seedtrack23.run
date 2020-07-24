@@ -1,0 +1,17 @@
+#$ -l calibration
+#$ -o /cdat/tem/mccann/generate_seedtrack23.out
+#$ -S /bin/bash
+#$ -j y
+
+cd /home/mccann/dr_wiggle/run
+. /nfs/cleo3/scripts/cleo3defs
+c3rel Nov04_02_P2
+
+USER_N="23"
+export USER_N
+USER_RUNSTART="126707"
+export USER_RUNSTART
+USER_RUNEND="126721"
+export USER_RUNEND
+
+suez -f generate_seedtrack.tcl > /cdat/tem/mccann/generate_seedtrack23.log

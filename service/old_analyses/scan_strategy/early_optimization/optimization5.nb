@@ -1,0 +1,211 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 4.0,
+MathReader 4.0, or any compatible application. The data for the notebook 
+starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      7699,        173]*)
+(*NotebookOutlinePosition[      8336,        196]*)
+(*  CellTagsIndexPosition[      8292,        192]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[{
+    \(Off[General::spell1]\), "\[IndentingNewLine]", 
+    \(<< Statistics`DiscreteDistributions`\), "\[IndentingNewLine]", 
+    \(<< Statistics`ContinuousDistributions`\), "\[IndentingNewLine]", 
+    \(<< Graphics`MultipleListPlot`\), "\[IndentingNewLine]", 
+    \(<< Statistics`NonlinearFit`\), "\[IndentingNewLine]", 
+    \(<< Graphics`Graphics`\), "\[IndentingNewLine]", 
+    \(<< Statistics`DescriptiveStatistics`\[IndentingNewLine]\), "\
+\[IndentingNewLine]", 
+    \(\(subs\  = \ {GeV \[Rule] 1. , 
+          nb\  \[Rule] \ 1. };\)\), "\[IndentingNewLine]", 
+    \(\(MeV = 0.001\ GeV;\)\), "\[IndentingNewLine]", 
+    \(\(pb\  = \ 0.001\ nb;\)\), "\[IndentingNewLine]", 
+    \(\(fb\  = \ 0.001\ pb;\)\)}], "Input"],
+
+Cell[BoxData[{
+    \(\(bifGauss[x_, area_, mean_, sigmaLeft_, sigmaRight_] := 
+        area*If[\((x < mean)\) /. subs, 
+            Exp[\(\(-\((x - mean)\)^2\)/sigmaLeft^2\)/2], 
+            Exp[\(\(-\((x - mean)\)^2\)/sigmaRight^2\)/2]]*
+          Sqrt[2/Pi]/\((sigmaLeft + 
+                sigmaRight)\);\)\[IndentingNewLine]\), "\[IndentingNewLine]", \
+
+    \(\(background[en_] := \((4\ nb)\)*
+          Y3sMean^2/en^2;\)\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(\(spreaddown\  = \ 2.8  MeV;\)\), "\[IndentingNewLine]", 
+    \(\(spreadup\  = \ 
+        2.8\ MeV;\)\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(\(Y1sMean\  = \ 9.46\ GeV/2;\)\), "\[IndentingNewLine]", 
+    \(\(Y1sPeak\  = \ 
+        22\ nb - background[Y1sMean];\)\), "\[IndentingNewLine]", 
+    \(\(Y1sArea\  = \ 
+        Y1sPeak\ *\ 
+          Sqrt[Pi/2]*\((spreaddown\  + \ 
+              spreadup)\);\)\), "\[IndentingNewLine]", 
+    \(\(Y1sLumi\  = \ 1/fb;\)\), "\[IndentingNewLine]", 
+    \(\(Y1sScanLumi\  = \ 0.1/fb;\)\), "\[IndentingNewLine]", 
+    \(\(Y1sOffLumi = 0.1/fb;\)\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(\(Y2sMean\  = \ 10.02\ GeV/2;\)\), "\[IndentingNewLine]", 
+    \(\(Y2sPeak\  = \ 
+        10\ nb - background[Y2sMean];\)\), "\[IndentingNewLine]", 
+    \(\(Y2sArea\  = \ 
+        Y2sPeak\ *\ 
+          Sqrt[Pi/2]*\((spreaddown\  + \ 
+              spreadup)\);\)\), "\[IndentingNewLine]", 
+    \(\(Y2sLumi\  = \ 0.7/fb;\)\), "\[IndentingNewLine]", 
+    \(\(Y2sScanLumi\  = \ 0.1/fb;\)\), "\[IndentingNewLine]", 
+    \(\(Y2sOffLumi = 0.1/fb;\)\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(\(Y3sMean\  = \ 10.36\ GeV/2;\)\), "\[IndentingNewLine]", 
+    \(\(Y3sPeak\  = \ 
+        7\ nb - background[Y3sMean];\)\), "\[IndentingNewLine]", 
+    \(\(Y3sArea\  = \ 
+        Y3sPeak\ *\ 
+          Sqrt[Pi/2]*\((spreaddown\  + \ 
+              spreadup)\);\)\), "\[IndentingNewLine]", 
+    \(\(Y3sLumi\  = \ 1/fb;\)\), "\[IndentingNewLine]", 
+    \(\(Y3sScanLumi\  = \ 0.1/fb;\)\), "\[IndentingNewLine]", 
+    \(\(Y3sOffLumi = 0.1/fb;\)\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(\(thisMean[n_Integer] := 
+        If[n \[Equal] 1, Y1sMean, 
+          If[n \[Equal] 2, Y2sMean, 
+            If[n \[Equal] 3, Y3sMean]]];\)\), "\[IndentingNewLine]", 
+    \(\(thisPeak[n_Integer] := 
+        If[n \[Equal] 1, Y1sPeak, 
+          If[n \[Equal] 2, Y2sPeak, 
+            If[n \[Equal] 3, Y3sPeak]]];\)\), "\[IndentingNewLine]", 
+    \(\(thisArea[n_Integer] := 
+        If[n \[Equal] 1, Y1sArea, 
+          If[n \[Equal] 2, Y2sArea, 
+            If[n \[Equal] 3, Y3sArea]]];\)\), "\[IndentingNewLine]", 
+    \(\(thisLumi[n_Integer] := 
+        If[n \[Equal] 1, Y1sLumi, 
+          If[n \[Equal] 2, Y2sLumi, 
+            If[n \[Equal] 3, Y3sLumi]]];\)\), "\[IndentingNewLine]", 
+    \(\(thisScanLumi[n_Integer] := 
+        If[n \[Equal] 1, Y1sScanLumi, 
+          If[n \[Equal] 2, Y2sScanLumi, 
+            If[n \[Equal] 3, Y3sScanLumi]]];\)\), "\[IndentingNewLine]", 
+    \(\(thisOffLumi[n_Integer] := 
+        If[n \[Equal] 1, Y1sOffLumi, 
+          If[n \[Equal] 2, Y2sOffLumi, 
+            If[n \[Equal] 3, Y3sOffLumi]]];\)\)}], "Input"],
+
+Cell[BoxData[{
+    \(\(makeData[
+          dom_List] := \ \(\(({#[\([2]\)], \[IndentingNewLine]\t
+                Random[NormalDistribution[\((n = #[\([1]\)]*
+                            spectrum[#[\([2]\)]])\), 
+                      Sqrt[n]]]/#[\([1]\)], \[IndentingNewLine]\t
+                Sqrt[n]/#[\([1]\)]})\) &\)\  /@ \ 
+          dom;\)\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(\(spectrum[en_]\  := \ 
+        bifGauss[en, Y3sArea, Y3sMean, spreaddown, 
+          spreadup]\ ;\)\), "\[IndentingNewLine]", 
+    \(\(model[en_, area_, mean_, sigmadown_, sigmaup_]\  := \ 
+        bifGauss[en, area, mean, sigmadown, 
+          sigmaup];\)\), "\[IndentingNewLine]", 
+    \(\(chi2[data_List, area_, mean_, sigmadown_, sigmaup_] := \ 
+        Plus\  @@ \ \((\ \(\(({en, meas, 
+                      err} = #; \ \((\((model[en, area, mean, sigmadown, 
+                              sigmaup] - meas)\)/err)\)^2)\) &\)\  /@ \ 
+              data\ )\);\)\), "\[IndentingNewLine]", 
+    \(dofit[data_List] := 
+      FindMinimum[
+        chi2[data, area\ nb\ GeV, \ mean\ GeV, \ sigmadown\ GeV, \ 
+          sigmaup\ GeV], \ {area, \(Y3sArea/nb\)/GeV}, {mean, 
+          Y3sMean/GeV}, {sigmadown, spreaddown/GeV}, {sigmaup, 
+          spreadup/GeV}]\), "\[IndentingNewLine]", 
+    \(param[i_Integer]\  := \ 
+      If[i \[Equal] 0, area, 
+        If[i \[Equal] 1, mean, 
+          If[i \[Equal] 2, sigmadown, 
+            If[i \[Equal] 3, 
+              sigmaup]]]]\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(findArea[
+        dom_List]\  := \ \((\[IndentingNewLine]data\  = \ 
+          makeData[dom]; \[IndentingNewLine]{bestchi2, bestparams} = 
+          dofit[data]; \[IndentingNewLine]curvMat = \(Table[
+                D[D[chi2[data, area, mean, sigmadown, sigmaup], param[i]], 
+                  param[j]], {i, 0, 3}, {j, 0, 3}]\  /. \ bestparams\)\  /. \ 
+            subs; \[IndentingNewLine]errMat\  = \ 
+          Inverse[curvMat]; \[IndentingNewLine]{area\  /. \ bestparams, \ 
+          Sqrt[\(errMat[\([1]\)]\)[\([1]\)]]\ }\ )\)\)}], "Input"]
+},
+FrontEndVersion->"4.0 for X",
+ScreenRectangle->{{0, 1024}, {0, 768}},
+WindowSize->{926, 734},
+WindowMargins->{{0, Automatic}, {Automatic, 0}}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1717, 49, 734, 13, 203, "Input"],
+Cell[2454, 64, 3165, 66, 587, "Input"],
+Cell[5622, 132, 2073, 39, 315, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

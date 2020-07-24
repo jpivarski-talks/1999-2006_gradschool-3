@@ -1,0 +1,177 @@
+set def
+cd //mn_hbin/seeddiagproc
+fetch 0
+
+set thick 5
+
+set window 1 1 0 0
+
+set header off
+
+book/unbinned 100 'Efficiency vs. layer (@1)' 1 47
+book/unbinned 101 'Efficiency vs. layer (@1)' 1 1
+book/unbinned 102 'Efficiency vs. layer (@1)' 1 4
+book/unbinned 103 'Efficiency vs. layer (@1)' 1 4
+
+dep bhabha = @2
+
+!
+! DR anodes
+!
+do i = 1, 47
+	cut del 0
+	cut new layer@i .eq. 2
+	cut new nhitexp >= @i+8
+	cut new abs(d0seed) < 0.01
+	cut new abs(costseed) < 0.9
+
+	if bhabha > 0.5
+		cut new seedsev .eq. 2
+		cut new momseed > 4
+	else
+		cut new seedsev > 0.
+		cut new momseed > 0.
+	endif
+
+	cut use 1&2&3&4&5&6
+	nt/pr 1 event &1 -1
+	set plot 1&1 default
+	dep numer = r125
+
+	cut use 2&3&4&5&6
+	nt/pr 1 event &1 -1
+	set plot 1&1 default
+	dep denom = r125
+
+	dep eff = numer/denom
+	dep deff = sqrt( eff * (1.-eff) / denom )
+
+	hist fill 100 @i eff 1 deff
+enddo
+
+!
+! DR cathode
+!
+cut del 0
+cut new cathode .eq. 2
+cut new nhitexp .eq. 56
+cut new abs(d0seed) < 0.01
+!cut new abs(costseed) < 0.9
+cut new abs(costseed) < 0.785
+if bhabha > 0.5
+	cut new seedsev .eq. 2
+	cut new momseed > 4
+else
+	cut new seedsev > 0.
+	cut new momseed > 0.
+endif
+
+cut use 1&2&3&4&5&6
+nt/pr 1 event &1 -1
+set plot 1&1 default
+dep numer = r125
+
+cut use 2&3&4&5&6
+nt/pr 1 event &1 -1
+set plot 1&1 default
+dep denom = r125
+
+dep eff = numer/denom
+dep deff = sqrt( eff * (1.-eff) / denom )
+
+hist fill 101 49 eff 1 deff
+
+!
+! Si
+!
+do i = 1, 4
+	cut del 0
+	cut new svr@i .eq. 2
+	cut new svz@i .eq. 2
+	cut new nhitexp >= 2*@i
+	cut new abs(d0seed) < 0.01
+	cut new abs(costseed) < 0.9
+	if bhabha > 0.5
+		cut new seedsev .eq. 2
+		cut new momseed > 4
+	else
+		cut new seedsev > 0.
+		cut new momseed > 0.
+	endif
+
+	cut use 1&3&4&5&6&7
+	nt/pr 1 event &1 -1
+	set plot 1&1 default
+	dep numer = r125
+
+	cut use 3&4&5&6&7
+	nt/pr 1 event &1 -1
+	set plot 1&1 default
+	dep denom = r125
+
+	dep effr = numer/denom
+	dep deffr = sqrt( eff * (1.-eff) / denom )
+
+	cut use 2&3&4&5&6&7
+	nt/pr 1 event &1 -1
+	set plot 1&1 default
+	dep numer = r125
+
+	dep effz = numer/denom
+	dep deffz = sqrt( eff * (1.-eff) / denom )
+
+	dep rindex = @i - 10
+	dep zindex = @i - 5
+
+	hist fill 102 rindex effr 1 deffr
+	hist fill 103 zindex effz 1 deffz
+enddo
+
+
+set x limits -10 50
+dep lolimit = 0.
+dep hilimit = 1.05
+set y limits lolimit hilimit
+
+set ssize .2
+set colour symbol blue
+pl 100 -32
+set colour symbol red
+over 101 -32
+set colour symbol blue
+over 102 -32
+set colour symbol red
+over 103 -32
+
+draw line 1 black 3 plot
+-10 1
+50 1
+
+draw line 3 black 3 plot
+0 lolimit
+0 hilimit
+
+draw line 3 black 3 plot
+48 lolimit
+48 hilimit
+
+draw line 3 black 3 plot
+-5 lolimit
+-5 hilimit
+
+comment
+100
+new
+SVR
+-7.5 1.01 .4 0 centre plot 2000 blue 5
+new
+SVZ
+-2.5 1.01 .4 0 centre plot 2000 red 5
+new
+DR Anodes
+24 1.01 .4 0 centre plot 2000 blue 5
+new
+Cathode
+49 1.01 .4 0 centre plot 2000 red 5
+
+hard post

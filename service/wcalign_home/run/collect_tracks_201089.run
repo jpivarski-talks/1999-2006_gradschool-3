@@ -1,0 +1,12 @@
+#$ -l calibration
+#$ -o /cdat/tem/mccann/dr_tracks_201089.log
+#$ -S /bin/bash
+#$ -j y
+
+cd /home/mccann/wcalign/run
+. /nfs/cleo3/scripts/cleo3defs
+c3rel Oct15_03_MC
+
+export USER_RUN=201089
+
+suez -f collect_tracks.tcl

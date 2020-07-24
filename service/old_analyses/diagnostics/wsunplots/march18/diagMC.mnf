@@ -1,0 +1,4 @@
+hb_o mcbb.rzn
+exec /home/wsun/c3lib/run/mnf/layerEff.mnf 'BBbar MC, @1' 0
+exec /home/wsun/c3lib/run/mnf/trackEff.mnf 'BBbar MC, @1'
+exec /home/wsun/c3lib/run/mnf/diagFit.mnf 'BBbar MC, @1'

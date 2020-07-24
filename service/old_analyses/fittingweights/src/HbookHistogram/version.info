@@ -1,0 +1,229 @@
+
+Module : HbookInterface
+
+Date   : Tue Feb 23 17:08:03 1999
+User   : cdj
+Old Tag: 
+New Tag: v01_00_00
+Message: first tag
+
+Module : HbookHistogram
+Date   : Mon Sep  6 18:03:39 1999
+User   : mkl
+Old Tag: 
+New Tag: v01_00_00
+Message: move to new histogramming interface: hbook implementation
+
+Module : HbookHistogram
+Date   : Tue Sep  7 17:20:33 1999
+User   : mkl
+Old Tag: v01_00_00
+New Tag: v01_00_01
+Message: make cxx happy
+
+Module : HbookHistogram
+Date   : Thu Sep  9 21:12:55 1999
+User   : mkl
+Old Tag: v01_00_01
+New Tag: v01_01_00
+Message: now allow booking of histograms with automatic id allocation
+
+Module : HbookHistogram
+
+Date   : Wed Sep 29 13:56:17 1999
+User   : cdj
+Old Tag: v01_01_00
+New Tag: v01_02_00
+Message: added histogram directories
+
+Module : HbookHistogram
+Date   : Thu Sep 30 14:01:04 1999
+User   : mkl
+Old Tag: v01_02_00
+New Tag: v01_03_00
+Message: give INFO message when a next id has to be assigned
+
+Module : HbookHistogram
+
+Date   : Fri Oct  1 15:23:33 1999
+User   : cdj
+Old Tag: v01_03_00
+New Tag: v01_04_00
+Message: plugged memory leaks and histograms without ids works
+
+Module : HbookHistogram
+
+Date   : Wed Oct  6 16:27:43 1999
+User   : cdj
+Old Tag: v01_04_00
+New Tag: v01_05_00
+Message: added setDefaultDir to Manager
+
+Module : HbookHistogram
+Date   : Thu Oct  7 13:44:34 1999
+User   : mkl
+Old Tag: v01_05_00
+New Tag: v01_05_01
+Message: allow repeated calls to setDefaultDir method; fix up warning message about changing ids when id is already taken
+
+Module : HbookHistogram
+Date   : Thu Oct  7 14:08:19 1999
+User   : hufnagel
+Old Tag: v01_05_01
+New Tag: v01_06_00
+Message: Numbers now use float instead of double
+
+Module : HbookHistogram
+
+Date   : Fri Oct  8 17:21:54 1999
+User   : cdj
+Old Tag: v01_06_00
+New Tag: v01_06_01
+Message: Manager should not delete default directory
+
+Module : HbookHistogram
+
+Date   : Tue Oct 19 19:23:23 1999
+User   : cdj
+Old Tag: v01_06_01
+New Tag: v01_06_02
+Message: Ntuples no longer try to write themselves out
+
+Module : HbookHistogram
+
+Date   : Wed Oct 20 15:31:21 1999
+User   : cdj
+Old Tag: v01_06_02
+New Tag: v01_06_03
+Message: pass hbookn_ the full path within the file
+
+Module : HbookHistogram
+Date   : Fri Oct 29 18:13:48 1999
+User   : cdj
+Old Tag: v01_06_03
+New Tag: v01_07_00
+Message: now issue warning message if directory name is longer than 16 characters
+
+Module : HbookHistogram
+Date   : Thu Dec 23 18:35:07 1999
+User   : cdj
+Old Tag: v01_07_00
+New Tag: v02_00_00
+Message: updated to new histogram interface (for arithmetic operations)
+
+Module : HbookHistogram
+Date   : Mon Jan 31 17:57:25 2000
+User   : cdj
+Old Tag: v02_00_00
+New Tag: v02_01_00
+Message: made it possible to use more than one HbookManager at a time
+
+Module : HbookHistogram
+Date   : Mon Jan 31 21:48:58 2000
+User   : cdj
+Old Tag: v02_01_00
+New Tag: v02_02_00
+Message: every HbookManager now has its own Zebra root directory
+
+Module : HbookHistogram
+Date   : Tue Feb 15 11:32:29 2000
+User   : cdj
+Old Tag: v02_02_00
+New Tag: v02_03_00
+Message: modified tests to also test division by scalar
+
+Module : HbookHistogram
+Date   : Wed Feb 16 09:48:09 2000
+User   : cdj
+Old Tag: v02_03_00
+New Tag: v02_04_00
+Message: added tests for more complex math operations
+
+Module : HbookHistogram
+Date   : Sat Mar 11 13:28:21 2000
+User   : cdj
+Old Tag: v02_04_00
+New Tag: v02_05_00
+Message: 
+-made HbookHistDir::makeDirDefault 20 times faster
+  -necessary because makeDirDefault was dominating the time it took to 
+   fill a histogram
+  -now only call hcdir_ if C++ believes the directory really has changed
+  -the change is NOT safe if hcdir_ is called by someone other than
+   HbookHistDir.  To try to determine if something has gone wrong, once out
+   of 2000 times the function is called we check to see if hbook and C++
+   agree on what the directory is.
+-added new test code to check to see if I can catch the case when hcdir_ is
+  called outside of HbookHistDir
+
+
+Module : HbookHistogram
+Date   : Wed Mar 15 13:56:08 2000
+User   : cdj
+Old Tag: v02_05_00
+New Tag: v02_05_01
+Message: fixed case where put histograms into root directory
+
+Module : HbookHistogram
+Date   : Thu Mar 16 16:05:52 2000
+User   : dlk
+Old Tag: v02_05_01
+New Tag: v02_05_02
+Message: Repair error determining length of directory string (CDJ)
+
+Module : HbookHistogram
+Date   : Tue Jun 20 16:32:08 2000
+User   : bkh
+Old Tag: v02_05_02
+New Tag: v02_05_03
+Message: 
+Tag changes to implement new virtual fcns in the interface
+Module : HbookHistogram
+Date   : Tue Jul 11 16:48:54 2000
+User   : bkh
+Old Tag: v02_05_03
+New Tag: v02_05_04
+Message: 
+Set directory before HBOOK fortran calls
+Module : HbookHistogram
+Date   : Thu Oct 12 01:06:20 2000
+User   : savinov
+Old Tag: v02_05_04
+New Tag: v02_05_05
+Message: Converted to long-promised design (to avoid memory corruption) - hidden from the user
+
+Module : HbookHistogram
+Date   : Fri Oct 13 19:00:46 2000
+User   : savinov
+Old Tag: v02_05_05
+New Tag: v02_05_06
+Message: Getting rid of dependencies on my MODULES
+
+Module : HbookHistogram
+Date   : Tue Oct 17 11:30:39 2000
+User   : savinov
+Old Tag: v02_05_06
+New Tag: v02_05_07
+Message: Fixed Makefiles for Tests
+
+Module : HbookHistogram
+Date   : Sat Jul 21 11:47:44 2001
+User   : cdj
+Old Tag: v02_05_07
+New Tag: v02_06_00
+Message: conform to new HIHistDir interface
+
+Module : HbookHistogram
+Date   : Fri Aug  3 13:30:10 2001
+User   : bkh
+Old Tag: v02_06_00
+New Tag: v02_06_01
+Message: 
+Implement hbook version of profile histogram access
+to contents and errors
+Module : HbookHistogram
+Date   : Thu Sep 20 23:22:50 2001
+User   : mccann
+Old Tag: v02_06_01
+New Tag: v02_07_00
+Message: Finally implemented reset for histograms (1d,2d,prof)

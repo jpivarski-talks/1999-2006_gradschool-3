@@ -1,0 +1,14 @@
+*** Begin of history file: Tue Oct 30 11:42:32 2001
+h/file 1 test.rzn
+h/file 1 test1.rzn
+h/list
+h/plot 300
+h/plot 1
+h/plot 10300
+h/plot 20300
+zone 1 3
+h/plot 1
+h/plot 10300
+h/plot 20300
+quit
+*** End   of history file: Tue Oct 30 11:53:56 2001

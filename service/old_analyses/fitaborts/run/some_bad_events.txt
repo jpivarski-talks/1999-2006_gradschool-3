@@ -1,0 +1,39 @@
+ >> Tue Oct 16 16:22:27 2001 Run:  113239 Event:     552 Stop: event << 
+ %% NOTICE-Processor.FindFitAborts: fit aborts (id,abort?): ( 1, yes ) ( 2, no ) 
+
+ >> Tue Oct 16 16:22:28 2001 Run:  113239 Event:     647 Stop: event << 
+ %% NOTICE-Processor.FindFitAborts: fit aborts (id,abort?): ( 1, yes ) ( 2, no ) 
+
+ >> Tue Oct 16 16:22:30 2001 Run:  113239 Event:    1369 Stop: event << 
+ %% NOTICE-Processor.FindFitAborts: fit aborts (id,abort?): ( 1, no ) ( 2, yes ) 
+
+ >> Tue Oct 16 16:22:31 2001 Run:  113239 Event:    1585 Stop: event << 
+ %% NOTICE-Processor.FindFitAborts: fit aborts (id,abort?): ( 1, yes ) ( 2, no ) 
+
+ >> Tue Oct 16 16:22:31 2001 Run:  113239 Event:    1962 Stop: event << 
+ %% NOTICE-Processor.FindFitAborts: fit aborts (id,abort?): ( 1, yes ) ( 2, no ) 
+
+ >> Tue Oct 16 16:22:32 2001 Run:  113239 Event:    2065 Stop: event << 
+ %% NOTICE-Processor.FindFitAborts: fit aborts (id,abort?): ( 1, no ) ( 2, yes ) 
+
+ >> Tue Oct 16 16:22:34 2001 Run:  113239 Event:    2454 Stop: event << 
+ %% NOTICE-Processor.FindFitAborts: fit aborts (id,abort?): ( 1, yes ) ( 2, no ) 
+
+ >> Tue Oct 16 16:22:36 2001 Run:  113239 Event:    2969 Stop: event << 
+ %% NOTICE-Processor.FindFitAborts: fit aborts (id,abort?): ( 1, yes ) ( 2, no ) 
+
+ >> Tue Oct 16 16:22:46 2001 Run:  113239 Event:    5676 Stop: event << 
+ %% NOTICE-Processor.FindFitAborts: fit aborts (id,abort?): ( 1, yes ) ( 2, no ) 
+
+ >> Tue Oct 16 16:22:47 2001 Run:  113239 Event:    5894 Stop: event << 
+ %% NOTICE-Processor.FindFitAborts: fit aborts (id,abort?): ( 1, no ) ( 2, yes ) 
+
+ >> Tue Oct 16 16:22:47 2001 Run:  113239 Event:    6091 Stop: event << 
+ %% NOTICE-Processor.FindFitAborts: fit aborts (id,abort?): ( 1, no ) ( 2, yes ) 
+
+ >> Tue Oct 16 16:22:48 2001 Run:  113239 Event:    6119 Stop: event << 
+ %% NOTICE-Processor.FindFitAborts: fit aborts (id,abort?): ( 1, no ) ( 2, yes ) 
+
+ >> Tue Oct 16 16:22:50 2001 Run:  113239 Event:    7458 Stop: event << 
+ %% NOTICE-Processor.FindFitAborts: fit aborts (id,abort?): ( 1, yes ) ( 2, no ) 
+

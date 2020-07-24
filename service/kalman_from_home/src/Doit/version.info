@@ -1,0 +1,482 @@
+
+Module : Doit
+
+Date   : Thu Apr  8 03:40:22 1999
+User   : wsun
+Old Tag: v01_00_00
+New Tag: v01_01_00
+Message: Added extraction and filtering of Si and Cathode hits in TrackFitter.
+
+Module : Doit
+
+Date   : Wed Apr 21 15:56:39 1999
+User   : lyon
+Old Tag: v01_01_00
+New Tag: v01_01_01
+Message: Fixed DoitTrackFinder.cc to avoid memory faults
+
+Module : Doit
+
+Date   : Tue May 11 14:52:47 1999
+User   : lyon
+Old Tag: v01_01_01
+New Tag: v01_02_00
+Message: Use new lattice interface
+
+Module : Doit
+
+Date   : Tue May 18 12:14:14 1999
+User   : lyon
+Old Tag: v01_02_00
+New Tag: v01_02_01
+Message: Remove annoying printouts
+
+Module : Doit
+
+Date   : Thu May 20 09:16:25 1999
+User   : lyon
+Old Tag: v01_02_01
+New Tag: v01_03_00
+Message: Fortran <-> C++ communication is now done via function calls instead of force-stuffing common blocks
+
+Module : Doit
+
+Date   : Tue May 25 21:53:07 1999
+User   : lyon
+Old Tag: v01_03_00
+New Tag: v01_04_00
+Message: New Lattice interface
+
+Module : Doit
+
+Date   : Mon May 31 23:06:15 1999
+User   : lyon
+Old Tag: v01_04_00
+New Tag: v02_00_00
+Message: Updates for zfilesless doit
+
+Module : Doit
+Date   : Tue Jun 22 19:04:16 1999
+User   : pg
+Old Tag: v02_00_00
+New Tag: v02_00_01
+Message: Fixes for new Si hits
+
+Module : Doit
+
+Date   : Mon Jul 26 11:30:09 1999
+User   : lyon
+Old Tag: v02_00_01
+New Tag: v02_01_00
+Message: Modified for Lattice interface change
+
+Module : Doit
+
+Date   : Wed Sep  8 12:44:38 1999
+User   : lyon
+Old Tag: v02_01_00
+New Tag: v03_00_00
+Message: Holds information needed for Producer
+
+Module : Doit
+
+Date   : Thu Oct  7 14:26:55 1999
+User   : lyon
+Old Tag: v03_00_00
+New Tag: v03_00_01
+Message: Fixed problem when zero tracks are found (now inserts empty pointer tables
+
+Module : Doit
+
+Date   : Tue Oct 12 15:44:17 1999
+User   : lyon
+Old Tag: v03_00_01
+New Tag: v03_01_00
+Message: Added access to raw cathode hits
+
+Module : Doit
+Date   : Sun Oct 31 10:14:16 1999
+User   : lyon
+Old Tag: v03_01_00
+New Tag: v03_02_00
+Message: Added clearCache to fix memory leaks
+
+Module : Doit
+Date   : Thu Nov  4 12:34:24 1999
+User   : lyon
+Old Tag: v03_02_00
+New Tag: v03_02_01
+Message: fixed bug when processor clearsCache
+
+Module : Doit
+Date   : Thu Nov 18 17:56:53 1999
+User   : lyon
+Old Tag: v03_02_01
+New Tag: v03_03_00
+Message: Passes TDCs to Doit
+
+Module : Doit
+Date   : Fri Nov 19 10:16:24 1999
+User   : lyon
+Old Tag: v03_03_00
+New Tag: v03_03_01
+Message: Fix TDC bug in doitloaddrhits.F
+
+Module : Doit
+Date   : Mon Nov 29 16:48:50 1999
+User   : lyon
+Old Tag: v03_03_01
+New Tag: v03_03_02
+Message: Add protection if no TDC in raw hit
+
+Module : Doit
+Date   : Wed Dec  1 17:15:35 1999
+User   : lyon
+Old Tag: v03_03_02
+New Tag: v03_03_03
+Message: Allow for gaps in hit identifier numbers
+
+Module : Doit
+Date   : Mon Dec  6 17:32:10 1999
+User   : lyon
+Old Tag: v03_03_03
+New Tag: v03_04_00
+Message: Removed DEBUG reports
+
+Module : Doit
+Date   : Fri Jan  7 15:48:04 2000
+User   : lyon
+Old Tag: v03_04_00
+New Tag: v03_04_01
+Message: Make an empty lattice even if no tracks
+
+Module : Doit
+Date   : Tue Feb  8 13:34:45 2000
+User   : lyon
+Old Tag: v03_04_01
+New Tag: v03_05_00
+Message: Cleaned up instantiations, added no bunch finder running for DoitFast, added DoitModeNumber
+
+Module : Doit
+Date   : Fri Mar  3 10:20:08 2000
+User   : lyon
+Old Tag: v03_05_00
+New Tag: v03_06_00
+Message: Get the TDC right and give more information to the fortran
+
+Module : Doit
+Date   : Tue Mar 28 11:00:15 2000
+User   : pg
+Old Tag: v03_06_00
+New Tag: v03_07_00
+Message: Now filling Si common blocks
+
+Module : Doit
+Date   : Wed Mar 29 16:07:41 2000
+User   : pg
+Old Tag: v03_07_00
+New Tag: v03_07_01
+Message: Reflected changes in geometryForFortran.
+
+Module : Doit
+Date   : Wed Apr  5 15:28:40 2000
+User   : lyon
+Old Tag: v03_07_01
+New Tag: v03_08_00
+Message: Removed cathodes for now (so Online will work)
+
+Module : Doit
+Date   : Mon Apr 10 16:55:35 2000
+User   : pg
+Old Tag: v03_08_00
+New Tag: v03_08_01
+Message: Use XXAlignment streams to extract Si and DR active elements
+
+Module : Doit
+Date   : Wed May 17 16:23:10 2000
+User   : pg
+Old Tag: v03_08_01
+New Tag: v03_09_00
+Message: Modifications to include Si
+
+Module : Doit
+Date   : Fri May 19 11:58:31 2000
+User   : lyon
+Old Tag: v03_09_00
+New Tag: v03_09_01
+Message: Changed lattice topology constraints
+
+Module : Doit
+Date   : Fri May 19 15:59:11 2000
+User   : cdj
+Old Tag: v03_09_01
+New Tag: v03_09_02
+Message: C++ now knows what device the doit hit comes from
+
+Module : Doit
+Date   : Fri May 19 16:09:03 2000
+User   : cdj
+Old Tag: v03_09_02
+New Tag: v03_09_03
+Message: reset Lattice topology to allow only one Track per hit
+
+Module : Doit
+Date   : Sat May 27 01:23:20 2000
+User   : lyon
+Old Tag: v03_09_03
+New Tag: v03_10_00
+Message: Handle cathode clusters
+
+Module : Doit
+Date   : Tue May 30 16:28:56 2000
+User   : pg
+Old Tag: v03_10_00
+New Tag: v03_11_00
+Message: Aded code creating Si lattices to seed tracks
+
+Module : Doit
+Date   : Sun Jun  4 14:48:55 2000
+User   : lyon
+Old Tag: v03_11_00
+New Tag: v03_12_00
+Message: Allow multiple connections in cathode lattices
+
+Module : Doit
+Date   : Sun Jun  4 17:04:40 2000
+User   : pg
+Old Tag: v03_12_00
+New Tag: v03_12_01
+Message:  Added doitSVZLattice to zeroCache(), removed spurious report() calls
+
+Module : Doit
+Date   : Wed Jun 14 17:36:50 2000
+User   : lkg
+Old Tag: v03_12_01
+New Tag: v03_12_02
+Message: added flag to turn off use of silicon
+
+Module : Doit
+Date   : Thu Jun 15 13:15:22 2000
+User   : lyon
+Old Tag: v03_12_02
+New Tag: v03_12_03
+Message: Move debug messages in DoitTrackFinder.cc
+
+Module : Doit
+Date   : Tue Jun 20 18:13:36 2000
+User   : lyon
+Old Tag: v03_12_03
+New Tag: v03_12_04
+Message: Remove rogue cout from DoitTrackFinder.cc
+
+Module : Doit
+Date   : Tue Jun 27 17:16:32 2000
+User   : pg
+Old Tag: v03_12_04
+New Tag: v03_12_05
+Message: Added protection against TOO MANY SI HITS case
+
+Module : Doit
+Date   : Mon Jul 24 15:46:14 2000
+User   : pg
+Old Tag: v03_12_05
+New Tag: v03_12_06
+Message: Fixed protection against TOO MANY SI HITS case
+
+Module : Doit
+Date   : Wed Aug 16 15:44:18 2000
+User   : wsun
+Old Tag: v03_12_06
+New Tag: v03_13_00
+Message: Updated to new TRSeedTrackQuality.
+
+Module : Doit
+Date   : Thu Aug 17 13:07:00 2000
+User   : wsun
+Old Tag: v03_13_00
+New Tag: v03_13_01
+Message: Added vector and set includes to T_DoitSeedQuality.cc for OSF1.
+
+Module : Doit
+Date   : Thu Aug 24 09:18:48 2000
+User   : lyon
+Old Tag: v03_13_01
+New Tag: v03_13_02
+Message: Use aligned geometry for Si & DR
+
+Module : Doit
+Date   : Tue Sep  5 17:32:30 2000
+User   : wsun
+Old Tag: v03_13_02
+New Tag: v03_13_03
+Message: Removed T_DoitBaseQuailty.cc -- TRSeedTrackQuality already instantiated in TrackRoot.
+
+Module : Doit
+Date   : Thu Sep 28 18:05:08 2000
+User   : lyon
+Old Tag: v03_13_03
+New Tag: v03_14_00
+Message: Set doit mode number during begin run
+
+Module : Doit
+Date   : Wed Oct 11 15:09:29 2000
+User   : wsun
+Old Tag: v03_14_00
+New Tag: v03_14_01
+Message: Fixed calculation of # hits expected on track.
+
+Module : Doit
+Date   : Tue Oct 31 20:23:45 2000
+User   : lyon
+Old Tag: v03_14_01
+New Tag: v03_15_00
+Message: Add Fittable flag and new members to quality object
+
+Module : Doit
+Date   : Fri Nov  3 15:56:05 2000
+User   : lyon
+Old Tag: v03_15_00
+New Tag: v03_15_01
+Message: Fix misordered call to DoitSeedTrackQuality constructor
+
+Module : Doit
+Date   : Sat Nov  4 12:05:10 2000
+User   : lyon
+Old Tag: v03_15_01
+New Tag: v03_15_02
+Message: comment out diagnostic printout about cathodes
+
+Module : Doit
+Date   : Sat Nov 18 22:24:47 2000
+User   : cdj
+Old Tag: v03_15_02
+New Tag: v03_15_03
+Message: added missing version for DoitSeedQuality storage helper
+
+Module : Doit
+Date   : Sun Nov 19 10:06:33 2000
+User   : cdj
+Old Tag: v03_15_03
+New Tag: v03_16_00
+Message: use better default for old stored quantities
+
+Module : Doit
+Date   : Mon Dec 11 03:08:30 2000
+User   : wsun
+Old Tag: v03_16_00
+New Tag: v03_16_01
+Message: Bug fix in #layers hit and added Si to #layers hit and #hits expected.
+
+Module : Doit
+Date   : Fri Jan  5 00:39:36 2001
+User   : lyon
+Old Tag: v03_16_01
+New Tag: v03_17_00
+Message: Added Doit status words
+
+Module : Doit
+Date   : Fri Jan  5 01:31:49 2001
+User   : lyon
+Old Tag: v03_17_00
+New Tag: v03_17_01
+Message: Added assert to check for bad SeedType; Actually register V3 storage helper this time
+
+Module : Doit
+Date   : Fri Jan  5 12:10:09 2001
+User   : lyon
+Old Tag: v03_17_01
+New Tag: v03_17_02
+Message: Now make SV lattices, even if user says useSilicon=false
+
+Module : Doit
+Date   : Wed Jan 24 16:32:31 2001
+User   : cdj
+Old Tag: v03_17_02
+New Tag: v03_17_03
+Message: fixed memory leak
+
+Module : Doit
+Date   : Thu Jan 25 09:53:49 2001
+User   : cdj
+Old Tag: v03_17_03
+New Tag: v03_17_04
+Message: last change now compiles under OSF
+
+Module : Doit
+Date   : Sun Feb 25 20:00:04 2001
+User   : cdj
+Old Tag: v03_17_04
+New Tag: v03_18_00
+Message: now gets MagneticField from StartRun
+
+Module : Doit
+Date   : Mon Feb 26 14:01:15 2001
+User   : cdj
+Old Tag: v03_18_00
+New Tag: v03_19_00
+Message: changed second extract of MagneticField to StartRun
+
+Module : Doit
+Date   : Wed Apr  4 22:02:14 2001
+User   : lyon
+Old Tag: v03_19_00
+New Tag: v03_20_00
+Message: Pass SV Hybrid efficiencies to Fortran
+
+Module : Doit
+Date   : Wed Apr  4 22:05:09 2001
+User   : lyon
+Old Tag: v03_20_00
+New Tag: v03_20_01
+Message: Oops - forgot doitnewseff.F
+
+Module : Doit
+Date   : Thu Jun  7 13:05:43 2001
+User   : cdj
+Old Tag: v03_20_01
+New Tag: v03_20_02
+Message: Fixed minor memory leak
+
+Module : Doit
+Date   : Mon Nov 19 19:31:54 2001
+User   : dpp
+Old Tag: v03_20_02
+New Tag: v03_21_00
+Message: 
+ -> remove flag DCLEO_SFFCMP ,DCLEO_SFENDP
+
+Module : Doit
+Date   : Tue Nov 20 13:01:31 2001
+User   : dpp
+Old Tag: v03_21_00
+New Tag: v03_21_01
+Message: 
+remove use of obsolete /doit include file 
+Module : Doit
+Date   : Thu Nov 29 17:15:36 2001
+User   : bkh
+Old Tag: v03_21_01
+New Tag: v03_21_02
+Message: 
+Get tdc value out of newly modified hit object
+Module : Doit
+Date   : Wed Dec  5 11:50:31 2001
+User   : lyon
+Old Tag: v03_21_02
+New Tag: v03_22_00
+Message: Added bits to Doit status word -- changed storage helper to write them out
+
+Module : Doit
+Date   : Thu Dec  6 18:23:36 2001
+User   : bkh
+Old Tag: v03_22_00
+New Tag: v03_22_01
+Message: 
+Remove unnecessary header file for raw hits and use better fcn for raw time
+Module : Doit
+Date   : Thu May 23 14:11:52 2002
+User   : dpp
+Old Tag: v03_22_01
+New Tag: v03_23_00
+Message: 
+treatment of decay-in-flight

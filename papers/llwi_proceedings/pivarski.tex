@@ -1,0 +1,282 @@
+\documentclass{ws-procs9x6}
+
+\begin{document}
+
+\title{Di-electron Widths of the $\Upsilon(1S)$, $\Upsilon(2S)$, and
+  $\Upsilon(3S)$ from the CLEO-III Detector
+\footnote{\uppercase{T}his work is supported by the \uppercase{A}.\uppercase{P}.~\uppercase{S}loan \uppercase{F}oundation, the \uppercase{N}ational \uppercase{S}cience \uppercase{F}oundation, and the \uppercase{U}.\uppercase{S}.~\uppercase{D}epartment of \uppercase{E}nergy.}}
+
+\author{Jim Pivarski}
+
+\address{Cornell University, \\
+Ithaca, NY 14853, USA \\
+E-mail: mccann@lepp.cornell.edu}
+
+\maketitle
+
+\newcommand{\subs}[1]{{\mbox{\scriptsize #1}}}
+\newcommand{\inv}{$^{-1}$}
+\newcommand{\PM}{$\pm$}
+\newcommand{\ups}{$\Upsilon$}
+\newcommand{\gee}{$\Gamma_{ee}$}
+\newcommand{\us}{$\Upsilon(1S)$}
+\newcommand{\uss}{$\Upsilon(2S)$}
+\newcommand{\usss}{$\Upsilon(3S)$}
+\newcommand{\es}{$\epsilon_{1S}$}
+\newcommand{\ess}{$\epsilon_{2S}$}
+\newcommand{\esss}{$\epsilon_{3S}$}
+\newcommand{\ee}{$e^+e^-$}
+\newcommand{\mumu}{$\mu^+\mu^-$}
+\newcommand{\tautau}{$\tau^+\tau^-$}
+\newcommand{\gamgam}{$\gamma\gamma$}
+%\newcommand{\ggg}{$ggg$}
+\newcommand{\gggamma}{$gg\gamma$}
+\newcommand{\qqbar}{$q\bar{q}$}
+\newcommand{\bee}{${\mathcal B}_{ee}$}
+\newcommand{\bmm}{${\mathcal B}_{\mu\mu}$}
+\newcommand{\btt}{${\mathcal B}_{\tau\tau}$}
+\newcommand{\bcas}{${\mathcal B}_\subs{cas}$}
+\newcommand{\geehadtot}{$\Gamma_{ee}\Gamma_\subs{had}/\Gamma_\subs{tot}$}
+\newcommand{\twotoone}{$\Upsilon(2S) \to \pi^+\pi^- \Upsilon(1S)$}
+\newcommand{\pipi}{$\pi^+\pi^-$}
+\newcommand{\evis}{$\epsilon_\subs{vis}$}
+\newcommand{\ecuts}{$\epsilon_\subs{cuts}$}
+\newcommand{\ebeam}{$E_\subs{beam}$}
+\newcommand{\ecm}{$E_\subs{CM}$}
+\newcommand{\pmax}{$|\vec{p}_\subs{max}|$}
+\newcommand{\visen}{$E_\subs{vis}$}
+\newcommand{\dxy}{$d_\subs{XY}$}
+\newcommand{\dz}{$d_\subs{Z}$}
+\newcommand{\vtd}{$V_{td}$}
+\newcommand{\twotrack}{{\tt two-track}}
+\newcommand{\hadron}{{\tt hadron}}
+\newcommand{\radtau}{{\tt rad-tau}}
+\newcommand{\eltrack}{{\tt $e^\pm$-track}}
+\newcommand{\barrelbhabha}{{\tt barrel-bhabha}}
+\newcommand{\axial}{{\tt AXIAL}}
+\newcommand{\stereo}{{\tt STEREO}}
+\newcommand{\cblo}{{\tt CBLO}}
+\newcommand{\cbmd}{{\tt CBMD}}
+\newcommand{\cbhi}{{\tt CBHI}}
+
+\abstracts{We determine the di-electron widths of the \us, \uss, and
+  \usss\ resonances with better than 2\% precision by integrating the
+  cross-section of $e^+e^- \to \Upsilon$ over the \ee\ center-of-mass
+  energy.  Using \ee\ scans of the \ups\ resonances at the Cornell
+  Electron Storage Ring and measuring \ups\ production with the CLEO
+  detector, we find di-electron widths of
+1.252 \PM\ 0.004 ($\sigma_{\mbox{\scriptsize stat}}$) \PM\ 0.019 ($\sigma_{\mbox{\scriptsize syst}}$) keV,
+0.581 \PM\ 0.004 \PM\ 0.009 keV, and
+0.413 \PM\ 0.004 \PM\ 0.006 keV for the \us, \uss, and \usss,
+respectively.
+}
+
+\section{Introduction and Motivation}
+
+The \ups\ meson is a bottom quark and an anti-bottom quark, Strongly
+bound in a vector state labeled by excitation number ($1S$, $2S$, and
+$3S$), and its di-electron width, \gee, is the decay rate of the \ups\
+into \ee.  This width is a basic parameter of each \ups\ state, as it
+characterizes the spatial size of the meson.  Non-perturbative QCD is
+required to calculate \gee, so experimental measurements of \gee\ test
+non-perturbative techniques.
+
+Recent advances in Lattice QCD, in which quark and gluon fields are
+represented on a lattice in a computer, have made few-percent
+calculations of many quantities\cite{unquenched}.  Di-electron width
+calculations of the \us, \uss, and \usss\ put extreme demands on the
+continuum limit, as \gee\ is proportional to the quark wavefunction at
+the origin.  To test these calculations, we have measured \gee\ for
+the first three \ups\ resonances with 1--2\% precision.
+
+Agreement between Lattice calculations and our measured \gee\ would
+lend credence to calculations of similar quantities.  A quantity of
+particular interest is the $B$ meson decay constant, $f_B$, which
+obfuscates measurements of the CKM element $V_{td}$ because it is
+poorly known.  If an $f_B$ calculation may be trusted within a few
+percent of itself, our present knowledge of $V_{td}$ would shrink from
+20\% to a few percent.
+
+\section{Measurement Method}
+
+We determine the $\Upsilon \to e^+e^-$ decay rate from the $e^+e^- \to
+\Upsilon$ production cross-section:
+\begin{equation}
+  \Gamma_{ee} = \frac{{M_\Upsilon}^2}{6\pi^2} \int \sigma(e^+e^- \to
+  \Upsilon) \, dE_\subs{CM}
+\end{equation}
+where $M_\Upsilon$ is the \ups\ mass and \ecm\ = $\sqrt{s}$ is the
+center-of-mass energy of colliding \ee\ beams.  We integrate by
+sampling the cross-section at several \ecm\ values near the \ups\
+resonance peak and fitting to a parameterized function whose integral is
+known.  Our fit function is a Breit-Wigner resonance peak convoluted
+by a Gaussian to simulate beam energy spread, also convoluted by an
+initial state radiation distribution\cite{kf}.  Additional terms
+account for backgrounds, including interference between the resonance
+peak and the continuum backgrounds for \qqbar\ and \tautau\ final
+states.
+
+To measure the \ups\ production cross-section, we count hadronic
+events and divide by integrated luminosity, where we define a hadronic
+event to be any beam-beam collision that results in a final state
+other than \ee, \mumu, and \tautau.  A well-measured
+fraction\cite{istvan} of \ups\ mesons decay into \ee, \mumu, and
+\tautau\ (about 7\%), so we use this fraction to correct our
+cross-section measurement.
+
+\subsection{Backgrounds}
+
+Depending on \ecm, 30\% to 100\% of our hadron counts are not \ups\
+events.  These backgrounds have a flat dependence on \ecm, whereas the
+signal is highly peaked (see Figure~\ref{background}), so signal and
+background are distinguished by the fit function.  The majority of the
+backgrounds are continuum processes which depend on \ecm\ as $1/s$,
+and 8\% of the continuum (at 9~GeV) are two-photon fusion events
+($e^+e^- \to e^+e^- X$) which have a $\log s$ dependence.  Radiation
+to lower-energy resonances contributes at the $\sim\frac{1}{2}$\%
+level.
+
+\begin{figure}
+\centerline{\epsfxsize=0.86\linewidth \epsfbox{pivarski_fig1.eps}}
+\caption{The \usss\ resonance peak, presented in log scale to
+  highlight backgrounds.  ``Raw cross-section'' is hadronic event
+  yield per nb\inv, which includes backgrounds, but not efficiency
+  corrections or corrections for \ee, \mumu, and \tautau\ final
+  states. \label{background}}
+\end{figure}
+
+Cosmic rays, collisions between beam particles and gas (beam-gas), and
+collisions between beam particles and the wall of the beampipe
+(beam-wall) are not proportional to integrated luminosity, so they
+must be subtracted from the hadron counts.  We determine the number of
+cosmic rays at each \ecm\ by normalizing to a control sample acquired
+with no colliding beams, and similarly estimate beam-gas and beam-wall
+with single-beam samples.
+
+\subsection{Efficiency}
+
+We determine the efficiency of our triggers and event selection for
+\us\ events without assuming a decay model for the \ups\ meson.  From
+our 1.3~fb\inv\ \uss\ sample, we select \twotoone\ events by requiring
+the \pipi\ to recoil against an object with the \us\ mass.  This way,
+we trigger and select events independently of way the \us\ decays,
+leaving the set of \us\ decays unbiased.  Applying our triggers and event
+selection to the \us\ decays reveals a hadronic efficiency of (97.8 \PM\
+0.5)\%.  We extrapolate this efficiency from the \us\ to the \uss\ and
+\usss\ using Monte Carlo and measurements of $\Upsilon(nS) \to X
+\Upsilon(mS) \to X \mu^+\mu^-$ branching fractions.  This procedure is
+discussed in greater detail elsewhere\cite{prl}\mbox{ }\cite{thesis}.
+
+\subsection{Integrated Luminosity}
+
+To measure integrated luminosity, we count Bhabha events ($e^+e^- \to
+e^+e^-$) and divide by the efficiency-weighted Bhabha cross-section,
+determined from Monte Carlo simulations\cite{babayaga}\mbox{
+}\cite{mc}.  We evaluate the systematic uncertainty in the
+efficiency-weighted cross-section (1.3\%) by comparing Bhabha-derived
+integrated luminosities with values determined from $e^+e^- \to
+\mu^+\mu^-$ and $e^+e^- \to \gamma\gamma$, following the method used
+in CLEO-II\cite{oldlumi}.
+
+\subsection{Beam Energy Uncertainty}
+
+The potential effect of fluctuations or drifts in the calibration of
+the beam energy measurement was minimized by splitting the data-taking
+into short, 10-hour scans, and by alternating measurements above and below
+the resonance peak.  The point of maximum slope
+($d\sigma/dE_\subs{CM}$) was measured twice to bound fluctuations in
+the calibration through their effect on cross-section between the
+two measurements, leading to a 0.2\% uncertainty in \gee.
+
+\section{Fit Results}
+
+The \us, \uss, and \usss\ fits are presented in Figure~\ref{fits},
+which yield the following values for \gee.  They are consistent with
+and more precise than the current world averages\cite{pdg}.
+\begin{center}
+\begin{tabular}{|c c|}
+\hline
+$\Gamma_{ee}(1S)$ & 1.354 \PM\ 0.004 \PM\ 0.020 keV \\
+$\Gamma_{ee}(2S)$ & 0.619 \PM\ 0.004 \PM\ 0.010 keV \\
+$\Gamma_{ee}(3S)$ & 0.446 \PM\ 0.004 \PM\ 0.007 keV \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{figure}
+\centerline{\epsfxsize=\linewidth \epsfbox{pivarski_fig2.eps}}
+\caption{The \ups\ lineshape fits used to determine \gee.  Points with
+  errorbars are data, the solid line is the fit, the dashed line
+  represents backgrounds, and the pull (fit residual divided by
+  uncertainty) of every point is presented above the plots.
+  Measurements 100~GeV, 60~GeV and 45~GeV above the three resonance
+  maxima are shown in insets. \label{fits}}
+\end{figure}
+
+Uncertainty in the hadronic efficiency (0.5\%) and in the overall
+luminosity scale (1.3\%) dominate the systematic uncertainty, but they
+are also shared by all three resonances and therefore cancel in ratios
+of \gee.  The systematic uncertainty in
+$\Gamma_{ee}(mS)/\Gamma_{ee}(nS)$ is 0.9\%--1.0\%.
+
+\section{Conclusions}
+
+Though Lattice QCD calculations of \gee\ have not been corrected for
+lattice renormalization yet\cite{lattice}, this effect largely cancels
+in the ratio of $\Gamma_{ee}(2S)$ to $\Gamma_{ee}(1S)$.  The Lattice
+calculation compares favorably with our measurement (see
+Figure~\ref{lattice}), though its uncertainty is 10\% due to the steep
+dependence on lattice spacing size.  We eagerly await the full
+calculations.
+
+\begin{figure}
+\centerline{\epsfxsize=0.86\linewidth \epsfbox{pivarski_fig3.eps}}
+\caption{Lattice calculations of $\Gamma_{ee}(2S)/\Gamma_{ee}(1S)$
+  with our result overlaid.  \label{lattice}}
+\end{figure}
+
+\begin{thebibliography}{0}
+
+\bibitem{unquenched}
+C.T.H.~Davies {\it et al.}  (HPQCD Collaboration),
+{\it Phys.\ Rev.\ Lett.}  {\bf 92}, 022001 (2004).
+
+\bibitem{kf}
+E.A.~Kuraev and V.S.~Fadin,
+{\it Sov.\ J.\ Nucl.\ Phys.}  {\bf 41}, 466 (1985)
+[Yad.\ Fiz.\  {\bf 41}, 733 (1985)].
+
+\bibitem{istvan}
+G.S.~Adams {\it et al.}  (CLEO Collaboration),
+{\it Phys.\ Rev.\ Lett.}  {\bf 94}, 012001 (2005).
+
+\bibitem{prl}
+J.L.~Rosner {\it et al.},
+{\it Phys. Rev. Lett.} {\bf 96}, 092003 (2006).
+
+\bibitem{thesis}
+J.~Pivarski, Cornell University, Ph.D.~thesis, {\tt hep-ex/0604026} (2006).
+
+\bibitem{babayaga}
+C.M.~Carloni~Calame {\sl et al.},
+{\it Nucl. Phys. Proc. Suppl. B} {\bf 131}, 48 (2004).
+
+\bibitem{mc}
+R.~Brun {\it et al.}, {\textsc Geant} 3.21, CERN Program Library Long
+Writeup W5013 (1993), unpublished.
+
+\bibitem{oldlumi}
+G.D.~Crawford {\it et al.} (CLEO Collaboration),
+{\it Nucl. Instrum. Methods Phys. Res., Sect A} {\bf 345}, 429 (1994).
+
+\bibitem{pdg}
+S.~Eidelman {\it et al.}  (Particle Data Group),
+Phys.\ Lett.\ B {\bf 592}, 1 (2004).
+
+\bibitem{lattice}
+A.~Gray, I.~Allison, C.~T.~H.~Davies, E.~Gulez, G.~P.~Lepage, J.~Shigemitsu and M.~Wingate,
+{\it Phys.\ Rev.\ D} {\bf 72}, 094507 (2005).
+
+\end{thebibliography}
+
+\end{document}

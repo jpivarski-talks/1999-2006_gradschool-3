@@ -1,0 +1,10 @@
+#$ -l calibration
+#$ -o /cdat/tem/mccann/findbug4.out
+#$ -S /bin/bash
+#$ -j y
+
+cd /home/mccann/kalman2/run
+. /nfs/cleo3/scripts/cleo3defs
+c3rel Nov04_02_P2
+
+suez -f findbug4.tcl > /cdat/tem/mccann/findbug4.log

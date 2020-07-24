@@ -1,0 +1,22 @@
+/KSurfaceVector.h/1.1/Wed Apr 23 16:01:45 2003//
+/McCannAddHitOperation.h/1.6/Tue Mar 27 06:39:31 2001//
+/McCannCandidateQuality.h/1.6/Fri Jan  5 05:33:08 2001//
+/McCannElectronQuality.h/1.2/Sun Jul 25 16:33:27 1999//
+/McCannExitElectronQuality.h/1.2/Sun Jul 25 16:33:28 1999//
+/McCannExitKaonQuality.h/1.2/Sun Jul 25 16:33:29 1999//
+/McCannExitMuonQuality.h/1.2/Sun Jul 25 16:33:30 1999//
+/McCannExitPionQuality.h/1.2/Sun Jul 25 16:33:30 1999//
+/McCannExitProtonQuality.h/1.2/Sun Jul 25 16:33:31 1999//
+/McCannFitQualityCondition.h/1.1/Tue Apr 27 22:19:50 1999//
+/McCannHelix.h/1.18/Sat Apr 27 17:42:39 2002//
+/McCannHelixTransporter.h/1.1/Tue Mar 27 06:33:40 2001//
+/McCannKaonQuality.h/1.2/Sun Jul 25 16:33:32 1999//
+/McCannMuonQuality.h/1.2/Sun Jul 25 16:33:33 1999//
+/McCannPionQuality.h/1.2/Sun Jul 25 16:33:33 1999//
+/McCannProtonQuality.h/1.2/Sun Jul 25 16:33:34 1999//
+/McCannTrackFitter.h/1.33/Fri Jul 25 23:30:57 2003//
+/McCannUpdateParamsCondition.h/1.2/Tue Mar 27 06:39:10 2001//
+/McCannUpdateParamsOperation.h/1.2/Tue Mar 27 06:39:22 2001//
+/McCannUpdateZParamsCondition.h/1.2/Fri Aug 27 20:43:05 1999//
+D/Storage////
+D/Template////

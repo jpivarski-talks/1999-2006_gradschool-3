@@ -1,0 +1,86 @@
+Index: TrackRoot/Class/TRSubdetectorLists.cc
+===================================================================
+RCS file: /nfs/cleo3/cvsroot/Offline/src/TrackRoot/Class/TRSubdetectorLists.cc,v
+retrieving revision 1.2
+diff -r1.2 TRSubdetectorLists.cc
+80a81
+>      false,   // ZD
+91a93
+>      false,   // ZD
+102a105,117
+>      false,   // ZD
+>      true },  // Entire
+>    // CLEO-c
+>    { false,   // PT
+>      false,   // VD
+>      false,   // SVR
+>      false,   // SVZ
+>      false,   // DR2
+>      true,    // DR axial
+>      true,    // DR stereo
+>      false,   // VD cathode
+>      true,    // DR cathode
+>      true,    // ZD
+120a136
+>      0,    // ZD (not there)
+131a148
+>      0,    // ZD (not there)
+142a160,172
+>      0,    // ZD (not there)
+>      1 },  // Entire (starts at one)
+>    // CLEO-c
+>    { 0,    // PT (not there)
+>      0,    // VD (not there)
+>      0,    // SVR (not there)
+>      0,    // SVZ (not there)
+>      0,    // DR2 (not there)
+>      7,    // DR axial (layers 7-22 [16 layers]
+>      23,   // DR stereo (layers 23-53 [31 layers]
+>      0,    // VD Cathode (not there)
+>      54,   // DR cathode (1)
+>      1,    // ZD (layers 1-6 [6 layers])
+159a190
+>      0,    // ZD (not there)
+170a202
+>      0,    // ZD (not there)
+182c214,228
+<      56 }   // Entire (starts at one)
+---
+>      0,    // ZD (not there)
+>      56 }, // Entire (starts at one)
+>    // CLEO-c
+>    { 0,    // PT (not there)
+>      0,    // VD (not there)
+>      0,    // SVR (not there)
+>      0,    // SVZ (not there)
+>      0,    // DR2 (not there)
+>      16,   // DR axial (layers 7-22 [16 layers]
+>      31,   // DR stereo (layers 23-53 [31 layers]
+>      0,    // VD Cathode (not there)
+>      1,    // DR cathode (1)
+>      6,    // ZD (layers 1-6 [6 layers])
+>      54 }  // Entire (starts at one)
+> 
+189c235,236
+<   6 } ; // CLEO III
+---
+>   6,    // CLEO III
+>   5 } ; // CLEO-c
+195c242,243
+<     2 }; // CLEO III needs two UINT32 words to hold layer map
+---
+>     2,   // CLEO III needs two UINT32 words to hold layer map
+>     2 } ;// CLEO-c needs two UINT32 words to hold layer map
+201c249
+<   "DRCathode", "EntireDetector"
+---
+>   "DRCathode", "ZD", "EntireDetector"
+Index: TrackRoot/TrackRoot/TRSubdetectorLists.h
+===================================================================
+RCS file: /nfs/cleo3/cvsroot/Offline/src/TrackRoot/TrackRoot/TRSubdetectorLists.h,v
+retrieving revision 1.2
+diff -r1.2 TRSubdetectorLists.h
+45a46
+> 		       kCLEOc,
+56a58
+> 		      kZD,        // This is for the CLEO-c ZD only

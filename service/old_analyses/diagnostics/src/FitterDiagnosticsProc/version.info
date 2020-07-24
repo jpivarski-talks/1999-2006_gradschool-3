@@ -1,0 +1,28 @@
+
+Module : FitterDiagnosticsProc
+Date   : Mon Feb 21 15:02:37 2000
+User   : wsun
+Old Tag: 
+New Tag: v01_00_00
+Message: First tag.
+
+Module : FitterDiagnosticsProc
+Date   : Wed Dec 20 17:34:06 2000
+User   : wsun
+Old Tag: v01_00_00
+New Tag: v01_01_00
+Message: Parameter to set mass nypothesis to extract.
+
+Module : FitterDiagnosticsProc
+Date   : Mon Feb 25 16:52:51 2002
+User   : wsun
+Old Tag: v01_01_00
+New Tag: v01_02_00
+Message: Added Kalman quality info.
+
+Module : FitterDiagnosticsProc
+Date   : Tue Feb 26 11:54:11 2002
+User   : wsun
+Old Tag: v01_02_00
+New Tag: v01_02_01
+Message: Added BeamEnergy to Makefile.

@@ -1,0 +1,304 @@
+*
+* $Id: xts_zoom.F,v 1.3 2000/04/26 14:49:47 dpp Exp $
+*
+* $Log: xts_zoom.F,v $
+* Revision 1.3  2000/04/26 14:49:47  dpp
+*      -> change order in include sequences
+*      -> remove "info" argument for XTS_TFXF
+*
+* Revision 1.2  1999/01/29 15:34:45  dpp
+* force update
+*
+* Revision 1.1.1.1  1998/02/06 19:11:42  dpp
+* DOIT first release.
+*
+* Revision 1.1.1.1  1997/04/30 12:31:24  clib
+* Developmental version of DUET.
+*
+* Revision 1.3  1995/12/18 19:45:25  nk
+* changes to TFXFIT hit selection, updates of TFXFIT graphics
+*
+* Revision 1.2  1995/09/25 19:28:55  zfiles
+* ability to zoom TFXF display
+*
+* Revision 1.1.1.1  1994/10/08  01:01:00  zfiles
+* first version of doit in CVS
+*
+*
+#include "sys/CLEO_machine.h"
+#include "pilot.h"
+*CMZ :  6.00/14 01/03/94  17.22.16  by  Rob Kutschke
+*-- Author :dpp
+      SUBROUTINE XTS_ZOOM(CALLER)
+      IMPLICIT NONE
+#include "doit/duseq/tfindpar.inc"
+#include "doit/duseq/tfxfitcd.inc"
+#include "doit/sfseq/sfpar.inc"
+#include "doit/sfseq/sfxtsp.inc"
+#include "doit/sfseq/sfxtsc.inc"
+C
+      INTEGER SET_BACKING_C
+      INTEGER SET_FOREGROUND_C
+C
+      INTEGER I,LAST,NOW,NEXT,USENXT,WASNXT,IDUM
+      INTEGER ZTYPE
+      INTEGER ISUPRS
+      CHARACTER*(*) CALLER
+      INTEGER ID,TYPE
+      REAL QX1,QX2,QY1,QY2,T
+      REAL FAREA,FX,FY
+      REAL XMIN,XMAX,YMIN,YMAX,XDIF,YDIF,DIFDIF
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+      PRINT 1001,CALLER
+1001  FORMAT(' XTS_ZOOM:ENTER: CALLED BY ',A20)
+
+      ISUPRS=0
+
+C current zoom number: ZOOMU
+C first available spot
+      DO 25 I=2,1000
+      USENXT=I
+      IF(ZOOMIT(1,I).EQ.0)GO TO 27
+25    CONTINUE
+
+C no available spot
+      PRINT 1005,ZOOMU
+1005  FORMAT(' XTS_ZOOM: NO AVAILABLE SPOT TO STORE ZOOM')
+      GO TO 791
+
+C request input
+27    IDUM=SET_BACKING_C(0)
+      IDUM=SET_FOREGROUND_C(CLBORD)
+      CALL STRING_C('CLICK'  ,.7,-.7,-1,1)
+      CALL STRING_C('CORNERS',.7,-.7,-1,3)
+      CALL UPDATE_C
+
+C request 1st coord
+31    CONTINUE
+      PRINT 1002
+1002  FORMAT(' XTS_ZOOM: REQUESTING FIRST CLICK')
+      CALL NEXT_EVENT_C(ID,TYPE,QX1,QY1)
+      IF(TYPE.EQ.1)GO TO 33
+      IF(TYPE.NE.0)GO TO 31
+      PRINT 1003
+1003  FORMAT(' XTS_ZOOM: main window exposed during 1st click')
+      GO TO 31
+
+C set marker on first point
+33    CALL SET_SYMBOL_C(1,100.)
+      CALL POINTS_C(QX1,QY1,1)
+      CALL UPDATE_C
+
+C request 2nd coord using "box" echo
+41    CONTINUE
+      PRINT 1006
+1006  FORMAT(' XTS_ZOOM: REQUESTING SECOND CLICK')
+      CALL NEXT_EVENT_C(ID,TYPE,QX2,QY2)
+      IF(TYPE.EQ.1)GO TO 51
+      IF(TYPE.NE.0)GO TO 41
+      PRINT 1007
+1007  FORMAT(' XTS_ZOOM: main window exposed during 2nd click')
+      GO TO 41
+
+C reorder box "world" coordinates
+51    T = MIN(QX1,QX2)
+      QX2 = MAX(QX1,QX2)
+      QX1 = T
+      T = MIN(QY1,QY2)
+      QY2 = MAX(QY1,QY2)
+      QY1 = T
+      XDIF=QX2-QX1
+      YDIF=QY2-QY1
+
+      IF(ZTYPE.EQ.1)THEN
+C minimum zoom area fraction FAREA of world corrdinate display space
+          FAREA=0.01
+          FX=FAREA*ZOOMXY(1,ZOOMU)
+          FY=FAREA*ZOOMXY(2,ZOOMU)
+          XMIN=ZOOMXY(3,ZOOMU)
+          YMIN=ZOOMXY(4,ZOOMU)
+          XMAX=ZOOMXY(1,ZOOMU)+ZOOMXY(3,ZOOMU)
+          YMAX=ZOOMXY(2,ZOOMU)+ZOOMXY(4,ZOOMU)
+          IF(XDIF.GE.FX)  GO TO 63
+          QX2=QX1+FX
+          IF(QX2.LE.XMAX) GO TO 63
+          QX2=XMAX
+          QX1=QX2-FX
+63        IF(YDIF.GE.FY)  GO TO 65
+          QY2=QY1+FY
+          IF(QY2.LE.YMAX) GO TO 65
+          QY2=YMAX
+          QY1=QY2-FY
+65        CONTINUE
+
+C preserve the aspect ratio
+          DIFDIF=XDIF-YDIF
+          IF(DIFDIF.LT.0.)GO TO 71
+          IF(DIFDIF.GT.0.)GO TO 75
+C YDIF>XDIF ;  DIFDIF IS NEGATIVE
+71        QX1=QX1 - (-DIFDIF/2.)
+          QX2=QX2 + (-DIFDIF/2.)
+          IF(QX1.GT.XMIN)GO TO 72
+          QX1=XMIN
+          QX2=QX1+YDIF
+          GO TO 81
+72        IF(QX2.LT.XMAX)GO TO 81
+          QX2=XMAX
+          QX1=QX2-YDIF
+          GO TO 81
+C YDIF<XDIF ;  DIFDIF IS POSITIVE
+75        QY1=QY1 - ( DIFDIF/2.)
+          QY2=QY2 + ( DIFDIF/2.)
+          IF(QY1.GT.YMIN)GO TO 76
+          QY1=YMIN
+          QY2=QY1+XDIF
+          GO TO 81
+76        IF(QY2.LT.YMAX)GO TO 81
+          QY2=YMAX
+          QY1=QY2-XDIF
+      ENDIF
+
+C set workstation window to zoom box
+C fix up the ZOOM history
+81    WASNXT=ZOOMIT(3,ZOOMU)
+
+C delete everything beyond ZOOMU
+      NOW=ZOOMU
+85    NEXT=ZOOMIT(3,NOW)
+      IF(NEXT.EQ.0)GO TO 87
+      ZOOMIT(3,NOW)=0
+      NOW=NEXT
+      ZOOMIT(1,NOW)=0
+      ZOOMIT(2,NOW)=0
+      GO TO 85
+87    CONTINUE
+C now fill in the new ZOOM number
+      IF(WASNXT.NE.0)USENXT=WASNXT
+      ZOOMIT(3,ZOOMU)=USENXT
+      ZOOMIT(2,USENXT)=ZOOMU
+      LAST =ZOOMU
+      ZOOMU=USENXT
+      ZOOMIT(1,ZOOMU)=ZOOMIT(1,LAST)
+      ZOOMIT(3,ZOOMU)=0
+      ZOOMXY(1,ZOOMU)=QX2-QX1
+      ZOOMXY(2,ZOOMU)=QY2-QY1
+      ZOOMXY(3,ZOOMU)=QX1
+      ZOOMXY(4,ZOOMU)=QY1
+
+C ZOOM and redraw everything
+      GO TO 601
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+C go forward by one ZOOM number
+
+      ENTRY XTS_ZOOM_FORWARD(CALLER)
+C      PRINT 2001,CALLER
+2001  FORMAT(' XTS_ZOOM_FORWARD: ENTER: CALLED FROM ',A20)
+      ISUPRS=0
+      NEXT=ZOOMIT(3,ZOOMU)
+      IF(NEXT.EQ.0)GO TO 791
+      ZOOMU=NEXT
+      GO TO 601
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+C go backward by one ZOOM number
+
+      ENTRY XTS_ZOOM_BACKWARD(CALLER)
+      PRINT 3001,CALLER
+3001  FORMAT(' XTS_ZOOM_BACKWARD: ENTER: CALLED FROM ',A20)
+      ISUPRS=0
+      NEXT=ZOOMIT(2,ZOOMU)
+      IF(NEXT.EQ.0)GO TO 791
+      ZOOMU=NEXT
+      GO TO 601
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+C restore  full window
+
+      ENTRY XTS_ZOOM_UNZOOM(CALLER)
+      PRINT 4001,CALLER
+4001  FORMAT(' XTS_ZOOM_UNZOOM: ENTER: CALLED FROM ',A20)
+      ISUPRS=0
+      GO TO 411
+
+      ENTRY XTS_ZOOM_UNZOOM_SUPPRESS(CALLER)
+      PRINT 4002,CALLER
+4002  FORMAT(' XTS_ZOOM_UNZOOM_SUPPRESS: ENTER: CALLED FROM ',A20)
+      ISUPRS=1
+
+411   ZOOMU=ZOOMIT(1,ZOOMU)
+      GO TO 601
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+C select r-phi-view
+
+      ENTRY XTS_ZOOM_RFV(CALLER)
+      PRINT 5001,CALLER
+5001  FORMAT(' XTS_ZOOM_RFV: ENTER: CALLED FROM ',A20)
+      ZTYPE=1
+      ZOOMU=ZOOMU_RPHI
+      GO TO 995
+
+C select TFXFIT-view
+
+      ENTRY XTS_ZOOM_TFXF(CALLER)
+      PRINT 5002,TFXS,CALLER
+5002  FORMAT(' XTS_ZOOM_TFXF: ENTER:TFXS=',I3,' CALLED FROM ',A20)
+      ZTYPE=2
+      ZOOMU=ZOOMU_TFXF(TFXS)
+      GO TO 995
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C
+C REDRAW EVERTHING, MAYBE
+C
+CCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+C redraw with the current ZOOM number:
+C  reset the RESCAL_C after alternative plot
+
+      ENTRY XTS_ZOOM_REDRAW(CALLER)
+      PRINT 6001,CALLER
+6001  FORMAT(' XTS_ZOOM_REDRAW: ENTER: CALLED FROM ',A20)
+      ISUPRS=0
+601   CONTINUE
+      PRINT 6003,ZOOMU,ENTRFV,ZTYPE,ZOOMU_RPHI,ZOOMU_TFXF,
+     2                ZOOMXY(1,ZOOMU),ZOOMXY(2,ZOOMU),
+     3                ZOOMXY(3,ZOOMU),ZOOMXY(4,ZOOMU)
+6003  FORMAT(' XTS_ZOOM: ZOOMU=',I4,' ENTRFV=',I2,' ZTYPE=',I2,
+     2       ' ZOOMU_RPHI=',I4,' ZOOMU_TFXF=',I4,I5,/
+     3       '         XMIN,XMAX,YMIN,YMAX=',4F9.5)
+      CALL RESCALE_C(ZOOMXY(1,ZOOMU),ZOOMXY(2,ZOOMU),
+     1               ZOOMXY(3,ZOOMU),ZOOMXY(4,ZOOMU))
+
+      IF(ZTYPE.EQ.2)THEN
+          ZOOMU_TFXF(TFXS)=ZOOMU
+          CALL XTS_TFXF('XTS_ZOOM')
+      ELSE
+          ZOOMU_RPHI=ZOOMU
+          IF(ISUPRS.EQ.0)CALL XTS_NEW_PIXMAP_TRAKS('XTS_ZOOM')
+      ENDIF
+
+      PRINT 6004
+6004  FORMAT(' XTS_ZOOM: EXIT')
+      GO TO 995
+
+791   CONTINUE
+      PRINT 6005
+6005  FORMAT(' XTS_ZOOM: ABORT')
+
+995   RETURN
+      END
+
+
+
+
+
+
+
+
+

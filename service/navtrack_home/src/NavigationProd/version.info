@@ -1,0 +1,213 @@
+
+Module : NavigationProd
+
+Date   : Mon Jul 19 12:51:07 1999
+User   : bkh
+Old Tag: none
+New Tag: v04_00_00
+Message: 
+first tag with new name
+Module : NavigationProd
+
+Date   : Thu Aug  5 16:29:45 1999
+User   : bkh
+Old Tag: v04_00_00
+New Tag: v04_01_00
+Message: 
+Add new eta proxy and rename pi0 proxy
+Module : NavigationProd
+
+Date   : Mon Aug  9 12:28:12 1999
+User   : bkh
+Old Tag: v04_01_00
+New Tag: v04_02_00
+Message: 
+Massive renaming & restructuring of pi0, eta proxies
+Module : NavigationProd
+
+Date   : Mon Sep  6 09:29:35 1999
+User   : marsh
+Old Tag: v04_02_00
+New Tag: v04_02_01
+Message: 
+NavTrackProxy used to return 0 for an invalid anchor table.  Now
+it returns an empty table after producing a warning.
+
+
+Module : NavigationProd
+
+Date   : Wed Sep 22 12:29:37 1999
+User   : bkh
+Old Tag: v04_02_01
+New Tag: v04_02_02
+Message: 
+Fill in SHARMODNAME = $(JOB) so gmake works better
+Module : NavigationProd
+Date   : Wed Nov 17 15:38:24 1999
+User   : marsh
+Old Tag: v04_02_02
+New Tag: v04_02_03
+Message: 
+The NavTrack master block was being deleted in NavTrackProxy::faultHandler().
+It makes more sense to do this in NavTrackProxy::invalidateCache().
+
+
+Module : NavigationProd
+Date   : Fri Dec 31 18:15:40 1999
+User   : bkh
+Old Tag: v04_02_03
+New Tag: v04_02_04
+Message: 
+Eliminate obsolete checking of valid() after extracts
+Module : NavigationProd
+Date   : Mon Apr 17 16:14:04 2000
+User   : bkh
+Old Tag: v04_02_04
+New Tag: v04_02_05
+Message: 
+Elim checks of ptr after new
+Module : NavigationProd
+Date   : Tue Jun  6 14:41:25 2000
+User   : bkh
+Old Tag: v04_02_05
+New Tag: v04_03_00
+Message: 
+Link now to C3Mu and DedxInfo
+
+Module : NavigationProd
+Date   : Fri Jun 30 15:44:49 2000
+User   : cdj
+Old Tag: v12_09_06
+New Tag: v12_10_00
+Message: no longer links to ProxyDict library
+
+Module : NavigationProd
+Date   : Fri Jun 30 15:50:55 2000
+User   : cdj
+Old Tag: v12_10_00
+New Tag: v12_11_00
+Message: removed AnalysisMany.h
+
+Module : NavigationProd
+Date   : Thu Aug  3 02:15:04 2000
+User   : ts
+Old Tag: v12_11_00
+New Tag: v12_12_00
+Message: add NavRich
+
+Module : NavigationProd
+Date   : Mon Oct  2 22:13:36 2000
+User   : lkg
+Old Tag: v12_12_00
+New Tag: v12_13_00
+Message: 
+An partial implementation of specification of seed track and fit track
+usage and production tags.  For track-only use, the implementation is
+complete.  No effort has been made to enforce the same track tags
+for clusters/rich/muons/etc (or to allow specification of
+prod/usage tag information for that information).
+* add parameters to NavigationProd for specification of the finder and
+  fitter usage and production tags
+* add accessor functions to NavigationProd to access the tags
+* pass a pointer to (the calling) NavigationProd to the NavTrackProxy
+  constructor, so it may access the tag information
+* create the NavTrack master block using the prod/usage tag information
+
+Module : NavigationProd
+Date   : Tue Oct  3 11:48:39 2000
+User   : lkg
+Old Tag: v12_13_00
+New Tag: v12_13_01
+Message: tweaks for cxx compatibility
+
+Module : NavigationProd
+Date   : Sun Nov 19 19:09:28 2000
+User   : ts
+Old Tag: v12_13_01
+New Tag: v12_14_00
+Message: build NavRich on top of RichTrackPrototype
+
+Module : NavigationProd
+Date   : Wed Jan 24 22:07:31 2001
+User   : cdj
+Old Tag: v12_14_00
+New Tag: v12_14_01
+Message: fixed memory leak that only happens at end of job
+
+Module : NavigationProd
+Date   : Fri Feb  2 14:43:35 2001
+User   : bkh
+Old Tag: v12_14_01
+New Tag: v12_14_02
+Message: 
+New way of traversing connected region lattice
+Module : NavigationProd
+Date   : Mon Mar 26 15:15:38 2001
+User   : urner
+Old Tag: v12_14_02
+New Tag: v12_15_00
+Message: added Nav Ks
+
+Module : NavigationProd
+Date   : Thu May 10 15:57:06 2001
+User   : bkh
+Old Tag: v12_15_00
+New Tag: v12_15_01
+Message: 
+Addition of etaPrime classes
+Module : NavigationProd
+Date   : Mon Sep 10 14:46:49 2001
+User   : ajm36
+Old Tag: v12_15_01
+New Tag: v12_15_02
+Message: register NavLambda proxy
+
+Module : NavigationProd
+Date   : Sun Sep 30 20:38:31 2001
+User   : cdj
+Old Tag: v12_15_02
+New Tag: v12_16_00
+Message: switched to RichAngles package
+
+Module : NavigationProd
+Date   : Tue Oct 30 11:57:33 2001
+User   : bkh
+Old Tag: v12_16_00
+New Tag: v12_16_01
+Message: 
+Fix bugs on con regs
+Module : NavigationProd
+Date   : Sat Mar 16 16:47:09 2002
+User   : cdj
+Old Tag: v12_16_01
+New Tag: v12_17_00
+Message: NavTkShMatchProxy no longer extracts NavTracks and NavShowers
+
+Module : NavigationProd
+Date   : Mon Mar 25 06:55:51 2002
+User   : bkh
+Old Tag: v12_17_00
+New Tag: v12_17_01
+Message: 
+Speed up connected region making
+Module : NavigationProd
+Date   : Mon May  6 11:10:48 2002
+User   : hajime
+Old Tag: v12_17_01
+New Tag: v12_17_02
+Message: changes for new VXFitVeeCandidate library
+
+Module : NavigationProd
+Date   : Mon May  6 13:46:38 2002
+User   : hajime
+Old Tag: v12_17_02
+New Tag: v12_17_03
+Message: changes for new VXFitVeeCandidate library
+
+Module : NavigationProd
+Date   : Thu Nov  7 13:16:10 2002
+User   : bkh
+Old Tag: v12_17_03
+New Tag: v12_17_04
+Message: 
+Add MC libraries for tagging stuff

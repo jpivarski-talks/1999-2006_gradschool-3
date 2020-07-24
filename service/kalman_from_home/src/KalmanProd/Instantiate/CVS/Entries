@@ -1,0 +1,18 @@
+/STL_vectorOfHypos.cc/1.1/Sat Jun 10 00:15:17 2000//
+/T_KalmanBaseQualityProxy.cc/1.1/Sat Sep 11 19:37:57 1999//
+/T_KalmanElectronQualityProxy.cc/1.2/Wed Aug 16 20:18:25 2000//
+/T_KalmanExitElectronQualityProxy.cc/1.2/Wed Aug 16 20:18:25 2000//
+/T_KalmanExitKaonQualityProxy.cc/1.2/Wed Aug 16 20:18:26 2000//
+/T_KalmanExitMuonQualityProxy.cc/1.2/Wed Aug 16 20:18:26 2000//
+/T_KalmanExitPionQualityProxy.cc/1.2/Wed Aug 16 20:18:27 2000//
+/T_KalmanExitProtonQualityProxy.cc/1.2/Wed Aug 16 20:18:27 2000//
+/T_KalmanFitCathodeHitLatticeProxy.cc/1.1.1.1/Fri Sep 10 21:58:59 1999//
+/T_KalmanFitDRHitLatticeProxy.cc/1.1.1.1/Fri Sep 10 21:58:59 1999//
+/T_KalmanFitSVRHitLatticeProxy.cc/1.1.1.1/Fri Sep 10 21:58:59 1999//
+/T_KalmanFitSVZHitLatticeProxy.cc/1.1.1.1/Fri Sep 10 21:58:59 1999//
+/T_KalmanHelixFitProxy.cc/1.1.1.1/Fri Sep 10 21:58:58 1999//
+/T_KalmanKaonQualityProxy.cc/1.2/Wed Aug 16 20:18:27 2000//
+/T_KalmanMuonQualityProxy.cc/1.2/Wed Aug 16 20:18:28 2000//
+/T_KalmanPionQualityProxy.cc/1.2/Wed Aug 16 20:18:28 2000//
+/T_KalmanProtonQualityProxy.cc/1.2/Wed Aug 16 20:18:29 2000//
+D

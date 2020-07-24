@@ -1,0 +1,171 @@
+2/14/00 JJO - This file needs to be updated.  I updated
+              drmc_routines.html to include the major subroutines
+              of the dr simulation.
+ 
+
+       
+	 <li> <strong> DRMCUtil/Fortran/eloss_to_charge.F </strong> <br>
+	      <strong> CLEO-II Routine: </strong> part of cleog/cdrawm/cdrawm.F <br>
+	      <strong> Purpose:</strong> Convert energy loss into a guesstimate of the pulseheight
+	                                 in Happy Units. <br>
+	      <strong> Status:</strong> Hardwired conversion factor <p>	      
+
+
+
+	 <hr>	      	      
+	 <li> <strong> DRMCUtil/Fortran/ph_correction.F </strong> <br>
+	      <strong> CLEO-II Routine: </strong> cleog/crawm/phfudg.F <br>
+	      <strong> Purpose: </strong> Apply wire-by-wire mean pulseheight corrections.<br>
+	      <strong> Status: </strong> Needs testing <p>
+	      <ul>
+		<li> <strong> DRMCUtil/Fortran/get_phlayr.F </strong> <br>
+		     <strong> Purpose: </strong> Returns DRMCPhlayr, pulse height layer
+		                                 conversion factors constants <br>
+		     <strong> Status: </strong> done <p>
+		     <ul>
+		       <li> <strong> drmc_phlayr() in DRMCUtil/Class/DRMCPhlayrFB.cc </strong> <br>
+			    <strong> Purpose: </strong> DRMCPhlayrFB - C++ object that extracts constants
+			                               from Frame and provides Fortran access
+			                               via drmc_phlayr(). <br>
+			    <strong> Status: </strong> done <p>
+		     </ul>
+
+		<li> <strong> DRMCUtil/Fortran/get_phwire.F </strong> <br>
+		     <strong> Purpose:</strong> Returns DRMCPhwire, Pulse height wire to wire
+		                                correction constants <br>
+		     <strong> Status:</strong> done <p>
+		     <ul>
+		       <li> <strong> drmc_phwire() in DRMCUtil/Class/DRMCPhwireFB.cc </strong> <br>
+			    <strong> Purpose:</strong> DRMCPhwireFB - C++ object that extracts constants 
+			                               from Frame and provides Fortran access
+			                               via drmc_phwire(). <br>
+			    <strong>Status:</strong> done <p>
+		     </ul>
+
+		<li> <strong> DRMCUtil/Fortran/check_ph.F </strong> <br>
+		     <strong> CLEO-II Routine: </strong> cleog/crawm/chkpls.F <br>
+		     <strong> Purpose: </strong> Correct pulseheights which give anomolous ADC values <br>
+		     <strong> Status: </strong> Need cleo3 PHOFKQ (adc->Q) <p>
+		     <ul>
+		       <li> <strong> DRMCUtil/Fortran/get_adc_pedestal.F </strong> <br>
+			    <strong> CLEO-II Routine: </strong> cleog/crawm/get_pedestals.F <br>
+			    <strong> Purpose: </strong> Get DR adc pedestals <br>
+			    <strong> Status: </strong> Just hardwired - need C++ constants <p>
+			    
+		       <li> <strong> drmc_charge2adc() in DRMCUtil/Class/DRMCDriftFB.cc </strong> <br>
+			    <strong> CLEO-II Routine: </strong> cdoffcal/cdcal/kqofph.F <br>
+			    <strong> Purpose: </strong> Compute ADC value from pulse height <br>
+			    <strong> Status: </strong> Done <p>
+		     </ul>
+	      </ul>
+	      
+
+
+
+	 <hr>	      	      
+	      <ul>
+		<li> <strong> DRMCUtil/Fortran/get_lyreff.F </strong> <br>
+		     <strong> Purpose: </strong> Returns DRMCLyreff, drift view of
+		                                 drift vs. cos(theta) constants <br>
+		     <strong> Status: </strong> done <p>
+		     <ul>
+		       <li> <strong> drmc_lyreff() in DRMCUtil/Class/DRMCLyreffFB.cc </strong> <br>
+			    <strong> Purpose: </strong> DRMCLyreffFB - C++ object that extracts constants
+			                                from Frame and provides Fortran access
+			                                via drmc_lyreff(). <br>
+			    <strong> Status: </strong> done <p>
+		     </ul>
+
+		<li> <strong> DRMCUtil/Fortran/get_coseff.F </strong> <br>
+		     <strong> Purpose: </strong> Returns DRMCCoseff, 2D fit of Cos(theta) vs drift <br>
+		     <strong> Status: </strong> done <p>
+		     <ul>
+		       <li> <strong> drmc_coseff() in DRMCUtil/Class/DRMCCoseffFB.cc </strong> <br>
+			    <strong> Purpose: </strong> DRMCCoseffFB - C++ object that extracts constants
+			                                from Frame and provides Fortran access
+			                                via drmc_coseff(). <br>
+			    <strong> Status:</strong> done <p>
+		     </ul>
+
+		<li> <strong> DRMCUtil/Fortran/get_wireeff.F </strong> <br>
+		     <strong> Purpose: </strong> Returns DRMCWireff, overall efficiency constants <br>
+		     <strong> Status: </strong> done <p>
+		     <ul>
+		       <li> <strong> drmc_wireff() in DRMCUtil/Class/DRMCWireffFB.cc </strong> <br>
+			    <strong> Purpose: </strong> DRMCWireffFB - C++ object that extracts constants
+			                                from Frame and provides Fortran access
+			                                via drmc_wireff(). <br>
+			    <strong> Status: </strong> done <p>
+		     </ul>
+
+		<li> <strong> DRMCUtil/Fortran/get_layer_eff.F </strong> <br>
+		     <strong> CLEO-II Routine: ??? !!! One exists !!! ??? </strong> <br>
+		     <strong> Purpose: </strong> Return average anode wire efficiency for a given DR3 layer
+		     <strong> Status: </strong> needs testing <p>
+		     <ul>
+		       <li> <strong> drmc_wireff() in DRMCUtil/Class/DRMCWireffFB.cc </strong> <br>
+			    <strong> Purpose: </strong> DRMCWireffFB - C++ object that extracts constants
+			                                from Frame and provides Fortran access
+			                                via drmc_wireff(). <br>
+			    <strong> Status: </strong> done <p>
+
+
+		<li> <strong> DRMCUtil/Fortran/get_spefud.F </strong> <br>
+		     <strong> Purpose: </strong> Returns DRMCSpefud, species dependent fudge constants. <br>
+		     <strong> Status: </strong> done <p>
+		     <ul>
+		       <li> <strong> drmc_spefud() in DRMCUtil/Class/DRMCSpefudFB.cc </strong> <br>
+			    <strong> Purpose: </strong> DRMCSpefudFB - C++ object that extracts constants
+			                                from Frame and provides Fortran access
+			                                via drmc_spefud(). <br>
+			    <strong> Status: </strong> done <p>
+		     </ul>
+
+	      </ul>
+
+
+
+
+	 <hr>	      	      
+	      <ul> 
+		<li> <strong> DRMCUtil/Fortran/get_resolutions.F </strong> <br>
+		     <strong> Purpose: </strong> <br>
+		     <strong> Status: </strong>  <p>
+		     <ul>
+		       <li> <strong> drmc_resolutions() in DRMCUtil/Class/DRMCResolutionsFB.cc </strong> <br>
+			    <strong> Purpose: </strong> DRMCResolutionsFB - C++ object that extracts
+			                                constants from Frame and provides Fortran access
+			                                via drmc_wireff(). <br>
+			    <strong> Status: </strong> done <p>
+		     </ul>
+	      </ul>
+
+
+	 <hr>	      	      
+	 <li> <strong> DRMCUtil/Fortran/scale_phi_fit_wt.F </strong> <br>
+	      <strong> CLEO-II Routine: </strong> <br>
+	      <strong> Purpose: </strong> rescales the desired quantity according to the shape of
+                                          the phi-dependence of the DUET fitting weights.
+                                          Based on CleoII.5 routine crawm/phisca.F <br>
+	      <strong> Status: !!! NEED TO BE IMPLEMENTED FOR CLEO3 !!! </strong>  <p>
+	      
+	      
+	 <hr>	      
+
+	 <hr>	      
+	      <ul>
+		<li> <strong> DRMCUtil/Fortran/get_tdc_pedestal.F </strong> <br>
+                     <strong> CLEO-II Routine: </strong> cleog/crawm/get_pedestals.F <br>
+		     <strong> Purpose: </strong> Get DR tdc pedestals <br>
+		     <strong> Status: </strong> Just hardwired - need C++ constants <p>
+		     
+		<li> <strong> drmc_time2tdc() in DRMCUtil/Class/DRMCDriftFB.cc </strong> <br>
+		     <strong> CLEO-II Routine: </strong> cdoffcal/cdcal/ktofps.F <br> 
+		     <strong> Purpose: </strong> Compute ADC value from the drift time <br>
+		     <strong> Status: </strong> done <p>
+	      </ul>
+		      
+	      
+
+
+	 <hr>	      

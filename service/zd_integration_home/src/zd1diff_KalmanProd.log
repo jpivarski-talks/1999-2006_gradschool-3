@@ -1,0 +1,199 @@
+Index: KalmanProd/Makefile
+===================================================================
+RCS file: /nfs/cleo3/cvsroot/Offline/src/KalmanProd/Makefile,v
+retrieving revision 1.6
+diff -r1.6 Makefile
+115a116,117
+>                 AZDGeom \
+> 		ZDGeomProd \
+Index: KalmanProd/Class/KalmanTrackFitterProxy.cc
+===================================================================
+RCS file: /nfs/cleo3/cvsroot/Offline/src/KalmanProd/Class/KalmanTrackFitterProxy.cc,v
+retrieving revision 1.16
+diff -r1.16 KalmanTrackFitterProxy.cc
+232a233,239
+>    m_kalmanTrackFitter->setUseZDStereoUHits(
+>       m_kalmanProd->useZDStereoUHits() ) ;
+>    m_kalmanTrackFitter->setUseZDStereoVHits(
+>       m_kalmanProd->useZDStereoVHits() ) ;
+>    m_kalmanTrackFitter->setCorrectZDHits(
+>       m_kalmanProd->correctZDHits() ) ;
+> 
+285a293,296
+>    m_kalmanTrackFitter->setZDHitUsageTag(
+>       m_kalmanProd->zdHitUsageTag() ) ;
+>    m_kalmanTrackFitter->setZDHitProductionTag(
+>       m_kalmanProd->zdHitProductionTag() ) ;
+307a319,324
+>    }
+> 
+>    if( m_kalmanProd->forceZDFittingWeight() )
+>    {
+>       m_kalmanTrackFitter->setZDFittingWeight(
+> 	 m_kalmanProd->zdFittingWeight() ) ;
+Index: KalmanProd/KalmanProd/Template/KalmanCandidateQualityProxy.cc
+===================================================================
+RCS file: /nfs/cleo3/cvsroot/Offline/src/KalmanProd/KalmanProd/Template/KalmanCandidateQualityProxy.cc,v
+retrieving revision 1.10
+diff -r1.10 KalmanCandidateQualityProxy.cc
+81a82
+> #include "DataHandler/Frame.h"
+97a99,100
+> #include "DetectorConfiguration/DetectorConfiguration.h"
+> 
+200a204,211
+>    const Frame& theFrame = iRecord.frame();
+>    const Record& baseGeometryRecord = theFrame.record(Stream::kBaseGeometry);
+>    FAItem< DetectorConfiguration > detectorConfig;
+>    extract(baseGeometryRecord, detectorConfig);
+> 
+>    TRSubdetectorLists::Detectors detectorGeneration(
+>       detectorConfig->useZDnotSI() ? TRSubdetectorLists::kCLEOc : TRSubdetectorLists::kCLEOIII);
+> 
+304c315
+< 		 layerMap.setLayerHit(TRSubdetectorLists::kCLEOIII,
+---
+> 		 layerMap.setLayerHit(detectorGeneration,
+317c328
+< 				    TRSubdetectorLists::kCLEOIII,
+---
+> 				    detectorGeneration,
+320c331
+< 		 layerMap.setLayerHit(TRSubdetectorLists::kCLEOIII,
+---
+> 		 layerMap.setLayerHit(detectorGeneration,
+331c342
+< 	       layerMap.setLayerHit(TRSubdetectorLists::kCLEOIII,
+---
+> 	       layerMap.setLayerHit(detectorGeneration,
+345c356
+< 	       layerMap.setLayerHit(TRSubdetectorLists::kCLEOIII,
+---
+> 	       layerMap.setLayerHit(detectorGeneration,
+359c370
+< 	       layerMap.setLayerHit(TRSubdetectorLists::kCLEOIII,
+---
+> 	       layerMap.setLayerHit(detectorGeneration,
+366a378,393
+> 	    else if( type == CalibratedHit::ZD )
+> 	    {
+> 	       report(DEBUG, kFacilityString) << "here's a ZD hit" << endl;
+> 
+> 	       const CalibratedZDHit* zdHit =
+> 		  static_cast<const CalibratedZDHit*> (
+> 					      hitItr->calibratedHit()) ;
+> 
+> 	       layerMap.setLayerHit(detectorGeneration,
+> 				    TRSubdetectorLists::kZD, zdHit->layer() );
+> 
+> 	       ++numberHits[ TRSubdetectorLists::kZD ] ;
+> 	       avgResiduals[ TRSubdetectorLists::kZD ] += residual ;
+> 	       rmsResiduals[ TRSubdetectorLists::kZD ] +=
+> 		  sqr( residual ) ;
+> 	    }
+478a506,523
+>       if( numberHits[ TRSubdetectorLists::kZD ] > 0 )
+>       {
+> 	 avgResiduals[ TRSubdetectorLists::kZD ] /=
+> 	    numberHits[ TRSubdetectorLists::kZD ] ;
+> 
+> 	 if( numberHits[ TRSubdetectorLists::kZD ] > 1 )
+> 	 {
+> 	    rmsResiduals[ TRSubdetectorLists::kZD ] =
+> 	       sqrt( rmsResiduals[ TRSubdetectorLists::kZD ] /
+> 		     numberHits[ TRSubdetectorLists::kZD ] -
+> 		     sqr( avgResiduals[ TRSubdetectorLists::kZD ] ) ) ;
+> 	 }
+> 	 else
+> 	 {
+> 	    rmsResiduals[ TRSubdetectorLists::kZD ] = 0. ;
+> 	 }
+>       }
+> 
+493c538
+< 	    TRSubdetectorLists::kCLEOIII,
+---
+> 	    detectorGeneration,
+517c562
+< 		  TRSubdetectorLists::kCLEOIII,
+---
+> 		  detectorGeneration,
+Index: KalmanProd/KalmanProd/Template/KalmanFitZDHitLatticeProxy.cc
+===================================================================
+RCS file: /nfs/cleo3/cvsroot/Offline/src/KalmanProd/KalmanProd/Template/KalmanFitZDHitLatticeProxy.cc,v
+retrieving revision 1.1
+diff -r1.1 KalmanFitZDHitLatticeProxy.cc
+172a173,174
+>    report(DEBUG, kFacilityString) << "enter KalmanFitZDHitLatticeProxy< H >" << endl;
+> 
+176a179
+>       report(DEBUG, kFacilityString) << "exit KalmanFitZDHitLatticeProxy< H > 1" << endl;
+188a192,193
+>    report(DEBUG, kFacilityString) << "got candHelices" << endl;
+> 
+193,195c198,201
+< /*   
+<    if( fitter->useZDAxialHits() || 
+<        fitter->useZDStereoUHits() || 
+---
+> 
+>    report(DEBUG, kFacilityString) << "got fitter" << endl;
+> 
+>    if( fitter->useZDStereoUHits() ||
+200c206,208
+< 	 
+---
+> 
+> 	 report(DEBUG, kFacilityString) << "got zdHits" << endl;
+> 
+205a214
+> 	 report(DEBUG, kFacilityString) << "made lattice" << endl;
+210c219,221
+< 	 
+---
+> 
+> 	 report(DEBUG, kFacilityString) << "fitted (!?) tracks" << endl;
+> 
+214c225,227
+< 	 
+---
+> 
+> 	 report(DEBUG, kFacilityString) << "got " << kalmanHelices->size() << " kalmanHelices" << endl;
+> 
+226a240,241
+> 	    report(DEBUG, kFacilityString) << "  track has " << (*helixItr)->hitsOnTrack().size() << " hits" << endl;
+> 
+231a247,248
+> 		  report(DEBUG, kFacilityString) << "    found a ZD hit" << endl;
+> 
+247a265
+> 	    report(DEBUG, kFacilityString) << "exit KalmanFitZDHitLatticeProxy< H > 2" << endl;
+254a273
+> 	    report(DEBUG, kFacilityString) << "exit KalmanFitZDHitLatticeProxy< H > 3" << endl;
+259c278
+<    
+---
+> 
+261c280,282
+<       //return an empty lattice
+---
+>       report(DEBUG, kFacilityString) << "returning an empty lattice" << endl;
+> 
+>       // return an empty lattice
+264,266c285,287
+<       
+<       FATable< CalibratedZDHit > zdHits( &(*ZDTable) );
+<       
+---
+> 
+>       FATable< CalibratedZDHit > zdHits( &(*zdTable) );
+> 
+270c291
+<       
+---
+> 
+272c293,294
+<    */
+---
+> 
+>    report(DEBUG, kFacilityString) << "end KalmanFitZDHitLatticeProxy< H >" << endl;

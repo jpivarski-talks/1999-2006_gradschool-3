@@ -1,0 +1,172 @@
+This is TeX, Version 3.14159 (Web2C 7.3.1) (format=latex 2003.2.18)  18 NOV 2005 22:13
+**tmp3R6PoV
+(tmp3R6PoV.tex
+LaTeX2e <2001/06/01>
+Babel <v3.7h> and hyphenation patterns for american, french, german, ngerman, i
+talian, nohyphenation, loaded.
+)
+*\scrollmode
+
+
+*\raiseerror%
+! Undefined control sequence.
+<*> \raiseerror
+               %
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+*\def\PyX{P\kern-.3em\lower.5ex\hbox{Y}\kern-.18em X}%
+
+*\gdef\PyXBoxHAlign{0}%
+
+*\newbox\PyXBox%
+\PyXBox=\box26
+
+*\newbox\PyXBoxHAligned%
+\PyXBoxHAligned=\box27
+
+*\newdimen\PyXDimenHAlignLT%
+\PyXDimenHAlignLT=\dimen102
+
+*\newdimen\PyXDimenHAlignRT%
+\PyXDimenHAlignRT=\dimen103
+
+*\gdef\PyXFlushHAlign{0}%
+
+*\newdimen\PyXraggedskipplus%
+\PyXraggedskipplus=\dimen104
+
+*\def\PyXragged{\PyXraggedskipplus=4em%
+
+*\leftskip=0pt plus \PyXFlushHAlign\PyXraggedskipplus%
+
+*\rightskip=0pt plus \PyXraggedskipplus%
+
+*\advance\rightskip0pt plus -\PyXFlushHAlign\PyXraggedskipplus%
+
+*\parfillskip=0pt%
+
+*\spaceskip=0.333em%
+
+*\xspaceskip=0.5em%
+
+*\pretolerance=9999%
+
+*\tolerance=9999%
+
+*\parindent=0pt%
+
+*\hyphenpenalty=9999%
+
+*\exhyphenpenalty=9999}%
+
+*\newbox\PyXBoxVBox%
+\PyXBoxVBox=\box28
+
+*\newdimen\PyXDimenVBox%
+\PyXDimenVBox=\dimen105
+
+*\newbox\PyXBoxVAlign%
+\PyXBoxVAlign=\box29
+
+*\newdimen\PyXDimenVAlign%
+\PyXDimenVAlign=\dimen106
+
+*\long\def\ProcessPyXBox#1#2{%
+
+*\setbox\PyXBox=\hbox{{#1}}%
+
+*\PyXDimenHAlignLT=\PyXBoxHAlign\wd\PyXBox%
+
+*\PyXDimenHAlignRT=\wd\PyXBox%
+
+*\advance\PyXDimenHAlignRT by -\PyXDimenHAlignLT%
+
+*\gdef\PyXBoxHAlign{0}%
+
+*\immediate\write16{PyXBox:page=#2,lt=\the\PyXDimenHAlignLT,rt=\the\PyXDimenHAl
+ignRT,ht=\the\ht\PyXBox,dp=\the\dp\PyXBox:}%
+
+*\setbox\PyXBoxHAligned=\hbox{\kern-\PyXDimenHAlignLT\box\PyXBox}%
+
+*\ht\PyXBoxHAligned0pt%
+
+*{\count0=80\count1=121\count2=88\count3=#2\shipout\box\PyXBoxHAligned}}%
+
+*\def\PyXInput#1{\immediate\write16{PyXInputMarker:executeid=#1:}}%
+
+*\def\PyXMarker#1{\hskip0pt\special{PyX:marker #1}}%
+
+*%
+
+*\PyXInput{1}%
+PyXInputMarker:executeid=1:
+
+*\makeatletter%
+
+*\let\saveProcessOptions=\ProcessOptions%
+
+*\def\ProcessOptions{%
+
+*\def\Gin@driver{/cdat/daf9/mccann/software/lib/python/contrib/pyx.def}%
+
+*\def\c@lor@namefile{dvipsnam.def}%
+
+*\saveProcessOptions}%
+
+*\makeatother%
+
+*\PyXInput{2}%
+PyXInputMarker:executeid=2:
+
+*\documentclass{article}%
+
+*\PyXInput{3}%
+(/usr/share/texmf/tex/latex/base/article.cls
+Document Class: article 2001/04/21 v1.4e Standard LaTeX document class
+(/usr/share/texmf/tex/latex/base/size10.clo
+File: size10.clo 2001/04/21 v1.4e Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen107
+)
+PyXInputMarker:executeid=3:
+
+*
+(Please type a command or say `\end')
+*\setlength{\parskip}{0.2 cm}
+
+*%
+
+*\PyXInput{4}%
+PyXInputMarker:executeid=4:
+
+*
+! Emergency stop.
+<*> \PyXInput{4}%
+                 
+End of file on the terminal!
+
+ 
+Here is how much of TeX's memory you used:
+ 211 strings out of 20880
+ 2109 string characters out of 196184
+ 45881 words of memory out of 350001
+ 3236 multiletter control sequences out of 10000+15000
+ 3640 words of font info for 14 fonts, out of 400000 for 1000
+ 14 hyphenation exceptions out of 10000
+ 22i,0n,17p,124b,40s stack positions out of 3000i,100n,1500p,50000b,4000s
+No pages of output.

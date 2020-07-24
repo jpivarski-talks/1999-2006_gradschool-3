@@ -1,0 +1,180 @@
+Now that the BigErrorMatrix and ReEntry bugs have been fixed, I wanted
+to be sure that we know which datasets they affect.  (A long time
+back, I thought that data10 did not have the BigErrorMatrix bug, even
+though it was processed with Nov04_02_P2, which did.  Now I think what
+I was looking at was the previous round of pass2--- when I look at
+data10 now, I see the bug, as expected.)
+
+I made a processor that just counts tracks which exhibit symptoms of
+these two bugs:
+   BigErrorMatrix  ---  caused by a bad initialization of
+                        "oldMomDotPos" and a missing half-beampipe;
+                        clearest signal is having < 0 dof on the
+			exitPion fit.
+   ReEntry  ---  caused by exit track fitting not being allowed to
+                 propogate backward when adding cathode hits;
+                 clearest signal is having the exit track point
+		 inward, into the DR, at its reference point.
+
+These two bugs only affect tracks within limited geometrical
+constraints (BigErrorMatrix: tracks must pass through east end of
+beampipe, ReEntry: tracks must have |cotTheta| < 0.1|) so the "bad
+tracks ratio" is (bad tracks)/(tracks in constraint) == about 20% for
+releases with the bug and about 0% for releases without the bug.
+Run-by-run plots of bad track ratio can be found here:
+   BigErrorMatrix: /home/mccann/kalman2/run/lf_bug1/*.eps
+   ReEntry:        /home/mccann/kalman2/run/lf_bug2/*.eps
+I looked at every dataset available to me and every MC sample on
+PeteZ's webpage.
+
+Here are the dataset-by-dataset results:
+
+DATA                BigErrorMatrix               ReEntry            RELEASE
+-----------------------------------------------------------------------------------------
+db5    	       	       	  ok   	       	       	  buggy       cleo3_Pass2_Mar26_2002
+db6 			  ok			  buggy       cleo3_Pass2_Mar26_2002
+db7 			  ok			   ok         cleo3_Pass2_Nov27_2001
+db8                          UNAVAILABLE (segfault)           cleo3_Pass2_Oct09_2001
+db9 			 buggy			  buggy            Jul13_02_P2
+db10			 buggy			  buggy            Nov04_02_P2
+db11			  ok  			  buggy       cleo3_Pass2_Mar26_2002
+db12			  ok 			   ok            Jan24_03_P2 (b)
+db13                         UNAVAILABLE (segfault)              Mar20_03_P2 (b)
+db14			  ok			   ok              Apr18_03_P2
+db15			  ok			   ok         cleo3_Pass2_Nov27_2001
+db16			  ok			   ok         cleo3_Pass2_Jan30_2002
+db17			  ok			  buggy       cleo3_Pass2_Mar26_2002
+db18			 buggy			  buggy            Jul13_02_P2
+db19			  ok  			  buggy            Jan24_03_P2
+db20			  ok			  buggy     Oct18_02_P2, Jan24_03_P2 (b)
+db21			 buggy			  buggy	           Nov04_02_P2
+db22			  ok  			  buggy            Jan24_03_P2
+db23                         UNAVAILABLE (no server)		       ???
+db24                         UNAVAILABLE (no server)               Mar20_03_P2
+
+MONTE CARLO         BigErrorMatrix               ReEntry            RELEASE
+-----------------------------------------------------------------------------------------
+data6 bbar                ok   	       	       	  buggy            Feb19_03_MC
+data7 bbar                ok			   ok         cleo3_MCPS2_Jan30_2002
+data8 bbar                ok			   ok         cleo3_MCPS2_Jan30_2002
+data8 bbar (2)            ok			   ok         cleo3_MCPS2_Jan30_2002
+data11 bbar              buggy			  buggy            Jun27_02_MC
+-----------------------------------------------------------------------------------------
+data6 cont                ok			  buggy            Feb19_03_MC
+data6 cont (2)            ok			  buggy            Feb19_03_MC
+data7 cont                   UNAVAILABLE (segfault)           cleo3_MCPS2_Jan30_2002
+data8 cont                ok			   ok         cleo3_MCPS2_Jan30_2002
+data8 cont (2)            ok			   ok         cleo3_MCPS2_Jan30_2002
+data11 cont              buggy			  buggy            Jun27_02_MC
+data11 cont (2)          buggy			  buggy            Jun27_02_MC
+data16 cont              buggy			  buggy            Jun27_02_MC
+data16 cont (2)          buggy			  buggy            Jun27_02_MC
+data17 cont              buggy			  buggy            Jun27_02_MC
+-----------------------------------------------------------------------------------------
+data16u3s                buggy			  buggy            Jun27_02_MC
+data17u3s                buggy			  buggy            Jun27_02_MC
+-----------------------------------------------------------------------------------------
+data6tau                  ok			  buggy            Feb19_03_MC
+data7tau                  ok			   ok         cleo3_MCPS2_Jan30_2002
+data8tau                  ok			   ok         cleo3_MCPS2_Jan30_2002
+data11tau                buggy			  buggy            Jun27_02_MC
+data16tau                buggy			  buggy            Jun27_02_MC
+data17tau                buggy			  buggy            Jun27_02_MC
+-----------------------------------------------------------------------------------------
+data7mupair               ok			   ok         cleo3_MCPS2_Jan30_2002
+data11mupair             buggy			  buggy            Jun27_02_MC
+data16mupair             buggy			  buggy            Jun27_02_MC
+data17mupair             buggy			  buggy            Jun27_02_MC
+-----------------------------------------------------------------------------------------
+data7bhabha               ok		           ok         cleo3_MCPS2_Jan30_2002
+-----------------------------------------------------------------------------------------
+dpilnu                    ok			   ok                  ???
+dpilnu (2)                ok			   ok                  ???
+
+Here they are sorted according to release, so that I can check my
+expectations of which releases are affected and which are not:
+
+db8                          UNAVAILABLE (segfault)           cleo3_Pass2_Oct09_2001
+db15			  ok			   ok         cleo3_Pass2_Nov27_2001
+db7 			  ok			   ok         cleo3_Pass2_Nov27_2001
+db16			  ok			   ok         cleo3_Pass2_Jan30_2002
+db5    	       	       	  ok   	       	       	  buggy       cleo3_Pass2_Mar26_2002
+db6 			  ok			  buggy       cleo3_Pass2_Mar26_2002
+db11			  ok  			  buggy       cleo3_Pass2_Mar26_2002
+db17			  ok			  buggy       cleo3_Pass2_Mar26_2002
+db9 			 buggy			  buggy            Jul13_02_P2
+db18			 buggy			  buggy            Jul13_02_P2
+db10			 buggy			  buggy            Nov04_02_P2
+db21			 buggy			  buggy	           Nov04_02_P2
+db12			  ok 			   ok            Jan24_03_P2 (b)
+db19			  ok  			  buggy            Jan24_03_P2
+db20			  ok			  buggy     Oct18_02_P2, Jan24_03_P2 (b)
+db22			  ok  			  buggy            Jan24_03_P2
+db13                         UNAVAILABLE (segfault)              Mar20_03_P2 (b)
+db24                         UNAVAILABLE (no server)               Mar20_03_P2
+db14			  ok			   ok              Apr18_03_P2
+db23                         UNAVAILABLE (no server)		       ???
+
+data7 bbar                ok			   ok         cleo3_MCPS2_Jan30_2002
+data8 bbar                ok			   ok         cleo3_MCPS2_Jan30_2002
+data8 bbar (2)            ok			   ok         cleo3_MCPS2_Jan30_2002
+data7 cont                   UNAVAILABLE (segfault)           cleo3_MCPS2_Jan30_2002
+data8 cont                ok			   ok         cleo3_MCPS2_Jan30_2002
+data8 cont (2)            ok			   ok         cleo3_MCPS2_Jan30_2002
+data7tau                  ok			   ok         cleo3_MCPS2_Jan30_2002
+data8tau                  ok			   ok         cleo3_MCPS2_Jan30_2002
+data7mupair               ok			   ok         cleo3_MCPS2_Jan30_2002
+data7bhabha               ok		           ok         cleo3_MCPS2_Jan30_2002
+
+data11 bbar              buggy			  buggy            Jun27_02_MC
+data11 cont              buggy			  buggy            Jun27_02_MC
+data11 cont (2)          buggy			  buggy            Jun27_02_MC
+data16 cont              buggy			  buggy            Jun27_02_MC
+data16 cont (2)          buggy			  buggy            Jun27_02_MC
+data17 cont              buggy			  buggy            Jun27_02_MC
+data16u3s                buggy			  buggy            Jun27_02_MC
+data17u3s                buggy			  buggy            Jun27_02_MC
+data11tau                buggy			  buggy            Jun27_02_MC
+data16tau                buggy			  buggy            Jun27_02_MC
+data17tau                buggy			  buggy            Jun27_02_MC
+data11mupair             buggy			  buggy            Jun27_02_MC
+data16mupair             buggy			  buggy            Jun27_02_MC
+data17mupair             buggy			  buggy            Jun27_02_MC
+
+data6 bbar                ok   	       	       	  buggy            Feb19_03_MC
+data6 cont                ok			  buggy            Feb19_03_MC
+data6 cont (2)            ok			  buggy            Feb19_03_MC
+data6tau                  ok			  buggy            Feb19_03_MC
+
+dpilnu                    ok			   ok                  ???
+dpilnu (2)                ok			   ok                  ???
+
+Conclusions:
+
+  1. The BigErrorMatrix bug was introduced in data with Jul13_02_P2
+     and removed with Jan24_03_P2 (this confirms what I previously
+     believed).
+
+  2. The BigErrorMatrix bug was introduced in MC with Jun27_02_MC and
+     was removed with Feb19_03_MC (this also confirms what I
+     previously believed).
+
+  3. The ReEntry bug was introduced in data with
+     cleo3_Pass2_Mar26_2002 and is gone with Apr18_03_P2, though I
+     don't know about Mar20_03_P2.  (I expect Mar20_03_P2 to be buggy,
+     because the fix is not in the source code for that release.)
+
+  4. The ReEntry bug was introduced in MC with Jun27_02_MC.  I don't
+     see any MC releases with a ReEntry bug fix in the code.
+
+  5. The db12 I looked at doesn't look like it was processed under
+     Jan24_03_P2--- I suspect that I got a previous pass2 when I asked
+     for that database.  I only ran over a few runs before
+     segfaulting, but they clearly did not have either bug.
+
+Spelling corrections to the Analysis Hints page:
+
+  1. data22's release is Jan24_03_P2, not Jan27.
+
+  2. Apr_18_P2 is really Apr18_03_P2 (data14b).
+

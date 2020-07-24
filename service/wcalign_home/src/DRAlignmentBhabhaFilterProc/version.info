@@ -1,0 +1,28 @@
+
+Module : ZDAlignmentBhabhaFilterProc
+Date   : Fri Dec  5 18:24:15 2003
+User   : mccann
+Old Tag: 
+New Tag: v01_00_00
+Message: first tag
+
+Module : DRAlignmentBhabhaFilterProc
+Date   : Mon Dec 15 13:46:50 2003
+User   : mccann
+Old Tag: 
+New Tag: v01_00_00
+Message: first tag
+
+Module : DRAlignmentBhabhaFilterProc
+Date   : Tue Jan 20 17:19:52 2004
+User   : mccann
+Old Tag: v01_00_00
+New Tag: v01_01_00
+Message: Added example deweight_axial constants.
+
+Module : DRAlignmentBhabhaFilterProc
+Date   : Tue Jan 20 17:26:28 2004
+User   : mccann
+Old Tag: v01_01_00
+New Tag: v01_01_01
+Message: Fixed some gross errors in sample.tcl.

@@ -1,0 +1,10 @@
+#!/usr/local/bin/tcsh
+
+cd $HOME/dr_wiggle/run
+. /nfs/cleo3/scripts/cleo3defs
+c3rel Jul13_02_P2
+
+USER_FILE="standard05"
+export USER_FILE
+
+suez -f test.tcl > $USER_TMP/test_standard05.log

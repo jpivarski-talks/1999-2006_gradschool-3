@@ -1,0 +1,12 @@
+#$ -l u5
+#$ -o /cdat/tem/mccann/check17.log
+#$ -S /bin/bash
+#$ -j y
+
+cd /home/mccann/tmpProcs/run
+. /nfs/cleo3/scripts/cleo3defs
+c3rel Mar04_04_MC
+
+export USER_DB=17
+
+suez -f check_bunch_bug.tcl

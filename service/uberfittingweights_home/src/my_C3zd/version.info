@@ -1,0 +1,14 @@
+
+Module : C3zd
+Date   : Mon Feb  3 13:46:55 2003
+User   : huanggs
+Old Tag: 
+New Tag: v01_00_00
+Message: first tag
+
+Module : C3zd
+Date   : Sat Feb  8 19:26:08 2003
+User   : cleo3
+Old Tag: v01_00_00
+New Tag: v01_01_00
+Message: added missing class keyword to friend declaration

@@ -1,0 +1,89 @@
+#!/usr/local/bin/tcsh
+
+cd $HOME/sialignment/run/
+. /nfs/cleo3/scripts/cleo3defs
+c3rel cleo3_Nov08_2001
+
+#  OSAGENT_PORT=31416
+#  export OSAGENT_PORT
+#  C3_CONST=/nfs/c3con/ccon3/constants/Codi
+#  export C3_CONST
+
+suez -q > $USER_TMP/layer2.log << EOF
+
+default prompt off
+
+module sel CorbaModule
+corba init
+module sel ConstantsModule
+constants in \$env(C3_CONST) meta Offline MetaListRetrieval exclude_streams svalignment
+constants in \$env(C3_CONST) meta CesrOffset MetaListRetrieval
+constants in \$env(C3_CONST) meta BaseGeometry MetaListRetrieval
+constants in \$env(C3_CONST) meta SVHybridEfficiency MetaListRetrieval
+
+source_format sel AsciiSourceFormat
+file in \$env(C3_DATA)/material.asc basegeometry
+
+module sel RunStatisticsSourceModule
+runstatistics in
+
+prod sel CDOffCal
+prod sel SiGeom
+prod sel ASiStorePro
+prod sel IRGeomProd
+prod sel DRGeom
+prod sel ADRGeomProd
+prod sel DRHitCorrectorProd
+prod sel TrackDeliveryProd
+prod sel SeedToTRTrackProd
+prod sel NavigationProd
+
+prod sel MagFieldProd
+# param MagFieldProd alwaysUseDefault true
+
+source_format sel PDSSourceFormat
+source create pdschain
+run_file finished_1PM.tcl
+source activate pdschain beginrun startrun event
+
+emptysource def svalignment svalignment
+
+module sel ../build_SunOS/shlib/EnderSiAlignmentMod
+param EnderSiAlignmentMod target_hits 100000
+
+param EnderSiAlignmentMod global_init dec16.svalignmentglobal
+param EnderSiAlignmentMod layer_init  before_opening.svalignmentlayer
+param EnderSiAlignmentMod ladder_init before_opening.svalignmentladder
+param EnderSiAlignmentMod sensor_init before_opening.svalignmentsensor
+
+param EnderSiAlignmentMod file_output "layer2-summary.log"
+
+param EnderSiAlignmentMod device "layer"
+param EnderSiAlignmentMod number 2
+
+param EnderSiAlignmentMod rphi_cut 0.00012
+param EnderSiAlignmentMod z_cut 0.0011
+
+param EnderSiAlignmentMod rphi_norm 0.0013
+param EnderSiAlignmentMod z_norm 0.0053
+
+param EnderSiAlignmentMod deltaX_step 0.000050
+param EnderSiAlignmentMod deltaY_step 0.000050
+param EnderSiAlignmentMod deltaZ_step 0.002500
+param EnderSiAlignmentMod phiX_step 0.002000
+param EnderSiAlignmentMod phiY_step 0.005000
+param EnderSiAlignmentMod phiZ_step 0.001000
+
+param EnderSiAlignmentMod deltaX_limit 0.001000
+param EnderSiAlignmentMod deltaY_limit 0.001000
+param EnderSiAlignmentMod deltaZ_limit 0.010000
+param EnderSiAlignmentMod phiX_limit 0.050000
+param EnderSiAlignmentMod phiY_limit 0.050000
+param EnderSiAlignmentMod phiZ_limit 0.050000
+
+report level NOTICE
+iterator go
+
+exit
+
+EOF

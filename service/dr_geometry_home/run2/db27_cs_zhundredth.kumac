@@ -1,0 +1,110 @@
+* nt/hmerge ../rzn/db27_cs_zhundredth.rzn ../rzn/db27_cs_zhundredth_1.rzn ../rzn/db27_cs_zhundredth_2.rzn ../rzn/db27_cs_zhundredth_3.rzn ../rzn/db27_cs_zhundredth_4.rzn ../rzn/db27_cs_zhundredth_5.rzn ../rzn/db27_cs_zhundredth_6.rzn ../rzn/db27_cs_zhundredth_7.rzn ../rzn/db27_cs_zhundredth_8.rzn ../rzn/db27_cs_zhundredth_9.rzn ../rzn/db27_cs_zhundredth_10.rzn
+* h/file 1 ../rzn/db27_cs_zhundredth.rzn
+h/file 1 ../rzn/db27_cs_zhundredth_1.rzn
+cd twocyclehist
+
+h/cr/title 'data27 ChisqFitProd Stereo-only'
+
+ve/cr ctmap(30)
+ve/inp ctmap 129 127 125 123 121 119 117 115 113 111 19 17 15 13 11 21 23 25 27 29 211 213 215 217 219 221 223 225 227 229
+ve/cr ctlines(30)
+ve/inp ctlines -2.9 -2.7 -2.5 -2.3 -2.1 -1.9 -1.7 -1.5 -1.3 -1.1 -0.9 -0.7 -0.5 -0.3 -0.1 0.1 0.3 0.5 0.7 0.9 1.1 1.3 1.5 1.7 1.9 2.1 2.3 2.5 2.7 2.9
+ve/cr d0map(30)
+ve/inp d0map 329 327 325 323 321 319 317 315 313 311 39 37 35 33 31 41 43 45 47 49 411 413 415 417 419 421 423 425 427 429
+ve/cr d02map(30)
+ve/inp d02map 1329 1327 1325 1323 1321 1319 1317 1315 1313 1311 139 137 135 133 131 141 143 145 147 149 1411 1413 1415 1417 1419 1421 1423 1425 1427 1429
+ve/cr z0map(30)
+ve/inp z0map 529 527 525 523 521 519 517 515 513 511 59 57 55 53 51 61 63 65 67 69 611 613 615 617 619 621 623 625 627 629
+ve/cr z02map(30)
+ve/inp z02map 1529 1527 1525 1523 1521 1519 1517 1515 1513 1511 159 157 155 153 151 161 163 165 167 169 1611 1613 1615 1617 1619 1621 1623 1625 1627 1629
+
+h/cr/1d 10 'cotTheta distribution of the positive track' 120 -3. 3.
+
+zone 1 1
+do i = 1, 30
+  h/plot $SIGMA(ctmap([i]))
+  h/plot $SIGMA(d0map([i]))
+  h/plot $SIGMA(z0map([i]))
+  add $SIGMA(ctmap([i])) 10 10
+enddo
+
+fortran/file 65 '../rzn/db27_cs_zhundredth.ps'
+graphics/metafile 65 -111
+igset mtype 1
+
+opt nsta
+opt nfit
+set stat 0000110
+set fit 111
+sigma cttop = 1.5*$HINFO(10, 'MAX')
+ve/cr ne(30)
+ve/cr ct(30)
+ve/cr dm(30)
+ve/cr de(30)
+ve/cr zm(30)
+ve/cr ze(30)
+do i = 1, 30
+  ve/cr dpar(5)
+  ve/cr derr(5)
+  ve/cr zpar(1)
+  ve/cr zerr(1)
+  ve/inp dpar 0 0 0 0 0
+  ve/inp derr 0 0 0 0 0
+  ve/inp zpar 0
+  ve/inp zerr 0
+  opt sta
+  zone 1 3
+  min $SIGMA(ctmap([i])) 0
+  max $SIGMA(ctmap([i])) $SIGMA(cttop)
+  set htyp 244
+  h/plot $SIGMA(ctmap([i]))
+  set htyp 0
+  dline $SIGMA(ctlines([i])-0.1) $SIGMA(ctlines([i])-0.1) $GRAFINFO('WNYMIN') $GRAFINFO('WNYMAX')
+  dline $SIGMA(ctlines([i])+0.1) $SIGMA(ctlines([i])+0.1) $GRAFINFO('WNYMIN') $GRAFINFO('WNYMAX')
+  h/plot 10 's'
+  opt nsta
+  zone 2 3 3 s
+  h/plot $SIGMA(d02map([i]))
+  min $SIGMA(d0map([i])) -0.001
+  max $SIGMA(d0map([i])) 0.001
+  h/fit $SIGMA(d0map([i])) sin2cos2.f ! 5 dpar ! ! ! derr
+  h/plot $SIGMA(z02map([i]))
+  min $SIGMA(z0map([i])) -0.004
+  max $SIGMA(z0map([i])) 0.004
+  h/fit $SIGMA(z0map([i])) flat.f ! 1 zpar ! ! ! zerr
+  ve/inp ne([i]) $HINFO($SIGMA(ctmap([i])), 'ENTRIES')
+  ve/inp ct([i]) $HINFO($SIGMA(ctmap([i])), 'MEAN')
+  ve/inp dm([i]) $SIGMA(dpar(4))
+  ve/inp de([i]) $SIGMA(derr(4))
+  ve/inp zm([i]) $SIGMA(zpar(1))
+  ve/inp ze([i]) $SIGMA(zerr(1))
+enddo
+
+zone 2 1
+null -3. 3. -0.0015 0.0015
+text 0. -0.00175 'd0miss sin(2phi) term VS cotTheta' 0.3 ! 'c'
+do i = 1, 30
+  if ne([i]).gt.1000 .and. de([i]).lt.0.0015 .and. ze([i]).lt.0.001 then
+    dline $SIGMA(ct([i])) $SIGMA(ct([i])) $SIGMA(dm([i])-de([i])) $SIGMA(dm([i])+de([i]))
+    dline $SIGMA(ct([i])-0.05) $SIGMA(ct([i])+0.05) $SIGMA(dm([i])-de([i])) $SIGMA(dm([i])-de([i]))
+    dline $SIGMA(ct([i])-0.05) $SIGMA(ct([i])+0.05) $SIGMA(dm([i])+de([i])) $SIGMA(dm([i])+de([i]))
+    dline $SIGMA(ct([i])-0.03) $SIGMA(ct([i])+0.03) $SIGMA(dm([i])) $SIGMA(dm([i]))
+  endif
+enddo
+null -3. 3. -0.001 0.001
+text 0. -0.001166 'z0miss VS cotTheta' 0.3 ! 'c'
+do i = 1, 30
+  if ne([i]).gt.1000 .and. de([i]).lt.0.001 .and. ze([i]).lt.0.001 then
+    dline $SIGMA(ct([i])) $SIGMA(ct([i])) $SIGMA(zm([i])-ze([i])) $SIGMA(zm([i])+ze([i]))
+    dline $SIGMA(ct([i])-0.05) $SIGMA(ct([i])+0.05) $SIGMA(zm([i])-ze([i])) $SIGMA(zm([i])-ze([i]))
+    dline $SIGMA(ct([i])-0.05) $SIGMA(ct([i])+0.05) $SIGMA(zm([i])+ze([i])) $SIGMA(zm([i])+ze([i]))
+    dline $SIGMA(ct([i])-0.03) $SIGMA(ct([i])+0.03) $SIGMA(zm([i])) $SIGMA(zm([i]))
+  endif
+enddo
+
+zone 1 1
+min 999 -0.005
+max 999 0.005
+h/plot 999
+
+* close 65

@@ -1,0 +1,631 @@
+------- Setting ulimits -------
+core file size (blocks)     0
+data seg size (kbytes)      2097148
+file size (blocks)          unlimited
+open files                  1024
+pipe size (512 bytes)       10
+stack size (kbytes)         2097148
+cpu time (seconds)          unlimited
+max user processes          7957
+virtual memory (kbytes)     unlimited
+ %% INFO-Suez: 
+// -----------------------------------------------------------
+//  Welcome to Suez, the CLEO III data access program         
+// -----------------------------------------------------------
+
+ %% INFO-Suez: $Id: SuezMain.cc,v 1.69 2002/10/16 20:46:36 cdj Exp $
+
+ %% SYSTEM-Interpreter.TclInterpreter: 
+//  For a list of available commands, type "help".              
+//                                                                
+//  Since the command interpreter is based on a Tcl interpreter,  
+//  all Tcl commands are available.                               
+//  For info on tcl: "http://www.scriptics.com/resource/doc"    
+
+ %% SYSTEM-Interpreter.TclInterpreter: 
+// Renaming the following Tcl commands:
+//  (because they collide with Suez commands!)
+// -------------------------------------------
+//  source --> tcl_source
+//  proc   --> tcl_proc
+//  file   --> tcl_file
+
+ %% SYSTEM-Module: added command "summary" from SummaryModule
+ %% SYSTEM-Module: added command "source_format" from SourceFormatMap
+ %% SYSTEM-Module: added command "sink_format" from SinkFormatMap
+ %% SYSTEM-Module: added command "source" from SourceManager
+ %% SYSTEM-Module: added command "stream" from SourceManager
+ %% SYSTEM-Module: added command "sink" from SinkManager
+ %% SYSTEM-Module: added command "default" from DefaultModule
+ %% SYSTEM-Module: added command "prod" from MasterProducer
+ %% SYSTEM-Module: added command "proc" from MasterProcessor
+ %% SYSTEM-Module: added command "file" from FileModule
+ %% SYSTEM-Module: added command "emptysource" from EmptySourceModule
+Suez.d0missthetadependence_mc2> default prompt off
+off
+Suez.d0missthetadependence_mc2> exception continueEventLoop on
+on
+Suez.d0missthetadependence_mc2> module sel HbookHistogramModule
+ %% SYSTEM-Loader: trying to load "HbookHistogramModule"...
+ %% SYSTEM-Module: added command "hbook" from HbookHistogramModule
+Suez.d0missthetadependence_mc2> hbook file ../rzn/d0missthetadependence_mc2.rzn
+Suez.d0missthetadependence_mc2> hbook init
+Suez.d0missthetadependence_mc2> run_file $env(C3_SCRIPTS)/getNewestConstants.tcl
+Suez.getNewestConstants> # ===================================================
+Suez.getNewestConstants> # getNewestConstants.tcl
+Suez.getNewestConstants> # 
+Suez.getNewestConstants> # This script provides you with the newest constants
+Suez.getNewestConstants> # for data. 
+Suez.getNewestConstants> # To obtain the versions that were used together with
+Suez.getNewestConstants> # PASS2, use getPass2Constants.tcl.
+Suez.getNewestConstants> # ===================================================
+Suez.getNewestConstants> if { ! [info exists getConstants_tcl_loaded] } {
+Suez.getNewestConstants...> # keep script from multiply loading
+Suez.getNewestConstants...> set getConstants_tcl_loaded 1
+Suez.getNewestConstants...> # This is a standard script for configuring/accessing the constants
+Suez.getNewestConstants...> # database (and the materials properties ascii file).  It can be
+Suez.getNewestConstants...> # invoked from your tcl script via
+Suez.getNewestConstants...> #
+Suez.getNewestConstants...> #    run_file $env(C3_SCRIPTS)/getConstants.tcl
+Suez.getNewestConstants...> #
+Suez.getNewestConstants...> if [ catch {
+Suez.getNewestConstants...> global env  # make env available in nested calls
+Suez.getNewestConstants...> # database and metafiles -------
+Suez.getNewestConstants...> module sel CorbaModule
+Suez.getNewestConstants...> corba init
+Suez.getNewestConstants...> module sel ConstantsModule
+Suez.getNewestConstants...> constants in $env(C3_CONST) meta Offline MetaListRetrieval
+Suez.getNewestConstants...> constants in $env(C3_CONST) meta Online MetaListRetrieval
+Suez.getNewestConstants...> constants in $env(C3_CONST) meta CesrOffset MetaListRetrieval
+Suez.getNewestConstants...> constants in $env(C3_CONST) meta BaseGeometry MetaListRetrieval
+Suez.getNewestConstants...> constants in $env(C3_CONST) meta RunByRun MetaListRetrieval
+Suez.getNewestConstants...> constants in $env(C3_CONST) meta SVHybridEfficiency MetaListRetrieval
+Suez.getNewestConstants...> constants in $env(C3_CONST) meta Alignment MetaListRetrieval
+Suez.getNewestConstants...> constants in $env(C3_CONST) meta FieldMap MetaListRetrieval
+Suez.getNewestConstants...> constants in $env(C3_CONST) meta Dedx MetaListRetrieval
+Suez.getNewestConstants...> constants in $env(C3_CONST) meta MagFudge MetaListRetrieval
+Suez.getNewestConstants...> constants in $env(C3_CONST) meta DAQID MetaListRetrieval
+Suez.getNewestConstants...> # Get material properties-------
+Suez.getNewestConstants...> source_format sel AsciiSourceFormat
+Suez.getNewestConstants...> file in $env(C3_DATA)/material.asc basegeometry
+Suez.getNewestConstants...> # set up runStatistics access
+Suez.getNewestConstants...> module sel RunStatisticsSourceModule
+Suez.getNewestConstants...> runstatistics in
+Suez.getNewestConstants...> # load mu constants producer
+Suez.getNewestConstants...> prod select MuConsProd
+Suez.getNewestConstants...> } resultString ] { # ------------------- tcl try-catch block
+Suez.getNewestConstants...> puts stdout "loading failed for constants database:"
+Suez.getNewestConstants...> puts stdout "resultString:"
+Suez.getNewestConstants...> puts stderr "$resultString"
+Suez.getNewestConstants...> # throw exception so if this script is included by another script, the
+Suez.getNewestConstants...> #  parent script can see that there was an exception
+Suez.getNewestConstants...> error "constants loading problem: $resultString"
+Suez.getNewestConstants...> } else {
+Suez.getNewestConstants...> puts stdout "Constants database setup successfully"
+Suez.getNewestConstants...> }
+Suez.getNewestConstants...> }
+ %% SYSTEM-Loader: trying to load "CorbaModule"...
+ %% SYSTEM-Module: added command "corba" from CorbaModule
+ %% SYSTEM-Loader: trying to load "ConstantsModule"...
+ %% SYSTEM-Module: added command "constants" from ConstantsModule
+ %% INFO-JobControl.SourceManager: creating Source Name "Codi" 
+ %% INFO-JobControl.SourceManager: creating Source Name "Codi_2" 
+ %% INFO-JobControl.SourceManager: creating Source Name "Codi_3" 
+ %% INFO-JobControl.SourceManager: creating Source Name "Codi_4" 
+ %% INFO-JobControl.SourceManager: creating Source Name "Codi_5" 
+ %% INFO-JobControl.SourceManager: creating Source Name "Codi_6" 
+ %% INFO-JobControl.SourceManager: creating Source Name "Codi_7" 
+ %% INFO-JobControl.SourceManager: creating Source Name "Codi_8" 
+ %% INFO-JobControl.SourceManager: creating Source Name "Codi_9" 
+ %% INFO-JobControl.SourceManager: creating Source Name "Codi_10" 
+ %% INFO-JobControl.SourceManager: creating Source Name "Codi_11" 
+ %% SYSTEM-Loader: trying to load "AsciiSourceFormat"...
+ %% INFO-JobControl.SourceManager: creating Source Name "material" 
+ %% SYSTEM-Loader: trying to load "RunStatisticsSourceModule"...
+ %% SYSTEM-Module: added command "runstatistics" from RunStatisticsSourceModule
+ %% INFO-JobControl.SourceManager: creating Source Name "RunStatistics" 
+ %% SYSTEM-Loader: trying to load "MuConsProd"...
+Constants database setup successfully
+Suez.d0missthetadependence_mc2> run_file $env(C3_SCRIPTS)/trackingMCFull.tcl
+Suez.trackingMCFull> # This is the "standard" script for tracking on MC. It will be updated 
+Suez.trackingMCFull> # with the latest and greatest tracking improvements as they become 
+Suez.trackingMCFull> # available. Please see the "Cleo III Tracking Status" web page,
+Suez.trackingMCFull> # available from the Cleo III Software web page for the lastest
+Suez.trackingMCFull> # tracking news. Updates to this script will be detailed there.
+Suez.trackingMCFull> #
+Suez.trackingMCFull> # NOTE: Do not use the word "E_rror" in this script. The test scripts
+Suez.trackingMCFull> #       will catch it and fail
+Suez.trackingMCFull> #
+Suez.trackingMCFull> # This script now only loads tracking packages. No constants 
+Suez.trackingMCFull> # (except for special ones necessary), no event 
+Suez.trackingMCFull> #  selection, no data files. See sampleTrackingOnData.tcl for 
+Suez.trackingMCFull> #  a full script that calls this one (but it runs on data).
+Suez.trackingMCFull> #
+Suez.trackingMCFull> # Load this script with...
+Suez.trackingMCFull> #
+Suez.trackingMCFull> #    Suez> run_file $env(C3_SCRIPTS)/trackingMCFull.tcl
+Suez.trackingMCFull> #
+Suez.trackingMCFull> # This script will *not* work on real data. See trackingDataFull.tcl
+Suez.trackingMCFull> #    for a script that will work on real data.
+Suez.trackingMCFull> #
+Suez.trackingMCFull> #   This script does full tracking (Doit pattern recognition and Kalman
+Suez.trackingMCFull> #   fitting) and makes NavTracks.
+Suez.trackingMCFull> #
+Suez.trackingMCFull> #  Questions should go to Adam Lyon (lyon@mail.lns.cornell.edu)
+Suez.trackingMCFull> #
+Suez.trackingMCFull> # $Id: trackingMCFull.tcl,v 1.16 2002/04/04 15:40:46 bkh Exp $
+Suez.trackingMCFull> # $Log: trackingMCFull.tcl,v $
+Suez.trackingMCFull> # Revision 1.16  2002/04/04 15:40:46  bkh
+Suez.trackingMCFull> # Alter for accomodation of trigger phase producers
+Suez.trackingMCFull> #
+Suez.trackingMCFull> # Revision 1.15  2002/02/11 22:22:51  bkh
+Suez.trackingMCFull> # Various adjustments including controlling writeout of cleog,
+Suez.trackingMCFull> # restoration of control writing out mcpass2, removal of
+Suez.trackingMCFull> # TrackletBunchFinder from MC tracking, and other housekeeping changes.
+Suez.trackingMCFull> #
+Suez.trackingMCFull> # Revision 1.14  2002/02/06 23:19:53  bkh
+Suez.trackingMCFull> # Fix ups
+Suez.trackingMCFull> #
+Suez.trackingMCFull> # Revision 1.13  2002/01/24 23:45:17  bkh
+Suez.trackingMCFull> # set cathodes fake merge flag false
+Suez.trackingMCFull> # deselect PreliminaryDRHitProd just to be safe in trackingMC
+Suez.trackingMCFull> #
+Suez.trackingMCFull> # Revision 1.12  2002/01/24 16:04:40  mahlke
+Suez.trackingMCFull> # deselect DRCACorrectHitProd, CorrectedSVStripProd, SiHitsProd also
+Suez.trackingMCFull> #
+Suez.trackingMCFull> # Revision 1.11  2002/01/24 14:58:05  lyon
+Suez.trackingMCFull> # Deselects CalibratedDRHitProd (hits are already added by geant
+Suez.trackingMCFull> #
+Suez.trackingMCFull> # Revision 1.10  2001/11/27 14:26:07  bkh
+Suez.trackingMCFull> # Add PreliminaryDRHitProd and CorrectedSVStripProd to trackingDataFull.tcl
+Suez.trackingMCFull> # Make MC tracking tcl file driven off of data tracking tcl file
+Suez.trackingMCFull> #
+Suez.trackingMCFull> # Revision 1.9  2001/10/12 17:56:10  mahlke
+Suez.trackingMCFull> # add in KalmanProd HitListFromOneHypo true parameter, Scale Cathode Resolution by 0.7 in KalmanProd as per hennessy, turn off entrance angle corrections in DRHitCorrectorProd
+Suez.trackingMCFull> #
+Suez.trackingMCFull> # Revision 1.8  2001/09/17 15:09:55  cdj
+Suez.trackingMCFull> # Added Prod to give Electron and Muon from the Pion fits
+Suez.trackingMCFull> #
+Suez.trackingMCFull> # Revision 1.7  2001/05/08 22:35:42  lyon
+Suez.trackingMCFull> # removed CDOffCal parameters
+Suez.trackingMCFull> #
+Suez.trackingMCFull> # Revision 1.6  2001/03/29 17:46:25  ajm36
+Suez.trackingMCFull> # clean out old scripts, get rid of drcalibration emptysources
+Suez.trackingMCFull> #
+Suez.trackingMCFull> # Revision 1.5  2000/11/16 03:13:01  lkg
+Suez.trackingMCFull> # Changed MagField to MagFieldProd
+Suez.trackingMCFull> #
+Suez.trackingMCFull> # Revision 1.4  2000/11/01 15:27:58  lyon
+Suez.trackingMCFull> # Removed prod sel CESR -- no longer needed
+Suez.trackingMCFull> #
+Suez.trackingMCFull> # Revision 1.3  2000/10/26 14:47:49  lyon
+Suez.trackingMCFull> # Try to remove the word E_rror from the scripts so test scripts will not catch it
+Suez.trackingMCFull> #
+Suez.trackingMCFull> # Revision 1.2  2000/06/30 10:39:29  lkg
+Suez.trackingMCFull> # - commented out special DR Cathode pedestal file, pedestals now used in MC
+Suez.trackingMCFull> # - told KalmanProd to UseSVZ hits (UseRPH) was already specified
+Suez.trackingMCFull> #
+Suez.trackingMCFull> # Revision 1.1  2000/06/22 15:06:28  lyon
+Suez.trackingMCFull> # Restructured tracking scripts
+Suez.trackingMCFull> #
+Suez.trackingMCFull> #
+Suez.trackingMCFull> #
+Suez.trackingMCFull> #
+Suez.trackingMCFull> if { ! [info exists trackingMCFull_tcl_loaded] } {
+Suez.trackingMCFull...> # keep script from multiply loading
+Suez.trackingMCFull...> set trackingMCFull_tcl_loaded 1
+Suez.trackingMCFull...> # Handle "unintentional features" gracefully (don't say E_rror)
+Suez.trackingMCFull...> if [ catch { 
+Suez.trackingMCFull...> run_file $env(C3_SCRIPTS)/trackingDataFull.tcl
+Suez.trackingMCFull...> #       Deselect the following producers as their hits are 
+Suez.trackingMCFull...> #       produced by CLEOG:
+Suez.trackingMCFull...> prod desel PreliminaryDRHitProd
+Suez.trackingMCFull...> prod desel CalibratedDRHitProd
+Suez.trackingMCFull...> prod desel DRCACorrectHitProd
+Suez.trackingMCFull...> prod desel CorrectedSVStripProd
+Suez.trackingMCFull...> prod desel SiHitsProd
+Suez.trackingMCFull...> prod desel TrackletBunchFinder
+Suez.trackingMCFull...> prod desel TriggerPhaseForDataProd
+Suez.trackingMCFull...> # MC sometimes (when from rp file) has no bunch structure
+Suez.trackingMCFull...> #	param TrackletBunchFinder ForceTimeOffset true
+Suez.trackingMCFull...> #	param TrackletBunchFinder TheForcedTimeOffset 0.0
+Suez.trackingMCFull...> } resultString ] { # ------------------- tcl try-catch block
+Suez.trackingMCFull...> puts stdout "loading failed for a tracking Producer:"
+Suez.trackingMCFull...> puts stdout "resultString:"
+Suez.trackingMCFull...> puts stderr "$resultString"
+Suez.trackingMCFull...> } else {
+Suez.trackingMCFull...> puts stdout "Tracking producers loaded successfully"
+Suez.trackingMCFull...> }
+Suez.trackingMCFull...> }
+Suez.trackingDataFull> #######################################################
+Suez.trackingDataFull> # file: $C3_SCRIPTS/trackingDataFull.tcl
+Suez.trackingDataFull> # 
+Suez.trackingDataFull> # purpose: Standard tracking script
+Suez.trackingDataFull> #
+Suez.trackingDataFull> #######################################################
+Suez.trackingDataFull> # This is the "standard" script for tracking. It will be updated 
+Suez.trackingDataFull> # with the latest and greatest tracking improvements as they become 
+Suez.trackingDataFull> # available. Please see the "Cleo III Tracking Status" web page,
+Suez.trackingDataFull> # available from the Cleo III Software web page for the lastest
+Suez.trackingDataFull> # tracking news. Updates to this script will be detailed there.
+Suez.trackingDataFull> #
+Suez.trackingDataFull> # This script now only loads tracking packages. No constants, no event 
+Suez.trackingDataFull> #  selection, no data files. See sampleTrackingOnData.tcl for 
+Suez.trackingDataFull> #  a full script that calls this one.
+Suez.trackingDataFull> #
+Suez.trackingDataFull> # Load this script with...
+Suez.trackingDataFull> #
+Suez.trackingDataFull> #    Suez> run_file $env(C3_SCRIPTS)/trackingDataFull.tcl
+Suez.trackingDataFull> #
+Suez.trackingDataFull> # This script will *not* work on Monte Carlo. See trackingMCFull.tcl
+Suez.trackingDataFull> #    for a script that will work on MC.
+Suez.trackingDataFull> #
+Suez.trackingDataFull> #
+Suez.trackingDataFull> # DISCLAIMER: You will get best results for runs that are calibrated
+Suez.trackingDataFull> # (Global T0, Layer/HV-Section/Channel T0, Drift functions). 
+Suez.trackingDataFull> #        
+Suez.trackingDataFull> #   This script does full tracking (Doit pattern recognition and Kalman
+Suez.trackingDataFull> #   fitting) and makes NavTracks. Cathodes are included in the fit, 
+Suez.trackingDataFull> #   but Silicon is not (due to alignment problems).
+Suez.trackingDataFull> #
+Suez.trackingDataFull> #  Questions should go to Adam Lyon (lyon@mail.lns.cornell.edu)
+Suez.trackingDataFull> #
+Suez.trackingDataFull> # $Id: trackingDataFull.tcl,v 1.19 2002/09/27 20:41:18 bkh Exp $
+Suez.trackingDataFull> # $Log: trackingDataFull.tcl,v $
+Suez.trackingDataFull> # Revision 1.19  2002/09/27 20:41:18  bkh
+Suez.trackingDataFull> # Add DetectorConfigurationProd to cleog and tracking to prepare for ZD era
+Suez.trackingDataFull> #
+Suez.trackingDataFull> # Revision 1.18  2002/04/04 15:40:46  bkh
+Suez.trackingDataFull> # Alter for accomodation of trigger phase producers
+Suez.trackingDataFull> #
+Suez.trackingDataFull> # Revision 1.17  2001/11/29 22:48:22  bkh
+Suez.trackingDataFull> # Eliminate the bad word I probably cannot spell out here but
+Suez.trackingDataFull> # backwards is "rorre" because it caused the test script to crash
+Suez.trackingDataFull> #
+Suez.trackingDataFull> # Revision 1.16  2001/11/27 14:26:07  bkh
+Suez.trackingDataFull> # Add PreliminaryDRHitProd and CorrectedSVStripProd to trackingDataFull.tcl
+Suez.trackingDataFull> # Make MC tracking tcl file driven off of data tracking tcl file
+Suez.trackingDataFull> #
+Suez.trackingDataFull> # Revision 1.15  2001/10/12 11:31:51  cdj
+Suez.trackingDataFull> # no longer set parameters for DRHitCorrectorProd BEFORE the producer is loaded
+Suez.trackingDataFull> #
+Suez.trackingDataFull> # Revision 1.14  2001/10/10 17:41:28  jed
+Suez.trackingDataFull> #  turn off entrance angle corrections in DRHitCorrectorProd
+Suez.trackingDataFull> #
+Suez.trackingDataFull> # Revision 1.13  2001/10/03 15:22:37  jed
+Suez.trackingDataFull> #  Scale Cathode Resolution by 0.7 in KalmanProd as per hennessy
+Suez.trackingDataFull> #
+Suez.trackingDataFull> # Revision 1.12  2001/10/02 22:14:15  jed
+Suez.trackingDataFull> #  minod comments mods, add in KalmanProd HitListFromOneHypo true parameter
+Suez.trackingDataFull> #
+Suez.trackingDataFull> # Revision 1.11  2001/09/17 15:09:55  cdj
+Suez.trackingDataFull> # Added Prod to give Electron and Muon from the Pion fits
+Suez.trackingDataFull> #
+Suez.trackingDataFull> # Revision 1.10  2001/05/08 18:49:35  lyon
+Suez.trackingDataFull> # trackingDataFull: remove explicit CDOffCal parameters (they are VERY BAD) and turn on Si by default
+Suez.trackingDataFull> #
+Suez.trackingDataFull> # Revision 1.9  2001/03/29 17:46:25  ajm36
+Suez.trackingDataFull> # clean out old scripts, get rid of drcalibration emptysources
+Suez.trackingDataFull> #
+Suez.trackingDataFull> # Revision 1.8  2000/11/16 03:13:01  lkg
+Suez.trackingDataFull> # Changed MagField to MagFieldProd
+Suez.trackingDataFull> #
+Suez.trackingDataFull> # Revision 1.7  2000/11/01 15:27:58  lyon
+Suez.trackingDataFull> # Removed prod sel CESR -- no longer needed
+Suez.trackingDataFull> #
+Suez.trackingDataFull> # Revision 1.6  2000/07/25 13:53:38  lyon
+Suez.trackingDataFull> # TriggerDataProd -> TriggerL1DaqtaProd
+Suez.trackingDataFull> #
+Suez.trackingDataFull> # Revision 1.5  2000/06/22 15:06:27  lyon
+Suez.trackingDataFull> # Restructured tracking scripts
+Suez.trackingDataFull> #
+Suez.trackingDataFull> # Revision 1.4  2000/06/15 15:03:50  lyon
+Suez.trackingDataFull> # Added DRHitCorrectorProd
+Suez.trackingDataFull> #
+Suez.trackingDataFull> # Revision 1.3  2000/06/13 18:41:39  lyon
+Suez.trackingDataFull> # Removed parameters for TrackletBunchFinder (default are now valid for running on data. And added source format for DRCAPedestal constants
+Suez.trackingDataFull> #
+Suez.trackingDataFull> # Revision 1.2  2000/05/30 22:46:19  lyon
+Suez.trackingDataFull> # Changed CalibratedCathodeHitProd -> DRCAClusterProd
+Suez.trackingDataFull> #
+Suez.trackingDataFull> #
+Suez.trackingDataFull> #
+Suez.trackingDataFull> if { ! [info exists trackingDataFull_tcl_loaded] } {
+Suez.trackingDataFull...> # keep script from multiply loading
+Suez.trackingDataFull...> set trackingDataFull_tcl_loaded 1
+Suez.trackingDataFull...> # Handle problems gracefully
+Suez.trackingDataFull...> if [ catch { 
+Suez.trackingDataFull...> # load configuration
+Suez.trackingDataFull...> prod sel DetectorConfigurationProd
+Suez.trackingDataFull...> # Load DR Geometry-------
+Suez.trackingDataFull...> prod sel ADRGeomProd
+Suez.trackingDataFull...> prod sel DRGeom
+Suez.trackingDataFull...> # Load ZD geometry
+Suez.trackingDataFull...> #       prod sel AZDGeom
+Suez.trackingDataFull...> #       prod sel ZDGeom
+Suez.trackingDataFull...> # Load Silicon and IR geometry-------
+Suez.trackingDataFull...> prod sel ASiStorePro
+Suez.trackingDataFull...> prod sel SiGeom
+Suez.trackingDataFull...> prod sel IRGeomProd
+Suez.trackingDataFull...> # Load Raw data---
+Suez.trackingDataFull...> prod sel RawDataProd
+Suez.trackingDataFull...> # Convert Raw cathode hits to DRCACorrectHits----
+Suez.trackingDataFull...> prod sel DRCACorrectHitProd
+Suez.trackingDataFull...> # Cluster cathodes---
+Suez.trackingDataFull...> prod sel DRCAClusterProd
+Suez.trackingDataFull...> # Make PreliminaryDRHits-----
+Suez.trackingDataFull...> prod sel PreliminaryDRHitProd
+Suez.trackingDataFull...> # Make CalibratedDRHits-----
+Suez.trackingDataFull...> prod sel CalibratedDRHitProd
+Suez.trackingDataFull...> # Make Si Hits-----
+Suez.trackingDataFull...> prod sel CorrectedSVStripProd
+Suez.trackingDataFull...> prod sel SiHitsProd
+Suez.trackingDataFull...> # Load the magnetic field----
+Suez.trackingDataFull...> prod sel MagFieldProd
+Suez.trackingDataFull...> # CDOffCal
+Suez.trackingDataFull...> prod sel CDOffCal
+Suez.trackingDataFull...> # Get trigger information
+Suez.trackingDataFull...> prod sel TriggerL1DataProd
+Suez.trackingDataFull...> prod sel TriggerPhaseForDataProd
+Suez.trackingDataFull...> # Get bunch decision
+Suez.trackingDataFull...> prod sel TrackletBunchFinder
+Suez.trackingDataFull...> # Load Doit
+Suez.trackingDataFull...> prod sel DoitProd
+Suez.trackingDataFull...> param DoitProd ContinueIfHitsMissing true
+Suez.trackingDataFull...> # Load DRHitCorrections
+Suez.trackingDataFull...> prod sel DRHitCorrectorProd
+Suez.trackingDataFull...> param DRHitCorrectorProd ApplyEntranceAngleCorr false           
+Suez.trackingDataFull...> param DRHitCorrectorProd ApplyStandardCorrections false   
+Suez.trackingDataFull...> # Load Kalman fit
+Suez.trackingDataFull...> prod sel KalmanProd
+Suez.trackingDataFull...> # Set Kalman to only fit pion kaon and proton since that is all
+Suez.trackingDataFull...> #  we want store from Pass2
+Suez.trackingDataFull...> param KalmanProd HyposToFit pion kaon proton
+Suez.trackingDataFull...> param KalmanProd OptimizeForAllHypos true
+Suez.trackingDataFull...> param KalmanProd HitListFromOneHypo true
+Suez.trackingDataFull...> param KalmanProd ScaleCathodeResolution true 
+Suez.trackingDataFull...> param KalmanProd CathodeResolutionScale 0.7     
+Suez.trackingDataFull...> # If someone requests electrons or muons, give them the pion fit
+Suez.trackingDataFull...> prod sel ElectronFromPionFitProd
+Suez.trackingDataFull...> prod sel MuonFromPionFitProd
+Suez.trackingDataFull...> # Set up NavTrack
+Suez.trackingDataFull...> prod sel NavigationProd
+Suez.trackingDataFull...> prod sel TrackDeliveryProd
+Suez.trackingDataFull...> prod sel SeedToTRTrackProd
+Suez.trackingDataFull...> } resultString ] { # ------------------- tcl try-catch block
+Suez.trackingDataFull...> puts stdout "loading failed for a tracking Producer:"
+Suez.trackingDataFull...> puts stdout "resultString:"
+Suez.trackingDataFull...> puts stderr "$resultString"
+Suez.trackingDataFull...> } else {
+Suez.trackingDataFull...> puts stdout "Tracking producers loaded successfully"
+Suez.trackingDataFull...> }
+Suez.trackingDataFull...> }
+ %% SYSTEM-Loader: trying to load "DetectorConfigurationProd"...
+ %% SYSTEM-Loader: trying to load "ADRGeomProd"...
+ %% SYSTEM-Loader: trying to load "DRGeom"...
+ %% SYSTEM-Loader: trying to load "ASiStorePro"...
+ %% INFO-ASiStorePro.ASiStorePro: here in ctor()
+ %% SYSTEM-Loader: trying to load "SiGeom"...
+ %% SYSTEM-Loader: trying to load "IRGeomProd"...
+ %% SYSTEM-Loader: trying to load "RawDataProd"...
+ %% SYSTEM-Loader: trying to load "DRCACorrectHitProd"...
+ %% SYSTEM-Loader: trying to load "DRCAClusterProd"...
+ %% SYSTEM-Loader: trying to load "PreliminaryDRHitProd"...
+ %% SYSTEM-Loader: trying to load "CalibratedDRHitProd"...
+ %% SYSTEM-Loader: trying to load "CorrectedSVStripProd"...
+ %% SYSTEM-Loader: trying to load "SiHitsProd"...
+ %% SYSTEM-Loader: trying to load "MagFieldProd"...
+ %% SYSTEM-Loader: trying to load "CDOffCal"...
+ %% SYSTEM-Loader: trying to load "TriggerL1DataProd"...
+ %% SYSTEM-Loader: trying to load "TriggerPhaseForDataProd"...
+ %% SYSTEM-Loader: trying to load "TrackletBunchFinder"...
+ %% SYSTEM-Loader: trying to load "DoitProd"...
+ %% SYSTEM-Suez: DABoolean: true
+ %% SYSTEM-Loader: trying to load "DRHitCorrectorProd"...
+ %% SYSTEM-Suez: DABoolean: false
+ %% SYSTEM-Suez: DABoolean: false
+ %% SYSTEM-Loader: trying to load "KalmanProd"...
+ %% SYSTEM-CommandPattern.Parameter_special: vector<string>: size=3: pion kaon proton
+ %% SYSTEM-Suez: DABoolean: true
+ %% SYSTEM-Suez: DABoolean: true
+ %% SYSTEM-Suez: DABoolean: true
+ %% SYSTEM-Suez: double: 0.7
+ %% SYSTEM-Loader: trying to load "ElectronFromPionFitProd"...
+ %% SYSTEM-Loader: trying to load "MuonFromPionFitProd"...
+ %% SYSTEM-Loader: trying to load "NavigationProd"...
+ %% SYSTEM-Loader: trying to load "TrackDeliveryProd"...
+ %% SYSTEM-Loader: trying to load "SeedToTRTrackProd"...
+Tracking producers loaded successfully
+ %% INFO-Processor.TrackletBunchFinderProducer: here in dtor()
+Tracking producers loaded successfully
+Suez.d0missthetadependence_mc2> prod desel KalmanProd
+Suez.d0missthetadependence_mc2> prod sel ChisqFitProd
+ %% SYSTEM-Loader: trying to load "ChisqFitProd"...
+Suez.d0missthetadependence_mc2> param ChisqFitProd ForceSVRFittingWeight true 
+ %% SYSTEM-Suez: DABoolean: true
+Suez.d0missthetadependence_mc2> param ChisqFitProd ForceSVZFittingWeight true
+ %% SYSTEM-Suez: DABoolean: true
+Suez.d0missthetadependence_mc2> param ChisqFitProd SVRFittingWeight 1000.
+ %% SYSTEM-Suez: double: 1000
+Suez.d0missthetadependence_mc2> param ChisqFitProd SVZFittingWeight 1000.
+ %% SYSTEM-Suez: double: 1000
+Suez.d0missthetadependence_mc2> param ChisqFitProd UseDRAxial false
+ %% SYSTEM-Suez: DABoolean: false
+Suez.d0missthetadependence_mc2> prod sel CustomBeamEnergyProd
+ %% SYSTEM-Loader: trying to load "CustomBeamEnergyProd"...
+Suez.d0missthetadependence_mc2> param CustomBeamEnergyProd BeamEnergy 5.29
+ %% SYSTEM-Suez: float: 5.29
+Suez.d0missthetadependence_mc2> source_format sel BeamSpotFileSourceFormat
+ %% SYSTEM-Loader: trying to load "BeamSpotFileSourceFormat"...
+Suez.d0missthetadependence_mc2> file in $env(C3_INFO)/mc/zeromc.beamspot beginrun
+ %% INFO-JobControl.SourceManager: creating Source Name "zeromc" 
+zeromc
+Suez.d0missthetadependence_mc2> proc sel ../build_SunOS/shlib/D0MissThetaDependence
+ %% SYSTEM-Loader: trying to load "../build_SunOS/shlib/D0MissThetaDependence"...
+Suez.d0missthetadependence_mc2> source_format sel PDSSourceFormat
+ %% SYSTEM-Loader: trying to load "PDSSourceFormat"...
+Suez.d0missthetadependence_mc2> source create pdschain
+ %% INFO-JobControl.SourceManager: creating Source Name "pdschain" 
+pdschain
+Suez.d0missthetadependence_mc2> file add pdschain /cdat/sol221/disk3/c3mc/data7/bhabha/diagnostics/cleogoutput/bhabha-cleo3_MCPS2_Jan30_2002-MN-1-R112802-E3387-cleog.pds event startrun
+pdschain
+Suez.d0missthetadependence_mc2> file add pdschain /cdat/sol221/disk3/c3mc/data7/bhabha/diagnostics/cleogoutput/bhabha-cleo3_MCPS2_Jan30_2002-MN-1-R112803-E5539-cleog.pds event startrun
+pdschain
+Suez.d0missthetadependence_mc2> file add pdschain /cdat/sol221/disk3/c3mc/data7/bhabha/diagnostics/cleogoutput/bhabha-cleo3_MCPS2_Jan30_2002-MN-1-R112804-E4832-cleog.pds event startrun
+pdschain
+Suez.d0missthetadependence_mc2> file add pdschain /cdat/sol221/disk3/c3mc/data7/bhabha/diagnostics/cleogoutput/bhabha-cleo3_MCPS2_Jan30_2002-MN-1-R112806-E4977-cleog.pds event startrun
+pdschain
+Suez.d0missthetadependence_mc2> go
+ %% INFO-JobControl.SourceManager: Opened data source "Codi".
+ %% INFO-JobControl.SourceManager: Opened data source "Codi_2".
+ %% INFO-JobControl.SourceManager: Opened data source "Codi_3".
+ %% INFO-JobControl.SourceManager: Opened data source "Codi_4".
+ %% INFO-JobControl.SourceManager: Opened data source "Codi_5".
+ %% INFO-JobControl.SourceManager: Opened data source "Codi_6".
+ %% INFO-JobControl.SourceManager: Opened data source "Codi_7".
+ %% INFO-JobControl.SourceManager: Opened data source "Codi_8".
+ %% INFO-JobControl.SourceManager: Opened data source "Codi_9".
+ %% INFO-JobControl.SourceManager: Opened data source "Codi_10".
+ %% INFO-JobControl.SourceManager: Opened data source "Codi_11".
+ %% INFO-JobControl.SourceManager: Opened data source "material".
+ %% INFO-JobControl.SourceManager: Opened data source "RunStatistics".
+ %% INFO-JobControl.SourceManager: Opened data source "zeromc".
+ %% INFO-JobControl.SourceManager: Opened data source "pdschain".
+ %% WARNING-HbookHistogram.HbookHistDir: 
+directory name D0MissThetaDependence exceeds hbook size limit of 16
+name has been truncated to D0MissThetaDepen
+ %% INFO-ASiStorePro.ASiStorePro: here in init()
+ %% INFO-JobControl.SourceManager: Using pdschain for active streams: event 
+ %% INFO-JobControl.SourceManager: Defined active streams.
+
+ >> Mon Apr 21 12:18:00 2003 Run:  112802 Event:       1 Stop: event << 
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBMagFudge using version 1.3
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBSuperConductingQuadFieldMap using version 1.1
+ %% WARNING-MagFieldProd.MagneticFieldProxy: No field map for superconducting quads! Continuing with only solenoid field.
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBDRGeomAlignment using version 1.5
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBADRGeomLayer using version 1.4
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBADRGeomWireSurvey using version 1.1
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBADRGeomLayersEnds using version 1.1
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBADRGeomCathodePanels using version 1.1
+ %% NOTICE-ASiStorePro.ASiStoreProxy: beginning of faultHandler of ASiStoreProxy 
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBSVAlignmentGlobal using version 1.16
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBSVAlignmentLayer using version 1.18
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBSVAlignmentLadder using version 1.18
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBSVAlignmentSensor using version 1.7
+ %% NOTICE-ASiStorePro.ASiStoreProxy:  ASiStoreProxy: found DGDetectorStore in record svalignment
+ %% INFO-DOITNL: DG histograms temporarily disabled due to SVD teething problems
+ %% NOTICE-SFINIT:  try  1 "SHORT   " len= 8 trunc="SHORT   " input "SHORT   " len= 8 trunc="SHORT   "
+ %% NOTICE-SFINIT:  entry: called from DoitTrackF specify"   SHORT"   pass "SHORT   "
+ %% INFO-SFDEFN:  entry: called from    SFINIT specify  "SHORT   "
+ %% INFO-SFDEFN:  stopped creating SF layers after [maximum source layers]=  47 reached: LAYSF=  47
+ %% INFO-SFDEFN:  exit: NLAYSF=  47,   NLASSF=  47
+ %% INFO-SFINIT:  starting standard SF layers  DoitTrackF
+ %% INFO-SFINIT:  have used    9796 locations, out of MHITSF=  11710
+ %% INFO-SFINIT:  starting SSF layersocations, out of MHITSF=  11710
+ %% NOTICE-SFCUTS:  entry: called from    SFINIT specify  "SHORT   "
+ %% NOTICE-SFTCUT:  entry: called from    SFCUTS specify  "SHORT   "
+ %% INFO-SFTCUT:  exit: NLAYSF=  47,   NLASSF=  47
+ %% INFO-SFCUTS:  exit: CNTLSF=   1
+ %% NOTICE-SFINIT:  exit: NLAYSF=  47,   NLASSF=  47
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBSVHybridEfficiency using version 1.18
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBDRCAPedestal using version 1.6
+ %% NOTICE-SFCUTS:  entry: called from    DUFIND specify  " STARTUP"
+ %% NOTICE-SFTCUT:  entry: called from    SFCUTS specify  " STARTUP"
+ %% INFO-SFTCUT:  exit: NLAYSF=  47,   NLASSF=  47
+ %% INFO-SFCUTS:  exit: CNTLSF=   1
+ %% NOTICE-SFCUTS:  entry: called from    DUFIND specify  " 2NDPASS"
+ %% NOTICE-SFTCUT:  entry: called from    SFCUTS specify  " 2NDPASS"
+ %% INFO-SFTCUT:  exit: NLAYSF=  47,   NLASSF=  47
+ %% INFO-SFCUTS:  exit: CNTLSF=   1
+ %% NOTICE-SFCUTS:  entry: called from    DUFIND specify  " 2NDPASS"
+ %% NOTICE-SFTCUT:  entry: called from    SFCUTS specify  " 2NDPASS"
+ %% INFO-SFTCUT:  exit: NLAYSF=  47,   NLASSF=  47
+ %% INFO-SFCUTS:  exit: CNTLSF=   1
+ %% NOTICE-SFCUTS:  entry: called from    DUFIND specify  "   SHORT"
+ %% NOTICE-SFTCUT:  entry: called from    SFCUTS specify  "   SHORT"
+ %% INFO-SFTCUT:  exit: NLAYSF=  47,   NLASSF=  47
+ %% INFO-SFCUTS:  exit: CNTLSF=   1
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBDRWeightDrift using version 1.4
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBDRWeightLayer using version 1.4
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBDRWeightPhi using version 1.2
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBDRWeightTheta using version 1.5
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBDRGarfield_DistanceCorrection using version 1.5
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBDRGarfield_TimeCorrection using version 1.1
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBDRDaqCellIDMap using version 1.1
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBDRWireQuality using version 1.1
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBDRtdc2time using version 1.1
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBDRadc2charge using version 1.46
+ %% INFO-CDOffCal.DriftFunctionProxy: Extracting DriftDatav2 Constant Object
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBDRDriftDatav2 using version 1.13
+ %% INFO-CDOffCal.DriftFunctionProxy: Extracting DriftData Constant Object
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBDRDriftData using version 1.9
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBDRvarious using version 1.1
+ %% INFO-CDOffCal.DriftFunctionProxy: Signal Propagation taken from Constants Database 0.75
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBDRadcpedestal using version 1.93
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBDRt0channelv2 using version 1.15
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBDRt0card using version 1.16
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBDRt0hvcard using version 1.16
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBDRt0crate using version 1.17
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBDRt0global using version 1.25
+ %% INFO-CDOffCal.DriftFunction: Global scale (user parameter): 0.000123
+ %% INFO-CDOffCal.DriftFunction: 47 Layer Fitting Weights found, average= 1.29226
+ %% INFO-CDOffCal.DriftFunction: 705 Drift Fitting Weights found, average= 2.59977
+ %% INFO-CDOffCal.DriftFunction: 940 Theta Fitting Weights found, average= 1.27428
+ %% INFO-CDOffCal.DriftFunction: 470 Phi Fitting Weights found, average= 1
+ %% INFO-CDOffCal.DriftFunction: Global T0 offset 1 (user parameter): 0
+ %% INFO-CDOffCal.DriftFunction: Global T0 offset 2 (constants)     : 6.10517e+06
+ %% INFO-CDOffCal.DriftFunction: t0s loaded OK
+ %% INFO-CDOffCal.DriftFunction:  Found 80 Charge Dependent T0 Shifts 
+ %% INFO-CDOffCal.DriftFunction: Pedestals loaded OK
+ %% INFO-CDOffCal.DriftFunction: WireQuality Info loaded OK
+ %% INFO-CDOffCal.DriftFunction: WireMap loaded OK
+ %% INFO-CDOffCal.DriftFunction: ADC Gains loaded OK
+ %% INFO-CDOffCal.DriftFunction: No Zero ADC Gains
+ %% INFO-CDOffCal.DriftFunction: TDC Slopes loaded OK
+ %% INFO-CDOffCal.DriftFunction: ADC Gains loaded OK
+ %% INFO-CDOffCal.DataDriftFunction: Reading Drift Functions 
+ %% INFO-CDOffCal.DataDriftFunction: DriftDatav2 Object Used For DF Constants
+ %% INFO-CDOffCal.DataDriftFunction: Entrance Angle Statistics 
+                                     Distance Correction vs. Time 
+                                     Nonzero Correction Bins: 93%, 
+                                     RMS correction value   : 0.000109942(m), 
+                                     Zero Correction Bins   : 7%, 
+                                     Filled Correction Bins : 95%  
+
+ %% INFO-CDOffCal.DataDriftFunction: Entrance Angle Statistics 
+                                     Time Correction vs. Distance 
+                                     Nonzero Correction Bins: 87%, 
+                                     RMS correction value   : 22388.5(ps),  
+                                     Zero Correction Bins   : 13%, 
+                                     Filled Correction Bins : 91%  
+
+ %% NOTICE-ConstantsMetaListDelivery.CMLConstantsProxy: DBSVRPhiHitRadialCorrections using version 1.1
+ %% INFO-DRHitCorrectorProd.HitCorrector: Weight Connection Enabled
+ %% INFO-DRHitCorrectorProd.HitCorrector: Corrections Enabled:
+ %% INFO-DRHitCorrectorProd.HitCorrector:                      Time Of Flight
+ %% INFO-DRHitCorrectorProd.HitCorrector:                      Signal Propagation
+
+ >> Mon Apr 21 12:18:06 2003 Run:  112802 Event:       2 Stop: event << 
+ %% NOTICE-SFCUTS:  entry: called from    DUFIND specify  " STARTUP"
+ %% NOTICE-SFTCUT:  entry: called from    SFCUTS specify  " STARTUP"
+ %% INFO-SFTCUT:  exit: NLAYSF=  47,   NLASSF=  47
+ %% INFO-SFCUTS:  exit: CNTLSF=   1
+ %% NOTICE-SFCUTS:  entry: called from    DUFIND specify  " 2NDPASS"
+ %% NOTICE-SFTCUT:  entry: called from    SFCUTS specify  " 2NDPASS"
+ %% INFO-SFTCUT:  exit: NLAYSF=  47,   NLASSF=  47
+ %% INFO-SFCUTS:  exit: CNTLSF=   1
+ %% NOTICE-SFCUTS:  entry: called from    DUFIND specify  " 2NDPASS"
+ %% NOTICE-SFTCUT:  entry: called from    SFCUTS specify  " 2NDPASS"
+ %% INFO-SFTCUT:  exit: NLAYSF=  47,   NLASSF=  47
+ %% INFO-SFCUTS:  exit: CNTLSF=   1
+ %% NOTICE-SFCUTS:  entry: called from    DUFIND specify  "   SHORT"
+ %% NOTICE-SFTCUT:  entry: called from    SFCUTS specify  "   SHORT"
+ %% INFO-SFTCUT:  exit: NLAYSF=  47,   NLASSF=  47
+ %% INFO-SFCUTS:  exit: CNTLSF=   1
+
+ >> Mon Apr 21 12:18:06 2003 Run:  112802 Event:       3 Stop: event << 
+ %% NOTICE-SFCUTS:  entry: called from    DUFIND specify  " STARTUP"
+ %% NOTICE-SFTCUT:  entry: called from    SFCUTS specify  " STARTUP"
+ %% INFO-SFTCUT:  exit: NLAYSF=  47,   NLASSF=  47
+ %% INFO-SFCUTS:  exit: CNTLSF=   1
+ %% NOTICE-SFCUTS:  entry: called from    DUFIND specify  " 2NDPASS"

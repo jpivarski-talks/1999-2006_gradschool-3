@@ -1,0 +1,28 @@
+
+Module : BeamGasFilterProc
+Date   : Thu Oct 31 16:50:05 2002
+User   : mccann
+Old Tag: 
+New Tag: v01_00_00
+Message: imported BeamGasFilterProc sources (mostly copied from HadronFilterProc)
+
+Module : BeamGasFilterProc
+Date   : Tue Nov  5 12:21:02 2002
+User   : mccann
+Old Tag: v01_00_00
+New Tag: v01_00_01
+Message: Updated description to include measurement of beamgas cutting efficiency.
+
+Module : BeamGasFilterProc
+Date   : Fri Nov 22 15:04:15 2002
+User   : mccann
+Old Tag: v01_00_01
+New Tag: v01_01_00
+Message: I made zsep a more reasonable variable: the distance between the intersection according to one track minus the intersection according to the other track in z.  It is also now a signed quantity.  petez made some plots showing that it doesnt change the tails of the distribution much.
+
+Module : BeamGasFilterProc
+Date   : Fri Nov 22 15:41:25 2002
+User   : mccann
+Old Tag: v01_01_00
+New Tag: v01_01_01
+Message: I moved beginRun code to event.  It should never have been in beginRun, since it queries a kStartRun record.

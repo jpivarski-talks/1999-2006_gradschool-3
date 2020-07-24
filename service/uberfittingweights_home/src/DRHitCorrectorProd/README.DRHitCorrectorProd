@@ -1,0 +1,40 @@
+This is the README file for DRHitCorrectorProd. It shows you how to write 
+a producer in the new CLEO3 Suez environment.
+
+1.) You should only need to edit the DRHitCorrectorProd.cc file (and
+    potentially also DRHitCorrectorProd.h). Fill DRHitCorrectorProd.cc with your
+    producer code, registering your proxies.
+
+2.) Make a shared library: "gmake shared_module CXX=g++ or cxx"
+This step requires that you have a standard type of build area,
+consisting of (../bin, ../lib, and ../shlib) directories.
+The shared processor library will end up in ../shlib!
+
+3.) Set the environment variable C3_SHLIB to include the ../shlib
+directory above: setenv C3_SHLIB /home/mkl/build/shlib
+
+4.) Start up Suez: suez
+
+5.) Here is a sample job:
+
+suez> file in test.rp
+suez> prod ls
+
+Listing all available Producers:
+
+in memory:
+
+and on disk:
+/home/mkl/build/shlib/ DRHitCorrectorProd
+
+suez> prod sel DRHitCorrectorProd
+... other code: selecting processors etc ...
+suez> go 1
+... 
+suez> exit
+
+
+ Please read the documentation: 
+     http://w4.lns.cornell.edu/restricted/CLEO/CLEO3/soft/index.html
+
+ That's It! Questions, Suggestions, Complaints --> Martin Lohner

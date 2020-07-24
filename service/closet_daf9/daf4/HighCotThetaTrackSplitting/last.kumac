@@ -1,0 +1,11 @@
+*** Begin of history file: Wed Feb 12 12:54:42 2003
+h/file 1 data13_bhabhas.rzn
+ldir
+cd HIGHCOTTHETATRAC
+h/list
+nt/print 10
+nt/plot 10.curv
+nt/plot 10.curv abs(curv)<1
+nt/plot 10.curv abs(curv)<0.1
+exit
+*** End   of history file: Wed Feb 12 12:57:38 2003

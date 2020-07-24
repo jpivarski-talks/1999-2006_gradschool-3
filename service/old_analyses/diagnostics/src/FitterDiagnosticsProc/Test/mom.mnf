@@ -1,0 +1,134 @@
+inquire @1 'Ntuple number' 1
+! input 2 = mean momentum
+! input 3 = hist half width
+
+dep avg = @2
+dep wid = @3
+dep r1 = avg - wid
+dep r2 = avg + wid
+
+fun del 0
+fun add gau sig
+1000
+0
+1
+
+nt/pr @1 ((momfit-momtrue)/momerr) &6 50 -5 5
+nt/pr @1 momfit &7 50 r1 r2
+dep r3 = -wid
+dep r4 = wid
+
+fit @1&6
+1
+inc -2.5 2.5
+minim
+dep avg6 = P1(2)
+dep davg6 = ERR1(2)
+dep sigma6 = P1(3)
+dep dsigma6 = ERR1(3)
+dis
+exit
+rename @1&981 56
+set plot @1&6 default
+dep alpha = 1000/r125
+scale @1&6 @1&6 alpha
+scale 56 56 alpha
+
+!fit @1&7
+!1
+!minim
+!dep avg7 = P1(2)
+!dep sigma7 = P1(3)
+!dep r3 = avg7 - 2.5*sigma7
+!dep r4 = avg7 + 2.5*sigma7
+!inc r3 r4
+!minim
+!dep avg7 = P1(2)
+!dep davg7 = ERR1(2)
+!dep sigma7 = P1(3)
+!dep dsigma7 = ERR1(3)
+!dis
+!exit
+!rename @1&981 57
+!set plot @1&7 default
+!dep alpha = 1000/r125
+!scale @1&7 @1&7 alpha
+!scale 57 57 alpha
+
+fit @1&8
+1
+mod 1 1000
+mod 2 0
+mod 3 wid
+minim
+dep avg8 = P1(2)
+dep sigma8 = P1(3)
+dep r3 = -2.5*sigma8
+dep r4 = 2.5*sigma8
+inc r3 r4
+minim
+dep avg8 = P1(2)
+dep davg8 = ERR1(2)
+dep sigma8 = P1(3)
+dep dsigma8 = ERR1(3)
+dis
+exit
+rename @1&981 58
+set plot @1&8 default
+dep alpha = 1000/r125
+scale @1&8 @1&8 alpha
+scale 58 58 alpha
+
+set ssize .2
+set thick 3
+set header off
+
+set window 1 2 0 2
+set y limits 0 160
+pl @1&6 32
+over 56 1
+set x label 'GeV'
+0 0 .5 0 centre 2000
+
+!pl @1&7 32
+!over 57 1
+
+pl @1&8 32
+over 58 1
+
+comment
+@1&6
+new
+pull(p)
+0 20 .5 0 centre plot 2000 red 5
+new
+mean = {avg6,(F6.3)} "a# {davg6,(F5.3)}
+0 130 .35 0 centre plot 2000 blue 5
+new
+sigma = {sigma6,(F5.3)} "a# {dsigma6,(F5.3)}
+0 110 .35 0 centre plot 2000 blue 5
+
+!comment
+!@1&7
+!new
+!|p|
+!avg 20 .5 0 centre plot 2000 red 5
+!new
+!mean = {avg7,(F6.4)} "a# {davg7,(F6.4)} GeV
+!avg 135 .35 0 centre plot 2000 blue 5
+!new
+!sigma = {sigma7,(F6.4)} "a# {dsigma7,(F6.4)} GeV
+!avg 115 .35 0 centre plot 2000 blue 5
+
+comment
+@1&8
+new
+'|p-p?true!|'
+0 20 .5 0 centre plot 2000 red 5
+new
+mean = {avg8,(F6.4)} "a# {davg8,(F6.4)} GeV
+0 135 .35 0 centre plot 2000 blue 5
+new
+sigma = {sigma8,(F6.4)} "a# {dsigma8,(F6.4)} GeV
+0 115 .35 0 centre plot 2000 blue 5
+

@@ -1,0 +1,2363 @@
+%\documentclass{article}
+% ----------- space-saving, large-font version -------------
+\documentclass[12pt]{article}
+%== Set up margins
+\setlength{\oddsidemargin}{0.05in}   %- this really means 1.0 + 0.75 = 1.75 in
+%\setlength{\oddsidemargin}{0.75in}   %- this really means 1.0 + 0.75 = 1.75 in
+\setlength{\evensidemargin}{-0.05in} %- this really means 1.0 - 0.05 = 0.95 in
+\setlength{\textwidth}{6.5in}          %- right margin = 8.5-1.75-5.8  = 0.95 in
+%\setlength{\textwidth}{5.8in}        %- right margin = 8.5-1.75-5.8  = 0.95 in
+%
+\setlength{\topmargin}{-0.5in}   %- this really means 1.0 + (-0.5) = 0.5 in
+\setlength{\headheight}{0.3in}   %  so the page number will sit 0.8 in from top
+\setlength{\headsep}{0.1in}      %  and text will start 1.1 in from top
+%\setlength{\headsep}{0.3in}      %  and text will start 1.1 in from top
+%
+\setlength{\footskip}{0.4in}
+%\setlength{\footheight}{0.3in}
+\setlength{\textheight}{9in}   %- bottom margin = 11.0 - 1.1 - 8.8 = 1.1 in
+%\setlength{\textheight}{8.8in}   %- bottom margin = 11.0 - 1.1 - 8.8 = 1.1 in
+% ----------- space-saving, large-font version -------------
+
+\makeindex
+
+\usepackage{epsf}
+\usepackage{html}
+\usepackage{ifthen}
+
+\title{SUEZ: Job Control and User Interface for \mbox{CLEO III}}
+\author{Martin Lohner, Chris Jones, Simon Patton}
+\date{\today}
+
+% macros
+\def\displayepsf#1#2#3#4{ % Arguments: loc,plot file, height, caption(label)
+   \begin{figure}[#1]
+   \setlength{\epsfysize}{#3in}
+   \centerline{\epsffile{#2}}
+%   \caption{#4 \label{#2}}
+   \caption{#4}
+   \end{figure}}                   
+
+\def\SuezVersion{Suez\_v0\_6}
+\def\DeliveryVersion{Delivery\_v1\_1}
+
+\latex{\newcommand{\twiddle}{\symbol{'176}}}
+\html{\newcommand{\twiddle}{&#126;}}
+
+% =======================================================================
+\begin{document}
+
+% title
+\maketitle
+
+% table of contents
+\tableofcontents
+
+% =======================================================================
+\section{Introduction\index{introduction}}
+\label{sec:Introduction}
+
+I APOLOGIZE IN ADVANCE THAT THIS DOCUMENT IS NOT COMPLETELY UP-TO-DATE.
+IT MIGHT ALSO CONTAIN SERIOUS ERRORS AND OMISSIONS. PLEASE BEWARE. WE
+WILL TRY TO BRING THIS DOCUMENT UP-TO-DATE ASAP.
+
+This document describes SUEZ (Stream User interface made Easy), version
+\SuezVersion\index{Suez}, the prototype \mbox{CLEO III} job control
+and user interface for Chris Jones' and Simon Patton's data access
+``Frame''work~\cite{Delivery} \index{Framework}. The overall idea is to
+standardize the user interface for all of CLEO III analysis software.
+For now we provide a Command-line Interface (CLI) only.
+
+The manual is meant both as a tutorial for the novice and a manual for
+experts. The initial sections are introductory, later chapters go into
+more detail.
+
+First we will give an introduction into the conceptual model of the
+system in section~\ref{sec:ConceptualModel}, which is followed by the
+Suez tutorial in section~\ref{sec:Tutorial}. At that point, the novice
+should understand enough concepts to be able to run Suez. Later sections
+are devoted to Commands (section~\ref{sec:Commands}) and
+Modules\footnote{Does anybody have a better name for these ``Modules''?},
+the building blocks of the system. A
+%(section~\ref{sec:Modules}), the building blocks of the system. A
+special type of Module, the Processor, is discussed in detail in
+section~\ref{sec:AllAboutProcessors}. We conclude with a list of future
+developments in section~\ref{sec:FutureWork}.
+
+
+% -----------------------------------------------------------------------
+\section{Where To Find The Suez Code, Libraries, Executables etc.}
+\label{sec:Code}
+
+At the danger of getting ahead of ourselves, we'd like to point you to
+the relevant areas on the LNS DEC alpha cluster, where you can find all
+the code, libraries, and the main Suez executable.
+
+You can find all the code in the cleo3 area under
+\texttt{/cleo3/dlib/cvsssrc/Suez/, JobControl/, Processor/,
+CommandPattern/}. The corresponding libraries live in
+\texttt{/cleo3/[x,d,c]lib/lib/[cxx,g++]}, and the main Suez executable is available as
+\texttt{/cleo3/dlib/bin/[cxx,g++]suez}.
+
+To let people play with shared processor modules without having to
+create their own, we created a dummy ``ExampleProcessor'' which does
+nothing but print out a message for beginruns and events. This dummy
+Processor lives in \texttt{/cleo3/dlib/shlib/ExampleProcessor.so}.  
+
+It should be noted here that most users don't need to relink a main
+executable anymore; it suffices to link user code living in processors
+into shared object libraries.  The \texttt{mkproc} command to make
+processor skeleton files lives in \texttt{/cleo3/dlib/bin/mkproc}. Make
+sure that your environment variable \texttt{CMH\_SCRIPT} is either unset
+or set it to \texttt{/cleo3/dlib/cvssrc/Processor/skeletons}, before
+running \texttt{mkproc}. Then fire up Suez, and you're ready to go.
+
+If you don't understand what all this means, please be patient, we'll go
+into plenty of detail.
+
+
+% -----------------------------------------------------------------------
+\section{Conceptual Model \index{conceptual model}\index{concepts}}
+\label{sec:ConceptualModel}
+
+We will explain two sets of concepts here: 
+\begin{itemize}
+\item Data Access concepts: the
+state of CLEO described as a \emph{Frame}\index{frame}, data sources
+providing \emph{Stream}s\index{stream}, and \emph{Active
+Stream}s\index{active stream} and \emph{Stops}\index{stop}.
+
+\item Job Control concepts: \emph{Actions}\index{action} and
+\emph{Processors}\index{processor}. 
+
+\end{itemize}
+If you are already familiar with these concepts, you may skip this section.
+
+%Streams, Active Streams and stops.  Also you need to describe the new
+%job control model i.e. data sources, processors, and actions.  Once you
+%have introduced these concepts it should be easier for your reader to see
+%the relationship between these concepts and the Suez commands your
+%describing.
+
+\subsection{The Frame Model\index{frame model}}
+
+We can only give an overview here. For a more detailed description of the
+Frame Model we refer you to ~\cite{Delivery}.
+
+When a Physicist wishes to process some CLEO data\index{CLEO data} she
+needs to know the state of part, or all, of CLEO. This state is
+represented as a set of numbers. These numbers need to be organized so
+it is easy to find, read and write the ones of interest without spending
+too much time having to handle "uninteresting" data. The "state" of the
+detector is the first element of the conceptual model.
+ 
+The readout of the CLEO detector is really just a time-ordered set of
+discrete data items. We can consider the output to be an "electronic
+movie" where we generate a new movie frame every time we have a new
+piece of information about the detector. This "new information" may be a
+new data event, a new set of constants or a hardware record. The
+essence of the idea is that each frame in the movie describes a new
+"state" of the detector, as each piece of "new information" describes a
+change in some part of the state. For this reason the set of all data
+that describes the state of the detector at a particular instance in
+time is called a "Frame".
+
+Some parts of the state, such as geometry, are fixed over long periods
+of time, while other parts, such as ADC counts, have a very short
+lifetime.  Data with the same lifetime can be parceled up into packets
+of information. As these packets have the same "lifetime" then they can
+be handled as single units. When one part of a packet is superseded then
+we know all parts of the packet are superseded. Thus a
+Frame\index{frame} can be constructed by collecting together all packets
+that are "current" at a particular time. These packets are called
+"Records"\index{record}. Some examples of a Record are; an event,
+another event, information about the beginning of a run, a summary
+created at the end of a run, description of the current geometry.
+
+Clearly as time progresses and the state of CLEO changes new Records are
+produced. A time-ordered set of Records that describe the same part of
+the state, but at different times, is called a
+"Stream"\index{stream}. Clearly there are a number of different Streams,
+e.g. the event Stream, the geometry stream, etc., and the set of all
+Streams needs to describe the state of CLEO is called the
+"DataStream". A Frame can now be built by taking the relevant Record
+from each Stream contained in the DataStream. Fig.~\ref{fig:FrameModel}
+summarizes the temporal relationship between the basic structural
+elements of the conceptual model.
+
+\displayepsf{ht}{FrameModel.ps}{1.45}{The Frame Model\label{fig:FrameModel}}
+
+In general the user will not be interested in every single ``state'' of
+CLEO, rather only when a new Record appears in a certain Stream. Most
+CLEO members will probably be interested in events, but don't care when
+the geometry changes. So the user would want to stop on every event, but
+not stop when there is a new record coming from the geometry stream. So
+we could think of events as \emph{Stops}\index{stop} and the event
+stream as the \emph{Active Stream}\index{active stream} providing
+\emph{Stops}.
+
+Note that this concept is not restricted to your standard CLEO analysis,
+where the user would most likely stop on events and beginruns; a user
+could be interested in wire breakage in the drift chamber and use the
+geometry as the active stream.
+
+
+\subsection{Processors And Actions\index{processor}\index{action}}
+
+Whenever a stop occurs, the user wishes to take some action,
+e.g. execute some piece of code. In her standard CLEO analysis, the user
+would want to execute her analysis code (the analysis
+\emph{Action}\index{action}), whenever a \emph{Stop}\index{stop} occurs
+on the \emph{Active Stream}\index{active stream} event. To do this we
+have to \emph{bind}\index{bind} the event \emph{Action} to the
+\emph{stream} event. In this scheme a processor\index{processor} is a
+mere \emph{Container of Actions}. Only if the, in this case, event
+\emph{Stream} is \emph{active}, will the event \emph{Action} be
+executed.
+
+
+% -----------------------------------------------------------------------
+\section{Tutorial\index{tutorial}}
+\label{sec:Tutorial}
+
+Suez only provides a \index{command-line interface} (CLI) for now. It is
+based on the Tcl~\cite{TclInfo} command interpreter and is
+text-based. Because of this all Tcl commands are available to the user.
+On top of that we have defined standard commands for job control to run
+an analysis job. The command set consists of a subset of driver and
+clever commands with slightly changed names and/or syntax.
+
+The simplest way to get a taste is to actually run Suez. To find out
+what commands are available, type ``help'':
+%
+\begin{verbatim}
+shell> suez
+
+// ---------------------------------------------------------------
+//  Welcome to SUEZ, the new CLEO III analysis program            
+//                                                                
+//  For a list of available commands, type "help".              
+//                                                                
+//  Since the command interpreter is based on a Tcl interpreter,  
+//  all Tcl commands are available.                               
+// ---------------------------------------------------------------
+
+// Renaming the following Tcl commands:
+//  (because they collide with Suez commands!)
+// -------------------------------------------
+//  source --> tcl_source
+//  proc   --> tcl_proc
+//  file   --> tcl_file
+
+Suez> help
+The following commands are available:
+     exit     quit     help     go
+     nextstops     goto     reprocess     source
+     stream     sink     file     processor
+     proc
+  Type "<command> help" to get specific help
+suez> 
+\end{verbatim}
+
+You can get more specific information about a command by
+typing ``$<$command$>$ help''. The basic commands are relatively close to
+driver commands plus some added commands influenced by clever commands.
+
+
+% -----------------------------------------------------------------------
+\subsection{Specifying Input Files\index{input files}}
+\label{sec:tutorial-file}
+
+The ``file'' command let's the user specify input files.
+\newline Let's try the help command on ``file''\index{data input}:
+%
+\begin{verbatim}
+suez> file help
+ 
+\begin{verbatim}
+// Description: FileCommand                                       
+//                                                                
+// Valid subcommands are:                                         
+//                  (<src>=sourcename, <snk>=sinkname,strm=stream)
+//                                                                
+//  file help                           see this help page        
+//                                                                
+//  file source <src> [<strm1>..]       define src w/ strms       
+//  file src <src> [<strm1>..]          synonym for "source"    
+//  file use <src> [<strm1>..]          synonym for "source"    
+//  file input <src> [<strm1>..]        synonym for "source"    
+//  file in  <src> [<strm1>..]          synonym for "source"    
+//                                                                
+//  file add <token> <src> [<strm1>..]  add src to <token>        
+//                                                                
+//  file sink <snk> [<strm1>..]         define sink w/ strms      
+//  file output <snk> [<strm1>..]       synonym for "sink"      
+//  file out <snk> [<strm1>..]          synonym for "sink"     
+// 
+// Standard streams are:  beginrun endrun event              
+//                        geometry hardware user             
+//                                                           
+// If no streams are specified, "event beginrun" are the   
+// default streams, and "event" is the default active stream.
+\end{verbatim}
+
+You can define sources and add sources to a chain (more about chains
+later). And you can specify \emph{streams}.  The really new thing are
+the streams! You may want to specify the streams that you want to be read.
+
+If you don't specify streams, reasonable defaults are used (``beginrun''
+and ``event''), therefore not specifying streams will work just fine for
+most cases. But the flexibility is there to do something non-standard.
+
+The current version of Suez supports reading roar\index{roar file} and
+ascii\index{ascii file} files with file extensions ``.rp'' and ``.asc'',
+respectively.
+
+Specifying a non-existent file will prompt the user for a new
+filename. Specifying a stream that doesn't exists will give a warning
+message that you're using a non-standard stream. This just means, that
+Suez expects that you defined your own stream type (and the source has
+to be able to supply that stream type!). Specifying a stream
+that the source can't provide will result in an error message.
+
+
+
+% -----------------------------------------------------------------------
+\subsection{How To Specify What Gets Executed At Stops}
+\label{sec:tutorial-processors}
+
+So far we haven't specified what should get executed whenever a stop
+occurs. This is done via Processors, which are similar to Clever
+processors. User code now lives in a processor!
+
+The ``processor'' command let's you specify processors\index{processor}.
+Type ``processor help'' for all available processor commands:
+%
+\begin{verbatim}
+// Description: Command handler for the "processor" command
+//              that talks with (Master)processor.
+//
+//    Valid subcommands are:
+//
+//    1.) commands that talk with the MasterProcessor:
+//    processor help                         see this help page
+//    processor list                         List all available processors
+//    processor ls                           Synonym for "list"
+//    processor listsel                      List currently selected processors
+//    processor lss                          Synonym for "listselected"
+//    processor select   <proc1> [<proc2>..] Select processors
+//    processor sel      <proc1> [<proc2>..] Synonym for "select"
+//    processor deselect <proc1> [<proc2>..] Deselect selected processor
+//    processor desel    <proc1> [<proc2>..] Synonym for "deselect"
+//    processor clear                        Empty the processor list
+//    processor reorder <proc1> <proc2> [..] Reorder processor list
+//
+//    2.) commands to talk to a specific Processor:
+//    processor interact <proc>              Start interacting with processor
+//    processor inter    <proc>              Synonym for "interact"
+//
+\end{verbatim}
+%
+Let's concern ourselves only with commands under 1.). The ``list'' or ``ls''
+command lists all available processors. These can either be statically
+linked in (as all clever processors are), or dynamically. Dynamic
+linking has advantages, as you don't have to relink the whole program,
+if only your user code (which lives in a processor!) changes. Using
+processors makes the system very modular. Using dynamically linked
+processors makes suez very flexible and run-time configurable. You don't
+have to decide at link time which processors you might use.
+
+The ``select'' or ``sel'' command let's you select a processor. All
+selected processors will be run in the order you specified them. If you
+like to change the order, use the ``reorder'' command (which is shorter
+than deselecting all and then reselecting them in the new order).  If
+you like to deselect a processor, ``deselect'' or ``desel'' will let you
+do that. And ``listsel'' or ``lss'' let's you see which ones you have
+selected. 
+
+Processors are \emph{Containers of Actions}. Actions are pieces of code
+you wrote that are \emph{bound to streams} and get executed whenever a
+stop in an active stream occurs.
+
+Please refer to section~\ref{sec:HowToWriteAProcessor} on a full
+description on how to write a processor. Just a quick overview of the
+steps involved. We only show you here how to make a dynamically linked
+processor. For the static version, please refer to
+sections~\ref{sec:HowToWriteAProcessor} and \ref{sec:UserApplication}.
+%
+\begin{enumerate}
+
+\item Either unset the environment variable CMH\_SCRIPT or set it to
+ point to the directory for processor skeletons:
+%
+\begin{verbatim}
+shell> setenv CMH_SCRIPT /cleo3/dlib/cvssrc/Processor/skeletons
+\end{verbatim}
+
+\item run the \texttt{mkproc} script (at the moment
+it's in \texttt{/cleo3/dlib/bin/mkproc}): 
+%
+\begin{verbatim}
+shell> mkproc <nameOfProcessor>
+\end{verbatim}
+%
+which creates a new subdirectory underneath the current user directory
+$<$nameOfProcessor$>$ and creates proper processor skeleton files and
+Makefiles. 
+\newline For instance:
+%
+\begin{verbatim}
+shell> mkproc ExampleProcessor
+shell> ls ExampleProcessor
+ExampleProcessor.h
+ExampleProcessor.cc
+ExampleProcessor_DONT_TOUCH.cc
+Makefile
+M.tail
+\end{verbatim}
+
+\item Write your analysis code in ExampleProcessor.cc .
+
+\item Make a shared library. Make sure that your environment is set up
+correctly. We coined a new environment variable \texttt{C3\_CVSSRC} to
+point to the proper cleo3 software area. A typical setup could look like
+this:
+%
+\begin{verbatim}
+shell> setenv C3_CVSSRC /cleo3/dlib/cvssrc
+shell> setenv USER_SRC /home/mkl/analysis/ExampleProcessor
+shell> gmake shared_module 
+\end{verbatim}
+
+\item Set the environment variable \texttt{C\_PROC\_DIR} to wherever your
+shared processor lives. The format follows the unix path command
+(directories are delimited by ``:''):
+%
+\begin{verbatim}
+shell> setenv C_PROC_DIR .:/home/mkl/analysis/shlib
+\end{verbatim}
+
+\item Now if you fire up suez, you should be able to list your shared
+processor:
+%
+\begin{verbatim}
+suez> processor ls
+
+Listing all available Processors:
+
+in memory:
+
+and on disk:
+/home/mkl/analysis/shlib/ExampleProcessor.so
+\end{verbatim}
+
+\item Now you can select it like any other processor:
+%
+\begin{verbatim}
+suez> processor sel /home/mkl/analysis/shlib/ExampleProcessor.so
+suez> processor lss
+
+Listing selected Processors:
+
+Processor /home/mkl/analysis/shlib/ExampleProcessor.so
+\end{verbatim}
+
+\end{enumerate}
+
+\subsection{Sample Suez Session}
+\label{tutorial-SuezSession}
+
+Let's show you a complete session:
+%
+\begin{verbatim}
+setenv C_PROC_DIR .:/home/mkl/analysis/shlib
+
+suez> processor ls
+
+Listing all available Processors:
+
+in memory:
+
+and on disk:
+/home/mkl/analysis/shlib//ExampleProcessor.so
+
+suez> processor sel /home/mkl/analysis/shlib/ExampleProcessor.so
+suez> processor lss
+
+Listing selected Processors:
+
+Processor /home/mkl/analysis/shlib/procs/ExampleProcessor.so
+
+suez> file in  data.rp event beginrun
+suez> nextstops 10
+...
+Processor.ExampleProcessor: here in event()
+\end{verbatim}
+%
+That last line is just a message I coded into my processor to see that
+it actually executes the event action at an event stop.
+
+For a more in-depth discussion of processors, please refer to
+section~\ref{sec:Processor}.
+
+
+\subsubsection{How to Access Common Block Information NOW \index{common
+block}}
+\label{sec:howto-access-commonblocks}
+
+To allow for a smoother transition, and to let people play with Suez
+without having to learn about Frames, we have set up a special type of
+Processors which simply calls your \texttt{anal1-10} routines. We call
+this type of processor \texttt{DriverProcessor}\index{DriverProcessor}. 
+The differences to writing a normal processor, as described above, are
+listed here:
+
+\begin{itemize}
+
+\item run the \texttt{mkdriverproc} script (at the moment
+it's in \texttt{/cleo3/dlib/bin/mkdriverproc}): 
+%
+\begin{verbatim}
+shell> mkdriverproc <nameOfProcessor>
+\end{verbatim}
+%
+which creates a new subdirectory underneath the current user directory
+$<$nameOfProcessor$>$ and creates proper processor skeleton files and
+Makefiles. 
+\newline For instance:
+%
+\begin{verbatim}
+shell> setenv CMH_SCRIPT /cleo3/dlib/cvssrc/Processor/skeletons
+shell> mkdriverproc MyDriverProcessor
+shell> ls MyDriverProcessor
+
+README.MyDriverProcessor
+
+MyDriverProcessor.cc
+MyDriverProcessor.h
+MyDriverProcessor_DONT_TOUCH.cc
+M.tail
+Makefile
+anal.cc
+anal.h
+anal_fortran.h
+
+anal1.F
+anal2.F
+anal3.F
+anal4.F
+anal5.F
+anal10.F
+\end{verbatim}
+
+\item Write your analysis code in the \texttt{anal1-10.F} files. You
+shouldn't have to touch any of the other files.
+
+\end{itemize}
+
+For a detailed description of how to write such a processor, we refer
+you to Section~\ref{sec:HowToWriteADriverProcessor}.
+
+
+% -----------------------------------------------------------------------
+\subsection{Specifying Output Files\index{output files}}
+\label{sec:tutorial-fileoutput}
+
+The ``file'' command also allows the user to specify output files.
+When you define a ``sink'', you need to
+specify which streams you want to write out. IMPORTANT: you can only
+specify active streams as output streams!  If you forget to specify
+output streams, Suez will use all active streams as default output
+streams.
+
+The current version of Suez only supports writing ascii\index{ascii
+file} files with the file extension ``.asc''.
+
+Suez will first check, if the file path exists; if not it will issue an
+error message and you have to try again. If the path exists, it will
+check if the filename exists; if so, it will prompt you to confirm that
+you would like to overwrite the file. The default (by hitting return) is
+to NOT overwrite the file.
+
+\noindent Example:
+%
+\begin{verbatim}
+suez> file in  roarfile.rp
+suez> proc sel EventProc.so
+suez> file out ascii_out.asc
+\end{verbatim}
+%
+This will define ``event'' and ``beginrun'' as the streams to be read,
+and ``event'' as the active stream. Since you didn't specify any output
+streams, the ``event'' stream will be used as the default.
+
+\noindent Let's now stop on both events and beginruns:
+%
+\begin{verbatim}
+suez> file in  roarfile.rp
+suez> proc sel EventBeginRunProc.so
+suez> file out ascii_out.asc
+suez> go 
+\end{verbatim}
+%
+This example would read events and beginruns, make both active and also
+write them both out.
+%
+\begin{verbatim}
+suez> file in  roarfile.rp
+suez> proc sel EventBeginRunProc.so
+suez> file out ascii_out.asc event
+suez> go 
+\end{verbatim}
+%
+This would only write out the event stream.
+
+
+% -----------------------------------------------------------------------
+\subsection{How To Control Processing}
+\label{sec:tutorial-processing}
+
+Well, big surprise for driver users: suez also has a ``go'' command:
+%
+\begin{verbatim}
+suez> file in  roarfile.rp event
+suez> file in  asciifile.asc beginrun
+suez> proc sel EventProc
+suez> go 
+\end{verbatim}
+%
+Using ``go'' will keep processing until the end of the active stream
+specified (which is usually the end of the file).
+
+If you care only to process a certain number of stops, use ``nextstops
+$<$\#ofstops$>$'': 
+%
+\begin{verbatim}
+suez> file in  roarfile.rp event
+suez> file in  asciifile.asc beginrun
+suez> proc sel EventProc
+suez> nextstops 10
+\end{verbatim}
+%
+will process the next 10 stops, in this case events, as ``event'' was
+specified as the active stream.
+Specifying a negative number is equivalent to the ``go'' command.
+
+If you want to keep processing the same stop, use ``reprocess''. This
+could come in handy, e.g. if you choose to process an event, then decide
+to change some parameters in your fitter and reprocess the same event to
+see if it found more tracks:
+%
+\begin{verbatim}
+suez> file in  roarfile.rp event
+suez> proc sel EventProc
+suez> nextstops 1
+suez> <change some parameters in your fitter>
+suez> reprocess
+\end{verbatim}
+%
+(Later more on how you can do things like changing parameters in your
+code etc.)
+
+Now what if you have to process only certain stops in a file? Yes, you
+guessed it -- it would be nice to have a ``goto'' command:
+%
+\begin{verbatim}
+suez> file in  roarfile.rp 
+suez> proc sel EventProc
+suez> goto 36594 109
+\end{verbatim}
+%
+will skip to run 36594 and event 109 and process that event. In the
+current implementation the ``goto'' command only works with run and
+event numbers.
+
+
+For further information on the these commands, see
+sections~\ref{sec:GoCommand}, \ref{sec:NextStopsCommand},
+\ref{sec:ReprocessCommand}, and \ref{sec:GotoCommand}. 
+
+
+% -----------------------------------------------------------------------
+\subsection{How Can Tcl Be Of Assistance?\index{Tcl scripts}}
+\label{sec:tutorial-Tcl}
+
+Since we have all Tcl commands available (see
+Section~\ref{sec:TclCommands} for a list), let us just give a few
+examples of how Tcl can make our life simpler.
+
+To call unix commands from Tcl, you must always use the ``exec''
+command. Say, you want to find out the names of the roar files to run
+on:
+\begin{verbatim}
+suez> exec ls *.rp
+roarfile1.rp
+roarfile2.rp
+suez> file in  roarfile1.rp
+...
+\end{verbatim}
+
+Tcl allows us to ``source'' a file, which contains our commands:
+%
+\begin{verbatim}
+suez> exec ls *.tcl
+sampleJob.tcl
+suez> exec more sampleJob.tcl
+file in  roarfile1.rp event beginrun
+processor sel analysis.so
+nextstops 10
+exit
+suez> source sampleJob.tcl
+\end{verbatim}
+
+How about reprocessing the same stop with different versions of a
+processor. Let's assume that you have 5 different versions of your
+analysis processor named ``analysis1.so'', ``analysis2.so'' etc.
+Then you could use a for loop:
+%
+\begin{verbatim}
+suez> exec ls analysis*.so
+analysis1.so
+analysis2.so
+analysis3.so
+...
+suez> foreach p [exec ls analysis*.so] {
+suez> processor sel $p; reprocess; processor desel $p 
+suez> }
+\end{verbatim}
+%
+As you can see, commands are either separated by newlines or semicolons.
+
+For more info on Tcl, please see~\cite{TclInfo}.
+
+% -----------------------------------------------------------------------
+\subsection{More on Input/Output Commands \index{I/O}\index{Input/Output}}
+\label{sec:MoreIO}
+
+Here we give a bit more in-depth information on basic I/O.
+
+To define sources and sinks, the user has to use the source-type
+dependent command, e.g. ``file'' or ``database''. Once a source or sink
+is defined with suez, one can use the generic ``source'' or ``sink''
+commands to do everything else, e.g. print a listing  or remove a source
+or sink etc.
+
+The reason for this is that defining a source or sink will in general be
+dependent on the source/sink type. For instance, a database source might
+expect different parameters than a file.
+
+Another issue are ``chains of sources''. Remember, because the frame
+model allows different sources to supply different streams to feed data
+into the system at the same time, there are now two dimensions to deal
+with: different streams from potentially different sources (1st
+dimension), and chains of sources, which are lists of sources to be
+processed in sequential order (2nd dimension). This can be easily seen
+in Fig.~\ref{fig:ChainsOfSources}.
+%
+\displayepsf{h}{DataInput.eps}{1.1}{Chains of Sources
+\label{fig:ChainsOfSources}}
+
+Specifying sources in the first dimension is straightforward: simply
+register sources with Suez through the various input commands:
+\begin{verbatim}
+suez> file in  file1.rp event
+suez> file in  file2.rp beginrun
+suez> database source <database parameters>...
+\end{verbatim}
+
+Now let's show you how to deal with the second dimension.
+The basic idea is that the system keeps track of a source through a
+``token''. Now a ``chain of sources'' is really just one source with
+multiple partitions. The partitions have to have the same source type
+(all roar files or all ascii etc.), have to supply the same stream types
+(event or event\& beginrun etc.). This simply means that you can't mix
+roar and zebra files in one chain, or mix roar files with some supplying
+event and others supplying events and beginruns. There is no real reason
+why this has to be this way; we simply couldn't think of reasons why a
+user would need this much generality. Putting these restrictions on
+makes it harder for the user to screw up.
+
+%To define an input source, use the "source" command;   
+%the system will return a "token" which has to be used  
+%to add new sources to the "chain" with name "token". 
+%                                                         
+%You can also create your own token or change the token   
+%generated by the system via the "source" command;      
+%Please see the help page for the "source" command      
+%for details.                                             
+
+If the user knows beforehand that she wants to chain sources together,
+the best way is to create a token by hand:
+%
+\begin{verbatim}
+     suez> source create myFirstChain                    
+     suez> file add myFirstChain file1.rp                
+     suez> file add myFirstChain file2.rp                
+\end{verbatim}
+%
+and then simply add sources to the chain denoted by the token.
+
+The other way is to simply define a source; the system will generate a
+token for you (usually the name of your source). You can either leave it
+or change it to a better name:
+%
+\begin{verbatim}
+     suez> file in  file1.rp                             
+      new token "file1.rp"                              
+     suez> source change file1.rp chain1                  
+     suez> file add chain1 file2.rp                      
+     suez> file add chain1 file1.rp                      
+\end{verbatim}
+
+
+Missing items:
+- can add/remove sources to chain
+- which streams are used for chain: streams of first source, streams of
+last added source, or need specify explicitly via ``stream
+bind''/''source bind''?
+- can't change a source, once it's started processing; have to ``edit''
+source!
+
+                                                          
+% =======================================================================
+\section{Commands \index{commands}}
+\label{sec:Commands}
+
+The system has two main base classes: ``Command'' and ``Module''.
+Modules are ``receivers'' of commands. Examples of Commands are: exit,
+quit, help, file, go, nextstops, processor.  Examples of Modules
+are: job control, processor, file.
+
+The CLI \index{command-line interface} is based on the
+Tcl~\cite{TclInfo} command interpreter and is text-based. Because of
+this all Tcl commands are available to the user.  On top of that we have
+defined standard commands for job control to run an analysis job. The
+command set consists of a subset of driver and clever commands with
+slightly changed names and/or syntax.
+
+A command consists of one or more words with spaces as delimiters of
+words.  The first word is the name of the command, and additional words
+are arguments to that command:
+%
+\begin{verbatim}
+	<command> [<argument1> [<argument2> ...]]
+\end{verbatim}
+%
+Optional additional parameters are indicated by square brackets.
+Commands are separated by newlines or semicolons.
+
+The Tcl interpreter allows command completion, which means something
+different than hitting tab with a substring of the actual command and
+getting the command completely written at the command line. For Tcl it
+means that it checks, if e.g. curly brackets have been closed in an
+``if'' construct. We will have to improve command-line editing beyond
+that facility.
+
+Another nice feature is the history mechanism; typing ``history''
+displays all recent commands for easy reference.
+
+Following we describe each command. Some of the commands
+(e.g. \texttt{HelpCommand}, \texttt{ExitCommand}, etc.) are of general
+nature and can be tied in with any Module. For instance the
+\texttt{ExitCommand}, once tied in with a Module, will call the
+\texttt{execute()} method of the Module. For more information, please
+see section~\ref{sec:NewCommandsAndModules}. 
+
+
+% -----------------------------------------------------------------------
+\subsection{Help \index{help}\index{HelpCommand}}
+\label{sec:HelpCommand}
+
+With respect to the CLI, ``help'' simply lists all available commands.
+To get more detailed help, one has to type ``$<$command$>$ help'',
+eg. ``file help''; the ``help'' request is an argument to the
+``file'' command.
+
+% -----------------------------------------------------------------------
+\subsection{Exit \index{exit}\index{ExitCommand}}
+\label{sec:ExitCommand}
+
+The command ``exit'' simply calls the exit method of a module. In the
+case of the CLI, it exits the job. If the program is in a special mode
+(eg. after ``module interact file''), it will exit that special mode.
+
+Type ``exit help'' for the following information:
+%
+\begin{verbatim}
+// Description: Exit Command
+//              "exit" exists module.
+\end{verbatim}
+
+% -----------------------------------------------------------------------
+\subsection{Quit \index{quit}\index{QuitCommand}}
+\label{sec:QuitCommand}
+
+In difference to ``exit'', ``quit'' exits quickly, no verbose
+last-minute output etc.
+
+Type ``quit help'' for the following information:
+%
+This is what the help command prints:
+\begin{verbatim}
+// Description: Quit Command
+//              "quit" exists module in a quick way.
+\end{verbatim}
+
+% -----------------------------------------------------------------------
+\subsection{Go \index{go}\index{GoCommand}}
+\label{sec:GoCommand}
+
+The command ``go'' starts processing of ``events'', or better to say,
+``stops'', since the new Frame system allows one to stop on any stream;
+the user could for instance choose to only process begin-run records!
+
+Type ``go help'' for the following information:
+%
+This is what the help command prints:
+\begin{verbatim}
+// Description: Go Command
+//              "go" will start processing stops.
+\end{verbatim}
+
+% -----------------------------------------------------------------------
+\subsection{NextStops \index{nextstops}\index{NextStopsCommand}}
+\label{sec:NextStopsCommand}
+
+The command ``nextstops'' processes a specified number of stops (what
+was formerly known as ``events'').
+
+Type ``nextstops help'' for the following information:
+%
+This is what the help command prints:
+\begin{verbatim}
+// Description: NextStops Command 
+//              "nextstops 10" will process the next 10 stops.
+//              If the number is negative, the entire active source 
+//              will be processed.
+\end{verbatim}
+
+Specifying a negative number is equivalent to the ``go'' command,
+meaning, it will process the entire active input stream(s) (i.e. the end
+of the input file(s)).
+
+% -----------------------------------------------------------------------
+\subsection{Reprocess \index{reprocess}\index{ReprocessCommand}}
+\label{sec:ReprocessCommand}
+
+The ``reprocess'' command re-processes the current stop. This is
+usefule, if e.g. the user would like to change selected processors
+(e.g. add a trigger viewer to see why the event didn't pass your cuts)
+and redo the current event.
+
+Type ``reprocess help'' for the following information:
+%
+\begin{verbatim}
+// Description: Reprocess Command
+//              "reprocess" re-processes current stop.
+\end{verbatim}
+
+% -----------------------------------------------------------------------
+\subsection{Goto \index{goto}\index{GotoCommand}}
+\label{sec:GotoCommand}
+
+The ``goto'' command will proceed to a stop that the user requests
+without processing stops in between. For now, the user can only request
+to ``goto'' a given run and event number.
+
+Type ``goto help'' for the following information:
+%
+\begin{verbatim}
+// Description: Goto Command
+//              "Goto [<runnumber>] <eventnumber>" will proceed to
+//              given run and event number and process that stop.
+//              All stops in between are skipped.
+//
+\end{verbatim}
+
+
+% -----------------------------------------------------------------------
+\subsection{Source \index{source}\index{SourceCommand}}
+\label{sec:SourceCommand}
+
+The ``source'' command handles all sources, once added to the system, in
+a generic way.  To add a source, the user has to use the file-type
+specific commands (e.g. ``file in '' or ``database source'').
+The idea behind this distinction is that it will be necessary to specify
+different types of parameters for adding different types of
+sources. Specifying a file will be different than adding a database.
+
+All commands have the following syntax:
+\newline ``source $<$command$>$ [$<$arguments$>$]''. 
+\newline Example: \texttt{source list $<$filename$>$}
+
+\medskip
+Type ``source help'' for all available source commands:
+%
+\begin{verbatim}
+// Description: SourceCommand                                      
+//                                                                 
+// Valid subcommands are: (src=source, strm=stream)                
+//                                                                 
+//  source help                            see this help page      
+//  source create token                    create token            
+//  source list                            list all sources        
+//  source list <token>                    list sources in <token> 
+//  source ls [<token>]                    Synonym for "ls"      
+//  source edit <token>                    edit <token>            
+//  source remove <token>                  remove <token>          
+//  source remove <token> <src1> [<src2>.] del source(s) from token
+//  source rm     <token> [<src1>...]      Synonym: "remove"     
+//  source del    <token> [<src1>...       Synonym: "remove"     
+//  source clear                           clear the token list    
+//  source token                           list tokens             
+//  source rename <oldtoken> <newtoken>    rename token            
+//  source bind <token> <strm1> [<strm2..] bind streams to token   
+//                                                                 
+// Standard streams are:  beginrun endrun event                    
+//                        geometry hardware user                   
+//                                                                 
+\end{verbatim}
+
+
+% -----------------------------------------------------------------------
+\subsection{Sink \index{sink}\index{SinkCommand}}
+\label{sec:SinkCommand}
+
+The ``sink'' command is very similar in nature to the ``source'' command
+with the important difference that ``sink'' deals with output sinks.
+Usage:
+\newline ``sink $<$command$>$ [$<$arguments$>$]''. 
+\newline Example: \texttt{sink list $<$filename$>$}
+
+\medskip
+Type ``sink help'' for all available sink commands:
+%
+\begin{verbatim}
+// Description: SinkCommand                                       
+//                                                                
+// Valid subcommands are: (strm=stream)                           
+//                                                                
+//  sink help                            see this help page       
+//  sink list                            list all sink            
+//  sink list <sink>                     list sink properties     
+//  sink ls [<sink>]                     synonym for "ls"       
+//  sink edit <sink>                     edit <sink>              
+//  sink remove <sink>                   remove <sink>            
+//  sink rm     <sink>                   synonym: "remove"      
+//  sink del    <sink>                   synonym: "remove"      
+//  sink clear                           clear the sink list      
+//  sink bind <sink> <strm1> [<strm2..]  bind streams to sink     
+//                                                                
+// Standard streams are:  beginrun endrun event                   
+//                        geometry hardware user                  
+//                                                                
+// Warning: you can only write out ACTIVE streams!                
+\end{verbatim}
+
+
+% -----------------------------------------------------------------------
+\subsection{File I/O \index{file i/o}\index{FileCommand}}
+\label{sec:FileCommand}
+
+The ``file'' command is handled by the \texttt{FileCommand}.
+All commands dealing with file input/output have the following syntax:
+\newline ``file $<$command$>$ [$<$arguments$>$]''. 
+\newline Example: \texttt{file in  file.rp event beginrun}
+
+\medskip
+Type ``file help'' for all available file commands:
+%
+\begin{verbatim}
+// Description: FileCommand                                       
+//                                                                
+// Valid subcommands are:                                         
+//                  (<src>=sourcename, <snk>=sinkname,strm=stream)
+//                                                                
+//  file help                           see this help page        
+//                                                                
+//  file source <src> [<strm1>..]       define src w/ strms       
+//  file src <src> [<strm1>..]          synonym for "source"    
+//  file use <src> [<strm1>..]          synonym for "source"    
+//  file input <src> [<strm1>..]        synonym for "source"    
+//  file in  <src> [<strm1>..]          synonym for "source"    
+//                                                                
+//  file add <token> <src> [<strm1>..]  add src to <token>        
+//                                                                
+//  file sink <snk> [<strm1>..]         define sink w/ strms      
+//  file output <snk> [<strm1>..]       synonym for "sink"      
+//  file out <snk> [<strm1>..]          synonym for "sink"     
+// 
+// Standard streams are:  beginrun endrun event              
+//                        geometry hardware user             
+//                                                           
+// If no streams are specified, "event beginrun" are the   
+// default streams, and "event" is the default active stream.
+\end{verbatim}
+
+The current version of Suez supports reading roar and ascii files with
+file extensions ``.rp'' and ``.asc'', respectively.
+Only writing ascii files is supported at the moment.
+
+There are few important points to be made here:
+%
+Input Streams:
+\begin{itemize}
+
+\item If you specify the same stream type coming from two different
+sources, everything will be fine, as long as no data fields (= data
+items) overlap; otherwise this will give rise to an error.
+
+\item \emph{Active Streams have to be unique!} You can't specify the
+same stream type coming from different files! If you do, the more
+recently defined will be used.
+
+\end{itemize}
+
+Output Streams:
+\begin{itemize}
+
+\item You can only specify active streams as output streams. If you
+specify non-active streams, you will get a warning message and suez
+won't use the non-active stream(s) as output.
+
+\item If you don't specify any output streams, Suez will give a warning and
+use all active stream(s) as default output streams.
+
+\end{itemize}
+
+% -----------------------------------------------------------------------
+\subsection{Stream \index{stream}\index{StreamCommand}}
+\label{sec:StreamCommand}
+
+The stream command deals with streams.
+
+All commands dealing with stream have the following syntax:
+\newline ``stream $<$command$>$ [$<$arguments$>$]''. 
+\newline Example: \texttt{stream activate event}
+
+\medskip
+Type ``stream help'' for all available stream commands:
+%
+\begin{verbatim}
+// Description: StreamCommand                                      
+//                                                                 
+// Valid subcommands are: (strm=stream)                            
+//                                                                 
+//  stream help                            see this help page         
+//  stream activate <strm1> [<strm2> ..]   set active strms           
+//  stream act      <strm1> [<strm2> ..]   synonym: \"activate\"      
+//  stream list                            list streams               
+//  stream ls                              synonym for \"ls\"         
+//  stream bind <token> <strm1> [<strm2..] bind streams to token      
+//                                                                 
+// Standard streams are:  beginrun endrun event                    
+//                        geometry hardware user                   
+//                                                                  
+\end{verbatim}
+
+
+\ifthenelse{\boolean{false}}{ % commented out
+% -----------------------------------------------------------------------
+\subsection{Module \index{module}\index{ModuleCommand}}
+\label{sec:ModuleCommand}
+
+The command ``module'' is handled by the \texttt{ModuleCommand}.  It is
+the door to special interactions between user and system. If the user
+wants to set certain parameters for a particular processor, she can say
+``module interact $<$modulename$>$'', which changes the command-prompt
+to ``modulename$>$ `` to signify the special mode. Once in special mode,
+the user can then directly interact with the module. In the special
+mode, only the special-mode commands are available, the normal CLI
+commands are disabled.  ``exit'' will exit from that special mode and
+return to the normal command-line interface.
+
+The other important issue is modularity! By defining a ``module'',
+eg. ``myNewTrackingProcessor'' and a Command suite that goes along, all
+it takes is to call ``JobControl.addModule()'' (eg. in the
+UserApplication.cc -- ref. below) and interaction via ModuleCommand. No
+change to JobControl!
+
+This for now is just a framework for how to interact; 
+no concrete implementation yet!
+
+Type ``module help'' for all available file commands:
+%
+\begin{verbatim}
+// Description:
+//      Command handler for the "module" command.
+//      Valid subcommands are:
+//
+//      module help                             Show help for this command
+//      module list                             List modules
+//      module interact <module>                Interact with module
+//
+\end{verbatim}
+
+Let me give an example of what an interaction with a module via the
+ModuleCommand would look like:
+\begin{verbatim}
+suez> module interact myNewTrackProcessor
+myNewTrackProcessor> help
+<lists all available myNewTrackProcessor commands>
+myNewTrackProcessor> <do whatever with myNewTrackProcessor>
+myNewTrackProcessor> exit
+suez>
+\end{verbatim}
+}{} % commented out
+
+% -----------------------------------------------------------------------
+\subsection{Processor \index{processor}\index{ProcessorCommand}}
+\label{sec:ProcessorCommand}
+
+(This command is one example of what the ModuleCommand tries to achieve
+in general: interaction with a subsystem in a special mode.)
+
+The ``processor'' command is handled by the \texttt{ProcessorCommand}.
+It deals with selecting/deselecting processors and interacting with a
+particular processor (eg. to set certain parameters).
+
+Type ``processor help'' for all available processor commands:
+%
+\begin{verbatim}
+// Description: Command handler for the "processor" command
+//              that talks with (Master)processor.
+//
+//    Valid subcommands are:
+//
+//    1.) commands that talk with the MasterProcessor:
+//    processor help                         see this help page
+//    processor list                         List all available processors
+//    processor ls                           Synonym for "list"
+//    processor listsel                      List currently selected processors
+//    processor lss                          Synonym for "listselected"
+//    processor select   <proc1> [<proc2>..] Select processors
+//    processor sel      <proc1> [<proc2>..] Synonym for "select"
+//    processor deselect <proc1> [<proc2>..] Deselect selected processor
+//    processor desel    <proc1> [<proc2>..] Synonym for "deselect"
+//    processor clear                        Empty the processor list
+//    processor reorder <proc1> <proc2> [..] Reorder processor list
+//
+//    2.) commands to talk to a specific Processor:
+//    processor interact <proc>              Start interacting with processor
+//    processor inter    <proc>              Synonym for "interact"
+//
+\end{verbatim}
+
+The order in which processors were selected matters; the first selected
+will also be executed first. To reorder a selected list of processors,
+use the ``reorder'' command (equivalent for ``clear'' and then
+``select'' again).
+
+%The ``interact'' command is a special case of the \texttt{ModuleCommand}
+%in section~\ref{sec:ModuleCommand}.
+
+
+% -----------------------------------------------------------------------
+\subsection{Tcl Commands \index{Tcl}\index{Tcl Command}}
+\label{sec:TclCommands}
+
+For more info on Tcl, please see ~\cite{TclInfo}.
+
+We already showed examples using the ``source'' and ``exec''
+commands. Other useful commands are ``history'' (history facility),
+``proc'' (to define procedures), ``for'' and ``while'' (for loops),
+``if'' (for conditional processing), and ``set'' to set parameters.
+
+Here is a list of available Tcl commands:
+
+\vspace*{0.3cm}
+\begin{tabular}{llllll}
+append  & array    & break    & case    & catch    & cd       \\
+close   & concat   & continue & eof     & error    & eval     \\
+exec    & exit     & expr     & file    & flush    & for      \\
+foreach & format   & gets     & glob    & global   & history  \\
+if      & incr     & info     & join    & lappend  & lindex   \\
+linsert & list     & llength  & lrange  & lreplace & lsearch \\
+lsort   & open     & pid      & proc    & puts     & pwd     \\
+read    & regexp   & regsub   & rename  & return   & scan    \\
+seek    & set      & source   & split   & string   & switch  \\
+tell    & time     & trace    & unknown & unset    & uplevel \\
+upvar   & while    &          &         &          &         \\
+\end{tabular}
+
+
+\ifthenelse{\boolean{false}}{ % commented out
+% =======================================================================
+\section{Modules \index{modules}}
+\label{sec:Modules}
+
+Modules are the building blocks of the application. They do the actual
+work, when called by commands.
+
+Some of the modules described here call lower-level
+Delivery~\cite{Delivery} libraries. For in-depth information on these
+libraries, please see~\cite{DeliveryLibraries}.
+
+% -----------------------------------------------------------------------
+\subsection{FileInput/Output \index{fileinput/output}\index{FileInput/Output}}
+\label{sec:FileInput}
+
+This module provides the basic link to manipulating file input sources in
+the system. Sources can be added, removed, declared active, listed etc.
+There are two basic objects in the Data Access system which FileIO
+has to deal with: FrameDeliverer and
+DataSourceBinder(s)~\cite{DeliveryLibraries}. Everything else
+happens ``under the hood''.
+
+When the user adds a source (e.g. ``file in roarfile.rp event
+beginrun''), the FileIO module figures out from the source extension
+(in the example ``.rp'') that it is dealing with a roar file. This means
+it has to create a DriverSourceBinder with the filename ``roarfile.rp''
+and streams ``event'' and ``beginrun''. It then hands this
+DriverSourceBinder off to FrameDeliverer.
+
+To avoid the overhead of doing all this and then finding out from
+FrameDeliverer that the user mistyped the filename, the FileIO module
+checks right away, if this file actually exists, and if not keeps
+prompting the user for a replacement file name, until she types one that
+actually exists. If no streams are specified, ``event'' and ``beginrun''
+are the default streams, and ``event'' is the default active stream.
+
+%Note: my current implementation creates a proper DataBinder and then
+%makes a call to FrameDeliverer.addSource, which actually opens the
+%file. Maybe we should postpone that second step, until a ``go'' or
+%``nextstops'' command is encountered?
+
+The second part of this module provides the basic link to manipulating
+file output sinks in the system. Sinks can be added, removed, listed etc.
+There are two basic objects in the Data Access system which the Output
+part of FileIO has to deal with: FrameStorer and
+DataSinkBinder(s)~\cite{StorageLibraries}. Everything else happens
+``under the hood''.
+
+When the user adds a sink (e.g. ``file out file.asc event
+beginrun''), the FileIO module figures out from the source extension
+(in the example ``.asc'') that it is dealing with an ascii file. This means
+it has to create a AsciiSinkBinder with the filename ``file.asc''
+and streams ``event'' and ``beginrun''. It then hands this
+AsciiSinkBinder off to FrameStorer.
+
+Given a sink file, Suez checks first, if the file path exists; if not,
+it will issue an error message. If the path exists, it further checks,
+if the file already exists; if so, it will prompt the user for
+confirmation to overwrite the file. The default (hitting carriage
+return) is not to overwrite the file.
+If no streams are input by the user, the output stream(s) default to the
+active stream(s).
+
+
+% -----------------------------------------------------------------------
+\subsection{Processor \index{processor}}
+\label{sec:Processor}
+
+Processors are the building blocks of the user application. All
+processors are registered with the
+MasterProcessor. Selecting/DeSelecting processors is handled via the
+MasterProcessor. When it comes to processing a stop, the MasterAction in
+the MasterProcessor will call all relevant actions of all selected
+processors for that stop.
+
+For more info, please see section~\ref{sec:AllAboutProcessors}.
+
+}{} % commented out
+
+
+% -----------------------------------------------------------------------
+\section{All You Never Wanted To Know About Processors\index{processor}}
+\label{sec:Processor}
+\label{sec:AllAboutProcessors}
+
+% ----------------------------------------------------------------------
+\subsection{Statically and Dynamically Linked Processors}
+\label{sec:StaticAndDynamicProcessors}
+
+There are two ways to get hold of a processor: either it was statically
+linked in and registered with the MasterProcessor in the
+implementation of the UserApplication (see
+section~\ref{sec:UserApplication}); or it was dynamically linked as a
+shared object (see appendix~\ref{sec:SharedProcessors}). In the second
+case it has to be loaded, and all the symbols have to resolved at
+runtime.
+Apart from the dynamic loading part, the two linkage modes behave identically!
+
+Using dynamically linked processors provides for a very light-weight job
+control, since all heavy-weight modules can be loaded at run-time.
+An environment variable \texttt{C\_PROC\_DIR} defines where Suez looks for
+shared processor modules (the format follows the path command: ``:'' is
+used as a separator).
+
+Dynamically linked processors deserve a bit more explanation in the
+appendix~\ref{sec:SharedProcessors}.
+
+
+% ----------------------------------------------------------------------
+\subsection{Quick Trick to find Missing Symbols in Shared Processors}
+\label{sec:MissingSymbolsInSharedProcessors}
+
+(Warning: the trick described here is probably highly non-portable; I've
+only tested it on the DEC alpha platform.)
+
+When you, the user, link a dynamically-linked processor, we use a
+compiler flag to turn off warnings about missing symbols. Most of these
+symbols will be in the main \texttt{Suez} executable, others are
+pertinent to your processor and therefore have to be linked in. But to
+avoid hundreds of warnings about missing symbols, we decided to go the
+route of using this flag to turn off the warnings. Eventually we will
+have you link to shared libraries of the relevant cleo3 libraries, and
+then we can avoid using the compiler flag and still avoid long link
+times and symbol duplication.
+
+The symbol resolution for the dynamically-linked processors is done at
+run time (but it's fast, isn't it!?). Because of a ``feature'' of the
+run-time \texttt{loader} on the dec alphas, it doesn't tell you what the
+missing symbols are when you select a processor. THAT SUCKS. You're only
+way to find out what's missing was to link that processor statically,
+and the linker \texttt{ld} would tell you what you're missing. I found
+that situation very unsatisfying.
+
+I have finally found a way to display the missing symbols when loading a
+shared processor. This trick is highly non-portable, but we might not
+need it for other platforms (e.g. on my linux box it isn't needed, and I
+will test other platforms).
+
+Basically, since "dlopen" can't be coaxed into telling me more than just the 
+message "unresolved symbols", I was trying to get the (run-time) loader to 
+display which symbols are missing. On my linux box nothing special was 
+necessary, it would gladly tell me, but on our dec alphas I had no luck. I 
+consider this a "feature" of our dec alpha loader.
+
+So I started playing with the environment varable "\verb=_RLD_ARGS=" (do
+a "man loader" to find out more).  The one and only thing that worked is
+"\verb=setenv _RLD_ARGS -ring_search=".  Ring-search is a particular algorithm
+for resolving the symbols (there are others, and I am not sure if
+ring-search is the default, to be honest), and it tells what symbols are
+missing. At that point I was worried about "side-effects" if I simply
+set the environment variable all the time (in case it isn't the
+default), but have detected none so far.  Still, I think it's best to
+wrap this in a script, then the effect of the environment variable is
+contained. For instance:
+%
+\begin{verbatim}
+unix> more ~/bin/Suez
+
+#!/usr/local/bin/bash
+
+export _RLD_ARGS=-ring_search
+suez
+\end{verbatim}
+
+Please give it a try; it sure worked for me:
+%
+\begin{verbatim}
+Suez> proc sel ExampleProcessor_kaputt.so
+1191:./suez: /sbin/loader: Error: unresolvable symbol in 
+/home/mkl/work/cleo3/build_cxx5.6/shlib/ExampleProcessor_kaputt.so: 
+event__16ExampleProcessorXR5Frame
+Wed Nov  5 00:26:49 1997
+\%Processor.SharedObjectHandler-ERROR: dlopen: Unresolved symbols
+\end{verbatim}
+%
+\verb=ExampleProcessor_kaputt= is a version where I "forgot" to
+implement the event method, even though it is declared and used.
+
+Now there is one big caveat to all this: I've only tried this on the DEC
+alpha platform; this ``trick'' is probably highly non-portable. I will
+try to find which environment variable is needed on other platforms, as
+they come up.
+
+% ----------------------------------------------------------------------
+\subsection{Sample Session With Shared Processor Modules}
+\label{sec:SampleSharedProcessorSession}
+
+Let's show you a typical Suez session involving processors:
+%
+\begin{verbatim}
+setenv C_PROC_DIR .:/home/mkl/analysis/shlib
+
+suez> processor ls
+
+Listing all available Processors:
+
+in memory:
+
+and on disk:
+/home/mkl/analysis/shlib/ExampleProcessor.so
+
+suez> processor sel /home/mkl/analysis/shlib/ExampleProcessor.so
+suez> processor lss
+
+Listing selected Processors:
+
+Processor /home/mkl/analysis/shlib/procs/ExampleProcessor.so
+
+suez> file in  data.rp event beginrun
+suez> nextstops 10
+...
+Processor.ExampleProcessor: here in event()
+\end{verbatim}
+%
+That last line is just a message I coded into my processor to see that
+it actually executes the event action at an event stop.
+
+Notice that Suez figures out from your code (\verb=ExampleProcessor.so=)
+which streams to activate. Later more on that.
+
+% ----------------------------------------------------------------------
+\subsection{Organizing Processors \index{processor}\index{organizing
+processors}}
+\label{sec:OrganizingProcessors}
+
+Each dynamically linked processor lives in a shared library by
+itself. Therefore we propose to organize processors ``one per
+directory''. This way all the code in a directory gets compiled into the
+same shared library pertinent to the same processor.
+
+One could imagine a tree directory structure like the following:
+%
+\begin{verbatim}
+/cleo/processors/tracking/duet_v2.6/
+                          duet_v2.7/
+                 shower/ccfc/
+...
+/home/mkl/dstar_analysis/v3_8/
+\end{verbatim}
+%
+Different versions of a processor would also live in a different directory.
+An environment variable \texttt{C\_PROC\_DIR} controls where Suez looks 
+for shared processor modules.
+
+Even though having all processors linked dynamically has major
+advantages, we might still use a pass2 executable with all needed
+processors statically linked in to assure that the \emph{identical} executable
+is run on different datasets etc. to minimize screw-ups.
+
+% ----------------------------------------------------------------------
+\subsection{How To Write A Processor}
+\label{sec:HowToWriteAProcessor}
+
+For a quick overview, see section~\ref{sec:tutorial-processors} in the
+Tutorial.
+
+Let's look at what the user actually has to do to write a processor.  As
+an example we will create a processor with the name
+``ExampleProcessor''. You can choose any name you want for your own
+processor, of course.
+%
+\begin{enumerate}
+
+\item Set environment variable CMH\_SCRIPT to the standard
+skeleton\index{processor skeletons} directory (for now set it
+to \texttt{/cleo3/dlib/cvssrc/Processor/skeletons}) and run the
+\texttt{mkproc} script (e.g. \texttt{mkproc $<$nameOfProcessor$>$})
+which makes a new subdirectory underneath the current user directory,
+names the new directory $<$nameOfProcessor$>$, and creates proper
+processor skeleton files and Makefiles:
+\begin{verbatim}
+shell> setenv CMH_SCRIPT /cleo3/dlib/cvssrc/Processor/skeletons
+shell> mkproc ExampleProcessor
+shell> ls ExampleProcessor
+ExampleProcessor.h
+ExampleProcessor.cc
+ExampleProcessor_DONT_TOUCH.cc
+Makefile
+M.tail
+\end{verbatim}
+
+The Makefiles simply make either a library the old fashioned way
+(\texttt{gmake [DEBUG=y]}) or also a shared library (\texttt{gmake
+shared\_module}). Make sure that your environment is set up
+correctly. We coined a new environment variable \texttt{C3\_CVSSRC} to
+point to the proper cleo3 software area. A typical setup could look like
+this:
+\begin{verbatim}
+shell> setenv C3_CVSSRC /cleo3/dlib/cvssrc
+shell> setenv USER_SRC /home/mkl/analysis/ExampleProcessor
+shell> gmake shared_module 
+\end{verbatim}
+
+
+The file \texttt{ExampleProcessor\_DONT\_TOUCH.cc} contains the external
+function to create a processor object  and the implementation of the
+``bind( action, stream )'' function.
+
+\item The only files the user needs to worry about are
+\texttt{ExampleProcessor.h} and \texttt{ExampleProcessor.cc}.
+Let's first look at the header file.
+
+\noindent In ExampleProcessor.h:
+\begin{verbatim}
+class ExampleProcessor : public Processor
+{
+      ExampleProcessor( void );
+      virtual ~ExampleProcessor();
+
+      // member functions
+
+      virtual void init( void );
+      virtual void terminate( void );
+      virtual histo_book( TBHistoManager& );
+
+      virtual ActionBase::ActionResult event( Frame& iFrame );
+      virtual ActionBase::ActionResult beginRun( Frame& iFrame);
+      //virtual ActionBase::ActionResult endRun( Frame& iFrame);
+      //virtual ActionBase::ActionResult geometry( Frame& iFrame);
+      //virtual ActionBase::ActionResult hardware( Frame& iFrame);
+      //virtual ActionBase::ActionResult user( Frame& iFrame);
+...
+};
+\end{verbatim}
+
+When a processor gets selected, its constructor is invoked at that
+point. Similary, the destructor is called, when a processor is
+deselected by the user. So any resources (memory, files etc.)  that are
+to be used during the lifetime of the processor should be allocated (and
+deallocated) in the constructor (desctructor). Since the user cannot
+``interact'' with a processor, before it is created, any kind of
+parameters that the user would like to set in the processor can only
+take effect in the form of expensive algorithms after the processor is
+created. For that reason the ``init'' method is part of the
+interface. ``init'' is called the first time the event loop is entered,
+and then subsequently only if a parameter change occured. The
+``terminate'' method then is called BEFORE a new parameter change
+occurs.
+
+To make things clear, let's give a quick example:
+\begin{verbatim}
+suez> proc sel ExampleProcessor    --> calls ctor
+suez> nextstops 1                  --> calls init
+suez> ``parameter change''         --> first call terminate, 
+                                       allow parameter change, 
+                                       then call init again
+suez> proc desel ExampleProcessor  --> calls terminate, then ctor
+\end{verbatim}
+
+A processor is now a \emph{Container of
+Actions}\index{action}\footnote{Actions are stolen from NileFT} which
+are \emph{bound to streams}. Whenever a stop on a particular kind of
+stream occurs, the action(s) bound to that stream are executed.  The
+processor methods \texttt{event}, \texttt{beginRun}, etc. above declare
+the \emph{standard} actions, but the user can define others
+(e.g. ``\texttt{mailMe()} whenever you hit a new \texttt{geometry}
+record'').
+
+The user should (un)comment any other standard actions above he or she
+wants to implement. The user can also define new actions. These
+non-standard actions require a little bit of extra work (see
+Section~\ref{sec:NonStandardActions}).
+
+\item To bind\index{bind} a \emph{standard} action to a stream, the user
+has to add a call to the function \texttt{bind(action, stream)} in the
+constructor.
+
+\noindent In ExampleProcessor.cc:
+\begin{verbatim}
+ExampleProcessor::ExampleProcessor( void )
+   : Processor( "ExampleProcessor" )
+{
+// bind a method to a stream
+   bind( event,    Stream::kEvent );
+   bind( beginRun, Stream::kBeginRun);
+   //bind( endRun, Stream::kEndRun);
+   //bind( geometry, Stream::kGeometry );
+   //bind( hardware, Stream::kHardware );
+   //bind( user, Stream::kUser );
+}
+\end{verbatim}
+
+Again, the user should (un)comment the relevant calls to \texttt{bind}
+above.
+
+\item All the user now needs to do is write the code for the relevant
+actions.
+
+\noindent In ExampleProcessor.cc:
+\begin{verbatim}
+ActionBase::ActionResult
+ExampleProcessor::event( Frame& iFrame )
+{
+   // standard meslog facility
+   report( INFO, kFacilityString ) << "::event()" << endl;
+
+   // find D*'s
+   ...
+
+   return ActionBase::kPassed;
+}
+\end{verbatim}
+
+The return type of Actions is an enumeration with the possible values
+(\texttt{kPassed, kFailed, kError}). If an Action returns anything other
+than \texttt{kPassed}, the remaining Actions in the list for that stop
+won't be executed. This allows the user to selectively run processor
+actions. If the user only wants to run the visualization processor
+Cleo3D, if a B meson was fully reconstructed, and the order of
+Processors was ``FindBMeson Cleo3D'', then by returning
+\texttt{ActionBase::kPassed} vs \texttt{ActionBase::kFailed} from the
+event action of FindBMeson, the following processor Cleo3D is either run
+or not.
+
+One of the reasons for having actions and streams and binding the two
+together is to allow Suez to activate streams by default based on the
+actions implemented in the user's processor. So to speak, Suez queries
+all selected processors for their Actions and activates the proper
+streams.\footnote{This particular feature is not implemented yet!}  The
+user can still override which streams are active, of course.
+
+Data access is accomplished through a Frame being handed to the action
+as a reference. How data are extracted and/or saved in the Frame is
+documented in detail elsewhere~\cite{Delivery}.
+
+\item in order to link in a static processor, the user has to create the
+processor in UserApplication, described in
+section~\ref{sec:UserApplication}.
+
+\end{enumerate}
+
+
+% ----------------------------------------------------------------------
+\subsection{How To Write A DriverProcessor \index{DriverProcessor}}
+\label{sec:HowToWriteADriverProcessor}
+
+To get people started on using Suez and allow for a smooth transition,
+we show you here, how to write fortran code in the new CLEO3 Suez
+environment.  A special type of processor, the \texttt{DriverProcessor},
+allows the user to access common block \index{common block} information
+in the same way as in a driver job.  The user just writes code in the
+usual \texttt{anal1-10} routines (and the code can be Fortran or C++)
+and access data through common blocks. The user doesn't have to deal
+with Frames at all!
+
+\noindent WARNING: There is one caveat to this: The
+\texttt{DriverProcessor} can only access common block information from
+roar files (ascii files won't work!).
+
+Let us show you here in easy-to-follow steps, what you have to do:
+%
+\begin{enumerate}
+
+\item Set environment variable CMH\_SCRIPT to the standard
+skeleton\index{processor skeletons} directory (for now set it to
+\texttt{/cleo3/dlib/cvssrc/Processor/skeletons}) and run the
+\texttt{mkdriverproc} script (instead of \texttt{mkproc} for
+frame-accessing processors!) with the name of your new Processor
+(e.g. \texttt{MyDriverProcessor}), which makes a new subdirectory
+underneath the current user directory, names the new directory
+e.g. \texttt{MyDriverProcessor}, and creates proper processor skeleton
+files and Makefiles:
+\begin{verbatim}
+shell> setenv CMH_SCRIPT /cleo3/dlib/cvssrc/Processor/skeletons
+shell> mkdriverproc MyDriverProcessor
+shell> ls MyDriverProcessor
+
+README.MyDriverProcessor
+
+MyDriverProcessor.cc
+MyDriverProcessor.h
+MyDriverProcessor_DONT_TOUCH.cc
+M.tail
+Makefile
+anal.cc
+anal.h
+anal_fortran.h
+
+anal1.F
+anal2.F
+anal3.F
+anal4.F
+anal5.F
+anal10.F
+\end{verbatim}
+
+The README.MyDriverProcessor contains these easy-to-follow steps in
+short form, in case you forgot what to do!
+
+\item You should only need to edit the \texttt{anal1-10} files. Fill
+them with your analysis code. If you'd rather program in C++, you can
+fill the \texttt{anal1-10} routines in \texttt{anal.cc} instead. By
+default, the C++ \texttt{anal} routines call the fortran \texttt{anal}
+routines.  (In the C++ case you'll have to worry about how to access
+common block information: either write interface functions to Fortran or
+use \texttt{cleo\_inc.h}; be VERY careful, better to say, BE AFRAID).
+
+\item Make a shared library: \texttt{gmake shared\_module}
+This step requires that you have a standard type of build area,
+consisting of (../bin, ../lib, and ../shlib) directories.
+The shared processor library will end up in ../shlib!
+
+\item Set the environment variable \texttt{C\_PROC\_DIR} to include the
+../shlib directory above: \texttt{setenv C\_PROC\_DIR /home/mkl/build/shlib}
+
+\item Start up Suez: (on lns111) \texttt{/cleo3/[x,d,c]lib/bin/[cxx,g++]/suez} and
+select your new processor.
+
+\end{enumerate}
+
+Following we show a sample job. The anal3.F file contains code to
+print the number of tracks \texttt{ntrkcd} and \texttt{pqcd} for each track.
+%
+\begin{verbatim}
+setenv C_PROC_DIR /home/mkl/build/shlib/:.
+
+suez> file in test.rp
+suez> processor ls
+
+Listing all available Processors:
+
+in memory:
+
+and on disk:
+/home/mkl/build/shlib/MyDriverProcessor.so
+
+suez> processor sel /home/mkl/build/shlib/MyDriverProcessor.so
+suez> nexstops 1
+...
+DriverProcessor.MyDriverProcessor: here in anal3 (fortran)
+ ntrkcd=          12
+ pqcd=   1.298370
+...
+\end{verbatim}
+
+That's all there is to it!!!
+
+
+% ----------------------------------------------------------------------
+\subsection{How To Bind Non-Standard Actions \index{action, non-standard}}
+\label{sec:NonStandardActions}
+
+Binding non-standard actions requires a tiny bit more work. The binding
+of action to stream is done through the \texttt{bind()} function.
+
+\noindent There are two things the user needs to do:
+%
+\begin{enumerate}
+\item add a method to the interface of the user processor.
+\item use the \texttt{bind()} method in the constructor to bind this new
+method to a stream.
+\end{enumerate}
+
+Say the user would like to add a new action \texttt{mailMe()} and have
+it execute every time there is a stop on a \texttt{beginRun} or
+\texttt{event} or even some new stream type that the user has
+defined.
+
+Let's call this new processor MailManProcessor:
+After running \texttt{mkproc} etc., add this to MailManProcessor.h:
+\begin{verbatim}
+      virtual ActionBase::ActionResult mailMe( Frame& iFrame );
+\end{verbatim}
+%
+and this to MailManProcessor.cc:
+%
+\begin{verbatim}
+ActionBase::ActionResult
+MailManProcessor::mailMe( Frame& iFrame ) 
+{
+   // send mail
+   system( ``Mail mkl -s "just hit a begin or end run" << /dev/null'' );
+
+   return ActionBase::kPassed;
+}
+\end{verbatim}
+%
+and add a call to \texttt{bind()} in the constructor:
+%
+\begin{verbatim}
+MailManProcessor::MailManProcessor( void )
+   : Processor( "MailManProcessor" )
+{
+// bind a method to a stream
+   bind( event,    Stream::kEvent );
+   bind( beginRun, Stream::kBeginRun);
+   //bind( endRun, Stream::kEndRun);
+   //bind( geometry, Stream::kGeometry );
+   //bind( hardware, Stream::kHardware );
+   //bind( user, Stream::kUser );
+
+   // new calls
+   bind( mailMe, Stream::kBeginRun );
+   bind( mailMe, Stream::kEvent );
+}
+\end{verbatim}
+
+
+% ----------------------------------------------------------------------
+\subsection{How To Debug a Dynamically-linked Processor
+   \index{processor, how to debug shared}\index{debug tips}\index{debugging}}
+\label{sec:DebugSharedProcessor}
+
+Debugging a dynamically-linked processor is a bit more complicated than
+debugging a statically linked processor. The problem is that your
+debugger (e.g. \texttt{gdb}) cannot automatically read the symbol table
+of a dynamically-linked library, because it doesn't know about it at the
+debugger start-up time.  But once the dynamically-linked library is
+loaded, it just takes one command to add the new symbols to the symbol
+table.
+
+In what follows I will use \texttt{gdb}. I haven't tried this with
+\texttt{decladebug} yet. The debugger \texttt{decladebug} works very
+well for code compiled with DEC's \texttt{cxx}, but I found that
+\texttt{gdb} works very well for code compiled with either \texttt{g++}
+or \texttt{cxx}. One tip for \texttt{gdb}: if you run on code compiled
+with \texttt{cxx}, gdb doesn't necessarily understand the mangled names,
+but there is a trick. Say you want to stop on the event method of your
+``ExampleProcessor''. Now you don't know what the mangled name looks
+like. In gdb do the following:
+\begin{verbatim}
+(gdb) break 'ExampleProcessor <-- hit Tab key!
+\end{verbatim}
+and gdb will magically complete the mangled symbol name. If there are
+more than one possible completions, it will list the choices.
+That's in fact the only way you may set breakpoints for templates,
+because you cannot set a breakpoint in the template source file!
+
+Now back to debugging a dynamically-linked processor. Here is what you
+have to do:
+%
+\begin{enumerate}
+
+\item You must compile and link the shared library with the -g flag (as you 
+always would) to save the symbols.
+
+\item Make sure the shared library is loaded. I haven't found a command
+yet in \texttt{gdb} to actually load a shared library. The only way that
+I know how to do it is to set a breakpoint in the MasterProcessor or
+SharedObjectHandler AFTER the "dlopen" call.
+
+\noindent To see all loaded shared libraries:
+%
+\begin{verbatim}
+(gdb) info shared
+>From                To                  Syms Read   Shared Object Library
+0x3ff808016b0       0x3ff80802230       Yes         /usr/shlib/libdnet_stub.so
+...
+0x30001002870       0x300010131e0       No      
+/home/mkl/work/cleo3/build/shlib/ExampleProcessor_g.so
+\end{verbatim}
+
+\item Once the shared library is loaded, have \texttt{gdb} read the symbol table:
+%
+\begin{verbatim}
+(gdb) sharedlibrary /home/mkl/work/cleo3/build/shlib/ExampleProcessor_g.so
+Reading symbols from /home/mkl/work/cleo3/build/shlib/ExampleProcessor_g.so...
+done.
+\end{verbatim}
+
+\item Set your breakpoint according to the lines in the source file:
+%
+\begin{verbatim}
+(gdb) break ExampleProcessor.cc:100
+Breakpoint 2 at 0x30001002d38: file 
+/home/mkl/work/cleo3/ExampleProcessor/ExampleProcessor.cc, line 100.
+\end{verbatim}
+
+And it works as expected!
+
+\end{enumerate}
+
+So it boils down to knowing two additional \texttt{gdb} commands:
+%
+\begin{itemize}
+\item info shared                 --- check if the library is loaded
+\item sharedlibrary $<$name$>$    --- load symbol table
+\end{itemize}
+
+Having to set a breakpoint at a point after the shared library is loaded
+to read the symbol table is cumbersome. We're investigating ways to make
+this simpler.
+
+Another viable method to debug a processor is to link it statically:
+create it at Suez start-up time in \texttt{UserApplication.cc} (see
+section~\ref{sec:UserApplication}). We don't recommend this method, as
+it requires the user to do different things for debugging and for normal
+running, in case the user normally uses dynamic linking.
+
+
+% -------------------------------------------------------------------
+\subsection{How to link a Processor statically
+\index{UserApplication}\index{processor, statically-linked}}
+\label{sec:UserApplication}
+
+Usually I would suggest linking processors dynamically, because then the
+user doesn't have to relink Suez every time, only the processor needs to
+be remade, but there are cases when you want to link a processor
+statically with Suez.
+E.g. in order to avoid potential screwups (running with a different
+processor than expected), you might want to link a stand-alone (no
+dynamic processors!) Suez executable with all processors linked in.
+
+Now let me explain how to it: to put together a
+statically linked Suez application, you have to implement the
+\texttt{UserApplication} class, in which you have to register any
+processors you would like to link statically. The registration is done
+via the ``MasterProcessor'' (here in the case of an
+``ExampleProcessor'') (or ``MasterProducer'' in the case of producers).
+%
+\begin{verbatim}
+#include "ExampleProcessor/ExampleProcessor.h''
+
+UserApplication::UserApplication( JobControl* jobControl )
+{
+   // register Processors with MasterProcessor
+   MasterProcessor& MPROC = JOBC->masterProcessor();
+
+   MPROC.addProcessor( "ExampleProcssor",
+                       new ProcFactory<ExampleProcessor> );
+}
+\end{verbatim}
+%
+The UserApplication is created by JobControl at initialization time.
+\medskip
+
+\noindent Here are the steps needed to get this to work:
+
+\begin{enumerate}
+
+\item Create a library for your Processor. \\ If you are not yet
+familiar with the include file setup, do the following: \\1.) create an
+include area somewhere (e.g. /home/mkl/cleo3/include); \\2.) from that
+directory make a soft link to the include area of your processor
+(e.g. ln -s /home/mkl/cleo3/cvssrc/MyProc/MyProc); \\3.) Set the
+environment variable \verb=C3_INC= to point to your include area first
+(e.g. \verb=setenv C3_INC ``/home/mkl/cleo3/include /nfs/cleo3/development/include''=).
+
+\item Create a directory beneath your standard build directory,
+e.g. \verb=build/MySuez= (PLEASE DO NOT CALL IT ``Suez''!!!), 
+and set the environment variable \verb=USER_SRC=
+to the directory above, e.g. \verb=setenv USER_SRC <something>/build =.
+
+\item Copy the files
+\verb=/nfs/cleo3/[x,d,c]lib/cvssrc/Suez/UserApplication.cc=, \verb=Makefile=
+to that directory and ``implement'' \verb=UserApplication.cc= as shown
+above.
+
+\item Edit the \verb=Makefile= to include \verb=UserApplication.o= under \verb=USER_OBJS= and your processor library under
+\verb=USER_LIBS=. For instance:
+\begin{verbatim}
+#------------------------------------
+# USER, CLEO and CERN object modules
+#------------------------------------
+
+USER_OBJS :=    \$(XTRA_OBJS) UserApplication.o  <-- here
+...
+
+#---------------------------------------
+# USER, CLEO and CERN libraries to load
+#---------------------------------------
+
+USER_LIBS :=    \$(XTRA_LIBS) libExampleProcessor.a  <-- here
+
+OTHR_LIBS :=    Suez \
+                JobControl \
+                Processor \
+                CommandPattern \
+...
+\end{verbatim}
+
+Or if you don't want to edit the \verb=Makefile=, simply use the command-line
+flags \verb=XTRA_OBJS= and \verb=XTRA_LIBS= instead:
+\begin{verbatim}
+unix> 
+gmake XTRA_OBJS=UserApplication.o XTRA_LIBS=YourProcessorHere CXX=cxx (or g++)
+\end{verbatim}
+
+\end{enumerate}
+
+That should do it! (If you encounter problems, please email me, so I can
+improve on this documentation.)
+
+
+% =======================================================================
+\section{How To Define New Commands And Modules}
+\label{sec:NewCommandsAndModules}
+
+The basic ``Command'' class follows the Command Pattern
+in the book ``Design Patterns''~\cite{DesignPatterns}. All other
+commands derive from this class. They all have an ``execute'' method,
+which does basic parsing of user input and will call the relevant
+methods that actually perform the desired tasks. These methods are part
+of classes derived from the ``Module class''. Modules are ``receivers''
+of commands.  This relationship is depicted in
+Fig.~\ref{fig:CommandsAndModules}.
+%
+\displayepsf{ht}{Command.eps}{2.4}{Command and
+Module\label{fig:CommandsAndModules}}
+
+Commands are registered with the Tcl interpreter, which is used for
+parsing of user input.\footnote{Actually, the registering of the command goes
+through a static member function of ``Command'', which calls the actual
+(derived) command.} The main loop of the CLI is
+CommandLineInterface::interact().
+
+More in later versions of this manual.
+
+
+% =======================================================================
+\section{Future Work}
+\label{sec:FutureWork}
+
+% -------------------------------------------------------------------
+\subsection{Current Version}
+\label{sec:CurrentVersion}
+
+The current version of Suez works on top of Chris' and Simon's data
+access ``Frame''work, released as \DeliveryVersion\ in the
+\texttt{/cleo3/dlib} area.  To recapture, the basic features in the current
+version \SuezVersion\ are:
+\begin{itemize}
+
+\item File Input: read roar and ascii files. 
+      (e.g. read events from .rp and beginruns from ascii file)
+
+\item File Output: write ascii files. 
+
+\item Chains of sources (list of files to be processed sequentially)
+
+\item Processors: define the ``action'' at Stops (active streams), 
+      e.g. beginrun, event. 
+
+\item go/nextstops/goto/reprocess/exit/quit: control main "Event" Loop.
+
+\item First version of Asynchronous Interrupts ('e', 'q' will prompt
+      user while running event loop)
+
+\end{itemize}
+
+
+\subsection{Here is a List of Features in the Making}
+\label{sec:FutureFeatures}
+
+\begin{itemize}
+
+  \item Event lists (ascii file with run-, event numbers to process)
+
+  \item Full Data Access (input/output) through Frames in various (file)
+formats (roar, zebra, KarpServer, database etc.)
+
+  \item Interaction with processors to set/query parameters
+
+  \item Improvements to command-line editing; e.g. command completion.
+
+  \item Make other CLEO programs dynamically linked processors (e.g. qq).
+
+  \item Separation into Client/Server architecture via using CORBA; the
+  user interface is just a thin client talking via CORBA to JobControl
+  and maybe even distributed processors.
+
+  \item GUI (Tk ...): e.g. show lists of files/processors; select via
+  clicking. It should also be possible to specify .tcl scripts to be run
+  from the GUI. This can be very important for the power user.
+
+  \item Whatever else is in Brian's JobControl Requirements document:\\
+%
+\verb= http://w4.lns.cornell.edu/restricted/CLEO/CLEO3/CSSC/950607/jobco.txt=
+
+\end{itemize}
+
+
+% -------------------------------------------------------------------
+\subsection{How can Suez benefit from the Competition}
+\label{sec:BenefitsThroughCompetition}
+
+At a meeting with the competition (BaBar, CDF, Belle) in June 1997, we
+discussed various features we could benefit from:
+
+\begin{itemize}
+
+  \item Fancier Tcl Command Interface: \texttt{Paths} and
+  \texttt{Sequences}, \texttt{Output}
+\begin{verbatim}
+suez> sequence create TrackAndShower Trio Duet Shower TrkShowerMatch
+suez> path create MuonSkim TrackAndShower MuFinder Output -mode mu.rp
+suez> path create DstarSkim TrackAndShower DstarSkimmer Output -mode dstar.rp
+suez> path create TauSkim TrackAndShower TauSkim Output -mode tau.rp
+etc...
+\end{verbatim}
+%
+Modules (what we call Processors) are only run once!
+
+  \item fancy bit pattern/ return handling for inter-processor
+	communication\\
+	(we already do return handling in our processors!)
+
+  \item Interaction with Processors: setting parameters through
+        Command Pattern:
+\begin{verbatim}
+Either
+
+suez> MyAnalysis cut1 set 0.5
+
+Or (what amounts to the same)
+
+suez> processor interact MyAnalysis
+MyAnalysis> cut1 set 0.5
+MyAnalysis> exit
+suez>
+\end{verbatim}
+
+  \item Our original idea was to set parameters through tcl-c-variable
+  linking. That would look like the following example:
+%
+\begin{verbatim}
+Suez> set MyAnalysisCut1 0.5
+\end{verbatim}
+%
+There are major disadvantages to doing it this way: 
+First of all, these variables would be visible ``globally'', and there
+is a strong coupling to Tcl. If we ever would like to use a different
+scripting language (perl, python), that would cause major rewrites of
+the code.
+
+\end{itemize}
+
+% =======================================================================
+\begin{appendix}
+
+% -----------------------------------------------------------------------
+\section{Processors As Shared Library Modules -- How Does It Work?
+  \index{processor}\index{shared library modules}\index{dynamic linking}}
+\label{sec:SharedProcessors}
+
+Shared libraries are really an old trick. NileFT has been using it for
+user code for quite a while now. If somebody had looked into the matter,
+we could have used this trick many years ago.
+
+Looking at the man pages for dynamic linking, there are only a few C
+functions that do all the work:
+The function \texttt{void* handle = dlopen( filename, flag )} opens a
+shared library given its filename and provides a handle to the opened file. 
+Given the handle, the function \texttt{void* address = dlsym( handle,
+sym)} returns the proper address of a function with symbol ``sym''.
+Closing the file happens through a call to \texttt{dlclose( handle )},
+and any errors are reported by a call to \texttt{const char* errorstring
+= dlerror()}.
+
+Let us give a simple example. If we wanted to use \texttt{cos}ine function,
+we can either use it by directly calling it in a program and including the
+\texttt{math.h} header file, or we can look up its address via its
+symbol in the shared math library \texttt{/lib/libm.so} through the
+proper calls:
+%
+\begin{verbatim}
+#include <dlfcn.h>
+   void* handle = dlopen("/lib/libm.so", RTLD_NOW);
+   if( NULL == handle ){ // get error with  dlerror()
+
+   double(*cosine)(double) 
+             = (double(*)(double)) dlsym(handle, "cos");
+   if( dlerror() != NULL)  { // error
+
+   cout << (*cosine)(2.0) << endl;
+
+   dlclose( handle );
+\end{verbatim}
+%
+Granted, doing it the second way seems a bit contrived, but illustrates
+the technique.
+
+By now you're probably worried about portability, and you should be!
+But it turns out, the above program works just fine on almost all Unix
+platforms (OSF1, Linux, SunOS, Solaris, Irix), except one notable
+exception (AIX; thanks IBM), which requires a little extra work.
+
+Using dynamic linking has powerful advantages. Firstly it allows for
+light-weight programs. The system is very modular, all heavy-duty parts
+of the program (e.g. \texttt{DUET}) can live independently of the main
+program and only have to be loaded into memory only when requested by
+the user. Also, user code would live in a processor, and there is no
+need to relink the main program when the user changes her code. Making a
+shared library is \emph{very fast}, since symbols don't have
+to get resolved until run-time. The turn-around time is very quick.
+
+We should point out again, the the interface and implementation of
+processors is \emph{identical} for static and dynamic linking. The only
+addition for the dynamic version is a global function, which provides
+the ``factory method'' \texttt{Processor*processor=makeProcessor()} to
+create a dynamically linked processor at run time.  After the processor
+object has been created in memory, it is identical to a statically
+linked one.
+
+The current version of Suez works with both statically and dynamically
+linked processors at the same time!
+
+% -----------------------------------------------------------------------
+\section{FAQ -- Quick Answers for Frequent Questions \index{FAQ}}
+\label{sec:FAQ}
+
+\begin{enumerate}
+
+\item Q: Where can I find an updated version of this documentation?
+
+\noindent A: For now this documentation lives in: \\
+  \verb=http://w4.lns.cornell.edu/~mkl/JobControl/suez.ps.gz= \\
+  \verb=http://w4.lns.cornell.edu/~mkl/JobControl/suez/index.html=.
+
+\item Q: I have trouble creating a new processor.
+
+\noindent A: Make sure you are in a directory that's writable by
+you. Set the environment variable \texttt{CMH\_SCRIPT} to the skeleton
+directory; it should be set to
+\texttt{\${C3\_CVSSRC}/Processor/skeletons} for now.  Now type
+\begin{verbatim}
+\${C3_CVSSRC}/Processor/mkproc <newNameOfProcessor>
+\end{verbatim} 
+which should create a directory \texttt{$<$newNameOfProcessor$>$} and
+make the proper skeleton files for you.
+
+\item Q: I have trouble linking my processor into a shared library.
+
+\noindent A: Make sure you have the following environment variables set:
+variable \texttt{C3\_CVSSRC} should be pointing to the cleo3 source
+area. Usually it should be set to \texttt{/cleo3/dlib/cvssrc}.
+Variable \texttt{USER\_SRC} should be pointing to your source area (one
+above your Processor directory).
+
+If all those variables are set correctly, use \texttt{gmake
+shared\_module} in the directory the Processor Makefiles are in.
+
+\end{enumerate}
+
+\end{appendix}
+
+
+% =====================================================================
+\begin{thebibliography}{9}
+
+
+\bibitem{Delivery} 
+Simon Patton, Chris Jones,
+``\htmladdnormallink{The CLEO III Data Architecture}
+{http://w4.lns.cornell.edu/restricted/CLEO/CLEO3/soft/Blueprint/DataArchitecture}''
+%\begin{latexonly}''
+%({\bf note:} the latest version of this note is available as HTML on
+%World Wide Web).
+%\end{latexonly}
+
+\bibitem{TclInfo} There are many books and information on the Web on
+Tcl/Tk.  Let me just mention a few sources: \newline ``Tcl and the Tk
+Toolkit'', John K. Ousterhout, Addison-Wesley 1994.  \newline
+``Practical Programming in Tcl and Tk'', Brent Welch, Prentice Hall,
+1995.  \newline 
+``\htmladdnormallink{Tcl WWW Info}
+{http://www.sco.com/Technology/tcl/Tcl.html}''.
+
+\bibitem{DeliveryLibraries}
+``\htmladdnormallink{The DataDelivery System}
+{http://w4.lns.cornell.edu/restricted/CLEO/CLEO3/soft/Blueprint/DataDelivery}''.
+
+\bibitem{StorageLibraries}
+No documentation yet, soory ... soon.
+%``\htmladdnormallink{The Storage Libraries}
+%{http://w4.lns.cornell.edu/restricted/CLEO/CLEO3/soft/Blueprint/DataDelivery/Storage}''.
+
+\bibitem{DesignPatterns} Gamma \textit{et al}, ``Design Patterns'',
+Addison-Wesley 1997.
+
+
+\end{thebibliography}
+
+% =====================================================================
+\input suez.ind
+
+% ---------------------------------------------------------------------
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,0 +1,62 @@
+
+default prompt off
+exception continueEventLoop on
+
+module sel LoadHbook4MModule
+module sel HbookHistogramModule
+hbook file ../rzn/oldmupairs.rzn
+hbook init
+
+run_file $env(C3_SCRIPTS)/getConstants.tcl
+
+prod sel ASiStorePro
+prod sel SiGeom
+#  prod sel IRGeomProd
+#  prod sel RawDataProd
+#  prod sel CorrectedSVStripProd
+#  prod sel SiHitsProd
+#  prod sel MagFieldProd
+prod sel NavigationProd
+prod sel TrackDeliveryProd
+prod sel SeedToTRTrackProd
+
+source_format sel PDSSourceFormat
+source create pdschain
+file add pdschain $env(USER_DAFE)/sialignment/loose_tracks/dual_chi_newalignment_loose1.pds event beginrun startrun endrun
+file add pdschain $env(USER_DAFE)/sialignment/loose_tracks/dual_chi_newalignment_loose2.pds event beginrun startrun endrun
+file add pdschain $env(USER_DAFE)/sialignment/loose_tracks/dual_chi_newalignment_loose3.pds event beginrun startrun endrun
+file add pdschain $env(USER_DAFE)/sialignment/loose_tracks/dual_chi_newalignment_loose4.pds event beginrun startrun endrun
+file add pdschain $env(USER_DAFE)/sialignment/loose_tracks/dual_chi_newalignment_loose5.pds event beginrun startrun endrun
+file add pdschain $env(USER_DAFE)/sialignment/loose_tracks/dual_chi_newalignment_loose6.pds event beginrun startrun endrun
+file add pdschain $env(USER_DAFE)/sialignment/loose_tracks/dual_chi_newalignment_loose7.pds event beginrun startrun endrun
+file add pdschain $env(USER_DAFE)/sialignment/loose_tracks/dual_chi_newalignment_loose8.pds event beginrun startrun endrun
+file add pdschain $env(USER_DAFE)/sialignment/loose_tracks/dual_chi_newalignment_loose9.pds event beginrun startrun endrun
+source activate pdschain beginrun startrun event
+
+proc sel ../build_$env(OS_NAME)/shlib/AlignmentPlots
+
+param AlignmentPlots useKalmanResids false
+param AlignmentPlots useMuPairs true
+param AlignmentPlots useDualTracks true
+param AlignmentPlots beamEnergy 5.2686
+param AlignmentPlots weightHits false
+
+param AlignmentPlots rphiCut 0.000200
+param AlignmentPlots zCut 0.0015
+
+param AlignmentPlots requiredRphiLayers 1
+param AlignmentPlots requiredZLayers 1
+
+param AlignmentPlots fillSuperNtuple false
+param AlignmentPlots fillRphiHitNtuple true
+param AlignmentPlots fillZHitNtuple true
+param AlignmentPlots fillMatchedNtuple true
+param AlignmentPlots fillRphiOverlapNtuple false
+param AlignmentPlots fillZOverlapNtuple false
+
+report level NOTICE
+go
+
+hbook terminate
+exit
+

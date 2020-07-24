@@ -1,0 +1,160 @@
+dnl Process this file with autoconf to produce a configure script.
+dnl NOTES:
+dnl        KCC must be in path (not aliased)
+dnl        KCCHOME should be set if not installed in /usr
+dnl        KCC first in list of compilers
+dnl Options:
+dnl   --prefix=<prefix> - set directory for installs
+dnl   --enable-debug - enables the -g option (defaults to optimized)
+AC_INIT(../Rio/Core/Platform.h)
+AC_CONFIG_AUX_DIR(../configure)
+AC_CANONICAL_HOST
+
+AC_LANG_CPLUSPLUS
+AC_CHECK_PROGS(CXX, CC KCC xlC cxx c++)
+if test "$CXX" = ""; then 
+  echo "You must have a C++ compiler to build Rio. Bye."; exit;
+fi
+
+AC_PROG_INSTALL
+AC_PROG_RANLIB
+
+AC_SUBST(CXXFLAGS)
+AC_SUBST(DSOFLAGS)
+AC_SUBST(DSOLIBS)
+AC_SUBST(LD_SHARED)
+AC_SUBST(CXXLIBS)
+AC_SUBST(CXX)
+AC_SUBST(TARGETDIR)
+AC_SUBST(TARGETLIBS)
+AC_SUBST(TARGETSTATICLIBS)
+AC_SUBST(AR)
+
+dnl----------------------------------------------------
+dnl------------------set default flags-----------------
+dnl----------------------------------------------------
+CXXFLAGS="-I.."
+LD_SHARED="$CXX"
+CXXLIBS=""
+OPTFLAGS=""
+AC_ARG_ENABLE(debug, --enable-debug		Enables the -g option,DEBUGFLAGS="-g")
+dnl----------------------------------------------------
+dnl-----------------Get target directory---------------
+dnl----------------------------------------------------
+TARGETDIR=../`uname`-$CXX
+mkdir -p $TARGETDIR
+echo "target directory will be :" $TARGETDIR
+
+dnl----------------------------------------------------
+dnl-------------default libs to build------------------
+dnl----------------------------------------------------
+TARGETLIBS="$TARGETDIR/libRio.so"
+TARGETSTATICLIBS="$TARGETDIR/libRio.a"
+
+
+dnl----------------------------------------------------
+dnl-----------------Host/compiler flags----------------
+dnl----------------------------------------------------
+case $host in
+  mips-sgi-irix*)
+    # Not tested on SGI.
+    if test "${enable_debug+set}" = set; then
+      enabledbg="$enable_debug"
+      OPTFLAGS="-g"
+    else
+      OPTFLAGS="-O2"
+    fi
+    if test "$CXX" = KCC; then
+      if test "${enable_debug+set}" = set; then
+	enabledbg="$enable_debug"
+	OPTFLAGS="+K0 -g"
+      else
+	OPTFLAGS="+K3"
+      fi
+      CXXFLAGS="$CXXFLAGS --exceptions --thread_safe"
+      AR="ar rv"
+      DSOFLAGS="$CXXFLAGS"
+      LD_SHARED="KCC"
+    elif test "$CXX" = g++; then
+      if test "${enable_debug+set}" = set; then
+	enabledbg="$enable_debug"
+	OPTFLAGS="-g"
+      else
+	OPTFLAGS="-O4"
+      fi
+      CXXFLAGS="$CXXFLAGS $OPTFLAGS"
+      AR="ar rv"
+      DSOFLAGS="-I.. $OPTFLAGS"
+      LD_SHARED="g++ -shared $OPTFLAGS"
+      WARNFLAGS=""
+      N32FLAGS=""
+    else
+      CXXFLAGS="$CXXFLAGS -LANG:std"
+      DSOFLAGS="-woff 157 -elf -shared -no_unresolved -set_version sgi3.0 -all $N32FLAGS"
+      DSOLIBS="$(CXXLIBS) -lm -lc"
+      AR="ar rv"
+      LD_SHARED="CC"
+    fi
+    #
+    # Combine all the flags from the different compiler options
+    #
+    CXXFLAGS="$CXXFLAGS $WARNFLAGS $N32FLAGS $OPTFLAGS $NOEXFLAGS $TSFLAGS"
+  ;;
+  powerpc-apple-darwin*)
+   AR="ar rv"
+   CXXFLAGS="$CXXFLAGS"
+   LD_SHARED="$CXX -shared"
+   if test "${enable_debug+set}" = set; then
+     enabledbg="$enable_debug"
+     CXXFLAGS="$CXXFLAGS -g"
+     DSOFLAGS="$CXXFLAGS"
+   else
+     CXXFLAGS="$CXXFLAGS -O4"
+     DSOFLAGS="$CXXFLAGS"
+   fi
+  ;;
+  alpha*-dec-osf*)
+    CXXFLAGS="$CXXFLAGS -std strict_ansi -timplicit_local"
+    DSOFLAGS="-shared -no_archive"
+    DSOLIBS="-expect_unresolved \*"            
+    LD_SHARED="$CXX"
+    CXXLIBS="-lcxx"
+    AR="ar rv"
+  ;;
+  sparc-sun-solaris*)
+    CXXFLAGS="$CXXFLAGS -KPIC"
+    DSOFLAGS="-pic"
+    LD_SHARED="$CXX -G"
+    AR="$CXX -xar -o"
+  ;;
+  *linux*)
+    if test "$CXX" = KCC; then
+      if test "${enable_debug+set}" = set; then
+	enabledbg="$enable_debug"
+	OPTFLAGS="+K0 -g"
+      else
+	OPTFLAGS="+K3"
+      fi
+      CXXFLAGS="$CXXFLAGS --exceptions --thread_safe"
+      AR="ar rv"
+      DSOFLAGS="$CXXFLAGS"
+      LD_SHARED="KCC"
+    else
+      AR="ar rv"
+      CXXFLAGS="$CXXFLAGS"
+      LD_SHARED="$CXX -shared"
+      if test "${enable_debug+set}" = set; then
+	enabledbg="$enable_debug"
+        CXXFLAGS="$CXXFLAGS -g"
+        DSOFLAGS="$CXXFLAGS"
+      else
+        CXXFLAGS="$CXXFLAGS -O4"
+        DSOFLAGS="$CXXFLAGS"
+      fi
+    fi
+  ;;
+esac
+
+dnl----------------------------------------------------
+
+AC_OUTPUT(Makefile:../configure/Makefile.in)

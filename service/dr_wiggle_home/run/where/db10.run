@@ -1,0 +1,10 @@
+#$ -l calibration
+#$ -o /cdat/tem/mccann/wheredb10.out
+#$ -S /bin/bash
+#$ -j y
+
+cd /home/mccann/dr_wiggle/run/where
+. /nfs/cleo3/scripts/cleo3defs
+c3rel Jan24_03_P2
+
+suez -f db10.tcl > /cdat/tem/mccann/wheredb10.log

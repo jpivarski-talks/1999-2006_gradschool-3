@@ -1,0 +1,113 @@
+#!/usr/local/bin/tcsh
+
+cd $HOME/weddingcake_alignment/run/
+. /nfs/cleo3/scripts/cleo3defs
+c3rel cleo3_Pass2_Nov27_2001
+
+#  OSAGENT_PORT=31416
+#  export OSAGENT_PORT
+#  C3_CONST=/nfs/c3con/ccon3/constants/Codi
+#  export C3_CONST
+
+suez -q > ../dafedir/make_hits.log << EOF
+
+module sel LoadHbook4MModule
+module sel HbookHistogramModule
+hbook file ../dafedir/hits_check3.rzn
+hbook init
+
+default prompt off
+exception continueEventLoop on
+
+module sel CorbaModule
+corba init
+module sel ConstantsModule
+constants in \$env(C3_CONST) meta Offline MetaListRetrieval exclude_streams drweightlayer dralignment
+constants in \$env(C3_CONST) meta Online MetaListRetrieval
+constants in \$env(C3_CONST) meta CesrOffset MetaListRetrieval
+constants in \$env(C3_CONST) meta RunByRun MetaListRetrieval
+constants in \$env(C3_CONST) meta BaseGeometry MetaListRetrieval
+# constants in \$env(C3_CONST) meta SVHybridEfficiency MetaListRetrieval
+
+source_format sel AsciiSourceFormat
+file in \$env(C3_DATA)/material.asc basegeometry
+
+# module sel RunStatisticsSourceModule
+# runstatistics in
+
+source_format sel DRWeightLayerFileSourceFormat
+file in stereo_only.drweightlayer
+
+source_format sel DRGeomAlignmentFileSourceFormat
+file in dec10.drgeomalignment
+
+source_format sel SVHybridEfficiencyFileSourceFormat
+file in normal.svhybridefficiency
+
+prod sel ADRGeomProd
+prod sel DRGeom
+prod sel ASiStorePro
+prod sel SiGeom
+prod sel IRGeomProd
+prod sel RawDataProd
+prod sel DRCACorrectHitProd
+prod sel DRCAClusterProd
+prod sel PreliminaryDRHitProd
+prod sel CalibratedDRHitProd
+prod sel CorrectedSVStripProd
+prod sel SiHitsProd
+prod sel CDOffCal
+prod sel TriggerL1DataProd
+prod sel TrackletBunchFinder
+prod sel DRHitCorrectorProd
+
+prod sel MagFieldProd
+param MagFieldProd alwaysUseDefault true
+param MagFieldProd defaultHallProbeReading 1.49158
+
+# Load Doit
+prod sel DoitProd
+param DoitProd UseSilicon false
+param DoitProd ContinueIfHitsMissing true
+
+# Load ChisqFit fit (don't use Si yet)
+prod sel ChisqFitProd
+# just look at the DR, ignore silicon and cathode
+param ChisqFitProd UseSVRPhi false
+param ChisqFitProd UseSVZ false
+param ChisqFitProd UseDRCathode false
+param ChisqFitProd UseDRAxial true
+param ChisqFitProd UseDRStereoU true
+param ChisqFitProd UseDRStereoV true
+
+# prod sel CesrBeamEnergyProd
+# prod sel EventTypeProd
+# run_file \$env(C3_SCRIPTS)/Ccfc.tcl
+# proc sel CcEventSelectProc
+# param CcEventSelectProc BarrelBhabhaKeep true
+# param CcEventSelectProc EndcapBhabhaKeep true
+
+prod sel TrackDeliveryProd
+prod sel SeedToTRTrackProd
+prod sel NavigationProd
+prod sel C3ccProd
+prod sel CcfcReconProd
+prod sel CcGeomProd
+prod sel C3ccReconProd
+prod sel C3ccConProd
+prod sel TrackShowerMatchingProd
+prod sel DBEventHeaderProd
+
+source_format sel BinarySourceFormat
+file in r122172.bin event beginrun startrun endrun
+
+proc sel ../build_SunOS/shlib/HitLevel
+
+report level DEBUG
+go 10
+report level NOTICE
+go
+
+exit
+
+EOF

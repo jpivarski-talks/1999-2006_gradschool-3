@@ -1,0 +1,21 @@
+
+Module : DRAlignmentMod
+Date   : Mon Dec 15 13:08:14 2003
+User   : mccann
+Old Tag: 
+New Tag: v01_00_00
+Message: first tag
+
+Module : DRAlignmentMod
+Date   : Mon Dec 15 13:43:06 2003
+User   : mccann
+Old Tag: v01_00_00
+New Tag: v01_00_01
+Message: generalized SunOS-specific call to compile under OSF1
+
+Module : DRAlignmentMod
+Date   : Mon Dec 15 14:09:53 2003
+User   : mccann
+Old Tag: v01_00_01
+New Tag: v01_01_00
+Message: added an explaination as to how to deweight axial hits

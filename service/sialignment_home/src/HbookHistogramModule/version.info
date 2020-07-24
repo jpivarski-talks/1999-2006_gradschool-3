@@ -1,0 +1,86 @@
+
+Module : HistogramModule
+
+Date   : Tue May 18 11:24:26 1999
+User   : mkl
+Old Tag: v01_00_00_online_histo
+New Tag: v01_01_00
+Message: on the way to new histogram stuff
+
+Module : HbookHistogramModule
+Date   : Mon Sep  6 18:06:36 1999
+User   : mkl
+Old Tag: 
+New Tag: v01_00_00
+Message: move to new histogramming interface: hbook module
+
+Module : HbookHistogramModule
+Date   : Thu Sep  9 22:42:11 1999
+User   : mkl
+Old Tag: v01_00_00
+New Tag: v01_00_01
+Message: location of Conversion class has moved
+
+Module : HbookHistogramModule
+
+Date   : Wed Sep 29 13:57:43 1999
+User   : cdj
+Old Tag: v01_00_01
+New Tag: v01_01_00
+Message: added SHARMODNAME so no longer need gmake shared_module
+
+Module : HbookHistogramModule
+Date   : Tue Feb 22 13:58:39 2000
+User   : mkl
+Old Tag: v01_01_00
+New Tag: v01_01_01
+Message: get rid of _keep files
+
+Module : HbookHistogramModule
+Date   : Tue Jun 20 16:33:44 2000
+User   : bkh
+Old Tag: v01_01_01
+New Tag: v01_01_02
+Message: 
+Tag for new virtual function implementation
+Module : HbookHistogramModule
+Date   : Thu Oct 12 01:06:58 2000
+User   : savinov
+Old Tag: v01_01_02
+New Tag: v01_01_03
+Message: Converted to long-promised design (to avoid memory corruption) - hidden from the user
+
+Module : HbookHistogramModule
+Date   : Fri Oct 13 13:12:39 2000
+User   : savinov
+Old Tag: v01_01_03
+New Tag: v01_01_04
+Message: Restructuring dependencies so no packages depend on my MODULES
+
+Module : HbookHistogramModule
+Date   : Fri Oct 13 19:01:16 2000
+User   : savinov
+Old Tag: v01_01_04
+New Tag: v01_01_05
+Message: Getting rid of dependencies on my MODULES
+
+Module : HbookHistogramModule
+Date   : Sat Feb 17 16:39:59 2001
+User   : cleo3
+Old Tag: v01_01_05
+New Tag: v01_01_06
+Message: found typo in non-used #ifdef section
+
+Module : HbookHistogramModule
+Date   : Mon Apr  2 17:46:12 2001
+User   : ajm36
+Old Tag: v01_01_06
+New Tag: v01_01_07
+Message: made record length a 32 bit integer
+
+Module : HbookHistogramModule
+Date   : Fri Sep  7 15:09:37 2001
+User   : cleo3
+Old Tag: v01_01_07
+New Tag: v01_02_00
+Message: fixed problems found with Solaris 8

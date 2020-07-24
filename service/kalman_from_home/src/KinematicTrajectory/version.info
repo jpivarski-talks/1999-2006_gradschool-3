@@ -1,0 +1,185 @@
+
+Module : KinematicTrajectory
+
+Date   : Thu Dec 10 15:48:48 1998
+User   : avery
+Old Tag: v01_00_00
+New Tag: v01_01_00
+Message: 
+Implement in KTHelix, KTKinematicFixedBz and KTKinematicMoveable the
+idea of a "sticky surface", i.e., if the direction is not default, and
+the track is within a specified tiny distance from a surface, then
+force the track from its position and look for the next intersection.
+This prevents unpredictable behavior because of roundoff errors near a
+surface.
+
+Following changes also implemented: (1) fixed a couple of bugs when
+moving more than 180 degrees in KTHelix and KTKinematicFixedBz; (2)
+increased in KTMoveControl max iterations to 150, max arc length to 25
+meters; (3) implemented missing set functions in KTMoveControl.
+
+Module : KinematicTrajectory
+
+Date   : Wed Feb 10 11:39:26 1999
+User   : avery
+Old Tag: v01_01_00
+New Tag: v01_02_00
+Message: 
+Modifications to KTHelix:
+1. Add moveByArcLength method
+2. Modify moveToZPosition to call moveByArcLength
+
+Module : KinematicTrajectory
+
+Date   : Thu Feb 11 17:18:25 1999
+User   : avery
+Old Tag: v01_02_00
+New Tag: v01_02_01
+Message: 
+Fixed error in z calculation in KTHelix::moveByArcLength
+
+Module : KinematicTrajectory
+
+Date   : Fri Apr 30 17:28:11 1999
+User   : wsun
+Old Tag: v01_02_01
+New Tag: v01_02_02
+Message: Fixed transport matrix calculation and ref pt for moveToLine().
+
+Module : KinematicTrajectory
+
+Date   : Thu May 27 20:48:33 1999
+User   : wsun
+Old Tag: v01_02_02
+New Tag: v01_02_03
+Message: Fixed bug in moveIterate() -- move helix even if error matrix is null.
+
+Module : KinematicTrajectory
+
+Date   : Wed Aug 18 17:40:23 1999
+User   : wsun
+Old Tag: v01_02_03
+New Tag: v01_02_04
+Message: Fixed bug in KTHelix transport matrix calculation.
+
+Module : KinematicTrajectory
+
+Date   : Fri Sep 10 15:59:38 1999
+User   : wsun
+Old Tag: v01_02_04
+New Tag: v01_02_05
+Message: Fixed bug in KTHelix::moveToZPosition().
+
+Module : KinematicTrajectory
+
+Date   : Fri Oct  8 18:27:12 1999
+User   : marsh
+Old Tag: v01_02_05
+New Tag: v01_02_06
+Message: 
+Changed a few instances of TBThreeVector to TBThreePoint for consistency.
+
+
+Module : KinematicTrajectory
+Date   : Sun Nov 21 17:09:13 1999
+User   : wsun
+Old Tag: v01_02_06
+New Tag: v01_03_00
+Message: Sped up KTHelix::position(), moveErrorMatrix(), and setErrorMatrix().
+
+Module : KinematicTrajectory
+Date   : Sat Feb 26 09:01:26 2000
+User   : cdj
+Old Tag: v01_03_00
+New Tag: v01_03_01
+Message: report is now always called using two arguments
+
+Module : KinematicTrajectory
+Date   : Mon Apr  3 16:51:07 2000
+User   : marsh
+Old Tag: v01_03_01
+New Tag: v01_03_02
+Message: 
+Doxygenated comments in KTHelix and KTKinematicData header files.
+
+
+Module : KinematicTrajectory
+Date   : Fri Jun 16 15:49:54 2000
+User   : pappas
+Old Tag: v01_03_02
+New Tag: v01_04_00
+Message: 
+Minor feature revision: Paul Avery has removed ToolBox references.
+Use CLHEP directly.
+
+Module : KinematicTrajectory
+Date   : Thu Aug  3 20:22:38 2000
+User   : wsun
+Old Tag: v01_04_00
+New Tag: v01_04_01
+Message: 
+Added check for zero curvature in
+KTKinematicData::calculate7x7ErrorMatrixFrom5x5ErrorMatrix().
+
+Module : KinematicTrajectory
+Date   : Mon Sep 25 11:04:11 2000
+User   : pappas
+Old Tag: v01_04_01
+New Tag: v01_04_02
+Message: Bug fix in energy terms of error matrix propagation.
+
+Module : KinematicTrajectory
+Date   : Sat Oct 14 16:59:44 2000
+User   : wsun
+Old Tag: v01_04_02
+New Tag: v01_04_03
+Message: Fixed bug in KTKinematicFixedBz::moveToZPosition().
+
+Module : KinematicTrajectory
+Date   : Sat Jan  6 15:49:08 2001
+User   : cdj
+Old Tag: v01_04_03
+New Tag: v01_04_04
+Message: KTKinematicData now always returns a non null errorMatrix
+
+Module : KinematicTrajectory
+Date   : Wed Jan 31 20:35:25 2001
+User   : cdj
+Old Tag: v01_04_04
+New Tag: v01_04_05
+Message: properly handle null error matricies
+
+Module : KinematicTrajectory
+Date   : Thu Mar 29 16:23:46 2001
+User   : wsun
+Old Tag: v01_04_05
+New Tag: v01_05_00
+Message: Added comparison operator for KTKinematicData.
+
+Module : KinematicTrajectory
+Date   : Mon Mar  4 13:12:27 2002
+User   : cdj
+Old Tag: v01_05_00
+New Tag: v01_06_00
+Message: hand optimized the 7x7 matrix calculation
+
+Module : KinematicTrajectory
+Date   : Wed Mar  6 09:41:42 2002
+User   : cdj
+Old Tag: v01_06_00
+New Tag: v01_07_00
+Message: made KinematicData::errorMatrix() virtual to allow speed optimizations
+
+Module : KinematicTrajectory
+Date   : Tue Mar 12 17:56:01 2002
+User   : bkh
+Old Tag: v01_07_00
+New Tag: v01_07_01
+Message: 
+Store matrix not pointer to avoid new
+Module : KinematicTrajectory
+Date   : Fri Aug 16 11:09:21 2002
+User   : cleo3
+Old Tag: v01_07_01
+New Tag: v01_08_00
+Message: replaced iostream.h with C++/iostream.h

@@ -1,0 +1,44 @@
+*** Begin of history file: Sat May  4 10:56:24 2002
+h/cr/1d 100 'hey' 10 0 10
+ve/cr oink(20
+ve/inp oink 6 5 16 2 7 2 4 6 1 -1 2 7 3 2 4 2 2 7 9 10
+ve/print oint
+ve/print oink
+h/vfill 100 oink
+help fill
+ve/hfill oink 100
+h/plot 100
+ve/cr hey(10)
+ve/inp hey 1 2 3 4 5 6 7 8 9 10
+h/plot 100 e
+h/put_vect/contents 100 hey
+h/plot 100
+h/plot 100 e
+h/plot 100
+h/cr/prof 200 'you' 10 0 10 -5 5
+nt/cr 1 'tmp' 2 ! ! 'x' 'y'
+nt/read 1 'tmp.ntuple'
+nt/plot 1.y%x
+nt/plot 1.y%x ! ! ! ! box
+nt/plot 1.y%x ! ! ! ! ! 200
+h/print 200
+nt/read 1 'tmp.ntuple'
+nt/cr 2 'tmp' 2 ! ! 'x' 'y'
+nt/read 2 'tmp.ntuple'
+nt/plot 1.y%x ! ! ! ! box
+nt/plot 1.y%x ! ! ! ! ! 200
+h/print 200
+opt sta
+h/plot 200
+set sta 1111111
+set fit 1111111
+set stat 1111111
+h/plot 200
+set stat 11111111111111111
+h/plot 200
+h/reset 200
+h/cr/prof 300 'there' 10 0 10 -5 5
+nt/plot 1.y%x ! ! ! ! ! 300
+h/print 300
+quit
+*** End   of history file: Sat May  4 11:06:41 2002

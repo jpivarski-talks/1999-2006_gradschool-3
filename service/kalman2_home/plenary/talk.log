@@ -1,0 +1,298 @@
+This is TeX, Version 3.14159 (Web2c 7.0) (format=latex 1.10.14)  24 JAN 2003 22:21
+**talk
+(talk.tex
+LaTeX2e <2001/06/01>
+(/usr/local/share/texmf/tex/latex/base/latex209.def
+File: latex209.def 1998/05/13 v0.52 Standard LaTeX file
+
+
+          Entering LaTeX 2.09 COMPATIBILITY MODE
+ *************************************************************
+    !!WARNING!!    !!WARNING!!    !!WARNING!!    !!WARNING!!   
+ 
+ This mode attempts to provide an emulation of the LaTeX 2.09
+ author environment so that OLD documents can be successfully
+ processed. It should NOT be used for NEW documents!
+ 
+ New documents should use Standard LaTeX conventions and start
+ with the \documentclass command.
+ 
+ Compatibility mode is UNLIKELY TO WORK with LaTeX 2.09 style
+ files that change any internal macros, especially not with
+ those that change the FONT SELECTION or OUTPUT ROUTINES.
+ 
+ Therefore such style files MUST BE UPDATED to use
+          Current Standard LaTeX: LaTeX2e.
+ If you suspect that you may be using such a style file, which
+ is probably very, very old by now, then you should attempt to
+ get it updated by sending a copy of this error message to the
+ author of that file.
+ *************************************************************
+
+\footheight=\dimen102
+\@maxsep=\dimen103
+\@dblmaxsep=\dimen104
+\@cla=\count79
+\@clb=\count80
+\mscount=\count81
+(/usr/local/share/texmf/tex/latex/base/tracefnt.sty
+Package: tracefnt 1997/05/29 v3.0j Standard LaTeX package (font tracing)
+\tracingfonts=\count82
+LaTeX Info: Redefining \selectfont on input line 96.
+)
+\symbold=\mathgroup4
+\symsans=\mathgroup5
+\symtypewriter=\mathgroup6
+\symitalic=\mathgroup7
+\symsmallcaps=\mathgroup8
+\symslanted=\mathgroup9
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 288.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 289.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 290.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 296.
+LaTeX Info: Redefining \em on input line 306.
+
+(/usr/local/share/texmf/tex/latex/base/latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup10
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 42.
+)
+LaTeX Font Info:    Redeclaring math delimiter \lgroup on input line 370.
+LaTeX Font Info:    Redeclaring math delimiter \rgroup on input line 372.
+LaTeX Font Info:    Redeclaring math delimiter \bracevert on input line 374.
+)
+(/usr/local/share/texmf/tex/latex/seminar/seminar.cls
+Document Class: seminar 1997/04/15, 1.1
+Document Style: `seminar' v1.1 <1997/04/15> (tvz)
+\slidewidth=\dimen105
+\slideheight=\dimen106
+\footheight=\dimen107
+(/usr/local/share/texmf/tex/latex/base/article.cls
+Document Class: article 2001/04/21 v1.4e Standard LaTeX document class
+(/usr/local/share/texmf/tex/latex/base/size11.clo
+File: size11.clo 2001/04/21 v1.4e Standard LaTeX file (size option)
+)
+\c@part=\count83
+\c@section=\count84
+\c@subsection=\count85
+\c@subsubsection=\count86
+\c@paragraph=\count87
+\c@subparagraph=\count88
+\c@figure=\count89
+\c@table=\count90
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+Compatibility mode: definition of \rm ignored.
+Compatibility mode: definition of \sf ignored.
+Compatibility mode: definition of \tt ignored.
+Compatibility mode: definition of \bf ignored.
+Compatibility mode: definition of \it ignored.
+Compatibility mode: definition of \sl ignored.
+Compatibility mode: definition of \sc ignored.
+LaTeX Info: Redefining \cal on input line 501.
+LaTeX Info: Redefining \mit on input line 502.
+\bibindent=\dimen108
+)
+(/usr/local/share/texmf/tex/latex/seminar/sem-page.sty)
+\before@document=\toks14
+\after@document=\toks15
+\before@enddocument=\toks16
+\c@slide=\count91
+\slide@count=\count92
+\@slidebox=\box26
+\not@slidebox=\box27
+\slide@hook=\toks17
+\after@slide=\toks18
+\slide@footins=\insert233
+\slide@listdepth=\count93
+\saved@specials=\box28
+\before@newslide=\toks19
+\after@slidepage=\toks20
+\slidesep=\skip43
+\c@note=\count94
+\slideframewidth=\dimen109
+\slideframesep=\dimen110
+\semin=\dimen111
+\semcm=\dimen112
+)
+(/usr/local/share/texmf/tex/latex/seminar/semcolor.sty
+Style Option: `semcolor' for doc style `seminar' 1.0 <93/04/01> (tvz)
+(/usr/local/share/texmf/tex/generic/pstricks/pstricks.tex
+`PSTricks' v93a/b-97 patch 3  <1997/07/11> (tvz)
+\pst@dima=\dimen113
+\pst@dimb=\dimen114
+\pst@dimc=\dimen115
+\pst@dimd=\dimen116
+\pst@dimg=\dimen117
+\pst@dimh=\dimen118
+\pst@hbox=\box29
+\pst@boxg=\box30
+\pst@cnta=\count95
+\pst@cntb=\count96
+\pst@cntc=\count97
+\pst@cntd=\count98
+\pst@cntg=\count99
+\pst@cnth=\count100
+\pst@toks=\toks21
+(/usr/local/share/texmf/tex/generic/pstricks/pstricks.con)
+\psunit=\dimen119
+\psxunit=\dimen120
+\psyunit=\dimen121
+\pslinewidth=\dimen122
+\pst@customdefs=\toks22
+\pslinearc=\dimen123
+\everypsbox=\toks23
+\psframesep=\dimen124
+\pslabelsep=\dimen125
+\theoverlaybox=\box31
+
+(/usr/local/share/texmf/tex/generic/pstricks/pstricks.bug  v97.01, 1997/04/02))
+) (/usr/local/share/texmf/tex/latex/seminar/semlayer.sty
+\@@slidebox=\box32
+\c@overlay=\count101
+)
+(/usr/local/share/texmf/tex/latex/packages/graphics/epsfig.sty
+Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
+
+(/usr/local/share/texmf/tex/latex/packages/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/share/texmf/tex/latex/packages/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks24
+)
+(/usr/local/share/texmf/tex/latex/packages/graphics/graphics.sty
+Package: graphics 2001/07/07 v1.0n Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/share/texmf/tex/latex/packages/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/share/texmf/tex/latex/packages/graphics/graphics.cfg)
+Package graphics Info: Driver file: dvips.def on input line 80.
+
+(/usr/local/share/texmf/tex/latex/packages/graphics/dvips.def
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
+\Gin@req@height=\dimen126
+\Gin@req@width=\dimen127
+)
+\epsfxsize=\dimen128
+\epsfysize=\dimen129
+)
+(/usr/local/share/texmf/tex/latex/pstricks/fancybox.sty
+\c@tocdepth=\count102
+
+Style option: `fancybox' v1.0/97 patch 1 <1997/05/16> (tvz)
+\@fancybox=\box33
+\shadowsize=\dimen130
+\@Sbox=\box34
+\do@VerbBox=\toks25
+\the@fancyput=\toks26
+\this@fancyput=\toks27
+\EndVerbatimTokens=\toks28
+\Verbatim@Outfile=\write3
+\Verbatim@Infile=\read1
+) (/usr/local/share/texmf/tex/latex/contrib/doublespace.sty) (clp_utils.tex)
+(talk.aux)
+\openout1 = `talk.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+ [1
+
+
+]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 67.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 67.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 67.
+ (/usr/local/share/texmf/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+Underfull \hbox (badness 10000) in paragraph at lines 69--71
+
+ []
+
+File: bug_MissingBeamWall.eps Graphic file (type eps)
+<bug_MissingBeamWall.eps> [2
+
+]
+File: change_IRGeom.eps Graphic file (type eps)
+ <change_IRGeom.eps>
+File: change_IRGeom2.eps Graphic file (type eps)
+ <change_IRGeom2.eps>
+File: howbig2.eps Graphic file (type eps)
+
+<howbig2.eps> [3
+
+]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 155.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 155.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 155.
+
+Underfull \hbox (badness 10000) in paragraph at lines 153--162
+
+ []
+
+File: xdotp_correct.eps Graphic file (type eps)
+<xdotp_correct.eps>
+Underfull \hbox (badness 2689) in paragraph at lines 172--173
+[]\OT1/cmr/m/n/14.4 Check that the track's Z
+ []
+
+[4
+
+]
+File: xdotp_distributions.eps Graphic file (type eps)
+ <xdotp_distributions.eps>
+Overfull \hbox (1.85167pt too wide) in paragraph at lines 221--243
+[][] 
+ []
+
+File: /home/mccann/kalman2/rzn/side-by-side-modified.eps Graphic file (type eps
+)
+</home/mccann/kalman2/rzn/side-by-side-modified.eps> [5
+
+]
+Overfull \hbox (2.53308pt too wide) in paragraph at lines 270--272
+ [][] 
+ []
+
+[6
+
+]
+Underfull \hbox (badness 5985) in paragraph at lines 330--333
+[]\OT1/cmr/bx/n/14.4 MissingBeamWall: \OT1/cmr/m/n/14.4 Kalman's in-ter-nal rep
+-re-sen-ta-tion of
+ []
+
+[7
+
+] [8
+
+] (talk.aux) ) 
+Here is how much of TeX's memory you used:
+ 2306 strings out of 10960
+ 25230 string characters out of 73839
+ 86975 words of memory out of 263001
+ 5156 multiletter control sequences out of 10000+0
+ 20149 words of font info for 73 fonts, out of 100000 for 500
+ 16 hyphenation exceptions out of 1000
+ 34i,13n,23p,208b,791s stack positions out of 300i,100n,500p,3000b,4000s
+
+Output written on talk.dvi (8 pages, 14928 bytes).

@@ -1,0 +1,86 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>The KTKinematicMoveable Track Class</TITLE>
+<META NAME="Template" CONTENT="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot">
+</HEAD>
+<BODY LINK="#0000ff" VLINK="#800080">
+
+<H1 ALIGN="CENTER">The KTKinematicMoveable Class</H1>
+<H2>Introduction</H2>
+<B><P>KTKinematicMoveable</B> is one of the <A HREF="basetracks.html">basic track classes</A> in the CLEO3 infrastructure. It inherits directly from <A HREF="kinematicdata.html">KTKinematicData</A> and acts as the base class for all classes that move <B>KTKinematicData</B> objects. Since there is no specification of a magnetic field or material geometry in this class, all public move routines defined here are <I>pure virtual functions</I>, which means that <B>KTKinematicMoveable</B> is an abstract class and no objects of its type can be instantiated.</P>
+<P>Note: <I>Classes that inherit from <B>KTKinematicMoveable</B> must provide the required move functions.</P>
+</I><H2><A HREF="kinematicmoveable.gif">KTKinematicMoveable class diagram</A></H2>
+<H2>Specification of move direction and status</H2>
+<P>When you move any <B>KTKinematicMoveable</B> object (or objects from its descendents) you can specify the direction of the move as being forward, backard or either (the specification of "either" means that the object will take the shortest path to the desired point, either forward or backward). Forward and backward mean exactly what they say; the object will move only in the specified direction even if it has to make almost a complete turn.</P>
+<P>The definitions of these directions can be found in the <A HREF="movecontrol.gif">KTMoveControl</A> class. For reasons of coding clarity it is better to typedef them as shown below:</P><DIR>
+<DIR>
+
+<PRE>typedef KTMoveControl::kDirectionForward  kForward;
+typedef KTMoveControl::kDirectionBackward kBackward;
+typedef KTMoveControl::kDirectionEither   kEither;</PRE></DIR>
+</DIR>
+
+<P>You can also typedef the return argument in a similar way to make your code simpler to read.</P><DIR>
+<DIR>
+
+<PRE>typedef KTMoveControl::MoveStatus MoveStatus;</PRE></DIR>
+</DIR>
+
+<P>Examples of moves can be found in the <A HREF="kinematicfixedbz.html">KTKinematicFixedBz</A> class.</P>
+<H2>Which move routines are declared</H2>
+<P>Pure virtual functions are declared for the following moves</P>
+
+<UL><DIR>
+<DIR>
+
+
+<UL>
+<DL>
+<DD><LI>Fixed arc length</LI></DD>
+<DD><LI>Point of closest approach to a point in 3-D</LI></DD>
+<DD><LI>Point of closest approach to a point (in the bend plane)</LI></DD>
+<DD><LI>Point of closest approach to a line</LI></DD>
+<DD><LI>Specified z position</LI></DD>
+<DD><LI>Intersection with a plane</LI></DD>
+<DD><LI>Intersection with a circle of a specified radius</LI></DD>
+<DD><LI>Intersection with a cylinder with specified center, axis and radius</LI></DD>
+</DL></UL>
+</DIR>
+</DIR>
+</UL>
+
+<P>&nbsp;</P>
+<B><P>KTKinematicMoveable</B> implements all the above move routines for the case when the helix is a straight line. These functions are called automatically by the descendents of this class when they detect that the magnetic field is zero or the particle has no charge.</P>
+<H2>Other declared routines</H2>
+<B><P>KTKinematicMoveable</B> also declares pure virtual functions for the point of closest approach and the distance of closest approach for the following situations. These member functions must be implemented by descendents of <B>KTKinematicMoveable</B>. The straight line versions of these functions have been implemented.</P>
+
+<UL><DIR>
+<DIR>
+
+
+<UL>
+<DL>
+<DD><LI>Return point of closest approach to a point in 3-D</LI></DD>
+<DD><LI>Return point of closest approach to a point (in bend plane)</LI></DD>
+<DD><LI>Return point of closest approach to a line</LI></DD>
+<DD><LI>Return distance of closest approach to a point in 3-D</LI></DD>
+<DD><LI>Return distance of closest approach to a point (in bend plane)</LI></DD>
+<DD><LI>Return distance of closest approach to a line</LI></DD>
+</DL></UL>
+</DIR>
+</DIR>
+</UL>
+
+<P><HR></P>
+<ADDRESS><A HREF="mailto:avery@phys.ufl.edu/">Paul Avery &lt;avery@phys.ufl.edu&gt;</A></ADDRESS>
+<P>$Id: kinematicmoveable.html,v 1.2 1998/07/09 21:33:17 avery Exp $ <!-- 
+$Log: kinematicmoveable.html,v $
+Revision 1.2  1998/07/09 21:33:17  avery
+Bug fixes, finished implementation of move routines, updated documentation.
+
+Revision 1.1  1998/05/27 17:06:17  avery
+First submission of documentation
+--></BODY>
+</HTML>

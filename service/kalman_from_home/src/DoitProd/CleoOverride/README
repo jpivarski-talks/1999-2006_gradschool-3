@@ -1,0 +1,9 @@
+These routines have been modified from the originals in the library.
+
+xts_rfv is here because of a integer*8 problem that works for Dan but not for
+        me. Don't know what's going on there, but my fixes make it work for me.
+        Investigating still...
+
+dvzfbr and dvgrun are here because there's a rogue dvgrun linked statically
+       into suez that screws up. This dvgrun is renamed dvgrunadam. dvzfbr is
+       here with the altered call to dvgrunadam.

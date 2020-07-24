@@ -1,0 +1,13 @@
+nt/hmerge ../rzn3/stretchkal_500_new.rzn ../rzn3/stretchkal_500_1.rzn ../rzn3/stretchkal_500_2.rzn ../rzn3/stretchkal_500_3.rzn ../rzn3/stretchkal_500_4.rzn ../rzn3/stretchkal_500_5.rzn ../rzn3/stretchkal_500_6.rzn ../rzn3/stretchkal_500_7.rzn ../rzn3/stretchkal_500_8.rzn ../rzn3/stretchkal_500_9.rzn ../rzn3/stretchkal_500_10.rzn
+h/file 1 ../rzn3/stretchkal_500_new.rzn
+cd twocyclehist
+
+h/cr/title 'data27 KalmanProd Stereo-only (increase all wire radii 500 [m]m)'
+
+zone 1 1
+min 999 -0.005
+max 999 0.005
+h/plot 999
+
+pict/print 'stretchkal_500_new.ps'
+exit

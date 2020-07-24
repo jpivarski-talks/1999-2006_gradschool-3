@@ -1,0 +1,9 @@
+RCSID: "$Id: DRWeightLayerDriftEntranceAngle.bdl,v 1.0 2003/9/12 15:31:51 mccann Exp $"
+Type: Constants
+Name: DRWeightLayerDriftEntranceAngle
+{
+   UInt32 layer
+   UInt32 driftbin
+   UInt32 eabin
+   float fittingweight
+}

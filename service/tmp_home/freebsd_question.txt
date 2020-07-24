@@ -1,0 +1,39 @@
+Book recommendation for begrudging FreeBSD administrator
+
+I use FreeBSD on my home computer for almost exclusively one reason:
+it's stable.  I had been a Mac user (1985-1997), but when I saw how
+reliable a friend's FreeBSD machine was by comparison, I switched.
+
+One thing I did for the Mac that I never did for FreeBSD is figure out
+how it works.  I'm a competent UN*X user and do a lot of programming,
+but I have only a foggy notion of what's in all those /sys /var /etc
+directories.  My hope was that I could install FreeBSD out of the box,
+as well as the few programs I want, and then never touch anything for
+which you need root access ever again.  I expected that FreeBSD in a
+working state would never change into a non-working state if I didn't
+touch it.
+
+Well, FreeBSD works wonderfully... as long as I don't try to talk to
+the outside world.  Getting sound to work was an epic struggle, and my
+computer is now in a state where sound will work--- for hours or days
+after startup, and then mysteriously stop working.  (No error
+messages; just no sound.)  Now for another project I'm working on, I
+need a scanner.  I (my wife and I) successfully got a USB scanner to
+work through SANE, but on some reboots, the device node doesn't work.
+The latter is somehow related to gimp locking up the computer (I can't
+even switch to another tty to kill something).  Once, recompiling the
+kernel and re-making the device nodes seemed to fix it, but then it
+didn't on another occasion.  And finally, running cdplay will "open
+too many files" and I can't do anything until I log out and back in
+again.
+
+I've been putzing around long enough--- I need to actually understand
+my operating system.  But I don't have the time that I did when I was
+thirteen, so I'm not going to figure it out by experimentation.  Could
+anyone recommend a concise book on administrating a one-user FreeBSD
+machine?
+
+(By the way, my FreeBSD is version 4.2.  And I'm not upgrading without
+a VERY, VERY good reason.)
+
+comp.unix.bsd.freebsd

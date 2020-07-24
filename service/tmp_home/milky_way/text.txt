@@ -1,0 +1,181 @@
+Our Growing, Breathing Galaxy
+Long assumed to be a relic of the distant past, the Milky Way turns out to be a dynamic, living object
+By Bart P. Wakker and Philipp Richter 
+ 1  2  3  4  5  6  next »
+
+
+Image: RON MILLER
+
+GULPING DOWN gas and cannibalizing its smaller neighbors, the Milky Way galaxy is still in the process of forming. For a key to this image, see illustration below. 
+Overview/High-Velocity Clouds
+Sometimes the hardest things to understand are the things you are most familiar with. We may know our hometowns intimately, yet visitors or young children may still point out things we have never noticed before. They may not be as attuned to all the minutiae, but they often see the big picture better than longtime residents can. A similar situation faces astronomers who study the Milky Way: we are so deeply embedded in our home galaxy that we cannot see it fully. When we look at other galaxies, we can discern their overall layout but not their detailed workings. When we look at our own, we can readily study the details but perceive the overall structure only indirectly. 
+
+Consequently, we have been slow to grasp the big picture of the Milky Way's structure and history. Astronomers were not even sure that the galaxy was a distinct object, only one of many billions, until the 1920s. By the mid-1950s they had painstakingly assembled the picture that most people now have of the Milky Way: a majestic pinwheel of stars and gas. In the 1960s theorists proposed that our galaxy formed early in cosmic history--by the most recent estimate, 13 billion years ago--and has remained broadly unchanged ever since. 
+
+ADVERTISEMENT (article continues below)
+
+
+
+
+
+
+
+Gradually, though, it has become clear that the Milky Way is not a finished work but rather a body that is still forming. Like the earlier discoveries, this realization has relied heavily on observing other galaxies and bringing the lessons back home. Most galaxies are now assumed to result from the merging of smaller precursors, and in the case of the Milky Way, we can observe the final stages of this process. Our galaxy is tearing apart small satellite galaxies and incorporating their stars. Meanwhile gas clouds are continually arriving from intergalactic space. No longer can researchers speak of galaxy formation in the past tense. 
+
+The evidence for the continuing accretion of gas by the Milky Way involves high-velocity clouds, or HVCs--mysterious clumps of hydrogen, up to 10 million times the mass of the sun and 10,000 light- years across, moving rapidly through the outer regions of the galaxy. HVCs were discovered 41 years ago, but only in the past five years have new data and new ideas provided the evidence that some of them represent infalling gas. HVCs also show that the galaxy is breathing--pushing out gas and then pulling it back in, as if exhaling and inhaling. In addition, the properties of HVCs suggest that a gigantic sphere of hot, tenuous plasma surrounds the galaxy. Astronomers had long suspected the existence of such a sphere, but few thought it would be so large. 
+
+
+Image: SLIM FILMS
+
+Our Galaxy and Its Neighborhood 
+Click for full-size image
+Historically, interpreting HVCs has been difficult because being stuck within the galaxy, we have no direct way to know their locations. We can see their two-dimensional positions on the sky but lack depth perception. Over the past four decades, this ambiguity has led to many alternative hypotheses, some placing HVCs close to our own stellar neighborhood, others locating them deep in intergalactic space. The recent breakthroughs have occurred mainly because ground-based and orbiting telescopes have finally managed to get a three-dimensional fix on the clouds--and thereby a better perspective on our celestial hometown. 
+
+Virgin or Recycled?
+Our galaxy contains about 100 billion stars, most of which are concentrated in a thin disk about 100,000 light-years across and 3,000 light-years thick. These stars revolve around the galactic center in nearly circular orbits. The sun, for example, trundles around at nearly 200 kilometers per second. Another 10 billion stars form the galactic "halo," a huge spherical envelope that surrounds the disk. Between the stars lie gas and dust, forming the interstellar medium, most of which also moves in nearly circular orbits around the galactic center and is even more narrowly concentrated in a disk than the stars are. Like a planet's atmosphere, the gas in the medium is densest at its "bottom" (the galactic plane) and thins out with height. But up to about 10 percent of the interstellar medium lies outside the plane and moves up to 400 kilometers per second faster than rotation would imply. This gas constitutes the HVCs.
+
+The story of HVCs began in the mid-1950s, when Guido Münch of the California Institute of Technology discovered dense pockets of gas outside the plane--a clear exception to the rule that the density of gas diminishes with height. Left to themselves, those dense pockets should quickly dissipate, so in 1956 Lyman Spitzer, Jr., of Princeton University proposed that they were stabilized by a hot, gaseous corona that surrounded the Milky Way, a galactic-scale version of the corona around the sun [see "The Coronas of Galaxies," by Klaas S. de Boer and Blair D. Savage; Scientific American, August 1982]. 
+
+Inspired by Spitzer's proposal, Jan Oort of Leiden University in the Netherlands conjectured that the galactic halo might also contain cold gas very far from the galactic plane. A search for radio emission from cold clouds resulted in their discovery in 1963. Unlike the gas found by Münch, these clouds did not follow the overall rotation of the galaxy; instead they seemed to be falling toward the galactic disk at high speed, so they became known as HVCs. A slower-moving but still anomalous type of cloud, an intermediate-velocity cloud, or IVC, was spotted the same year. 
+
+ADVERTISEMENT (article continues below)
+
+
+
+
+
+
+
+
+
+Our galaxy is tearing apart its satellite galaxies, and gas clouds are arriving from intergalactic
+
+space.
+
+
+
+Oort later fleshed out his idea and suggested that after the initial formation of the galaxy, gas near the edge of its gravitational sphere of influence was left over. This gas reached the disk only after 10 billion years or more, becoming observable as HVCs. Oort's idea fit in well with models that try to explain the observed chemical composition of the galaxy. Stars produce heavy elements and scatter them into interstellar space when they die. Newly born stars incorporate those elements and produce even more. Therefore, if the galaxy were evolving in isolation, each generation of stars should contain more heavy elements than its predecessors. 
+
+Yet most stars in the solar neighborhood, regardless of age, have about the same abundance of heavy elements. The favored explanation for this apparent discrepancy is that the galaxy is not isolated and that interstellar gas is constantly being diluted by more pristine material. Several researchers surmised that some or all of the HVCs represent this fresh gas, but the proposition lacked direct observational evidence. 
+
+An alternative hypothesis holds that HVCs have nothing to do with an influx of gas but are instead part of a "galactic fountain." This idea was proposed in the mid-1970s by Paul Shapiro, now at the University of Texas at Austin, and George B. Field of the Harvard-Smithsonian Center for Astrophysics. Gas heated and ionized by massive stars rises out of the disk into the corona, forming an atmosphere. Some regions then cool off, rain back down and become electrically neutral again, setting up a cycle of gas between the disk and the corona. In 1980 Joel Bregman, now at the University of Michigan at Ann Arbor, suggested that HVCs could be the returning gas, and for a while this idea was the leading explanation for their origin. 
+
+
+FOUR PROCESSES THAT SHAPE THE GALAXY 
+Click for full-size image
+Going Out with the Tide
+Neither oort's hypothesis nor the fountain model, however, could explain all characteristics of all HVCs. The problem was further complicated by the discovery in the early 1970s of the Magellanic Stream, a filament of gas that arcs around the galaxy. The stream follows the orbits of the Large and Small Magellanic Clouds, two small companion galaxies that revolve around the Milky Way like moons around a planet. Although astronomers usually reserve the term "cloud" for a clump of gas or dust, these full-fledged galaxies containing billions of stars are so named because they resemble clouds in the night sky. They are currently about 150,000 light-years from our galaxy, about as close as they ever get on their highly elongated paths. 
+
+The stream behaves in many ways like a string of HVCs. Much of it moves at velocities that are incompatible with normal galactic rotation. Yet it cannot be explained by the two hypotheses described above. According to the most detailed model of the stream, published in 1996 by Lance T. Gardiner of Sun Moon University in South Korea and Masafumi Noguchi of Tohoku University in Japan, the filament is our galaxy's version of the tidal streams that astronomers see around many other galaxies. When the Magellanic Clouds made their previous close approach to the Milky Way, 2.2 billion years ago, the combined force of our galaxy and the Large Magellanic Cloud ripped off some of the gas in the outer parts of the Small Magellanic Cloud. About half the gas was decelerated and lagged behind the Magellanic Clouds in their orbits. The other half was accelerated and pulled ahead of the galaxies, forming what is called a leading arm. A similar process may also be ripping apart some of the Milky Way's other satellite galaxies [see sidebar].
+
+An alternative model ascribes the stream to frictional forces. If the Milky Way has a very extended corona (much bigger than the one proposed by Spitzer), this corona could strip off gas from the Magellanic Clouds. In either model, however, the Magellanic Clouds have lost large amounts of gas, producing many of the HVCs. 
+
+Yet another twist in the saga of HVCs came in 1999, when Leo Blitz of the University of California at Berkeley and his collaborators suggested that they are much farther away than most of their colleagues thought possible. Instead of buzzing through the outskirts of the Milky Way, HVCs could be floating around in the Local Group of galaxies--a conglomeration of the Milky Way, Andromeda and some 40 smaller galaxies that occupies a volume of space roughly four million light-years across. In this case, HVCs would be remnants of the group's, rather than only our galaxy's, formation. 
+
+ADVERTISEMENT (article continues below)
+
+
+
+
+
+
+
+Similar ideas had been put forward more than 30 years ago and excluded because gas clouds should not be stable at the proposed distances. Blitz conjectured that HVCs are not, in fact, clouds of gas but clumps of dark matter with a small amount of gas mixed in. If so, HVCs are 10 times as massive as astronomers had assumed and therefore able to hold themselves together. An attractive feature of this hypothesis is that it alleviates what has become a major embarrassment for astronomers--namely, that models of galaxy formation predict more leftover dark matter halos than have been found [see "The Life Cycle of Galaxies," by Guinevere Kauffmann and Frank van den Bosch; Scientific American, June 2002]. HVCs could be the missing leftovers. 
+
+Getting Warmer
+Thus, astronomers entered the third millennium with four hypotheses for HVCs: fresh gas left over from galaxy formation, gas cycling through a galactic fountain, shreds of the Magellanic Clouds, or intergalactic amalgams of gas and dark matter. Each hypothesis had bits and pieces of supporting evidence, but researchers needed new data to break the deadlock, and since the mid-1990s they have made major progress. 
+
+
+Image: INGRID KALLICK
+
+ Sidebar: Peeking Behind the Clouds
+First, they have completed an all-sky survey for radio emission from neutral hydrogen, which traces gas at temperatures of about 100 kelvins. Aad Hulsbosch of the University of Nij-megen and one of us (Wakker), using the Dwingeloo radio telescope in the Netherlands, finished the northern half of this survey in 1988. Ricardo Morras and his collaborators, using the Villa Elisa radio telescope in Argentina, covered the southern sky in 2000. A third survey, by Dap Hartmann and Butler Burton of Leiden Observatory, became available in 1997 and mapped all of the Milky Way's neutral hydrogen, including both HVCs and IVCs. 
+
+A further contribution came from observations in visible light, made by instruments such as the Wisconsin Hydrogen-Alpha Mapper [see "The Gas between the Stars," by Ronald J. Reynolds; Scientific American, January 2002]. Although neutral hydrogen does not shine at visible wavelengths, ionized gas does, and the outer parts of HVCs are ionized by far-ultraviolet light from the Milky Way and other objects. The radiation also heats the clouds' exteriors to 8,000 kelvins. The amount of visible light is a measure of the intensity of the radiation field surrounding the HVC, which in turn depends on its distance from the galactic disk. Thus, these observations offer a rough way to estimate the location of HVCs. 
+
+Using such data, Laura Danly, now at the University of Denver, and her collaborators put limits on the distance to an IVC 11 years ago. More recently, Hugo van Woerden of the University of Groningen in the Netherlands and his collaborators gauged the distance to an HVC for the first time [see sidebar]. Meanwhile we and our colleagues measured the chemical composition of the clouds, rounding out the information needed to distinguish among the various hypotheses. 
+
+A very warm component of HVCs emerged in data from FUSE. This satellite detected absorption by highly ionized oxygen (specifically, oxygen atoms that have lost five of their eight electrons), which implies a temperature of about 300,000 kelvins. Such temperatures can occur where cool (100 kelvins) neutral hydrogen comes into contact with extremely hot (one million kelvins) gas. Alternatively, the presence of gas at 300,000 kelvins shows that the extremely hot gas is cooling down. Together with Blair D. Savage of the University of Wisconsin%G–%@Madison and Kenneth Sembach of the Space Telescope Science Institute in Baltimore, we have traced this component of HVCs. 
+
+ADVERTISEMENT (article continues below)
+
+
+
+
+Complex Behavior
+Having explored all these new data, we can now present a coherent picture of HVCs. We begin with two of the largest, known as complexes A and C, which were the first HVCs discovered back in 1963. Complex A is 25,000 to 30,000 light-years away, which clearly puts it in the galactic halo. The distance to complex C remains uncertain: at least 14,000 light-years but probably no more than 45,000 light- years above the galactic plane. 
+
+The two clouds are deficient in heavy elements, having about a tenth of the concentration found in the sun. The nitrogen content of complex C is especially low, about 1�50 of the sun's. The paucity of nitrogen suggests that the heavy elements came mostly from high-mass stars, which produce less nitrogen relative to other heavy elements than low-mass stars do. In fact, recent models of the young universe predict that the earliest stars are uncommonly heavy. Complex C thus appears to be a fossil from the ancient universe. 
+
+Brad Gibson of Swinburne University in Melbourne, Australia, has looked at a different part of complex C and measured a heavy- element concentration that was twice as high as our earlier results. This variation in composition indicates that complex C has begun to mix with other gas clouds in the galactic halo, which have higher concentrations of heavy elements. In addition, Andrew Fox and his collaborators at Wisconsin used the data for highly ionized oxygen and other ions to show that the gas at 300,000 kelvins in complex C represents an interface between hot and cool gas. We seem to be catching complex C in the process of assimilating into the galaxy. 
+
+Clouds such as complexes A and C thus provide the first direct evidence for the infall of fresh gas. Complex C brings between 0.1 and 0.2 solar mass of new material every year, and complex A represents about half of that. This is 10 to 20 percent of the total needed to dilute galactic gas and account for the chemical composition of stars. Other HVCs may make up the remainder. It is somewhat unclear, though, whether the ultimate source of this gas is a remnant halo (as proposed by Oort), deep intergalactic space, or even a small dwarf galaxy that the Milky Way swallowed. 
+
+A Multiplicity of Origins
+The results eliminate three of the hypotheses for the origin of complexes A and C. The fountain hypothesis implies that they originate in the disk and have a composition similar to that of the sun, which is not the case. The Magellanic Stream hypothesis also gets the heavy-element content wrong. Finally, the dark matter hypothesis fails because these two HVCs do not lie in intergalactic space. It turns out, however, that these three explanations are not completely incorrect. We simply have to look elsewhere to find where they apply.
+
+For a long time, IVCs stood in the shadow of the more flashy and mysterious HVCs. Several teams have now measured their composition, and it matches that of gas in the disk. Moreover, IVCs lie some 4,000 light-years above the plane, the place where fountains would operate. Both facts indicate that they, rather than HVCs, represent the return flow of a fountain.
+
+A piece of corroborating evidence has been the detection of hydrogen molecules in IVCs. Forming these molecules in space requires interstellar dust grains, which will be sufficiently abundant only if the ambient gas is chemically enriched. In line with this idea, molecular hydrogen was not found in complex C. Thus, IVCs are recycled gas from within the galaxy, whereas HVCs are primarily gas from outside. 
+
+ADVERTISEMENT (article continues below)
+
+
+
+
+As for the Magellanic Stream hypothesis, at least one HVC does seem to be a castoff from the stream. Its composition is similar to that of the Small Magellanic Cloud, as Limin Lu and his co-workers at Wisconsin found in 1998. The HVC is located in the leading arm of the stream, meaning that whatever pulled it off the Small Magellanic Cloud also accelerated it. Frictional forces cannot do that; only tidal forces can. Lu's discovery finally settles the question of the origin of the stream. 
+
+Frictional forces may still be important, however. FUSE found highly ionized oxygen associated with the Magellanic Stream, suggesting that it, too, is embedded in hot gas. The galactic corona must therefore extend much farther out than was originally proposed by Spitzer--out to a few hundred thousand light-years, rather than a few thousand. This corona is not dense enough to strip gas from the Magellanic Clouds, but once the gas has been drawn out by tidal forces, friction with the corona causes it to decelerate, slowly rain down on the galaxy and contribute to the growth of the Milky Way. 
+
+Similarly, the dark matter hypothesis, although it does not explain complexes A and C, may fit into the broader scheme of things. Blitz originally proposed that the intergalactic HVCs weigh 10 million to 100 million solar masses. Yet such clouds have not been detected in nearby galaxy groups similar to the Local Group, even though observations are now sensitive enough to do so. Furthermore, the hypothesis predicts that visible-light emission from HVCs should be too faint to detect, but in almost all cases that this emission has been looked for, it has been detected. Finally, theoretical arguments show that if the HVCs are distant, they must be either fully ionized or extremely massive, and both options are inconsistent with observations. It thus appears that HVCs are not the predicted population of dark matter clouds. 
+
+Robert Braun of Dwingeloo Observatory and Butler Burton and Vincent de Heij of Leiden instead propose that the Milky Way and Andromeda galaxies are surrounded by several hundred small clouds made mostly of dark matter and ionized gas, with a small fraction of neutral hydrogen. These clouds would weigh at most 10 million solar masses, and rather than roaming throughout the Local Group, most would stay within half a million light-years of the main galaxies. 
+
+Although neutral HVCs do not appear to be dispersed throughout the Local Group, other types of high-velocity gas may be. The highly ionized gas in one HVC lies far outside the Milky Way. FUSE has also discovered high-velocity, highly ionized oxygen on its own, without any neutral gas. Similar clouds of hot gas have been found elsewhere in the universe by Todd M. Tripp of Princeton and his co-workers. This hot gas may constitute a filament running through intergalactic space. Such filaments show up in simulations of the broad-scale evolution of the cosmos [see "The Emptiest Places," by Evan Scannapieco, Patrick Petitjean and Tom Broadhurst; Scientific American, October 2002], and the total amount of matter in these filaments may be larger than that in all galaxies combined, forming a reservoir that the Milky Way can draw on to make new stars.
+
+The HVCs surrounding the Milky Way remind us that we are living in a galaxy that is still forming and evolving. Originally our galaxy was surrounded by many smaller satellite galaxies and a lot of leftover gas. Over the past several billion years, it has incorporated most of those satellites. It may also have accreted much of the pristine gas from its intergalactic environs, and plenty of gas may still lie out there. Gas is still trickling in, taking the form of HVCs. At the same time, the galaxy expels gas loaded with heavy elements into its halo and maybe even into intergalactic space.
+
+Within the next 10 or so billion years, more satellite galaxies will merge with the Milky Way, forming more of the stellar streams now being discovered in the halo. Our galaxy is on a collision course with the Andromeda galaxy. We cannot tell exactly how the Milky Way, or what is left of it, will look in the distant future, but we know that its formation has not come to an end yet. 
+
+ADVERTISEMENT (article continues below)
+
+
+
+
+
+
+
+
+
+BART P. WAKKER and PHILIPP RICHTER are observers, primarily in the ultraviolet and radio bands of
+
+the electromagnetic spectrum. They joined forces to investigate high-velocity clouds in late 1999, when Richter took up a postdoctoral position at the University of Wisconsin%G–%@Madison, where Wakker was doing research. Wakker traces his interest in astronomy to the Apollo 8 moonflight. He did his doctoral thesis on HVCs at the University of Groningen in the Netherlands, then spent five years at the University of Illinois before moving to Wisconsin in 1995. Richter received his Ph.D. from the University of Bonn in Germany, where he studied diffuse molecular gas in the Magellanic Clouds and the halo of the Milky Way. After leaving Wisconsin in 2002, he worked at the Arcetri Astrophysical Observatory in Florence, Italy, and recently returned to Bonn.
+� previous  1  2  3  4  5  6  
+
+
+MORE TO EXPLORE:
+High-Velocity Clouds. Bart P. Wakker and Hugo van Woerden in Annual
+
+Review of Astronomy and Astrophysics, Vol. 35, pages 217%G–%@266; September 1997. 
+
+A Confirmed Location in the Galactic Halo for the High-Velocity Cloud "Chain A." Hugo van Woerden, Ulrich J. Schwarz, Reynier F. Peletier, Bart P. Wakker and Peter M. W. Kalberla in Nature, Vol. 400, pages 138%G–%@141; July 8, 1999. Available online at arXiv.org/abs/astro-ph/9907107 
+
+Accretion of Low-Metallicity Gas by the Milky Way. Bart P. Wakker, J. Chris Howk, Blair D. Savage, Hugo van Woerden, Steve L. Tufte, Ulrich J. Schwarz, Robert Benjamin, Ronald J. Reynolds, Reynier F. Peletier and Peter M. W. Kalberla in Nature, Vol. 402, No. 6760; pages 388%G–%@390; November 25, 1999 
+
+The Formation and Evolution of the Milky Way. Cristina Chiappini in American Scientist, Vol. 89, No. 6, pages 506-515; November-December 2001. 
+
+A Far Ultraviolet Spectroscopic Explorer Survey of Molecular Hydrogen in Intermediate-Velocity Clouds in the Milky Way Halo. P. Richter, B. P. Wakker, B. D. Savage and K. R. Sembach in Astrophysical Journal, Vol. 586, No. 1, pages 230%G–%@248; March 20, 2003. arXiv.org/abs/astro-ph/0211356 
+
+Highly Ionized High-Velocity Gas in the Vicinity of the Galaxy. K. R. Sembach, B. P. Wakker, B. D. Savage, P. Richter, M. Meade, J. M. Shull, E. B. Jenkins, G. Sonneborn and H. W. Moos in Astrophysical Journal, Supplement Series, Vol. 146, No. 1, pages 165%G–%@208; May 2003. 
+
+SIDEBAR
+
+By Bart P. Wakker and Philipp Richter 
+
+
+Image: INGRID KALLICK
+
+ Click for full-size image
+High-velocity clouds stymied astronomers for decades because their distances and compositions were uncertain. The only known technique to measure these properties is the absorption-line method. Stars and galaxies located behind HVCs act as bulbs that shine through the clouds from behind. Most of the light passes through the clouds, but a few wavelengths are absorbed, allowing properties of the clouds to be measured. If the spectrum of a star contains absorption lines, it means a cloud must be sitting between us and the star. The distance to the star sets an upper limit on the distance to the cloud. Conversely, the lack of an absorption line implies a lower limit on the distance to the cloud. These limits assume that other factors can be ruled out: uncertainties in the stellar distance, lack of enough heavy elements to produce a detectable absorption line, and absorption lines created by material within the star itself. 
+
+To determine HVC distances, the most useful lightbulbs are so-called RR Lyrae variables and blue horizontal branch (BHB) stars. They are numerous, their distances can be measured accurately, and few of their spectral lines overlap with those of the clouds. In principle, the absorption lines of any element could be used. To determine the heavy element content, however, the best measurements rely on the spectral lines of neutral oxygen and ionized sulfur. These lines lie in the ultraviolet part of the spectrum, requiring properly equipped satellites such as the Hubble Space Telescope or Far Ultraviolet Spectroscopic Explorer (FUSE). In this case, the best lightbulbs are distant active galaxies such as quasars, because they often have featureless spectra and are brighter ultraviolet emitters than stars. 

@@ -1,0 +1,19 @@
+/STL_vectorOfHypos.cc/1.1/Sat Jun 10 00:15:17 2000//
+/T_PivarskiBaseQualityProxy.cc/1.1/Sat Sep 11 19:37:57 1999//
+/T_PivarskiElectronQualityProxy.cc/1.2/Wed Aug 16 20:18:25 2000//
+/T_PivarskiExitElectronQualityProxy.cc/1.2/Wed Aug 16 20:18:25 2000//
+/T_PivarskiExitKaonQualityProxy.cc/1.2/Wed Aug 16 20:18:26 2000//
+/T_PivarskiExitMuonQualityProxy.cc/1.2/Wed Aug 16 20:18:26 2000//
+/T_PivarskiExitPionQualityProxy.cc/1.2/Wed Aug 16 20:18:27 2000//
+/T_PivarskiExitProtonQualityProxy.cc/1.2/Wed Aug 16 20:18:27 2000//
+/T_PivarskiFitCathodeHitLatticeProxy.cc/1.1.1.1/Fri Sep 10 21:58:59 1999//
+/T_PivarskiFitDRHitLatticeProxy.cc/1.1.1.1/Fri Sep 10 21:58:59 1999//
+/T_PivarskiFitSVRHitLatticeProxy.cc/1.1.1.1/Fri Sep 10 21:58:59 1999//
+/T_PivarskiFitSVZHitLatticeProxy.cc/1.1.1.1/Fri Sep 10 21:58:59 1999//
+/T_PivarskiFitZDHitLatticeProxy.cc/1.1/Thu Apr 17 17:05:07 2003//
+/T_PivarskiHelixFitProxy.cc/1.1.1.1/Fri Sep 10 21:58:58 1999//
+/T_PivarskiKaonQualityProxy.cc/1.2/Wed Aug 16 20:18:27 2000//
+/T_PivarskiMuonQualityProxy.cc/1.2/Wed Aug 16 20:18:28 2000//
+/T_PivarskiPionQualityProxy.cc/1.2/Wed Aug 16 20:18:28 2000//
+/T_PivarskiProtonQualityProxy.cc/1.2/Wed Aug 16 20:18:29 2000//
+D

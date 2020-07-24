@@ -1,0 +1,86 @@
+Mathematica 4.0 for Linux
+Copyright 1988-1999 Wolfram Research, Inc.
+ -- Motif graphics initialized -- 
+
+In[1]:= << lookfor_strong_thetadependence.m
+Loaded all definitions, ready to do some number-crunching...
+wrote lookfor_opposingSquishVaryPhi0.mx...
+wrote lookfor_opposingSquishVaryPhi1.mx...
+wrote lookfor_opposingSquishVaryPhi2.mx...
+wrote lookfor_opposingSquishVaryPhi0d1mm.mx...
+
+$RecursionLimit::reclim: Recursion depth of 256 exceeded.
+
+$RecursionLimit::reclim: Recursion depth of 256 exceeded.
+
+CompiledFunction::cfsa: 
+                                                                      1
+   Argument If[helixDcaDerivative[0.621657, <<1>>, Hold[{<<2>>}]] > ------, 
+                                                                    <<9>>0
+     <<2>>] at position 1 should be a machine-size real number.
+
+CompiledFunction::cfsa: 
+   Argument -0.000808879 + <<1>> - 5.21022 Sin[0.112814 <<1>>] at position 1
+     should be a machine-size real number.
+
+CompiledFunction::cfsa: 
+                                                                      1
+   Argument If[helixDcaDerivative[0.621657, <<1>>, Hold[{<<2>>}]] > ------, 
+                                                                    <<9>>0
+     <<2>>] at position 1 should be a machine-size real number.
+
+General::stop: Further output of CompiledFunction::cfsa
+     will be suppressed during this calculation.
+
+FindMinimum::fmnum: 
+                                -9                                2
+   Objective function 8.24413 10   + (-0.0000173639 + Sqrt[<<1>>])
+     is not real at {c, p, d, t, z} = 
+    {0.0564069, 2.19911, 0.000999829, 1.00004, 0.000627219}.
+
+ReplaceAll::reps: 
+   {{c, 0.0565685, 0.0565705}} is neither a list of replacement rules nor a
+     valid dispatch table, and so cannot be used for replacing.
+
+ReplaceAll::reps: 
+   {{c, 0.0565685, 0.0565705}} is neither a list of replacement rules nor a
+     valid dispatch table, and so cannot be used for replacing.
+
+ReplaceAll::reps: 
+   {{c, 0.0565685, 0.0565705}} is neither a list of replacement rules nor a
+     valid dispatch table, and so cannot be used for replacing.
+
+General::stop: Further output of ReplaceAll::reps
+     will be suppressed during this calculation.
+wrote lookfor_opposingSquishVaryPhi1d1mm.mx...
+wrote lookfor_opposingSquishVaryPhi2d1mm.mx...
+
+                                 1
+Power::infy: Infinite expression -- encountered.
+                                 0.
+
+Infinity::indet: Indeterminate expression 0. ComplexInfinity encountered.
+
+Part::partw: Part 1 of {} does not exist.
+
+Set::shape: Lists {wire$25843509, dca$25843509} and {}[[1]]
+     are not the same shape.
+
+Part::partw: Part 1 of {} does not exist.
+
+Set::shape: Lists {wire$25843509, dca$25843509} and {}[[1]]
+     are not the same shape.
+
+Part::partw: Part 1 of {} does not exist.
+
+General::stop: Further output of Part::partw
+     will be suppressed during this calculation.
+
+Set::shape: Lists {wire$25843509, dca$25843509} and {}[[1]]
+     are not the same shape.
+
+General::stop: Further output of Set::shape
+     will be suppressed during this calculation.
+wrote lookfor_opposingSquishVaryPhi0dm1mm.mx...
+wrote lookfor_opposingSquishVaryPhi1dm1mm.mx...
+wrote lookfor_opposingSquishVaryPhi2dm1mm.mx...

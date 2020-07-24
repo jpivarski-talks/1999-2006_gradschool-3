@@ -1,0 +1,12 @@
+#!/usr/local/bin/tcsh
+
+cd $HOME/diagnostics/wsunplots
+. /nfs/cleo3/scripts/cleo3defs
+c3rel cleo3_Pass2_Jan30_2002
+
+#  OSAGENT_PORT=31416
+#  export OSAGENT_PORT
+#  C3_CONST=/nfs/c3con/ccon3/constants/Codi
+#  export C3_CONST
+
+suez -f standalone.tcl > $USER_TMP/standalone.log

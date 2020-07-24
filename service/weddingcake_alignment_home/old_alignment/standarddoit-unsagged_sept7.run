@@ -1,0 +1,68 @@
+#!/usr/local/bin/tcsh
+
+cd $USER_RUN/HighCotThetaTrackSplitting
+. /nfs/cleo3/scripts/cleo3defs
+# c3rel cleo3_Jul05_2001
+c3rel cleo3_Pass2_May29_2001
+
+OSAGENT_PORT=31416
+export OSAGENT_PORT
+C3_CONST=/nfs/c3con/ccon3/constants/Codi
+export C3_CONST
+echo Using OSAGENT_PORT $OSAGENT_PORT and constants server $C3_CONST
+
+suez -q > $USER_TMP/standarddoit-unsagged_final.log << EOF
+
+module sel LoadHbook4MModule
+module sel HbookHistogramModule
+hbook file hold/final.rzn
+hbook init
+
+run_file setup_funky.tcl
+
+source_format sel DRDriftDatav2FileSourceFormat
+# file in /cdat/sol406/disk1/drcal/main/cake/asciifiles/patch_axial.drdriftdatav2
+# file in /cdat/sol406/disk1/drcal/main/cake/asciifiles/DRDriftDatav2_dr_all_aligned1_17_47_v1.drdriftdatav2
+# file in /home/mccann/run/DRWeddingCakeAlignment/patched_symmetric_davecal.drdriftdatav2
+# file in /home/mccann/run/DRWeddingCakeAlignment/truesymmetric.drdriftdatav2
+file in /home/mccann/run/DRWeddingCakeAlignment/symnormalcal.drdriftdatav2
+
+source_format sel DRWeightLayerFileSourceFormat
+file in normal.drweightlayer
+
+source_format sel DRWeightDriftFileSourceFormat
+file in ignore_outer.drweightdrift
+
+source_format sel ADRGeomLayerFileSourceFormat
+file in /home/mccann/run/HighCotThetaTrackSplitting/unsagged_16.adrgeomlayer
+
+source_format sel DRGeomAlignmentFileSourceFormat
+# file in /home/mccann/run/DRWeddingCakeAlignment/daves_symcal_align.drgeomalignment
+# file in /home/mccann/run/DRWeddingCakeAlignment/symcal2/sept3.drgeomalignment
+# file in /home/mccann/run/DRWeddingCakeAlignment/sept7.drgeomalignment
+file in /home/mccann/run/DRWeddingCakeAlignment/final.drgeomalignment
+
+# Load Doit
+prod sel DoitProd
+param DoitProd UseSilicon false
+param DoitProd ContinueIfHitsMissing true
+
+# Load ChisqFit fit (don't use Si yet)
+prod sel ChisqFitProd
+# just look at the DR, ignore silicon and cathode
+param ChisqFitProd UseSVRPhi false
+param ChisqFitProd UseSVZ false
+param ChisqFitProd UseDRCathode false
+param ChisqFitProd UseDRAxial true
+param ChisqFitProd UseDRStereoU true
+param ChisqFitProd UseDRStereoV true
+
+database run 119590 0
+
+# Load my processor(s)
+# proc sel \$env(USER_DAF)/build_SunOS_HL2/shlib/HitLevel
+proc sel \$env(USER_BUILD)/shlib/HighCotThetaTrackSplitting
+
+go 200000
+
+EOF

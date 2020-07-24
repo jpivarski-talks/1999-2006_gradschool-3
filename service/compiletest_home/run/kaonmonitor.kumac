@@ -1,0 +1,21 @@
+h/file 1 kaonmonitor.rzn
+cd KaonMonitorProc
+
+ldir
+
+nt/cr 1 'kaon' 2 ! ! 'mc' 'data'
+nt/read 1 ../rzn/mcstudy.ntuple
+
+h/cr/2d 100 'real VS observed' 5 -0.5 4.5 5 -0.5 4.5
+nt/plot 1.mc%data ! ! ! ! text 100
+
+pict/print 'mcstudy_all_kaons.ps'
+
+nt/print 1
+
+
+
+nt/cr 2 'tmp' 1 ! ! 'tmp'
+nt/read 2 ../rzn/tmp.ntuple
+opt liny
+nt/plot 2.tmp tmp<0.003

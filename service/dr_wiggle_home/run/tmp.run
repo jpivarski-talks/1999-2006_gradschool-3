@@ -1,0 +1,8 @@
+#$ -l calibration
+#$ -o /cdat/tem/mccann/tmp.log
+#$ -e /cdat/tem/mccann/tmp.err
+#$ -S /bin/csh 
+#$ -j y
+
+cd /home/mccann/
+ls

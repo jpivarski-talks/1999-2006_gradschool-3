@@ -1,0 +1,59 @@
+FMR: Free memory read
+This is occurring while in:
+      ASiStore::sensor(unsigned short) const [ASiStorePro.so]
+      HISiSurfaceFactory::generateCenterSurfacesWithHits(const vector<const CalibratedSVRphiHit*>&, const vector<const CalibratedSVZHit*>&, HIHelixOperation*, int, double, int, double) [DRWiggle.so]
+      DRWiggle::event(Frame&) [DRWiggle.so]
+      Processor::execute(const StreamType&, Frame&) [libProcessor.so.v02_00_01]
+      MasterProcessor::executeActions(const StreamType&, Frame&) [libProcessor.so.v02_00_01]
+      JobControl::processStop(int&) [libJobControl.a]
+Reading 4 bytes from 0x97e67c in the heap.
+Address 0x97e67c is 44 bytes into a freed  block at 0x97e650 of 80 bytes.
+This block was allocated from:
+      malloc         [rtlib.o]
+      OnWuI()        [libC.so.5]
+      operator new(unsigned int) [rtlib.o]
+      LatticeLinkTrackFitSVRHitLatticeStorageHelper<3>::deliverV2(SMSourceStream&) [DRWiggle.so]
+      SMStorageHelper<SMLatticeLinkInfoBase<Lattice<TRHelixCandidateFit<3>, CalibratedSVRphiHit, TrackFitSVRHitLink>>>::deliver(SMSourceStream&, unsigned int) [T_PionFitSVRHitLattice.cc]
+      __0FWsmmakecontents_deliverP6VSMLatticeLinkInfoBase76HLattice76TTRHelixCandidateFit74D_6TCalibratedSVRphiHit6STrackFitSVRHitLink__R6OSMSourceStreamUiRC6QLatticeInsertItr76HLattice76TTRHelixCandidateFit74D_6TCalibratedSVRphiHit6STrackFitSVRHitLink__R6TSMSt [T_PionFitSVRHitLattice.cc]
+There have been 39 frees since this block was freed from:
+      free           [rtlib.o]
+      operator delete(void*) [rtlib.o]
+      LatticeInsertItr<Lattice<TRHelixCandidateFit<3>, CalibratedSVRphiHit, TrackFitSVRHitLink>>::operator =(SMLatticeLinkInfoBase<Lattice<TRHelixCandidateFit<3>, CalibratedSVRphiHit, TrackFitSVRHitLink>>*) [T_PionFitSVRHitLattice.cc]
+      __0FWsmmakecontents_deliverP6VSMLatticeLinkInfoBase76HLattice76TTRHelixCandidateFit74D_6TCalibratedSVRphiHit6STrackFitSVRHitLink__R6OSMSourceStreamUiRC6QLatticeInsertItr76HLattice76TTRHelixCandidateFit74D_6TCalibratedSVRphiHit6STrackFitSVRHitLink__R6TSMSt [T_PionFitSVRHitLattice.cc]
+      PDSSourceStream::operator >>(const SMMakeContentsBase&) [PDSSourceFormat.so]
+      SMLatticeStorageHelper<Lattice<TRHelixCandidateFit<3>, CalibratedSVRphiHit, TrackFitSVRHitLink>>::deliverV1(SMSourceStream&) [DRWiggle.so]
+
+MSE: Memory segment error
+This is occurring while in:
+      ASiStore::sensor(unsigned short) const [ASiStorePro.so]
+      HISiSurfaceFactory::generateCenterSurfacesWithHits(const vector<const CalibratedSVRphiHit*>&, const vector<const CalibratedSVZHit*>&, HIHelixOperation*, int, double, int, double) [DRWiggle.so]
+      DRWiggle::event(Frame&) [DRWiggle.so]
+      Processor::execute(const StreamType&, Frame&) [libProcessor.so.v02_00_01]
+      MasterProcessor::executeActions(const StreamType&, Frame&) [libProcessor.so.v02_00_01]
+      JobControl::processStop(int&) [libJobControl.a]
+Accessing a memory range that crosses a memory segment boundary.
+Addressing 0xe7118240 for 4 bytes ending at 0xe7118244,
+which is neither in the heap nor the main stack.
+
+ZPR: Zero page read
+This is occurring while in:
+      ASiSensorInfo::ladderOwner(void) const [ASiStorePro.so]
+      DRWiggle::event(Frame&) [DRWiggle.so]
+      Processor::execute(const StreamType&, Frame&) [libProcessor.so.v02_00_01]
+      MasterProcessor::executeActions(const StreamType&, Frame&) [libProcessor.so.v02_00_01]
+      JobControl::processStop(int&) [libJobControl.a]
+      JobControl::eventLoop(StopCounter&) [libJobControl.a]
+Reading 4 bytes from 0x8
+
+SIG: Signal handled
+This is occurring while in:
+      ASiSensorInfo::ladderOwner(void) const [ASiStorePro.so]
+      DRWiggle::event(Frame&) [DRWiggle.so]
+      Processor::execute(const StreamType&, Frame&) [libProcessor.so.v02_00_01]
+      MasterProcessor::executeActions(const StreamType&, Frame&) [libProcessor.so.v02_00_01]
+      JobControl::processStop(int&) [libJobControl.a]
+      JobControl::eventLoop(StopCounter&) [libJobControl.a]
+Received signal 11 (SIGSEGV - Segmentation Fault)
+Faulting address = 0x8
+Signal mask: 
+Pending signals: 

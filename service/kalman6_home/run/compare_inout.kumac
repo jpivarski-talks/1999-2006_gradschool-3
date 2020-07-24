@@ -1,0 +1,76 @@
+opt sta
+set stat 0111110
+opt liny
+zone 1 3
+
+ve/read okay okay.vec
+h/cr/1d 200 '(inward chi2 - outward chi2) / (inward chi2) for healthy tracks' 100 -0.025 0.025
+ve/hfill okay 200
+h/plot 200
+
+ve/read bug2 bug2.vec
+h/cr/1d 100 '(inward chi2 - outward chi2) / (inward chi2) for ReEntry-sick tracks' 100 -0.025 0.025
+ve/hfill bug2 100
+h/plot 100
+
+opt logy
+ve/read bug1 bug1.vec
+h/cr/1d 300 '(inward chi2 - outward chi2) / (inward chi2) for BigErrorMatrix-sick tracks' 100 1-0.025 1+0.025
+ve/hfill bug1 300
+h/plot 300
+
+pict/print 'compare_inout.ps'
+
+*********************************************************
+
+nt/cr 1 'pion' 3 ! ! 'r' 'o' 'f'
+nt/read 1 'pion9.ntuple'
+nt/cr 2 'exit' 3 ! ! 'r' 'o' 'f'
+nt/read 2 'exit9.ntuple'
+
+h/cr/2d 100 'pion real VS official number of hits' 80 -0.5 79.5 80 -0.5 79.5
+h/cr/2d 200 'exitPion real VS official number of hits' 80 -0.5 79.5 80 -0.5 79.5
+
+h/cr/1d 150 'pion official - real number of hits' 99 -49.5 49.5
+h/cr/1d 250 'exitPion official - real number of hits' 99 -49.5 49.5
+
+opt nsta
+opt liny
+nt/plot 1.r%o f==1 ! ! ! box 100
+nt/plot 2.r%o f==1 ! ! ! box 200
+
+opt sta
+opt logy
+nt/plot 1.o-r f==1 ! ! ! ! 150
+nt/plot 2.o-r f==1 ! ! ! ! 250
+
+*********************************************************
+
+nt/cr 1 'both' 8 ! ! 'ped' 'phi' 'phd' 'pff' 'eed' 'ehi' 'ehd' 'eff'
+nt/read 1 'another9.ntuple'
+nt/cr 2 'both' 8 ! ! 'ped' 'phi' 'phd' 'pff' 'eed' 'ehi' 'ehd' 'eff'
+nt/read 2 '../pds/another.ntuple'
+nt/cr 3 'both' 8 ! ! 'ped' 'phi' 'phd' 'pff' 'eed' 'ehi' 'ehd' 'eff'
+nt/read 3 '../pds/another_ba.ntuple'
+
+h/cr/2d 100 'data9 kEntireDetector pion VS exit' 80 -0.5 79.5 80 -0.5 79.5
+h/cr/2d 200 'data9 hitsin-hitsdropped pion VS exit' 80 -0.5 79.5 80 -0.5 79.5
+
+nt/plot 1.ped%eed (pff==1&&eff==1) ! ! ! box 100
+nt/plot 1.phi-phd%ehi-ehd (pff==1&&eff==1) ! ! ! box 200
+
+h/cr/2d 150 'data14 kEntireDetector pion VS exit' 80 -0.5 79.5 80 -0.5 79.5
+h/cr/2d 250 'data14 hitsin-hitsdropped pion VS exit' 80 -0.5 79.5 80 -0.5 79.5
+
+nt/plot 2.ped%eed (pff==1&&eff==1) ! ! ! box 150
+nt/plot 2.phi-phd%ehi-ehd (pff==1&&eff==1) ! ! ! box 250
+
+
+
+
+h/cr/2d 9999 'hits actually dropped VS HitsDropped() --- new' 12 -0.5 3.5 4 -0.5 3.5
+h/cr/2d 9998 'hits actually dropped VS HitsDropped() --- old' 12 -0.5 3.5 4 -0.5 3.5
+nt/plot 2.phi-ped%phd ! ! ! ! text 9999
+pict/print another.ps
+nt/plot 3.phi-ped%phd ! ! ! ! text 9998
+pict/print another_ba.ps

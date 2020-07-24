@@ -1,0 +1,7 @@
+h/file 1 kalman.rzn
+cd FITDIAGPROC
+h/cr/1d 100 'Kalman Bhabha Momentum' 100 4.4 5.1
+nt/plot 1.momfit ! ! ! ! ! 100                  
+h/fit 100(4.67:4.82) g                          
+h/plot 100 e
+pict/print plots2_125243.ps

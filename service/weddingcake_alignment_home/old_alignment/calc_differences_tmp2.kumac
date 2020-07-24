@@ -1,0 +1,401 @@
+h/file 1 hits_check1.rzn
+cd hitlevel
+
+opt fit
+
+fortran/file 65 'dec6_check1.ps'
+graphics/metafile 65 -111
+igset mtype 1
+
+h/cr/1d 11 'west all resid' 100 -0.10E-2 0.10E-2
+h/cr/1d 12 'west cosphi*resid' 100 -0.10E-2 0.10E-2
+h/cr/1d 13 'west -sinphi*resid' 100 -0.10E-2 0.10E-2
+h/cr/1d 21 'east all resid' 100 -0.10E-2 0.10E-2
+h/cr/1d 22 'east cosphi*resid' 100 -0.10E-2 0.10E-2
+h/cr/1d 23 'east -sinphi*resid' 100 -0.10E-2 0.10E-2
+message 'histograms declared'
+
+message 'working on cake 1...'
+nt/plot //lun1/hitlevel/1.resid  0.80<cottheta<01.265&&(layer==1.or.layer==2) ! ! ! 'N' 11
+message 'filled west 1 (all resid)'
+nt/plot //lun1/hitlevel/1.resid -1.265<cottheta<-0.80&&(layer==1.or.layer==2) ! ! ! 'N' 21
+message 'filled east 1 (all resid)'
+nt/plot //lun1/hitlevel/1.cos(phi)*resid  0.80<cottheta<01.265&&(layer==1.or.layer==2)&&abs(sin(phi))<0.4 ! ! ! 'N' 12
+message 'filled west 2 (cosphi)'
+nt/plot //lun1/hitlevel/1.cos(phi)*resid -1.265<cottheta<-0.80&&(layer==1.or.layer==2)&&abs(sin(phi))<0.4 ! ! ! 'N' 22
+message 'filled east 2 (cosphi)'
+nt/plot //lun1/hitlevel/1.0-sin(phi)*resid  0.80<cottheta<01.265&&(layer==1.or.layer==2)&&abs(cos(phi))<0.4 ! ! ! 'N' 13
+message 'filled west 3 (-sinphi)'
+nt/plot //lun1/hitlevel/1.0-sin(phi)*resid -1.265<cottheta<-0.80&&(layer==1.or.layer==2)&&abs(cos(phi))<0.4 ! ! ! 'N' 23
+message 'filled east 3 (-sinphi)'
+message 'histograms filled'
+sigma lbound = $HINFO(11,'MEAN') - 1.7*$HINFO(11,'RMS')
+sigma rbound = $HINFO(11,'MEAN') + 1.7*$HINFO(11,'RMS')
+h/fit 11($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp west(1) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(12,'MEAN') - 1.7*$HINFO(12,'RMS')
+sigma rbound = $HINFO(12,'MEAN') + 1.7*$HINFO(12,'RMS')
+h/fit 12($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp west(2) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(13,'MEAN') - 1.7*$HINFO(13,'RMS')
+sigma rbound = $HINFO(13,'MEAN') + 1.7*$HINFO(13,'RMS')
+h/fit 13($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp west(3) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(21,'MEAN') - 1.7*$HINFO(21,'RMS')
+sigma rbound = $HINFO(21,'MEAN') + 1.7*$HINFO(21,'RMS')
+h/fit 21($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp east(1) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(22,'MEAN') - 1.7*$HINFO(22,'RMS')
+sigma rbound = $HINFO(22,'MEAN') + 1.7*$HINFO(22,'RMS')
+h/fit 22($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp east(2) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(23,'MEAN') - 1.7*$HINFO(23,'RMS')
+sigma rbound = $HINFO(23,'MEAN') + 1.7*$HINFO(23,'RMS')
+h/fit 23($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp east(3) $SIGMA( gfit(2) )
+message 'histograms fitted'
+zone 2 3
+h/cr/title 'cake ring 1 for February alignment'
+h/plot 11
+h/plot 21
+h/plot 13
+h/plot 23
+h/plot 12
+h/plot 22
+
+message 'working on cake ring 2...'
+nt/plot //lun1/hitlevel/1.resid  0.80<cottheta<01.265&&(layer==3.or.layer==4) ! ! ! 'N' 11
+message 'filled west 1 (all resid)'
+nt/plot //lun1/hitlevel/1.resid -1.265<cottheta<-0.80&&(layer==3.or.layer==4) ! ! ! 'N' 21
+message 'filled east 1 (all resid)'
+nt/plot //lun1/hitlevel/1.cos(phi)*resid  0.80<cottheta<01.265&&(layer==3.or.layer==4)&&abs(sin(phi))<0.4 ! ! ! 'N' 12
+message 'filled west 2 (cosphi)'
+nt/plot //lun1/hitlevel/1.cos(phi)*resid -1.265<cottheta<-0.80&&(layer==3.or.layer==4)&&abs(sin(phi))<0.4 ! ! ! 'N' 22
+message 'filled east 2 (cosphi)'
+nt/plot //lun1/hitlevel/1.0-sin(phi)*resid  0.80<cottheta<01.265&&(layer==3.or.layer==4)&&abs(cos(phi))<0.4 ! ! ! 'N' 13
+message 'filled west 3 (-sinphi)'
+nt/plot //lun1/hitlevel/1.0-sin(phi)*resid -1.265<cottheta<-0.80&&(layer==3.or.layer==4)&&abs(cos(phi))<0.4 ! ! ! 'N' 23
+message 'filled east 3 (-sinphi)'
+message 'histograms filled'
+sigma lbound = $HINFO(11,'MEAN') - 1.7*$HINFO(11,'RMS')
+sigma rbound = $HINFO(11,'MEAN') + 1.7*$HINFO(11,'RMS')
+h/fit 11($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp west(1) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(12,'MEAN') - 1.7*$HINFO(12,'RMS')
+sigma rbound = $HINFO(12,'MEAN') + 1.7*$HINFO(12,'RMS')
+h/fit 12($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp west(2) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(13,'MEAN') - 1.7*$HINFO(13,'RMS')
+sigma rbound = $HINFO(13,'MEAN') + 1.7*$HINFO(13,'RMS')
+h/fit 13($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp west(3) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(21,'MEAN') - 1.7*$HINFO(21,'RMS')
+sigma rbound = $HINFO(21,'MEAN') + 1.7*$HINFO(21,'RMS')
+h/fit 21($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp east(1) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(22,'MEAN') - 1.7*$HINFO(22,'RMS')
+sigma rbound = $HINFO(22,'MEAN') + 1.7*$HINFO(22,'RMS')
+h/fit 22($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp east(2) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(23,'MEAN') - 1.7*$HINFO(23,'RMS')
+sigma rbound = $HINFO(23,'MEAN') + 1.7*$HINFO(23,'RMS')
+h/fit 23($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp east(3) $SIGMA( gfit(2) )
+message 'histograms fitted'
+zone 2 3
+h/cr/title 'cake ring 2 for February alignment'
+h/plot 11
+h/plot 21
+h/plot 13
+h/plot 23
+h/plot 12
+h/plot 22
+
+message 'working on cake ring 3...'
+nt/plot //lun1/hitlevel/1.resid  0.80<cottheta<01.265&&(layer==5.or.layer==6) ! ! ! 'N' 11
+message 'filled west 1 (all resid)'
+nt/plot //lun1/hitlevel/1.resid -1.265<cottheta<-0.80&&(layer==5.or.layer==6) ! ! ! 'N' 21
+message 'filled east 1 (all resid)'
+nt/plot //lun1/hitlevel/1.cos(phi)*resid  0.80<cottheta<01.265&&(layer==5.or.layer==6)&&abs(sin(phi))<0.4 ! ! ! 'N' 12
+message 'filled west 2 (cosphi)'
+nt/plot //lun1/hitlevel/1.cos(phi)*resid -1.265<cottheta<-0.80&&(layer==5.or.layer==6)&&abs(sin(phi))<0.4 ! ! ! 'N' 22
+message 'filled east 2 (cosphi)'
+nt/plot //lun1/hitlevel/1.0-sin(phi)*resid  0.80<cottheta<01.265&&(layer==5.or.layer==6)&&abs(cos(phi))<0.4 ! ! ! 'N' 13
+message 'filled west 3 (-sinphi)'
+nt/plot //lun1/hitlevel/1.0-sin(phi)*resid -1.265<cottheta<-0.80&&(layer==5.or.layer==6)&&abs(cos(phi))<0.4 ! ! ! 'N' 23
+message 'filled east 3 (-sinphi)'
+message 'histograms filled'
+sigma lbound = $HINFO(11,'MEAN') - 1.7*$HINFO(11,'RMS')
+sigma rbound = $HINFO(11,'MEAN') + 1.7*$HINFO(11,'RMS')
+h/fit 11($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp west(1) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(12,'MEAN') - 1.7*$HINFO(12,'RMS')
+sigma rbound = $HINFO(12,'MEAN') + 1.7*$HINFO(12,'RMS')
+h/fit 12($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp west(2) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(13,'MEAN') - 1.7*$HINFO(13,'RMS')
+sigma rbound = $HINFO(13,'MEAN') + 1.7*$HINFO(13,'RMS')
+h/fit 13($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp west(3) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(21,'MEAN') - 1.7*$HINFO(21,'RMS')
+sigma rbound = $HINFO(21,'MEAN') + 1.7*$HINFO(21,'RMS')
+h/fit 21($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp east(1) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(22,'MEAN') - 1.7*$HINFO(22,'RMS')
+sigma rbound = $HINFO(22,'MEAN') + 1.7*$HINFO(22,'RMS')
+h/fit 22($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp east(2) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(23,'MEAN') - 1.7*$HINFO(23,'RMS')
+sigma rbound = $HINFO(23,'MEAN') + 1.7*$HINFO(23,'RMS')
+h/fit 23($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp east(3) $SIGMA( gfit(2) )
+message 'histograms fitted'
+zone 2 3
+h/cr/title 'cake ring 3 for February alignment'
+h/plot 11
+h/plot 21
+h/plot 13
+h/plot 23
+h/plot 12
+h/plot 22
+
+message 'working on cake ring 4...'
+nt/plot //lun1/hitlevel/1.resid  0.80<cottheta<01.265&&(layer==7.or.layer==8) ! ! ! 'N' 11
+message 'filled west 1 (all resid)'
+nt/plot //lun1/hitlevel/1.resid -1.265<cottheta<-0.80&&(layer==7.or.layer==8) ! ! ! 'N' 21
+message 'filled east 1 (all resid)'
+nt/plot //lun1/hitlevel/1.cos(phi)*resid  0.80<cottheta<01.265&&(layer==7.or.layer==8)&&abs(sin(phi))<0.4 ! ! ! 'N' 12
+message 'filled west 2 (cosphi)'
+nt/plot //lun1/hitlevel/1.cos(phi)*resid -1.265<cottheta<-0.80&&(layer==7.or.layer==8)&&abs(sin(phi))<0.4 ! ! ! 'N' 22
+message 'filled east 2 (cosphi)'
+nt/plot //lun1/hitlevel/1.0-sin(phi)*resid  0.80<cottheta<01.265&&(layer==7.or.layer==8)&&abs(cos(phi))<0.4 ! ! ! 'N' 13
+message 'filled west 3 (-sinphi)'
+nt/plot //lun1/hitlevel/1.0-sin(phi)*resid -1.265<cottheta<-0.80&&(layer==7.or.layer==8)&&abs(cos(phi))<0.4 ! ! ! 'N' 23
+message 'filled east 3 (-sinphi)'
+message 'histograms filled'
+sigma lbound = $HINFO(11,'MEAN') - 1.7*$HINFO(11,'RMS')
+sigma rbound = $HINFO(11,'MEAN') + 1.7*$HINFO(11,'RMS')
+h/fit 11($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp west(1) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(12,'MEAN') - 1.7*$HINFO(12,'RMS')
+sigma rbound = $HINFO(12,'MEAN') + 1.7*$HINFO(12,'RMS')
+h/fit 12($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp west(2) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(13,'MEAN') - 1.7*$HINFO(13,'RMS')
+sigma rbound = $HINFO(13,'MEAN') + 1.7*$HINFO(13,'RMS')
+h/fit 13($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp west(3) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(21,'MEAN') - 1.7*$HINFO(21,'RMS')
+sigma rbound = $HINFO(21,'MEAN') + 1.7*$HINFO(21,'RMS')
+h/fit 21($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp east(1) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(22,'MEAN') - 1.7*$HINFO(22,'RMS')
+sigma rbound = $HINFO(22,'MEAN') + 1.7*$HINFO(22,'RMS')
+h/fit 22($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp east(2) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(23,'MEAN') - 1.7*$HINFO(23,'RMS')
+sigma rbound = $HINFO(23,'MEAN') + 1.7*$HINFO(23,'RMS')
+h/fit 23($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp east(3) $SIGMA( gfit(2) )
+message 'histograms fitted'
+zone 2 3
+h/cr/title 'cake ring 4 for February alignment'
+h/plot 11
+h/plot 21
+h/plot 13
+h/plot 23
+h/plot 12
+h/plot 22
+
+message 'working on cake ring 5...'
+nt/plot //lun1/hitlevel/1.resid  0.80<cottheta<01.265&&(layer==9.or.layer==10) ! ! ! 'N' 11
+message 'filled west 1 (all resid)'
+nt/plot //lun1/hitlevel/1.resid -1.265<cottheta<-0.80&&(layer==9.or.layer==10) ! ! ! 'N' 21
+message 'filled east 1 (all resid)'
+nt/plot //lun1/hitlevel/1.cos(phi)*resid  0.80<cottheta<01.265&&(layer==9.or.layer==10)&&abs(sin(phi))<0.4 ! ! ! 'N' 12
+message 'filled west 2 (cosphi)'
+nt/plot //lun1/hitlevel/1.cos(phi)*resid -1.265<cottheta<-0.80&&(layer==9.or.layer==10)&&abs(sin(phi))<0.4 ! ! ! 'N' 22
+message 'filled east 2 (cosphi)'
+nt/plot //lun1/hitlevel/1.0-sin(phi)*resid  0.80<cottheta<01.265&&(layer==9.or.layer==10)&&abs(cos(phi))<0.4 ! ! ! 'N' 13
+message 'filled west 3 (-sinphi)'
+nt/plot //lun1/hitlevel/1.0-sin(phi)*resid -1.265<cottheta<-0.80&&(layer==9.or.layer==10)&&abs(cos(phi))<0.4 ! ! ! 'N' 23
+message 'filled east 3 (-sinphi)'
+message 'histograms filled'
+sigma lbound = $HINFO(11,'MEAN') - 1.7*$HINFO(11,'RMS')
+sigma rbound = $HINFO(11,'MEAN') + 1.7*$HINFO(11,'RMS')
+h/fit 11($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp west(1) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(12,'MEAN') - 1.7*$HINFO(12,'RMS')
+sigma rbound = $HINFO(12,'MEAN') + 1.7*$HINFO(12,'RMS')
+h/fit 12($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp west(2) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(13,'MEAN') - 1.7*$HINFO(13,'RMS')
+sigma rbound = $HINFO(13,'MEAN') + 1.7*$HINFO(13,'RMS')
+h/fit 13($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp west(3) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(21,'MEAN') - 1.7*$HINFO(21,'RMS')
+sigma rbound = $HINFO(21,'MEAN') + 1.7*$HINFO(21,'RMS')
+h/fit 21($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp east(1) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(22,'MEAN') - 1.7*$HINFO(22,'RMS')
+sigma rbound = $HINFO(22,'MEAN') + 1.7*$HINFO(22,'RMS')
+h/fit 22($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp east(2) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(23,'MEAN') - 1.7*$HINFO(23,'RMS')
+sigma rbound = $HINFO(23,'MEAN') + 1.7*$HINFO(23,'RMS')
+h/fit 23($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp east(3) $SIGMA( gfit(2) )
+message 'histograms fitted'
+zone 2 3
+h/cr/title 'cake ring 5 for February alignment'
+h/plot 11
+h/plot 21
+h/plot 13
+h/plot 23
+h/plot 12
+h/plot 22
+
+message 'working on cake ring 6...'
+nt/plot //lun1/hitlevel/1.resid  0.80<cottheta<01.265&&(layer==11.or.layer==12) ! ! ! 'N' 11
+message 'filled west 1 (all resid)'
+nt/plot //lun1/hitlevel/1.resid -1.265<cottheta<-0.80&&(layer==11.or.layer==12) ! ! ! 'N' 21
+message 'filled east 1 (all resid)'
+nt/plot //lun1/hitlevel/1.cos(phi)*resid  0.80<cottheta<01.265&&(layer==11.or.layer==12)&&abs(sin(phi))<0.4 ! ! ! 'N' 12
+message 'filled west 2 (cosphi)'
+nt/plot //lun1/hitlevel/1.cos(phi)*resid -1.265<cottheta<-0.80&&(layer==11.or.layer==12)&&abs(sin(phi))<0.4 ! ! ! 'N' 22
+message 'filled east 2 (cosphi)'
+nt/plot //lun1/hitlevel/1.0-sin(phi)*resid  0.80<cottheta<01.265&&(layer==11.or.layer==12)&&abs(cos(phi))<0.4 ! ! ! 'N' 13
+message 'filled west 3 (-sinphi)'
+nt/plot //lun1/hitlevel/1.0-sin(phi)*resid -1.265<cottheta<-0.80&&(layer==11.or.layer==12)&&abs(cos(phi))<0.4 ! ! ! 'N' 23
+message 'filled east 3 (-sinphi)'
+message 'histograms filled'
+sigma lbound = $HINFO(11,'MEAN') - 1.7*$HINFO(11,'RMS')
+sigma rbound = $HINFO(11,'MEAN') + 1.7*$HINFO(11,'RMS')
+h/fit 11($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp west(1) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(12,'MEAN') - 1.7*$HINFO(12,'RMS')
+sigma rbound = $HINFO(12,'MEAN') + 1.7*$HINFO(12,'RMS')
+h/fit 12($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp west(2) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(13,'MEAN') - 1.7*$HINFO(13,'RMS')
+sigma rbound = $HINFO(13,'MEAN') + 1.7*$HINFO(13,'RMS')
+h/fit 13($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp west(3) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(21,'MEAN') - 1.7*$HINFO(21,'RMS')
+sigma rbound = $HINFO(21,'MEAN') + 1.7*$HINFO(21,'RMS')
+h/fit 21($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp east(1) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(22,'MEAN') - 1.7*$HINFO(22,'RMS')
+sigma rbound = $HINFO(22,'MEAN') + 1.7*$HINFO(22,'RMS')
+h/fit 22($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp east(2) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(23,'MEAN') - 1.7*$HINFO(23,'RMS')
+sigma rbound = $HINFO(23,'MEAN') + 1.7*$HINFO(23,'RMS')
+h/fit 23($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp east(3) $SIGMA( gfit(2) )
+message 'histograms fitted'
+zone 2 3
+h/cr/title 'cake ring 6 for February alignment'
+h/plot 11
+h/plot 21
+h/plot 13
+h/plot 23
+h/plot 12
+h/plot 22
+
+message 'working on cake ring 7...'
+nt/plot //lun1/hitlevel/1.resid  0.80<cottheta<01.265&&(layer==13.or.layer==14) ! ! ! 'N' 11
+message 'filled west 1 (all resid)'
+nt/plot //lun1/hitlevel/1.resid -1.265<cottheta<-0.80&&(layer==13.or.layer==14) ! ! ! 'N' 21
+message 'filled east 1 (all resid)'
+nt/plot //lun1/hitlevel/1.cos(phi)*resid  0.80<cottheta<01.265&&(layer==13.or.layer==14)&&abs(sin(phi))<0.4 ! ! ! 'N' 12
+message 'filled west 2 (cosphi)'
+nt/plot //lun1/hitlevel/1.cos(phi)*resid -1.265<cottheta<-0.80&&(layer==13.or.layer==14)&&abs(sin(phi))<0.4 ! ! ! 'N' 22
+message 'filled east 2 (cosphi)'
+nt/plot //lun1/hitlevel/1.0-sin(phi)*resid  0.80<cottheta<01.265&&(layer==13.or.layer==14)&&abs(cos(phi))<0.4 ! ! ! 'N' 13
+message 'filled west 3 (-sinphi)'
+nt/plot //lun1/hitlevel/1.0-sin(phi)*resid -1.265<cottheta<-0.80&&(layer==13.or.layer==14)&&abs(cos(phi))<0.4 ! ! ! 'N' 23
+message 'filled east 3 (-sinphi)'
+message 'histograms filled'
+sigma lbound = $HINFO(11,'MEAN') - 1.7*$HINFO(11,'RMS')
+sigma rbound = $HINFO(11,'MEAN') + 1.7*$HINFO(11,'RMS')
+h/fit 11($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp west(1) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(12,'MEAN') - 1.7*$HINFO(12,'RMS')
+sigma rbound = $HINFO(12,'MEAN') + 1.7*$HINFO(12,'RMS')
+h/fit 12($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp west(2) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(13,'MEAN') - 1.7*$HINFO(13,'RMS')
+sigma rbound = $HINFO(13,'MEAN') + 1.7*$HINFO(13,'RMS')
+h/fit 13($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp west(3) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(21,'MEAN') - 1.7*$HINFO(21,'RMS')
+sigma rbound = $HINFO(21,'MEAN') + 1.7*$HINFO(21,'RMS')
+h/fit 21($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp east(1) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(22,'MEAN') - 1.7*$HINFO(22,'RMS')
+sigma rbound = $HINFO(22,'MEAN') + 1.7*$HINFO(22,'RMS')
+h/fit 22($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp east(2) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(23,'MEAN') - 1.7*$HINFO(23,'RMS')
+sigma rbound = $HINFO(23,'MEAN') + 1.7*$HINFO(23,'RMS')
+h/fit 23($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp east(3) $SIGMA( gfit(2) )
+message 'histograms fitted'
+zone 2 3
+h/cr/title 'cake ring 7 for February alignment'
+h/plot 11
+h/plot 21
+h/plot 13
+h/plot 23
+h/plot 12
+h/plot 22
+
+message 'working on cake ring 8...'
+nt/plot //lun1/hitlevel/1.resid  0.80<cottheta<01.265&&(layer==15.or.layer==16) ! ! ! 'N' 11
+message 'filled west 1 (all resid)'
+nt/plot //lun1/hitlevel/1.resid -1.265<cottheta<-0.80&&(layer==15.or.layer==16) ! ! ! 'N' 21
+message 'filled east 1 (all resid)'
+nt/plot //lun1/hitlevel/1.cos(phi)*resid  0.80<cottheta<01.265&&(layer==15.or.layer==16)&&abs(sin(phi))<0.4 ! ! ! 'N' 12
+message 'filled west 2 (cosphi)'
+nt/plot //lun1/hitlevel/1.cos(phi)*resid -1.265<cottheta<-0.80&&(layer==15.or.layer==16)&&abs(sin(phi))<0.4 ! ! ! 'N' 22
+message 'filled east 2 (cosphi)'
+nt/plot //lun1/hitlevel/1.0-sin(phi)*resid  0.80<cottheta<01.265&&(layer==15.or.layer==16)&&abs(cos(phi))<0.4 ! ! ! 'N' 13
+message 'filled west 3 (-sinphi)'
+nt/plot //lun1/hitlevel/1.0-sin(phi)*resid -1.265<cottheta<-0.80&&(layer==15.or.layer==16)&&abs(cos(phi))<0.4 ! ! ! 'N' 23
+message 'filled east 3 (-sinphi)'
+message 'histograms filled'
+sigma lbound = $HINFO(11,'MEAN') - 1.7*$HINFO(11,'RMS')
+sigma rbound = $HINFO(11,'MEAN') + 1.7*$HINFO(11,'RMS')
+h/fit 11($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp west(1) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(12,'MEAN') - 1.7*$HINFO(12,'RMS')
+sigma rbound = $HINFO(12,'MEAN') + 1.7*$HINFO(12,'RMS')
+h/fit 12($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp west(2) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(13,'MEAN') - 1.7*$HINFO(13,'RMS')
+sigma rbound = $HINFO(13,'MEAN') + 1.7*$HINFO(13,'RMS')
+h/fit 13($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp west(3) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(21,'MEAN') - 1.7*$HINFO(21,'RMS')
+sigma rbound = $HINFO(21,'MEAN') + 1.7*$HINFO(21,'RMS')
+h/fit 21($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp east(1) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(22,'MEAN') - 1.7*$HINFO(22,'RMS')
+sigma rbound = $HINFO(22,'MEAN') + 1.7*$HINFO(22,'RMS')
+h/fit 22($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp east(2) $SIGMA( gfit(2) )
+sigma lbound = $HINFO(23,'MEAN') - 1.7*$HINFO(23,'RMS')
+sigma rbound = $HINFO(23,'MEAN') + 1.7*$HINFO(23,'RMS')
+h/fit 23($SIGMA(lbound):$SIGMA(rbound)) g '0q'
+ve/inp east(3) $SIGMA( gfit(2) )
+message 'histograms fitted'
+zone 2 3
+h/cr/title 'cake ring 8 for February alignment'
+h/plot 11
+h/plot 21
+h/plot 13
+h/plot 23
+h/plot 12
+h/plot 22
+

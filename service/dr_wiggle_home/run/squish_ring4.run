@@ -1,0 +1,10 @@
+#$ -l calibration
+#$ -o /cdat/tem/mccann/squish_ring4.out
+#$ -S /bin/bash
+#$ -j y
+
+cd /home/mccann/dr_wiggle/run
+. /nfs/cleo3/scripts/cleo3defs
+c3rel Jan24_03_P2
+
+suez -f squish_ring4.tcl > /cdat/tem/mccann/squish_ring4.log

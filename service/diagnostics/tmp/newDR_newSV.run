@@ -1,0 +1,79 @@
+#!/usr/local/bin/tcsh
+
+cd $HOME/diagnostics/tmp
+. /nfs/cleo3/scripts/cleo3defs
+c3rel cleo3_Pass2_Aug30_2001
+
+#  OSAGENT_PORT=31416
+#  export OSAGENT_PORT
+#  C3_CONST=/nfs/c3con/ccon3/constants/Codi
+#  export C3_CONST
+#  echo Using OSAGENT_PORT $OSAGENT_PORT and constants server $C3_CONST
+
+suez -q > $USER_TMP/newDR_newSV.log << EOF
+
+default prompt off
+exception continueEventLoop on
+
+module sel LoadHbook4MModule
+module sel HbookHistogramModule
+hbook file newDR_newSV.rzn
+hbook init
+
+module sel CorbaModule
+corba init
+module sel ConstantsModule
+constants in \$env(C3_CONST) meta Offline MetaListRetrieval
+constants in \$env(C3_CONST) meta CesrOffset MetaListRetrieval
+constants in \$env(C3_CONST) meta BaseGeometry MetaListRetrieval
+constants in \$env(C3_CONST) meta SVHybridEfficiency MetaListRetrieval
+
+source_format sel AsciiSourceFormat
+file in \$env(C3_DATA)/material.asc basegeometry
+
+prod sel ADRGeomProd
+prod sel DRGeom
+prod sel ASiStorePro
+prod sel SiGeom
+prod sel IRGeomProd
+prod sel RawDataProd
+prod sel DRCACorrectHitProd
+prod sel DRCAClusterProd
+prod sel CalibratedDRHitProd
+prod sel SiHitsProd
+prod sel CDOffCal
+prod sel TriggerL1DataProd
+prod sel TrackletBunchFinder
+prod sel DRHitCorrectorProd
+
+prod sel MagFieldProd
+param MagFieldProd alwaysUseDefault true
+
+prod sel DoitProd
+param DoitProd ContinueIfHitsMissing true
+
+prod sel ChisqFitProd
+param ChisqFitProd UseSVRPhi true
+param ChisqFitProd UseSVZ true
+param ChisqFitProd UseDRCathode false
+
+prod sel NavigationProd
+prod sel TrackDeliveryProd
+prod sel SeedToTRTrackProd
+
+prod sel DBEventHeaderProd
+
+module sel DBModule
+database in /nfs/cleo3/database/data8/db beginrun event startrun endrun
+source activate db beginrun event startrun endrun
+database read_collection rawdata mupair
+database run 113239 0
+
+proc sel \$env(USER_DAF)/truemu/build_SunOS/shlib/TrueMuProc
+proc sel ../build_SunOS/shlib/HighCotThetaTrackSplitting.so
+
+report level NOTICE
+go 200000
+exit
+
+EOF

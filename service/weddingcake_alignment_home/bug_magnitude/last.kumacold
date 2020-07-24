@@ -1,0 +1,13 @@
+*** Begin of history file: Wed Feb 20 21:19:30 2002
+h/file 1 ../dafedir/bugless1.rzn
+ldir
+cd HITLEVEL
+h/list
+h/plot 100
+h/plot 200
+h/plot 300
+h/plot 400
+h/plot 500
+h/plot 600
+quit
+*** End   of history file: Wed Feb 20 21:20:01 2002

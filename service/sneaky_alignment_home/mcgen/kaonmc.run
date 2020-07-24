@@ -1,0 +1,10 @@
+#$ -l gen
+#$ -o /cdat/tem/mccann/kaonmc.out
+#$ -S /bin/bash
+#$ -j y
+
+cd /home/mccann/sneaky_alignment/mcgen
+. /nfs/cleo3/scripts/cleo3defs
+c3rel Feb11_03_P2
+
+suez -f kaonmc.tcl > /cdat/tem/mccann/kaonmc.log

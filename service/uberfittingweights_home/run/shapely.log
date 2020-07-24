@@ -1,0 +1,21 @@
+FW ================= DRWeight2LayerDriftEntAng =================
+FW Layer 001
+FW          D 001 1.00  1.00  1.50  1.00  1.00 
+FW          D 002 1.00  1.00  1.50  1.00  1.00 
+FW          D 003 1.50  1.50  2.00  1.50  1.50 
+FW          D 004 1.00  1.00  1.50  1.00  1.00 
+FW          D 005 1.00  1.00  1.50  1.00  1.00 
+
+FW ================= ZDWeight2LayerDriftEntAng =================
+FW Layer 001
+FW          D 001 1.00  1.00  1.50  1.00  1.00 
+FW          D 002 1.00  1.00  1.50  1.00  1.00 
+FW          D 003 1.50  1.50  2.00  1.50  1.50 
+FW          D 004 1.00  1.00  1.50  1.00  1.00 
+FW          D 005 1.00  1.00  1.50  1.00  1.00 
+
+FW ================= ZDWeight2LayerTheta =================
+FW Applying standard correction of (1 - cos(theta)^2)^(-1/4) only.
+
+FW ================= ZDWeight2LayerPhi =================
+FW Resolutions will have no phi dependence.

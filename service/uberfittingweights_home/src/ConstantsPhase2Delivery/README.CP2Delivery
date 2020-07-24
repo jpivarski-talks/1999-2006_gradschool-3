@@ -1,0 +1,36 @@
+This is the README file for ConstantsPhase2Delivery. 
+
+History:
+--------
+
+There were two attempts, ConstantsDelivery and ConstantsMetaListDelivery
+to deal with different DB API's.
+
+Suez was need to retrieve/manipulate DB constants with new DB API introduced
+by Hubert Schwarthoff. From now DB will deliver constants as a one single
+object with particular tag.
+
+ConstantsDelivery package was used as an example and most of the files
+in ConstantsPhase2Delivery were originally copied from ConstantsDelivery
+and modified to deal with new DB API's. For more information please
+consult ConstantsDelivery package.
+
+ConstantsDelivery:
+------------------
+
+CP2ProxyDeliverer            - inherit from ProxyDeliverer, create and control proxies for DataBase constants
+CP2SourceBinder              - inherit from DataSourceBinder, used in ConstantsModule
+                               and create CP2SourceController
+CP2SourceController          - inherit from DataSourceController (see base class for description)
+DBCP2Info                    - abstract class to keep Constants information
+DBCP2ProxyFactoryBase        - 
+DBCP2ProxyFactoryTemplate    - contains a template for ProxyFactory
+DBCP2Proxy                   - inherit from DBCP2Info and CLEOConstants, retrieve DB constants
+DBCP2RecordInfo              - keep information about record
+
+gen_proxies_cp2.tcl          - Tcl scripts which generates
+
+ Please read the documentation: 
+     http://w4.lns.cornell.edu/restricted/CLEO/CLEO3/soft/index.html
+
+ That's It! Questions, Suggestions, Complaints --> Valentine Kouznetsov (vk@mail.lns.cornell.edu)

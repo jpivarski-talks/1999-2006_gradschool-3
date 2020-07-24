@@ -1,0 +1,6 @@
+prod sel SiGeom
+tcl_source $env(C3_SCRIPTS)/geomviewer.tcl
+geomviewer stream basegeometry
+geomviewer usage_tag Si
+file in $env(C3_LIB)/data/material.asc basegeometry
+go

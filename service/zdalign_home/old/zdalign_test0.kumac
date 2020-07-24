@@ -1,0 +1,106 @@
+h/file 1 ../rzn/za_200854_jiter3.rzn
+cd COMPAREDRANDZD
+
+ve/cr p1(3)
+ve/inp p1 0 0 0
+ve/cr e1(3)
+ve/inp e1 0 0 0
+h/fit 601 sincos.f '0' 3 p1 ! ! ! e1
+ve/cr p2(3)
+ve/inp p2 0 0 0
+ve/cr e2(3)
+ve/inp e2 0 0 0
+h/fit 602 sincos.f '0' 3 p2 ! ! ! e2
+ve/cr p3(3)
+ve/inp p3 0 0 0
+ve/cr e3(3)
+ve/inp e3 0 0 0
+h/fit 603 sincos.f '0' 3 p3 ! ! ! e3
+ve/cr p4(3)
+ve/inp p4 0 0 0
+ve/cr e4(3)
+ve/inp e4 0 0 0
+h/fit 604 sincos.f '0' 3 p4 ! ! ! e4
+ve/cr p5(3)
+ve/inp p5 0 0 0
+ve/cr e5(3)
+ve/inp e5 0 0 0
+h/fit 605 sincos.f '0' 3 p5 ! ! ! e5
+ve/cr p6(3)
+ve/inp p6 0 0 0
+ve/cr e6(3)
+ve/inp e6 0 0 0
+h/fit 606 sincos.f '0' 3 p6 ! ! ! e6
+
+ve/cr const(6)
+ve/inp const $SIGMA(p1(1)) $SIGMA(p2(1)) $SIGMA(p3(1)) $SIGMA(p4(1)) $SIGMA(p5(1)) $SIGMA(p6(1))
+ve/print const
+ve/cr econst(6)
+ve/inp econst $SIGMA(e1(1)) $SIGMA(e2(1)) $SIGMA(e3(1)) $SIGMA(e4(1)) $SIGMA(e5(1)) $SIGMA(e6(1))
+ve/print econst
+ve/cr sin(6)
+ve/inp sin $SIGMA(p1(2)) $SIGMA(p2(2)) $SIGMA(p3(2)) $SIGMA(p4(2)) $SIGMA(p5(2)) $SIGMA(p6(2))
+ve/print sin
+ve/cr esin(6)
+ve/inp esin $SIGMA(e1(2)) $SIGMA(e2(2)) $SIGMA(e3(2)) $SIGMA(e4(2)) $SIGMA(e5(2)) $SIGMA(e6(2))
+ve/print esin
+ve/cr cos(6)
+ve/inp cos $SIGMA(p1(3)) $SIGMA(p2(3)) $SIGMA(p3(3)) $SIGMA(p4(3)) $SIGMA(p5(3)) $SIGMA(p6(3))
+ve/print cos
+ve/cr ecos(6)
+ve/inp ecos $SIGMA(e1(3)) $SIGMA(e2(3)) $SIGMA(e3(3)) $SIGMA(e4(3)) $SIGMA(e5(3)) $SIGMA(e6(3))
+ve/print ecos
+
+h/cr/1d 700 'constant term VS layer' 6 0.5 6.5
+h/put_vect/contents 700 const
+h/put_vect/errors 700 econst
+h/cr/1d 701 'sin term VS layer' 6 0.5 6.5
+h/put_vect/contents 701 sin
+h/put_vect/errors 701 esin
+h/cr/1d 702 'cos term VS layer' 6 0.5 6.5
+h/put_vect/contents 702 cos
+h/put_vect/errors 702 ecos
+
+set ncol 16
+palette 1
+
+fortran/file 65 'zdalign_jiter2.ps'
+graphics/metafile 65 -111
+igset mtype 1
+
+zone 1 1
+min 601 -0.001
+max 601 0.001
+set hcol 8
+set fcol 8
+h/plot 601
+set hcol 9
+set fcol 9
+h/plot 602 s
+set hcol 10
+set fcol 10
+h/plot 603 s
+set hcol 11
+set fcol 11
+h/plot 604 s
+set hcol 12
+set fcol 12
+h/plot 605 s
+set hcol 13
+set fcol 13
+h/plot 606 s
+
+zone 1 3
+set hcol 0
+h/plot 700 e1
+h/plot 701 e1
+h/plot 702 e1
+
+close 65
+
+sigma phish = (p1(1) + p2(1) + p3(1) + p4(1) + p5(1) + p6(1)) / 6. / 0.06
+message $SIGMA(phish) rad
+
+sigma ysh = (p1(3) + p2(3) + p3(3) + p4(3) + p5(3) + p6(3)) / 6. * 39.37
+message $SIGMA(ysh) in
+

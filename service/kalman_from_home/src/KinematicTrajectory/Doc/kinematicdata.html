@@ -1,0 +1,124 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>The KTKinematicData Class</TITLE>
+<META NAME="Template" CONTENT="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot">
+</HEAD>
+<BODY LINK="#0000ff" VLINK="#800080">
+
+<H1 ALIGN="CENTER">The KTKinematicData Class</H1>
+<H2>Introduction</H2>
+<B><P>KTKinematicData</B> is one of the <A HREF="basetracks.html">basic track classes</A> in the CLEO3 infrastructure. It describes kinematic properties of charged tracks, photons, and virtual particles such as pi0, Ks, Lambda, D0, etc., so that a user can carry out standard operations such as calculating masses, adding 4-momenta together, etc. The basic information consists of the 3-momentum, 3-position, mass and charge. A 7x7 error matrix is stored for the quantities (Px,Py,Pz,E,x,y,z).</P>
+<P>KTKinematicData objects cannot be moved. Movement is performed by the <A HREF="kinematicmoveable.html">KTKinematicMoveable</A> class, which inherits from KTKinematicData.</P>
+<H2><A HREF="kinematicdata.gif">KTKinematicData class diagram</A></H2>
+<H2>Building KTKinematicData objects</H2>
+<P>KTKinematicData objects can be built from a number of sources. In every case, you have the option of including or not including the error matrix in the final object (if absent, a null error matrix is stored.). The chief reason for not including the error matrix over is the CPU overhead involved in many operations, particularly when building a KTKinematicData object from a KTHelix object where the 5x5 matrix has to be laboriously converted to 7x7 form.</P>
+<H4>Build from a <A HREF="helix.html">KTHelix</A> object</H4>
+<P>Most of the time you build a <B>KTKinematicData</B> object from a <B>KTHelix</B> object read from the data access system. In that case you supply the helix parameters, magnetic field (to compute the momentum) and mass (needed for the energy). The kinematic parameters are evaluated at the point of closest approach to the reference point. <I>Note that the magnetic field is specified in kilogauss</I>!</P><DIR>
+<DIR>
+
+<PRE>KTHelix helix(...);
+double mass = 0.1396;
+TBThreeVector bField(0., 0., -15.);
+KTKinematicData pion(helix, mass, bField);</PRE>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>By default, the helix error matrix is converted to the appropriate 7x7 form and added to the object. You can prevent the error matrix from being formed by replacing the above declaration by</P><DIR>
+<DIR>
+
+<PRE>DABoolean noErrorMatrix = false;
+KTKinematicData pion(helix, mass, bField, noErrorMatrix);</PRE></DIR>
+</DIR>
+
+<P>&nbsp;</P>
+<H4>&nbsp;Build using a copy constructor</H4><DIR>
+<DIR>
+
+<PRE>DABoolean noErrorMatrix = false;
+
+KTKinematicData pion1(pion);                 // With error matrix
+KTKinematicData pion2(pion, noErrorMatrix);  // No error matrix</PRE>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<H4>Build from scratch</H4>
+<P>In addition to the usual copy constructor, KTKinematicData objects can be built from momentum and position information. Here we build two objects, one with and one without an error matrix.</P><DIR>
+<DIR>
+
+<PRE>TBThreeVector momentum(1.2, -0.5, 0.6);
+TBThreePoint  position(0.002, 0.003, 0.);
+double mass = 0.1396;
+double charge = -1.0;
+TBSymMatrix errMatrix(7,1);  Create a 7x7 unit matrix for now
+
+KTKinematicData pion1(momentum, position, mass, charge, errorMatrix);
+KTKinematicData pion2(momentum, position, mass, charge);</PRE>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<H2>Setting / retrieving information from KTKinematicData objects</H2>
+<P>All kinds of information can be set or retrieved.</P><DIR>
+<DIR>
+
+<PRE>KTKinematicData pion(helix, mass, bField);     // Make a pion</PRE>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>Modify some of the pion components</P><DIR>
+<DIR>
+
+<PRE>pion.setMomentum(TBThreeVector(0.2,0.5,-1.2));      // 3-momentum
+pion.setPosition(TBThreePoint(0.002,0.005,0.02));   // Position
+pion.setMass(0.4937);                               // Mass
+pion.clearErrorMatrix();                            // Clear err matrix</PRE>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>Retrieve pion information</P><DIR>
+<DIR>
+
+<PRE>TBThreeVector momentum = pion.momentum();             // 3-momentum
+TBLorentzVector fourMomentum = pion.lorenzMomentum(); // 4-momentum
+TBThreePoint position = pion.position();              // Position
+double mass = pion.mass();                            // Mass
+double charge = pion.charge();                        // Charge
+TBSymMatrix errorMatrix = pion.errorMatrix();         // Error matrix
+double ptot = pion.pmag();                            // p
+double ptotsq = pion.pmag2();                         // p^2
+double pt = pion.pperp();                             // pt
+double ptsq = pion.pperp2();                          // pt^2
+double px = pion.px();                                // px
+double py = pion.py();                                // py
+double pz = pion.pz();                                // pz
+double E  = pion.energy();                            // E
+double x = pion.x();                                  // x
+double y = pion.y();                                  // y
+double z = pion.z();                                  // z</PRE>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<H2>Fixed or floating mass</H2>
+<P>Particles like pions, kaons and gammas have predetermined masses, while those calculated from invariant masses or mass fits, such as D0's and B's, have masses which "float" because the energy is independent of the momentum. KTKinematicData objects have a flag that specifies whether or not the mass is floating or not. The flag can be accessed as follows</P><DIR>
+<DIR>
+
+<PRE>KTKinematicData pion(...);
+DABoolean massFixed = pion.hasFixedMass();  // Get the fixed mass flag
+pion.setMassFixed();                        // Set fixed mass
+pion.setMassFloat();                        // Set floating mass</PRE>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>One should rarely need to set the mass flag since the defaults used by the tracking system are expected to be adequate. For example, when building a KTKinematicData object from a helix or from the basic 3-momentum, 3-position, etc., the flag is set to "true". As kinematic fitting becomes available, particles built by combining the 4-momentum of daughter particles will have the flag set to "false" because the energy will be truly independent of the 3-momentum.</P>
+<P><HR></P>
+<ADDRESS><A HREF="mailto:avery@phys.ufl.edu/">Paul Avery &lt;avery@phys.ufl.edu&gt;</A></ADDRESS>
+<P>$Id: kinematicdata.html,v 1.2 1998/07/09 21:33:09 avery Exp $ <!-- 
+$Log: kinematicdata.html,v $
+Revision 1.2  1998/07/09 21:33:09  avery
+Bug fixes, finished implementation of move routines, updated documentation.
+
+Revision 1.1  1998/05/27 17:06:09  avery
+First submission of documentation
+--></BODY>
+</HTML>

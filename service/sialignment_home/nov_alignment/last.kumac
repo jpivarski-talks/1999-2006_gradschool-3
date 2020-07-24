@@ -1,0 +1,16 @@
+*** Begin of history file: Sun Nov 25 17:15:47 2001
+h/file 1 overlap.rzn
+cd myoverlaphits
+h/list
+nt/print 2
+nt/plot 2.ladle
+nt/plot 2.senle
+nt/plot 2.ladgr
+nt/plot 2.ladle%ladgr
+nt/plot 2.resdiff
+nt/plot 2.worldXle
+nt/plot 2.worldYle
+nt/plot 2.worldZle
+nt/plot 2.worldZle-worldZgr
+quit
+*** End   of history file: Sun Nov 25 17:18:29 2001

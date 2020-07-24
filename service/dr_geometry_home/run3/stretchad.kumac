@@ -1,0 +1,183 @@
+* nt/hmerge ../rzn3/stretchadnew_n.rzn ../rzn3/stretchad_500_n_1.rzn ../rzn3/stretchad_500_n_2.rzn ../rzn3/stretchad_500_n_3.rzn
+* exit
+* nt/hmerge ../rzn3/stretchadnew_s.rzn ../rzn3/stretchad_500_s_1.rzn ../rzn3/stretchad_500_s_2.rzn ../rzn3/stretchad_500_s_3.rzn
+* exit
+* nt/hmerge ../rzn3/stretchadnew_a.rzn ../rzn3/stretchad_500_a_1.rzn ../rzn3/stretchad_500_a_2.rzn ../rzn3/stretchad_500_a_3.rzn
+* exit
+* nt/hmerge ../rzn3/stretchadnew_b.rzn ../rzn3/stretchad_500_b_1.rzn ../rzn3/stretchad_500_b_2.rzn ../rzn3/stretchad_500_b_3.rzn
+* exit
+
+h/file 1 ../rzn3/stretchadnew_n.rzn
+h/file 2 ../rzn3/stretchadnew_s.rzn
+h/file 3 ../rzn3/stretchadnew_a.rzn
+h/file 4 ../rzn3/stretchadnew_b.rzn
+
+
+h/copy //lun1/CHISQUAREDSPROC/2002 103 'positive [v]^2!/dof VS cotTheta NEITHER-MOVED'
+h/copy //lun1/CHISQUAREDSPROC/3002 104 'negative [v]^2!/dof VS cotTheta NEITHER-MOVED'
+h/copy //lun2/CHISQUAREDSPROC/2002 203 'positive [v]^2!/dof VS cotTheta STEREO-MOVED'
+h/copy //lun2/CHISQUAREDSPROC/3002 204 'negative [v]^2!/dof VS cotTheta STEREO-MOVED'
+h/copy //lun3/CHISQUAREDSPROC/2002 303 'positive [v]^2!/dof VS cotTheta AXIAL-MOVED'
+h/copy //lun3/CHISQUAREDSPROC/3002 304 'negative [v]^2!/dof VS cotTheta AXIAL-MOVED'
+h/copy //lun4/CHISQUAREDSPROC/2002 403 'positive [v]^2!/dof VS cotTheta BOTH-MOVED'
+h/copy //lun4/CHISQUAREDSPROC/3002 404 'negative [v]^2!/dof VS cotTheta BOTH-MOVED'
+
+zone 1 1
+h/cr/title 'black = no shift, red = stereo shifted, blue = axial shifted, purple = both shifted'
+
+min 103 1.4
+max 103 1.9
+set hcol 0
+h/plot 103
+set hcol 2
+h/plot 203 s
+set hcol 4
+h/plot 303 s
+set hcol 6
+h/plot 403 s
+
+set txci 1
+text 2. 1.60 'no shift' 0.5 ! 'c'
+set txci 2
+text 2. 1.57 'stereo shifted' 0.5 ! 'c'
+set txci 4
+text 2. 1.54 'axial shifted' 0.5 ! 'c'
+set txci 6
+text 2. 1.51 'both shifted' 0.5 ! 'c'
+set txci 1
+
+pict/print 'stretchadnew_1.ps'
+
+min 104 1
+max 104 1.5
+set hcol 0
+h/plot 104
+set hcol 2
+h/plot 204 s
+set hcol 4
+h/plot 304 s
+set hcol 6
+h/plot 404 s
+
+set txci 1
+text 2. 1.20 'no shift' 0.5 ! 'c'
+set txci 2
+text 2. 1.17 'stereo shifted' 0.5 ! 'c'
+set txci 4
+text 2. 1.14 'axial shifted' 0.5 ! 'c'
+set txci 6
+text 2. 1.11 'both shifted' 0.5 ! 'c'
+set txci 1
+
+pict/print 'stretchadnew_2.ps'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+zone 2 2
+
+h/copy //lun1/CHISQUAREDSPROC/2004 101 '[v]^2! probability NEITHER-MOVED'
+h/copy //lun1/CHISQUAREDSPROC/3004 102 '[v]^2! probability NEITHER-MOVED'
+h/copy //lun1/CHISQUAREDSPROC/2002 103 '[v]^2!/dof VS cotTheta NEITHER-MOVED'
+h/copy //lun1/CHISQUAREDSPROC/3002 104 '[v]^2!/dof VS cotTheta NEITHER-MOVED'
+opt nsta
+opt logy
+h/plot 101
+h/plot 102 s
+opt liny
+min 103 0
+max 103 3
+h/plot 103(-1.6:1.6)
+h/plot 104(-1.6:1.6) s
+
+* h/copy //lun2/CHISQUAREDSPROC/2004 201 '[v]^2! probability AXIAL-MOVED'
+* h/copy //lun2/CHISQUAREDSPROC/3004 202 '[v]^2! probability AXIAL-MOVED'
+* h/copy //lun2/CHISQUAREDSPROC/2002 203 '[v]^2!/dof VS cotTheta AXIAL-MOVED'
+* h/copy //lun2/CHISQUAREDSPROC/3002 204 '[v]^2!/dof VS cotTheta AXIAL-MOVED'
+* opt nsta
+* opt logy
+* h/plot 201
+* h/plot 202 s
+* opt liny
+* min 203 0
+* max 203 3
+* h/plot 203(-1.6:1.6)
+* h/plot 204(-1.6:1.6) s
+
+h/copy //lun3/CHISQUAREDSPROC/2004 301 '[v]^2! probability STEREO-MOVED'
+h/copy //lun3/CHISQUAREDSPROC/3004 302 '[v]^2! probability STEREO-MOVED'
+h/copy //lun3/CHISQUAREDSPROC/2002 303 '[v]^2!/dof VS cotTheta STEREO-MOVED'
+h/copy //lun3/CHISQUAREDSPROC/3002 304 '[v]^2!/dof VS cotTheta STEREO-MOVED'
+opt nsta
+opt logy
+h/plot 301
+h/plot 302 s
+opt liny
+min 303 0
+max 303 3
+h/plot 303(-1.6:1.6)
+h/plot 304(-1.6:1.6) s
+
+* h/copy //lun4/CHISQUAREDSPROC/2004 401 '[v]^2! probability BOTH-MOVED'
+* h/copy //lun4/CHISQUAREDSPROC/3004 402 '[v]^2! probability BOTH-MOVED'
+* h/copy //lun4/CHISQUAREDSPROC/2002 403 '[v]^2!/dof VS cotTheta BOTH-MOVED'
+* h/copy //lun4/CHISQUAREDSPROC/3002 404 '[v]^2!/dof VS cotTheta BOTH-MOVED'
+* opt nsta
+* opt logy
+* h/plot 401
+* h/plot 402 s
+* opt liny
+* min 403 0
+* max 403 3
+* h/plot 403(-1.6:1.6)
+* h/plot 404(-1.6:1.6) s
+
+
+
+zone 1 3
+h/cr/title 'red = radii UNSHIFTED, blue = SHIFTED out 1/2 mm'
+
+h/copy //lun1/CHISQUAREDSPROC/2002 103 '[v]^2!/dof VS cotTheta'
+h/copy //lun2/CHISQUAREDSPROC/2002 203 '[v]^2!/dof VS cotTheta'
+min 103 1.1
+max 103 1.7
+set hcol 2
+h/plot 103(-1.6:1.6)
+set hcol 4
+h/plot 203(-1.6:1.6) s
+
+h/copy //lun1/CHISQUAREDSPROC/2001 100 '[v]^2!'
+h/copy //lun2/CHISQUAREDSPROC/2001 200 '[v]^2!'
+set hcol 2
+h/plot 100
+sigma err = $HINFO(100, 'RMS') / sqrt($HINFO(100, 'ENTRIES'))
+set txci 2
+text 115 1500 $HINFO(100, 'MEAN') ! ! 'r'
+text 125 1500 '+/-' ! ! 'c'
+text 135 1500 $SIGMA(err) ! ! 'l'
+set txci 1
+set hcol 4
+h/plot 200 s
+sigma err = $HINFO(200, 'RMS') / sqrt($HINFO(200, 'ENTRIES'))
+set txci 4
+text 115 1200 $HINFO(200, 'MEAN') ! ! 'r'
+text 125 1200 '+/-' ! ! 'c'
+text 135 1200 $SIGMA(err) ! ! 'l'
+set txci 1
+
+sub 100 200 150
+h/copy 150 151 'Difference in [v]^2! distributions... UNSHIFTED - SHIFTED'
+set hcol 0
+h/plot 151
+
+pict/print 'stretchad1.ps'

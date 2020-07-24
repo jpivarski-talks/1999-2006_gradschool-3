@@ -1,0 +1,1100 @@
+% Prepared by Karl Ecklund September 2002
+% Questions, Improvements, Comments to kme and CLEOAC
+%
+% LATEX 2e Template for CLEO Papers
+% YOU MUST USE REVTEX4 and latex 2e
+%
+% Checklist for Paper Drafts:
+% ---------------------------
+% 0) Use appropriate \documetclass line as indicated below
+% 1) Draft Number: Use latest CBX number, append A for the first vote
+%                                (B,C,... for subsequent if any votes)
+% 2) Don't use CLNS or CLEO numbers - this happens after your vote.
+% 3) Title; use \\ to break title over several lines.
+% 4) Abstract
+% 5) For the Author list use CLEO Collaboration only
+% 6) Body
+% 
+% Checklist for Journal Submissions:
+% ----------------------------------
+% 0) Use appropriate \documetclass line as indicated below
+%    - For CLNS, hep-ex, preprints, conf. paper use CLNS version
+%    - For PRL submission use PRL version
+%    - For PRD submission use PRD version 
+%      AND use \author{(CLEO Collaboration)} instead of \collaboration{CLEO}
+%      SEE PRD_SPECIAL_CHANGEME in author list during step 5 below
+% 1) CLEO paper number (from CLEOAC)
+% 2) CLNS preprint number (from CLEOAC)
+% 3) Title; use \\ to break title over several lines.
+% 4) Abstract
+% 5) Author list (from CLEOAC)
+% 6) PACS codes
+% 7) Body
+% 8) Add acknowledgments
+% 9) Hardcode the \date when ready to submit to journal and hep-ex.
+%
+% Checklist for Conference Papers:
+% --------------------------------
+% 0) Use appropriate \documetclass line as indicated below
+%    - For conf. paper use CLNS version
+% 1) CLEO conference paper number (from CLEOAC) (don't use CLNS)
+% 2) Title; use \\ to break title over several lines.
+% 3) To \thanks after title, add appropriate conference info.
+% 4) Abstract
+% 5) Author list (from CLEOAC)
+% 6) Body
+% 7) Add acknowledgments
+% 8) Hardcode the \date when ready to submit to conference and hep-ex.
+% 
+% KNOWN PROBLEMS with template and REVTEX4
+% - can't have \collaboration in PRD style grouped author list
+%   Using \author{(CLEO Collaboration)} instead
+% - can't make abstract appear before full author list ala CLNS notes
+%   Abandoning this as the format for CLNS.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Select one of the \documentclass lines below for your paper
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% Use for CLNS preprint (hep-ex) and Paper Drafts
+\documentclass[aps,prd,preprint,superscriptaddress,tightenlines,nofootinbib,floatfix]{revtex4}
+
+%%%%%%%%%%%%%% Use for PRL
+%\documentclass[aps,prl,twocolumn,superscriptaddress,showpacs]{revtex4}
+
+%%%%%%%%%%%%%% Use for PRD submission
+%\documentclass[aps,prd,preprint,nopreprintnumbers,nofootinbib,showpacs]{revtex4}
+%%%%%%%%%%%%%% Use for PRD formatting tables and figures in 2 column
+%\documentclass[aps,prd,twocolumn,nofootinbib,showpacs]{revtex4}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{multirow}% multirow table entries
+\usepackage{amsmath}
+
+\begin{document}
+
+%-Definitions-----------------------------------------------------------
+\newcommand{\barb}{\bar{B}}
+%\newcommand{\bbbar}{B\bar{B}}
+%\newcommand{\bm}{B^-}
+\newcommand{\bob}{\bar{B}^0}
+\newcommand{\bo}{B^0}
+\newcommand{\bp}{B^+}
+\newcommand{\dkpipiz}{D^0 \to K^-\pi^+\pi^0}
+\newcommand{\dkpi}{D^0 \to K^-\pi^+}
+\newcommand{\dkrho}{D^0 \to K^- \rho^+}
+\newcommand{\dobar}{\overline{D}^0}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\F}{$\cal F$}
+%\newcommand{\gev}{\ \rm GeV}
+\newcommand{\kpipiz}{K^-\pi^+\pi^0}
+%\newcommand{\kpi}{K^-\pi^+}
+\newcommand{\krho}{K^- \rho^+}
+%\newcommand{\mev}{\ \rm MeV}
+\newcommand{\piz}{\pi^0}
+\newcommand{\ra}{{\rightarrow}}
+\newcommand{\Ufs}{\Upsilon(4S)}
+
+\newcommand{\about}		{\mbox{$\sim$}}
+\newcommand{\aerr}[3]   {\mbox{${{#1}^{+ #2}_{- #3}}$}}
+\newcommand{\amp}    	{\mbox{${\cal A}$}}
+\newcommand{\avcb}		{\mbox{$|V_{cb}|$}}
+\newcommand{\avtb}		{\mbox{$|V_{tb}|$}}
+\newcommand{\avtd}		{\mbox{$|V_{td}|$}}
+\newcommand{\avts}		{\mbox{$|V_{ts}|$}}
+\newcommand{\avub}		{\mbox{$|V_{ub}|$}}
+\newcommand{\avud}		{\mbox{$|V_{ud}|$}}
+\newcommand{\avus}		{\mbox{$|V_{us}|$}}
+\newcommand{\BBbar}     {\mbox{$B\bar B$}}
+\newcommand{\bbbar}     {\mbox{$B\bar B$}}
+\newcommand{\bc}		{\mbox{$b\to c$}}
+\newcommand{\bdb}		{\mbox{$\bar B^0_d $}}
+\newcommand{\bd}		{\mbox{$B^0_d $}}
+\newcommand{\berr}[2]   {\mbox{${{}^{+ #1}_{- #2}}$}}
+\newcommand{\bmeson}	{\mbox{$B$}}
+\newcommand{\bqb}		{\mbox{$\bar B^0_q $}}
+\newcommand{\bq}		{\mbox{$B^0_q $}}
+\newcommand{\branch}    {\mbox{${\cal B}$}}
+\newcommand{\bsb}		{\mbox{$\bar B^0_s$}}
+\newcommand{\bs}		{\mbox{$B^0_s$}}
+\newcommand{\bu}		{\mbox{$b\to u$}}
+\newcommand{\cerr}[4]   {\mbox{${{}^{+ #1}_{- #2}{}^{+ #3}_{- #4}}$}}
+\newcommand{\chisq}		{\mbox{$\chi^2$}}
+\newcommand{\cosB}		{\mbox{${\cos\theta_{\rm B}}$}}
+\newcommand{\cossph}	{\mbox{$\cos \theta_{\rm sph}$}}
+\newcommand{\costhr}	{\mbox{$\cos \theta_{\rm thr}$}}
+\newcommand{\dedx}		{\mbox{$dE/dx$}}
+\newcommand{\derr}[5]   {\mbox{${{#1}^{+ #2}_{- #3}{}^{+ #4}_{- #5}}$}}
+\newcommand{\de}		{\mbox{$\Delta E$}}
+\newcommand{\dzerobar}	{\mbox{$\overline {D^0}$}}
+\newcommand{\dzero}		{\mbox{${D^0}$}}
+\newcommand{\ebeam}		{\mbox{$E_{\rm beam}$}}
+\newcommand{\eb}		{\mbox{$E_b$}}
+\newcommand{\eeqq}		{\mbox{$e^+e^-\to\qqb$}}
+\newcommand{\ee}		{\mbox{$e^+e^-$}}
+%\newcommand{\etal}		{\mbox{${\it et al}$}}
+\newcommand{\expt}		{\mbox{$_{\rm expt}$}}
+\newcommand{\fbinv}		{\mbox{${\rm fb}^{-1}$}}
+%\newcommand{\fisher}    {\mbox{${\cal F}$}}
+\newcommand{\fisher}    {\mbox{$x_{\cal F}$}}
+\newcommand{\gev}		{\mbox{${\rm ~GeV}$}}
+\newcommand{\hh}		{\mbox{$h^+h^-$}}
+\newcommand{\hpm}		{\mbox{$h^\pm$}}
+%\newcommand{\implies}	{\mbox{${\Longrightarrow}$}}
+\newcommand{\jimexp}[1]	{\mbox{${\rm e}^{{#1}}$}}
+\newcommand{\kk}		{\mbox{KK}}
+\newcommand{\Kpi}		{\mbox{$K\pi$}}
+\newcommand{\kpi}		{\mbox{$\Kpi$}}
+\newcommand{\kpz}		{\mbox{$K^+\pi^0$}}
+\newcommand{\KP}		{\mbox{$K\pi$}}
+\newcommand{\ksp}		{\mbox{$K^0_S\pi^+$}}
+\newcommand{\ks}		{\mbox{$K^0_S$}}
+\newcommand{\kz}		{\mbox{$K^0$}}
+\newcommand{\kzb}		{\mbox{$\overline{K^0}$}}
+\newcommand{\like}    	{\mbox{${\cal L}$}}
+\newcommand{\Lp}		{\mbox{$\Lambda \bar p$}}
+\newcommand{\lum}    	{\mbox{${\cal L}$}}
+\newcommand{\mb}		{\mbox{$M_B$}}
+\newcommand{\mev}		{\mbox{${\rm MeV}$}}
+\newcommand{\micron}	{\mbox{$~\mu{\rm m}$}}
+\newcommand{\mm}		{\mbox{$\mu^+\mu^-$}}
+\newcommand{\model}		{\mbox{$_{\rm mod}$}}
+\newcommand{\nbb}		{\mbox{$N_{B\bar B}$}}
+\newcommand{\nbinv}		{\mbox{${\rm nb}^{-1}$}}
+\newcommand{\pb}        {\mbox{$p_B$}}
+\newcommand{\pbinv}		{\mbox{${\rm pb}^{-1}$}}
+\newcommand{\pdf}		{\mbox{${PDF}$}}
+\newcommand{\pdfs}		{\mbox{${PDF}{\rm s}$}}
+\newcommand{\pidkpi}	{\mbox{$\Delta_{K\pi}$}}
+\newcommand{\pidkp}		{\mbox{$\Delta_{Kp}$}}
+\newcommand{\pid}		{\mbox{$\Delta_{PID}$}}
+\newcommand{\pipi}		{\mbox{$\Pipi$}}
+\newcommand{\Pipi}		{\mbox{$\pi\pi$}}
+\newcommand{\power}[1]  {\mbox{${\times 10^{#1}}$}}
+\newcommand{\ppz}		{\mbox{$\pi^+\pi^0$}}
+\newcommand{\pvec}		{\mbox{$\vec{p}$}}
+\newcommand{\pz}		{\mbox{$\pi^0$}}
+\newcommand{\qqb}		{\mbox{$q\bar q$}}
+\newcommand{\qq}		{\mbox{${q\bar q}$}}
+\newcommand{\stat}		{\mbox{$_{\rm stat}$}}
+\newcommand{\syst}		{\mbox{$_{\rm syst}$}}
+\newcommand{\theo}		{\mbox{$_{\rm theo}$}}
+\newcommand{\upsi}		{\mbox{$\Upsilon$({\rm 4S})}}
+\newcommand{\vcb}		{\mbox{$V_{cb}$}}
+\newcommand{\vcd}		{\mbox{$V_{cd}$}}
+\newcommand{\vcs}		{\mbox{$V_{cs}$}}
+\newcommand{\vtb}		{\mbox{$V_{tb}$}}
+\newcommand{\vtd}		{\mbox{$V_{td}$}}
+\newcommand{\vts}		{\mbox{$V_{ts}$}}
+\newcommand{\vub}		{\mbox{$V_{ub}$}}
+\newcommand{\vud}		{\mbox{$V_{ud}$}}
+\newcommand{\vus}		{\mbox{$V_{us}$}}
+\newcommand{\zhat}		{\mbox{$\hat{\bf z}$}}
+
+\newcommand{\ppbar}		{\mbox{${p\bar p}$}}
+\newcommand{\pL}		{\mbox{${p\bar\Lambda}$}}
+\newcommand{\LL}		{\mbox{${\Lambda\bar\Lambda}$}}
+
+\newcommand{\mpdf}    	{\mbox{${\cal M}$}}
+\newcommand{\epdf}    	{\mbox{${\cal E}$}}
+\newcommand{\fpdf}    	{\mbox{${\cal F}$}}
+\newcommand{\cpdf}    	{\mbox{${\cal C}$}}
+\newcommand{\dkmode}	{\mbox{${\mu}$}}
+\newcommand{\contrib}	{\mbox{${\kappa}$}}
+\newcommand{\mc}    	{\mbox{${}_{\dkmode\contrib}$}}
+\newcommand{\nk}    	{\mbox{${n}_{\contrib}$}}
+
+\newcommand{\G}		{\mbox{${G}$}}
+\newcommand{\GG}	{\mbox{${\cal G}$}}
+\newcommand{\ARG}	{\mbox{${A}$}}
+\newcommand{\LIN}	{\mbox{${L}$}}
+\newcommand{\BW}	{\mbox{${\cal R}$}}
+\newcommand{\FI}	{\mbox{${F_0}$}}
+\newcommand{\DG}	{\mbox{${a\G_1+b\G_2}$}}
+\newcommand{\GGG}	{\mbox{${a\G+b\GG}$}}
+\newcommand{\DGG}	{\mbox{${a\GG_1+b\GG_2}$}}
+
+\newcommand{\sba} 	{\mbox{${S/B}$}}
+\newcommand{\rfw}   {\mbox{$R_2$}}
+\newcommand{\effmc}     {\mbox{${\epsilon_{\rm MC}}$}}
+\newcommand{\effdata}     {\mbox{${\epsilon_{\rm DATA}}$}}
+
+\newcommand{\RR}	{\mbox{${\cal R}$}}
+
+\newcommand{\subs}[1]{{\mbox{\scriptsize #1}}}
+\newcommand{\re}{\mathrm{Re\:}}
+
+%-----------------------------------------------------------------------
+%-----------------------------------------------------------------------
+%-----------------------------------------------------------------------
+
+%\preprint line(s) will be ignored for PRL/PRD
+%\preprint{CLEO Draft YY-NNA} % For paper draft CBX YY-NN -> Draft YY-NNA
+%\preprint{CLEO CONF YY-NN}   % For conference papers
+%\preprint{ICHEP ABSnnn}      % For conference papers
+\preprint{CLNS 05/XXXX; CLEO 05-XX}       % for CLNS notes
+\preprint{EPS-XXX}         % for CLNS notes
+
+\title{Di-Lepton Widths of Upsilon(1S,2S,3S)~}
+
+\thanks{Archived as hep-ex/XXXXXXX; 
+submitted to {\it Phys. Rev. Q}}
+
+%-------- INSERT HERE ------------
+% Your author list goes here  REMOVE EVERYTHING to END INSERT and
+% replace with your authorlist (ask cleoac).
+
+
+\author{A.~Bornheim}
+\author{E.~Lipeles}
+\author{S.~P.~Pappas}
+\author{A.~Shapiro}
+\author{W.~M.~Sun}
+\author{A.~J.~Weinstein}
+\affiliation{California Institute of Technology, Pasadena, California 91125}
+\author{R.~A.~Briere}
+\author{G.~P.~Chen}
+\author{T.~Ferguson}
+\author{G.~Tatishvili}
+\author{H.~Vogel}
+\affiliation{Carnegie Mellon University, Pittsburgh, Pennsylvania 15213}
+\author{N.~E.~Adam}
+\author{J.~P.~Alexander}
+\author{K.~Berkelman}
+\author{F.~Blanc}
+\author{V.~Boisvert}
+\author{D.~G.~Cassel}
+\author{P.~S.~Drell}
+\author{J.~E.~Duboscq}
+\author{K.~M.~Ecklund}
+\author{R.~Ehrlich}
+\author{R.~S.~Galik}
+\author{L.~Gibbons}
+\author{B.~Gittelman}
+\author{S.~W.~Gray}
+\author{D.~L.~Hartill}
+\author{B.~K.~Heltsley}
+\author{L.~Hsu}
+\author{C.~D.~Jones}
+\author{J.~Kandaswamy}
+\author{D.~L.~Kreinick}
+\author{A.~Magerkurth}
+\author{H.~Mahlke-Kr\"uger}
+\author{T.~O.~Meyer}
+\author{N.~B.~Mistry}
+\author{J.~R.~Patterson}
+\author{D.~Peterson}
+\author{J.~Pivarski}
+\author{S.~J.~Richichi}
+\author{D.~Riley}
+\author{A.~J.~Sadoff}
+\author{H.~Schwarthoff}
+\author{M.~R.~Shepherd}
+\author{J.~G.~Thayer}
+\author{D.~Urner}
+\author{T.~Wilksen}
+\author{A.~Warburton}
+\author{M.~Weinberger}
+\affiliation{Cornell University, Ithaca, New York 14853}
+\author{S.~B.~Athar}
+\author{P.~Avery}
+\author{L.~Breva-Newell}
+\author{V.~Potlia}
+\author{H.~Stoeck}
+\author{J.~Yelton}
+\affiliation{University of Florida, Gainesville, Florida 32611}
+\author{K.~Benslama}
+\author{B.~I.~Eisenstein}
+\author{G.~D.~Gollin}
+\author{I.~Karliner}
+\author{N.~Lowrey}
+\author{C.~Plager}
+\author{C.~Sedlack}
+\author{M.~Selen}
+\author{J.~J.~Thaler}
+\author{J.~Williams}
+\affiliation{University of Illinois, Urbana-Champaign, Illinois 61801}
+\author{K.~W.~Edwards}
+\affiliation{Carleton University, Ottawa, Ontario, Canada K1S 5B6 \\
+and the Institute of Particle Physics, Canada M5S 1A7}
+\author{D.~Besson}
+\author{X.~Zhao}
+\affiliation{University of Kansas, Lawrence, Kansas 66045}
+\author{S.~Anderson}
+\author{V.~V.~Frolov}
+\author{D.~T.~Gong}
+\author{Y.~Kubota}
+\author{S.~Z.~Li}
+\author{R.~Poling}
+\author{A.~Smith}
+\author{C.~J.~Stepaniak}
+\author{J.~Urheim}
+\affiliation{University of Minnesota, Minneapolis, Minnesota 55455}
+\author{Z.~Metreveli}
+\author{K.K.~Seth}
+\author{A.~Tomaradze}
+\author{P.~Zweber}
+\affiliation{Northwestern University, Evanston, Illinois 60208}
+\author{S.~Ahmed}
+\author{M.~S.~Alam}
+\author{J.~Ernst}
+\author{L.~Jian}
+\author{M.~Saleem}
+\author{F.~Wappler}
+\affiliation{State University of New York at Albany, Albany, New York 12222}
+\author{K.~Arms}
+\author{E.~Eckhart}
+\author{K.~K.~Gan}
+\author{C.~Gwon}
+\author{K.~Honscheid}
+\author{D.~Hufnagel}
+\author{H.~Kagan}
+\author{R.~Kass}
+\author{T.~K.~Pedlar}
+\author{E.~von~Toerne}
+\author{M.~M.~Zoeller}
+\affiliation{Ohio State University, Columbus, Ohio 43210}
+\author{H.~Severini}
+\author{P.~Skubic}
+\affiliation{University of Oklahoma, Norman, Oklahoma 73019}
+\author{S.A.~Dytman}
+\author{J.A.~Mueller}
+\author{S.~Nam}
+\author{V.~Savinov}
+\affiliation{University of Pittsburgh, Pittsburgh, Pennsylvania 15260}
+\author{J.~W.~Hinson}
+\author{J.~Lee}
+\author{D.~H.~Miller}
+\author{V.~Pavlunin}
+\author{B.~Sanghi}
+\author{E.~I.~Shibata}
+\author{I.~P.~J.~Shipsey}
+\affiliation{Purdue University, West Lafayette, Indiana 47907}
+\author{D.~Cronin-Hennessy}
+\author{A.L.~Lyon}
+\author{C.~S.~Park}
+\author{W.~Park}
+\author{J.~B.~Thayer}
+\author{E.~H.~Thorndike}
+\affiliation{University of Rochester, Rochester, New York 14627}
+\author{T.~E.~Coan}
+\author{Y.~S.~Gao}
+\author{F.~Liu}
+\author{Y.~Maravin}
+\author{R.~Stroynowski}
+\affiliation{Southern Methodist University, Dallas, Texas 75275}
+\author{M.~Artuso}
+\author{C.~Boulahouache}
+\author{S.~Blusk}
+\author{K.~Bukin}
+\author{E.~Dambasuren}
+\author{R.~Mountain}
+\author{H.~Muramatsu}
+\author{R.~Nandakumar}
+\author{T.~Skwarnicki}
+\author{S.~Stone}
+\author{J.C.~Wang}
+\affiliation{Syracuse University, Syracuse, New York 13244}
+\author{A.~H.~Mahmood}
+\affiliation{University of Texas - Pan American, Edinburg, Texas 78539}
+\author{S.~E.~Csorna}
+\author{I.~Danko}
+\affiliation{Vanderbilt University, Nashville, Tennessee 37235}
+\author{G.~Bonvicini}
+\author{D.~Cinabro}
+\author{M.~Dubrovin}
+\author{S.~McGee}
+\affiliation{Wayne State University, Detroit, Michigan 48202}
+%\author{(CLEO Collaboration)} %FOR PRD_SPECIAL_CHANGEME
+\collaboration{CLEO Collaboration} %FOR PRL,CLNS
+\noaffiliation
+
+%\author{John Doe}
+%\affiliation{Physics Department, Cornell University
+%Ithaca, New York 14853}
+%\author{(CLEO Collaboration)}     %FOR PRD_SPECIAL_CHANGEME
+%\collaboration{CLEO Collaboration} %FOR PRL and CLNS (superscriptaddress)
+%\noaffiliation
+
+%-------- END INSERT ------------
+
+%please hard code the date when you have a final draft and submit to CLEOAC
+\date{\today}
+
+
+
+%---------------------------------------------------------------------
+%
+%\abstract
+%
+%---------------------------------------------------------------------
+
+\begin{abstract} 
+Abstracty-type stuff
+
+\end{abstract}
+\pacs{13.20.He}
+\maketitle
+
+%---------------------------------------------------------------------
+%
+\section{Introduction}
+%
+%---------------------------------------------------------------------
+
+%---------------------------------------------------------------------
+%
+\subsection{The Meaning of $\bf \Gamma_{ee}$ and Motivation for a High-Precision Measurement}
+%
+%---------------------------------------------------------------------
+
+%% partial width of $\Upsilon$ to $e^+e^-$, or $\Gamma_{ee} =
+%% \mathcal{B}_{ee} \Gamma \ref{eqn:beegamma}$ where $\Gamma$ is the full width of
+%% $\Upsilon$.
+
+%% Related to the shape of the $b\bar{b}$ spacial wavefunction:
+%% $\Gamma_{ee}$ = $\displaystyle \left(\frac{16 \pi {\alpha_{QED}}^2}{3
+%% {M_\Upsilon}^2}\right) | \psi(0) |^2$ \cite{peskin}.  Therefore characterizes the
+%% strength of QCD: it measures how big an $\Upsilon$ the QCD potential
+%% permits
+
+%% Most importantly, can be calculated in lattice QCD without
+%% ``quenching'': i.e. can be calculated accurately.  Anticipated
+%% accuracy of lattice $\Gamma_{ee}$ calculations is better than the
+%% current experimental precision (on the 2S and 3S at least) \cite{davies}, so a new
+%% set of high-precision measurements would test the predictive power of
+%% this new technique.  Also, notice the similarity of the process
+%% measured by $\Gamma_{ee}$ to that of $f_B$ (Figure \ref{fig:diagrams}).  The QCD physics
+%% differs only in the mass of one quark in a central force problem:
+%% validation of the new lattice techniques would lend credence to a
+%% lattice calculation of $f_B$.
+
+%---------------------------------------------------------------------
+%
+\subsection{Outline of the Experimental Method}
+%
+%---------------------------------------------------------------------
+
+%% not measured with $\Upsilon \to e^+e^-$, but with $e^+e^- \to
+%% \Upsilon$.  This is because $\Upsilon(1S,2S,3S)$ are narrower than
+%% beam energy spread, so $\Gamma$ can't be measured directly to
+%% calculate $\Gamma_{ee}$ through Equation
+%% \ref{eqn:beegamma}. (Actually, $\Gamma$ is calculated from
+%% $\Gamma_{ee}$.)  Measurement takes advantage of
+%% \begin{equation}
+%%   \Gamma_{ee} = \left(\frac{{M_\Upsilon}^2}{6 \pi^2}\right) \int
+%%   \sigma(e^+e^- \to \Upsilon) \, dE \label{eqn:areatogammaee}
+%% \end{equation} \cite{pdgupsilonintro} \cite{peskin}
+
+%% Beam energy spread convolves the cross-section measurement, but this
+%% leaves $\sigma(e^+e^- \to \Upsilon) \, dE$ unaffected.  Shape of the
+%% spectral line is also convolved with a high-energy tail due to
+%% incident $e^+e^-$ radiating down $M_\Upsilon$ and forming an
+%% $\Upsilon$, and this correction actually diverges.  It can be
+%% accommodated by constructing a fit function which is a convolution of
+%% a Breit-Wigner, a Gaussian beam energy spread, and QED corrections
+%% calculated by \cite{kf}, and fitting to measurements of cross-section
+%% through the $\Upsilon$ lineshape.  $\Gamma_{ee}$ will be a parameter
+%% in that fit.
+
+%---------------------------------------------------------------------
+%
+\section{Detectors and Datasets}
+%
+%---------------------------------------------------------------------
+
+%---------------------------------------------------------------------
+%
+\subsection{Relevant Parts of the CLEO Detector}
+%
+%---------------------------------------------------------------------
+
+%% The CLEO detector, which was used for this analysis, is a nearly $4
+%% \pi$ multipurpose detector situated at the collision point of the
+%% Cornell Electron Storage Ring (CESR).  Only three subdetectors were
+%% used: the central drift chamber and silicon vertex device for tracking,
+%% and the CsI crystal calorimeter for detecting neutral particles.
+
+%---------------------------------------------------------------------
+%
+\subsection{The Beam Energy Measurement}
+%
+%---------------------------------------------------------------------
+
+%% Beam energy was determined by directly measuring the dipole magnetic
+%% field in a test magnet.  This test magnet is identical to those used
+%% to store the incident beams, and it is in series with them to have the
+%% same current and therefore the same magnetic field.  The magnetic
+%% field is measured with an NMR probe inside the beampipe of the test
+%% magnet.  While beam energy is reproducible during operation, this test
+%% magnet may be disassembed during weekly machine studies, during which
+%% the calibration of the beam energy measurement might change.
+
+%---------------------------------------------------------------------
+%
+\subsection{Lineshape Datasets}
+%
+%---------------------------------------------------------------------
+
+%% CESR/CLEO devoted 0.1 fb$^{-1}$, 0.1 fb$^{-1}$, and 0.1 fb$^{-1}$ to
+%% the scan of each of the first three $\Upsilon$ resonances, from
+%% November 2001 through September 2002.  The three scans were divided
+%% into weekly miniscans, each of which covered the entire shape of the
+%% resonance.  Each of these miniscans is independent enough to determine
+%% its own beam energy calibration.  X fb$^{-1}$, X fb$^{-1}$, and X
+%% fb$^{-1}$ of general purpose data acquired at the peak of each
+%% resonance was also added to the miniscans, as long as the peak and its
+%% associated miniscan were not separated by a machine studies period.
+%% Also, 0.1 fb$^{-1}$, 0.1 fb$^{-1}$, and 0.1 fb$^{-1}$ of off-resonance
+%% data 20 MeV below each resonance and 0.x fb$^{-1}$, 0.x fb$^{-1}$, and
+%% 0.x fb$^{-1}$ of high-energy tail data 20--50 MeV above the resonance
+%% were also added to the three resonance scans.  (Being far from the
+%% resonance peak, these are insensitive to the $\lesssim$1 MeV beam
+%% energy calibration shifts.)
+
+%% These lineshape data are presented in Figure \ref{fig:scanfits}.
+
+%---------------------------------------------------------------------
+%
+\section{Event Selection and Backgrounds}
+%
+%---------------------------------------------------------------------
+
+%% To suppress bhabha backgrounds, only hadronic final states of
+%% $\Upsilon$ were selected.  The hadronic cross-section is converted
+%% into a total cross-section by dividing by a factor of
+%% $(1-3\mathcal{B}_{\mu\mu})$.
+
+%---------------------------------------------------------------------
+%
+\subsection{Identifying Hadronic $\Upsilon$ Decays}
+%
+%---------------------------------------------------------------------
+
+%% Cosmic rays were rejected by requiring the distance of closest
+%% approach of the closest track to the beam line ($\d_{XY}$) to be less
+%% than 5 mm (a very loose requirement: this distribution is about 0.2 mm
+%% wide).  Beam-gas events, in which one incident beam collides with a
+%% gas atom inside the beampipe, are rejected by requiring the Z of the
+%% event vertex ($d_Z$, calculated from intersections of tracks near
+%% the beam spot) to be less than 7.5 cm (also loose: this
+%% distribution is about 1 cm wide).  Beam-wall events were observed to
+%% be less common than beam-gas, and they, too, are widely distributed in
+%% $d_Z$.  (We will return to this later.)
+
+%% Electron-positron ($e^+e^-$) and muon-pair ($\mu^+\mu^-$) final states
+%% are rejected by requiring that the largest track momentum
+%% ($|\vec{p}_1|$) be less than 80\% of the beam energy.  (This selection
+%% is loose for all hadronic final states except for $\Upsilon' \to
+%% \pi\pi\Upsilon \to \pi\pi \ell^+\ell^-$ where $\ell^\pm$ is an
+%% electron/positron or a muon.)  Two-photon fusion events (and other
+%% low-energy backgrounds) were rejected by requiring the visible energy
+%% ($E_{vis}$, the sum of track energies ($\sqrt{{m_\pi}^2 + |\vec{p}|^2}$) and unmatched shower energies)
+%% to be greater than 40\% of the center-of-mass energy (this
+%% is approximately 99\% efficient).
+
+%% These four event variables are plotted in Figure \ref{fig:cuts}.
+
+%---------------------------------------------------------------------
+%
+\subsection{Backgrounds in the Hadronic Event Sample}
+%
+%---------------------------------------------------------------------
+
+%% Biggest background is continuum hadrons, which will be effectively
+%% subtracted by a parameter in the lineshape fit.  (This is the
+%% importance of the off-resonance data point.)  Continuum hadrons (as
+%% well as tau-pairs) are projected under the lineshape by assuming a
+%% $1/s$ dependence with beam energy.  Two-photon fusion events may also
+%% survive the $E_{vis}$ requirement, and these depend on beam energy as
+%% $\log s$.  A ratio of (7.9 $\pm$ 0.5)\% two-photon events to continuum
+%% events was measured at a center-of-mass energy of 9000 MeV by fitting
+%% the $\Upsilon(1S)$, $\Upsilon(2S)$, and $\Upsilon(3S)$ off-resonance
+%% data to a curve that included $1/s$, $\log s$, and $\Upsilon$
+%% high-energy tail terms.  This ratio may actually represent variation
+%% of the hadronic selection efficiency for continuum events, or an
+%% energy dependence of $R$, but it parameterizes the background energy
+%% dependence in the 70 MeV (out of 10 GeV) from the off-resonance
+%% cross-section measurement to the high-energy tail measurement.
+
+%% All backgrounds that are proportional to integrated luminosity are
+%% represented by the background parameter in the lineshape fit.  Cosmic
+%% ray and beam-gas backgrounds, however, need to be subtracted
+%% explicitly.  After event selection, cosmic rays typically make up
+%% 0.5\% of the continuum background, electron-induced beam-gas 0.05\%,
+%% and positron-induced beam-gas 0.1\%.  Cosmic rays and beam-gas are
+%% counted in every data sample by selecting events with the right
+%% geometries: cosmic rays generate two collinear tracks with $d_{XY}$
+%% $>$ 5 mm, and beam-gas events have no collinear tracks with $d_Z$ $>$
+%% 7.5 cm.  (The sum of the tracks' Z momenta points in the direction of
+%% the incident particle, so that electron-induced beam-gas can be
+%% distinguished from positron-induced beam-gas with approximately 95\%
+%% purity, if the thresholds are set at $\pm$10\% of beam energy.)
+
+%% A sample of electron-only data (in which no positron beam was filled
+%% in CESR), positron-only data, and no-beam data were collected to
+%% translate these raw numbers of backgrounds into a number of events
+%% that survive hadronic selections (``cuts'').  The no-beam data can be
+%% assumed to be all cosmic rays, and the electon-only and positron-only
+%% contain cosmic rays and beam-gas events (as well as beam-wall).  The
+%% raw number of cosmic rays in the data sample, for instance, is
+%% multiplied by $($\#no-beam events surviving hadron cuts$/$\#no-beam
+%% events surviving cosmic ray cuts$)$ to obtain a number of cosmic rays
+%% that survive hadronic cuts in the data sample.  Beam-gas counts are
+%% slightly more complicated because cosmic rays must first be subtracted
+%% from the single-beam datasets.
+
+%% Figure \ref{fig:crbgcutquality} (5.6 in big paper) compares single-
+%% and no-beam beam-gas and cosmic rays with those selected from the full
+%% dataset.  We see that cosmic rays are cleanly separated from other
+%% events, while this unclear for beam-gas events.  Therefore, only
+%% statistical errors are propagated when subtracting cosmic rays from
+%% the raw number of hadrons, and 50\% $\pm$ 50\% of the beam-gas
+%% correction is applied.  Beam-wall events are less common than beam-gas
+%% and share some of the same scaling properties (they are both
+%% proportional to incident current squared), so this correction is
+%% subsumed under the large uncertainty attributed to the beam-gas
+%% correction.
+
+%% Only 43\% of the $\Upsilon \to \tau^+\tau^-$ events are rejected by
+%% hadronic selections, so they are added as a separate term in the
+%% fit function, including the expected interference between $e^+e^-
+%% \to \Upsilon \to \tau^+\tau^-$ and $e^+e^- \to \tau^+\tau^-$.
+
+%% All backgrounds under the $\Upsilon(3S)$ resonance are plotted in
+%% Figure \ref{fig:awesome} as an illustration of their relative
+%% magnitudes.
+
+%---------------------------------------------------------------------
+%
+\subsection{Hadronic Efficiency and Total $\Upsilon$ Efficiency}
+%
+%---------------------------------------------------------------------
+
+This is an inclusive analysis, so we must set a limit on unknown
+$\Upsilon$ decay types which may not be in the Monte Carlo simulation,
+which will be the largest uncertainty in the measurement of hadronic
+efficiency.  This limit will be measured in the $\Upsilon(1S)$ and
+will be assumed to be valid for the $\Upsilon(2S)$ and $\Upsilon(3S)$,
+as it is really a limit on new physics or unknown correlations in
+$ggg$, $gg\gamma$, and $q\bar{q}$ hadronization.  (These processes are
+not likely to be affected by a 9\% change in center-of-mass energy,
+all other parameters being equal.)  We chose to measure trigger
+efficiency first, so this uncertainty is largest because it includes
+this provision for unknown decays.
+
+%---------------------------------------------------------------------
+%
+\subsubsection{Hadronic Trigger Studies}
+%
+%---------------------------------------------------------------------
+
+The hadronic trigger used in this analysis depends on a minimum number
+of tracks being found in the drift chamber and clusters of energy in
+the calorimeter ((3 tracks and 1 150 MeV cluster) or (2 extended
+tracks and (2 150 MeV clusters or 1 750 MeV cluster)) or (1 track and
+1 750 MeV cluster)).  The Monte Carlo predicts very high trigger
+efficiencies: 99.8\%, 99.6\% and 99.6\% for the three resonances
+($\Upsilon(2S)$ and $\Upsilon(3S)$ lose events to
+$\pi^0\pi^0\ell^+\ell^-$, where $\ell^+\ell^-$ go down the beampipe).
+The trigger efficiency will be studied by comparing Monte Carlo
+predictions with data, first for the calorimeter's contribution to the
+trigger, and then for the drift chamber's.  The total systematic error
+will be 0.68\%, about a factor of two to three larger than the effects
+studied.  These large errors account for the possibility of invisible
+decays of $\Upsilon$, unknown to the Monte Carlo.
+
+To check the calorimeter simulation, we selected events with the same
+$d_{XY}$, $d_Z$, and $|\vec{p}_1|$ cuts as our hadronic sample, but
+additionally required two charged tracks and replaced the requirement
+that the sum of charged and neutral energy ($E_{vis}$) be greater than
+40\% of the center-of-mass energy with one in which the charged energy
+alone must be greater than 15\% of the center-of-mass energy.  (This
+rejects the same background without invoking the calorimeter.)  We
+also requested that these events were accepted by a diagnostic trigger
+that is independent of the calorimeter, requiring only two tracks
+(though it is prescaled by a factor or 19, limiting the statistical
+precision of this test).  We then measured the efficiency of the
+hadronic trigger in these drift chamber-selected data (after
+subtracting continuum backgrounds) and in Monte Carlo with the same
+cuts, and listed these efficiencies in Table \ref{tab:cccheck}.  No
+statistically-significant discrepancies are observed, so the
+systematic error in the Monte Carlo's calorimeter trigger simulation
+is taken to be 0.45\%, the sum of the $\Upsilon(1S)$ data/Monte Carlo
+difference and its uncertainty in quadrature.
+
+\begin{table}[t]
+  \caption{\label{tab:cccheck} Efficiency of the hadronic trigger in
+  drift chamber-selected data (after subtracting continuum
+  backgrounds) and Monte Carlo with the same cuts.  Uncertainties in
+  Monte Carlo are negligible.}
+  \begin{center}
+    \begin{tabular}{p{5 cm} c c c}
+      \hline\hline
+      & $\Upsilon(1S)$ & $\Upsilon(2S)$ & $\Upsilon(3S)$ \\\hline
+      data & 99.45 $\pm$ 0.30\% & 99.01 $\pm$ 0.51\% & 97.67 $\pm$ 1.17\% \\
+      Monte Carlo & 99.79\% & 99.76\% & 99.73\% \\\hline\hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+No low-bias all-neutral trigger exists for CLEO-III, so the tracking
+trigger simulation had to be checked in a different way.  We
+accomplished this by varying inputs to a toy Monte Carlo.  The toy
+Monte Carlo randomly selects a number of fully reconstructed tracks
+(according to an input distribution from the full Monte Carlo or from
+data), and correlates this to the trigger distributions that are used
+to make a trigger decision.  For example, a track multiplicity is
+presented in Figure \ref{fig:toymcexamples}-a: the toy Monte Carlo may
+randomly choose four tracks (with 7\% probability) or zero tracks
+(0.5\%), and this affects which ``CBMD'' distribution is used to pick
+a random number of 750 MeV clusters from Figure
+\ref{fig:toymcexamples}-b.  This way, many of the correlations present
+in real events are reproduced in the toy Monte Carlo.  All of the
+trigger variables are correlated to the number of reconstructed tracks
+because this number classifies event types by their topologies.  We
+can then replace input distributions, such as the number of trigger
+tracks (``AXIAL'') assuming four fully reconstructed tracks pictured
+in Figure \ref{fig:toymcexamples}-c: the solid histogram came from the
+full Monte Carlo, and the dotted histogram came from data.  By
+observing the change this makes in hadronic trigger efficiency, we can
+deduce its sensitivity to these distributions.
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=\linewidth]{../plots/trigger_toymcexamples2}
+  \end{center}
+  \vspace{-1.3 cm}
+  \caption{\label{fig:toymcexamples} A few sample distributions which
+    are used by the Toy Monte Carlo: a.\ \#tracks from the full Monte
+    Carlo, b.\ \#CBMD (750 MeV cluster) distributions from the full
+    Monte Carlo, the solid histogram in the case of zero tracks, and
+    the dotted line in the case of four, and c.\ \#AXIAL (trigger
+    track) distributions from the full Monte Carlo (solid) and from
+    data (dotted), each in the case of four fully reconstructed
+    tracks.}
+\end{figure}
+
+Five tests were performed with the toy Monte Carlo (toyMC).  First,
+all input distributions were derived from the full Monte Carlo
+(fullMC) and the toyMC hadronic trigger efficiency was shown to agree
+with the fullMC's to 0.14\%.  Second, the trigger track distributions
+(``AXIAL,'' in Figure \ref{fig:toymcexamples}-c) from fullMC were
+replaced with distributions from data, and with distributions from
+fullMC tuned to have the same trigger tracking efficiency as data (two
+ways of measuring the same sensitivity).  The trigger efficiency was
+insensitive to these changes to 0.18\%.  Third, the reconstructed
+tracks distribution from fullMC was swapped with a distribution from
+data (from the unbiased $\Upsilon(1S)$ study described below, Figure
+\ref{fig:unbiasedtracks}), changing the trigger efficiency by 0.14\%.
+The fourth test measured sensitivity to unknown $\Upsilon$ decays: the
+0-tracks and 1-track bins were increased by one standard deviation,
+which reduced trigger efficiency by 0.43\%.  The last test validates
+the use of reconstructed tracks as a measure of charged multiplicity
+by varying the track-finding efficiency by its uncertainty of 2\%.
+The biggest trigger efficiency change in this last test was 0.08\%,
+which is close to the toyMC statistical uncertainty of 0.03\%.  Added
+in quadrature, these uncertainties total 0.51\%, which will be taken
+as the systematic error in the drift chamber trigger simulation.
+
+The total systematic error in trigger efficiency, including the
+possibility of unknown $\Upsilon$ decays, is $\sqrt{\mbox{0.45\%}^2 +
+\mbox{0.51\%}^2}$, or 0.68\%.  This error is assumed to be valid for all three
+resonances.
+
+%---------------------------------------------------------------------
+%
+\subsubsection{Unbiased and Low-Bias $\Upsilon(1S)$ Studies from Di-Pion Cascades}
+%
+%---------------------------------------------------------------------
+
+Hadronic efficiency of $\Upsilon(1S)$ can be studied in the decay of
+$\Upsilon(2S) \to \pi^+\pi^- \Upsilon(1S)$ cascades.  Since the two
+charged pions can be chosen to satisfy trigger requirements, the
+resulting set of $\Upsilon(1S)$ events can be free of selection bias.
+(The two pions were also chosen to have sufficient $|p_z|$ to get
+out of the detector before completing an orbit in the magnetic
+field, to reduce track confusion.)
+Two studies were performed.  In the first, cascade events were
+accepted only from the prescaled two-track trigger.  This trigger's
+requirements were satisfied entirely by the two pions, so the
+resulting $\Upsilon(1S)$ dataset is completely unbiased, and it has
+low statistics due to the prescale.  In the second, cascade events
+were accepted from a trigger that required three tracks and one 150
+MeV cluster: the $\Upsilon(1S)$ must provide the third track and
+possibly the 150 MeV cluster.
+
+The $\Upsilon(1S)$ recoil mass, constructed from the two pions, is
+presented in Figure \ref{fig:recoilmass}.  The combinatoric background
+was subtracted by identifying a sideband region and normalizing it to
+the combinatoric background in the signal region through a quadratic
+fit.  (The quadratic term is small and orthogonal to the other two
+terms, so it can be fluctuated by its uncertainty for a systematic
+error.)
+
+\begin{figure}[p]
+  \includegraphics[width=\linewidth]{../plots/proceedings_recoilmass}
+  \caption{\label{fig:recoilmass} Recoil mass of the two pions in
+    $\Upsilon(2S) \to \pi^+\pi^- \Upsilon(1S)$ from the unbiased
+    sample (prescaled diagnostic trigger), and from the low-bias
+    sample ($\Upsilon(1S)$ must produce one track and possibly one 150
+    MeV cluster).  The dotted lines separate the signal region from
+    the sideband, the arrow points out the expected $\Upsilon(1S)$
+    mass, and the dashed line is a quadratic fit to the combinatoric
+    background.}
+\end{figure}
+
+The unbiased track multiplicity distribution needed for the toyMC
+trigger efficiency study was drawn from the unbiased $\Upsilon(1S)$
+dataset, after subtracting combinatoric backgrounds.  It is plotted in
+Figure \ref{fig:unbiasedtracks} with Monte Carlo for comparison.  The
+zero-track bin has fluctuated below zero (because of the combinatoric
+background subtraction) 1.7 standard deviations (when uncertainty in
+the quadratic term in the combinatoric background fit is taken into
+account).  In the toyMC, $\Upsilon(1S) \to e^+e^-$, $\mu^+\mu^-$, and
+$\tau^+\tau^-$ were subtracted from the distribution, and the number
+of zero-track events was raised to zero with an uncertainty derived
+from the 10\% of the probability distribution that extended into the
+physical region.
+%% (101.8 $\pm$ 1.5)\% trigger efficiency --> (100 $\pm$ 1.0)\%
+
+\begin{figure}[p]
+  \includegraphics[width=\linewidth]{../plots/proceedings_tracks}
+  \caption{\label{fig:unbiasedtracks} Unbiased number of tracks
+    distribution from data (crosses) and Monte Carlo (histogram).  The
+    cross-hatched histogram is Monte Carlo $\Upsilon(1S) \to e^+e^-$,
+    $\mu^+\mu^-$, and $\tau^+\tau^-$, which is subtracted from the
+    data for hadronic charged multiplicity.}
+\end{figure}
+
+Using the low-bias dataset, $\Upsilon(1S)$ events were passed through
+the hadronic event selection criteria to determine its efficiency.
+The bias imposed by selecting $\Upsilon(1S)$ events with one track and
+one 150 MeV cluster is strictly less than that imposed by the trigger,
+whose efficiency is 99.8 $\pm$ 0.68\%.  The four variables that define
+the hadronic selection are plotted in Figure \ref{fig:cuts}.
+
+\begin{figure}[p]
+  \includegraphics[width=\linewidth]{../plots/proceedings_cuts2}
+  \caption{\label{fig:cuts} The four variables used to select hadronic
+    events, as seen in low-bias $\Upsilon(2S) \to \pi^+\pi^-
+    \Upsilon(1S)$.  Dotted lines indicate cut thresholds, crosses are
+    data, and histograms are Monte Carlo.  The hatched histogram in
+    $|\vec{p}_1|$ represents $e^+e^-$ and $\mu^+\mu^-$ final states.}
+\end{figure}
+
+The total measured $\Upsilon(1S)$ efficiency is (92.58 $\pm$ 0.13)\%.
+Most of this inefficiency is due to the leptonic modes: $\Upsilon(1S)
+\to e^+e^-$ and $\mu^+\mu^-$ efficiencies are 0.6\% and 0.3\%,
+respectively, and $\Upsilon(1S) \to \tau^+\tau^-$ has a 62\%
+efficiency.  Correcting for leptonic modes (using $\mathcal{B}_{ee}$ =
+(2.38 $\pm$ 0.11)\%, $\mathcal{B}_{\mu\mu}$ = (2.49 $\pm$ 0.07)\%, and
+$\mathcal{B}_{\tau\tau}$ = (2.67 $\pm$ 0.15)\%), the hadronic
+efficiency in data is (98.32 $\pm$ 0.21)\%.  This can be compared with
+a hadronic efficiency in Monte Carlo of (98.54 $\pm$ 0.22)\%, a
+difference $+$ uncertainty in quadrature of 0.38\%.
+
+%---------------------------------------------------------------------
+%
+\subsubsection{Monte Carlo Efficiency Studies}
+%
+%---------------------------------------------------------------------
+
+Hadronic Monte Carlo is used to translate cascade $\Upsilon(1S)$
+efficiencies to stationary $\Upsilon(1S)$ efficiencies (where the
+$\gamma$ = 1.003 boost and potential track confusion from the pions
+are removed), and to measure $\Upsilon(2S)$ and $\Upsilon(3S)$
+efficiencies.  It is divided into four decay modes: $ggg$, $gg\gamma$,
+$q\bar{q}$, and cascades to lower $b\bar{b}$ ($\Upsilon$ or $\chi_b$)
+states.
+
+Monte Carlo for the three resonances yielded the same efficiency for
+$ggg$ (99.0\%), for $gg\gamma$ (94.6\%), and for $q\bar{q}$ (96.4\%)
+at the 0.2\% level.  Since these are all high efficiencies, the
+aggregate
+\begin{eqnarray}
+  \epsilon_\subs{non-cascade} &=&
+  (1-\mathcal{B}_{gg\gamma}-R\mathcal{B}_{\mu\mu}) 99.0\% +
+  \mathcal{B}_{gg\gamma} 94.6\% + R\mathcal{B}_{\mu\mu} 96.4\% \\
+  &=& (0.88) 99.0\% + (0.03) 94.6\% + (0.09) 96.4\% = 98.7\%
+\end{eqnarray}
+is insensitive to uncertainties in the branching fractions.  About
+half of the $\Upsilon(2S)$ and $\Upsilon(3S)$ decays are to cascades,
+which would raise the relative fraction of $q\bar{q}$ in the above by
+a factor of two: this lowers $\epsilon_\subs{non-cascade}$ by only
+0.25\%.
+
+For $\Upsilon(1S)$, this $\epsilon_\subs{non-cascade}$ of (98.7 $\pm$
+0.2)\% is the total hadronic efficiency, which agrees with the (98.54
+$\pm$ 0.22)\% obtained from boosted Monte Carlo.  Therefore, the boost
+and potential for track confusion in the $\Upsilon(2S) \to \pi^+\pi^-
+\Upsilon(1S)$ study affects $\Upsilon(1S)$ by at most 0.3\%
+(uncertainty in the stationary Monte Carlo is negligible).  This is a
+contribution to the $\Upsilon(1S)$ systematic error only.
+
+The efficiency of $\Upsilon(2S)$ and $\Upsilon(3S)$ cascades is (95.27
+$\pm$ 0.10)\% and (95.90 $\pm$ 0.10)\%.  This lower efficiency is
+entirely due to $e^+e^-$ and $\mu^+\mu^-$ in some final states, as
+these pass the hadronic selection criteria under 1\% of the time (and
+then, only due to final state radiation lowering the largest track
+momentum), while the other final states have a 98.5\% efficiency
+(reminiscent of $\epsilon_\subs{non-cascade}$ above).  Branching
+fractions to lower $b\bar{b}$ resonances, $\mathcal{B}_{ee}$, and
+$\mathcal{B}_{\mu\mu}$ are sufficiently well-measured that they add
+only 0.1\% to the efficiency uncertainty.
+
+The total hadronic efficiency for $\Upsilon(2S)$ and $\Upsilon(3S)$
+from Monte Carlo is (97.0 $\pm$ 0.3)\% and (97.3 $\pm$ 0.3)\%.
+
+%---------------------------------------------------------------------
+%
+\subsubsection{Conclusion: Efficiency Bottom Line}
+%
+%---------------------------------------------------------------------
+
+
+
+
+
+
+%---------------------------------------------------------------------
+%
+\section{Luminosity Measurement}
+%
+%---------------------------------------------------------------------
+
+%---------------------------------------------------------------------
+%
+\subsection{Identifying Gamgam ($\bf e^+e^- \to \gamma\gamma$) Events}
+%
+%---------------------------------------------------------------------
+
+%---------------------------------------------------------------------
+%
+\subsection{Measuring Gamgam Trigger Efficiency with Bhabhas}
+%
+%---------------------------------------------------------------------
+
+%---------------------------------------------------------------------
+%
+\subsection{Calibrating the Luminosity Measurement}
+%
+%---------------------------------------------------------------------
+
+%---------------------------------------------------------------------
+%
+\section{Stability of the Cross-Section Measurement}
+%
+%---------------------------------------------------------------------
+
+%---------------------------------------------------------------------
+%
+\subsection{Synchronization of the Drift Chamber and Calorimeter}
+%
+%---------------------------------------------------------------------
+
+%---------------------------------------------------------------------
+%
+\subsection{Cross-Section at Each Beam Energy is Constant}
+%
+%---------------------------------------------------------------------
+
+%---------------------------------------------------------------------
+%
+\section{Lineshape Fits}
+%
+%---------------------------------------------------------------------
+
+%% \label{fig:scanfits}
+
+
+
+%---------------------------------------------------------------------
+%
+\section{Conclusions}
+%
+%---------------------------------------------------------------------
+
+%---------------------------------------------------------------------
+%
+\section{Acknowledgements}
+%
+%---------------------------------------------------------------------
+
+We gratefully acknowledge the effort of the CESR staff in providing us
+with excellent luminosity and running conditions.  This work was
+supported by the National Science Foundation, and the U.S. Department
+of Energy.
+
+%---------------------------------------------------------------------
+%
+%\section{Figures}
+%
+%---------------------------------------------------------------------
+
+%---------------------------------------------------------------------
+%
+%\section{Bibliography}
+%
+%---------------------------------------------------------------------
+\def\endpoint{;~~}
+\def\Journal#1&#2&#3(#4){#1{\bf #2}, #3 (#4)}
+\def\NIM{Nucl. Instr. and Meth. }
+\def\NIMA{Nucl. Instr. and Meth. A }
+\def\NPB{Nucl. Phys. B }
+\def\PLB{Phys. Lett. B }
+\def\PRL{Phys. Rev. Lett. }
+\def\PRD{Phys. Rev. D }
+\newpage
+\begin{thebibliography}{99}
+
+\bibitem{cleo3det}     CLEO Collaboration, CLNS-94-1277; D.\ Peterson \etal, {\Journal\NIMA&478&142(2002)}
+
+\bibitem{kb}     Primer on Onium Widths, but a copy with interference; K.\ Berkelman, ???
+
+\end{thebibliography}
+
+\end{document}
+
+
+
+
+%% \begin{table}
+%% \begin{center}
+%% \caption{Features of Set A and Set B.}
+%% \smallskip
+%% \begin{tabular}{lcc}
+%% \hline
+%% Quantity & ~~~~Set A & ~~~~Set B\cr 
+%% \hline\hline
+%% Fraction of total \nbb\     & 55\%    & 45\%  \cr
+%% Track Resolution            &         &       \cr
+%% \hfil{`A' Coefficient}      & 0.0055  & 0.0044\cr
+%% \hfil{`B' Coefficient ($\gev^{-1}$)}      & 0.0011  & 0.0010\cr
+%% $K^+\pi^-$ Mode             &         &       \cr
+%% \hfil{$\sigma_{\mb}$ (\mev)}  & 2.7     & 2.7   \cr
+%% \hfil{$\sigma_{\de}$(\mev)}   & 22      & 19    \cr
+%% \hfil{Efficiency}           & 38\%    & 45\%  \cr
+%% $K^+\pi^0$ Mode             &         &       \cr
+%% \hfil{$\sigma_{\mb}$ (\mev)}  & 3.1     & 3.1   \cr
+%% \hfil{$\sigma_{\de}$(\mev)}   & 31      & 31    \cr
+%% \hfil{Efficiency}           & 33\%    & 35\%  \cr
+%% $\pi^0\pi^0$ Mode\footnote{Resolutions are given as average of low-side and high-side half-resolutions.}           &         &       \cr
+%% \hfil{$\sigma_{\mb}$ (\mev)}  & 3.6     & 3.6  \cr
+%% \hfil{$\sigma_{\de}$(\mev)}   & 43      & 43    \cr
+%% \hfil{Efficiency}           & 22\%    & 22\%  \cr
+%% \hline
+%% \end{tabular}
+%% \label{tab:oldnew}
+%% \end{center}
+%% \end{table}
+
+%% \bibitem{fleischeretal} 
+%% Y.-Y. Keum, H.-N. Li, and A.I. Sanda, arXiv:hep-ph/0201103; 
+%% M. Neubert,                  {JHEP} {\bf 9902} (1999) 014;
+%% M. Neubert and J.L. Rosner,  {\Journal\PRL&81&5076(1998)};
+
+%% \bibitem{cleo3det}     CLEO Collaboration, CLNS-94-1277; D. Peterson \etal, {\Journal\NIMA&478&142(2002)}
+
+%% \bibitem{pdg} Particle Data Group, {\Journal\PRD&66&010001(2002)}.\label{ref:pdg}

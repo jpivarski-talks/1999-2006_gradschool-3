@@ -1,0 +1,10 @@
+113243 data8 archival 4S run	       > /cdat/sol191/disk1/cleo3/data/r113243.bin
+113244 data8 archival 4S run	       > /cdat/sol191/disk1/cleo3/data/r113244.bin
+114140 data9 archival 4S run	       > /cdat/sol191/disk1/cleo3/data/r114140.bin
+114141 data9 archival 4S run	       > /cdat/sol191/disk1/cleo3/data/r114141.bin
+123418 data18 archival 1S run	       > /cdat/sol191/disk1/cleo3/data/r123418.bin
+123419 data18 archival 1S run	       > /cdat/sol191/disk1/cleo3/data/r123419.bin
+125468 data20 archival LambdaB run     > /cdat/sol191/disk1/cleo3/data/r125468.bin
+125469 data20 archival LambdaB run     > /cdat/sol191/disk1/cleo3/data/r125469.bin
+
+lsl /cdat/sol191/disk1/cleo3/data/r{113243,113244,114140,114141,123418,123419,125468,125469}.bin

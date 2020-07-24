@@ -1,0 +1,398 @@
+This is pdfTeX, Version 3.14159-14h-released-20010417 (Web2C 7.3.3.1) (format=pdflatex 2003.2.18)  30 DEC 2005 15:17
+**template-6s.tex
+(./template-6s.tex{/usr/share/texmf/pdftex/config/pdftex.cfg}
+LaTeX2e <2001/06/01>
+Babel <v3.7h> and hyphenation patterns for american, french, german, ngerman, i
+talian, nohyphenation, loaded.
+(./aipcheck.tex
+***********************************************
+*
+* Testing if all files required for the aipproc
+* class are available ...
+*
+***********************************************
+*
+* Looking for LaTeX2e ... 
+* ... ok 
+*
+* Testing that LaTeX2e is not too old ... 
+* ... ok 
+*
+* Looking for aipproc.cls ... 
+* ... ok 
+*
+* Looking for aipxfm.sty ... 
+* ... ok 
+*
+* Looking for aip-8s.clo ... 
+* ... ok 
+*
+* Looking for aip-8d.clo ... 
+* ... ok 
+*
+* Looking for aip-6s.clo ... 
+* ... ok 
+*
+* Looking for fixltx2e.sty ... 
+* ... ok 
+*
+* Looking for fontenc.sty ... 
+* ... ok 
+*
+* Looking for calc.sty ... 
+* ... ok 
+*
+* Looking for varioref.sty ... 
+* ... ok 
+*
+* Looking for times.sty ... 
+(/usr/share/texmf/tex/latex/psnfss/times.sty
+Package: times 2001/06/04 PSNFSS-v8.2 (SPQR) 
+)
+* ... ok 
+*
+* Looking for t1ptm.fd or T1ptm.fd ... 
+* ... ok 
+*
+* Looking for mathptm.sty ... 
+* ... ok 
+*
+* Looking for ot1ptmcm.fd or OT1ptmcm.fd ... 
+* ... ok 
+*
+* Looking for omlptmcm.fd or OMLptmcm.fd ... 
+* ... ok 
+*
+* Looking for omspzccm.fd or OMSpzccm.fd ... 
+* ... ok 
+*
+* Looking for omxpsycm.fd or OMXpsycm.fd ... 
+* ... ok 
+*
+* Looking for mathptmx.sty ... 
+* ... ok 
+*
+* Looking for ot1ztmcm.fd or OT1ztmcm.fd ... 
+* ... ok 
+*
+* Looking for omlztmcm.fd or OMLztmcm.fd ... 
+* ... ok 
+*
+* Looking for omsztmcm.fd or OMSztmcm.fd ... 
+* ... ok 
+*
+* Looking for omxztmcm.fd or OMXztmcm.fd ... 
+* ... ok 
+*
+* Looking for mathtime.sty ... 
+* ... ok 
+*
+* Looking for mtpro.sty ... 
+* ... not found! 
+*
+* The mtpro package can not be found.
+*
+* This is not a real problem but an observation,
+* because this package is only of interest
+* if you own the commerical MathTime Professional fonts.
+*
+* You can use the aipproc class without this package but 
+* you cannot use the "mtpro" option of the class.
+*
+*
+* Looking for graphicx.sty ... 
+* ... ok 
+*
+* Looking for textcomp.sty ... 
+* ... ok 
+*
+* Looking for url.sty ... 
+* ... ok 
+*
+* Looking for textcase.sty ... 
+* ... ok 
+*
+* Looking for natbib.sty ... 
+*
+* ... finished testing
+*
+****************************************************************
+*
+* The tests have reveiled no problems in your TeX installation,
+* but some observations have been made; see above.
+*
+****************************************************************
+) (./aipproc.cls
+Document Class: aipproc 2005/11/11 v1.5a AIP Proceedings (FMi)
+(/usr/share/texmf/tex/latex/base/fixltx2e.sty
+Package: fixltx2e 2000/09/24 v1.1d fixes to LaTeX
+)
+(/usr/share/texmf/tex/latex/tools/calc.sty
+Package: calc 1998/07/07 v4.1b Infix arithmetic (KKT,FJ)
+\calc@Acount=\count79
+\calc@Bcount=\count80
+\calc@Adimen=\dimen102
+\calc@Bdimen=\dimen103
+\calc@Askip=\skip41
+\calc@Bskip=\skip42
+LaTeX Info: Redefining \setlength on input line 59.
+LaTeX Info: Redefining \addtolength on input line 60.
+\calc@denominator=\count81
+)
+(/usr/share/texmf/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texmf/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texmf/tex/latex/graphics/graphics.sty
+Package: graphics 2001/07/07 v1.0n Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texmf/tex/latex/config/graphics.cfg)
+Package graphics Info: Driver file: pdftex.def on input line 80.
+
+(/usr/share/texmf/tex/latex/graphics/pdftex.def
+File: pdftex.def 2001/11/29 v0.03i graphics/color for pdftex
+\Gread@gobject=\count82
+))
+\Gin@req@height=\dimen104
+\Gin@req@width=\dimen105
+)
+(/usr/share/texmf/tex/latex/html/url.sty
+Package: url 1999/03/02  ver 1.4  Verb mode for urls, email addresses, and file
+ names
+)
+(/usr/share/texmf/tex/latex/carlisle/textcase.sty
+Package: textcase 1998/11/12 v0.06 Text only upper/lower case changing (DPC)
+)
+(/usr/share/texmf/tex/latex/base/article.cls
+Document Class: article 2001/04/21 v1.4e Standard LaTeX document class
+(/usr/share/texmf/tex/latex/base/size10.clo
+File: size10.clo 2001/04/21 v1.4e Standard LaTeX file (size option)
+)
+\c@part=\count83
+\c@section=\count84
+\c@subsection=\count85
+\c@subsubsection=\count86
+\c@paragraph=\count87
+\c@subparagraph=\count88
+\c@figure=\count89
+\c@table=\count90
+\abovecaptionskip=\skip43
+\belowcaptionskip=\skip44
+\bibindent=\dimen106
+)
+\bodytextsize=\dimen107
+\bodytextbaselineskip=\dimen108
+\bodytextenspace=\dimen109
+\bodytextparindent=\dimen110
+ (./aipxfm.sty
+\xfm@authors=\count91
+\xfm@addresses=\count92
+\c@xfm=\count93
+\XFMauthorsBBskip=\skip45
+\XFMaddressBBskip=\skip46
+\XFMemailaddressBBskip=\skip47
+\xfm@box=\box26
+\XFMabstractwidth=\skip48
+\XFMtitleblockpostskip=\skip49
+\XFMabstractBBskip=\skip50
+\XFMabstractleftindent=\skip51
+\XFMtitleBBskip=\skip52
+\XFMsubtitleBBskip=\skip53
+\XFMcopyrightBBskip=\skip54
+\XFMkeywordsBBskip=\skip55
+\XFMclassificationBBskip=\skip56
+\XFMdatesBBskip=\skip57
+)
+(/usr/share/texmf/tex/latex/psnfss/mathptmx.sty
+Package: mathptmx 2001/06/04 PSNFSS-v8.2 Times w/ Math, improved (SPQR, WaS) 
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 28.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/ztmcm/m/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/ztmcm/m/n on input line 28.
+LaTeX Font Info:    Redeclaring symbol font `letters' on input line 29.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/ztmcm/m/it on input line 29.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/ztmcm/m/it on input line 29.
+LaTeX Font Info:    Redeclaring symbol font `symbols' on input line 30.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/ztmcm/m/n on input line 30.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/ztmcm/m/n on input line 30.
+LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 31.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/ztmcm/m/n on input line 31.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/ztmcm/m/n on input line 31.
+\symbold=\mathgroup4
+\symitalic=\mathgroup5
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/ptm/bx/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/ptm/bx/n on input line 34.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/ptm/m/it on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/ptm/m/it on input line 35.
+)
+(/usr/share/texmf/tex/latex/psnfss/times.sty
+Package: times 2001/06/04PSNFSS-v8.2(SPQR)
+)
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 500.
+
+
+(/usr/share/texmf/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+(/usr/share/texmf/tex/latex/base/fontenc.sty
+Package: fontenc 2001/06/05v1.94StandardLaTeXpackage
+
+(/usr/share/texmf/tex/latex/base/t1enc.def
+File: t1enc.def 2001/06/05 v1.94 Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 38.
+)
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 95.
+
+(/usr/share/texmf/tex/latex/psnfss/t1ptm.fd
+File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
+))
+(/usr/share/texmf/tex/latex/base/textcomp.sty
+Package: textcomp 2001/06/05v1.94StandardLaTeXpackage
+
+(/usr/share/texmf/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+))
+\AIPtablecaptionskip=\skip58
+\AIPfigurecaptionBBskip=\skip59
+\AIPtablenoteskip=\skip60
+\AIPhlinesep=\dimen111
+\AIPtablecaptionminwidth=\dimen112
+\AIP@box=\box27
+
+(/usr/share/texmf/tex/latex/natbib/natbib.sty
+Package: natbib 1999/05/28 7.0 (PWD)
+\bibhang=\skip61
+\bibsep=\skip62
+LaTeX Info: Redefining \cite on input line 508.
+\c@NAT@ctr=\count94
+)) (./aip-6s.clo)
+(./template-6s.aux)
+\openout1 = `template-6s.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 72.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 72.
+ (/usr/share/texmf/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 72.
+
+(/usr/share/texmf/tex/context/base/supp-pdf.tex
+(/usr/share/texmf/tex/context/base/supp-mis.tex
+loading : Context Support Macros / Missing
+\protectiondepth=\count95
+\scratchcounter=\count96
+\scratchtoks=\toks15
+\scratchdimen=\dimen113
+\scratchskip=\skip63
+\scratchmuskip=\muskip10
+\scratchbox=\box28
+\scratchread=\read1
+\scratchwrite=\write3
+\zeropoint=\dimen114
+\nextbox=\box29
+\nextdepth=\dimen115
+\everyline=\toks16
+\!!counta=\count97
+\!!countb=\count98
+\recursecounter=\count99
+)
+loading : Context Support Macros / PDF
+\nofMPsegments=\count100
+\nofMParguments=\count101
+\everyMPtoPDFconversion=\toks17
+)
+\big@size=\dimen116
+LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 85
+.
+ (/usr/share/texmf/tex/latex/psnfss/ot1ztmcm.fd
+File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
+)
+LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 85
+.
+
+(/usr/share/texmf/tex/latex/psnfss/omlztmcm.fd
+File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
+)
+LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 85
+.
+
+(/usr/share/texmf/tex/latex/psnfss/omsztmcm.fd
+File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
+)
+LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 85
+.
+
+(/usr/share/texmf/tex/latex/psnfss/omxztmcm.fd
+File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 85.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 85.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 85.
+
+
+Package mathptmx Warning: There are no bold math fonts on input line 98.
+
+LaTeX Font Info:    Calculating math sizes for size <20> on input line 98.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 98.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <13.99994> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 98.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 104.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 104.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 104.
+[1
+
+{/usr/share/texmf/dvips/config/pdftex.map}] (./template-6s.aux) ) 
+Here is how much of TeX's memory you used:
+ 2467 strings out of 50453
+ 32316 string characters out of 688420
+ 76452 words of memory out of 1500001
+ 5422 multiletter control sequences out of 10000+25000
+ 57818 words of font info for 100 fonts, out of 400000 for 1000
+ 14 hyphenation exceptions out of 10000
+ 32i,6n,23p,228b,251s stack positions out of 3000i,500n,3000p,50000b,5000s
+</usr/share/te
+xmf/fonts/type1/urw/symbol/usyr.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cm
+sy10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi10.pfb>{/usr/share/texmf/
+dvips/base/8r.enc}</usr/share/texmf/fonts/type1/bluesky/cm/cmr10.pfb>
+Output written on template-6s.pdf (1 page, 16101 bytes).

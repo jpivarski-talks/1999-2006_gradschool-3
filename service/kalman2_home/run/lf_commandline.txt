@@ -1,0 +1,2 @@
+sol222% for x in lf*.log; do fgrep "LookForBigErrorMatrixBug: RUN" $x | awk '{print $4, $5}' > ~/kalman2/run/lf_bug1/$x; done
+sol222% for x in lf*.log; do fgrep "LookForBigErrorMatrixBug: RUN" $x | awk '{print $4, $7}' > ~/kalman2/run/lf_bug2/$x; done

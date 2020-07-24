@@ -1,0 +1,351 @@
+/****************************************************************************
+** HVHistogramsListView meta object code from reading C++ file 'HVHistogramsListView.h'
+**
+** Created: Thu Oct 18 10:37:00 2001
+**      by: The Qt MOC ($Id: qt/src/moc/moc.y   2.2.0   edited 2000-08-31 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#define Q_MOC_HVHistogramsListView
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#define Q_MOC_OUTPUT_REVISION 9
+#elif Q_MOC_OUTPUT_REVISION != 9
+#error "Moc format conflict - please regenerate all moc files"
+#endif
+
+#include <qmetaobject.h>
+#include <qapplication.h>
+
+#if defined(Q_SPARCWORKS_FUNCP_BUG)
+#define Q_AMPERSAND
+#else
+#define Q_AMPERSAND &
+#endif
+
+
+const char *HVHistogramsListView::className() const
+{
+    return "HVHistogramsListView";
+}
+
+QMetaObject *HVHistogramsListView::metaObj = 0;
+
+void HVHistogramsListView::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(QListView::className(), "QListView") != 0 )
+	badSuperclassWarning("HVHistogramsListView","QListView");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString HVHistogramsListView::tr(const char* s)
+{
+    return qApp->translate( "HVHistogramsListView", s, 0 );
+}
+
+QString HVHistogramsListView::tr(const char* s, const char * c)
+{
+    return qApp->translate( "HVHistogramsListView", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* HVHistogramsListView::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) QListView::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    typedef void(HVHistogramsListView::*m1_t0)(QListViewItem*);
+    typedef void(HVHistogramsListView::*m1_t1)(QListViewItem*);
+    m1_t0 v1_0 = Q_AMPERSAND HVHistogramsListView::slotDoubleClicked;
+    m1_t1 v1_1 = Q_AMPERSAND HVHistogramsListView::slotReturnPressed;
+    QMetaData *slot_tbl = QMetaObject::new_metadata(2);
+    QMetaData::Access *slot_tbl_access = QMetaObject::new_metaaccess(2);
+    slot_tbl[0].name = "slotDoubleClicked(QListViewItem*)";
+    slot_tbl[0].ptr = (QMember)v1_0;
+    slot_tbl_access[0] = QMetaData::Public;
+    slot_tbl[1].name = "slotReturnPressed(QListViewItem*)";
+    slot_tbl[1].ptr = (QMember)v1_1;
+    slot_tbl_access[1] = QMetaData::Public;
+    typedef void(HVHistogramsListView::*m2_t0)(const HIHist1D*);
+    typedef void(HVHistogramsListView::*m2_t1)(const HIHist1D*);
+    typedef void(HVHistogramsListView::*m2_t2)(const HIHist2D*);
+    typedef void(HVHistogramsListView::*m2_t3)(const HIHist2D*);
+    typedef void(HVHistogramsListView::*m2_t4)(const HIHistProf*);
+    typedef void(HVHistogramsListView::*m2_t5)(const HIHistProf*);
+    m2_t0 v2_0 = Q_AMPERSAND HVHistogramsListView::doubleClicked;
+    m2_t1 v2_1 = Q_AMPERSAND HVHistogramsListView::returnPressed;
+    m2_t2 v2_2 = Q_AMPERSAND HVHistogramsListView::doubleClicked;
+    m2_t3 v2_3 = Q_AMPERSAND HVHistogramsListView::returnPressed;
+    m2_t4 v2_4 = Q_AMPERSAND HVHistogramsListView::doubleClicked;
+    m2_t5 v2_5 = Q_AMPERSAND HVHistogramsListView::returnPressed;
+    QMetaData *signal_tbl = QMetaObject::new_metadata(6);
+    signal_tbl[0].name = "doubleClicked(const HIHist1D*)";
+    signal_tbl[0].ptr = (QMember)v2_0;
+    signal_tbl[1].name = "returnPressed(const HIHist1D*)";
+    signal_tbl[1].ptr = (QMember)v2_1;
+    signal_tbl[2].name = "doubleClicked(const HIHist2D*)";
+    signal_tbl[2].ptr = (QMember)v2_2;
+    signal_tbl[3].name = "returnPressed(const HIHist2D*)";
+    signal_tbl[3].ptr = (QMember)v2_3;
+    signal_tbl[4].name = "doubleClicked(const HIHistProf*)";
+    signal_tbl[4].ptr = (QMember)v2_4;
+    signal_tbl[5].name = "returnPressed(const HIHistProf*)";
+    signal_tbl[5].ptr = (QMember)v2_5;
+    metaObj = QMetaObject::new_metaobject(
+	"HVHistogramsListView", "QListView",
+	slot_tbl, 2,
+	signal_tbl, 6,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}
+
+#include <qobjectdefs.h>
+#include <qsignalslotimp.h>
+
+// SIGNAL doubleClicked
+void HVHistogramsListView::doubleClicked( const HIHist1D* t0 )
+{
+    // No builtin function for signal parameter type const HIHist1D*
+    QConnectionList *clist = receivers("doubleClicked(const HIHist1D*)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(const HIHist1D*);
+    RT0 r0;
+    RT1 r1;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	}
+    }
+}
+
+// SIGNAL returnPressed
+void HVHistogramsListView::returnPressed( const HIHist1D* t0 )
+{
+    // No builtin function for signal parameter type const HIHist1D*
+    QConnectionList *clist = receivers("returnPressed(const HIHist1D*)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(const HIHist1D*);
+    RT0 r0;
+    RT1 r1;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	}
+    }
+}
+
+// SIGNAL doubleClicked
+void HVHistogramsListView::doubleClicked( const HIHist2D* t0 )
+{
+    // No builtin function for signal parameter type const HIHist2D*
+    QConnectionList *clist = receivers("doubleClicked(const HIHist2D*)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(const HIHist2D*);
+    RT0 r0;
+    RT1 r1;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	}
+    }
+}
+
+// SIGNAL returnPressed
+void HVHistogramsListView::returnPressed( const HIHist2D* t0 )
+{
+    // No builtin function for signal parameter type const HIHist2D*
+    QConnectionList *clist = receivers("returnPressed(const HIHist2D*)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(const HIHist2D*);
+    RT0 r0;
+    RT1 r1;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	}
+    }
+}
+
+// SIGNAL doubleClicked
+void HVHistogramsListView::doubleClicked( const HIHistProf* t0 )
+{
+    // No builtin function for signal parameter type const HIHistProf*
+    QConnectionList *clist = receivers("doubleClicked(const HIHistProf*)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(const HIHistProf*);
+    RT0 r0;
+    RT1 r1;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	}
+    }
+}
+
+// SIGNAL returnPressed
+void HVHistogramsListView::returnPressed( const HIHistProf* t0 )
+{
+    // No builtin function for signal parameter type const HIHistProf*
+    QConnectionList *clist = receivers("returnPressed(const HIHistProf*)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(const HIHistProf*);
+    RT0 r0;
+    RT1 r1;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	}
+    }
+}

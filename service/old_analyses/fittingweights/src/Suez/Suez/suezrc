@@ -1,0 +1,19 @@
+echo
+echo ---------- Executing suezrc setup script -----------
+echo Loading AsciiSourceFormat, AsciiSinkFormat
+source_format sel AsciiSourceFormat
+sink_format sel AsciiSinkFormat
+echo
+echo Loading and initializing HbookHistogramModule
+module sel HbookHistogramModule
+hbook init
+echo 
+echo News:
+echo " Bug fix: histograms can now be filled properly in your "
+echo "          processor's (or producer's) destructor."
+echo "          E.g. if you want to accumulate data"
+echo "          and fill a histogram with the final results,"
+echo "          that works now correctly."
+echo 
+echo ---------- End of suezrc setup script --------------
+echo

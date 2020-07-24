@@ -1,0 +1,89 @@
+package Rio
+
+use OpenScientistPolicy v1r0
+
+use math v1r0 Interfaces
+use cxxstd v1r0 Interfaces
+
+build_strategy no_prototypes
+include_path none
+
+include_dirs $(RIOROOT)
+
+#//////////////////////////////////////////////////
+#//////////////////////////////////////////////////
+private
+# SunOS : with "-g" BaseLeaf.cxx does not compile ! 
+macro_append cppflags " -g" WIN32 "" SunOS ""
+
+macro_append cppflags  "" WIN32 " /GX"
+
+# WIN32 DEBUG :
+macro_append cppflags  "" WIN32 " /GR /ZI /Od"
+macro_append cpplinkflags  "" WIN32 " /DEBUG"
+
+# For std::map, std::list templates :
+macro ar "$(ar)"  SunOS "CC -xar -o"
+public
+
+#//////////////////////////////////////////////////
+#//////////////////////////////////////////////////
+#//////////////////////////////////////////////////
+library Rio -s=../source\
+ zip/Trees.c\
+ zip/Deflate.c\
+ zip/Inflate.c\
+ zip/Bits.c\
+ Core/smanip.cxx\
+ Core/Debug.cxx\
+ Core/Lib.cxx\
+ Core/Printer.cxx\
+ Core/Out.cxx\
+ Core/Date.cxx\
+ Core/Map.cxx\
+ Core/Arguments.cxx\
+ Core/Object.cxx\
+ Core/Named.cxx\
+ Core/List.cxx\
+ Core/ObjArray.cxx\
+ Core/FreeSegment.cxx\
+ Core/Class.cxx\
+ Core/StreamerElement.cxx\
+ Core/StreamerInfo.cxx\
+ Core/CoreDictionary.cxx\
+ Core/Buffer.cxx\
+ Core/Key.cxx\
+ Core/Directory.cxx\
+ Core/File.cxx\
+ Tree/BaseLeaf.cxx\
+ Tree/Leaf.cxx\
+ Tree/LeafObject.cxx\
+ Tree/Basket.cxx\
+ Tree/Branch.cxx\
+ Tree/BranchObject.cxx\
+ Tree/Tree.cxx\
+ Tree/TreeDictionary.cxx
+
+macro Rio_shlibflags "${math_linkopts} ${cxxstd_linkopts}"
+macro Rio_linkopts "-L${RIOROOT}/${binDir} -lRio"\
+             WIN32 "${RIOROOT}\${binDir}\Rio.lib"
+
+application Rio_test ../tests/Rio_test.cxx
+application Rio_read_LHCb ../tests/Rio_read_LHCb.cxx
+
+#//////////////////////////////////////////////////
+#//////////////////////////////////////////////////
+#//////////////////////////////////////////////////
+
+path_remove LD_LIBRARY_PATH "/Rio/" WIN32 ""
+path_append LD_LIBRARY_PATH "${RIOROOT}/${binDir}" WIN32 ""
+
+path_remove PATH "" WIN32 "\Rio\"
+path_append PATH "" WIN32 "${RIOROOT}\${binDir}"
+
+set RIOVERSION "${version}"
+
+
+
+
+

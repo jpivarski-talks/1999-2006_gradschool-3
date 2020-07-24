@@ -1,0 +1,35 @@
+Chi^2 too high:
+
+124452 scan -4, state change failed
+124454 lost positrons, trips
+124456 electron lifetime problems
+124458 electron instability
+124462 vacuum problems
+124464 
+124465 
+124466 
+124467 
+124469 beginrun failed
+124472 
+124473 spike on "cell hit on bhabhas"
+124475 hits in time no PH has low values
+124477 same spike on right of "cell hit on bhabhas"
+124479 beam dump
+124480 
+
+Errors too high:
+
+123591 muon, endcap trip
+123592 
+123974 noisy CC crystal
+123976 
+123977 
+123979 
+123980 
+123981 
+123982 
+123984 
+123985 
+123986 
+123987 
+124522 SI power problems

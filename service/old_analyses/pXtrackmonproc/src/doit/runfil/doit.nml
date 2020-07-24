@@ -1,0 +1,100 @@
+#
+# $Id: doit.nml,v 1.1.1.1 1998/02/06 19:11:48 dpp Exp $
+#
+# $Log: doit.nml,v $
+# Revision 1.1.1.1  1998/02/06 19:11:48  dpp
+# DOIT first release.
+#
+# Revision 1.1  1997/04/30 12:35:12  clib
+# Move duet.nml -> doit.nml.
+#
+# Revision 1.1.1.1  1997/04/30 12:31:37  clib
+# Developmental version of DUET.
+#
+# Revision 1.1  1994/10/20 01:12:27  zfiles
+# Renamed doit.txt to duet.nml
+#
+# Revision 1.1.1.1  1994/10/08  01:01:05  zfiles
+# first version of doit in CVS
+#
+#
+#CMZ :  6.00/14 02/03/94  11.32.12  by  Rob Kutschke
+#CMZ :  6.00/01 21/07/93  17.26.27  by  Rob Kutschke
+#CMZ :  5.54/13 12/05/92  09.10.46  by  CLEO II Librarian
+#-- Author :
+
+ &DUENML
+
+  Y0MIN1 = -0.1
+  Y0MAX1 = 0.1
+  Y0MIN2 = -0.2
+  Y0MAX2 = 0.2
+  ch2cd1 = 2.0
+  ch2cd2 = 10.0
+  ch2cfd = 20.0
+
+  sgyscf = 3.0
+  difscf = 3.0
+
+  ch2cf1 = 3.
+  ch2cf2 = 25.
+  ndeltf = 3.
+  ndrpcf = 2.
+  errhcf = 1.0
+  siglcf = 6.
+  errcan = 1.2
+
+  LUSEDR = T,
+  LUSEPT = T,
+  LUSEVD = T,
+  LUSECT = t,
+
+  LTYPE  = F,
+  LPRINT = F,
+  LPHITS = F,
+  LPLNKS = F,
+  LPSTAK = F,
+  LPETRS = F,
+  LPTRKS = F,
+  LPWLST = F,
+  LPRINH = F,
+  LP3DT  = f,
+  LPLOT  = f,
+  LPLOT2 = F,
+  LPRNT5 = F,
+
+  LCOMPR = F,
+  LWHIST = F,
+  LWTIME = F,
+  LPRERR = F,
+  LPROUT = F,
+  LWSUM  = F,
+
+  IMNVTF = 2,
+  PHMNDR = 50.0,
+  PHMNPT = 100.0,
+  PHMNVC = -10000.0,
+  PHMNVD = 200.0,
+  PHMNDC = -10000.0,
+  TMINVD = -20000.,
+  TMINDR = -20000.,
+  TMINVC = -1E8,
+  TMINDC = -1E8,
+  TMAXVC = 1E8,
+  TMAXDC = 1E8,
+  TMAXPT = 1E8,
+
+  LUSQD1 = .TRUE.,
+  LAB1TF = .TRUE.,
+  LKALMN = .FALSE.,
+  LVTEST = .TRUE.,
+  LSLEAC = .FALSE.,
+  LUSVDE = .FALSE.,
+
+  LCALIB = .FALSE.,
+  DUALTR = .FALSE.,
+  LKN6FI = .FALSE.,
+  LRMVHT = .FALSE.,
+  LKN7CT = .FALSE.,
+  LADVDE = .FALSE.,
+ &END

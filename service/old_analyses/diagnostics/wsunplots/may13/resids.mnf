@@ -1,0 +1,103 @@
+set def
+cd //mn_hbin/fitdiagproc
+fetch 0
+
+cut del 0
+cut new cl > clcut
+cut new cl > 0
+
+set def
+
+cut use 2
+set title user 'CL of track fit (@1)'
+nt/pl 1 cl &7 100 0 1
+
+set title user 'Ndof, CL > 0.01 (@1)'
+nt/pl 1 ndof &1 60 -.5 59.5
+
+cut use 1
+do i = 1, 47
+nt/pr 1 resid@i*1000000 &1@i 50 -1000 1000
+enddo
+
+
+! residuals summed over all layers
+
+add 1&11 1&12 500 1
+do i = 3, 47
+add 1&1@i 500 501 1
+rename 501 500
+enddo
+
+set plot 500 default
+dep area = r125
+dep mean = r134
+dep rms = r135
+dep r3 = -4*rms
+dep r4 = 4*rms
+dep r5 = 0.75*rms
+
+fun del 0
+fun add 19
+area
+mean
+r5
+0.2
+0
+1.75
+fit 500
+0
+fix 4
+inc r3 r4
+minim
+set ssize .2
+dis
+!hard post
+dep avg80 = P1(2)
+dep davg80 = ERR1(2)
+dep sig80 = P1(3)
+dep dsig80 = ERR1(3)
+dep davg20 = P1(5)
+dep ddavg20 = ERR1(5)
+dep srat20 = P1(6)
+dep dsrat20 = ERR1(6)
+exit
+
+
+set header off
+set thick 5
+set title user 'DR residuals summed over layers (@1)'
+
+set x label 'residual ([m]m)'
+
+set plot 500 default
+dep ymax = 1.5 * r208
+set y limits 0 ymax
+
+set colour symbol yellow
+pl 500 1 0 100
+set colour symbol blue
+over 500&981 -1
+
+comment
+500
+new
+'Core 80%:'
+5 15 .4 0 left cm 2000 blue 5
+new
+'Mean = {avg80,(F6.1)} "a# {davg80,(F4.1)} [m]m'
+8.5 15 .4 0 left cm 2000 blue 5
+new
+'Width = {sig80,(F5.1)} "a# {dsig80,(F3.1)} [m]m'
+8.5 14.2 .4 0 left cm 2000 blue 5
+new
+'Wide 20%:'
+5 13 .4 0 left cm 2000 green 5
+new
+'[D]mean = {davg20,(F6.1)} "a# {ddavg20,(F5.1)} [m]m'
+8.5 13 .4 0 left cm 2000 green 5
+new
+'[s]?W!/[s]?N! = {srat20,(F4.2)} "a# {dsrat20,(F4.2)}'
+8.5 12.2 .4 0 left cm 2000 green 5
+
+hard post

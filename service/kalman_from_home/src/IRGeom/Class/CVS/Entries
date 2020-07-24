@@ -1,0 +1,22 @@
+/BeamPipeGeometry.cc/1.3/Fri May 31 17:19:45 2002//
+/BeamPipeGeometry23.cc/1.5/Fri Oct 25 20:40:52 2002//
+/BeamPipeGeometryEVS.cc/1.3/Thu Mar 15 21:58:51 2001//
+/CuSupportGeometry.cc/1.4/Fri May 31 17:19:46 2002//
+/CuSupportGeometryEVS.cc/1.4/Thu Mar 15 21:58:53 2001//
+/IRGeomEVSParameters.cc/1.3/Mon Mar  6 18:38:53 2000//
+/IRGeomParameters.cc/1.2/Mon Mar  6 18:38:53 2000//
+/IRGeomProd.cc/1.3/Thu Mar 15 21:58:54 2001//
+/IRGeom_DONT_TOUCH.cc/1.2/Thu Jul 22 21:57:10 1999//
+/IRGeometryEVSProxy.cc/1.4/Thu Mar 15 21:58:54 2001//
+/IRGeometryProxy.cc/1.5/Fri May 31 17:19:46 2002//
+/MaskHybridGeometry.cc/1.2/Fri May 31 17:19:46 2002//
+/MaskHybridGeometryEVS.cc/1.2/Thu Mar 15 21:58:55 2001//
+/MaskInnerGeometry.cc/1.2/Fri May 31 17:19:47 2002//
+/MaskInnerGeometryEVS.cc/1.2/Thu Mar 15 21:58:55 2001//
+/MaskMainGeometry.cc/1.2/Fri May 31 17:19:47 2002//
+/MaskMainGeometryEVS.cc/1.2/Thu Mar 15 21:58:55 2001//
+/REQMagnetGeometry.cc/1.2/Fri May 31 17:19:47 2002//
+/REQMagnetGeometryEVS.cc/1.2/Thu Mar 15 21:58:56 2001//
+/StainlessTubeGeometry.cc/1.2/Fri May 31 17:19:48 2002//
+/StainlessTubeGeometryEVS.cc/1.2/Thu Mar 15 21:58:56 2001//
+D

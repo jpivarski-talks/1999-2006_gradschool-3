@@ -1,0 +1,31 @@
+*
+* $Id: newdf_2.5.kumac,v 1.1.1.1 1998/02/06 19:11:48 dpp Exp $
+*
+* $Log: newdf_2.5.kumac,v $
+* Revision 1.1.1.1  1998/02/06 19:11:48  dpp
+* DOIT first release.
+*
+* Revision 1.1.1.1  1997/04/30 12:31:40  clib
+* Developmental version of DUET.
+*
+* Revision 1.2  1997/04/07 12:31:01  clib
+* Use Z-dependent drift functions in DR1 and DR2.
+*
+* Revision 1.1  1997/04/02 23:30:27  clib
+* New release.
+*
+*
+* Created: Pablo Hopman  March 30, 1997
+*
+* Tell clever that the drift functions and associated corrections
+* are in the style used for the spring 1997 CLEO2.5 compress.
+*
+CDCAL/CHOOSEDF NEW NEW NEW
+CDCAL/PROP   FALSE
+CDCAL/PULSE    0   1   1 
+CDCAL/ZCOR     0   2   2   3
+CDCAL/S2MAP TTTTTTTTTTTTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTT
+CDCAL/ZMAP  TTTTTTTTTTFFFTFFFTFFFTFFFTFFFTFFFTFFFTFFFTFFFTFFFTFFFFFTFFFFF
+*           VVVVVVVVVVAAASAAASAAASAAASAAASAAASAAASAAASAAASAAASAAAAASAAAAA
+CDCAL/TGLCOR 3 3 1 1 0 
+

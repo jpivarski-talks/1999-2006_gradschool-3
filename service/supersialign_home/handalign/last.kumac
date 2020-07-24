@@ -1,0 +1,19 @@
+*** Begin of history file: Fri May 31 17:40:11 2002
+h/file 1 ../rzn/d2_lay4.rzn
+cd diagnosehits2
+h/list
+h/plot 1036
+h/plot 1037
+h/plot 1038
+h/plot 1039
+h/plot 1040
+h/plot 1041
+h/plot 1042
+h/plot 1036
+h/plot 1037 s
+h/plot 1036(1.4:2.2)
+h/plot 1037(1.4:2.2) s
+h/plot 1099(1.4:2.2) s
+h/plot 1099(1.4:2.2)
+quit
+*** End   of history file: Fri May 31 17:42:23 2002

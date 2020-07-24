@@ -1,0 +1,34 @@
+*** Begin of history file: Mon Dec 15 11:10:11 2003
+h/file 1 stuff.rzn
+cd TESTDUALTRACK
+nt/plot 1.curv-oldcurv
+nt/plot 1.curv-oldcurv
+nt/plot 1.phi0-oldphi0
+nt/plot 1.d0-oldd0
+nt/plot 1.cotth-oldcotth
+nt/plot 1.z0-oldz0
+nt/plot 1.resid-oldresid
+nt/plot 1.(resid-oldresid)/resid
+nt/plot 1.(reserr-oldreserr)/reserr
+nt/plot 1.(reserr-oldreserr)/reser
+nt/plot 1.(reserr-oldreser)/reserr
+nt/plot 1.(p-oldp)/p
+nt/plot 1.(pointx-oldptx)/pointx
+nt/plot 1.(pointy-oldpty)/pointy
+nt/plot 1.(pointz-oldptz)/pointz
+nt/plot 1.(dca-olddca)/dca
+nt/plot 1.dcaerr
+nt/plot 1.olddcaer
+nt/plot 1.(sinalph-oldsinal)/sinalph
+opt logy
+nt/plot 1.(resid-oldresid)/resid
+nt/plot 1.(reserr-oldreser)/reserr
+nt/plot 1.(p-oldp)/p
+nt/plot 1.(pointx-oldptx)/pointx
+nt/plot 1.(pointy-oldpty)/pointy
+nt/plot 1.(pointz-oldptz)/pointz
+nt/plot 1.(dca-olddca)/dca
+nt/plot 1.olddcaer
+nt/plot 1.(sinalph-oldsinal)/sinalph
+exit
+*** End   of history file: Mon Dec 15 11:19:55 2003

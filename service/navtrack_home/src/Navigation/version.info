@@ -1,0 +1,671 @@
+
+Module : Navigation
+
+Date   : Tue Jan  5 11:58:47 1999
+User   : marsh
+Old Tag: 
+New Tag: v01_00_00
+Message: 
+New library, but not new code.
+
+NavTrack was separated out of AnalysisExplorer so that users can
+link with an algorithm-independent library, while AnalysisExplorer
+contains algorithm-specific code.
+
+Module : Navigation
+
+Date   : Wed Jan 20 15:38:06 1999
+User   : marsh
+Old Tag: v01_00_00
+New Tag: v01_00_01
+Message: 
+Prevented de-referencing of null pointers.
+
+
+Module : Navigation
+
+Date   : Wed Feb 24 14:01:49 1999
+User   : marsh
+Old Tag: v01_00_01
+New Tag: v01_00_02
+Message: 
+Silicon hit Lattices for TRSeedTrack now use DefaultLinkData, so there's
+no need to instantiate vectors of the "empty" link data classes.
+
+Module : Navigation
+
+Date   : Sat Feb 27 13:37:19 1999
+User   : marsh
+Old Tag: v01_00_02
+New Tag: v01_00_03
+Message: 
+New file STL_vector_of_DefaultLinkData.cc needed by NavTrackMaster
+due to the removal of EmptyLinkData from the silicon seed track
+lattices.
+
+Module : Navigation
+
+Date   : Fri Apr 23 17:39:45 1999
+User   : marsh
+Old Tag: v01_00_03
+New Tag: v01_01_00
+Message: 
+NavTrack now provides honest-to-goodness links, not the paltry link
+data.  Full track-link-hit correlation is now yours for the asking!
+Carpe Linkum!
+
+Module : Navigation
+
+Date   : Fri May  7 20:45:48 1999
+User   : marsh
+Old Tag: v01_01_00
+New Tag: v01_02_00
+Message: Added remaining outgoing hypotheses.
+
+Module : Navigation
+
+Date   : Sat May  8 14:34:54 1999
+User   : marsh
+Old Tag: v01_02_00
+New Tag: v01_02_01
+Message: Fixed Lattice interface issues.
+
+Module : Navigation
+
+Date   : Tue May 11 09:08:03 1999
+User   : marsh
+Old Tag: v01_02_01
+New Tag: v01_02_02
+Message: Changed LtoRmap to RightData in NavTrackMaster.cc
+
+Module : Navigation
+
+Date   : Tue May 25 15:53:46 1999
+User   : marsh
+Old Tag: v01_02_02
+New Tag: v01_02_03
+Message: Updated for new Lattice interface.
+
+Module : Navigation
+
+Date   : Wed Jun  9 15:09:52 1999
+User   : marsh
+Old Tag: v01_02_03
+New Tag: v01_02_04
+Message: 
+I never added the #define's to tell instantiate_Lattice.h to make
+the nodes for NavTrack's Lattices.  This has been corrected.
+
+
+Module : Navigation
+
+Date   : Fri Jun 25 08:09:46 1999
+User   : marsh
+Old Tag: v01_02_04
+New Tag: v01_02_05
+Message: Fixed include path for calibrated silicon hits.
+
+Module : Navigation
+Date   : Fri Jun 25 13:29:11 1999
+User   : pg
+Old Tag: v01_02_05
+New Tag: v01_02_06
+Message: Added map.h to couple of instantiation files.
+
+Module : Navigation
+
+Date   : Tue Jun 29 17:11:56 1999
+User   : bkh
+Old Tag: v01_02_06
+New Tag: v01_03_00
+Message: 
+New classes associated with NavShower (connected regions, track
+                                       matching, & helper classes)
+ 
+Module : Navigation
+
+Date   : Mon Jul 19 12:25:33 1999
+User   : bkh
+Old Tag: v01_03_00
+New Tag: v01_04_00
+Message: 
+add 2 new classes for pi0's
+
+Module : Navigation
+
+Date   : Mon Aug  2 15:16:25 1999
+User   : wsun
+Old Tag: v01_04_00
+New Tag: v01_04_01
+Message: NavTrackMaster: initialize fit/hit Lattices for exit hypotheses.
+
+Module : Navigation
+
+Date   : Thu Aug  5 16:26:46 1999
+User   : bkh
+Old Tag: v01_04_01
+New Tag: v01_05_00
+Message: 
+New eta class and renamed pi0 class
+Module : Navigation
+
+Date   : Mon Aug  9 12:26:15 1999
+User   : bkh
+Old Tag: v01_05_00
+New Tag: v01_06_00
+Message: 
+Massive renaming
+Module : Navigation
+
+Date   : Tue Aug 10 09:26:06 1999
+User   : bkh
+Old Tag: v01_06_00
+New Tag: v01_06_01
+Message: 
+Rename symbol & file name in instantiation to make consistent
+  with track-shower-matching class renaming
+Module : Navigation
+
+Date   : Fri Aug 20 13:27:17 1999
+User   : bkh
+Old Tag: v01_06_01
+New Tag: v01_06_02
+Message: 
+Fix up operator<< for pi0's
+Module : Navigation
+
+Date   : Thu Sep 16 16:39:10 1999
+User   : bkh
+Old Tag: v01_06_02
+New Tag: v01_07_00
+Message: 
+Track-shower matching info is now available from NavTrack
+Module : Navigation
+
+Date   : Thu Oct  7 09:19:08 1999
+User   : marsh
+Old Tag: v01_07_00
+New Tag: v01_07_01
+Message: 
+NavTrack now has doxygen-ready comments.
+
+
+Module : Navigation
+Date   : Sun Oct 24 11:13:04 1999
+User   : cdj
+Old Tag: v01_07_01
+New Tag: v01_07_02
+Message: removed inappropriate use of typename
+
+Module : Navigation
+Date   : Wed Nov 17 15:36:14 1999
+User   : marsh
+Old Tag: v01_07_02
+New Tag: v02_00_00
+Message: 
+Major interface changes to NavTrack:
+*) Track-shower matches are returned as FAItems instead of pointers.
+*) Lattice information is returned as pointers instead of references.
+
+This is designed to be consistent with the TDTrack interface changes.
+
+
+Module : Navigation
+Date   : Mon Dec  6 13:14:07 1999
+User   : bkh
+Old Tag: v02_00_00
+New Tag: v02_01_00
+Message: 
+Changes to allow use of FATable's in shower interfaces instead of vectors
+Module : Navigation
+Date   : Wed Dec 22 16:27:30 1999
+User   : marsh
+Old Tag: v02_01_00
+New Tag: v02_01_01
+Message: 
+NavTrackMaster used to spew annoying messages when the user asked
+for something that isn't there.  It no longer does this.
+
+
+Module : Navigation
+Date   : Fri Dec 31 18:14:52 1999
+User   : bkh
+Old Tag: v02_01_01
+New Tag: v02_01_02
+Message: 
+Eliminate obsolete checking of valid() after extracts
+Module : Navigation
+Date   : Fri Dec 31 18:20:19 1999
+User   : bkh
+Old Tag: v02_01_02
+New Tag: v02_01_03
+Message: 
+Elim valid() checking after extract
+Module : Navigation
+Date   : Thu Jan 20 11:02:36 2000
+User   : bkh
+Old Tag: v02_01_03
+New Tag: v02_01_04
+Message: 
+Make consistent with new hit-shower link datum object
+Module : Navigation
+Date   : Wed Mar 15 17:03:47 2000
+User   : bkh
+Old Tag: v02_01_04
+New Tag: v02_01_05
+Message: 
+Add minimal doxygen trigger
+Module : Navigation
+Date   : Wed Apr  5 11:45:02 2000
+User   : marsh
+Old Tag: v02_01_05
+New Tag: v02_02_00
+Message: 
+NavTrack is now much more link-friendly.  The member functions of
+NavTrack and NavTrackMaster have been split into several files so
+that the linker only sees symbols relating to a particular functionality
+in a given file.
+
+
+Module : Navigation
+Date   : Tue Jun  6 14:39:52 2000
+User   : bkh
+Old Tag: v02_02_00
+New Tag: v02_03_00
+Message: 
+Install dedx, electron id, and muon id interfaces
+Module : Navigation
+Date   : Thu Jun  8 16:18:31 2000
+User   : bkh
+Old Tag: v02_03_00
+New Tag: v02_03_01
+Message: 
+Find item by id in consistent ways
+Module : Navigation
+Date   : Thu Aug  3 02:13:23 2000
+User   : ts
+Old Tag: v02_03_01
+New Tag: v02_04_00
+Message: add NavRich
+
+Module : Navigation
+Date   : Thu Aug 10 20:21:50 2000
+User   : bkh
+Old Tag: v02_04_00
+New Tag: v02_04_01
+Message: 
+Add operator<< capability to several classes
+Module : Navigation
+Date   : Thu Aug 31 12:33:17 2000
+User   : bkh
+Old Tag: v02_04_01
+New Tag: v02_04_02
+Message: 
+Improve printed output
+Module : Navigation
+Date   : Mon Oct  2 21:59:57 2000
+User   : lkg
+Old Tag: v02_04_02
+New Tag: v02_05_00
+Message: 
+NavTrackMaster now takes production and usage tags for specification
+of the seed tracks (track finder) and fit tracks (track fitter) to be
+used by the TDTrackMaster base class
+
+Module : Navigation
+Date   : Tue Oct  3 14:41:45 2000
+User   : bkh
+Old Tag: v02_05_00
+New Tag: v02_05_01
+Message: 
+Add pi0/eta access to NavShower, for vetoing, etc.
+Module : Navigation
+Date   : Wed Oct  4 16:01:28 2000
+User   : bkh
+Old Tag: v02_05_01
+New Tag: v02_05_02
+Message: 
+Remove pi0-veto from NavShower; bad idea
+Module : Navigation
+Date   : Thu Oct 26 12:01:49 2000
+User   : bkh
+Old Tag: v02_05_02
+New Tag: v02_05_03
+Message: 
+Bring up to date with CcConRegAttributes changes
+Module : Navigation
+Date   : Thu Nov  9 16:51:44 2000
+User   : kbukin
+Old Tag: v02_05_03
+New Tag: v02_05_04
+Message: removed T_RichTrajectoryRadiator.cc
+
+Module : Navigation
+Date   : Sun Nov 19 19:06:38 2000
+User   : ts
+Old Tag: v02_05_04
+New Tag: v02_06_00
+Message: build NavRich on top of RichTrackPrototype
+
+Module : Navigation
+Date   : Fri Feb  2 14:41:44 2001
+User   : bkh
+Old Tag: v02_06_00
+New Tag: v02_06_01
+Message: 
+New NavConReg constructor and new traversing of lattice
+Module : Navigation
+Date   : Fri Feb  2 15:47:12 2001
+User   : bkh
+Old Tag: v02_06_01
+New Tag: v02_06_02
+Message: 
+Fix bug that showed up only in OSF compilation:
+    put in const in front of pointer to list
+Module : Navigation
+Date   : Mon Mar 26 15:14:27 2001
+User   : urner
+Old Tag: v02_06_02
+New Tag: v02_07_00
+Message: added Nav Ks
+
+Module : Navigation
+Date   : Tue Apr  3 12:58:52 2001
+User   : bkh
+Old Tag: v02_07_00
+New Tag: v02_07_01
+Message: 
+Implement lists of nearby showers/tracks based on distance
+Module : Navigation
+Date   : Thu May 10 15:55:55 2001
+User   : bkh
+Old Tag: v02_07_01
+New Tag: v02_07_02
+Message: 
+Addition of etaPrime classes
+Module : Navigation
+Date   : Tue Jun 26 14:02:11 2001
+User   : cdj
+Old Tag: v02_07_02
+New Tag: v02_08_00
+Message: modified to work with new Lattice interface
+
+Module : Navigation
+Date   : Mon Jul  9 16:50:15 2001
+User   : bkh
+Old Tag: v02_08_00
+New Tag: v02_08_01
+Message: 
+Fix NavShower::nearestTracks() to include all matched tracks
+Module : Navigation
+Date   : Fri Jul 13 13:20:35 2001
+User   : cdj
+Old Tag: v02_08_01
+New Tag: v02_08_02
+Message: fixed type problem caused by previous change
+
+Module : Navigation
+Date   : Tue Jul 24 11:36:18 2001
+User   : cdj
+Old Tag: v02_08_02
+New Tag: v02_08_03
+Message: inlined a templated function to avoid missing symbol on OSF
+
+Module : Navigation
+Date   : Fri Sep  7 14:04:52 2001
+User   : cleo3
+Old Tag: v02_08_03
+New Tag: v02_09_00
+Message: removed forward declaration of ostream
+
+Module : Navigation
+Date   : Wed Sep 12 10:22:11 2001
+User   : ajm36
+Old Tag: v02_09_00
+New Tag: v02_10_00
+Message: add NavLambda
+
+Module : Navigation
+Date   : Wed Sep 19 10:20:07 2001
+User   : ajm36
+Old Tag: v02_10_00
+New Tag: v02_10_01
+Message: get rid of ostream forward declaration
+
+Module : Navigation
+Date   : Sun Sep 30 20:37:47 2001
+User   : cdj
+Old Tag: v02_10_01
+New Tag: v02_11_00
+Message: switched to RichAngles package
+
+Module : Navigation
+Date   : Fri Oct 26 17:54:44 2001
+User   : bkh
+Old Tag: v02_11_00
+New Tag: v02_11_01
+Message: 
+Add features to showers and connected regions
+Module : Navigation
+Date   : Tue Oct 30 11:56:21 2001
+User   : bkh
+Old Tag: v02_11_01
+New Tag: v02_11_02
+Message: 
+Fix bug(s) with con regs
+Module : Navigation
+Date   : Mon Nov  5 13:14:45 2001
+User   : ajm36
+Old Tag: v02_11_02
+New Tag: v02_11_03
+Message: use pion charge to determine lambda flavor instead of proton
+
+Module : Navigation
+Date   : Fri Nov  9 15:27:44 2001
+User   : bkh
+Old Tag: v02_11_03
+New Tag: v02_11_04
+Message: 
+Added in shower-->pi0 functionality
+Module : Navigation
+Date   : Tue Nov 13 11:07:05 2001
+User   : bkh
+Old Tag: v02_11_04
+New Tag: v02_11_05
+Message: 
+Untangle pi0 pieces so not everyone has to link to PhotonDecays
+Module : Navigation
+Date   : Thu Dec 13 15:55:51 2001
+User   : bkh
+Old Tag: v02_11_05
+New Tag: v02_11_06
+Message: 
+Add access to etas from NavShower
+For track match object get shower energy directly instead
+    of from link data
+Module : Navigation
+Date   : Fri Dec 21 15:46:28 2001
+User   : cdj
+Old Tag: v02_11_06
+New Tag: v02_12_00
+Message: modified NavRich related code so no longer need to load RichTracks
+
+Module : Navigation
+Date   : Tue Mar 19 15:25:39 2002
+User   : cdj
+Old Tag: v02_12_00
+New Tag: v02_13_00
+Message: simplified memory handling for NavTrack
+
+Module : Navigation
+Date   : Wed Mar 20 10:03:24 2002
+User   : ajm36
+Old Tag: v02_13_00
+New Tag: v02_14_00
+Message: implement lazy evaluation in electron id
+
+Module : Navigation
+Date   : Wed Mar 20 20:52:16 2002
+User   : cdj
+Old Tag: v02_14_00
+New Tag: v02_15_00
+Message: NavShower::noTrackMatch now just looks at Lattice
+
+Module : Navigation
+Date   : Thu Mar 21 15:07:48 2002
+User   : ajm36
+Old Tag: v02_15_00
+New Tag: v02_15_01
+Message: fix const bug in NavElecId::sDedx
+
+Module : Navigation
+Date   : Mon Mar 25 06:54:08 2002
+User   : bkh
+Old Tag: v02_15_01
+New Tag: v02_15_02
+Message: 
+various optimizations for speed
+Module : Navigation
+Date   : Tue Mar 26 17:47:43 2002
+User   : bkh
+Old Tag: v02_15_02
+New Tag: v02_15_03
+Message: 
+Speed up with inlining per cdj request
+Module : Navigation
+Date   : Wed Apr 10 14:47:35 2002
+User   : bkh
+Old Tag: v02_15_03
+New Tag: v02_15_04
+Message: 
+Speed up con reg access
+Module : Navigation
+Date   : Mon May  6 08:38:45 2002
+User   : ajm36
+Old Tag: v02_15_04
+New Tag: v02_15_05
+Message: changes for new VXFitVeeCandidate library
+
+Module : Navigation
+Date   : Thu May 23 16:51:04 2002
+User   : bkh
+Old Tag: v02_15_05
+New Tag: v02_15_06
+Message: 
+add error matrix in momentum and position to photon KTKinematicData object
+including error in position and correlation with px, py, pz
+Module : Navigation
+Date   : Thu Aug  8 13:23:54 2002
+User   : cleo3
+Old Tag: v02_15_06
+New Tag: v02_16_00
+Message: NavTrack and NavShower no longer own any additional memory in order to reduce dependencies
+
+Module : Navigation
+Date   : Sun Aug 11 15:00:43 2002
+User   : cdj
+Old Tag: v02_16_00
+New Tag: v02_17_00
+Message: added instantiations needed for OSF
+
+Module : Navigation
+Date   : Fri Aug 16 11:27:51 2002
+User   : cleo3
+Old Tag: v02_17_00
+New Tag: v02_18_00
+Message: replaced iostream.h with C++/iostream.h
+
+Module : Navigation
+Date   : Fri Aug 23 17:02:10 2002
+User   : cdj
+Old Tag: v02_18_00
+New Tag: v02_18_01
+Message: fixed memory leak in NavShowerServer (should start loops at begin() not end())
+
+Module : Navigation
+Date   : Tue Oct 22 16:39:23 2002
+User   : bkh
+Old Tag: v02_18_01
+New Tag: v02_18_02
+Message: 
+vector instantiations on OSF
+Module : Navigation
+Date   : Thu Nov  7 12:43:32 2002
+User   : bkh
+Old Tag: v02_18_02
+New Tag: v02_18_03
+Message: 
+Direct MC tagging available from tracks, showers, pi0s, Kshorts
+Direct Ks and Lambda access now available from track
+Module : Navigation
+Date   : Thu Nov 21 11:54:13 2002
+User   : bkh
+Old Tag: v02_18_03
+New Tag: v02_18_04
+Message: 
+Add new NavShower fcn to give back track matches in con region
+Require NavTrack mcTag to have same charge as track
+Module : Navigation
+Date   : Thu Jan 30 14:21:25 2003
+User   : cleo3
+Old Tag: v02_18_04
+New Tag: v02_19_00
+Message: minor changes needed to compile under g++
+
+Module : Navigation
+Date   : Mon Feb  3 15:17:51 2003
+User   : bkh
+Old Tag: v02_19_00
+New Tag: v03_00_00
+Message: 
+New mc tagging interface adjustment
+Get rid of friends
+new track matching alternatives
+Module : Navigation
+Date   : Tue Feb  4 13:13:55 2003
+User   : bkh
+Old Tag: v03_00_00
+New Tag: v03_00_01
+Message: 
+Separate off record functions
+Module : Navigation
+Date   : Tue Feb 18 11:48:35 2003
+User   : tom
+Old Tag: v03_00_01
+New Tag: v03_00_02
+Message: Fixed typo in NavTrackMaster_mcTag that left last track untagged
+
+Module : Navigation
+Date   : Tue Jul 29 16:19:03 2003
+User   : bkh
+Old Tag: v03_00_02
+New Tag: v03_00_03
+Message: Add trkman, pca-BeamSpot fcns to NavTrack
+
+Module : Navigation
+Date   : Wed Jul 30 17:20:20 2003
+User   : bkh
+Old Tag: v03_00_03
+New Tag: v03_00_04
+Message: Extract the beam spot from the proper record (beginrun) in NavTrack_beamspot
+
+Module : Navigation
+Date   : Mon Sep  1 21:55:07 2003
+User   : cdj
+Old Tag: v03_00_04
+New Tag: v03_01_00
+Message: can now store NavTracks, NavShowers and NavKs
+
+Module : Navigation
+Date   : Wed Oct  8 19:08:57 2003
+User   : mccann
+Old Tag: v03_01_00
+New Tag: v03_02_00
+Message: added ZD NavTrack interface
+
+Module : Navigation
+Date   : Thu Oct 16 14:46:14 2003
+User   : mccann
+Old Tag: v03_02_00
+New Tag: v03_02_01
+Message: making sure that the new ZD files have been added

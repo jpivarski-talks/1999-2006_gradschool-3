@@ -1,0 +1,232 @@
+*
+* $Id: cleo2_cdrawm_history.txt,v 1.1 1999/10/20 21:49:12 jjo Exp $
+*
+* $Log: cleo2_cdrawm_history.txt,v $
+* Revision 1.1  1999/10/20 21:49:12  jjo
+* New documentation files
+*
+* Revision 1.32  1999/05/13 18:02:18  lkg
+* Save track ToF in new RAWM bank slot
+*
+* Revision 1.31  1998/08/11 22:29:40  lkg
+* - call GETEFF to get the cathode efficiencies (cpp)
+* - scale total smearing (ionstat's + smearing) as a fcn of phi according to
+*   the phi fitting weights (lkg)
+* - store the unsmeared, not smeared drift distance in RAWM for later use in
+*   CDRAWD (cpp)
+* - remove unused variable DRFT (cpp)
+*
+* Revision 1.30  1998/04/03 16:44:23  lkg
+* Set the species code (only for electrons) and pass it to CDREFF.
+* Get rid of REINSTATE_IONS. (CPP)
+*
+* Revision 1.29  1998/03/25 15:13:20  lkg
+* Energy loss now passsed as an argument to to qdsmz (in prep. for updates
+* to charge division smearing)
+*
+* Revision 1.28  1998/02/04 04:16:43  lkg
+* Replace obsolete DISTSM with IONDRFT and IONDRFTSM
+*
+* Revision 1.27  1998/01/21 04:07:56  lkg
+* Fix phtime bug call.  
+* TMCCL returns "drift time + tof + wire-prop - R_layer/c".
+* Should pass R_layer/c to PHTIME rather than tof (=PTIM)
+*
+* Revision 1.26  1998/01/13 16:00:57  lkg
+* Flag as unusable hits with times that are outside of the charge integration
+* window.  Fix random number handling for TRPTCD.  (cpp,lkg)
+*
+* Revision 1.25  1997/10/28 04:47:35  lkg
+* Major cleanup and reworking of CD anode and cathode time and pulse height
+* smearing (V.Boisvert and C.Prescott)
+*
+* Revision 1.24  1997/10/04 17:18:32  lkg
+* Modified to be switchable (using CLEO_GEANT315) between G3.15 and G3.21
+*
+* Revision 1.23  1997/09/23 02:11:44  lkg
+* Pick magic run numbers up from new include file rather than hard-wiring
+*
+* Revision 1.22  1997/08/04 17:12:40  lkg
+* Fix cathode code to always access the correct side (E vs W) of the
+* corresponding VD anodes.
+*
+* Revision 1.21  1997/05/23 03:50:08  lkg
+* Organize includes
+*
+* Revision 1.20  1996/11/22 16:29:44  lkg
+* Cathode update for 1s3.
+*
+* Revision 1.19  1996/08/09 19:42:48  lkg
+* 2S tuning from IK
+*
+* Revision 1.18  1996/06/04 02:58:20  lkg
+* Tuning through 4sG.
+*
+* Revision 1.17  1996/04/27 19:00:13  lkg
+* Fix of tuning for 4sF.
+*
+* Revision 1.16  1996/04/23 15:46:16  lkg
+* CD tuning through 4sF.
+*
+* Revision 1.15  1996/03/21 18:02:31  lkg
+* Don't call new GETNPD routine for runs earlier than 4sE
+*
+* Revision 1.14  1996/03/19 19:48:44  lkg
+* 4sE updates and new cathode code from IK
+*
+* Revision 1.13  1995/12/23 18:38:13  lkg
+* 4sD CD tuning from IK.
+*
+* Revision 1.12  1995/09/06  00:49:58  lkg
+* Use CDGEOM variables for calculating cathode numbers (from NK).
+*
+* Revision 1.11  1995/09/06  00:38:38  lkg
+* For 4sB and beyond, tweak phi-dependent efficiencies of inner VD cathode
+*
+* Revision 1.10  1995/08/23  20:46:00  lkg
+* Look for cathode rzn files in Z_BANK instead of C_RUNFIL.
+*
+* Revision 1.9  1995/08/23  15:18:24  lkg
+* New cathode parameterization file for use after 4sB.  Use DEDWR3, not DEDWIR
+* for use after run 48761 because of change in dEdx dead wire list.
+*
+* Revision 1.8  1995/05/05  18:51:58  lkg
+* Extend new cathode simulation run range to include 4sA
+*
+* Revision 1.7  1995/04/13  15:57:42  lkg
+* Free up scratch banks use for GFHITS call after processing hits
+*
+* Revision 1.6  1995/02/21  20:05:02  lkg
+* New cathode simulation from IK.  Needs the cath4s9.rzn file in C_RUNFIL.
+*
+* Revision 1.5  1994/08/29  14:01:01  lkg
+* Use partial path names for include files.
+*
+* Revision 1.4  1994/06/30  18:36:29  lkg
+* Added Alain B.'s changes for VD east/west independence, and for signal
+* propagation speed vs Z dependence in the VD
+*
+* Revision 1.3  1994/06/28  01:17:40  lkg
+* Made cathode parametrization run dependent.  Changed the pre-4s6 data back
+* to the old parametrization for consistency with generic MC until proper
+* tunings for these data sets are available.
+*
+* Revision 1.2  1994/06/19  18:15:23  lkg
+* Add cathode parameters SMEARP and SMEAR2 for wide-gaussian smearing, and
+* retuned cathode parameters.
+*
+* Revision 1.1.1.1  1994/02/22  02:24:35  lkg
+* first version of cleog in CVS
+*
+*
+* TMCCL called with new parameter IW=wire number within layer.
+* Separate time (TIME2) and multiple hit handling (using INDEX2) for VD east.
+*CMZ :          13/06/94  17.44.14  by  G. Ludwig
+* Add cathode parameters SMEARP and SMEAR2 for wide-gaussian smearing
+*CMZ :  2.01/14 03/01/94  12.24.24  by  Lawrence Gibbons
+*CMZ :          03/01/94  09.15.31  by  Lawrence Gibbons
+* Make VD cylinder calc. independent of arrangement of other chambers in CDGEOM
+* Do the same thing for the cathode smearing/threshold/gain parameters
+*CMZ :  2.01/13 13/12/93  22.57.05  by  Lawrence Gibbons
+* Insert call to DEDWIR (dead wire list). Used to be called
+* from CDHITS. (Fujino)
+*CMZ :  2.01/04 07/04/93  18.01.32  by  Don Fujino
+*CMZ :  2.01/01 28/01/93  21.46.12  by  G. Ludwig
+* Retuned cathodes
+*CMZ :          26/01/93  15.25.58  by  J. Lee
+* Turn off QDINV called prior to QDSMZ, and only ILYRVD and ELOS
+* get passed into QDSMZ. Fix wrong index for some of east hit informations
+*CMZ :          12/01/93  22.46.09  by  Rob Kutschke
+*CMZ :          12/01/93  19.54.14  by  G. Ludwig
+* Put in old VD cathode constants for testing new VD pulse heights
+*CMZ :          21/12/92  13.22.22  by  B. Geiser
+*CMZ :          11/08/92  08.37.34  by  B. Geiser
+* Take QDIV smearing out of ZMETER
+*CMZ :  2.00/00 22/10/92  16.43.22  by  Tim Nelson
+*CMZ :          22/10/92  16.04.49  by  Tim Nelson
+* Remove call to SVRAWM.  Done in GUDIGI.
+*CMZ :          15/05/92  14.41.29  by  G. Ludwig
+* Fix cathode efficiencies and smearing (GEVTOQ,SMEARZ)
+*CMZ :  1.17/28 11/05/92  18.09.30  by  Scott Roberts
+* Put in call to SVRAWM if CLEO21.
+*CMZ :  1.17/22 24/02/92  21.25.26  by  Unknown
+* Change cathode resolution/efficiency numbers (GSL)
+* Fix minor bug for cathode time.
+*CMZ :          23/01/92  13.09.56  by  Brian Geiser
+*CMZ :          19/01/92  19.22.40  by  J Masui
+* Added charge division to VD.
+*CMZ :          16/10/91  21.37.44  by  Kevin Sparks
+* Put in Warning message for negative drift times. In that case,
+*  TIME is set to a negative value (1 ps.). This is commented out
+*  for the present version, until we figure out WHY negative times
+*  occur so frequently. There is presently a kludge in CDRAWD to
+*  cover for negative drift times.
+*CMZ :  1.17/00 17/09/91  00.42.56  by  Jon Urheim
+*CMZ :          16/09/91  15.37.04  by  Jon Urheim
+* Remove Mats' crude efficiency code; replace with call to CDREFF
+* Also keep inefficient hits in RAWM bank, flag them by adding
+* 1.0 ms to the drift time, exclude them in CDRAWD.  Also store
+* random numbers used for efficiency to be used for trigger too.
+*CMZ :  1.16/18 29/07/91  14.30.11  by  G. Ludwig
+* More realistic cathodes (fewer pads hit, worse resolution)
+*CMZ :  1.16/13 03/06/91  16.45.57  by  G. Ludwig
+* Use CTGMCD to find cathode positions
+*CMZ :  1.16/11 23/05/91  14.31.20  by  M. Selen
+*Fix wire efficiency bug causing PT and VD efficiencies for hits more than
+*60% of the way to the edge of the cell to be the same as the efficiency of
+*the last hit calculated.
+*CMZ :          22/04/91  15.33.07  by  M. Selen
+* Put in crude wire-efficiency correction.
+*CMZ :  1.14/02 05/10/90  15.49.43  by  E. Cheu
+* remove Gas Holes from VD code this is now done by DEDWIR routine
+* in CDHITS where the gas holes are considered to be broken wires
+*CMZ :          06/28/90  09.45.00  by  M. Selen
+* Add calls to free the pointers to get rid of ZFILES
+* which piss me off
+*CMZ :  1.12/06 06/04/90  14.47.49  by  E. Cheu
+*CMZ :          06/04/90  14.45.46  by  E. Cheu
+* put in Gas Holes for VD (@ layer 5, wire=1,17,33,49)
+*CMZ :          04/04/90  10.57.57  by  Kevin Sparks
+* Call TMCCL with SMEARED drift distance.
+*CMZ :  1.12/04 28/03/90  15.29.16  by  Kevin Sparks
+* Index PT layer directly by IDET rather than LDETPT. Note
+*  that this bold stroke might need to be changed if the
+*  geometry changes such that IDET and PT layer are not
+*  the same numbers.
+*CMZ :          27/03/90  17.02.07  by  Kevin Sparks
+*CMZ :          27/03/90  16.59.05  by  Kevin Sparks
+* Cosmetic changes.
+*CMZ :          23/03/90  07.06.37  by  M. Selen
+*CMZ :          06/03/90  08.52.56  by  M. Selen
+* You guessed it...the cathodes are even better now. Yikes!
+*CMZ :  1.11/12 07/12/89  17.18.21  by  Kevin Sparks
+* Change timing sequence to standard timeon/timeoff
+*CMZ :  1.11/10 15/11/89  16.48.15  by  CLEO II Librarian
+* Remove reference to SIGPAD
+*CMZ :  1.11/09 14/11/89  16.25.32  by  M. Selen
+*CMZ :          11/11/89  08.21.15  by  M. Selen
+* Make cathodes even MORE realistic
+*CMZ :          10/11/89  16.18.03  by  M. Selen
+* Make cathodes more realistic
+*CMZ :          03/11/89  10.44.37  by  M. Selen
+* Put in first stab at cathodes
+*CMZ :          30/10/89  15.00.11  by  E. Cheu
+* minor fixes
+*CMZ :          27/10/89  13.04.47  by  E. Cheu
+* put in routine to handle smearing more realistically
+* comment out ZFINTL sequence
+*CMZ :  1.11/06 11/10/89  11.12.44  by  Kevin Sparks
+* Oops. Try again at removing JHITS message!
+*CMZ :  1.11/05 02/10/89  11.36.33  by  Kevin Sparks
+* Remove message for JHITS null
+*CMZ :  1.11/02 24/08/89  08.25.11  by  M. Selen
+*CMZ :          23/08/89  16.50.58  by  M. Selen
+*Add temporary scratch array to store IDET's, fix unrelated bug.
+*CMZ :  1.11/00 22/08/89  14.41.51  by  M. Selen
+*CMZ :          14/08/89  16.29.58  by  Mats A. Selen
+* Change to match new PTL configuration put into CDHITS, PTGEOM, & CDGINI
+*CMZ :  1.10/06 21/07/89  13.00.18  by  Nobu Katayama
+*CMZ :          25/05/89  17.33.53  by  K. Sparks
+* Add call to CDGINI
+*CMZ :          09/04/89  12.03.21  by  Nobu Katayama
+*-- Author :    Nobu Katayama   01/04/89

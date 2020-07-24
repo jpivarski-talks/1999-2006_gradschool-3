@@ -1,0 +1,55 @@
+ ring 1 west rotation should be moved by -12.1659 microns
+ ring 1 east rotation should be moved by 126.082 microns
+ ring 1 west x should be moved by -16.0001 microns
+ ring 1 east x should be moved by 37.8455 microns
+ ring 1 west y should be moved by -2.80937 microns
+ ring 1 east y should be moved by 76.6885 microns
+
+ ring 2 west rotation should be moved by -23.8613 microns
+ ring 2 east rotation should be moved by 102.461 microns
+ ring 2 west x should be moved by 4.26814 microns
+ ring 2 east x should be moved by 37.4045 microns
+ ring 2 west y should be moved by -18.4663 microns
+ ring 2 east y should be moved by 60.0864 microns
+
+ ring 3 west rotation should be moved by -26.5759 microns
+ ring 3 east rotation should be moved by 64.1324 microns
+ ring 3 west x should be moved by -2.3634 microns
+ ring 3 east x should be moved by 25.4683 microns
+ ring 3 west y should be moved by -16.4939 microns
+ ring 3 east y should be moved by 31.1818 microns
+
+ ring 4 west rotation should be moved by 16.1549 microns
+ ring 4 east rotation should be moved by 71.501 microns
+ ring 4 west x should be moved by 2.43699 microns
+ ring 4 east x should be moved by 23.3777 microns
+ ring 4 west y should be moved by -8.51617 microns
+ ring 4 east y should be moved by -11.3444 microns
+
+ ring 5 west rotation should be moved by 17.9384 microns
+ ring 5 east rotation should be moved by 69.246 microns
+ ring 5 west x should be moved by 1.26393 microns
+ ring 5 east x should be moved by 11.3785 microns
+ ring 5 west y should be moved by -13.3582 microns
+ ring 5 east y should be moved by 16.0328 microns
+
+ ring 6 west rotation should be moved by -0.28765 microns
+ ring 6 east rotation should be moved by 42.172 microns
+ ring 6 west x should be moved by -4.69514 microns
+ ring 6 east x should be moved by 15.2538 microns
+ ring 6 west y should be moved by -1.17825 microns
+ ring 6 east y should be moved by 8.36144 microns
+
+ ring 7 west rotation should be moved by 0.474443 microns
+ ring 7 east rotation should be moved by 25.6858 microns
+ ring 7 west x should be moved by -0.829832 microns
+ ring 7 east x should be moved by 10.9503 microns
+ ring 7 west y should be moved by -12.2564 microns
+ ring 7 east y should be moved by 18.738 microns
+
+ ring 8 west rotation should be moved by 45.0258 microns
+ ring 8 east rotation should be moved by 64.0245 microns
+ ring 8 west x should be moved by 12.9638 microns
+ ring 8 east x should be moved by 15.0405 microns
+ ring 8 west y should be moved by -36.4033 microns
+ ring 8 east y should be moved by -22.4264 microns

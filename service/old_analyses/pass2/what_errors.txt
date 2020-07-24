@@ -1,0 +1,42 @@
+Producer/Processor BunchFinder.BunchFinder:
+---------+==============================================================
+      46 |  %% EMERGENCY-BunchFinder.BunchFinder: No good DR hits for bunch finding :-(
+All are being excluded.
+
+Producer/Processor CDOffCal:
+---------+==============================================================
+    1410 |  %% ERROR-CDOffCal.DriftFunction:  Layer $1 Drift Bin $2 Illegal Bin Found 
+       3 |  %% ERROR-CDOffCal.DriftFunction:  Drift Fitting Weights Incomplete, #found= 940.00000 #expected= 1410
+These are all being left in--- we'll see them in the fatalerror mailings.
+
+Producer/Processor CcP2ReconProd.CcBlob:
+---------+==============================================================
+       4 |  %% ERROR-CcP2ReconProd.CcBlob: No peaks found in blob=$1
+All are being excluded.
+
+Producer/Processor MUACCP:
+---------+==============================================================
+     488 |  %% ERROR-MUACCP:  Error in error ellipse DXCP $1 DXSP $2 RHO $3
+All are being excluded.
+
+Producer/Processor Processor.P1CrystalMonProc:
+---------+==============================================================
+     365 |  %% ERROR-Processor.P1CrystalMonProc: 
+      12 |  %% ERROR-Processor.P1CrystalMonProc: Too many dead crystals = $1
+All are being excluded.
+
+Producer/Processor RICO_PAD_CLUSTM:
+---------+==============================================================
+    2364 |  %% ERROR-RICO_PAD_CLUSTM:  Too many RICH bumps
+    1314 |  %% ERROR-RICO_PAD_CLUSTM:  Too many RICH clusters
+      15 |  %% ERROR-RICO_PAD_CLUSTM: EventShape object initialized with beam energy out of range--... (long line)
+All are being excluded.
+
+Producer/Processor RichClustering:
+---------+==============================================================
+    3795 |  %% ERROR-RichClustering.RichClustering: Delete all clusters since array sizes are exceeded
+     553 |  %% ERROR-RichClustering.RichClustering: too many calibrated hits to cluster $1
+     396 |  %% ERROR-RichClustering.RichClustering:  Sector $1 Module $2 Has too many hits (fraction=$3)
+         | and will be excluded from clustering 
+       4 |  %% ERROR-RichClustering.RichClustering: EventShape object initialized with beam energy out... (long line)
+All are being excluded.

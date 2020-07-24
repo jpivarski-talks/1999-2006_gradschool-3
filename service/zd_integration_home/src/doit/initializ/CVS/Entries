@@ -1,0 +1,15 @@
+/doit_cd_scatters.F/1.3/Fri Aug 18 18:30:49 2000//
+/doit_init_sigma.F/1.14/Wed Mar  5 18:06:27 2003//
+/doit_layer_order.F/1.5/Thu Sep  5 19:12:20 2002//
+/init_geom_fix.F/1.2/Tue Sep 24 00:29:12 2002//
+/tfgmi1.F/1.6/Wed Mar  5 18:06:51 2003//
+/tfgmi2.F/1.5/Tue Nov 20 00:00:30 2001//
+/tfinit.F/1.5/Wed Mar  5 18:04:06 2003//
+/tfsvi1.F/1.1.1.1/Fri Feb  6 19:11:44 1998//
+/tfunin.F/1.2/Tue Nov 20 00:00:45 2001//
+/tfxfin.F/1.21/Tue Sep 24 00:29:37 2002//
+/tpc_init_cdgeom.F/1.1/Wed Mar  5 18:05:08 2003//
+/tpc_init_det_response.F/1.1/Wed Mar  5 18:06:13 2003//
+/tpc_init_from_lcd.F/1.2/Mon May 12 16:09:18 2003//
+/tpc_init_sequence.F/1.1/Wed Mar  5 18:04:35 2003//
+D

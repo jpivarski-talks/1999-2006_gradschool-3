@@ -1,0 +1,35 @@
+
+Module : ZDDriftFunctionProd
+Date   : Thu Jun 26 15:06:44 2003
+User   : huanggs
+Old Tag: 
+New Tag: v01_00_00
+Message: first tag
+
+Module : ZDDriftFunctionProd
+Date   : Fri Oct 10 13:37:02 2003
+User   : mccann
+Old Tag: v01_00_00
+New Tag: v02_00_00
+Message: Totally vamped the fittingweights representation and delivery to use the new ZDWeight2* constants
+
+Module : ZDDriftFunctionProd
+Date   : Fri Oct 10 14:09:22 2003
+User   : mccann
+Old Tag: v02_00_00
+New Tag: v02_00_01
+Message: fixed syntax errors introduced by my code merge
+
+Module : ZDDriftFunctionProd
+Date   : Mon Oct 13 12:48:09 2003
+User   : mccann
+Old Tag: v02_00_01
+New Tag: v02_00_02
+Message: Linux g++ doesn't like 'double variable(value)' initializers--- I switched to equal signs
+
+Module : ZDDriftFunctionProd
+Date   : Thu Oct 16 09:57:12 2003
+User   : mccann
+Old Tag: v02_00_02
+New Tag: v02_00_03
+Message: kFavoriteNumber must be the same type as m_Layer...Weight elements for comparison to be exact

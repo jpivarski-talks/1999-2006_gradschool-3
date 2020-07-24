@@ -1,0 +1,11 @@
+h/file 1 aligncake.rzn
+
+exec fiter9.kumac
+
+h/list
+
+h/plot 5
+h/plot //lun1/fipassproc/fiteration9/diagnostics/phi/4
+
+sub 5 //lun1/fipassproc/fiteration9/diagnostics/phi/4 1000 ! ! 'e'
+h/plot 1000

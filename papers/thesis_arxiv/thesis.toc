@@ -1,0 +1,41 @@
+\contentsline {chapter}{\numberline {1}Introduction and Motivation}{1}
+\contentsline {section}{\numberline {1.1}The \relax \mathversion {bold}$\Upsilon $\ Di-electron Width and Why it is Important}{1}
+\contentsline {section}{\numberline {1.2}The Bottomonium Potential and Mass Eigenstates}{3}
+\contentsline {section}{\numberline {1.3}Lattice QCD}{5}
+\contentsline {section}{\numberline {1.4}Relationship to Electroweak Parameter Extraction}{11}
+\contentsline {chapter}{\numberline {2}Measurement Technique}{18}
+\contentsline {section}{\numberline {2.1}Scans of \relax \mathversion {bold}$\Upsilon $\ Resonance Production}{18}
+\contentsline {section}{\numberline {2.2}\relax \mathversion {bold}$\Upsilon $\ Final States and Hadronic Cross-section}{24}
+\contentsline {chapter}{\numberline {3}Collider and Detector}{30}
+\contentsline {section}{\numberline {3.1}Cornell Electron Storage Ring}{30}
+\contentsline {section}{\numberline {3.2}CLEO Detector}{36}
+\contentsline {chapter}{\numberline {4}Backgrounds and Event Selection}{47}
+\contentsline {section}{\numberline {4.1}Suppressing Backgrounds with Event Selection}{47}
+\contentsline {section}{\numberline {4.2}Data Quality Requirements}{57}
+\contentsline {section}{\numberline {4.3}Subtracting Residual Backgrounds}{65}
+\contentsline {subsection}{\numberline {4.3.1}Backgrounds that Vary Slowly with Beam Energy}{66}
+\contentsline {subsection}{\numberline {4.3.2}Continuum-Resonance Interference}{68}
+\contentsline {subsection}{\numberline {4.3.3}Backgrounds from \relax \mathversion {bold}$\Upsilon $}{71}
+\contentsline {subsection}{\numberline {4.3.4}Beam-Gas, Beam-Wall, and Cosmic Rays}{72}
+\contentsline {chapter}{\numberline {5}Hadronic Efficiency}{80}
+\contentsline {section}{\numberline {5.1}Motivation for the Data-Based Approach}{80}
+\contentsline {section}{\numberline {5.2}Hadronic Efficiency of the \relax \mathversion {bold}$\Upsilon (1S)$}{81}
+\contentsline {subsection}{\numberline {5.2.1}Determination of \relax \mathversion {bold}$\epsilon _{\unhbox \voidb@x \hbox {\relax \fontsize {8}{9.5}\selectfont vis}}$}{85}
+\contentsline {subsection}{\numberline {5.2.2}Determination of \relax \mathversion {bold}$\epsilon _{\unhbox \voidb@x \hbox {\relax \fontsize {8}{9.5}\selectfont cuts}}$}{87}
+\contentsline {section}{\numberline {5.3}Hadronic Efficiency of the \relax \mathversion {bold}$\Upsilon (2S)$\ and $\Upsilon (3S)$}{93}
+\contentsline {chapter}{\numberline {6}Integrated Luminosity}{96}
+\contentsline {section}{\numberline {6.1}Bhabha Count and \relax \mathversion {bold}$\gamma \gamma $\ count}{96}
+\contentsline {section}{\numberline {6.2}Overall Luminosity Scale}{99}
+\contentsline {section}{\numberline {6.3}Consistency of Bhabhas with \relax \mathversion {bold}$\gamma \gamma $}{109}
+\contentsline {chapter}{\numberline {7}Beam Energy Measurement}{112}
+\contentsline {chapter}{\numberline {8}Lineshape Fitting}{119}
+\contentsline {section}{\numberline {8.1}The Fit Function}{119}
+\contentsline {subsection}{\numberline {8.1.1}Hadronic Peak}{119}
+\contentsline {subsection}{\numberline {8.1.2}Tau-Pair Peak}{120}
+\contentsline {subsection}{\numberline {8.1.3}Background Terms}{121}
+\contentsline {subsection}{\numberline {8.1.4}Summary of all Floating Parameters}{122}
+\contentsline {section}{\numberline {8.2}Systematic Uncertainties from Constants in the Fit}{123}
+\contentsline {section}{\numberline {8.3}Fit Results}{124}
+\contentsline {section}{\numberline {8.4}Hadron-Level Interference}{132}
+\contentsline {chapter}{\numberline {9}Results and Conclusions}{138}
+\contentsline {chapter}{Bibliography}{146}

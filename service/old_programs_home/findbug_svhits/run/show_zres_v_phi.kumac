@@ -1,0 +1,313 @@
+fortran/file 65 'chisqfit_helixintersection_smiles.ps'
+graphics/metafile 65 -111
+igset mtype 1
+
+cd findbug
+
+min 1110 -0.001
+max 1110  0.001
+min 1120 -0.001
+max 1120  0.001
+min 1130 -0.001
+max 1130  0.001
+min 1140 -0.001
+max 1140  0.001
+
+min 1210 -0.001
+max 1210  0.001
+min 1220 -0.001
+max 1220  0.001
+min 1230 -0.001
+max 1230  0.001
+min 1240 -0.001
+max 1240  0.001
+
+min 1310 -0.001
+max 1310  0.001
+min 1320 -0.001
+max 1320  0.001
+min 1330 -0.001
+max 1330  0.001
+min 1340 -0.001
+max 1340  0.001
+
+min 1410 -0.001
+max 1410  0.001
+min 1420 -0.001
+max 1420  0.001
+min 1430 -0.001
+max 1430  0.001
+min 1440 -0.001
+max 1440  0.001
+
+min 1510 -0.001
+max 1510  0.001
+min 1520 -0.001
+max 1520  0.001
+min 1530 -0.001
+max 1530  0.001
+min 1540 -0.001
+max 1540  0.001
+min 1550 -0.001
+max 1550  0.001
+
+min 1610 -0.001
+max 1610  0.001
+min 1620 -0.001
+max 1620  0.001
+min 1630 -0.001
+max 1630  0.001
+min 1640 -0.001
+max 1640  0.001
+min 1650 -0.001
+max 1650  0.001
+min 1660 -0.001
+max 1660  0.001
+min 1670 -0.001
+max 1670  0.001
+min 1680 -0.001
+max 1680  0.001
+
+min 2110 -0.001
+max 2110  0.001
+min 2120 -0.001
+max 2120  0.001
+min 2130 -0.001
+max 2130  0.001
+min 2140 -0.001
+max 2140  0.001
+
+min 2210 -0.001
+max 2210  0.001
+min 2220 -0.001
+max 2220  0.001
+min 2230 -0.001
+max 2230  0.001
+min 2240 -0.001
+max 2240  0.001
+
+min 2310 -0.001
+max 2310  0.001
+min 2320 -0.001
+max 2320  0.001
+min 2330 -0.001
+max 2330  0.001
+min 2340 -0.001
+max 2340  0.001
+
+min 2410 -0.001
+max 2410  0.001
+min 2420 -0.001
+max 2420  0.001
+min 2430 -0.001
+max 2430  0.001
+min 2440 -0.001
+max 2440  0.001
+
+min 2510 -0.001
+max 2510  0.001
+min 2520 -0.001
+max 2520  0.001
+min 2530 -0.001
+max 2530  0.001
+min 2540 -0.001
+max 2540  0.001
+min 2550 -0.001
+max 2550  0.001
+
+min 2610 -0.001
+max 2610  0.001
+min 2620 -0.001
+max 2620  0.001
+min 2630 -0.001
+max 2630  0.001
+min 2640 -0.001
+max 2640  0.001
+min 2650 -0.001
+max 2650  0.001
+min 2660 -0.001
+max 2660  0.001
+min 2670 -0.001
+max 2670  0.001
+min 2680 -0.001
+max 2680  0.001
+
+h/cr/title 'Layer 1 zres VS. phi (fitters residuals)'
+zone 2 2
+
+h/plot 1110
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 1120
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 1130
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 1140
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+
+wait
+
+h/plot 1210
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 1220
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 1230
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 1240
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+
+wait
+
+h/plot 1310
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 1320
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 1330
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 1340
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+
+wait
+
+h/cr/title 'Layer 2 zres VS. phi (fitters residuals)'
+zone 2 2
+
+h/plot 1410
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 1420
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 1430
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 1440
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+
+wait
+
+h/cr/title 'Layer 3 zres VS. phi (fitters residuals)'
+zone 2 3
+
+h/plot 1510
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 1520
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 1530
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 1540
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 1550
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+
+wait
+
+h/cr/title 'Layer 4 zres VS. phi (fitters residuals)'
+zone 2 2
+
+h/plot 1610
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 1620
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 1630
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 1640
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+
+wait
+
+h/plot 1650
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 1660
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 1670
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 1680
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+
+wait
+
+h/cr/title 'Layer 1 zres VS. phi (my residuals)'
+zone 2 2
+
+h/plot 2110
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 2120
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 2130
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 2140
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+
+wait
+
+h/plot 2210
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 2220
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 2230
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 2240
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+
+wait
+
+h/plot 2310
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 2320
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 2330
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 2340
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+
+wait
+
+h/cr/title 'Layer 2 zres VS. phi (my residuals)'
+zone 2 2
+
+h/plot 2410
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 2420
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 2430
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 2440
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+
+wait
+
+h/cr/title 'Layer 3 zres VS. phi (my residuals)'
+zone 2 3
+
+h/plot 2510
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 2520
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 2530
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 2540
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 2550
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+
+wait
+
+h/cr/title 'Layer 4 zres VS. phi (my residuals)'
+zone 2 2
+
+h/plot 2610
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 2620
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 2630
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 2640
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+
+wait
+
+h/plot 2650
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 2660
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 2670
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/plot 2680
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0

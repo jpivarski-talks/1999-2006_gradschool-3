@@ -1,0 +1,392 @@
+#!/usr/bin/env bash
+
+#--------------------
+# Author: Martin Lohner
+# Date:   3/11/98
+#--------------------
+# Usage: suez [-options...] [suez executable]
+# 
+# If no special executable is specified, it will run the exe in the
+# same directory as the suez script.
+# Options are:
+#   -x              graphics
+#   -symbols        check unresolved symbols (only important for OSF1)
+#--------------------
+
+# platform
+platform=`uname`
+
+# handle command-line arguments
+#set -- `getopt 23456789abcdf:hi:l:mn:prt:vw:J:T:#: $*` || exit $?
+
+# figure out what are *valid* options and what is the executable
+options=""
+other=""
+check_symbols=""
+viewer_suffix=""
+zfiles_suffix=""
+mt_suffix=""
+objy_suffix=""
+cleog_suffix=""
+ECHO=""
+PRECOMMAND=""
+DEBUG=""
+SCRIPT=""
+insure=""
+insure_path=""
+purify_suffix=""
+quantify_suffix=""
+
+print_help()
+{
+    echo
+    echo "Suez (c) 1997-, CLEO III Software"
+    echo "usage: suez [-options] [suez executable]"
+    echo
+    echo "where [-options] include:"
+    echo "    -h                to show this message."
+    echo "    -help             same as \"-h\"."
+    echo "    -V                to show explicitly which suez.exe used."
+    echo "    -version          same as \"-V\"."
+    echo "    -debug <debugger> run in debug mode with specified debugger."
+    echo "    -no-catch-excepts don't catch exceptions (runs debug executable)"
+    echo "    -purify           run purify exe."
+    echo "    -quantify         run quantify exe."
+    echo "    -zfiles           statically-linked zfiles."
+    echo "    -viewer           can use Info Viewer (Cleo3DProc & GeomViewer)."
+    echo "    -zfiles -viewer   both statically-linked zfiles and Info Viewer."
+    echo "    -mt               multithreaded version."
+    echo "    -objy             statically linked Objectivity version."
+    echo "    -cleog            statically linked cleog version."
+    echo "    -q                run without any suezrc setup file."
+    echo "    -f <scriptfile>   execute scriptfile ('-q' implicit!)."
+    echo
+    echo "  Arguments which are not switches are interpreted "
+    echo "  as specific suez executables. (e.g. \"suez mysuez.exe\")"
+    echo
+}
+
+print_nooption_error()
+{
+    echo "no option specified"
+}
+
+# ----------- bail out if user is not one of the excempted users on an
+#             off-limits machine
+checkIfHostOffLimits() {
+    hostOffLimitsList=${C3_}/util/hosts_off_limits_to_non_cleo3.list
+    hostEntry=`grep ${HOSTNAME} ${hostOffLimitsList} 2>/dev/null` 
+    hostInList=`echo $hostEntry |cut -d" " -f1`
+    usersInList=`echo $hostEntry |cut -d" " -f2`
+    if [ ! -z "$hostInList" ]; then
+	usersInList="$usersInList cleo3 nobody" # add the standard exemptions
+	num=0; exemption=0; exempted_user=" "
+	while [ ! -z "$exempted_user" ]
+	do 
+	    num=`expr $num + 1`
+	    exempted_user=`echo $usersInList |cut -d" " -f$num`
+	    if [ "$USER" = "$exempted_user" ]; then exemption=1; break; fi
+	done
+	if [ $exemption -eq 0 ]; then
+	    echo "You are user \"$USER\" on machine \"$HOSTNAME\""
+	    echo "ERROR: You're not allowed to run suez on this machine!"
+	    exit 1
+	fi
+    fi
+}
+
+# check for off-limits first
+checkIfHostOffLimits
+
+while test "$1" != ""
+do
+#    echo "\$1=$1"
+    case "$1" in 
+    -h)    print_help; exit;;
+    -help) print_help; exit;;
+    -V)       ECHO=echo; shift;;
+    -version) ECHO=echo; shift;;
+    -debug)   PRECOMMAND="$2"; \
+		if test "$PRECOMMAND" = ""; then print_nooption_error; exit; fi; \
+		DEBUG=_g; \
+	      shift 2;; 
+    -no-catch-excepts) DEBUG=_g; shift;; 
+    -symbols) check_symbols=y; shift;; 
+    -zfiles) zfiles_suffix=_zfiles; shift;;
+    -viewer) viewer_suffix=_viewer; shift;;
+    -mt)     mt_suffix=_mt; shift;;
+#    -objy)  objy_suffix="" ; echo "-W-option -objy unnecessary; ignored"; shift;;
+    -objy)   objy_suffix="Objy" ; shift;;
+#    -cleog)  cleog_suffix=Cleog; shift;;
+    -cleog)  cleog_suffix=; echo "-W-ignoring option \"-cleog\" until statically linked suez/cleog executable is available"; shift;;
+    -purify) purify_suffix=Purify; \
+	    if test "$platform" != "SunOS"; \
+	    then echo "only available on SunOS"; exit; fi; shift;;
+    -quantify) quantify_suffix=Quantify; \
+	    if test "$platform" != "SunOS"; \
+	    then echo "only available on SunOS"; exit; fi; shift;;
+    -insure) insure=y; insure_path=insure/; shift;;
+    -q) options="$options $1"; shift;;
+    -f) SCRIPT="$2"; \
+	if test "$SCRIPT" = ""; then print_nooption_error; exit; fi; \
+	SCRIPT="-f $SCRIPT"; \
+	shift 2;;
+#    -x) options="$options $1"; shift;;
+    -r) echo "Report Level DEPRECATED; "
+        echo "Please use 'report level <level>' inside Suez!"; \
+	sleep 5; if test "$2" != ""; then shift; fi; shift;;
+    -*) echo "unrecognized option \"$1\""; print_help; exit; shift;;
+    *) other="$other $1"; shift;;
+    esac
+
+#    echo "options=$options"
+#    echo "other=$other"
+done
+
+# figure out which executable to use: 
+# either from command-line argument or default 
+#    (actual suez executable is suez.exe)
+exe=$other
+if [ -z "$exe" ]; then
+  fullpath=`dirname $0`
+  path=`dirname ${fullpath}`
+  compiler=`basename ${fullpath}`/
+  name=`basename $0`
+  exe=$path/${insure_path}${compiler}$name${zfiles_suffix}${viewer_suffix}${mt_suffix}${objy_suffix}${cleog_suffix}${purify_suffix}${quantify_suffix}.exe${DEBUG}
+fi
+
+# ------------- do platform dependent stuff
+if [ "$platform" = "OSF1" ]; then
+  # turn off annoying "unaligned access errors
+  uac p 0
+
+  # checking symbols
+  if [ "$check_symbols" = "y" ]; then
+       RLD_ARGS="-ring_search -log_stdout"
+       export _RLD_ARGS
+  fi
+
+  # Objectivity depends on this
+  LD_LIBRARY_PATH=/nfs/pkg/depot/objy~52/objy/alphaosf1/lib:$LD_LIBRARY_PATH
+  LD_LIBRARY_PATH=/nfs/pkg/depot/objy~52/objy/alphaosf1/ToolKit/lib:$LD_LIBRARY_PATH
+  export LD_LIBRARY_PATH
+fi
+
+# set LD_LIBRARY_PATH for all .so files in non-system dirpaths
+if [ "$platform" = "SunOS" ]; then
+
+  # Objectivity depends on this
+  LD_LIBRARY_PATH=/usr/local/objy/v521/solaris4/lib:$LD_LIBRARY_PATH
+  LD_LIBRARY_PATH=/usr/local/objy/v521/solaris4/ToolKit/lib:$LD_LIBRARY_PATH
+  export LD_LIBRARY_PATH
+
+  # Insure++ depends on this
+  if [ "$insure" = "y" ]; then
+    PARASOFT=/usr/local/parasoft
+    PATH=${PARASOFT}/bin.solaris:$PATH:
+    export PATH
+    LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${PARASOFT}/lib.solaris     
+    export LD_LIBRARY_PATH
+  fi
+
+  # Visibroker Corba
+  VISIBROKERLIB=/usr/local/vb3.3/lib
+  LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${VISIBROKERLIB}
+  export LD_LIBRARY_PATH
+
+fi
+
+# third-party library stuff in other_sources
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${C3_OTHER}/lib/${platform}
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${C3_OTHER}/lib/${platform}/${CXX}
+export LD_LIBRARY_PATH
+
+# always look in /usr/local/lib, because e.g. Solaris doesn't check it
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+
+# set mesa buffer if not set already
+if [ -z "$MESA_BACK_BUFFER" ]; then
+  MESA_BACK_BUFFER=Pixmap
+  export MESA_BACK_BUFFER
+fi
+
+# mico stuff
+. ${C3DIST}/other_sources/mico/lib/mico-setup.sh
+MICONSDFILE=/home/cleo3/mico/MicoIOR
+export MICONSDFILE
+
+# ---- setup (u)limits correctly
+echo "------- Setting ulimits -------"
+ulimit unlimited
+ulimit -n unlimited
+ulimit -s unlimited
+ulimit -a
+
+# -------------- finally run executable ----------------------
+if [ "$PRECOMMAND" != "" ]; then
+  if [ "$SCRIPT" != "" -o "$options" != "" ]; then
+    echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
+    echo "Warning: can't process extra options in debug mode:"
+    echo "$SCRIPT $options"
+    echo "Please do: $PRECOMMAND> run $SCRIPT $options"
+    echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
+    echo ""
+  fi
+  $ECHO $PRECOMMAND $exe
+
+else
+  $ECHO $exe $SCRIPT $options
+fi
+
+# -------------------
+# $Id: suez,v 1.49 2001/07/25 20:04:17 cdj Exp $
+#
+# $Log: suez,v $
+# Revision 1.49  2001/07/25 20:04:17  cdj
+# upgraded to Visibroker 3.3
+#
+# Revision 1.48  2000/08/11 15:43:39  mkl
+# upgrade Objy version from 5.20 to 5.21, for now only on Solaris (OSF1 will follow after resolving STL clashes)
+#
+# Revision 1.47  2000/07/13 15:03:11  mkl
+# add ability to exempt users for certain off-limits hosts
+#
+# Revision 1.46  2000/07/05 19:10:37  mkl
+# move Suez and JobControl libs into USER_LIBS to pick up debug versions in debug mode; ignore (with warning) the cleog option, until we have statically linked version
+#
+# Revision 1.45  2000/04/27 21:02:27  mkl
+# added mico setup
+#
+# Revision 1.44  2000/03/06 20:12:21  mkl
+# some crontabs run as null user; also print out USER setting to be able to debug problems
+#
+# Revision 1.43  2000/03/06 05:22:03  mkl
+# suez: check hosts-off-limists list and prevent users from running on any such host except for cleo3
+#
+# Revision 1.42  2000/02/26 16:15:30  mkl
+# suez script: turn off 'unaligned access errors' on OSF1
+#
+# Revision 1.41  1999/12/23 17:20:42  mkl
+# always have LD_LIBRARY_PATH look in /usr/local/lib (important for silly platforms like Solaris)
+#
+# Revision 1.40  1999/12/01 17:49:18  mkl
+# make bash happy (had switched from sh to bash to allow ulimit settings
+#
+# Revision 1.39  1999/11/30 16:31:56  mkl
+# use ulimit to increase filedescriptor limit
+#
+# Revision 1.38  1999/11/16 22:52:26  mkl
+# clean up suez help
+#
+# Revision 1.37  1999/11/08 22:14:08  mkl
+# upgrade to Objectivity 5.2
+#
+# Revision 1.36  1999/10/29 15:24:53  mkl
+# print proper error message when trying to invoke purify or quantify on anything other than Solaris
+#
+# Revision 1.35  1999/10/21 21:38:26  mkl
+# test submission
+#
+# Revision 1.34  1999/08/31 23:10:05  mkl
+# removed deprecated report level option; fixed up handling of explicitly specified executable
+#
+# Revision 1.33  1999/08/27 02:48:04  mkl
+# removed '-r <level>' option from suez script
+#
+# Revision 1.32  1999/08/26 03:07:00  mkl
+# debug option now calls debug version of suez exe
+#
+# Revision 1.31  1999/08/26 03:02:04  mkl
+# better than rethrow: dont catch in debug mode
+#
+# Revision 1.30  1999/08/25 21:27:47  mkl
+# ReportModule allows setting of report level and logging to files
+#
+# Revision 1.29  1999/08/16 14:28:07  mkl
+# had to include new LD_LIBRARY_PATH path for ospace etc libs (since now shared libs)
+#
+# Revision 1.28  1999/08/13 17:37:41  mkl
+# option -objy not needed anymore (thanks to shared libs for objy stl that DBModule links with)
+#
+# Revision 1.27  1999/07/19 21:41:12  mkl
+# new purify 'quantify' executable for finding performance sinks
+#
+# Revision 1.26  1999/05/15 15:58:11  mkl
+# static linking has to include AsciiObjects
+#
+# Revision 1.25  1999/05/04 16:47:10  mkl
+# added 'cleog' option to suez script
+#
+# Revision 1.24  1999/04/16 20:21:32  mkl
+# added purify flag to run purified suez exe
+#
+# Revision 1.23  1999/03/13 03:47:11  mkl
+# add statically linked Objy exe
+#
+# Revision 1.22  1999/03/12 19:33:51  mkl
+# added visibroker lib area to LD_LIBRARY_PATH
+#
+# Revision 1.21  1999/03/11 22:15:56  mkl
+# error if no debugger specified
+#
+# Revision 1.20  1999/03/09 03:41:39  mkl
+# set LD_LIBRARY_PATH for insure++
+#
+# Revision 1.19  1999/03/08 18:18:30  mkl
+# add better info on how to pass on options to debugger
+#
+# Revision 1.18  1999/03/08 18:07:05  mkl
+# allow running insure executable and debugger from within suez script
+#
+# Revision 1.17  1999/02/24 19:32:44  mkl
+# include other_sources lib areas in LD_LIBRARY_PATH
+#
+# Revision 1.16  1999/02/12 15:53:11  mkl
+# simplify nooption error
+#
+# Revision 1.15  1999/02/12 00:13:00  mkl
+# allow run-time control over report level
+#
+# Revision 1.14  1999/02/09 15:28:27  mkl
+# run multithreaded suez with -mt option
+#
+# Revision 1.13  1999/02/05 16:17:27  mkl
+# only add to LD_LIBRARY_PATH, dont override
+#
+# Revision 1.12  1999/02/02 19:15:30  mkl
+# added LD_LIBRARY_PATH for Objectivity
+#
+# Revision 1.11  1998/11/18 19:21:22  mkl
+# new option -q not to run any start scripts
+#
+# Revision 1.10  1998/11/07 21:59:07  mkl
+# added -log_stdout option to symbols flag
+#
+# Revision 1.9  1998/10/18 21:42:08  mkl
+# allow -zfiles and -viewer at the same time
+#
+# Revision 1.8  1998/09/25 16:17:57  mkl
+# updated help dump
+#
+# Revision 1.7  1998/09/25 16:08:41  mkl
+# fix -f flag problem
+#
+# Revision 1.6  1998/09/24 18:59:47  mkl
+# add -f <script> option; if -f specified, only that specified script gets executed, not ~/.suezrc
+#
+# Revision 1.5  1998/09/17 22:39:58  mkl
+# added -debug and -V flags
+#
+# Revision 1.4  1998/08/25 20:08:46  mkl
+# use options to choose between suez_zfiles etc; set MESA_BACK_BUFFER variable; added help option
+#
+# Revision 1.3  1998/07/20 22:16:45  mkl
+# now need to use '-symbols' to turn on unresolved symbol detection
+#
+# Revision 1.2  1998/04/17 19:04:57  mkl
+# handle options
+#
+# Revision 1.1  1998/03/11 18:47:07  mkl
+# now suez is script, and executable will be called suez.exe
+#
+#

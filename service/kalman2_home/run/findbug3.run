@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# #$ -l nodlt
+# #$ -o /cdat/tem/mccann/findbug3osf.out
+# #$ -S /bin/bash
+# #$ -j y
+
+cd /home/mccann/kalman2/run
+. /nfs/cleo3/scripts/cleo3defs
+c3rel Nov04_02_P2
+
+C3_SHLIB=/cdat/daf9/mccann/kalman2_tmp/shlib:/nfs/cleo3/Offline/rel/Nov04_02_P2/shlib/OSF1/cxx
+export C3_SHLIB
+
+suez -f findbug3.tcl > /cdat/tem/mccann/findbug3osf.log

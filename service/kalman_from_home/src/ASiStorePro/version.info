@@ -1,0 +1,155 @@
+
+Module : ASiStorePro
+Date   : Sun Sep  5 21:15:07 1999
+User   : undrus
+Old Tag: none
+New Tag: v03_02_02
+Message: 
+<Please type your Tag Message>
+Module : ASiStorePro
+Date   : Mon Nov  1 17:11:26 1999
+User   : undrus
+Old Tag: v03_02_02
+New Tag: v03_02_03
+Message: 
+in function sensorForLAddress proper assertion for LAddress is installed 
+<Please type your Tag Message>
+Module : ASiStorePro
+Date   : Tue Nov  2 17:57:44 1999
+User   : undrus
+Old Tag: v03_02_03
+New Tag: v03_02_04
+Message: 
+fixed assert statements: now require logical address
+to be within 1 to N range
+<Please type your Tag Message>
+Module : ASiStorePro
+Date   : Mon Nov  8 17:58:25 1999
+User   : undrus
+Old Tag: v03_02_04
+New Tag: v03_02_05
+Message: 
+1) Fixed Bug which caused wrong treatment of LAdresses corresponding strip=512
+2) new function ASiStore::sensor(layer,ladderInLayer,sensorInLadder) 
+Module : ASiStorePro
+Date   : Tue Nov 16 15:28:01 1999
+User   : pg
+Old Tag: v03_02_05
+New Tag: v03_03_00
+Message: Modifications for use in Cleog3
+
+Module : ASiStorePro
+Date   : Sat Jan 22 14:52:31 2000
+User   : undrus
+Old Tag: v03_03_00
+New Tag: v03_04_00
+Message: 
+New assignment of Sensors to Hybrids is implemented. New numbering for
+sensors (sequentional numbers in a ladder)
+<Please type your Tag Message>
+Module : ASiStorePro
+Date   : Mon Jan 31 21:30:56 2000
+User   : undrus
+Old Tag: v03_04_00
+New Tag: v03_04_01
+Message: 
+fixed some indexing problems
+Module : ASiStorePro
+Date   : Thu Feb  3 16:43:52 2000
+User   : undrus
+Old Tag: v03_04_01
+New Tag: v03_05_00
+Message: 
+Forced by Geant requirements, use unique names for all ladders and their 
+Sensors
+Module : ASiStorePro
+Date   : Sun Feb  6 22:55:05 2000
+User   : pg
+Old Tag: v03_05_00
+New Tag: v03_06_00
+Message: Complied with new naming scheme in SiGeom
+
+Module : ASiStorePro
+Date   : Wed Mar 22 16:49:09 2000
+User   : meyerm
+Old Tag: v03_06_00
+New Tag: v03_06_01
+Message: add transToSi() to ASiLadder
+
+Module : ASiStorePro
+Date   : Tue Mar 28 10:47:37 2000
+User   : pg
+Old Tag: v03_06_01
+New Tag: v03_07_00
+Message: Changed all coordinate transformations to use aligned geometry.
+
+Module : ASiStorePro
+Date   : Mon Apr 10 11:43:30 2000
+User   : pg
+Old Tag: v03_07_00
+New Tag: v03_07_01
+Message: Chips numbered from 1 to 976. Active element can now be extracted from both BaseGeometry and SVAlignment streams
+
+Module : ASiStorePro
+Date   : Tue Apr 18 20:47:23 2000
+User   : pg
+Old Tag: v03_07_01
+New Tag: v03_07_02
+Message: Removed spurious cout statements
+
+Module : ASiStorePro
+Date   : Tue May  9 09:22:12 2000
+User   : pg
+Old Tag: v03_07_02
+New Tag: v03_08_00
+Message: Added function to calculate strip number form the coordinate in ASiSensorInfo
+
+Module : ASiStorePro
+Date   : Wed May 10 17:55:48 2000
+User   : llh14
+Old Tag: v03_08_00
+New Tag: v03_09_00
+Message: added caches for ladders and sensors
+
+Module : ASiStorePro
+Date   : Mon May 15 10:03:50 2000
+User   : pg
+Old Tag: v03_09_00
+New Tag: v03_10_00
+Message: Chips numbered following hybrids, not logical addresses, to make life easier for Online
+
+Module : ASiStorePro
+Date   : Tue May 16 12:36:25 2000
+User   : ajm36
+Old Tag: v03_10_00
+New Tag: v03_11_00
+Message: made several ASiStore functions faster by caching data
+
+Module : ASiStorePro
+Date   : Sun May 21 13:04:44 2000
+User   : cdj
+Old Tag: v03_11_00
+New Tag: v03_12_00
+Message: removed unnecessary instantiate_one.h instantiations
+
+Module : ASiStorePro
+Date   : Sun Jun 25 17:57:13 2000
+User   : pg
+Old Tag: v03_12_00
+New Tag: v03_13_00
+Message: Tagged latest changes: new function clamshellForHybrid in ASiStore
+
+Module : ASiStorePro
+Date   : Wed Jul 26 12:56:05 2000
+User   : pg
+Old Tag: v03_13_00
+New Tag: v03_13_01
+Message: Minor change: measure charge in 1000 electrons
+
+Module : ASiStorePro
+Date   : Mon Apr 29 08:56:46 2002
+User   : bkh
+Old Tag: v03_13_01
+New Tag: v03_13_02
+Message: 
+Tag changes restoring diamond ladders into MC

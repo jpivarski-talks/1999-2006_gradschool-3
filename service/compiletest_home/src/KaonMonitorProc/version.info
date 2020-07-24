@@ -1,0 +1,14 @@
+
+Module : KaonMonitorProc
+Date   : Tue Nov 18 17:10:04 2003
+User   : mccann
+Old Tag: 
+New Tag: v01_00_00
+Message: first tag
+
+Module : KaonMonitorProc
+Date   : Thu Nov 20 10:45:22 2003
+User   : mccann
+Old Tag: v01_00_00
+New Tag: v01_00_01
+Message: instantiated vector<KTHelix> and included BeamEnergy in Makefile

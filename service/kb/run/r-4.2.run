@@ -1,0 +1,10 @@
+#$ -l calibration
+#$ -o /cdat/tem/mccann/r-4.2.out
+#$ -S /bin/bash
+#$ -j y
+
+cd /cdat/daf9/mccann/kb/run
+. /nfs/cleo3/scripts/cleo3defs
+c3rel Jan24_03_P2
+
+suez -f r-4.2.tcl > /cdat/tem/mccann/r-4.2.log

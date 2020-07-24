@@ -1,0 +1,28 @@
+
+Module : DualTrackHelicesProd
+Date   : Thu Feb  1 12:46:32 2001
+User   : llh14
+Old Tag: 
+New Tag: v01_00_00
+Message: first tag
+
+Module : DualTrackHelicesProd
+Date   : Mon Mar 26 11:46:24 2001
+User   : bkh
+Old Tag: v01_00_00
+New Tag: v01_00_01
+Message: 
+Get MagneticField from StartRun not BeginRun
+Module : DualTrackHelicesProd
+Date   : Thu Mar 29 11:28:31 2001
+User   : llh14
+Old Tag: v01_00_01
+New Tag: v02_00_00
+Message: Added C3sv and C3dr to Makefile
+
+Module : DualTrackHelicesProd
+Date   : Thu Aug 23 13:05:57 2001
+User   : mccann
+Old Tag: v02_00_00
+New Tag: v02_00_01
+Message: HIDualTrackConstraint constructor changed. DualTrackHelicesProxy ought to have the same behaviour now.

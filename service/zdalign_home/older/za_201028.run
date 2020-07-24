@@ -1,0 +1,10 @@
+#$ -l calibration
+#$ -o /cdat/tem/mccann/za_201028.log
+#$ -S /bin/bash
+#$ -j y
+
+cd /home/mccann/zdalign/run
+. /nfs/cleo3/scripts/cleo3defs
+c3rel Oct15_03_MC
+
+suez -f za_201028.tcl

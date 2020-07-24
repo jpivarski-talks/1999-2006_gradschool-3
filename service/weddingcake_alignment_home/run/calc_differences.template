@@ -1,0 +1,594 @@
+fortran/file 65 'TEMPLATE.ps'
+graphics/metafile 65 -111
+igset mtype 1
+
+h/file 31 TEMPLATE1.rzn
+h/file 32 TEMPLATE2.rzn
+h/file 33 TEMPLATE3.rzn
+h/file 34 TEMPLATE4.rzn
+h/file 35 TEMPLATE5.rzn
+h/file 36 TEMPLATE6.rzn
+h/file 37 TEMPLATE7.rzn
+h/file 38 TEMPLATE8.rzn
+h/file 39 TEMPLATE9.rzn
+
+h/cr/1d 11 'west all resid ring 1' 100 -0.10E-2 0.10E-2
+h/cr/1d 12 'west cosphi*resid ring 1' 100 -0.10E-2 0.10E-2
+h/cr/1d 13 'west -sinphi*resid ring 1' 100 -0.10E-2 0.10E-2
+h/cr/1d 14 'east all resid ring 1' 100 -0.10E-2 0.10E-2
+h/cr/1d 15 'east cosphi*resid ring 1' 100 -0.10E-2 0.10E-2
+h/cr/1d 16 'east -sinphi*resid ring 1' 100 -0.10E-2 0.10E-2
+
+h/cr/1d 21 'west all resid ring 2' 100 -0.10E-2 0.10E-2
+h/cr/1d 22 'west cosphi*resid ring 2' 100 -0.10E-2 0.10E-2
+h/cr/1d 23 'west -sinphi*resid ring 2' 100 -0.10E-2 0.10E-2
+h/cr/1d 24 'east all resid ring 2' 100 -0.10E-2 0.10E-2
+h/cr/1d 25 'east cosphi*resid ring 2' 100 -0.10E-2 0.10E-2
+h/cr/1d 26 'east -sinphi*resid ring 2' 100 -0.10E-2 0.10E-2
+	
+h/cr/1d 31 'west all resid ring 3' 100 -0.10E-2 0.10E-2
+h/cr/1d 32 'west cosphi*resid ring 3' 100 -0.10E-2 0.10E-2
+h/cr/1d 33 'west -sinphi*resid ring 3' 100 -0.10E-2 0.10E-2
+h/cr/1d 34 'east all resid ring 3' 100 -0.10E-2 0.10E-2
+h/cr/1d 35 'east cosphi*resid ring 3' 100 -0.10E-2 0.10E-2
+h/cr/1d 36 'east -sinphi*resid ring 3' 100 -0.10E-2 0.10E-2
+	
+h/cr/1d 41 'west all resid ring 4' 100 -0.10E-2 0.10E-2
+h/cr/1d 42 'west cosphi*resid ring 4' 100 -0.10E-2 0.10E-2
+h/cr/1d 43 'west -sinphi*resid ring 4' 100 -0.10E-2 0.10E-2
+h/cr/1d 44 'east all resid ring 4' 100 -0.10E-2 0.10E-2
+h/cr/1d 45 'east cosphi*resid ring 4' 100 -0.10E-2 0.10E-2
+h/cr/1d 46 'east -sinphi*resid ring 4' 100 -0.10E-2 0.10E-2
+	
+h/cr/1d 51 'west all resid ring 5' 100 -0.10E-2 0.10E-2
+h/cr/1d 52 'west cosphi*resid ring 5' 100 -0.10E-2 0.10E-2
+h/cr/1d 53 'west -sinphi*resid ring 5' 100 -0.10E-2 0.10E-2
+h/cr/1d 54 'east all resid ring 5' 100 -0.10E-2 0.10E-2
+h/cr/1d 55 'east cosphi*resid ring 5' 100 -0.10E-2 0.10E-2
+h/cr/1d 56 'east -sinphi*resid ring 5' 100 -0.10E-2 0.10E-2
+	
+h/cr/1d 61 'west all resid ring 6' 100 -0.10E-2 0.10E-2
+h/cr/1d 62 'west cosphi*resid ring 6' 100 -0.10E-2 0.10E-2
+h/cr/1d 63 'west -sinphi*resid ring 6' 100 -0.10E-2 0.10E-2
+h/cr/1d 64 'east all resid ring 6' 100 -0.10E-2 0.10E-2
+h/cr/1d 65 'east cosphi*resid ring 6' 100 -0.10E-2 0.10E-2
+h/cr/1d 66 'east -sinphi*resid ring 6' 100 -0.10E-2 0.10E-2
+	
+h/cr/1d 71 'west all resid ring 7' 100 -0.10E-2 0.10E-2
+h/cr/1d 72 'west cosphi*resid ring 7' 100 -0.10E-2 0.10E-2
+h/cr/1d 73 'west -sinphi*resid ring 7' 100 -0.10E-2 0.10E-2
+h/cr/1d 74 'east all resid ring 7' 100 -0.10E-2 0.10E-2
+h/cr/1d 75 'east cosphi*resid ring 7' 100 -0.10E-2 0.10E-2
+h/cr/1d 76 'east -sinphi*resid ring 7' 100 -0.10E-2 0.10E-2
+	
+h/cr/1d 81 'west all resid ring 8' 100 -0.10E-2 0.10E-2
+h/cr/1d 82 'west cosphi*resid ring 8' 100 -0.10E-2 0.10E-2
+h/cr/1d 83 'west -sinphi*resid ring 8' 100 -0.10E-2 0.10E-2
+h/cr/1d 84 'east all resid ring 8' 100 -0.10E-2 0.10E-2
+h/cr/1d 85 'east cosphi*resid ring 8' 100 -0.10E-2 0.10E-2
+h/cr/1d 86 'east -sinphi*resid ring 8' 100 -0.10E-2 0.10E-2
+
+add //lun31/cakealignflat/101 11 11
+add //lun31/cakealignflat/102 12 12
+add //lun31/cakealignflat/103 13 13
+add //lun31/cakealignflat/104 14 14
+add //lun31/cakealignflat/105 15 15
+add //lun31/cakealignflat/106 16 16
+add //lun32/cakealignflat/101 11 11
+add //lun32/cakealignflat/102 12 12
+add //lun32/cakealignflat/103 13 13
+add //lun32/cakealignflat/104 14 14
+add //lun32/cakealignflat/105 15 15
+add //lun32/cakealignflat/106 16 16
+add //lun33/cakealignflat/101 11 11
+add //lun33/cakealignflat/102 12 12
+add //lun33/cakealignflat/103 13 13
+add //lun33/cakealignflat/104 14 14
+add //lun33/cakealignflat/105 15 15
+add //lun33/cakealignflat/106 16 16
+add //lun34/cakealignflat/101 11 11
+add //lun34/cakealignflat/102 12 12
+add //lun34/cakealignflat/103 13 13
+add //lun34/cakealignflat/104 14 14
+add //lun34/cakealignflat/105 15 15
+add //lun34/cakealignflat/106 16 16
+add //lun35/cakealignflat/101 11 11
+add //lun35/cakealignflat/102 12 12
+add //lun35/cakealignflat/103 13 13
+add //lun35/cakealignflat/104 14 14
+add //lun35/cakealignflat/105 15 15
+add //lun35/cakealignflat/106 16 16
+add //lun36/cakealignflat/101 11 11
+add //lun36/cakealignflat/102 12 12
+add //lun36/cakealignflat/103 13 13
+add //lun36/cakealignflat/104 14 14
+add //lun36/cakealignflat/105 15 15
+add //lun36/cakealignflat/106 16 16
+add //lun37/cakealignflat/101 11 11
+add //lun37/cakealignflat/102 12 12
+add //lun37/cakealignflat/103 13 13
+add //lun37/cakealignflat/104 14 14
+add //lun37/cakealignflat/105 15 15
+add //lun37/cakealignflat/106 16 16
+add //lun38/cakealignflat/101 11 11
+add //lun38/cakealignflat/102 12 12
+add //lun38/cakealignflat/103 13 13
+add //lun38/cakealignflat/104 14 14
+add //lun38/cakealignflat/105 15 15
+add //lun38/cakealignflat/106 16 16
+add //lun39/cakealignflat/101 11 11
+add //lun39/cakealignflat/102 12 12
+add //lun39/cakealignflat/103 13 13
+add //lun39/cakealignflat/104 14 14
+add //lun39/cakealignflat/105 15 15
+add //lun39/cakealignflat/106 16 16
+
+add //lun31/cakealignflat/201 21 21
+add //lun31/cakealignflat/202 22 22
+add //lun31/cakealignflat/203 23 23
+add //lun31/cakealignflat/204 24 24
+add //lun31/cakealignflat/205 25 25
+add //lun31/cakealignflat/206 26 26
+add //lun32/cakealignflat/201 21 21
+add //lun32/cakealignflat/202 22 22
+add //lun32/cakealignflat/203 23 23
+add //lun32/cakealignflat/204 24 24
+add //lun32/cakealignflat/205 25 25
+add //lun32/cakealignflat/206 26 26
+add //lun33/cakealignflat/201 21 21
+add //lun33/cakealignflat/202 22 22
+add //lun33/cakealignflat/203 23 23
+add //lun33/cakealignflat/204 24 24
+add //lun33/cakealignflat/205 25 25
+add //lun33/cakealignflat/206 26 26
+add //lun34/cakealignflat/201 21 21
+add //lun34/cakealignflat/202 22 22
+add //lun34/cakealignflat/203 23 23
+add //lun34/cakealignflat/204 24 24
+add //lun34/cakealignflat/205 25 25
+add //lun34/cakealignflat/206 26 26
+add //lun35/cakealignflat/201 21 21
+add //lun35/cakealignflat/202 22 22
+add //lun35/cakealignflat/203 23 23
+add //lun35/cakealignflat/204 24 24
+add //lun35/cakealignflat/205 25 25
+add //lun35/cakealignflat/206 26 26
+add //lun36/cakealignflat/201 21 21
+add //lun36/cakealignflat/202 22 22
+add //lun36/cakealignflat/203 23 23
+add //lun36/cakealignflat/204 24 24
+add //lun36/cakealignflat/205 25 25
+add //lun36/cakealignflat/206 26 26
+add //lun37/cakealignflat/201 21 21
+add //lun37/cakealignflat/202 22 22
+add //lun37/cakealignflat/203 23 23
+add //lun37/cakealignflat/204 24 24
+add //lun37/cakealignflat/205 25 25
+add //lun37/cakealignflat/206 26 26
+add //lun38/cakealignflat/201 21 21
+add //lun38/cakealignflat/202 22 22
+add //lun38/cakealignflat/203 23 23
+add //lun38/cakealignflat/204 24 24
+add //lun38/cakealignflat/205 25 25
+add //lun38/cakealignflat/206 26 26
+add //lun39/cakealignflat/201 21 21
+add //lun39/cakealignflat/202 22 22
+add //lun39/cakealignflat/203 23 23
+add //lun39/cakealignflat/204 24 24
+add //lun39/cakealignflat/205 25 25
+add //lun39/cakealignflat/206 26 26
+
+add //lun31/cakealignflat/301 31 31
+add //lun31/cakealignflat/302 32 32
+add //lun31/cakealignflat/303 33 33
+add //lun31/cakealignflat/304 34 34
+add //lun31/cakealignflat/305 35 35
+add //lun31/cakealignflat/306 36 36
+add //lun32/cakealignflat/301 31 31
+add //lun32/cakealignflat/302 32 32
+add //lun32/cakealignflat/303 33 33
+add //lun32/cakealignflat/304 34 34
+add //lun32/cakealignflat/305 35 35
+add //lun32/cakealignflat/306 36 36
+add //lun33/cakealignflat/301 31 31
+add //lun33/cakealignflat/302 32 32
+add //lun33/cakealignflat/303 33 33
+add //lun33/cakealignflat/304 34 34
+add //lun33/cakealignflat/305 35 35
+add //lun33/cakealignflat/306 36 36
+add //lun34/cakealignflat/301 31 31
+add //lun34/cakealignflat/302 32 32
+add //lun34/cakealignflat/303 33 33
+add //lun34/cakealignflat/304 34 34
+add //lun34/cakealignflat/305 35 35
+add //lun34/cakealignflat/306 36 36
+add //lun35/cakealignflat/301 31 31
+add //lun35/cakealignflat/302 32 32
+add //lun35/cakealignflat/303 33 33
+add //lun35/cakealignflat/304 34 34
+add //lun35/cakealignflat/305 35 35
+add //lun35/cakealignflat/306 36 36
+add //lun36/cakealignflat/301 31 31
+add //lun36/cakealignflat/302 32 32
+add //lun36/cakealignflat/303 33 33
+add //lun36/cakealignflat/304 34 34
+add //lun36/cakealignflat/305 35 35
+add //lun36/cakealignflat/306 36 36
+add //lun37/cakealignflat/301 31 31
+add //lun37/cakealignflat/302 32 32
+add //lun37/cakealignflat/303 33 33
+add //lun37/cakealignflat/304 34 34
+add //lun37/cakealignflat/305 35 35
+add //lun37/cakealignflat/306 36 36
+add //lun38/cakealignflat/301 31 31
+add //lun38/cakealignflat/302 32 32
+add //lun38/cakealignflat/303 33 33
+add //lun38/cakealignflat/304 34 34
+add //lun38/cakealignflat/305 35 35
+add //lun38/cakealignflat/306 36 36
+add //lun39/cakealignflat/301 31 31
+add //lun39/cakealignflat/302 32 32
+add //lun39/cakealignflat/303 33 33
+add //lun39/cakealignflat/304 34 34
+add //lun39/cakealignflat/305 35 35
+add //lun39/cakealignflat/306 36 36
+
+add //lun31/cakealignflat/401 41 41
+add //lun31/cakealignflat/402 42 42
+add //lun31/cakealignflat/403 43 43
+add //lun31/cakealignflat/404 44 44
+add //lun31/cakealignflat/405 45 45
+add //lun31/cakealignflat/406 46 46
+add //lun32/cakealignflat/401 41 41
+add //lun32/cakealignflat/402 42 42
+add //lun32/cakealignflat/403 43 43
+add //lun32/cakealignflat/404 44 44
+add //lun32/cakealignflat/405 45 45
+add //lun32/cakealignflat/406 46 46
+add //lun33/cakealignflat/401 41 41
+add //lun33/cakealignflat/402 42 42
+add //lun33/cakealignflat/403 43 43
+add //lun33/cakealignflat/404 44 44
+add //lun33/cakealignflat/405 45 45
+add //lun33/cakealignflat/406 46 46
+add //lun34/cakealignflat/401 41 41
+add //lun34/cakealignflat/402 42 42
+add //lun34/cakealignflat/403 43 43
+add //lun34/cakealignflat/404 44 44
+add //lun34/cakealignflat/405 45 45
+add //lun34/cakealignflat/406 46 46
+add //lun35/cakealignflat/401 41 41
+add //lun35/cakealignflat/402 42 42
+add //lun35/cakealignflat/403 43 43
+add //lun35/cakealignflat/404 44 44
+add //lun35/cakealignflat/405 45 45
+add //lun35/cakealignflat/406 46 46
+add //lun36/cakealignflat/401 41 41
+add //lun36/cakealignflat/402 42 42
+add //lun36/cakealignflat/403 43 43
+add //lun36/cakealignflat/404 44 44
+add //lun36/cakealignflat/405 45 45
+add //lun36/cakealignflat/406 46 46
+add //lun37/cakealignflat/401 41 41
+add //lun37/cakealignflat/402 42 42
+add //lun37/cakealignflat/403 43 43
+add //lun37/cakealignflat/404 44 44
+add //lun37/cakealignflat/405 45 45
+add //lun37/cakealignflat/406 46 46
+add //lun38/cakealignflat/401 41 41
+add //lun38/cakealignflat/402 42 42
+add //lun38/cakealignflat/403 43 43
+add //lun38/cakealignflat/404 44 44
+add //lun38/cakealignflat/405 45 45
+add //lun38/cakealignflat/406 46 46
+add //lun39/cakealignflat/401 41 41
+add //lun39/cakealignflat/402 42 42
+add //lun39/cakealignflat/403 43 43
+add //lun39/cakealignflat/404 44 44
+add //lun39/cakealignflat/405 45 45
+add //lun39/cakealignflat/406 46 46
+
+add //lun31/cakealignflat/501 51 51
+add //lun31/cakealignflat/502 52 52
+add //lun31/cakealignflat/503 53 53
+add //lun31/cakealignflat/504 54 54
+add //lun31/cakealignflat/505 55 55
+add //lun31/cakealignflat/506 56 56
+add //lun32/cakealignflat/501 51 51
+add //lun32/cakealignflat/502 52 52
+add //lun32/cakealignflat/503 53 53
+add //lun32/cakealignflat/504 54 54
+add //lun32/cakealignflat/505 55 55
+add //lun32/cakealignflat/506 56 56
+add //lun33/cakealignflat/501 51 51
+add //lun33/cakealignflat/502 52 52
+add //lun33/cakealignflat/503 53 53
+add //lun33/cakealignflat/504 54 54
+add //lun33/cakealignflat/505 55 55
+add //lun33/cakealignflat/506 56 56
+add //lun34/cakealignflat/501 51 51
+add //lun34/cakealignflat/502 52 52
+add //lun34/cakealignflat/503 53 53
+add //lun34/cakealignflat/504 54 54
+add //lun34/cakealignflat/505 55 55
+add //lun34/cakealignflat/506 56 56
+add //lun35/cakealignflat/501 51 51
+add //lun35/cakealignflat/502 52 52
+add //lun35/cakealignflat/503 53 53
+add //lun35/cakealignflat/504 54 54
+add //lun35/cakealignflat/505 55 55
+add //lun35/cakealignflat/506 56 56
+add //lun36/cakealignflat/501 51 51
+add //lun36/cakealignflat/502 52 52
+add //lun36/cakealignflat/503 53 53
+add //lun36/cakealignflat/504 54 54
+add //lun36/cakealignflat/505 55 55
+add //lun36/cakealignflat/506 56 56
+add //lun37/cakealignflat/501 51 51
+add //lun37/cakealignflat/502 52 52
+add //lun37/cakealignflat/503 53 53
+add //lun37/cakealignflat/504 54 54
+add //lun37/cakealignflat/505 55 55
+add //lun37/cakealignflat/506 56 56
+add //lun38/cakealignflat/501 51 51
+add //lun38/cakealignflat/502 52 52
+add //lun38/cakealignflat/503 53 53
+add //lun38/cakealignflat/504 54 54
+add //lun38/cakealignflat/505 55 55
+add //lun38/cakealignflat/506 56 56
+add //lun39/cakealignflat/501 51 51
+add //lun39/cakealignflat/502 52 52
+add //lun39/cakealignflat/503 53 53
+add //lun39/cakealignflat/504 54 54
+add //lun39/cakealignflat/505 55 55
+add //lun39/cakealignflat/506 56 56
+
+add //lun31/cakealignflat/601 61 61
+add //lun31/cakealignflat/602 62 62
+add //lun31/cakealignflat/603 63 63
+add //lun31/cakealignflat/604 64 64
+add //lun31/cakealignflat/605 65 65
+add //lun31/cakealignflat/606 66 66
+add //lun32/cakealignflat/601 61 61
+add //lun32/cakealignflat/602 62 62
+add //lun32/cakealignflat/603 63 63
+add //lun32/cakealignflat/604 64 64
+add //lun32/cakealignflat/605 65 65
+add //lun32/cakealignflat/606 66 66
+add //lun33/cakealignflat/601 61 61
+add //lun33/cakealignflat/602 62 62
+add //lun33/cakealignflat/603 63 63
+add //lun33/cakealignflat/604 64 64
+add //lun33/cakealignflat/605 65 65
+add //lun33/cakealignflat/606 66 66
+add //lun34/cakealignflat/601 61 61
+add //lun34/cakealignflat/602 62 62
+add //lun34/cakealignflat/603 63 63
+add //lun34/cakealignflat/604 64 64
+add //lun34/cakealignflat/605 65 65
+add //lun34/cakealignflat/606 66 66
+add //lun35/cakealignflat/601 61 61
+add //lun35/cakealignflat/602 62 62
+add //lun35/cakealignflat/603 63 63
+add //lun35/cakealignflat/604 64 64
+add //lun35/cakealignflat/605 65 65
+add //lun35/cakealignflat/606 66 66
+add //lun36/cakealignflat/601 61 61
+add //lun36/cakealignflat/602 62 62
+add //lun36/cakealignflat/603 63 63
+add //lun36/cakealignflat/604 64 64
+add //lun36/cakealignflat/605 65 65
+add //lun36/cakealignflat/606 66 66
+add //lun37/cakealignflat/601 61 61
+add //lun37/cakealignflat/602 62 62
+add //lun37/cakealignflat/603 63 63
+add //lun37/cakealignflat/604 64 64
+add //lun37/cakealignflat/605 65 65
+add //lun37/cakealignflat/606 66 66
+add //lun38/cakealignflat/601 61 61
+add //lun38/cakealignflat/602 62 62
+add //lun38/cakealignflat/603 63 63
+add //lun38/cakealignflat/604 64 64
+add //lun38/cakealignflat/605 65 65
+add //lun38/cakealignflat/606 66 66
+add //lun39/cakealignflat/601 61 61
+add //lun39/cakealignflat/602 62 62
+add //lun39/cakealignflat/603 63 63
+add //lun39/cakealignflat/604 64 64
+add //lun39/cakealignflat/605 65 65
+add //lun39/cakealignflat/606 66 66
+
+add //lun31/cakealignflat/701 71 71
+add //lun31/cakealignflat/702 72 72
+add //lun31/cakealignflat/703 73 73
+add //lun31/cakealignflat/704 74 74
+add //lun31/cakealignflat/705 75 75
+add //lun31/cakealignflat/706 76 76
+add //lun32/cakealignflat/701 71 71
+add //lun32/cakealignflat/702 72 72
+add //lun32/cakealignflat/703 73 73
+add //lun32/cakealignflat/704 74 74
+add //lun32/cakealignflat/705 75 75
+add //lun32/cakealignflat/706 76 76
+add //lun33/cakealignflat/701 71 71
+add //lun33/cakealignflat/702 72 72
+add //lun33/cakealignflat/703 73 73
+add //lun33/cakealignflat/704 74 74
+add //lun33/cakealignflat/705 75 75
+add //lun33/cakealignflat/706 76 76
+add //lun34/cakealignflat/701 71 71
+add //lun34/cakealignflat/702 72 72
+add //lun34/cakealignflat/703 73 73
+add //lun34/cakealignflat/704 74 74
+add //lun34/cakealignflat/705 75 75
+add //lun34/cakealignflat/706 76 76
+add //lun35/cakealignflat/701 71 71
+add //lun35/cakealignflat/702 72 72
+add //lun35/cakealignflat/703 73 73
+add //lun35/cakealignflat/704 74 74
+add //lun35/cakealignflat/705 75 75
+add //lun35/cakealignflat/706 76 76
+add //lun36/cakealignflat/701 71 71
+add //lun36/cakealignflat/702 72 72
+add //lun36/cakealignflat/703 73 73
+add //lun36/cakealignflat/704 74 74
+add //lun36/cakealignflat/705 75 75
+add //lun36/cakealignflat/706 76 76
+add //lun37/cakealignflat/701 71 71
+add //lun37/cakealignflat/702 72 72
+add //lun37/cakealignflat/703 73 73
+add //lun37/cakealignflat/704 74 74
+add //lun37/cakealignflat/705 75 75
+add //lun37/cakealignflat/706 76 76
+add //lun38/cakealignflat/701 71 71
+add //lun38/cakealignflat/702 72 72
+add //lun38/cakealignflat/703 73 73
+add //lun38/cakealignflat/704 74 74
+add //lun38/cakealignflat/705 75 75
+add //lun38/cakealignflat/706 76 76
+add //lun39/cakealignflat/701 71 71
+add //lun39/cakealignflat/702 72 72
+add //lun39/cakealignflat/703 73 73
+add //lun39/cakealignflat/704 74 74
+add //lun39/cakealignflat/705 75 75
+add //lun39/cakealignflat/706 76 76
+
+add //lun31/cakealignflat/801 81 81
+add //lun31/cakealignflat/802 82 82
+add //lun31/cakealignflat/803 83 83
+add //lun31/cakealignflat/804 84 84
+add //lun31/cakealignflat/805 85 85
+add //lun31/cakealignflat/806 86 86
+add //lun32/cakealignflat/801 81 81
+add //lun32/cakealignflat/802 82 82
+add //lun32/cakealignflat/803 83 83
+add //lun32/cakealignflat/804 84 84
+add //lun32/cakealignflat/805 85 85
+add //lun32/cakealignflat/806 86 86
+add //lun33/cakealignflat/801 81 81
+add //lun33/cakealignflat/802 82 82
+add //lun33/cakealignflat/803 83 83
+add //lun33/cakealignflat/804 84 84
+add //lun33/cakealignflat/805 85 85
+add //lun33/cakealignflat/806 86 86
+add //lun34/cakealignflat/801 81 81
+add //lun34/cakealignflat/802 82 82
+add //lun34/cakealignflat/803 83 83
+add //lun34/cakealignflat/804 84 84
+add //lun34/cakealignflat/805 85 85
+add //lun34/cakealignflat/806 86 86
+add //lun35/cakealignflat/801 81 81
+add //lun35/cakealignflat/802 82 82
+add //lun35/cakealignflat/803 83 83
+add //lun35/cakealignflat/804 84 84
+add //lun35/cakealignflat/805 85 85
+add //lun35/cakealignflat/806 86 86
+add //lun36/cakealignflat/801 81 81
+add //lun36/cakealignflat/802 82 82
+add //lun36/cakealignflat/803 83 83
+add //lun36/cakealignflat/804 84 84
+add //lun36/cakealignflat/805 85 85
+add //lun36/cakealignflat/806 86 86
+add //lun37/cakealignflat/801 81 81
+add //lun37/cakealignflat/802 82 82
+add //lun37/cakealignflat/803 83 83
+add //lun37/cakealignflat/804 84 84
+add //lun37/cakealignflat/805 85 85
+add //lun37/cakealignflat/806 86 86
+add //lun38/cakealignflat/801 81 81
+add //lun38/cakealignflat/802 82 82
+add //lun38/cakealignflat/803 83 83
+add //lun38/cakealignflat/804 84 84
+add //lun38/cakealignflat/805 85 85
+add //lun38/cakealignflat/806 86 86
+add //lun39/cakealignflat/801 81 81
+add //lun39/cakealignflat/802 82 82
+add //lun39/cakealignflat/803 83 83
+add //lun39/cakealignflat/804 84 84
+add //lun39/cakealignflat/805 85 85
+add //lun39/cakealignflat/806 86 86
+
+zone 2 3
+opt fit
+
+message 'cake ring 1'
+h/cr/title 'cake ring 1'
+h/fit 11(-0.025E-2:0.025E-2) g
+h/fit 14(-0.025E-2:0.025E-2) g
+h/fit 12(-0.025E-2:0.025E-2) g
+h/fit 15(-0.025E-2:0.025E-2) g
+h/fit 13(-0.025E-2:0.025E-2) g
+h/fit 16(-0.025E-2:0.025E-2) g
+* wait
+
+message 'cake ring 2'
+h/cr/title 'cake ring 2'
+h/fit 21(-0.025E-2:0.025E-2) g
+h/fit 24(-0.025E-2:0.025E-2) g
+h/fit 22(-0.025E-2:0.025E-2) g
+h/fit 25(-0.025E-2:0.025E-2) g
+h/fit 23(-0.025E-2:0.025E-2) g
+h/fit 26(-0.025E-2:0.025E-2) g
+* wait   
+       
+message 'cake ring 3'
+h/cr/title 'cake ring 3'
+h/fit 31(-0.025E-2:0.025E-2) g
+h/fit 34(-0.025E-2:0.025E-2) g
+h/fit 32(-0.025E-2:0.025E-2) g
+h/fit 35(-0.025E-2:0.025E-2) g
+h/fit 33(-0.025E-2:0.025E-2) g
+h/fit 36(-0.025E-2:0.025E-2) g
+* wait   
+       
+message 'cake ring 4'
+h/cr/title 'cake ring 4'
+h/fit 41(-0.025E-2:0.025E-2) g
+h/fit 44(-0.025E-2:0.025E-2) g
+h/fit 42(-0.025E-2:0.025E-2) g
+h/fit 45(-0.025E-2:0.025E-2) g
+h/fit 43(-0.025E-2:0.025E-2) g
+h/fit 46(-0.025E-2:0.025E-2) g
+* wait   
+       
+message 'cake ring 5'
+h/cr/title 'cake ring 5'
+h/fit 51(-0.025E-2:0.025E-2) g
+h/fit 54(-0.025E-2:0.025E-2) g
+h/fit 52(-0.025E-2:0.025E-2) g
+h/fit 55(-0.025E-2:0.025E-2) g
+h/fit 53(-0.025E-2:0.025E-2) g
+h/fit 56(-0.025E-2:0.025E-2) g
+* wait   
+       
+message 'cake ring 6'
+h/cr/title 'cake ring 6'
+h/fit 61(-0.025E-2:0.025E-2) g
+h/fit 64(-0.025E-2:0.025E-2) g
+h/fit 62(-0.025E-2:0.025E-2) g
+h/fit 65(-0.025E-2:0.025E-2) g
+h/fit 63(-0.025E-2:0.025E-2) g
+h/fit 66(-0.025E-2:0.025E-2) g
+* wait   
+       
+message 'cake ring 7'
+h/cr/title 'cake ring 7'
+h/fit 71(-0.025E-2:0.025E-2) g
+h/fit 74(-0.025E-2:0.025E-2) g
+h/fit 72(-0.025E-2:0.025E-2) g
+h/fit 75(-0.025E-2:0.025E-2) g
+h/fit 73(-0.025E-2:0.025E-2) g
+h/fit 76(-0.025E-2:0.025E-2) g
+* wait   
+       
+message 'cake ring 8'
+h/cr/title 'cake ring 8'
+h/fit 81(-0.025E-2:0.025E-2) g
+h/fit 84(-0.025E-2:0.025E-2) g
+h/fit 82(-0.025E-2:0.025E-2) g
+h/fit 85(-0.025E-2:0.025E-2) g
+h/fit 83(-0.025E-2:0.025E-2) g
+h/fit 86(-0.025E-2:0.025E-2) g
+* wait
+
+exit

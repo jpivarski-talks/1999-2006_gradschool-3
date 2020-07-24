@@ -1,0 +1,9 @@
+*** Begin of history file: Wed Dec  5 16:19:50 2001
+exec last
+exec last.kumac
+h/file 1 standarddoit-unsagged_sept3-hl2.rzn
+cd hitlevel
+h/list
+nt/print 1
+quit
+*** End   of history file: Wed Dec  5 16:21:15 2001

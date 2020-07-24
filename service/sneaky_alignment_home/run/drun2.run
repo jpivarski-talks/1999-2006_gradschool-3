@@ -1,0 +1,10 @@
+#$ -l calibration
+#$ -o /cdat/tem/mccann/drun2.out
+#$ -S /bin/bash
+#$ -j y
+
+cd /home/mccann/sneaky_alignment/run
+. /nfs/cleo3/scripts/cleo3defs
+c3rel Feb11_03_P2
+
+suez -f drun2.tcl > /cdat/tem/mccann/drun2.log

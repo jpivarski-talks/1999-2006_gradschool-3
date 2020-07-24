@@ -1,0 +1,169 @@
+#!/usr/local/bin/perl
+
+$skeletondir = "/home/mccann/fsf_tools/SampleFileSourceFormat";
+
+$consttype = $ARGV[0];
+$username = join(' ', @ARGV[1..$#ARGV]) if ($#ARGV >= 1);
+
+if ($consttype eq "-h"     ||
+    $consttype eq "-help"  ||
+    $consttype eq "?"      ||
+    $consttype eq "h"        ) {
+    &help();
+
+    my $input = <STDIN>;
+    my @args = split(/\s+/, $input);
+    if ($args[0] =~ /^[A-Za-z][A-Za-z0-9\-_]*$/) {
+	$consttype = $args[0];
+	$username = join(' ', @args[1..$#args]) if ($#args >= 1);
+    }
+    else { exit; }
+}
+
+if ($consttype =~ /^(.+)FileSourceFormat$/) {
+    $consttype = $1;
+}
+
+if ( -e $consttype."FileSourceFormat" ) {
+    die $consttype."FileSourceFormat already exists!\n";
+}
+
+$uppercase = $consttype;  $uppercase =~ tr/a-z/A-Z/;
+$lowercase = $consttype;  $lowercase =~ tr/A-Z/a-z/;
+
+$userid = `whoami`;
+chop $userid;
+
+if ($username !~ /[A-Za-z0-9]/) {
+    open(FINGER, "finger `whoami` | head -n 1 |");
+    $finger = <FINGER>;
+    if ($finger =~ /In real life: (.*)$/) {
+	$username = $1;
+    }
+    close(FINGER);
+}
+
+$timea = `date '+20%y/%m/%d %H:%M:%S'`;  chop $timea;
+$timeb = `date`;  chop $timeb;
+
+open(LISTOFSTREAMS, "ls -d $ENV{C3_CVSSRC}/C3*/C3*/*Stream.h |");
+while(my $line = <LISTOFSTREAMS>) {
+    chop $line;
+    my @a = split('/', $line);
+    $listofstreams .= "// #include \"$a[$#a-1]/$a[$#a]\"\n";
+}
+close(LISTOFSTREAMS);
+
+print "Making $consttype"."FileSourceFormat directory...\n";
+mkdir ($consttype."FileSourceFormat", 0777);
+&copyover("Makefile", "Makefile");
+print "Making $consttype"."FileSourceFormat/$consttype"."FileSourceFormat directory...\n";
+mkdir ($consttype."FileSourceFormat/$consttype"."FileSourceFormat", 0777);
+&copyover("SampleFileSourceFormat/SampleInfo.h", "$consttype"."FileSourceFormat/$consttype"."Info.h");
+print "Making $consttype"."FileSourceFormat/Class directory...\n";
+mkdir ($consttype."FileSourceFormat/Class", 0777);
+&copyover("Class/SampleFileSourceFactory.cc", "Class/$consttype"."FileSourceFactory.cc");
+print "Making $consttype"."FileSourceFormat/Instantiate directory...\n";
+mkdir ($consttype."FileSourceFormat/Instantiate", 0777);
+&copyover("Instantiate/T_Binder.cc", "Instantiate/T_Binder.cc");
+&copyover("Instantiate/T_CFProxy.cc", "Instantiate/T_CFProxy.cc");
+&copyover("Instantiate/T_CFProxyDeliverer.cc", "Instantiate/T_CFProxyDeliverer.cc");
+&copyover("Instantiate/T_CFSourceBinder.cc", "Instantiate/T_CFSourceBinder.cc");
+&copyover("Instantiate/T_CFSourceController.cc", "Instantiate/T_CFSourceController.cc");
+&copyover("Instantiate/T_CFSourceFormat.cc", "Instantiate/T_CFSourceFormat.cc");
+&copyover("Instantiate/T_CLEOConstants_DBSample.cc", "Instantiate/T_CLEOConstants_DB$consttype".".cc");
+
+print "Done!\n";
+print "\nBefore you can compile, you need to edit \`$consttype"."FileSourceFormat/$consttype"."Info.h'.\n";
+
+sub copyover {
+    my ($oldname, $newname) = @_;
+    open(OLD, "$skeletondir/$oldname");
+    print "Making $consttype"."FileSourceFormat/$newname file...\n";
+    open(NEW, "> $consttype"."FileSourceFormat/$newname");
+
+    while (my $line = <OLD>) {
+	$line =~ s/REPLACEMIXEDCASE/$consttype/g;
+	$line =~ s/REPLACEUPPERCASE/$uppercase/g;
+	$line =~ s/REPLACELOWERCASE/$lowercase/g;
+	$line =~ s/REPLACEUSERNAME/$username/g;
+	$line =~ s/REPLACEUSERID/$userid/g;
+	$line =~ s/REPLACETIMEA/$timea/g;
+	$line =~ s/REPLACETIMEB/$timeb/g;
+	$line =~ s/REPLACEWITHLISTOFSTREAMS/$listofstreams/g;
+	$line =~ s/REPLACE//g;
+	$line =~ s/REPLACE//g;
+	$line =~ s/REPLACE//g;
+	$line =~ s/REPLACE//g;
+	$line =~ s/REPLACE//g;
+	$line =~ s/REPLACE//g;
+	$line =~ s/REPLACE//g;
+	$line =~ s/REPLACE//g;
+	$line =~ s/REPLACE//g;
+	$line =~ s/REPLACE//g;
+	$line =~ s/REPLACE//g;
+	$line =~ s/REPLACE//g;
+	$line =~ s/REPLACE//g;
+	$line =~ s/REPLACE//g;
+	$line =~ s/REPLACE//g;
+	$line =~ s/REPLACE//g;
+
+	print NEW $line;
+    }
+
+    close(NEW);
+    close(OLD);
+}
+
+sub help {
+    print "
+mkfilesourceformat  h: simple little script to make <ConstantsType>FileSourceFormat skeletons
+mkfilesourceformat  h:
+mkfilesourceformat  h: execution:  mkfilesourceformat constantstype [Your Name]
+mkfilesourceformat  h:
+mkfilesourceformat  h: output:  <ConstantsType>/
+mkfilesourceformat  h:                          Makefile
+mkfilesourceformat  h:                          <ConstantsType>FileSourceFormat/
+mkfilesourceformat  h:                                                          <ConstantsType>Info.h
+mkfilesourceformat  h:                          Class/
+mkfilesourceformat  h:                                <ConstantsType>FileSourceFactory.cc
+mkfilesourceformat  h:                          Instantiate/
+mkfilesourceformat  h:                                      T_Binder.cc			  
+mkfilesourceformat  h:                                      T_CFProxy.cc			  
+mkfilesourceformat  h:                                      T_CFProxyDeliverer.cc		  
+mkfilesourceformat  h:                                      T_CFSourceBinder.cc		  
+mkfilesourceformat  h:                                      T_CFSourceController.cc		  
+mkfilesourceformat  h:                                      T_CFSourceFormat.cc		  
+mkfilesourceformat  h:                                      T_CLEOConstants_DB<ConstantsType>.cc
+mkfilesourceformat  h:
+mkfilesourceformat  h: required input:
+mkfilesourceformat  h:
+mkfilesourceformat  h: constantstype = name of the constants type (*without* -FileSourceFormat!)
+mkfilesourceformat  h:
+mkfilesourceformat  h: optional input:
+mkfilesourceformat  h:
+mkfilesourceformat  h: Your Name = name to put in the files as the author (see below)
+mkfilesourceformat  h: options:
+mkfilesourceformat  h:    -h     \ 
+mkfilesourceformat  h:    -help   \ print help information and prompt for processorname
+mkfilesourceformat  h:    ?       /
+mkfilesourceformat  h:    h      /
+mkfilesourceformat  h:
+mkfilesourceformat  h: example:
+mkfilesourceformat  h: mkfilesourceformat MyConst
+mkfilesourceformat  h:       --> write  <ConstantsType>/
+mkfilesourceformat  h:			                Makefile
+mkfilesourceformat  h:			                <ConstantsType>FileSourceFormat/
+mkfilesourceformat  h:			                                                <ConstantsType>Info.h
+mkfilesourceformat  h:			                Class/
+mkfilesourceformat  h:			                      <ConstantsType>FileSourceFactory.cc
+mkfilesourceformat  h:			                Instantiate/
+mkfilesourceformat  h:			                            T_Binder.cc
+mkfilesourceformat  h:			                            T_CFProxy.cc
+mkfilesourceformat  h:			                            T_CFProxyDeliverer.cc
+mkfilesourceformat  h:			                            T_CFSourceBinder.cc
+mkfilesourceformat  h:			                            T_CFSourceController.cc
+mkfilesourceformat  h:			                            T_CFSourceFormat.cc
+mkfilesourceformat  h:			                            T_CLEOConstants_DB<ConstantsType>.cc
+mkfilesourceformat  Q: Please enter input arguments:  ";
+}

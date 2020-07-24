@@ -1,0 +1,210 @@
+%%
+%% This is file `template-6s.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% template.raw  (with options: `6s')
+%% 
+%% Template for the LaTeX class aipproc.
+%% 
+%% (C) 1998,2000,2001 American Institute of Physics and Frank Mittelbach
+%% All rights reserved
+%% 
+%%
+%% $Id: template.raw,v 1.12 2005/07/06 19:22:14 frank Exp $
+%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Please remove the next line of code if you
+%% are satisfied that your installation is
+%% complete and working.
+%%
+%% It is only there to help you in detecting
+%% potential problems.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{aipcheck}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% SELECT THE LAYOUT
+%%
+%% The class supports further options.
+%% See aipguide.pdf for details.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[
+    ,final            % use final for the camera ready runs
+%%  ,draft            % use draft while you are working on the paper
+%%  ,numberedheadings % uncomment this option for numbered sections
+%%  ,                 % add further options here if necessary
+  ]
+  {aipproc}
+
+\layoutstyle{6x9}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% FRONTMATTER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\gee}{$\Gamma_{ee}$}
+\newcommand{\ups}{$\Upsilon$}
+\newcommand{\us}{$\Upsilon(1S)$}
+\newcommand{\uss}{$\Upsilon(2S)$}
+\newcommand{\usss}{$\Upsilon(3S)$}
+\newcommand{\ee}{$e^+e^-$}
+\newcommand{\mm}{$\mu^+\mu^-$}
+\newcommand{\tautau}{$\tau^+\tau^-$}
+\newcommand{\ellell}{$\ell^+\ell^-$}
+\newcommand{\pipi}{$\pi^+\pi^-$}
+\newcommand{\PM}{$\pm$}
+\newcommand{\inv}{$^{-1}$}
+\newcommand{\bmm}{${\mathcal B}_{\mu\mu}$}
+\newcommand{\btt}{${\mathcal B}_{\tau\tau}$}
+\newcommand{\geehadtot}{\Gamma_{ee}\Gamma_{\mbox{had}}/\Gamma_{\mbox{tot}}}
+\newcommand{\pvis}{P_{\mbox{vis}}}
+\newcommand{\ppass}{P_{\mbox{pass given vis}}}
+\newcommand{\ehtrig}{\epsilon_{\mbox{htrig}}}
+\newcommand{\ecuts}{\epsilon_{\mbox{cuts}}}
+\newcommand{\chired}{\chi^2_{\mbox{red}}}
+
+\begin{document}
+
+\title{Di-electron Widths \\ of the \boldmath $\Upsilon(1S,\,2S,\,3S)$ Resonances}
+
+\classification{14.40.Nd, 12.20.Fv, 13.25.Gv}
+\keywords      {Upsilon bottomonium di-electron di-lepton partial width resonance scan}
+
+\author{J.~Pivarski}{
+  address={Cornell University, Ithaca, New York 14853}
+}
+
+
+\begin{abstract}
+We determine the di-electron widths of the \us, \uss, and \usss\
+resonances with better than 2\% precision by integrating the
+cross-section of $e^+e^- \to \Upsilon$ over the \ee\ center-of-mass
+energy.  Using \ee\ energy scans of the \ups\ resonances at the
+Cornell Electron Storage Ring and measuring \ups\ production with the
+CLEO detector, we find di-electron widths of
+%
+1.252 \PM\ 0.004 ($\sigma_{\mbox{stat}}$) \PM\ 0.019 ($\sigma_{\mbox{syst}}$) keV,
+0.581 \PM\ 0.004 \PM\ 0.009 keV, and
+0.413 \PM\ 0.004 \PM\ 0.006 keV for the \us, \uss, and \usss,
+respectively.
+\end{abstract}
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% MAINMATTER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The widths of the \ups\ mesons, $b\bar{b}$ bound states discovered in
+1977 \cite{discovery}, are related to the quark-antiquark spatial wave
+function at the origin \cite{wavefunction}.  Recently, these widths
+have been recognized as a testing ground for QCD lattice gauge theory
+calculations \cite{lattice}.  Improvements in the lattice
+calculations, such as the avoidance of the quenched approximation
+\cite{unquenched}, provide an incentive for more accurate experimental
+tests.  The di-electron widths (\gee) of the \us, \uss, and \usss\
+have previously been measured with precisions of 2.2\%, 4.2\%, and
+9.4\%, respectively \cite{pdg}.  Validation of the lattice
+calculations at an accuracy of a few percent will increase confidence
+in similar calculations used to extract important weak-interaction
+parameters from data.  In particular, \gee\ and $f_D$ \cite{fd}
+provide complementary tests of the calculation of $f_B$, which is used
+to determine the CKM parameter $V_{td}$.
+
+At PANIC05, we presented preliminary measurements of \gee\ which have
+since been supplanted by public final results, available in
+\cite{prl}.  This reference covers the same experimental issues as our
+presentation.  More detail will soon be available in
+\cite{thesis}.  The theoretical lattice prediction we referred to in
+our presentation has since been published in
+\cite{lattice} (near the end).  To avoid repetition, we refer the reader to these documents.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% BACKMATTER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% \begin{theacknowledgments}
+%% We gratefully acknowledge the effort of the CESR staff 
+%% in providing us with excellent luminosity and running conditions.
+%%  This work was supported by 
+%% the A.P.~Sloan Foundation,
+%% the National Science Foundation,
+%% and the U.S. Department of Energy.
+%% \end{theacknowledgments}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The following lines show an example how to produce a bibliography
+%% without the help of the BibTeX program. This could be used instead
+%% of the above.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{thebibliography}{9}
+\bibitem{discovery}
+S.W.~Herb {\it et al.},
+%``Observation Of A Dimuon Resonance At 9.5-Gev In 400-Gev Proton - Nucleus
+%Collisions,''
+Phys.\ Rev.\ Lett.\  {\bf 39}, 252 (1977).
+%%CITATION = PRLTA,39,252;%%
+
+\bibitem{wavefunction}
+R.~Van Royen and V.F.~Weisskopf,
+%``Hadron Decay Processes And The Quark Model,''
+Nuovo Cim.\ A {\bf 50}, 617 (1967)
+[Erratum ibid.\ {\bf 51}, 583 (1967)].
+%%CITATION = NUCIA,A50,617;%%
+
+\bibitem{lattice}
+%% A.~Gray {\it et al.} %, I.~Allison, C.T.H.~Davies, E.~Gulez, G.P.~Lepage, J.~Shigemitsu and M.~Wingate,
+%% %``The Upsilon spectrum and m(b) from full lattice QCD,''
+%% arXiv:hep-lat/0507013.
+%% %%CITATION = HEP-LAT 0507013;%%
+A.~Gray, I.~Allison, C.~T.~H.~Davies, E.~Gulez, G.~P.~Lepage, J.~Shigemitsu and M.~Wingate,
+%``The Upsilon spectrum and m(b) from full lattice QCD,''
+Phys.\ Rev.\ D {\bf 72}, 094507 (2005).
+% [arXiv:hep-lat/0507013].
+%%CITATION = HEP-LAT 0507013;%%
+
+\bibitem{unquenched}
+C.T.H.~Davies {\it et al.}  (HPQCD Collaboration),
+%``High-precision lattice QCD confronts experiment,''
+Phys.\ Rev.\ Lett.\  {\bf 92}, 022001 (2004).
+%[arXiv:hep-lat/0304004].
+%%CITATION = HEP-LAT 0304004;%%
+
+\bibitem{pdg}
+S.~Eidelman {\it et al.}  (Particle Data Group),
+%``Review of particle physics,''
+Phys.\ Lett.\ B {\bf 592}, 1 (2004).
+%%CITATION = PHLTA,B592,1;%%
+
+\bibitem{fd}
+%% M.~Artuso {\it et al.}  (CLEO Collaboration),
+%% %``Improved measurement of B(D+ $\to$ mu+ nu) and the pseudoscalar decay
+%% %constant f(D+),''
+%% arXiv:hep-ex/0508057, to be published in Phys.\ Rev.\ Lett.
+%% %%CITATION = HEP-EX 0508057;%%
+M.~Artuso {\it et al.}  (CLEO Collaboration),
+Phys.\ Rev.\ Lett.\ {\bf 95}, 251801 (2005).
+
+\bibitem{prl}
+J.~L.~Rosner  [CLEO Collaboration],
+%``Di-electron widths of the Upsilon(1S,2S,3S) resonances,''
+arXiv:hep-ex/0512056.
+%%CITATION = HEP-EX 0512056;%%
+
+\bibitem{thesis}
+J.~Pivarski, Cornell University, Ph.D.~thesis (unpublished).
+
+\end{thebibliography}
+
+\end{document}
+
+\endinput
+%%
+%% End of file `template-6s.tex'.

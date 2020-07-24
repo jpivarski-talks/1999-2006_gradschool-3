@@ -1,0 +1,10 @@
+#$ -l calibration
+#$ -o /cdat/tem/mccann/compare_errormatrix.log
+#$ -S /bin/bash
+#$ -j y
+
+cd /home/mccann/kalman6/run/
+. /nfs/cleo3/scripts/cleo3defs
+c3rel Apr18_03_P2
+
+suez -f compare_errormatrix.tcl

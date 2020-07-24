@@ -1,0 +1,257 @@
+
+Module : DataHandler
+
+Date   : Wed Jan 20 19:05:20 1999
+User   : mkl
+Old Tag: v01_00_00
+New Tag: v01_00_01
+Message: SyncValue ostream operator
+
+Module : DataHandler
+
+Date   : Thu Jan 21 10:27:55 1999
+User   : mkl
+Old Tag: v01_00_01
+New Tag: v01_00_02
+Message: include iostream directly rather than just forward declaring ostream
+
+Module : DataHandler
+
+Date   : Mon Apr  5 13:56:23 1999
+User   : cdj
+Old Tag: v01_00_02
+New Tag: v01_01_00
+Message: 
+Record now returns a reference to a non const Frame
+Module : DataHandler
+Date   : Fri Apr  9 13:27:12 1999
+User   : mkl
+Old Tag: v01_01_00
+New Tag: v01_01_01
+Message: fix output operator
+
+Module : DataHandler
+Date   : Tue Apr 27 17:47:56 1999
+User   : mkl
+Old Tag: v01_01_01
+New Tag: v01_02_00
+Message: use MAKE_SHAREDLIB option
+
+Module : DataHandler
+
+Date   : Sat Oct  9 17:17:17 1999
+User   : cdj
+Old Tag: v01_02_00
+New Tag: v01_03_00
+Message: changes needed for simple production tags
+
+Module : DataHandler
+
+Date   : Sat Oct  9 17:51:39 1999
+User   : cdj
+Old Tag: v01_03_00
+New Tag: v01_04_00
+Message: updated to doxygen style comments
+
+Module : DataHandler
+Date   : Tue Nov 16 09:22:39 1999
+User   : mkl
+Old Tag: v01_04_00
+New Tag: v01_05_00
+Message: Chris' new DurableKeys
+
+Module : DataHandler
+Date   : Fri Dec 10 09:12:42 1999
+User   : cdj
+Old Tag: v01_05_00
+New Tag: v01_06_00
+Message: added throwing exceptions when Proxy's faultHandler returns 0
+
+Module : DataHandler
+Date   : Fri Dec 31 14:02:28 1999
+User   : cdj
+Old Tag: v01_06_00
+New Tag: v01_07_00
+Message: Frame::record() can now throw a DHNoRecordException
+
+Module : DataHandler
+Date   : Fri Jan 21 21:34:48 2000
+User   : cdj
+Old Tag: v01_07_00
+New Tag: v01_08_00
+Message: added contains method to RecordProvider
+
+Module : DataHandler
+Date   : Thu Mar  2 15:04:27 2000
+User   : mkl
+Old Tag: v01_08_00
+New Tag: v01_08_01
+Message: DurableDataKeys now handle blank strings properly
+
+Module : DataHandler
+Date   : Thu Mar  9 13:56:43 2000
+User   : mkl
+Old Tag: v01_08_01
+New Tag: v01_08_02
+Message: FrameProvider: need to wipe out Records when wiping RecordProviders
+
+Module : DataHandler
+Date   : Fri Mar 17 10:34:18 2000
+User   : cdj
+Old Tag: v01_08_02
+New Tag: v01_09_00
+Message: Modified the various Providers to make FrameIterate work
+
+Module : DataHandler
+Date   : Sat Jun  3 17:21:13 2000
+User   : cdj
+Old Tag: v01_09_00
+New Tag: v01_10_00
+Message: now issue warning and continue if a Record that is supposed to be in the Frame fails to synchronize
+
+Module : DataHandler
+Date   : Fri Jun 30 16:58:00 2000
+User   : cdj
+Old Tag: v01_10_00
+New Tag: v01_11_00
+Message: removed last dependence on ProxyDict
+
+Module : DataHandler
+Date   : Sat Nov 18 14:59:59 2000
+User   : cdj
+Old Tag: v01_11_00
+New Tag: v01_12_00
+Message: changed failed to synch Record message from WARNING to DEBUG
+
+Module : DataHandler
+Date   : Sat Dec 16 13:01:20 2000
+User   : cdj
+Old Tag: v01_12_00
+New Tag: v01_13_00
+Message: add instantiations necessary to extract a Frame from a Record (needed for SubFrame)
+
+Module : DataHandler
+Date   : Mon Jan 15 17:46:54 2001
+User   : ajm36
+Old Tag: v01_13_00
+New Tag: v01_14_00
+Message: added ProxyFactoryArgument for proxies that have one argument in their constructor
+
+Module : DataHandler
+Date   : Mon Apr 16 21:15:48 2001
+User   : cleo3
+Old Tag: v01_14_00
+New Tag: v01_15_00
+Message: added typename to ProxyFactory methods
+
+Module : DataHandler
+Date   : Thu May 31 15:43:07 2001
+User   : cdj
+Old Tag: v01_15_00
+New Tag: v01_16_00
+Message: added operator== and operator!= to DurableDataKey
+
+Module : DataHandler
+Date   : Fri Jul  6 17:38:34 2001
+User   : ajm36
+Old Tag: v01_16_00
+New Tag: v01_17_00
+Message: add ProxyFactoryFunctionObject
+
+Module : DataHandler
+Date   : Fri Sep  7 12:53:27 2001
+User   : cleo3
+Old Tag: v01_17_00
+New Tag: v01_18_00
+Message: use proper template specialization syntax for less<StreamType>
+
+Module : DataHandler
+Date   : Tue Nov  6 13:46:17 2001
+User   : cdj
+Old Tag: v01_18_00
+New Tag: v01_19_00
+Message: can now iterator over Records in a Frame
+
+Module : DataHandler
+Date   : Thu Jan 24 10:42:03 2002
+User   : cdj
+Old Tag: v01_19_00
+New Tag: v01_20_00
+Message: SyncValue no longer uses time do do comparisons.  This avoids problems with goto and other synchronizations.
+
+Module : DataHandler
+Date   : Fri Mar  8 15:25:25 2002
+User   : cdj
+Old Tag: v01_20_00
+New Tag: v01_21_00
+Message: speed improvement: under perverse conditions, was throwing many exceptions per event
+
+Module : DataHandler
+Date   : Thu May  2 16:41:02 2002
+User   : lkg
+Old Tag: v01_21_00
+New Tag: v01_22_00
+Message: added ProxyFactorySingleInstance.h
+
+Module : DataHandler
+Date   : Tue Jun  4 14:03:31 2002
+User   : cdj
+Old Tag: v01_22_00
+New Tag: v01_22_01
+Message: bug fix: caching of last DataKey requested in Record could cause stale pointer to be examined
+
+Module : DataHandler
+Date   : Tue Jul 16 19:19:52 2002
+User   : cdj
+Old Tag: v01_22_01
+New Tag: v01_22_02
+Message: fixed memory problem in ProxyFactorySingleInstance that affect MC generation
+
+Module : DataHandler
+Date   : Fri Aug 16 10:33:01 2002
+User   : cleo3
+Old Tag: v01_22_02
+New Tag: v01_23_00
+Message: replaced iostream.h with C++/iostream.h
+
+Module : DataHandler
+Date   : Mon Dec  9 11:22:55 2002
+User   : cleo3
+Old Tag: v01_23_00
+New Tag: v01_24_00
+Message: minor changes needed for g++ compilation
+
+Module : DataHandler
+Date   : Mon Jan 27 15:07:43 2003
+User   : cdj
+Old Tag: v01_24_00
+New Tag: v01_25_00
+Message: get iomanip.h from C++Std package
+
+Module : DataHandler
+Date   : Wed Jan 29 16:02:49 2003
+User   : cleo3
+Old Tag: v01_25_00
+New Tag: v01_26_00
+Message: added missing typename keyword needed for g++
+
+Module : DataHandler
+Date   : Sat May 31 19:47:54 2003
+User   : cdj
+Old Tag: v01_26_00
+New Tag: v01_27_00
+Message: Using change in syncValue() to determine if a Record has changed is insufficient.  I added the method Record::cacheIdentifier() which returns a unique value each time a Record is cleared.
+
+Module : DataHandler
+Date   : Tue Oct  7 18:22:25 2003
+User   : cdj
+Old Tag: v01_27_00
+New Tag: v01_27_01
+Message: in RecordProvider::reconfigure now reset Record's syncvalue to fix caching problem when using FrameIterate on only one run
+
+Module : DataHandler
+Date   : Thu Oct 16 17:19:19 2003
+User   : vk
+Old Tag: v01_27_01
+New Tag: v01_27_02
+Message: Modify RecordProvider to carry most recent time stamp for the record.

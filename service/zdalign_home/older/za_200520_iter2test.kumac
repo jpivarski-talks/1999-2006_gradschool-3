@@ -1,0 +1,13 @@
+h/file 1 ../rzn/za_200520_iter2.rzn
+cd compareDrAndZd
+
+zone 2 2
+opt sta
+set stat 0111110
+
+h/plot 100
+h/plot 201
+h/plot 300
+h/plot 401
+
+nt/print 1

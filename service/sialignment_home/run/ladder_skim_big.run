@@ -1,0 +1,60 @@
+#!/usr/local/bin/tcsh
+
+cd $HOME/sialignment/run/
+. /nfs/cleo3/scripts/cleo3defs
+c3rel cleo3_Nov08_2001
+
+#  OSAGENT_PORT=31416
+#  export OSAGENT_PORT
+#  C3_CONST=/nfs/c3con/ccon3/constants/Codi
+#  export C3_CONST
+
+suez -q > $USER_TMP/ladder_skim_big.log << EOF
+
+default prompt off
+# exception continueEventLoop off
+
+module sel CorbaModule
+corba init
+module sel ConstantsModule
+constants in \$env(C3_CONST) meta Offline MetaListRetrieval
+constants in \$env(C3_CONST) meta CesrOffset MetaListRetrieval
+constants in \$env(C3_CONST) meta BaseGeometry MetaListRetrieval
+constants in \$env(C3_CONST) meta SVHybridEfficiency MetaListRetrieval
+
+source_format sel AsciiSourceFormat
+file in \$env(C3_DATA)/material.asc basegeometry
+
+module sel RunStatisticsSourceModule
+runstatistics in
+
+prod sel SiGeom
+prod sel ASiStorePro
+prod sel IRGeomProd
+
+prod sel DRGeom
+prod sel ADRGeomProd
+prod sel DRHitCorrectorProd
+
+prod sel MagFieldProd
+# param MagFieldProd alwaysUseDefault true
+
+prod sel TrackDeliveryProd
+prod sel SeedToTRTrackProd
+prod sel NavigationProd
+
+source_format sel PDSSourceFormat
+source create pdschain
+run_file all_good_really.tcl
+source activate pdschain beginrun startrun event
+
+proc sel ../build_SunOS/shlib/EnderSkim
+param EnderSkim target_hits 25000000
+param EnderSkim device "ladder"
+param EnderSkim skim_dir ../data16_dec10/skim_big/
+
+report level INFO
+go
+exit
+
+EOF

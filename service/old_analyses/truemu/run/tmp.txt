@@ -1,0 +1,5 @@
+119033, 598 mupairs, 108155 events, luminosity 1380.82
+119034, 782 mupairs, 140321 events, luminosity 1850.55
+119035, 836 mupairs, 150828 events, luminosity 1984.00
+119036, 576 mupairs, 115909 events, luminosity 1461.01
+119040, 526 mupairs, 91805 events, luminosity 1177.78

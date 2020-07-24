@@ -1,0 +1,12 @@
+#!/usr/local/bin/tcsh
+
+cd $HOME/supersialign/handalign
+qsub -cell rcf -l calibration -v HOME,USER_TMP,OS_NAME,USER_DAFE drinfL1.run
+qsub -cell rcf -l calibration -v HOME,USER_TMP,OS_NAME,USER_DAFE drinfL2.run
+qsub -cell rcf -l calibration -v HOME,USER_TMP,OS_NAME,USER_DAFE drinfL3A.run
+qsub -cell rcf -l calibration -v HOME,USER_TMP,OS_NAME,USER_DAFE drinfL3B.run
+qsub -cell rcf -l calibration -v HOME,USER_TMP,OS_NAME,USER_DAFE drinfL4A.run
+qsub -cell rcf -l calibration -v HOME,USER_TMP,OS_NAME,USER_DAFE drinfL4B.run
+qsub -cell rcf -l calibration -v HOME,USER_TMP,OS_NAME,USER_DAFE drinfL4C.run
+qsub -cell rcf -l calibration -v HOME,USER_TMP,OS_NAME,USER_DAFE drinfL4D.run
+qsub -cell rcf -l calibration -v HOME,USER_TMP,OS_NAME,USER_DAFE drinfall.run

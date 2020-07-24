@@ -1,0 +1,332 @@
+This is pdfTeX, Version 3.14159-14h-released-20010417 (Web2C 7.3.3.1) (format=pdflatex 2003.2.18)  10 AUG 2005 16:06
+**clns.tex
+(./clns.tex{/usr/share/texmf/pdftex/config/pdftex.cfg}
+LaTeX2e <2001/06/01>
+Babel <v3.7h> and hyphenation patterns for american, french, german, ngerman, i
+talian, nohyphenation, loaded.
+(/usr/share/texmf/tex/latex/revtex4/revtex4.cls
+Document Class: revtex4 2001/08/03 v4.0 (http://publish.aps.org/revtex4/ for do
+cumentation)
+ Copyright (c) 2001 The American Physical Society.
+ mailto:revtex@aps.org
+ Licensed under the LPPL:
+http://www.ctan.org/tex-archive/macros/latex/base/lppl.txt
+ Arthur Ogawa <ogawa@teleport.com>
+ Based on work by David Carlisle <david@dcarlisle.demon.co.uk>.
+ltxutil: portions licensed from W. E. Baxter (web@superscript.com)
+Class revtex4 Info: Repairing broken LateX \@sect on input line 596.
+\intertabularlinepenalty=\count79
+\@tbpen=\count80
+\@arstrutbox@hline=\box26
+Class revtex4 Info: Repairing broken LaTeX \@xbitor on input line 1610.
+ltxgrid: portions licensed from W. E. Baxter (web@superscript.com)
+\c@linecount=\count81
+\output=\toks14
+\@protection@box=\box27
+\@topmark@saved=\toks15
+\footins@saved=\box28
+\pagesofar=\box29
+\footbox=\box30
+\pagegrid@col=\count82
+Class revtex4 Info: Incorporating package {textcase}  [1998/11/12 v0.06 Text on
+ly upper/lower case changing (DPC)]. on input line 3682.
+(/usr/share/texmf/tex/latex/html/url.sty
+Package: url 1999/03/02  ver 1.4  Verb mode for urls, email addresses, and file
+ names
+)
+\c@affil=\count83
+\absbox=\box31
+\c@part=\count84
+\c@section=\count85
+\c@subsection=\count86
+\c@subsubsection=\count87
+\c@paragraph=\count88
+\c@subparagraph=\count89
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\c@figure=\count90
+\c@table=\count91
+
+(/usr/share/texmf/tex/latex/natbib/natbib.sty
+Package: natbib 1999/05/28 7.0 (PWD)
+\bibhang=\skip43
+\bibsep=\skip44
+LaTeX Info: Redefining \cite on input line 508.
+\c@NAT@ctr=\count92
+)
+\widetext@top=\box32
+\widetext@bot=\box33
+
+(/usr/share/texmf/tex/latex/revtex4/revsymb.sty
+Package: revsymb 2001/08/03 v4.0 (http://publish.aps.org/revtex4/ for documenta
+tion)
+LaTeX Info: Redefining \REV@mathfrak on input line 118.
+))
+(/usr/share/texmf/tex/latex/revtex4/aps.rtx
+File: aps.rtx 2001/08/03 v4.0 (http://publish.aps.org/revtex4/ for documentatio
+n)
+)
+(/usr/share/texmf/tex/latex/revtex4/12pt.rtx
+File: 12pt.rtx 2001/08/03 v4.0 (http://publish.aps.org/revtex4/ for documentati
+on)
+)
+(/usr/share/texmf/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks16
+)
+(/usr/share/texmf/tex/latex/graphics/graphics.sty
+Package: graphics 2001/07/07 v1.0n Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texmf/tex/latex/config/graphics.cfg)
+Package graphics Info: Driver file: pdftex.def on input line 80.
+
+(/usr/share/texmf/tex/latex/graphics/pdftex.def
+File: pdftex.def 2001/11/29 v0.03i graphics/color for pdftex
+\Gread@gobject=\count93
+))
+\Gin@req@height=\dimen102
+\Gin@req@width=\dimen103
+)
+(/usr/share/texmf/tex/latex/tools/dcolumn.sty
+Package: dcolumn 2001/05/28 v1.06 decimal alignment package (DPC)
+
+(/usr/share/texmf/tex/latex/tools/array.sty
+Package: array 1998/05/13 v2.3m Tabular extension package (FMi)
+\col@sep=\dimen104
+\extrarowheight=\dimen105
+\NC@list=\toks17
+\extratabsurround=\skip45
+\backup@length=\skip46
+))
+(/usr/share/texmf/tex/latex/tools/bm.sty
+Package: bm 1999/07/05 v1.0g Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup4
+\symboldletters=\mathgroup5
+\symboldsymbols=\mathgroup6
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 137.
+LaTeX Info: Redefining \bm on input line 195.
+)
+(/usr/share/texmf/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen106
+)
+(/usr/share/texmf/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip47
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/share/texmf/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks18
+\ex@=\dimen107
+))
+(/usr/share/texmf/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+LaTeX Info: Redefining \boldsymbol on input line 54.
+\pmbraise@=\dimen108
+)
+(/usr/share/texmf/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count94
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count95
+\leftroot@=\count96
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count97
+\DOTSCASE@=\count98
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box34
+\strutbox@=\box35
+\big@size=\dimen109
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count99
+\c@MaxMatrixCols=\count100
+\dotsspace@=\muskip10
+\c@parentequation=\count101
+\dspbrk@lvl=\count102
+\tag@help=\toks19
+\row@=\count103
+\column@=\count104
+\maxfields@=\count105
+\andhelp@=\toks20
+\eqnshift@=\dimen110
+\alignsep@=\dimen111
+\tagshift@=\dimen112
+\tagwidth@=\dimen113
+\totwidth@=\dimen114
+\lineht@=\dimen115
+\@envbody=\toks21
+\multlinegap=\skip48
+\multlinetaggap=\skip49
+\mathdisplay@stack=\toks22
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+(/usr/share/texmf/tex/latex/graphics/color.sty
+Package: color 1999/02/16 v1.0i Standard LaTeX Color (DPC)
+
+(/usr/share/texmf/tex/latex/config/color.cfg)
+Package color Info: Driver file: pdftex.def on input line 125.
+) (./clns.aux)
+\openout1 = `clns.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+Class revtex4 Info: Patching array package. on input line 18.
+Class revtex4 Info: cite was not loaded (OK!) on input line 18.
+Class revtex4 Info: multicol was not loaded (OK!) on input line 18.
+
+(/usr/share/texmf/tex/context/base/supp-pdf.tex
+(/usr/share/texmf/tex/context/base/supp-mis.tex
+loading : Context Support Macros / Missing
+\protectiondepth=\count106
+\scratchcounter=\count107
+\scratchtoks=\toks23
+\scratchdimen=\dimen116
+\scratchskip=\skip50
+\scratchmuskip=\muskip11
+\scratchbox=\box36
+\scratchread=\read1
+\scratchwrite=\write3
+\zeropoint=\dimen117
+\nextbox=\box37
+\nextdepth=\dimen118
+\everyline=\toks24
+\!!counta=\count108
+\!!countb=\count109
+\recursecounter=\count110
+)
+loading : Context Support Macros / PDF
+\nofMPsegments=\count111
+\nofMParguments=\count112
+\everyMPtoPDFconversion=\toks25
+)
+
+Class revtex4 Warning: If you want your PACS to appear in your output, use docu
+ment class option showpacs.
+
+[1{/usr/share/texmf/dvips/config/pdftex.map}]
+<three_resonances.pdf, id=35, 478.78876pt x 252.945pt>
+File: three_resonances.pdf Graphic file (type pdf)
+
+<use three_resonances.pdf> [2 <./three_resonances.pdf>]
+<beamenergyspread.pdf, id=47, 485.815pt x 466.74374pt>
+File: beamenergyspread.pdf Graphic file (type pdf)
+
+<use beamenergyspread.pdf>
+<../plots/deltaei_cesr.pdf, id=48, 486.81876pt x 488.82625pt>
+File: ../plots/deltaei_cesr.pdf Graphic file (type pdf)
+
+<use ../plots/deltaei_cesr.pdf>
+<../plots/deltam_cesr.pdf, id=49, 490.83376pt x 488.82625pt>
+File: ../plots/deltam_cesr.pdf Graphic file (type pdf)
+
+<use ../plots/deltam_cesr.pdf> [3]
+
+LaTeX Warning: A float is stuck (cannot be placed) on input line 318.
+
+[4 <./beamenergyspread.pdf>]
+
+LaTeX Warning: A float is stuck (cannot be placed) on input line 318.
+
+[5 <../plots/deltaei_cesr.pdf>]
+
+LaTeX Warning: A float is stuck (cannot be placed) on input line 318.
+
+[6]
+
+LaTeX Warning: A float is stuck (cannot be placed) on input line 318.
+
+[7 <../plots/deltam_cesr.pdf>]
+
+LaTeX Warning: A float is stuck (cannot be placed) on input line 318.
+
+[8] <energycorrection.pdf, id=84, 484.81125pt x 466.74374pt>
+File: energycorrection.pdf Graphic file (type pdf)
+
+<use energycorrection.pdf> <miscal.pdf, id=85, 458.71375pt x 240.9pt>
+File: miscal.pdf Graphic file (type pdf)
+
+<use miscal.pdf> <miscalpull.pdf, id=86, 478.78876pt x 268.00125pt>
+File: miscalpull.pdf Graphic file (type pdf)
+
+<use miscalpull.pdf> [9]
+
+LaTeX Warning: A float is stuck (cannot be placed) on input line 456.
+
+[10 <./energycorrection.pdf>]
+
+LaTeX Warning: A float is stuck (cannot be placed) on input line 456.
+
+[11 <./miscal.pdf> <./miscalpull.pdf>]
+
+LaTeX Warning: A float is stuck (cannot be placed) on input line 456.
+
+[12] [13] <scan_periods1.pdf, id=115, 378.41376pt x 482.80376pt>
+File: scan_periods1.pdf Graphic file (type pdf)
+
+<use scan_periods1.pdf> <scan_periods2.pdf, id=116, 378.41376pt x 482.80376pt>
+File: scan_periods2.pdf Graphic file (type pdf)
+
+<use scan_periods2.pdf> <scan_periods3.pdf, id=117, 378.41376pt x 482.80376pt>
+File: scan_periods3.pdf Graphic file (type pdf)
+
+<use scan_periods3.pdf> <scan_periods4.pdf, id=118, 378.41376pt x 482.80376pt>
+File: scan_periods4.pdf Graphic file (type pdf)
+
+<use scan_periods4.pdf> <scan_periods5.pdf, id=119, 378.41376pt x 482.80376pt>
+File: scan_periods5.pdf Graphic file (type pdf)
+
+<use scan_periods5.pdf> <../plots/all25.pdf, id=120, 489.83pt x 340.27126pt>
+File: ../plots/all25.pdf Graphic file (type pdf)
+
+<use ../plots/all25.pdf> [14] [15 <./scan_periods1.pdf>] [16 <./scan_periods2.p
+df>]
+
+LaTeX Warning: A float is stuck (cannot be placed) on input line 605.
+
+[17 <./scan_periods3.pdf>] [18 <./scan_periods4.pdf>] [19 <./scan_periods5.pdf>
+] [20 <../plots/all25.pdf>] (./clns.aux) ) 
+Here is how much of TeX's memory you used:
+ 3215 strings out of 50453
+ 38973 string characters out of 688420
+ 109100 words of memory out of 1500001
+ 6183 multiletter control sequences out of 10000+25000
+ 13867 words of font info for 49 fonts, out of 400000 for 1000
+ 14 hyphenation exceptions out of 10000
+ 28i,9n,21p,524b,394s stack positions out of 3000i,500n,3000p,50000b,5000s
+</usr/share/texmf/fonts/type1/bluesky
+/cm/cmmi6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmex10.pfb></usr/share/t
+exmf/fonts/type1/bluesky/cm/cmti10.pfb></usr/share/texmf/fonts/type1/bluesky/cm
+/cmtt10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmtt12.pfb></usr/share/tex
+mf/fonts/type1/bluesky/cm/cmmi12.pfb></usr/share/texmf/fonts/type1/bluesky/cm/c
+mbx10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy8.pfb></usr/share/texmf/
+fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi
+8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi10.pfb></usr/share/texmf/fon
+ts/type1/bluesky/cm/cmti12.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmti8.p
+fb></usr/share/texmf/fonts/type1/bluesky/cm/cmr8.pfb></usr/share/texmf/fonts/ty
+pe1/bluesky/cm/cmr12.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmbx12.pfb></
+usr/share/texmf/fonts/type1/bluesky/cm/cmr10.pfb>
+Output written on clns.pdf (20 pages, 455477 bytes).

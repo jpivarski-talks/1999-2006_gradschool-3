@@ -1,0 +1,111 @@
+nt/cr 1 'ns_pperp' 2 ! ! 'pperp' 'del'
+nt/cr 2 'na_pperp' 2 ! ! 'pperp' 'del'
+nt/cr 3 'nb_pperp' 2 ! ! 'pperp' 'del'
+nt/cr 4 'ns_redchim' 2 ! ! 'redchim' 'del'
+nt/cr 5 'na_redchim' 2 ! ! 'redchim' 'del'
+nt/cr 6 'nb_redchim' 2 ! ! 'redchim' 'del'
+nt/cr 7 'ns_redchip' 2 ! ! 'redchip' 'del'
+nt/cr 8 'na_redchip' 2 ! ! 'redchip' 'del'
+nt/cr 9 'nb_redchip' 2 ! ! 'redchip' 'del'
+
+nt/read 1 /cdat/dafe/mccann/tmp/ns_pperp.ntuple
+nt/read 2 /cdat/dafe/mccann/tmp/na_pperp.ntuple
+nt/read 3 /cdat/dafe/mccann/tmp/nb_pperp.ntuple
+nt/read 4 /cdat/dafe/mccann/tmp/ns_redchim.ntuple
+nt/read 5 /cdat/dafe/mccann/tmp/na_redchim.ntuple
+nt/read 6 /cdat/dafe/mccann/tmp/nb_redchim.ntuple
+nt/read 7 /cdat/dafe/mccann/tmp/ns_redchip.ntuple
+nt/read 8 /cdat/dafe/mccann/tmp/na_redchip.ntuple
+nt/read 9 /cdat/dafe/mccann/tmp/nb_redchip.ntuple
+
+zone 1 3
+
+fortran/file 65 'diffs.ps'
+graphics/metafile 65 -111
+igset mtype 1
+
+h/cr/2d 100 '[D]p VS p (unshifted - stereo shifted)' 1 0. 2. 1 -0.001 0.001
+nt/plot 1.del%pperp ! 10000 ! ! ! 100
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/cr/2d 200 '[D]p VS p (unshifted - axial shifted)' 1 0. 2. 1 -0.001 0.001
+nt/plot 2.del%pperp ! 10000 ! ! ! 200
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/cr/2d 300 '[D]p VS p (unshifted - both shifted)' 1 0. 2. 1 -0.001 0.001
+nt/plot 3.del%pperp ! 10000 ! ! ! 300
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/cr/prof 101 '[D]p VS p (unshifted - stereo shifted)' 50 0. 2. -0.01 0.01
+nt/plot 1.del%pperp ! ! ! ! 'N' 101
+min 101 -1e-3
+max 101 1e-3
+h/plot 101
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/cr/prof 201 '[D]p VS p (unshifted - axial shifted)' 50 0. 2. -0.01 0.01
+nt/plot 2.del%pperp ! ! ! ! 'N' 201
+min 201 -1e-3
+max 201 1e-3
+h/plot 201
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/cr/prof 301 '[D]p VS p (unshifted - both shifted)' 50 0. 2. -0.01 0.01
+nt/plot 3.del%pperp ! ! ! ! 'N' 301
+min 301 -1e-3
+max 301 1e-3
+h/plot 301
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+
+h/cr/2d 400 '[Dv]?-!^2! VS [v]?-!^2! (unshifted - stereo shifted)' 1 0. 5. 1 -0.3 0.3
+nt/plot 4.del%redchim ! 10000 ! ! ! 400
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/cr/2d 500 '[Dv]?-!^2! VS [v]?-!^2! (unshifted - axial shifted)' 1 0. 5. 1 -0.3 0.3
+nt/plot 5.del%redchim ! 10000 ! ! ! 500
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/cr/2d 600 '[Dv]?-!^2! VS [v]?-!^2! (unshifted - both shifted)' 1 0. 5. 1 -0.3 0.3
+nt/plot 6.del%redchim ! 10000 ! ! ! 600
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/cr/prof 401 '[Dv]?-!^2! VS [v]?-!^2! (unshifted - stereo shifted)' 50 0. 5. -3. 3.
+nt/plot 4.del%redchim ! ! ! ! 'N' 401
+min 401 -0.3
+max 401 0.3
+h/plot 401
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/cr/prof 501 '[Dv]?-!^2! VS [v]?-!^2! (unshifted - axial shifted)' 50 0. 5. -3. 3.
+nt/plot 5.del%redchim ! ! ! ! 'N' 501
+min 501 -0.3
+max 501 0.3
+h/plot 501
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/cr/prof 601 '[Dv]?-!^2! VS [v]?-!^2! (unshifted - both shifted)' 50 0. 5. -3. 3.
+nt/plot 6.del%redchim ! ! ! ! 'N' 601
+min 601 -0.3
+max 601 0.3
+h/plot 601
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+
+h/cr/2d 700 '[Dv]?+!^2! VS [v]?+!^2! (unshifted - stereo shifted)' 1 0. 5. 1 -0.3 0.3
+nt/plot 7.del%redchip ! 10000 ! ! ! 700
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/cr/2d 800 '[Dv]?+!^2! VS [v]?+!^2! (unshifted - axial shifted)' 1 0. 5. 1 -0.3 0.3
+nt/plot 8.del%redchip ! 10000 ! ! ! 800
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/cr/2d 900 '[Dv]?+!^2! VS [v]?+!^2! (unshifted - both shifted)' 1 0. 5. 1 -0.3 0.3
+nt/plot 9.del%redchip ! 10000 ! ! ! 900
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/cr/prof 701 '[Dv]?+!^2! VS [v]?+!^2! (unshifted - stereo shifted)' 50 0. 5. -3. 3.
+nt/plot 7.del%redchip ! ! ! ! 'N' 701
+min 701 -0.3
+max 701 0.3
+h/plot 701
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/cr/prof 801 '[Dv]?+!^2! VS [v]?+!^2! (unshifted - axial shifted)' 50 0. 5. -3. 3.
+nt/plot 8.del%redchip ! ! ! ! 'N' 801
+min 801 -0.3
+max 801 0.3
+h/plot 801
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+h/cr/prof 901 '[Dv]?+!^2! VS [v]?+!^2! (unshifted - both shifted)' 50 0. 5. -3. 3.
+nt/plot 9.del%redchip ! ! ! ! 'N' 901
+min 901 -0.3
+max 901 0.3
+h/plot 901
+dline $GRAFINFO('WNXMIN') $GRAFINFO('WNXMAX') 0 0
+
+close 65

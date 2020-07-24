@@ -1,0 +1,13 @@
+*
+* $Id: README,v 1.1.1.1 1995/11/01 21:18:35 lkg Exp $
+*
+* $Log: README,v $
+* Revision 1.1.1.1  1995/11/01 21:18:35  lkg
+* Import renamed CLEO3 include repository: cl3seq
+*
+* Revision 1.1.1.1  1994/10/04  20:59:04  zfiles
+* first version of seq in CVS
+*
+*
+* This directory was created from /cleo/dlib/car/seq.car patch svseq
+*CMZ :  1.02/30 31/12/92  05.47.20  by  Nobu Katayama

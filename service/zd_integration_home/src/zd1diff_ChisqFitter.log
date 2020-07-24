@@ -1,0 +1,119 @@
+Index: ChisqFitter/ChisqFitter/ChisqTrackFitter.h
+===================================================================
+RCS file: /nfs/cleo3/cvsroot/Offline/src/ChisqFitter/ChisqFitter/ChisqTrackFitter.h,v
+retrieving revision 1.15
+diff -r1.15 ChisqTrackFitter.h
+94a95
+> #include "HelixIntersection/HIZDSurfaceFactory.h"
+168a170,171
+> 	 const STL_VECTOR(
+> 	    HIZDSurfaceFactory::ZDHitAndDriftDistance )* aZDVector = 0,
+179a183,184
+> 	 const STL_VECTOR(
+> 	    HIZDSurfaceFactory::ZDHitAndDriftDistance )* aZDVector = 0,
+Index: ChisqFitter/Class/ChisqTrackFitter.cc
+===================================================================
+RCS file: /nfs/cleo3/cvsroot/Offline/src/ChisqFitter/Class/ChisqTrackFitter.cc,v
+retrieving revision 1.20
+diff -r1.20 ChisqTrackFitter.cc
+296c296
+<    return fittedTrack( theSeed, theFrame, 0, 0, 0, 0, aHypo ) ;
+---
+>    return fittedTrack( theSeed, theFrame, 0, 0, 0, 0, 0, aHypo ) ;
+307a308,309
+>    const STL_VECTOR(
+>       HIZDSurfaceFactory::ZDHitAndDriftDistance )* aZDVector,
+319a322
+> 		       aZDVector,
+331c334
+<    return fittedTrack( theSeed, theFrame, 0, 0, 0, 0, aMass, aFitDirection ) ;
+---
+>    return fittedTrack( theSeed, theFrame, 0, 0, 0, 0, 0, aMass, aFitDirection ) ;
+343a347,348
+>    const STL_VECTOR(
+>       HIZDSurfaceFactory::ZDHitAndDriftDistance )* aZDVector,
+436a442,519
+>    // Generate surfaces for ZD layers with hits.
+>    if( aZDVector != 0 || aExtractHitsIfNull )
+>    {
+>       HIZDSurfaceFactory zdFactory( theFrame,
+> 				    m_useZDStereoUHits,
+> 				    m_useZDStereoVHits,
+> 				    m_correctZDHits ) ;
+> 
+>       if( zdFactory.geometryAvailable() )
+>       {
+> 	 STL_VECTOR( HIZDSurfaceFactory::ZDHitAndDriftDistance ) zdHitInfos ;
+> 
+> 	 if( aZDVector == 0 )
+> 	 {
+> 	    // Catch exceptions from extracting ZD hits on track.
+> 	    try
+> 	    {
+> 	       zdFactory.getZDHits( theSeed,
+> 				    zdHitInfos,
+> 				    m_zdHitUsageTag,
+> 				    m_zdHitProdTag,
+> 				    true // fittable hits only
+> 		  ) ;
+> 	    }
+> 	    catch( NO_TABLE_EXCEPTION( CalibratedZDHit )& aException )
+> 	    {
+> 	       // Exception is caught if specified by user.  Otherwise,
+> 	       // it is rethrown.
+> 	       if( m_continueIfHitsMissing )
+> 	       {
+> 		  report( WARNING, kFacilityString )
+> 		     << "Continuing without ZD hits." << endl;
+> 	       }
+> 	       else
+> 	       {
+> 		  // This rethrows the exception currently being handled.
+> 		  throw ;
+> 	       }
+> 	    }
+> 	    catch( DAExceptionBase& aException )
+> 	    {
+> 	       // Exception is caught if specified by user.  Otherwise,
+> 	       // it is rethrown.
+> 	       if( m_continueIfAnyException )
+> 	       {
+> 		  report( WARNING, kFacilityString )
+> 		     << "Continuing despite exception: \n "
+> 		     << aException.what() << endl ;
+> 	       }
+> 	       else
+> 	       {
+> 		  throw ;
+> 	       }
+> 	    }
+> 	 }
+> 	 else
+> 	 {
+> 	    zdHitInfos = *aZDVector ;
+> 	 }
+> 
+> 	 report(DEBUG, kFacilityString)
+> 	    << "about to append " << zdHitInfos.size() << " ZD hits to the list of surfaces" << endl;
+> 
+> 	 if( zdHitInfos.size() > 0 )
+> 	 {
+> 	    zdFactory.generateSingleWireSurfaces(
+> 	       *pSurfaces,
+> 	       zdHitInfos,
+> 	       m_addHitOperation,
+> 	       false,  // check cross origin
+> 	       m_forceZDFittingWeight,
+> 	       m_zdFittingWeight ) ;
+> 
+> 	    report(DEBUG, kFacilityString) << "did it!" << endl;
+> 	 }
+>       }
+>    }
+> 
+746a830,831
+> 	 report(DEBUG, kFacilityString) << "ierr: canelling fit at init" << endl;
+> 
+868a954,955
+> 	 report(DEBUG, kFacilityString) << "ierr: can't invert " << infoMatrix << endl;
+> 

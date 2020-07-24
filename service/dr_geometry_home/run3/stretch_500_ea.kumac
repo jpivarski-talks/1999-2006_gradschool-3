@@ -1,0 +1,33 @@
+* nt/hmerge ../rzn3/stretch_500_ea.rzn ../rzn3/stretch_500_1_ea.rzn ../rzn3/stretch_500_2_ea.rzn ../rzn3/stretch_500_3_ea.rzn ../rzn3/stretch_500_4_ea.rzn ../rzn3/stretch_500_5_ea.rzn ../rzn3/stretch_500_6_ea.rzn ../rzn3/stretch_500_7_ea.rzn ../rzn3/stretch_500_8_ea.rzn ../rzn3/stretch_500_9_ea.rzn ../rzn3/stretch_500_10_ea.rzn
+
+h/file 1 ../rzn3/stretch_0_new.rzn
+h/copy //lun1/twocyclehist/999 10001 'z0miss vs cotTheta -- no wire shift'
+
+h/file 2 ../rzn3/stretch_500_new.rzn
+h/copy //lun2/twocyclehist/999 10002 'z0miss vs cotTheta -- 500[m]m wire shift'
+
+h/file 3 ../rzn3/stretch_500_ea.rzn
+h/copy //lun3/twocyclehist/999 10003 'z0miss vs cotTheta -- 500[m]m w.s. with entrance angle corrections (red)'
+
+zone 1 3
+
+min 10001 -0.002
+max 10001 0.002
+set hcol 4
+h/plot 10001
+
+min 10002 -0.002
+max 10002 0.002
+set hcol 4
+h/plot 10002
+
+min 10003 -0.002
+max 10003 0.002
+set hcol 2
+h/plot 10003
+set hcol 4
+h/plot 10002 s
+set hcol 2
+h/plot 10003 s
+
+pict/print 'z0miss_v_cotTh_wEA.ps'

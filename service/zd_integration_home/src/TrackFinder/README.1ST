@@ -1,0 +1,9 @@
+This is the TrackFinder library.
+
+It has the routines that call DOIT and C3TR
+
+There are no producers/processors/proxies here. Rather, the library generated
+by this directory is used by DoitProcessor, C3TRProcessor, etc.
+
+The Fortran header files in TrackFinder/TrackFinder will eventually be 
+generated automatically.

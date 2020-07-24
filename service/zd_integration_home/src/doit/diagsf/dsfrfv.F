@@ -1,0 +1,302 @@
+*
+* $Id: dsfrfv.F,v 1.2 2002/09/05 19:06:04 dpp Exp $
+*
+* $Log: dsfrfv.F,v $
+* Revision 1.2  2002/09/05 19:06:04  dpp
+*      -> put diagnostic stops in common
+*      -> add entry to initialize diagnostic stop
+*
+* Revision 1.1.1.1  1998/02/06 19:11:41  dpp
+* DOIT first release.
+*
+* Revision 1.1.1.1  1997/04/30 12:31:23  clib
+* Developmental version of DUET.
+*
+* Revision 1.3  1997/02/25 21:32:24  dpp
+* new entries DSF_ABORT and DSF_ANSWER_IY
+*
+* Revision 1.2  1995/04/20 22:38:47  zfiles
+* See the comments for 6.00/39 in TITLE.doit
+*
+* Revision 1.1.1.1  1994/10/08  01:01:03  zfiles
+* first version of doit in CVS
+*
+*
+#include "sys/CLEO_machine.h"
+#include "pilot.h"
+*CMZ :  6.00/07 31/08/93  14.33.09  by  Rob Kutschke
+*CMZ :  6.00/02 01/03/93  15.31.59  by  Dan Peterson
+*CMZ :  3.01/01 23/03/90  12.38.32  by  Dan Peterson
+*CMZ :  2.00/00 09/05/89  11.12.32  by  Dan Peterson
+*-- Author :
+C
+C
+      SUBROUTINE DSF_RFVIEW(CALLER)
+      IMPLICIT NONE
+#include "doit/sfseq/sfpar.inc"
+#include "doit/sfseq/sfcom.inc"
+#if defined(CLEO_XTSUBS)
+#include "doit/sfseq/xts_cntl.inc"
+#endif
+      CHARACTER*(*) TITLES
+      INTEGER INLAST
+      COMMON/CHV/INLAST(100)
+      CHARACTER*(*) CALLER
+C THESE ARE THE ARGUMENTS TO DSF_CHVIEW_SIMPLE
+      INTEGER ICHAINS,IBRITES
+C THESE ARE THE ARGUMENTS TO DSF_CHVIEW_DELSEG
+      INTEGER ICHAINR
+C THESE ARE THE ARGUMENTS TO DSF_CHVIEW_FINALE
+      INTEGER ICHAINF,IBRITEF
+C THESE ARE THE ARGUMENTS TO DSFHTP
+      INTEGER IADR,IBRITEH
+C THESE ARE THE ARGUMENTS TO DSF_ABORT
+      INTEGER ABORT
+C THESE ARE THE ARGUMENTS FOR DSF_RFV_INPUT
+      INTEGER DSF_ANSWER_IY
+
+      INTEGER IGO
+
+C..DSFRFV_KILALL=-1  IF "ALL" HAS BEEN TYPED; WILL DISPLAY ALL WITHOUT ASKING
+C..DSFRFV_KILALL= 0  IS DEFAULT; WILL ASK EACH TIME
+C..DSFRFV_KILALL= 1  IF "NO" HAS BEEN TYPED, WILL NOT DISPLAY, WILL ASK AGAIN
+C..DSFRFV_KILALL= 2  IF "KILL" HAS BEEN TYPED, WILL NOT DISPLAY, WITHOUT ASKING
+
+      IF(DSFRFV_KILALL.EQ.-1)GO TO 8
+      IF(DSFRFV_KILALL.EQ.2)GO TO 11
+      PRINT 1007,CALLER
+1007  FORMAT(' DSF_RFVIEW: called by ',A8/
+     1 '        display this event?  "Y","N", "A"ll, "K"ill(never)')
+#if !defined(CLEO_XTSUBS)
+      READ 1002,IGO
+1002  FORMAT(A1)
+#endif
+#if defined(CLEO_XTSUBS)
+      CALL XTS_RFV_INPUT
+      IGO=XTS_ANSWER_IY
+#endif
+      IF(IGO.EQ.'Y')GO TO 7
+      IF(IGO.EQ.'N')GO TO 9
+      IF(IGO.EQ.'A')GO TO 3
+      IF(IGO.EQ.'K')GO TO 4
+      GO TO 8
+3     DSFRFV_KILALL=-1
+      GO TO 8
+4     DSFRFV_KILALL=2
+      GO TO 11
+7     DSFRFV_KILALL=0
+8     CONTINUE
+#if defined(CLEO_GKS)
+      CALL GKS_RFVIEW
+#endif
+#if defined(CLEO_PLTSUB)
+      CALL PLT_RFVIEW
+#endif
+#if defined(CLEO_XTSUBS)
+      CALL XTS_RFVIEW
+#endif
+      GO TO 11
+9     DSFRFV_KILALL=1
+11    RETURN
+
+
+      ENTRY DSF_RFVIEW2(CALLER)
+      PRINT 1001,NCHAIN,CALLER
+      IF(DSFRFV_KILALL.GE.1)GO TO 29
+      IF(DSFRFV_KILL2.EQ.1)GO TO 25
+      PRINT 1003
+1001  FORMAT(' DSF_RFVIEW2: NCHAIN=',I5,'  called by',A20)
+1003  FORMAT(' DSF_RFVIEW2: waiting for acknowlege; "K" to kill')
+#if !defined(CLEO_XTSUBS)
+      READ 1002,IGO
+#endif
+#if defined(CLEO_XTSUBS)
+      CALL XTS_RFV_INPUT
+      IGO=XTS_ANSWER_IY
+#endif
+      IF(IGO.EQ.'K')DSFRFV_KILL2=1
+25    CONTINUE
+      CALL VZERO(INLAST,100)
+#if defined(CLEO_GKS)
+      CALL GKS_RFVIEW2
+#endif
+#if defined(CLEO_PLTSUB)
+      CALL PLT_RFVIEW2
+#endif
+#if defined(CLEO_XTSUBS)
+      CALL XTS_RFVIEW2('DSF_RFVIEW2')
+#endif
+29    RETURN
+
+
+      ENTRY DSF_CHVIEW_SIMPLE(ICHAINS,IBRITES)
+      IF(DSFRFV_KILALL.GE.1)GO TO 39
+#if defined(CLEO_GKS)
+      CALL GKS_CHVIEW_SIMPLE(ICHAINS,IBRITES)
+#endif
+#if defined(CLEO_PLTSUB)
+      CALL PLT_CHVIEW_SIMPLE(ICHAINS,IBRITES)
+#endif
+#if defined(CLEO_XTSUBS)
+      CALL XTS_CHVIEW_SIMPLE(ICHAINS,IBRITES,'DSF_CHVIEW_SIMPLE')
+#endif
+39    RETURN
+
+
+      ENTRY DSF_CHVIEW_DELSEG(ICHAINR)
+      IF(DSFRFV_KILALL.GE.1)GO TO 45
+#if defined(CLEO_GKS)
+C     KILL THE SEGMENT ASSOCIATED WITH THE CHAIN
+      CALL GKS_CHVIEW_DELSEG(ICHAINR)
+#endif
+#if defined(CLEO_PLTSUB)
+C     THERE IS NO CALL TO PLT_CHVIEW_DELSEG,
+C     NEW HITS CAN ALWAYS BE DISPLYED WITH DSFHTP
+#endif
+#if defined(CLEO_XTSUBS)
+C     THERE IS NO CALL TO XTS_CHVIEW_DELSEG
+C     THERE IS NO GRAPHICS PLANE ASSOCIATED WITH A CHAIN
+#endif
+45    RETURN
+
+
+      ENTRY DSF_CHVIEW_FINALE(ICHAINF,IBRITEF)
+      IF(DSFRFV_KILALL.GE.1)GO TO 49
+#if defined(CLEO_GKS)
+      CALL GKS_CHVIEW_SIMPLE(ICHAINF,IBRITEF)
+#endif
+#if defined(CLEO_PLTSUB)
+C     THERE IS NO NEED TO CALL PLT_CHVIEW_SIMPLE,
+C     HITS HAVE BEEN DISPLYED WITH DSFHTP
+#endif
+#if defined(CLEO_XTSUBS)
+      CALL XTS_CHVIEW_SIMPLE(ICHAINF,IBRITEF,'DSF_CHVIEW_FINALE')
+#endif
+49    RETURN
+
+
+      ENTRY DSFHTP(IADR,IBRITEH)
+      IF(DSFRFV_KILALL.GE.1)GO TO 59
+#if defined(CLEO_GKS)
+C     THERE IS NO SINGLE HIT PROGRAM IN GKS_
+#endif
+#if defined(CLEO_PLTSUB)
+      CALL PLT_DSFHTP(IADR,IBRITEH)
+#endif
+#if defined(CLEO_XTSUBS)
+C     THERE IS NO SINGLE HIT PROGRAM IN XTS_
+#endif
+59    RETURN
+
+
+      ENTRY DSF_SCREEN
+      IF(DSFRFV_KILALL.GE.1)GO TO 69
+#if defined(CLEO_GKS)
+      CALL GKS_SCREEN
+#endif
+#if defined(CLEO_PLTSUB)
+C     THERE IS NO SCREEN PROGRAM IN PLT_
+#endif
+#if defined(CLEO_XTSUBS)
+      CALL XTS_SCREEN
+#endif
+69    RETURN
+
+
+      ENTRY DSF_SCREEN_D
+      IF(DSFRFV_KILALL.GE.1)GO TO 79
+#if defined(CLEO_GKS)
+      CALL GKS_SCREEN_D
+#endif
+#if defined(CLEO_PLTSUB)
+C     THERE IS NO SCREEN_D PROGRAM IN PLT_
+#endif
+#if defined(CLEO_XTSUBS)
+      CALL XTS_SCREEN_D
+#endif
+79    RETURN
+
+
+      ENTRY DSF_PREP
+      IF(DSFRFV_KILALL.GE.1)GO TO 89
+#if defined(CLEO_GKS)
+      CALL GKS_PREP
+#endif
+#if defined(CLEO_PLTSUB)
+C     THERE IS NO PREP PROGRAM IN PLT__
+#endif
+#if defined(CLEO_XTSUBS)
+      CALL XTS_PREP('DSF_PREP')
+#endif
+89    RETURN
+
+
+      ENTRY DSF_LEAV(TITLES)
+      IF(DSFRFV_KILALL.GE.1)GO TO 99
+#if defined(CLEO_GKS)
+      CALL GKS_LEAV(TITLES)
+#endif
+#if defined(CLEO_PLTSUB)
+C     THERE IS NO LEAV PROGRAM IN PLT__
+#endif
+#if defined(CLEO_XTSUBS)
+      CALL XTS_LEAV(TITLES)
+#endif
+99    RETURN
+
+
+      ENTRY DSF_ABORT(ABORT)
+      ABORT=0
+#if defined(CLEO_GKS)
+C     THERE IS NO ABORT PROGRAM IN GKS_
+#endif
+#if defined(CLEO_PLTSUB)
+C     THERE IS NO ABORT PROGRAM IN PLT_
+#endif
+#if defined(CLEO_XTSUBS)
+      ABORT=XTS_ABORT
+#endif
+      RETURN
+
+
+      ENTRY DSF_ABORT0
+#if defined(CLEO_GKS)
+C     THERE IS NO ABORT PROGRAM IN GKS_
+#endif
+#if defined(CLEO_PLTSUB)
+C     THERE IS NO ABORT PROGRAM IN PLT_
+#endif
+#if defined(CLEO_XTSUBS)
+      XTS_ABORT=0
+#endif
+      RETURN
+
+
+      ENTRY DSF_RFV_INPUT(DSF_ANSWER_IY)
+#if !defined(CLEO_XTSUBS)
+      READ 1002,DSF_ANSWER_IY
+#endif
+#if defined(CLEO_XTSUBS)
+      CALL XTS_RFV_INPUT
+      DSF_ANSWER_IY=XTS_ANSWER_IY
+#endif
+      RETURN
+
+      ENTRY DSF_RFVIEW0
+      DSFRFV_KILALL=0
+      DSFRFV_KILL2=0
+      RETURN
+
+      END
+
+
+
+
+
+
+
+
+
+
+
+

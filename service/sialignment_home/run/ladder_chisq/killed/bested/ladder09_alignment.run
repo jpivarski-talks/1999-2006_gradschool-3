@@ -1,0 +1,17 @@
+#!/usr/local/bin/tcsh
+
+cd $HOME/sialignment/run/ladder_chisq/
+. /nfs/cleo3/scripts/cleo3defs
+c3rel cleo3_Nov08_2001
+
+#  OSAGENT_PORT=31416
+#  export OSAGENT_PORT
+#  C3_CONST=/nfs/c3con/ccon3/constants/Codi
+#  export C3_CONST
+
+USER_ONUMBER=09
+export USER_ONUMBER
+USER_NUMBER=9
+export USER_NUMBER
+
+suez -f ladder_alignment.tcl > $USER_TMP/ladder$USER_ONUMBER.log

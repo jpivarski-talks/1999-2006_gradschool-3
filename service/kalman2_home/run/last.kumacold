@@ -1,0 +1,11 @@
+*** Begin of history file: Mon May 12 15:31:10 2003
+nt/cr 1 'blah' 2 ! ! 'exit' 'regular'
+nt/read 1 ayatolla.komeeni
+nt/plot exit%regular
+nt/plot 1.exit%regular
+nt/plot 1.regular%exit ! ! ! ! box
+nt/plot 1.regular
+nt/plot 1.exit
+nt/plot 1.regular
+exit
+*** End   of history file: Mon May 12 15:33:36 2003

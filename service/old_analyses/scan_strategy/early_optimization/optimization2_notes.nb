@@ -1,0 +1,143 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 4.0,
+MathReader 4.0, or any compatible application. The data for the notebook 
+starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      3875,         97]*)
+(*NotebookOutlinePosition[      4514,        120]*)
+(*  CellTagsIndexPosition[      4470,        116]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+    \(\(\(domain\  = \ {{10000. , 10.26, 10.28}, {10000. , 10.28, 
+            10.3}, {10000. , 10.3, 10.32}, {10000. , 10.32, 10.34}, {10000. , 
+            10.34, 10.36}, {10000. , 10.36, 10.38}, {10000. , 10.38, 
+            10.4}, {10000. , 10.4, 10.42}, {10000. , 10.42, 10.44}, {10000. , 
+            10.44, 10.46}};\)\(\[IndentingNewLine]\)\)\)], "Input"],
+
+Cell[BoxData[
+    \({{10000.`, 10.26`, 10.28`}, {10000.`, 10.28`, 10.3`}, {10000.`, 10.3`, 
+        10.32`}, {10000.`, 10.32`, 10.34`}, {10000.`, 10.34`, 
+        10.36`}, {10000.`, 10.36`, 10.38`}, {10000.`, 10.38`, 
+        10.4`}, {10000.`, 10.4`, 10.42`}, {10000.`, 10.42`, 
+        10.44`}, {10000.`, 10.44`, 10.46`}}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(data\  = \ \(\(({#, \ spectrum[#], \ 
+              0.1\ nb})\) &\)\ \  /@ \ \((\ \(\((#\ GeV)\) &\)\  /@ \ 
+            Range[10.26, 10.46, 0.02]\ )\)\)], "Input"],
+
+Cell[BoxData[
+    \({{10.26`\ GeV, 4.137399762428997`\ nb, 0.1`\ nb}, {10.28`\ GeV, 
+        5.1239133007832205`\ nb, 0.1`\ nb}, {10.299999999999999`\ GeV, 
+        6.572589573414549`\ nb, 0.1`\ nb}, {10.32`\ GeV, 
+        8.23611023265454`\ nb, 0.1`\ nb}, {10.34`\ GeV, 9.6026956431629`\ nb, 
+        0.1`\ nb}, {10.36`\ GeV, 10.128765969499561`\ nb, 
+        0.1`\ nb}, {10.379999999999999`\ GeV, 9.578535108101619`\ nb, 
+        0.1`\ nb}, {10.4`\ GeV, 8.187788082000969`\ nb, 
+        0.1`\ nb}, {10.42`\ GeV, 6.500103645986434`\ nb, 
+        0.1`\ nb}, {10.44`\ GeV, 5.027260354504544`\ nb, 
+        0.1`\ nb}, {10.459999999999999`\ GeV, 4.01657547396801`\ nb, 
+        0.1`\ nb}}\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(\(data = \(\(({#[\([2]\)], \[IndentingNewLine]\t
+                Random[NormalDistribution[\((n = #[\([1]\)]*
+                            spectrum[#[\([2]\)]])\), 
+                      Sqrt[n]]]/#[\([1]\)], \[IndentingNewLine]\t
+                Sqrt[n]/#[\([1]\)]})\) &\)\  /@ \ 
+          domain;\)\(\[IndentingNewLine]\)\( (*\ 
+      optimaldata\  = \ \(\(({#[\([2]\)], spectrum[#[\([2]\)]], 
+                0})\) &\)\  /@ \ domain\ *) \)\)\)], "Input"]
+},
+FrontEndVersion->"4.0 for X",
+ScreenRectangle->{{0, 1024}, {0, 768}},
+WindowSize->{532, 391},
+WindowMargins->{{12, Automatic}, {98, Automatic}}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1739, 51, 376, 5, 107, "Input"],
+Cell[2118, 58, 336, 5, 91, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2491, 68, 184, 3, 43, "Input"],
+Cell[2678, 73, 699, 11, 107, "Output"]
+}, Open  ]],
+Cell[3392, 87, 479, 8, 107, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

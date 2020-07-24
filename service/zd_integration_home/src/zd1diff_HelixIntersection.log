@@ -1,0 +1,187 @@
+Index: HelixIntersection/Class/HIDRSurfaceFactory.cc
+===================================================================
+RCS file: /nfs/cleo3/cvsroot/Offline/src/HelixIntersection/Class/HIDRSurfaceFactory.cc,v
+retrieving revision 1.29
+diff -r1.29 HIDRSurfaceFactory.cc
+471a472,476
+>    report(DEBUG, kFacilityString)
+>       << "about to create surface: " << iLayer << " " << aOperation
+>       << " > " << aHitInfo.calibratedDRHit() << " < " << aHitInfo.driftDistance()
+>       << " " << m_hitCorrector << " " << aCheckDirectionSwitch << " " << aHitInfo.averageChargeOnTrack() << endl;
+> 
+683c688
+< 		  aUsageTag.value(), aProdTag.value() ) ;
+---
+> 		  aUsageTag.value(), aProdTag.value()) ;
+692c697
+< 	 extract( theEventRecord, pSeedDRHitLattice ) ;
+---
+> 	 extract( theEventRecord, pSeedDRHitLattice) ;
+714c719
+< 	 extract( theEventRecord, drHits ) ;
+---
+> 	 extract( theEventRecord, drHits) ;
+Index: HelixIntersection/Class/HIHelixIntersector.cc
+===================================================================
+RCS file: /nfs/cleo3/cvsroot/Offline/src/HelixIntersection/Class/HIHelixIntersector.cc,v
+retrieving revision 1.19
+diff -r1.19 HIHelixIntersector.cc
+643a644
+> 					  << " (at " << (*m_currentSurface)->radius() << ")"
+Index: HelixIntersection/Class/HISingleWireCylinder.cc
+===================================================================
+RCS file: /nfs/cleo3/cvsroot/Offline/src/HelixIntersection/Class/HISingleWireCylinder.cc,v
+retrieving revision 1.13
+diff -r1.13 HISingleWireCylinder.cc
+162a163,165
+>    report(DEBUG, kFacilityString)
+>       << "aHit == " << aHit << ", aSignedDriftDistance == " << aSignedDriftDistance << endl;
+> 
+168a172,180
+> 
+>    report(DEBUG, kFacilityString)
+>       << "constructor: m_pDRHit == " << m_pDRHit;
+>    if (m_pDRHit != 0) {
+>       report(DEBUG, kFacilityString)
+> 	 << ", m_pDRHit->calibratedDRHit() == " << m_pDRHit->calibratedDRHit();
+>    }
+>    report(DEBUG, kFacilityString) << endl;
+> 
+203a216,223
+> 
+>    report(DEBUG, kFacilityString)
+>       << "setHICalibratedDRHit: m_pDRHit == " << m_pDRHit;
+>    if (m_pDRHit != 0) {
+>       report(DEBUG, kFacilityString)
+> 	 << ", m_pDRHit->calibratedDRHit() == " << m_pDRHit->calibratedDRHit();
+>    }
+>    report(DEBUG, kFacilityString) << endl;
+210a231,238
+> 
+>    report(DEBUG, kFacilityString)
+>       << "setCalibratedDRHit: m_pDRHit == " << m_pDRHit;
+>    if (m_pDRHit != 0) {
+>       report(DEBUG, kFacilityString)
+> 	 << ", m_pDRHit->calibratedDRHit() == " << m_pDRHit->calibratedDRHit();
+>    }
+>    report(DEBUG, kFacilityString) << endl;
+216a245,252
+> 
+>    report(DEBUG, kFacilityString)
+>       << "setSignedDriftDistance: m_pDRHit == " << m_pDRHit;
+>    if (m_pDRHit != 0) {
+>       report(DEBUG, kFacilityString)
+> 	 << ", m_pDRHit->calibratedDRHit() == " << m_pDRHit->calibratedDRHit();
+>    }
+>    report(DEBUG, kFacilityString) << endl;
+222a259,260
+>    report(DEBUG, kFacilityString) << "in extractWireInfo" << endl;
+> 
+226a265,266
+>       report(DEBUG, kFacilityString) << "m_pDRHit->calibratedDRHit() was non-null, overwriting m_wireInfo (it's okay)" << endl;
+> 
+229a270,278
+> 
+>    report(DEBUG, kFacilityString)
+>       << "extractWireInfo: m_pDRHit == " << m_pDRHit;
+>    if (m_pDRHit != 0) {
+>       report(DEBUG, kFacilityString)
+> 	 << ", m_pDRHit->calibratedDRHit() == " << m_pDRHit->calibratedDRHit();
+>    }
+>    report(DEBUG, kFacilityString) << endl;
+> 
+237a287,295
+>    report(DEBUG, kFacilityString)
+>       << "begin propagateHelix: m_pDRHit == " << m_pDRHit;
+>    if (m_pDRHit != 0) {
+>       report(DEBUG, kFacilityString)
+> 	 << ", m_pDRHit->calibratedDRHit() == " << m_pDRHit->calibratedDRHit();
+>    }
+>    report(DEBUG, kFacilityString) << endl;
+> 
+> 
+250a309,317
+>    report(DEBUG, kFacilityString)
+>       << "propagateHelix 2: m_pDRHit == " << m_pDRHit;
+>    if (m_pDRHit != 0) {
+>       report(DEBUG, kFacilityString)
+> 	 << ", m_pDRHit->calibratedDRHit() == " << m_pDRHit->calibratedDRHit();
+>    }
+>    report(DEBUG, kFacilityString) << endl;
+> 
+> 
+279a347,353
+>    report(DEBUG, kFacilityString)
+>       << "propagateHelix 3: m_pDRHit == " << m_pDRHit;
+>    if (m_pDRHit != 0) {
+>       report(DEBUG, kFacilityString)
+> 	 << ", m_pDRHit->calibratedDRHit() == " << m_pDRHit->calibratedDRHit();
+>    }
+>    report(DEBUG, kFacilityString) << endl;
+289a364,369
+>    report(DEBUG, kFacilityString)
+>       << " OINK testHelix.referencePoint() == " << testHelix.referencePoint()
+>       << " norm = " << norm << " testHelix.momentumUnit() " << testHelix.momentumUnit()
+>       << " momDotNormalOrig == " << momDotNormalOrig
+>       << " wire pos == " << wirePosDir.first << endl;
+> 
+301a382,390
+>    report(DEBUG, kFacilityString)
+>       << "BOINK testHelix.referencePoint() == " << testHelix.referencePoint()
+>       << " norm = " << norm << " testHelix.momentumUnit() " << testHelix.momentumUnit()
+>       << " momDotNormal == " << momDotNormal << endl;
+> 
+>    report(DEBUG, kFacilityString)
+>       << "progagateHelix 3.5: m_checkSingleDirectionSwitch == " << m_checkSingleDirectionSwitch
+>       << " momDotNormalOrig * momDotNormal == " << momDotNormalOrig << " * " << momDotNormal << endl;
+> 
+306a396,404
+>       report(DEBUG, kFacilityString)
+> 	 << "propagateHelix 4: m_pDRHit == " << m_pDRHit;
+>       if (m_pDRHit != 0) {
+> 	 report(DEBUG, kFacilityString)
+> 	    << ", m_pDRHit->calibratedDRHit() == " << m_pDRHit->calibratedDRHit();
+>       }
+>       report(DEBUG, kFacilityString) << endl;
+> 
+> 
+339a438,446
+>       report(DEBUG, kFacilityString)
+> 	 << "propagateHelix 5: m_pDRHit == " << m_pDRHit;
+>       if (m_pDRHit != 0) {
+> 	 report(DEBUG, kFacilityString)
+> 	    << ", m_pDRHit->calibratedDRHit() == " << m_pDRHit->calibratedDRHit();
+>       }
+>       report(DEBUG, kFacilityString) << endl;
+> 
+> 
+348a456,464
+> 
+>    report(DEBUG, kFacilityString)
+>       << "addHICalibratedHitsToVector: m_pDRHit == " << m_pDRHit;
+>    if (m_pDRHit != 0) {
+>       report(DEBUG, kFacilityString)
+> 	 << ", m_pDRHit->calibratedDRHit() == " << m_pDRHit->calibratedDRHit();
+>    }
+>    report(DEBUG, kFacilityString) << endl;
+> 
+357a474,482
+>    report(DEBUG, kFacilityString)
+>       << "begin dca: m_pDRHit == " << m_pDRHit;
+>    if (m_pDRHit != 0) {
+>       report(DEBUG, kFacilityString)
+> 	 << ", m_pDRHit->calibratedDRHit() == " << m_pDRHit->calibratedDRHit();
+>    }
+>    report(DEBUG, kFacilityString) << endl;
+> 
+> 
+378a504,512
+>    report(DEBUG, kFacilityString)
+>       << "begin derivatives: m_pDRHit == " << m_pDRHit;
+>    if (m_pDRHit != 0) {
+>       report(DEBUG, kFacilityString)
+> 	 << ", m_pDRHit->calibratedDRHit() == " << m_pDRHit->calibratedDRHit();
+>    }
+>    report(DEBUG, kFacilityString) << endl;
+> 
+> 

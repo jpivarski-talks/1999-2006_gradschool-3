@@ -1,0 +1,7 @@
+#!/usr/local/bin/tcsh
+
+cd $HOME/kalman/run
+. /nfs/cleo3/scripts/cleo3defs
+c3cur
+
+suez -f charge_asymmetry.tcl > ../rzn/charge_asymmetry.log

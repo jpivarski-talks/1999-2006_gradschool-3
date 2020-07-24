@@ -1,0 +1,55 @@
+
+Module : cl3seq
+Date   : Thu Jan 13 10:50:40 2000
+User   : pg
+Old Tag: v01_00_00
+New Tag: v01_01_00
+Message: Added new file svgang.inc to store Si daisy-chain configuration
+
+Module : cl3seq
+Date   : Thu Feb  3 13:37:13 2000
+User   : pg
+Old Tag: v01_01_00
+New Tag: v01_01_01
+Message: Forgot to tag new version of sv3seq/svgang.inc
+
+Module : cl3seq
+Date   : Tue May  9 11:31:05 2000
+User   : pg
+Old Tag: v01_01_01
+New Tag: v01_01_02
+Message: Bumped up number of raw hits to 125000
+
+Module : cl3seq
+Date   : Thu Sep  5 16:13:42 2002
+User   : dpp
+Old Tag: v01_01_02
+New Tag: v01_02_00
+Message: 
+compatibility with changes to doit
+added ZD and TPC devices
+changes array sizes for TPC with switch DOITTPC
+
+accompanies changes to doit, doityomama,Doit
+
+Module : cl3seq
+Date   : Tue Feb  4 09:49:37 2003
+User   : huanggs
+Old Tag: v01_02_00
+New Tag: v02_00_00
+Message: zdgm3 added
+
+Module : cl3seq
+Date   : Tue Feb  4 16:00:45 2003
+User   : huanggs
+Old Tag: v02_00_00
+New Tag: 
+Message: Deleting v02_00_00
+
+Module : cl3seq
+Date   : Wed Mar  5 15:29:14 2003
+User   : dpp
+Old Tag: v01_02_00
+New Tag: v01_03_00
+Message: 
+more compatibility with TPC in doit

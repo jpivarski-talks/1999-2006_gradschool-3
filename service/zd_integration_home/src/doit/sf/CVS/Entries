@@ -1,0 +1,27 @@
+/sf_tdc_d.F/1.2/Fri May 28 03:05:02 1999//
+/sf_tpc_cluster.F/1.1/Wed Mar  5 18:30:16 2003//
+/sfaccess.F/1.1/Tue Nov 20 00:04:11 2001//
+/sfbwal.F/1.3/Fri Nov 19 22:52:13 1999//
+/sfchan.F/1.19/Wed Mar  5 18:35:58 2003//
+/sfchan_direction.F/1.1/Thu Sep  5 18:54:12 2002//
+/sfchan_extend_chain.F/1.1/Thu Sep  5 18:55:28 2002//
+/sfchan_hit_quality.F/1.3/Wed Mar  5 18:18:47 2003//
+/sfchan_predetermined.F/1.3/Wed Mar  5 18:11:46 2003//
+/sfchan_scan_seed_hits.F/1.2/Tue Sep 24 00:33:16 2002//
+/sfcuts.F/1.20/Wed Mar  5 18:34:07 2003//
+/sfdefn.F/1.6/Wed Mar  5 18:35:13 2003//
+/sfeff.F/1.7/Wed Mar  5 18:18:11 2003//
+/sffcmp.F/1.3/Mon Oct  2 20:52:00 2000//
+/sffill.F/1.7/Wed Mar  5 18:27:25 2003//
+/sffill_check_double.F/1.1/Wed Mar  5 18:28:06 2003//
+/sffill_fill_vd_alt.F/1.1/Wed Mar  5 18:28:37 2003//
+/sfind.F/1.19/Wed Mar  5 18:28:58 2003//
+/sfind_hit_quality.F/1.1/Wed Mar  5 18:29:44 2003//
+/sfinit.F/1.8/Wed Mar  5 18:34:55 2003//
+/sfmerc.F/1.4/Wed Mar  5 18:34:39 2003//
+/sfmerg.F/1.12/Wed Mar  5 18:35:34 2003//
+/sfnext.F/1.11/Wed Mar  5 18:30:41 2003//
+/sfsvfm.F/1.3/Tue Nov 20 17:54:10 2001//
+/sfsvgm.F/1.2/Tue Nov 20 17:54:26 2001//
+/sftcut.F/1.13/Wed Mar  5 18:34:22 2003//
+D

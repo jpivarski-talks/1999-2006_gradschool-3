@@ -1,0 +1,28 @@
+
+Module : WireHitCorrection
+Date   : Fri Aug 29 20:01:35 2003
+User   : wsun
+Old Tag: 
+New Tag: v01_00_00
+Message: First submission.  Transferred and abstracted code from DRHitCorrectorProd/HitCorrector.
+
+Module : WireHitCorrection
+Date   : Fri Aug 29 20:15:54 2003
+User   : wsun
+Old Tag: v01_00_00
+New Tag: v01_00_01
+Message: Fixed uncommented comment in WHCDeviceHitCorrector.cc.
+
+Module : WireHitCorrection
+Date   : Thu Sep  4 14:36:52 2003
+User   : wsun
+Old Tag: v01_00_01
+New Tag: v01_00_02
+Message: Mods for Linux.
+
+Module : WireHitCorrection
+Date   : Fri Oct 10 13:42:45 2003
+User   : mccann
+Old Tag: v01_00_02
+New Tag: v02_00_00
+Message: Totally vamped the fittingweights representation and delivery to use the new ZDWeight2* constants

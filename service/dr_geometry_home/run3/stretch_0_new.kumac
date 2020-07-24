@@ -1,0 +1,33 @@
+nt/hmerge ../rzn3/stretch_0_new.rzn ../rzn3/stretch_0_1.rzn ../rzn3/stretch_0_2.rzn ../rzn3/stretch_0_3.rzn ../rzn3/stretch_0_4.rzn ../rzn3/stretch_0_5.rzn ../rzn3/stretch_0_6.rzn ../rzn3/stretch_0_7.rzn ../rzn3/stretch_0_8.rzn ../rzn3/stretch_0_9.rzn ../rzn3/stretch_0_10.rzn
+h/file 1 ../rzn3/stretch_0_new.rzn
+cd twocyclehist
+
+zone 1 3
+min 999 -0.002
+max 999 0.002
+h/plot 999
+
+zone 2 3 3 s
+opt sta
+set stat 0001100
+h/plot 2001
+h/plot 3001 s
+
+opt nsta
+opt logy
+h/plot 2004
+h/plot 3004 s
+
+opt liny
+min 2002 0
+max 2002 3
+h/plot 2002
+h/plot 3002 s
+
+min 2003 0
+max 2003 3
+h/plot 2003
+h/plot 3003 s
+
+pict/print 'stretch_0_new.ps'
+exit

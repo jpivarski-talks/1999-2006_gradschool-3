@@ -1,0 +1,32 @@
+*** Begin of history file: Mon Apr  8 13:41:05 2002
+h/file 1 kalman.rzn
+ldir
+cd FITDIAGPROC
+h/list
+nt/print 1
+nt/plot 1.momfit
+nt/plot 1.momfit 0<momfit<6.
+h/cr/1d 100 'Kalman Bhabha Momentum' 100 4. 5.
+nt/plot 1.momfit ! ! ! ! ! 100
+h/cr/1d 100 'Kalman Bhabha Momentum' 100 4. 5.5
+nt/plot 1.momfit ! ! ! ! ! 100
+h/cr/1d 100 'Kalman Bhabha Momentum' 100 4. 5.3
+nt/plot 1.momfit ! ! ! ! ! 100
+opt sta
+opt fit
+h/fit 100(4.7:4.9) g
+h/fit 100(4.7:4.85) g
+h/fit 100(4.65:4.85) g
+h/fit 100(4.67:4.85) g
+h/fit 100(4.67:4.83) g
+h/fit 100(4.67:4.82) g
+h/cr/1d 100 'Kalman Bhabha Momentum' 100 4.4 5.2
+nt/plot 1.momfit ! ! ! ! ! 100
+h/cr/1d 100 'Kalman Bhabha Momentum' 100 4.4 5.1
+nt/plot 1.momfit ! ! ! ! ! 100
+h/fit 100(4.67:4.82) g
+h/plot 100 e
+pict/print
+pict/print tmp.ps
+exit
+*** End   of history file: Mon Apr  8 13:47:59 2002

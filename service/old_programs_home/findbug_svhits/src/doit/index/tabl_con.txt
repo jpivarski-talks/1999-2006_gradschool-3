@@ -1,0 +1,407 @@
+#
+# $Id: tabl_con.txt,v 1.1.1.1 1998/02/06 19:11:50 dpp Exp $
+#
+# $Log: tabl_con.txt,v $
+# Revision 1.1.1.1  1998/02/06 19:11:50  dpp
+# DOIT first release.
+#
+# Revision 1.1.1.1  1997/04/30 12:31:30  clib
+# Developmental version of DUET.
+#
+# Revision 1.1.1.1  1994/10/08 01:01:22  zfiles
+# first version of doit in CVS
+#
+#
+#CMZ :  6.00/01 19/03/93  15.31.02  by  Dan Peterson
+#-- Author :
+
+
+This is the table of contents to the New DUET cmz file.
+
+
+
+PROCESS
+          DUETBJ
+          DUETBR
+          DUETEV
+          DUETER
+          DUETEJ
+          DUETVR
+          DUETKD
+CONTROL
+          DUFIND              main control
+          DU3DTR
+          DUCFTR
+          DULFTR              find z fit for r-phi fix
+          DULFDN
+          DUDRDG
+CDTRACK
+          BCITCD
+          IBITCD
+          LBITCD
+          NBITCD
+          PBITCD
+          ZBITCD
+          SBITCD
+          CDCMPR
+          CDCURL
+          CDDUPL
+          CDJOIN
+          CDKILL
+          CDMISS
+          CDSTOR
+          CDZFIN
+          CDNEWT
+UTILITY
+          DECSRI              decending sort integer
+          DECSRR              decending sort real
+          INCSRI              increasing sort integer
+          INCSRR              increasing sort real
+          EFMASS
+          FDIVID
+          PMPI                -pi to +pi
+          Z2PI                0 to 2 pi
+          CDPNTR
+          CDPLIN
+          TFPROB
+CF
+          CFHITS
+          CFIND
+          CFLIPH
+          CFTCUT
+          CFXFIT              add hits in "unused" layers, local amb. res.
+          CFCHOP
+          CFHITA
+          CFLAST
+          CFXFIO              old (non local abiguity resolution) CFXFIT
+LF
+          LFEXTN
+          LFHITS
+          LFIND
+          LFLIPH
+          LFPULL
+          LFTCUT
+          LFXFIT
+SF
+          SFCHAN              find basic chains
+          SFMERG              merg basic chains
+          SFIND               control
+          SFINIT              initialization
+          SFLWF               find layer,wire,phi for address
+          SFNEXT              return next best chain
+          SFFILL              fill in missing layers
+          SFENDP              z position from endplate or marginal information
+          SFFCMP              compare track to initial chain
+          SFFTRK              fit to track parameters
+          SFMERC              compare output of SFFTRK to merged input chains
+          SF_TDC_D            crude map of TDC into Distance
+FITTER
+          SMXVEC
+          CF2FIT
+          CFCFIT              linear kabg with constraint
+          CFDFIT              nonlinear dadr fixed
+          CFMTRX
+          CFRFIT
+          LFLERF
+          LFLFIT
+          LFRFIT
+          LFLSQF
+          TFCOV               covarience matric fot TF3FIT
+          TF3FIT              final fitter, cu,da,fi,ct,z0  nonlinear
+          TFKINK              find kink position for final fitter
+LINKTREE
+          CFADDL
+          CFCFIL
+          CFCUTS
+          CFINIT
+          CFLINK
+          CFOCUT
+          LFADDL
+          LFCUTS
+          LFINIT
+          LFLINK
+          LFOCUT
+          TFCLMB
+          TFCLBD
+          TFCLR
+          TFGETR
+          TFLIMB
+          TFNEWT
+          TFLOOP
+          TFSORT
+          TFTCUT
+          TFTHIT
+          TFUFIT
+          TFTREE
+          TFORST
+          TFMKTR
+          TFBETR
+VFIND
+          DUVFCR
+          DUVFAV
+          DUVERT
+          CDEVTX
+CHARGDIV
+          LFQTRK
+          LFQORD
+          LFQDAD
+          QDIVBR
+          LFLEQD
+GEOMCALC
+          CDCFID              calculate cu-da-fi from kabg
+          ARCFUN              find s, the arclength
+          CDKABG              calculate kabg from cu-da-fi
+          TFXYTR
+          TFPHTR
+HITLIST
+          CDCANH
+          CDHITC
+          CDRWCP
+HITSONTRAK
+          FINDHW
+          CDCLUS
+          CDFILL
+          CDHITS
+          CDUSE
+          CFDRDG
+          CFWIRS
+          SFHITS
+HITCORRCT
+          DUSQSH
+          CDCORH
+          CDRFTM
+          CDWGTD
+          CDCORF
+          CDWTQD
+          CFXYHT
+          LFCTHT
+          LFQDIV
+          LFXYHT
+          TFXYHT
+SEEDTRACK
+          CDFTCH
+          CDRGSD
+          CDSEED
+          CDANLC
+EXTENDTRAK
+          CFEXTN
+          CFGROW
+          CFFLIP
+INITIALIZ
+          TFGMBD
+          TFGMI1
+          TFGMI0
+          TFINIT
+          TFGMI2
+          CDBMAG
+          TFUNIN
+TRAKSTAK
+          TFPUSH              add new track to stack
+          TFUSTK              update existing track
+          TFOSTK              order
+          TFPOPF              obtain first track in stack
+          TFPOPS              obtain next track in stack
+          TFDSTK              delete sone information of a track in the stack
+
+diagnostics
+
+DIAGDUET
+          BEGCLK
+          ENDCLK
+          DUDIAG
+          CDPD22
+          CDPD23
+          CDPRI1
+          CDPRI2
+          CDPTRK
+          CDPTRH
+          CDWLST
+          TFBERI
+          TFBERR
+          TFP3DT
+          TFPCTL
+          TFPBER
+          TFPCUT
+          TFPETR
+          TFPGET
+          TFPLHT
+          TFPHIT
+          TFPSTK
+          TFPLNK
+          TFPTIM
+          TFPSUB
+          TFPSUM
+          TFPTMS
+          TFPTRK
+          TFSTAT
+          TFTMBD
+DIAGXTS
+          XTS_BORD            borders
+          XTS_CHVS            chain view simple
+          XTS_FILL
+          XTS_GDUM
+          XTS_GEOM            geometry
+          XTS_HITS
+          XTS_INFO
+          XTS_LEAV
+          XTS_PREP
+          XTS_RFV             r-phi view
+          XTS_RFV2
+          XTS_RFVI            r-phi view initialize
+          XTS_TRAK            display track
+          XTS_TRAN
+          XTS_ZHIT            s-z view
+          XTS_ZOOM            zooming
+DIAGHBOOK
+          DUHBOK
+          DUHIST
+          CDANAL
+          CDHIST
+          CFHIST
+          LFHIST
+          TFHINI
+          TYHFIL
+          TFHWRT
+DIAGDGH
+          CDDIAG
+DIAGPLOTO
+          CDARC
+          CDGTWK
+          CDHRDI
+          CDPLDT
+          CDPLEV
+          CDPLHT
+          CDPLON
+          CDPLOT
+          CDPLPA              plot  track parameter
+          CDPLSD              plot  seed track
+          CDPLTI              plot  title, date, time
+          CDPLTR              plot  CD tracks
+          CDPLWR              plot  wires
+          CDPTIT              title the DECwindow
+          CDTRAK              plot  track
+          CDPICK              plot  hits on track
+DIAGSF
+          DSFHIT              process hit added to chain
+          DSFRFV              r-phi view
+          DSFCHV              view chain
+          DSFDCH
+          SFCRATE             load crate information
+
+run control
+
+FFREAD
+          DUETFF
+          DUETFFC
+          DUPFF
+NAMELIST
+          DUETNL              name list file
+INSTALL
+          DUET                kumac to install library
+          DUET_1S2            kumac to install library
+          BUGS                text file of known bugs
+RUNFIL
+          DUET                additions to namelist for pass2
+KUIP
+          DUNAME              kuip command to use namelist file
+          DUVFND              kuip command for v finder
+          DUUSQD              kuip command to use charge division
+          DUXTS               kuip command for the DIAGXTS graphics
+          DUPLOT              kuip command for LPLOT
+          DUPLT2              kuip command for LPLOT2
+          DUCOLR              kuip command for color
+
+sequences
+
+DUSEQ
+          ANLTMP
+          CDCORRCD
+          CDPLOTCD
+          CDSCRTCD
+          CDTRAKCD
+          CDTRAKCN
+          CDTYPECD
+          CFCTLCDE
+          DUTIL
+          LFCTLCDE
+          LFTYPECD
+          TFBITCOM
+          TFCONSPA
+          TFCTLCDE
+          TFCTLPAR
+          TFERBFCD
+          TFGEOMCD
+          TFGEOMPA
+          TFHISTPA
+          TFHITSCD
+          TFINDPAR
+          TFLINKCD
+          TFSTAKCD
+          TFTIME
+          TFTRAKCD
+          TFTRKSCD
+          TFTYPECD
+          TFUNITCD
+          VDHISTCD
+          VDHISTPA
+          VDSEEDCD
+          ZFCOM
+          DUSCRT
+          QDSEQ
+SFSEQ
+          SFPD
+          SFGKSPD
+          XTS_CNTL
+          SFXTSPD
+          COSMPD
+
+junk to be deleted
+
+OBSOLETE
+          ATN2PI              atan {0:2pi} replaced by CERN
+DEL_DPSF
+          DPSFBJ
+          DPSFBR
+          DPSFEV
+          DPSFER
+          DPSFEJ
+          DPSFVR
+          SFOVER              overide data hits with user input
+          SFEFF               efficiencies
+          QDRLGI              old charge division initialization
+DEL_VDF
+          VDFPIE              find hits in a pie section
+          VDFTRK              find seed track from VD hits
+          VDWHST              treat VD as a hodoscope
+DEL_NOCALL
+          ABITCD              absorbed into other _BITCD
+          CIRCLE              obsolete plotting routine
+          CTHITW              returns
+          DRCORR              obsolete corrections
+          GETANS              type/accept
+          GETSTR              type/accept
+          IGETNM              type/accept
+          IXLYR
+          UNKINK              track parameters after kink, absorbed into TF3FIT
+          VANGLE              angle between vectors
+          VMASS               mass of 4 vector
+          VMASS2
+          CDRADZ              radius of layer
+DEL_GETPUT
+          ANAL
+          DUEND
+          DUSER
+          EVLOG
+          PUTDH
+
+
+
+
+
+
+
+
+
+
+
+

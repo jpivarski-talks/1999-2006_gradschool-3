@@ -1,0 +1,14 @@
+#!/usr/local/bin/tcsh
+
+cd $HOME/dr_wiggle/run
+. /nfs/cleo3/scripts/cleo3defs
+c3rel Nov04_02_P2
+
+USER_N="30"
+export USER_N
+USER_RUNSTART="126858"
+export USER_RUNSTART
+USER_RUNEND="126874"
+export USER_RUNEND
+
+suez -f generate_standard.tcl > $USER_TMP/generate_standard30.log

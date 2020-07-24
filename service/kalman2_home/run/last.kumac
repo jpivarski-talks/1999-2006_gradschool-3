@@ -1,0 +1,10 @@
+*** Begin of history file: Thu May 15 16:29:17 2003
+ve/read tmp tmp.txt
+opt sta
+ve/plot tmp
+opt sta
+ve/plot tmp
+opt logy
+ve/plot tmp
+exit
+*** End   of history file: Thu May 15 16:30:23 2003

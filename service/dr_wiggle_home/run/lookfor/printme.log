@@ -1,0 +1,337 @@
+This is TeX, Version 3.14159 (Web2C 7.3.1) (format=latex 2002.8.29)  16 MAY 2003 12:30
+**printme
+(printme.tex
+LaTeX2e <2000/06/01>
+Babel <v3.7h> and hyphenation patterns for american, french, german, ngerman, i
+talian, nohyphenation, loaded.
+(/usr/share/texmf/tex/latex/base/article.cls
+Document Class: article 2000/05/19 v1.4b Standard LaTeX document class
+(/usr/share/texmf/tex/latex/base/size12.clo
+File: size12.clo 2000/05/19 v1.4b Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texmf/tex/latex/graphics/epsfig.sty
+Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texmf/tex/latex/graphics/graphics.sty
+Package: graphics 1999/02/16 v1.0l Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texmf/tex/latex/config/graphics.cfg)
+Package graphics Info: Driver file: dvips.def on input line 80.
+
+(/usr/share/texmf/tex/latex/graphics/dvips.def
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+\epsfxsize=\dimen105
+\epsfysize=\dimen106
+) (printme.aux)
+\openout1 = `printme.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+File: lookfor_classicSquish.eps Graphic file (type eps)
+
+<lookfor_classicSquish.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 9--11
+[]  [] 
+ []
+
+[1
+
+]
+File: lookfor_classicSquish_z02.eps Graphic file (type eps)
+ <lookfor_classicSquish_z02.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 15--17
+[]  [] 
+ []
+
+[2]
+File: lookfor_classicSquish_z0.eps Graphic file (type eps)
+ <lookfor_classicSquish_z0.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 21--23
+[]  [] 
+ []
+
+[3]
+File: lookfor_opposingSquish.eps Graphic file (type eps)
+ <lookfor_opposingSquish.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 27--29
+[]  [] 
+ []
+
+[4]
+File: lookfor_opposingSquish_z02.eps Graphic file (type eps)
+ <lookfor_opposingSquish_z02.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 33--35
+[]  [] 
+ []
+
+[5]
+File: lookfor_opposingSquish_z0.eps Graphic file (type eps)
+ <lookfor_opposingSquish_z0.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 39--41
+[]  [] 
+ []
+
+[6]
+File: lookfor_rotateApart.eps Graphic file (type eps)
+ <lookfor_rotateApart.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 45--47
+[]  [] 
+ []
+
+[7]
+File: lookfor_rotateApart_small.eps Graphic file (type eps)
+ <lookfor_rotateApart_small.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 51--53
+[]  [] 
+ []
+
+[8]
+File: lookfor_rotateApart_z02.eps Graphic file (type eps)
+ <lookfor_rotateApart_z02.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 57--59
+[]  [] 
+ []
+
+[9]
+File: lookfor_rotateApart_z02_small.eps Graphic file (type eps)
+ <lookfor_rotateApart_z02_small.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 63--65
+[]  [] 
+ []
+
+[10]
+File: lookfor_rotateApart_z0.eps Graphic file (type eps)
+ <lookfor_rotateApart_z0.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 69--71
+[]  [] 
+ []
+
+[11]
+File: lookfor_rotateApart_z0_small.eps Graphic file (type eps)
+ <lookfor_rotateApart_z0_small.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 75--77
+[]  [] 
+ []
+
+[12]
+File: lookfor_shearApart.eps Graphic file (type eps)
+ <lookfor_shearApart.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 81--83
+[]  [] 
+ []
+
+[13]
+File: lookfor_shearApart_small.eps Graphic file (type eps)
+ <lookfor_shearApart_small.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 87--89
+[]  [] 
+ []
+
+[14]
+File: lookfor_shearApart_z02.eps Graphic file (type eps)
+ <lookfor_shearApart_z02.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 93--95
+[]  [] 
+ []
+
+[15]
+File: lookfor_shearApart_z02_small.eps Graphic file (type eps)
+ <lookfor_shearApart_z02_small.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 99--101
+[]  [] 
+ []
+
+[16]
+File: lookfor_shearApart_z0.eps Graphic file (type eps)
+ <lookfor_shearApart_z0.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 105--107
+[]  [] 
+ []
+
+[17]
+File: lookfor_shearApart_z0_small.eps Graphic file (type eps)
+ <lookfor_shearApart_z0_small.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 111--113
+[]  [] 
+ []
+
+[18]
+File: lookfor_shearFunky.eps Graphic file (type eps)
+ <lookfor_shearFunky.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 117--119
+[]  [] 
+ []
+
+[19]
+File: lookfor_shearFunky_small.eps Graphic file (type eps)
+ <lookfor_shearFunky_small.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 123--125
+[]  [] 
+ []
+
+[20]
+File: lookfor_shearFunky_z02.eps Graphic file (type eps)
+ <lookfor_shearFunky_z02.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 129--131
+[]  [] 
+ []
+
+[21]
+File: lookfor_shearFunky_z02_small.eps Graphic file (type eps)
+ <lookfor_shearFunky_z02_small.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 135--137
+[]  [] 
+ []
+
+[22]
+File: lookfor_shearFunky_z0.eps Graphic file (type eps)
+ <lookfor_shearFunky_z0.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 141--143
+[]  [] 
+ []
+
+[23]
+File: lookfor_shearFunky_z0_small.eps Graphic file (type eps)
+ <lookfor_shearFunky_z0_small.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 147--149
+[]  [] 
+ []
+
+[24]
+File: lookfor_shearRotate.eps Graphic file (type eps)
+ <lookfor_shearRotate.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 153--155
+[]  [] 
+ []
+
+[25]
+File: lookfor_shearRotate_small.eps Graphic file (type eps)
+ <lookfor_shearRotate_small.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 159--161
+[]  [] 
+ []
+
+[26]
+File: lookfor_shearRotate_z02.eps Graphic file (type eps)
+ <lookfor_shearRotate_z02.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 165--167
+[]  [] 
+ []
+
+[27]
+File: lookfor_shearRotate_z02_small.eps Graphic file (type eps)
+ <lookfor_shearRotate_z02_small.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 171--173
+[]  [] 
+ []
+
+[28]
+File: lookfor_shearRotate_z0.eps Graphic file (type eps)
+ <lookfor_shearRotate_z0.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 177--179
+[]  [] 
+ []
+
+[29]
+File: lookfor_shearRotate_z0_small.eps Graphic file (type eps)
+ <lookfor_shearRotate_z0_small.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 183--185
+[]  [] 
+ []
+
+[30]
+File: lookfor_shearTogether2.eps Graphic file (type eps)
+ <lookfor_shearTogether2.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 189--191
+[]  [] 
+ []
+
+[31]
+File: lookfor_shearTogether2_small.eps Graphic file (type eps)
+ <lookfor_shearTogether2_small.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 195--197
+[]  [] 
+ []
+
+[32]
+File: lookfor_shearTogether.eps Graphic file (type eps)
+ <lookfor_shearTogether.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 201--203
+[]  [] 
+ []
+
+[33]
+File: lookfor_shearTogether_z02.eps Graphic file (type eps)
+ <lookfor_shearTogether_z02.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 207--209
+[]  [] 
+ []
+
+[34]
+File: lookfor_shearTogether_z02_small.eps Graphic file (type eps)
+ <lookfor_shearTogether_z02_small.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 213--215
+[]  [] 
+ []
+
+[35]
+File: lookfor_shearTogether_z0.eps Graphic file (type eps)
+ <lookfor_shearTogether_z0.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 219--221
+[]  [] 
+ []
+
+[36]
+File: lookfor_shearTogether_z0_small.eps Graphic file (type eps)
+ <lookfor_shearTogether_z0_small.eps>
+Overfull \hbox (51.87883pt too wide) in paragraph at lines 225--227
+[]  [] 
+ []
+
+[37] (printme.aux) ) 
+Here is how much of TeX's memory you used:
+ 599 strings out of 20887
+ 7827 string characters out of 196241
+ 51671 words of memory out of 350001
+ 3560 multiletter control sequences out of 10000+15000
+ 3938 words of font info for 15 fonts, out of 400000 for 1000
+ 14 hyphenation exceptions out of 10000
+ 32i,4n,21p,195b,151s stack positions out of 3000i,100n,1500p,50000b,4000s
+
+Output written on printme.dvi (37 pages, 5812 bytes).

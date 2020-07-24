@@ -1,0 +1,43 @@
+Turning off the axial section of the drift chamber is more complicated
+than turning off the ZD--- there's no ChisqFitProd parameter for it,
+but you can do it with fittingweights.
+
+The first two lines are familiar to anyone who has used ASCII
+constants, the next four are specific to DRWeight2LayerDriftEntAng:
+they are the bounds and number of bins in the fittingweight VS drift
+and VS entrance angle function.  After that, the real fittingweight
+data begins:
+
+    1 0 0 0 0 0 0 0 DEFAULT
+    1414
+    0 1 0 0
+    0 15 0 1.5
+    0 0 1 -1.
+    0 0 2 1.
+    1 1 1 1000
+    1 1 2 1000
+    1 2 1 1000
+    1 2 2 1000
+
+The first column is the layer number, the next two are drift and
+entang bins, and the last is fittingweight.  This fittingweight is the
+uncertainty in drift distance given to a hit in units of 123 microns.
+In dewight_axial.drweight2layerdriftentang, I have set the drift
+uncertainty of hits in layers 1-16 (the axial section) to 1000, which
+is 1.23 meters.
+
+If better fittingweights are available in the future (and there should
+be), you can incorporate these weights and deweight the axial section
+by downloading an ASCII copy of the new weights, change the first two
+numbers to "1 0" (in case they are "0 0" or specify a particular run
+range that you might not be using), and then inflate the fourth column
+of everything which has a 1-16 in the first column.  The following awk
+commandline should work:
+
+awk '($1>=1 && $1<=16 && $9!="DEFAULT"){print $1, $2, $3, 1000} ($1<1 || $1>16 || $9=="DEFAULT"){print $0}' < newly_downloaded_constants.drweight2layerdriftentang > ready_to_deweight_axial.drweight2layerdriftentang
+
+(Note that this won't change the validity range to "1 0".)
+
+-- Jim Pivarski (mccann@lns.cornell.edu)
+
+

@@ -1,0 +1,27 @@
+*** Begin of history file: Fri Dec  7 14:22:53 2001
+ve/cr h(22)
+ve/print h
+ve/inp h(-6) 3.31
+ve/inp h($SIGMA(11-6)) 3.31
+ve/print h
+ve/inp h(1) 0
+ve/print h
+ve/inp h($SIGMA(11-4)) 4.03
+ve/inp h($SIGMA(11-2)) 5.67
+ve/inp h($SIGMA(11-0)) 6.93
+ve/inp h($SIGMA(11+2)) 6.15
+ve/inp h($SIGMA(11+4)) 4.52
+ve/inp h($SIGMA(11+7)) 3.56
+ve/inp h($SIGMA(11+10)) 3.47
+ve/print h
+ve/plot h
+ve/draw h
+h/cr/1d 100 'Hadronic XC' $SIGMA(5.1793-11*0.001) $SIGMA(5.1793+11*0.001)
+h/cr/1d 100 'Hadronic XC' 22 $SIGMA(5.1793-11*0.001) $SIGMA(5.1793+11*0.001)
+h/put_vect/contents 100 h
+h/plot 100
+h/draw 100
+h/print 100
+help h/print
+quit
+*** End   of history file: Fri Dec  7 14:37:36 2001

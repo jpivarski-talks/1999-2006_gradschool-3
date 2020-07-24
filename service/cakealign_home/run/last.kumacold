@@ -1,0 +1,17 @@
+*** Begin of history file: Thu Oct 30 18:21:41 2003
+h/file 1 aligncake.rzn
+ldir
+cd FIPASSPROC
+ldir
+cd FITERATION9
+ldir
+cd NEXTITERATION
+h/list
+h/plot 701
+h/plot 801
+h/plot 901
+h/plot 802
+h/plot 702
+h/plot 902
+exit
+*** End   of history file: Thu Oct 30 18:27:44 2003

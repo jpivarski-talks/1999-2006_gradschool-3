@@ -1,0 +1,96 @@
+set def
+cd //mn_hbin/fitdiagproc
+fetch 0
+
+do j = 1, 14
+	book/binned 3@j 'Summed residuals, bin @j' 1 50 -1000 1000
+enddo
+
+do i = 1, 47
+cut del 0
+cut new abs(drift@i+0.0065) < 0.0005
+cut new abs(drift@i+0.0055) < 0.0005
+cut new abs(drift@i+0.0045) < 0.0005
+cut new abs(drift@i+0.0035) < 0.0005
+cut new abs(drift@i+0.0025) < 0.0005
+cut new abs(drift@i+0.0015) < 0.0005
+cut new abs(drift@i+0.0005) < 0.0005
+cut new abs(drift@i-0.0005) < 0.0005
+cut new abs(drift@i-0.0015) < 0.0005
+cut new abs(drift@i-0.0025) < 0.0005
+cut new abs(drift@i-0.0035) < 0.0005
+cut new abs(drift@i-0.0045) < 0.0005
+cut new abs(drift@i-0.0055) < 0.0005
+cut new abs(drift@i-0.0065) < 0.0005
+cut new cl > clcut
+cut new cl > 0
+
+do j = 1, 14
+	cut use 15 & @j
+        set title user 'Residuals: layer @i, bin @j'
+        nt/pr 1 1000000*resid@i &@j 50 -1000 1000
+	add 3@j 1&@j 3@j 1 1
+	del 1&@j
+enddo
+squeeze
+enddo
+
+book/unbinned 100 'Residual mean vs. drift dist, summed over layers' 1 14
+book/unbinned 200 'Core [s] vs. drift dist, summed over layers (@1)' 1 14
+
+do j = 1, 14
+        set plot 3@j default
+        dep area = r125
+        dep mean = r134
+        dep rms = r135
+        dep r3 = -3*rms
+        dep r4 = 3*rms
+        dep r5 = 0.75*rms
+
+        fun del 0
+        fun add 19
+        area
+        mean
+        r5
+        0.2
+        0
+        1.75
+        fit 3@j
+        1
+        fix 4
+        inc r3 r4
+        minim
+
+	dis
+
+	dep avg@j = P1(2)
+	dep davg@j = ERR1(2)
+	dep sigma@j = P1(3)
+	dep dsigma@j = ERR1(3)
+        dep r6 = ( @j * 1 ) - 7.5
+
+	hist fill 100 r6 avg@j 1 davg@j
+        hist fill 200 r6 sigma@j 1 dsigma@j
+
+        exit
+enddo
+
+set def
+
+set ssize .3
+set x limits -8 8
+set y limits 50 200
+
+set header off
+set thick 5
+!set title off
+set x label 'Drift distance (mm)' 0 -1.5 .5 0 centre -1004
+
+set y label 'Drift distance core resolution ([m]m)' -2 0 .5 90 centre -1004
+
+set colour symbol blue
+pl 200 -1
+set colour symbol red
+over 200 -31
+
+hard post

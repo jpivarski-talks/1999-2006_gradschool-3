@@ -1,0 +1,23 @@
+*** Begin of history file: Thu Feb 13 15:45:51 2003
+h/file 1 r-4.2_w_standardcuts.rzn
+h/file 2 mc_5.3gev_continuum.rzn
+h/file 3 mc_5.3gev_continuum_w_hadroncuts.rzn
+h/file 4 mc_5.3gev_continuum_w_hadroncuts_and_standardcuts.rzn
+ldir
+cd //lun4/karlsplots
+h/plot 100
+h/plot 300
+h/plot 400
+h/plot 500
+h/plot 600
+cd //lun1/karlsplots
+h/plot 600
+h/plot 100
+cd //lun2/karlsplots
+h/plot 100
+h/plot 600
+cd //lun3/karlsplots
+h/plot 600
+h/plot 100
+exit
+*** End   of history file: Thu Feb 13 15:47:43 2003

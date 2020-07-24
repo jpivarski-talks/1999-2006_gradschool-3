@@ -1,0 +1,8 @@
+*** Begin of history file: Wed Feb 20 21:23:24 2002
+h/file 1 ../dafedir/buggy2.rzn
+ldir
+h/file 2 ../dafedir/bugless2.rzn
+cd //lun2
+ldir
+quit
+*** End   of history file: Wed Feb 20 21:24:06 2002

@@ -1,0 +1,10 @@
+#$ -l calibration
+#$ -o /cdat/tem/mccann/lf_data8cont2.out
+#$ -S /bin/bash
+#$ -j y
+
+cd /home/mccann/kalman2/run
+. /nfs/cleo3/scripts/cleo3defs
+c3rel Jul13_02_P2
+
+suez -f lookfor_bigerrormatrixbug_mc_data8cont2.tcl > /cdat/tem/mccann/lf_data8cont2.log

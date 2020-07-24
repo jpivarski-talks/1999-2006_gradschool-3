@@ -1,0 +1,157 @@
+% Prepared by Karl Ecklund September 2002
+% Questions, Improvements, Comments to kme and CLEOAC
+%
+% LATEX 2e Template for CLEO Papers
+% YOU MUST USE REVTEX4 and latex 2e
+%
+% Checklist for Paper Drafts:
+% ---------------------------
+% 0) Use appropriate \documetclass line as indicated below
+% 1) Draft Number: Use latest CBX number, append A for the first vote
+%                                (B,C,... for subsequent if any votes)
+% 2) Don't use CLNS or CLEO numbers - this happens after your vote.
+% 3) Title; use \\ to break title over several lines.
+% 4) Abstract
+% 5) For the Author list use CLEO Collaboration only
+% 6) Body
+% 
+% Checklist for Journal Submissions:
+% ----------------------------------
+% 0) Use appropriate \documetclass line as indicated below
+%    - For CLNS, hep-ex, preprints, conf. paper use CLNS version
+%    - For PRL submission use PRL version
+%    - For PRD submission use PRD version 
+%      AND use \author{(CLEO Collaboration)} instead of \collaboration{CLEO}
+%      SEE PRD_SPECIAL_CHANGEME in author list during step 5 below
+% 1) CLEO paper number (from CLEOAC)
+% 2) CLNS preprint number (from CLEOAC)
+% 3) Title; use \\ to break title over several lines.
+% 4) Abstract
+% 5) Author list (from CLEOAC)
+% 6) PACS codes
+% 7) Body
+% 8) Add acknowledgments
+% 9) Hardcode the \date when ready to submit to journal and hep-ex.
+%
+% Checklist for Conference Papers:
+% --------------------------------
+% 0) Use appropriate \documetclass line as indicated below
+%    - For conf. paper use CLNS version
+% 1) CLEO conference paper number (from CLEOAC) (don't use CLNS)
+% 2) Title; use \\ to break title over several lines.
+% 3) To \thanks after title, add appropriate conference info.
+% 4) Abstract
+% 5) Author list (from CLEOAC)
+% 6) Body
+% 7) Add acknowledgments
+% 8) Hardcode the \date when ready to submit to conference and hep-ex.
+% 
+% KNOWN PROBLEMS with template and REVTEX4
+% - can't have \collaboration in PRD style grouped author list
+%   Using \author{(CLEO Collaboration)} instead
+% - can't make abstract appear before full author list ala CLNS notes
+%   Abandoning this as the format for CLNS.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Select one of the \documentclass lines below for your paper
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% Use for CLNS preprint (hep-ex) and Paper Drafts
+\documentclass[aps,prd,preprint,superscriptaddress,tightenlines,nofootinbib]{revtex4}
+
+%%%%%%%%%%%%%% Use for PRL
+%\documentclass[aps,prl,twocolumn,superscriptaddress,showpacs]{revtex4}
+
+%%%%%%%%%%%%%% Use for PRD submission
+%\documentclass[aps,prd,preprint,nopreprintnumbers,nofootinbib,showpacs]{revtex4}
+%%%%%%%%%%%%%% Use for PRD formatting tables and figures in 2 column
+%\documentclass[aps,prd,twocolumn,nofootinbib,showpacs]{revtex4}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+
+\begin{document}
+
+%\preprint line(s) will be ignored for PRL/PRD
+%\preprint{CLEO Draft YY-NNA} % For paper draft CBX YY-NN -> Draft YY-NNA
+%\preprint{CLEO CONF YY-NN}   % For conference papers
+%\preprint{ICHEP ABSnnn}      % For conference papers
+\preprint{CLNS YY/NNNN}       % for CLNS notes
+\preprint{CLEO YY-NN}         % for CLNS notes
+
+\title{Your Title Goes Here}
+% for conference papers (ask CLEOAC for appropriate text)
+%\thanks{Submitted to the 31$^{\rm st}$ International Conference on High Energy
+%Physics, July 2002, Amsterdam}
+
+%-------- INSERT HERE ------------
+% Your author list goes here  REMOVE EVERYTHING to END INSERT and
+% replace with your authorlist (ask cleoac).
+
+\author{A.~Cleon}
+\affiliation{F.~R.~Newman Laboratory for Elementary-Particle Physics,
+Ithaca, New York 14853-8001}
+
+\author{This Is}
+\author{Not A Full}
+\author{Author List}
+\author{\ldots}
+\affiliation{Physics Department, Cornell University
+Ithaca, New York 14853}
+
+\author{You Should}
+\author{Get One}
+\author{From CLEOAC}
+\author{}
+\thanks{Put it in.}
+\affiliation{Collegetown Bagels and Ithaca Bakery, Ithaca, New York, 14850}
+
+%\author{(CLEO Collaboration)}     %FOR PRD_SPECIAL_CHANGEME
+\collaboration{CLEO Collaboration} %FOR PRL and CLNS (superscriptaddress)
+\noaffiliation
+
+%-------- END INSERT ------------
+
+%please hard code the date when you have a final draft and submit to CLEOAC
+\date{\today}
+
+\begin{abstract} 
+% Insert abstract here.
+We present recent results from the CLEO experiment.
+\end{abstract}
+
+\pacs{13.20.He}
+\maketitle
+
+% Insert body of the text here.
+We use the CLEO detector, described more fully in
+\cite{Kubota:1992ww,Hill:1998ea}, to study the production and decay of
+particles in $e^+e^-$ collisions at the Cornell Electron Storage Ring.
+(See Fig.~\ref{fig:cleo}.)
+The data are collected at or near the  energies of the $\Upsilon(nS)$
+resonances, where $n=1$--$4$, or in the region of the $J/\psi$ and
+$\psi(nS)$ resonances, $n=2,3$.
+
+%Example of how to insert eps files as figures
+\begin{figure}
+%this works for computers connected to the LEPP network.
+%copy the figure file from Cornell if you want to try this elesewhere.
+\includegraphics*[width=3.75in]{/nfs/web/restricted/figures/puboff/Miscellaneous/cleo_side_ill.ps}
+\caption{The CLEO II Detector}
+\label{fig:cleo}
+\end{figure}
+
+% CURRENT acknowledgements go here...
+% download from the CLEO website 
+% http://www.lns.cornell.edu/restricted/CLEO/analysis/ac_help/ack.html
+
+\begin{thebibliography}{99}
+
+\bibitem{Kubota:1992ww} % CLEO II Detector
+Y.~Kubota {\it et~al.}, {Nucl. Instrum. Meth. A} \textbf{320}, {66} ({1992}).
+
+\bibitem{Hill:1998ea}   % CLEO II.V silicon
+T.~S.~Hill, {Nucl. Instrum. Meth. A} \textbf{{418}}, {32} ({1998}).
+
+\end{thebibliography}
+\end{document}

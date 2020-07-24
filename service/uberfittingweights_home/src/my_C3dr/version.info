@@ -1,0 +1,56 @@
+
+Module : C3dr
+Date   : Tue Dec 21 15:19:21 1999
+User   : mclean
+Old Tag: 
+New Tag: v01_00_00
+Message: Initial Release
+
+Module : C3dr
+Date   : Wed Dec 29 12:22:39 1999
+User   : cdj
+Old Tag: v01_00_00
+New Tag: v01_00_01
+Message: 
+-added missing definitions of kFBUSChannel, kElecMap, kWeightPhi
+-modified stream's string names to follow convention (all lower case and
+  beginning with detector's prefix,i.e. dr)
+
+Module : C3dr
+Date   : Wed Mar 29 17:20:57 2000
+User   : mclean
+Old Tag: v01_00_01
+New Tag: v02_00_00
+Message: 
+Added two new streams: kt0hvcard and kt0channelv2
+<Please type your Tag Message>
+Module : C3dr
+Date   : Wed May 10 13:51:01 2000
+User   : mclean
+Old Tag: v02_00_00
+New Tag: v02_01_00
+Message: 
+Added drglobalt0 stream
+<Please type your Tag Message>
+Module : C3dr
+Date   : Sun Jul  2 13:41:45 2000
+User   : hennessy
+Old Tag: v02_01_00
+New Tag: v02_02_00
+Message: 
+added dradcsaturation
+<Please type your Tag Message>
+Module : C3dr
+Date   : Fri Oct 27 16:40:18 2000
+User   : mclean
+Old Tag: v02_02_00
+New Tag: v02_03_00
+Message: 
+Added kvarious and kDriftDatav2 streams
+<Please type your Tag Message>
+Module : C3dr
+Date   : Wed Jan 29 15:52:30 2003
+User   : cleo3
+Old Tag: v02_03_00
+New Tag: v02_04_00
+Message: added class keyword to friend declaration

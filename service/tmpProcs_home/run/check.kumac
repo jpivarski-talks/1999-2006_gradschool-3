@@ -1,0 +1,169 @@
+fortran/file 65 'check.ps'
+graphics/metafile 65 -111
+igset mtype 1
+
+h/file 26 db16.rzn
+h/file 27 db17.rzn
+h/file 28 db18.rzn
+h/file 29 db19.rzn
+h/file 31 db21.rzn
+h/file 32 db22.rzn
+h/file 33 db23.rzn
+h/file 35 db25.rzn
+h/file 37 db27.rzn
+
+opt logy
+set stat 0101110
+
+zone 3 3
+opt sta
+h/cr/title 'reduced chi2'
+h/copy //lun26/checkbunchbug/1 101 'db16'
+h/copy //lun27/checkbunchbug/1 102 'db17'
+h/copy //lun28/checkbunchbug/1 103 'db18'
+h/copy //lun29/checkbunchbug/1 104 'db19'
+h/copy //lun31/checkbunchbug/1 105 'db21'
+h/copy //lun32/checkbunchbug/1 106 'db22'
+h/copy //lun33/checkbunchbug/1 107 'db23'
+h/copy //lun35/checkbunchbug/1 108 'db25'
+h/copy //lun37/checkbunchbug/1 109 'db27'
+h/plot 101
+h/plot 102
+h/plot 103
+h/plot 104
+h/plot 105
+h/plot 106
+h/plot 107
+h/plot 108
+h/plot 109
+
+zone 1 1
+opt nsta
+h/cr/title ' '
+normalize 101 1.
+normalize 102 1.
+normalize 103 1.
+normalize 104 1.
+normalize 105 1.
+normalize 106 1.
+normalize 107 1.
+normalize 108 1.
+normalize 109 1.
+h/copy 101 100 'reduced chi2'
+h/plot 100
+h/plot 102 's'
+h/plot 103 's'
+h/plot 104 's'
+h/plot 105 's'
+h/plot 106 's'
+h/plot 107 's'
+h/plot 108 's'
+h/plot 109 's'
+
+zone 3 3
+opt sta
+h/cr/title 'err cottheta'
+h/copy //lun26/checkbunchbug/2 201 'db16'
+h/copy //lun27/checkbunchbug/2 202 'db17'
+h/copy //lun28/checkbunchbug/2 203 'db18'
+h/copy //lun29/checkbunchbug/2 204 'db19'
+h/copy //lun31/checkbunchbug/2 205 'db21'
+h/copy //lun32/checkbunchbug/2 206 'db22'
+h/copy //lun33/checkbunchbug/2 207 'db23'
+h/copy //lun35/checkbunchbug/2 208 'db25'
+h/copy //lun37/checkbunchbug/2 209 'db27'
+h/plot 201
+h/plot 202
+h/plot 203
+h/plot 204
+h/plot 205
+h/plot 206
+h/plot 207
+h/plot 208
+h/plot 209
+
+zone 1 1
+opt nsta
+h/cr/title ' '
+normalize 201 1.
+normalize 202 1.
+normalize 203 1.
+normalize 204 1.
+normalize 205 1.
+normalize 206 1.
+normalize 207 1.
+normalize 208 1.
+normalize 209 1.
+h/copy 201 200 'err cottheta'
+h/plot 200
+h/plot 202 's'
+h/plot 203 's'
+h/plot 204 's'
+h/plot 205 's'
+h/plot 206 's'
+h/plot 207 's'
+h/plot 208 's'
+h/plot 209 's'
+
+zone 3 3
+opt sta
+h/cr/title 'err z0'
+h/copy //lun26/checkbunchbug/3 301 'db16'
+h/copy //lun27/checkbunchbug/3 302 'db17'
+h/copy //lun28/checkbunchbug/3 303 'db18'
+h/copy //lun29/checkbunchbug/3 304 'db19'
+h/copy //lun31/checkbunchbug/3 305 'db21'
+h/copy //lun32/checkbunchbug/3 306 'db22'
+h/copy //lun33/checkbunchbug/3 307 'db23'
+h/copy //lun35/checkbunchbug/3 308 'db25'
+h/copy //lun37/checkbunchbug/3 309 'db27'
+h/plot 301
+h/plot 302
+h/plot 303
+h/plot 304
+h/plot 305
+h/plot 306
+h/plot 307
+h/plot 308
+h/plot 309
+
+zone 1 1
+opt nsta
+h/cr/title ' '
+normalize 301 1.
+normalize 302 1.
+normalize 303 1.
+normalize 304 1.
+normalize 305 1.
+normalize 306 1.
+normalize 307 1.
+normalize 308 1.
+normalize 309 1.
+h/copy 301 300 'err z0'
+h/plot 300
+h/plot 302 's'
+h/plot 303 's'
+h/plot 304 's'
+h/plot 305 's'
+h/plot 306 's'
+h/plot 307 's'
+h/plot 308 's'
+h/plot 309 's'
+
+close 65
+
+
+nt/hmerge 'dbother.rzn' 'db16.rzn' 'db17.rzn' 'db19.rzn' 'db21.rzn' 'db22.rzn' 'db23.rzn' 'db25.rzn' 'db27.rzn'
+
+h/file 1 db18.rzn
+h/file 2 dbother.rzn
+
+h/copy //lun1/checkbunchbug/1 100 'reduced chi2, odd runs are solid, other are dashed'
+h/copy //lun2/checkbunchbug/1 200
+normalize 100
+normalize 200
+max 100 22000000
+h/plot 100(0.:20.)
+h/plot 200(0.:20.) 's'
+pict/print 'check3.ps'
+

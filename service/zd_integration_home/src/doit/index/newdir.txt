@@ -1,0 +1,398 @@
+#
+# $Id: newdir.txt,v 1.1.1.1 1998/02/06 19:11:50 dpp Exp $
+#
+# $Log: newdir.txt,v $
+# Revision 1.1.1.1  1998/02/06 19:11:50  dpp
+# DOIT first release.
+#
+# Revision 1.1.1.1  1997/04/30 12:31:30  clib
+# Developmental version of DUET.
+#
+# Revision 1.1.1.1  1994/10/08 01:01:22  zfiles
+# first version of doit in CVS
+#
+#
+#CMZ :  6.00/01 16/07/93  14.01.26  by  Dan Peterson
+#-- Author :
+
+
+This is the translation of the (old) DUET.CMZ
+                        to the (new) NUDE.CMZ
+giving the new subdirectory where the deck is found
+
+OLD       DECK       NEW        TRASH
+DIRECTORY            DIRECTORY  DIRECTORY
+-----------------------------------
+DUBASE
+          ABITCD                DEL_NOCALL
+          ANAL                  DEL_GETPUT
+          ARCFUN     GEOMCALC
+          ATN2PI                OBSOLETE
+          BEGCLK     DIAGDUET
+          CBITCD     CDTRACK
+          CIRCLE                DEL_NOCALL
+          CTHITW                DEL_NOCALL
+          DECSRI     UTILITY
+          DECSRR     UTILITY
+          DRCORR                DEL_NOCALL
+          DUEND                 DEL_GETPUT
+          DUETBJ     PROCESS
+          DUETBR     PROCESS
+          DUETEJ     PROCESS
+          DUETER     PROCESS
+          DUETEV     PROCESS
+          DUETFF     FFREAD
+          DUETFFC    FFREAD
+          DUETKD     PROCESS
+          DUETNL     NAMELIST
+          DUETVR     PROCESS
+          DUHBOK     DIAGHBOOK
+          DUHIST     DIAGHBOOK
+          DUPFF      FFREAD
+          DUPLOT     KUIP
+          DUPLT2     KUIP
+          DUSER                 DEL_GETPUT
+          EFMASS     UTILITY
+          EVLOG                 DEL_GETPUT
+          FDIVID     UTILITY
+          FINDHW     HITSONTRAK
+          GETANS                DEL_NOCALL
+          GETSTR                DEL_NOCALL
+          IBITCD     CDTRACK
+          IGETNM                DEL_NOCALL
+          INCSRI     UTILITY
+          INCSRR     UTILITY
+          IXLYR                 DEL_NOCALL
+          LBITCD     CDTRACK
+          NBITCD     CDTRACK
+          PBITCD     CDTRACK
+          PMPI       UTILITY
+          PUTDH                 DEL_GETPUT
+          SBITCD     CDTRACK
+          SMXVEC     FITTER
+          UNKINK                DEL_NOCALL
+          VANGLE                DEL_NOCALL
+          VDFPIE                DEL_VDF
+          VDFTRK                DEL_VDF
+          VDWHST                DEL_VDF
+          VMASS                 DEL_NOCALL
+          Z2PI       UTILITY
+          ZBITCD     CDTRACK
+          DUCOLR     KUIP
+          DUFIND     CONTROL
+          DU3DTR     CONTROL
+          DUCFTR     CONTROL
+          DULFTR     CONTROL
+          DULFDN     CONTROL
+          DUDRDG     CONTROL
+          DUDIAG     DIAGDUET
+          ENDCLK     DIAGDUET
+          DUVFND     KUIP
+          DUVFCR     VFIND
+          DUVFAV     VFIND
+          DUVERT     VFIND
+          VMASS2                DEL_NOCALL
+          DUNAME     KUIP
+          DUSQSH     HITCORRCT
+          DUXTS      KUIP
+          DUUSQD     KUIP
+CDDUET
+          CDANAL     DIAGHBOOK
+          CDANLC     SEEDTRACK
+          CDARC      DIAGPLOTO
+          CDBMAG     INITIALIZ
+          CDCANH     HITLIST
+          CDCFID     GEOMCALC
+          CDCLUS     HITSONTRAK
+          CDCMPR     CDTRACK
+          CDCORH     HITCORRCT
+          CDCURL     CDTRACK
+          CDDIAG     DIAGDGH
+          CDDUPL     CDTRACK
+          CDEVTX     VFIND
+          CDFILL     HITSONTRAK
+          CDFTCH     SEEDTRACK
+          CDGTWK     DIAGPLOTO
+          CDHIST     DIAGHBOOK
+          CDHITC     HITLIST
+          CDHITS     HITSONTRAK
+          CDHRDI     DIAGPLOTO
+          CDJOIN     CDTRACK
+          CDKABG     GEOMCALC
+          CDKILL     CDTRACK
+          CDMISS     CDTRACK
+          CDPD22     DIAGDUET
+          CDPD23     DIAGDUET
+          CDPLDT     DIAGPLOTO
+          CDPLEV     DIAGPLOTO
+          CDPLHT     DIAGPLOTO
+          CDPLIN     UTILITY
+          CDPLON     DIAGPLOTO
+          CDPLOT     DIAGPLOTO
+          CDPLPA     DIAGPLOTO
+          CDPLSD     DIAGPLOTO
+          CDPLTI     DIAGPLOTO
+          CDPLTR     DIAGPLOTO
+          CDPLWR     DIAGPLOTO
+          CDPNTR     UTILITY
+          CDPRI1     DIAGDUET
+          CDPRI2     DIAGDUET
+          CDPTIT     DIAGPLOTO
+          CDPTRH     DIAGDUET
+          CDPTRK     DIAGDUET
+          CDRADZ                DEL_NOCALL
+          CDRFTM     HITCORRCT
+          CDRGSD     SEEDTRACK
+          CDRWCP     HITLIST
+          CDSEED     SEEDTRACK
+          CDSTOR     CDTRACK
+          CDTRAK     DIAGPLOTO
+          CDUSE      HITSONTRAK
+          CDWGTD     HITCORRCT
+          CDWLST     DIAGDUET
+          CDZFIN     CDTRACK
+          CDNEWT     CDTRACK
+          CDCORF     HITCORRCT
+          CDPICK     DIAGPLOTO
+          CDWTQD     HITCORRCT
+CFDUET
+          CF2FIT     FITTER
+          CFADDL     LINKTREE
+          CFCFIL     LINKTREE
+          CFCFIT     FITTER
+          CFCUTS     LINKTREE
+          CFDFIT     FITTER
+          CFDRDG     HITSONTRAK
+          CFHIST     DIAGHBOOK
+          CFHITS     CF
+          CFIND      CF
+          CFINIT     LINKTREE
+          CFLINK     LINKTREE
+          CFLIPH     CF
+          CFMTRX     FITTER
+          CFOCUT     LINKTREE
+          CFRFIT     FITTER
+          CFTCUT     CF
+          CFWIRS     HITSONTRAK
+          CFXFIT     CF
+          CFXYHT     HITCORRCT
+          CFEXTN     EXTENDTRAK
+          CFGROW     EXTENDTRAK
+          CFFLIP     EXTENDTRAK
+          CFXFIO     CF
+          CFCHOP     CF
+          CFHITA     CF
+LFDUET
+          LFADDL     LINKTREE
+          LFCTHT     HITCORRCT
+          LFCUTS     LINKTREE
+          LFEXTN     LF
+          LFHIST     DIAGHBOOK
+          LFHITS     LF
+          LFIND      LF
+          LFINIT     LINKTREE
+          LFLERF     FITTER
+          LFLFIT     FITTER
+          LFLINK     LINKTREE
+          LFLIPH     LF
+          LFOCUT     LINKTREE
+          LFPULL     LF
+          LFQDIV     HITCORRCT
+          LFQORD     CHARGDIV
+          LFRFIT     FITTER
+          LFTCUT     LF
+          LFXFIT     LF
+          LFXYHT     HITCORRCT
+          LFQTRK     CHARGDIV
+          LFQDAD     CHARGDIV
+          QDIVBR     CHARGDIV
+          LFLSQF     FITTER
+          LFLEQD     CHARGDIV
+TFDUET
+          TFBERI     DIAGDUET
+          TFBERR     DIAGDUET
+          TFCLBD     LINKTREE
+          TFCLMB     LINKTREE
+          TFCLR      LINKTREE
+          TFGETR     LINKTREE
+          TFGMBD     INITIALIZ
+          TFGMI0     INITIALIZ
+          TFGMI1     INITIALIZ
+          TFGMI2     INITIALIZ
+          TFINIT     INITIALIZ
+          TFLIMB     LINKTREE
+          TFLOOP     LINKTREE
+          TFNEWT     LINKTREE
+          TFP3DT     DIAGDUET
+          TFPBER     DIAGDUET
+          TFPCTL     DIAGDUET
+          TFPCUT     DIAGDUET
+          TFPETR     DIAGDUET
+          TFPGET     DIAGDUET
+          TFPHIT     DIAGDUET
+          TFPLHT     DIAGDUET
+          TFPLNK     DIAGDUET
+          TFPROB     UTILITY
+          TFPSTK     DIAGDUET
+          TFPSUB     DIAGDUET
+          TFPSUM     DIAGDUET
+          TFPTIM     DIAGDUET
+          TFPTMS     DIAGDUET
+          TFPTRK     DIAGDUET
+          TFSORT     LINKTREE
+          TFSTAT     DIAGDUET
+          TFTCUT     LINKTREE
+          TFTHIT     LINKTREE
+          TFTMBD     DIAGDUET
+          TFUFIT     LINKTREE
+          TFUNIN     INITIALIZ
+          TFXYHT     HITCORRCT
+          TFXYTR     GEOMCALC
+          TFTREE     LINKTREE
+          TFORST     LINKTREE
+          TFMKTR     LINKTREE
+          TF3FIT     FITTER
+          TFCOV      FITTER
+          TFPUSH     TRAKSTAK
+          TFBETR     LINKTREE
+          TFUSTK     TRAKSTAK
+          TFOSTK     TRAKSTAK
+          TFPOPF     TRAKSTAK
+          TFPOPS     TRAKSTAK
+          TFPHTR     GEOMCALC
+          TFHINI     DIAGHBOOK
+          TFHFIL     DIAGHBOOK
+          TFHWRT     DIAGHBOOK
+          TFDSTK     TRAKSTAK
+          TFKINK     FITTER
+DUSEQ
+          ANLTMP        DUSEQ
+          CDCORRCD      DUSEQ
+          CDPLOTCD      DUSEQ
+          CDSCRTCD      DUSEQ
+          CDTRAKCD      DUSEQ
+          CDTRAKCN      DUSEQ
+          CDTYPECD      DUSEQ
+          CFCTLCDE      DUSEQ
+          DUTIL         DUSEQ
+          LFCTLCDE      DUSEQ
+          LFTYPECD      DUSEQ
+          TFBITCOM      DUSEQ
+          TFCONSPA      DUSEQ
+          TFCTLCDE      DUSEQ
+          TFCTLPAR      DUSEQ
+          TFERBFCD      DUSEQ
+          TFGEOMCD      DUSEQ
+          TFGEOMPA      DUSEQ
+          TFHISTPA      DUSEQ
+          TFHITSCD      DUSEQ
+          TFINDPAR      DUSEQ
+          TFLINKCD      DUSEQ
+          TFSTAKCD      DUSEQ
+          TFTIME        DUSEQ
+          TFTRAKCD      DUSEQ
+          TFTRKSCD      DUSEQ
+          TFTYPECD      DUSEQ
+          TFUNITCD      DUSEQ
+          VDHISTCD      DUSEQ
+          VDHISTPA      DUSEQ
+          VDSEEDCD      DUSEQ
+          ZFCOM         DUSEQ
+          DUSCRT        DUSEQ
+          QDSEQ         DUSEQ
+SFDUET
+          SFCHAN     SF
+          SFMERG     SF
+          SFIND      SF
+          SFINIT     SF
+          SFLWF      SF
+          SFNEXT     SF
+          DSFHIT     DIAGSF
+          SFFILL     SF
+          DPSFBJ                DEL_DPSF
+          DPSFBR                DEL_DPSF
+          DPSFEV                DEL_DPSF
+          DPSFER                DEL_DPSF
+          DPSFEJ                DEL_DPSF
+          DPSFVR                DEL_DPSF
+          SFOVER                DEL_DPSF
+          DSFRFV     DIAGSF
+          DSFCHV1    DIAGSF
+          DSFCHV     DIAGSF
+          SFCRATE    DIAGSF
+          SF_TDC_D   SF
+          SFEFF                 DEL_DPSF
+          CFLAST     CF
+          SFENDP     SF
+          QDRLGI                DEL_DPSF
+          DSFDCH     DIAGSF
+          SFFCMP     SF
+          SFFTRK     SF
+          SFHITS     HITSONTRAK
+          SFMERC     SF
+SFSEQ
+          SFPD       SFSEQ
+   will become  SFPAR
+                SFCOM
+                SFOUT
+                SFFIX
+                ESCAPPAR
+          SFGKSPD       SFSEQ
+          XTS_CNTL      SFSEQ
+          SFXTSPD       SFSEQ
+          COSMPD        SFSEQ
+$VERSION
+          did not copy
+INSTALL
+          DUET          INSTALL
+          BUGS          INSTALL
+RUNFIL
+          DUET          RUNFIL
+XTSUBS
+          XTS_BORD      DIAGXTS
+          XTS_CHVS      DIAGXTS
+          XTS_FILL      DIAGXTS
+          XTS_GDUM      DIAGXTS
+          XTS_GEOM      DIAGXTS
+          XTS_HITS      DIAGXTS
+          XTS_INFO      DIAGXTS
+          XTS_LEAV      DIAGXTS
+          XTS_PREP      DIAGXTS
+          XTS_RFV       DIAGXTS
+          XTS_RFV2      DIAGXTS
+          XTS_RFVI      DIAGXTS
+          XTS_TRAK      DIAGXTS
+          XTS_TRAN      DIAGXTS
+          XTS_ZHIT      DIAGXTS
+          XTS_ZOOM      DIAGXTS
+
+
+
+
+
+
+
+
+
+
+
+
+     RUNFIL
+     XTSUBS
+ Following DECKS :
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,59 @@
+nt/cr 1 'thetatest' 3 ! ! 'layer' 'costheta' 'fw'
+nt/read 1 ../rzn/thetatest.ntuple
+nt/cr 2 'zthetatest' 3 ! ! 'layer' 'costheta' 'fw'
+nt/read 2 ../rzn/zthetatest.ntuple
+
+nt/cr 3 'phitest' 3 ! ! 'layer' 'phi' 'fw'
+nt/read 3 ../rzn/phitest.ntuple
+nt/cr 4 'zphitest' 3 ! ! 'layer' 'phi' 'fw'
+nt/read 4 ../rzn/zphitest.ntuple
+
+fortran/file 65 'thetaphitest.ps'
+graphics/metafile 65 -111
+igset mtype 1
+
+zone 2 2
+
+null -1 1 0 3
+nt/plot 1.fw%costheta ! ! ! ! 's'
+set fais 1
+set faci 2
+fpoint -0.4 1.5 0.02
+fpoint -0.2 1 0.02
+fpoint 	0.0 2 0.02
+fpoint 	0.2 1 0.02
+fpoint 	0.4 1.5 0.02
+text 0 0.5 'DR fw VS cosTheta' ! ! 'c'
+
+null -1 1 0 3
+nt/plot 2.fw%costheta ! ! ! ! 's'
+set fais 1
+set faci 2
+fpoint -0.4 1.5 0.02
+fpoint -0.2 1 0.02
+fpoint 	0.0 2 0.02
+fpoint 	0.2 1 0.02
+fpoint 	0.4 1.5 0.02
+text 0 0.5 'ZD fw VS cosTheta' ! ! 'c'
+
+null 0 6.2831852 0 2.3
+nt/plot 3.fw%phi ! ! ! ! 's'
+set fais 1
+set faci 2
+fpoint 0.7853981 2 0.02
+fpoint 2.3561943 1.5 0.02
+fpoint 3.9269905 1.5 0.02
+fpoint 5.4977867 1 0.02
+text 3.1415926 0.5 'DR fw VS phi' ! ! 'c'
+
+null 0 6.2831852 0 2.3
+set fais 1
+set faci 2
+nt/plot 4.fw%phi ! ! ! ! 's'
+fpoint 0.7853981 2 0.02
+fpoint 2.3561943 1.5 0.02
+fpoint 3.9269905 1.5 0.02
+fpoint 5.4977867 1 0.02
+text 3.1415926 0.5 'ZD fw VS phi' ! ! 'c'
+
+close 65

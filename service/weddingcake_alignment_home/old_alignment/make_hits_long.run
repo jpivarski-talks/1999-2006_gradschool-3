@@ -1,0 +1,904 @@
+#!/usr/local/bin/tcsh
+
+cd $HOME/weddingcake_alignment/run/
+. /nfs/cleo3/scripts/cleo3defs
+c3rel cleo3_Pass2_Nov27_2001
+
+#  OSAGENT_PORT=31416
+#  export OSAGENT_PORT
+#  C3_CONST=/nfs/c3con/ccon3/constants/Codi
+#  export C3_CONST
+
+suez -q > $USER_TMP/make_hits.log << EOF
+
+module sel LoadHbook4MModule
+module sel HbookHistogramModule
+hbook file ../dafedir/hits_long.rzn
+hbook init
+
+default prompt off
+exception continueEventLoop on
+
+module sel CorbaModule
+corba init
+module sel ConstantsModule
+constants in \$env(C3_CONST) meta Offline MetaListRetrieval exclude_streams drweightlayer dralignment
+constants in \$env(C3_CONST) meta Online MetaListRetrieval
+constants in \$env(C3_CONST) meta CesrOffset MetaListRetrieval
+constants in \$env(C3_CONST) meta RunByRun MetaListRetrieval
+constants in \$env(C3_CONST) meta BaseGeometry MetaListRetrieval
+# constants in \$env(C3_CONST) meta SVHybridEfficiency MetaListRetrieval
+
+source_format sel AsciiSourceFormat
+file in \$env(C3_DATA)/material.asc basegeometry
+
+module sel RunStatisticsSourceModule
+runstatistics in
+
+source_format sel SVHybridEfficiencyFileSourceFormat
+file in normal.svhybridefficiency
+
+source_format sel DRWeightLayerFileSourceFormat
+file in stereo_only.drweightlayer
+
+source_format sel DRGeomAlignmentFileSourceFormat
+file in dec10.drgeomalignment
+
+prod sel ADRGeomProd
+prod sel DRGeom
+prod sel ASiStorePro
+prod sel SiGeom
+prod sel IRGeomProd
+prod sel RawDataProd
+prod sel DRCACorrectHitProd
+prod sel DRCAClusterProd
+prod sel PreliminaryDRHitProd
+prod sel CalibratedDRHitProd
+prod sel CorrectedSVStripProd
+prod sel SiHitsProd
+prod sel CDOffCal
+prod sel TriggerL1DataProd
+prod sel TrackletBunchFinder
+prod sel DRHitCorrectorProd
+
+prod sel MagFieldProd
+# param MagFieldProd alwaysUseDefault true
+# param MagFieldProd defaultHallProbeReading 1.49033
+
+# Load Doit
+prod sel DoitProd
+param DoitProd UseSilicon false
+param DoitProd ContinueIfHitsMissing true
+
+# Load ChisqFit fit (don't use Si yet)
+prod sel ChisqFitProd
+# just look at the DR, ignore silicon and cathode
+param ChisqFitProd UseSVRPhi false
+param ChisqFitProd UseSVZ false
+# here's another change: cathodes are aligned to the stereo section
+# only, so why not use them and determine cotTheta a little better?
+param ChisqFitProd UseDRCathode true
+
+param ChisqFitProd UseDRAxial true
+param ChisqFitProd UseDRStereoU true
+param ChisqFitProd UseDRStereoV true
+
+# prod sel CesrBeamEnergyProd
+# prod sel EventTypeProd
+# run_file \$env(C3_SCRIPTS)/Ccfc.tcl
+# proc sel CcEventSelectProc
+# param CcEventSelectProc BarrelBhabhaKeep true
+# param CcEventSelectProc EndcapBhabhaKeep true
+
+prod sel TrackDeliveryProd
+prod sel SeedToTRTrackProd
+prod sel NavigationProd
+prod sel C3ccProd
+prod sel CcfcReconProd
+prod sel CcGeomProd
+prod sel C3ccReconProd
+prod sel C3ccConProd
+prod sel TrackShowerMatchingProd
+prod sel DBEventHeaderProd
+
+module sel DBModule
+database in /nfs/cleo3/database/data16/db beginrun event startrun endrun
+source activate db beginrun event startrun endrun
+database read_collection rawdata bhabha
+database run 121339 121536
+
+proc sel ../build_SunOS/shlib/HitLevel
+
+report level NOTICE
+
+echo "switching to 121339..."
+goto 121339 1
+go 500
+
+echo "switching to 121340..."
+goto 121340 1
+go 500
+
+echo "switching to 121341..."
+goto 121341 1
+go 500
+
+echo "switching to 121342..."
+goto 121342 1
+go 500
+
+echo "switching to 121343..."
+goto 121343 1
+go 500
+
+echo "switching to 121344..."
+goto 121344 1
+go 500
+
+echo "switching to 121345..."
+goto 121345 1
+go 500
+
+echo "switching to 121346..."
+goto 121346 1
+go 500
+
+echo "switching to 121347..."
+goto 121347 1
+go 500
+
+echo "switching to 121348..."
+goto 121348 1
+go 500
+
+echo "switching to 121349..."
+goto 121349 1
+go 500
+
+echo "switching to 121350..."
+goto 121350 1
+go 500
+
+echo "switching to 121351..."
+goto 121351 1
+go 500
+
+echo "switching to 121352..."
+goto 121352 1
+go 500
+
+echo "switching to 121353..."
+goto 121353 1
+go 500
+
+echo "switching to 121354..."
+goto 121354 1
+go 500
+
+echo "switching to 121355..."
+goto 121355 1
+go 500
+
+echo "switching to 121356..."
+goto 121356 1
+go 500
+
+echo "switching to 121357..."
+goto 121357 1
+go 500
+
+echo "switching to 121358..."
+goto 121358 1
+go 500
+
+echo "switching to 121359..."
+goto 121359 1
+go 500
+
+echo "switching to 121360..."
+goto 121360 1
+go 500
+
+echo "switching to 121361..."
+goto 121361 1
+go 500
+
+echo "switching to 121362..."
+goto 121362 1
+go 500
+
+echo "switching to 121363..."
+goto 121363 1
+go 500
+
+echo "switching to 121364..."
+goto 121364 1
+go 500
+
+echo "switching to 121365..."
+goto 121365 1
+go 500
+
+echo "switching to 121366..."
+goto 121366 1
+go 500
+
+echo "switching to 121367..."
+goto 121367 1
+go 500
+
+echo "switching to 121368..."
+goto 121368 1
+go 500
+
+echo "switching to 121369..."
+goto 121369 1
+go 500
+
+echo "switching to 121370..."
+goto 121370 1
+go 500
+
+echo "switching to 121371..."
+goto 121371 1
+go 500
+
+echo "switching to 121372..."
+goto 121372 1
+go 500
+
+echo "switching to 121373..."
+goto 121373 1
+go 500
+
+echo "switching to 121374..."
+goto 121374 1
+go 500
+
+echo "switching to 121375..."
+goto 121375 1
+go 500
+
+echo "switching to 121376..."
+goto 121376 1
+go 500
+
+echo "switching to 121377..."
+goto 121377 1
+go 500
+
+echo "switching to 121378..."
+goto 121378 1
+go 500
+
+echo "switching to 121379..."
+goto 121379 1
+go 500
+
+echo "switching to 121380..."
+goto 121380 1
+go 500
+
+echo "switching to 121381..."
+goto 121381 1
+go 500
+
+echo "switching to 121382..."
+goto 121382 1
+go 500
+
+echo "switching to 121383..."
+goto 121383 1
+go 500
+
+echo "switching to 121384..."
+goto 121384 1
+go 500
+
+echo "switching to 121385..."
+goto 121385 1
+go 500
+
+echo "switching to 121386..."
+goto 121386 1
+go 500
+
+echo "switching to 121387..."
+goto 121387 1
+go 500
+
+echo "switching to 121388..."
+goto 121388 1
+go 500
+
+echo "switching to 121389..."
+goto 121389 1
+go 500
+
+echo "switching to 121390..."
+goto 121390 1
+go 500
+
+echo "switching to 121391..."
+goto 121391 1
+go 500
+
+echo "switching to 121392..."
+goto 121392 1
+go 500
+
+echo "switching to 121393..."
+goto 121393 1
+go 500
+
+echo "switching to 121394..."
+goto 121394 1
+go 500
+
+echo "switching to 121395..."
+goto 121395 1
+go 500
+
+echo "switching to 121396..."
+goto 121396 1
+go 500
+
+echo "switching to 121397..."
+goto 121397 1
+go 500
+
+echo "switching to 121398..."
+goto 121398 1
+go 500
+
+echo "switching to 121399..."
+goto 121399 1
+go 500
+
+echo "switching to 121400..."
+goto 121400 1
+go 500
+
+echo "switching to 121401..."
+goto 121401 1
+go 500
+
+echo "switching to 121402..."
+goto 121402 1
+go 500
+
+echo "switching to 121403..."
+goto 121403 1
+go 500
+
+echo "switching to 121404..."
+goto 121404 1
+go 500
+
+echo "switching to 121405..."
+goto 121405 1
+go 500
+
+echo "switching to 121406..."
+goto 121406 1
+go 500
+
+echo "switching to 121407..."
+goto 121407 1
+go 500
+
+echo "switching to 121408..."
+goto 121408 1
+go 500
+
+echo "switching to 121409..."
+goto 121409 1
+go 500
+
+echo "switching to 121410..."
+goto 121410 1
+go 500
+
+echo "switching to 121411..."
+goto 121411 1
+go 500
+
+echo "switching to 121412..."
+goto 121412 1
+go 500
+
+echo "switching to 121413..."
+goto 121413 1
+go 500
+
+echo "switching to 121414..."
+goto 121414 1
+go 500
+
+echo "switching to 121415..."
+goto 121415 1
+go 500
+
+echo "switching to 121416..."
+goto 121416 1
+go 500
+
+echo "switching to 121417..."
+goto 121417 1
+go 500
+
+echo "switching to 121418..."
+goto 121418 1
+go 500
+
+echo "switching to 121419..."
+goto 121419 1
+go 500
+
+echo "switching to 121420..."
+goto 121420 1
+go 500
+
+echo "switching to 121421..."
+goto 121421 1
+go 500
+
+echo "switching to 121422..."
+goto 121422 1
+go 500
+
+echo "switching to 121423..."
+goto 121423 1
+go 500
+
+echo "switching to 121424..."
+goto 121424 1
+go 500
+
+echo "switching to 121425..."
+goto 121425 1
+go 500
+
+echo "switching to 121426..."
+goto 121426 1
+go 500
+
+echo "switching to 121427..."
+goto 121427 1
+go 500
+
+echo "switching to 121428..."
+goto 121428 1
+go 500
+
+echo "switching to 121429..."
+goto 121429 1
+go 500
+
+echo "switching to 121430..."
+goto 121430 1
+go 500
+
+echo "switching to 121431..."
+goto 121431 1
+go 500
+
+echo "switching to 121432..."
+goto 121432 1
+go 500
+
+echo "switching to 121433..."
+goto 121433 1
+go 500
+
+echo "switching to 121434..."
+goto 121434 1
+go 500
+
+echo "switching to 121435..."
+goto 121435 1
+go 500
+
+echo "switching to 121436..."
+goto 121436 1
+go 500
+
+echo "switching to 121437..."
+goto 121437 1
+go 500
+
+echo "switching to 121438..."
+goto 121438 1
+go 500
+
+echo "switching to 121439..."
+goto 121439 1
+go 500
+
+echo "switching to 121440..."
+goto 121440 1
+go 500
+
+echo "switching to 121441..."
+goto 121441 1
+go 500
+
+echo "switching to 121442..."
+goto 121442 1
+go 500
+
+echo "switching to 121443..."
+goto 121443 1
+go 500
+
+echo "switching to 121444..."
+goto 121444 1
+go 500
+
+echo "switching to 121445..."
+goto 121445 1
+go 500
+
+echo "switching to 121446..."
+goto 121446 1
+go 500
+
+echo "switching to 121447..."
+goto 121447 1
+go 500
+
+echo "switching to 121448..."
+goto 121448 1
+go 500
+
+echo "switching to 121449..."
+goto 121449 1
+go 500
+
+echo "switching to 121450..."
+goto 121450 1
+go 500
+
+echo "switching to 121451..."
+goto 121451 1
+go 500
+
+echo "switching to 121452..."
+goto 121452 1
+go 500
+
+echo "switching to 121453..."
+goto 121453 1
+go 500
+
+echo "switching to 121454..."
+goto 121454 1
+go 500
+
+echo "switching to 121455..."
+goto 121455 1
+go 500
+
+echo "switching to 121456..."
+goto 121456 1
+go 500
+
+echo "switching to 121457..."
+goto 121457 1
+go 500
+
+echo "switching to 121458..."
+goto 121458 1
+go 500
+
+echo "switching to 121459..."
+goto 121459 1
+go 500
+
+echo "switching to 121460..."
+goto 121460 1
+go 500
+
+echo "switching to 121461..."
+goto 121461 1
+go 500
+
+echo "switching to 121462..."
+goto 121462 1
+go 500
+
+echo "switching to 121463..."
+goto 121463 1
+go 500
+
+echo "switching to 121464..."
+goto 121464 1
+go 500
+
+echo "switching to 121465..."
+goto 121465 1
+go 500
+
+echo "switching to 121466..."
+goto 121466 1
+go 500
+
+echo "switching to 121467..."
+goto 121467 1
+go 500
+
+echo "switching to 121468..."
+goto 121468 1
+go 500
+
+echo "switching to 121469..."
+goto 121469 1
+go 500
+
+echo "switching to 121470..."
+goto 121470 1
+go 500
+
+echo "switching to 121471..."
+goto 121471 1
+go 500
+
+echo "switching to 121472..."
+goto 121472 1
+go 500
+
+echo "switching to 121473..."
+goto 121473 1
+go 500
+
+echo "switching to 121474..."
+goto 121474 1
+go 500
+
+echo "switching to 121475..."
+goto 121475 1
+go 500
+
+echo "switching to 121476..."
+goto 121476 1
+go 500
+
+echo "switching to 121477..."
+goto 121477 1
+go 500
+
+echo "switching to 121478..."
+goto 121478 1
+go 500
+
+echo "switching to 121479..."
+goto 121479 1
+go 500
+
+echo "switching to 121480..."
+goto 121480 1
+go 500
+
+echo "switching to 121481..."
+goto 121481 1
+go 500
+
+echo "switching to 121482..."
+goto 121482 1
+go 500
+
+echo "switching to 121483..."
+goto 121483 1
+go 500
+
+echo "switching to 121484..."
+goto 121484 1
+go 500
+
+echo "switching to 121485..."
+goto 121485 1
+go 500
+
+echo "switching to 121486..."
+goto 121486 1
+go 500
+
+echo "switching to 121487..."
+goto 121487 1
+go 500
+
+echo "switching to 121488..."
+goto 121488 1
+go 500
+
+echo "switching to 121489..."
+goto 121489 1
+go 500
+
+echo "switching to 121490..."
+goto 121490 1
+go 500
+
+echo "switching to 121491..."
+goto 121491 1
+go 500
+
+echo "switching to 121492..."
+goto 121492 1
+go 500
+
+echo "switching to 121493..."
+goto 121493 1
+go 500
+
+echo "switching to 121494..."
+goto 121494 1
+go 500
+
+echo "switching to 121495..."
+goto 121495 1
+go 500
+
+echo "switching to 121496..."
+goto 121496 1
+go 500
+
+echo "switching to 121497..."
+goto 121497 1
+go 500
+
+echo "switching to 121498..."
+goto 121498 1
+go 500
+
+echo "switching to 121499..."
+goto 121499 1
+go 500
+
+echo "switching to 121500..."
+goto 121500 1
+go 500
+
+echo "switching to 121501..."
+goto 121501 1
+go 500
+
+echo "switching to 121502..."
+goto 121502 1
+go 500
+
+echo "switching to 121503..."
+goto 121503 1
+go 500
+
+echo "switching to 121504..."
+goto 121504 1
+go 500
+
+echo "switching to 121505..."
+goto 121505 1
+go 500
+
+echo "switching to 121506..."
+goto 121506 1
+go 500
+
+echo "switching to 121507..."
+goto 121507 1
+go 500
+
+echo "switching to 121508..."
+goto 121508 1
+go 500
+
+echo "switching to 121509..."
+goto 121509 1
+go 500
+
+echo "switching to 121510..."
+goto 121510 1
+go 500
+
+echo "switching to 121511..."
+goto 121511 1
+go 500
+
+echo "switching to 121512..."
+goto 121512 1
+go 500
+
+echo "switching to 121513..."
+goto 121513 1
+go 500
+
+echo "switching to 121514..."
+goto 121514 1
+go 500
+
+echo "switching to 121515..."
+goto 121515 1
+go 500
+
+echo "switching to 121516..."
+goto 121516 1
+go 500
+
+echo "switching to 121517..."
+goto 121517 1
+go 500
+
+echo "switching to 121518..."
+goto 121518 1
+go 500
+
+echo "switching to 121519..."
+goto 121519 1
+go 500
+
+echo "switching to 121520..."
+goto 121520 1
+go 500
+
+echo "switching to 121521..."
+goto 121521 1
+go 500
+
+echo "switching to 121522..."
+goto 121522 1
+go 500
+
+echo "switching to 121523..."
+goto 121523 1
+go 500
+
+echo "switching to 121524..."
+goto 121524 1
+go 500
+
+echo "switching to 121525..."
+goto 121525 1
+go 500
+
+echo "switching to 121526..."
+goto 121526 1
+go 500
+
+echo "switching to 121527..."
+goto 121527 1
+go 500
+
+echo "switching to 121528..."
+goto 121528 1
+go 500
+
+echo "switching to 121529..."
+goto 121529 1
+go 500
+
+echo "switching to 121530..."
+goto 121530 1
+go 500
+
+echo "switching to 121531..."
+goto 121531 1
+go 500
+
+echo "switching to 121532..."
+goto 121532 1
+go 500
+
+echo "switching to 121533..."
+goto 121533 1
+go 500
+
+echo "switching to 121534..."
+goto 121534 1
+go 500
+
+echo "switching to 121535..."
+goto 121535 1
+go 500
+
+exit
+
+EOF

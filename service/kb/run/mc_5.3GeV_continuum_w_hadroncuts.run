@@ -1,0 +1,10 @@
+#$ -l calibration
+#$ -o /cdat/tem/mccann/mc_5.3GeV_continuum_w_hadroncuts.out
+#$ -S /bin/bash
+#$ -j y
+
+cd /cdat/daf9/mccann/kb/run
+. /nfs/cleo3/scripts/cleo3defs
+c3rel Jan24_03_P2
+
+suez -f mc_5.3GeV_continuum_w_hadroncuts.tcl > /cdat/tem/mccann/mc_5.3GeV_continuum_w_hadroncuts.log

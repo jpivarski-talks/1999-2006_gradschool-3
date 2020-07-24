@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title> DRMC Constants Definitions </title>
+</head>
+
+<body>
+<h1> Overview of DR MC constants </h1>
+See <a href="DRMCConstants.html">DRMCConstants.html</a> for
+an overview, links to the Fortran access functions,  constants
+BDL files,  ASCII FileSourceFormat libraries, and the ASCII
+constants files.
+
+<h1> DRMC Anode Constants Definitions </h1>
+<ul>
+  <li> <strong>DRMCCoseff</strong> - 2D fit of Cos(theta) vs drift - 47 entries <br>
+       <ul>
+	 <li> Min - 1st polynomail coeff. for drift projection 
+	 <li> Max - 2nd polynomail coeff. for drift projection 
+	 <li> Cheb1 - 1st polynomail coeff. for cos(theta) projection
+	 <li> Cheb2 - 2nd polynomail coeff. for cos(theta) projection
+       </ul><p>
+
+  <li> <strong>DRMCHitJump</strong> - Probability a hit will jump to the
+       next cell - 47 entries.  Used in CDHITS (which called movhit in Cleo2).
+       <ul>
+	 <li> Probn - negative probability
+	 <li> Probp - positive probability
+	 <li> Slpn - Slope -
+	 <li> Slpp - Slope +
+	 <li> Dstn - linear parameter
+	 <li> Dstp - linear parameter
+       </ul><p> 
+
+  <li> <strong>DRMCIons</strong> - Ion statistics important at center of
+        cell - 47 entries.  Store number of ions required to trigger
+        cell.  DOCA not equal to the true distance for the ion pair that
+        fires the cell.  function of drift distance & entrance angle.
+       
+       <ul>
+	 <li> N
+       </ul><p>
+
+  <li> <strong>DRMCLyreff</strong> - drift view of drift vs. cos(theta) - 47 entries <br>
+       2 legs on side + 2nd order function for the center of the cell with a "tooth" in the center.
+       <ul>
+	 <li> Slpn
+	 <li> Slpp
+	 <li> Dstn
+	 <li> Dstp
+	 <li> Norm
+	 <li> Chb1
+	 <li> Chb2
+	 <li> Slpm
+	 <li> Xr  
+       </ul><p>
+
+  <li> <strong>DRMCPhlayr</strong> - layer Pulse height conversion factor - 940 entries <br>
+       20 bins in drift distance per layer x 47 layers
+       <ul>
+	 <li> Lyrcor
+       </ul><p>
+
+  <li> <strong>DRMCPhwire</strong> - Wire to wire pulse height corrections - 9796 entries <br>
+       # of sense wires
+       <ul>
+	 <li> Wircor
+       </ul><p>
+
+  <li> <strong>DRMCResolutions</strong> - cell resolutions  - 2000 entries
+       In bins of drift distance, 20 bins (0-19) per layer.
+       Offset = 100 * bin + layer#.  Current ascii file contains
+       constants for all DR2 layers - easy enough just to leave them in.
+       <ul>
+	 <li> Sigma1 - Width of Gaussian in microns
+	 <li> Sigma2 - not used
+	 <li> Offst1 - shifted drift distance
+	 <li> Offst2 - not used
+	 <li> Frac   - linear smear across cell, used to tune Duet eff.
+       </ul><p>
+
+  <li> <strong>DRMCSpefud</strong> - particle species dependent eff. fudge - 47 entries
+       <ul>
+	 <li> Elefud - implemented for electrons, but machinary in place for others
+	 <li> Muofud
+	 <li> Piofud
+	 <li> Kaofud
+	 <li> Profud
+       </ul><p>
+
+  <li> <strong>DRMCWireff</strong> - overall efficiency for each wire - 9796 entries
+       <ul>
+	 <li> Effi
+       </ul><p>
+
+</ul>
+
+
+<h1> DRMC Cathode Constants Definitions </h1>
+<ul>
+
+  <li> <strong>DRMCCathname</strong>- Partial filename of cathode histogram - 1 entry <br>
+       <ul>
+	 <li> Name - contains part of the file name to load cathode histograms,
+	      CLEO-II stored these in /ccon/ccon/4s<strong>pcat</strong>h.rzn
+	 <li> This is stupid - put entire filename in constant
+	 <li> Better yet, don't use histograms to store efficiency
+       </ul><p>
+       
+  <li> <strong>DRMCEff</strong> - Cathode efficiency vs phi - 1 entries <br>
+       <ul>
+	 <li> A - sine wave parameters vs phi to describe radiation damage
+	 <li> B - sine wave parameters vs phi to describe radiation damage
+	 <li> C - sine wave parameters vs phi to describe radiation damage
+       </ul><p>
+
+
+  <li> <strong>DRMCSmear</strong> - cathode resolution in cm - 1 entries
+       <ul>
+	 <li> DZ
+       </ul><p>
+
+  <li> <strong>DRMCTmlayr</strong> - Cathode times - 1 entry <br>
+       Obsolete: no cathode timing info in cleo3
+       <ul>
+	 <li> Shift
+       </ul><p>
+
+</ul>
+
+
+<hr>
+<address><a href="http://w4.lns.cornell.edu/~jjo/">John O'Neill &lt;jjo@mail.lns.cornell.edu &gt;</a></address>
+<!-- hhmts start -->
+Last modified: Wed Oct 27 14:20:52 EDT 1999
+<!-- hhmts end -->
+</body> </html>

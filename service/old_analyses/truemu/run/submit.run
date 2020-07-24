@@ -1,0 +1,15 @@
+echo "submitting mtm113660.run..."
+qsub -V -l calibration -cell rcf mtm113660.run
+sleep 60
+echo "submitting mtm113669.run..."
+qsub -V -l calibration -cell rcf mtm113669.run
+sleep 60
+echo "submitting mtm113690.run..."
+qsub -V -l calibration -cell rcf mtm113690.run
+sleep 60
+echo "submitting mtm113701.run..."
+qsub -V -l calibration -cell rcf mtm113701.run
+sleep 60
+echo "submitting mtm113660.run..."
+qsub -V -l calibration -cell rcf mtm113660.run
+sleep 60

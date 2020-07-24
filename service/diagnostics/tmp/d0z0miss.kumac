@@ -1,0 +1,91 @@
+fortran/file 65 'd0z0miss.ps'
+graphics/metafile 65 -111
+igset mtype 1
+
+h/file 31 olddr_oldsv.rzn
+h/file 32 olddr_oldsv_newsvres.rzn
+h/file 33 olddr_newsv.rzn
+h/file 34 newdr_oldsv.rzn
+h/file 35 newdr_oldsv_newsvres.rzn
+h/file 36 newdr_newsv.rzn
+
+h/cr/1d 100 'D0 miss' 100 -0.001 0.001
+h/cr/1d 200 'Z0 miss' 100 -0.001 0.001
+h/cr/1d 300 'Normalized D0 miss' 100 -5. 5.
+h/cr/1d 400 'Normalized Z0 miss' 100 -5. 5.
+
+zone 2 2
+opt fit
+
+h/cr/title 'Old DR, old SV alignment, old SV resolution'
+cd //lun31/highcotthetatrack
+nt/plot 20.(d0p+d0n) ! ! ! ! 'N' 100
+nt/plot 20.(z0p-z0n) ! ! ! ! 'N' 200
+nt/plot 20.(d0p+d0n)/sqrt(e_d0p+e_d0n) ! ! ! ! 'N' 300
+nt/plot 20.(z0p-z0n)/sqrt(e_z0p+e_z0n) ! ! ! ! 'N' 400
+h/fit 100(-0.015E-2:0.015E-2) g
+h/fit 200(-0.04E-2:0.04E-2) g
+h/fit 300(-2.:2.) g
+h/fit 400(-2.:2.) g
+wait
+
+h/cr/title 'Old DR, old SV alignment, new SV resolution'
+cd //lun32/highcotthetatrack
+nt/plot 20.(d0p+d0n) ! ! ! ! 'N' 100
+nt/plot 20.(z0p-z0n) ! ! ! ! 'N' 200
+nt/plot 20.(d0p+d0n)/sqrt(e_d0p+e_d0n) ! ! ! ! 'N' 300
+nt/plot 20.(z0p-z0n)/sqrt(e_z0p+e_z0n) ! ! ! ! 'N' 400
+h/fit 100(-0.015E-2:0.015E-2) g
+h/fit 200(-0.04E-2:0.04E-2) g
+h/fit 300(-2.:2.) g
+h/fit 400(-2.:2.) g
+wait
+
+h/cr/title 'Old DR, new SV alignment, new SV resolution'
+cd //lun33/highcotthetatrack
+nt/plot 20.(d0p+d0n) ! ! ! ! 'N' 100
+nt/plot 20.(z0p-z0n) ! ! ! ! 'N' 200
+nt/plot 20.(d0p+d0n)/sqrt(e_d0p+e_d0n) ! ! ! ! 'N' 300
+nt/plot 20.(z0p-z0n)/sqrt(e_z0p+e_z0n) ! ! ! ! 'N' 400
+h/fit 100(-0.015E-2:0.015E-2) g
+h/fit 200(-0.04E-2:0.04E-2) g
+h/fit 300(-2.:2.) g
+h/fit 400(-2.:2.) g
+wait
+
+h/cr/title 'New DR, old SV alignment, old SV resolution'
+cd //lun34/highcotthetatrack
+nt/plot 20.(d0p+d0n) ! ! ! ! 'N' 100
+nt/plot 20.(z0p-z0n) ! ! ! ! 'N' 200
+nt/plot 20.(d0p+d0n)/sqrt(e_d0p+e_d0n) ! ! ! ! 'N' 300
+nt/plot 20.(z0p-z0n)/sqrt(e_z0p+e_z0n) ! ! ! ! 'N' 400
+h/fit 100(-0.015E-2:0.015E-2) g
+h/fit 200(-0.04E-2:0.04E-2) g
+h/fit 300(-2.:2.) g
+h/fit 400(-2.:2.) g
+wait
+
+h/cr/title 'New DR, old SV alignment, new SV resolution'
+cd //lun35/highcotthetatrack
+nt/plot 20.(d0p+d0n) ! ! ! ! 'N' 100
+nt/plot 20.(z0p-z0n) ! ! ! ! 'N' 200
+nt/plot 20.(d0p+d0n)/sqrt(e_d0p+e_d0n) ! ! ! ! 'N' 300
+nt/plot 20.(z0p-z0n)/sqrt(e_z0p+e_z0n) ! ! ! ! 'N' 400
+h/fit 100(-0.015E-2:0.015E-2) g
+h/fit 200(-0.04E-2:0.04E-2) g
+h/fit 300(-2.:2.) g
+h/fit 400(-2.:2.) g
+wait
+
+h/cr/title 'New DR, new SV alignment, new SV resolution'
+cd //lun36/highcotthetatrack
+nt/plot 20.(d0p+d0n) ! ! ! ! 'N' 100
+nt/plot 20.(z0p-z0n) ! ! ! ! 'N' 200
+nt/plot 20.(d0p+d0n)/sqrt(e_d0p+e_d0n) ! ! ! ! 'N' 300
+nt/plot 20.(z0p-z0n)/sqrt(e_z0p+e_z0n) ! ! ! ! 'N' 400
+h/fit 100(-0.015E-2:0.015E-2) g
+h/fit 200(-0.04E-2:0.04E-2) g
+h/fit 300(-2.:2.) g
+h/fit 400(-2.:2.) g
+
+close 65

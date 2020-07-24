@@ -1,0 +1,245 @@
+Minimum and maximum phi0 and cotTheta for tracks going through each ladder:
+
+ladder 1
+phi0 min = 1.58944 and max = 2.06814
+cotTheta min = -1.11777 and max = 1.25736
+
+ladder 2
+phi0 min = 2.20556 and max = 3.04003
+cotTheta min = -1.25803 and max = 1.20519
+
+ladder 3
+phi0 min = 2.94167 and max = 3.97475
+cotTheta min = -1.26097 and max = 1.25952
+
+ladder 4
+phi0 min = 3.97475 and max = 4.9317
+cotTheta min = -1.24199 and max = 1.23686
+
+ladder 5
+phi0 min = 4.9317 and max = 5.79349
+cotTheta min = -1.24199 and max = 1.23686
+
+ladder 6
+phi0 min = 0.0553184 and max = 6.26189
+cotTheta min = -1.22139 and max = 1.25079
+
+ladder 7
+phi0 min = 0.342767 and max = 1.19522
+cotTheta min = -1.11243 and max = 1.26058
+
+ladder 8
+phi0 min = 1.43471 and max = 1.97466
+cotTheta min = -1.23606 and max = 1.15937
+
+ladder 9
+phi0 min = 1.97466 and max = 2.62496
+cotTheta min = -1.25516 and max = 1.25736
+
+ladder 10
+phi0 min = 2.60689 and max = 3.27107
+cotTheta min = -1.245 and max = 1.25435
+
+ladder 11
+phi0 min = 3.25468 and max = 3.92271
+cotTheta min = -1.25545 and max = 1.25945
+
+ladder 12
+phi0 min = 3.93046 and max = 4.18504
+cotTheta min = -1.20733 and max = 1.17097
+
+ladder 13
+phi0 min = 4.56971 and max = 5.16627
+cotTheta min = -1.25416 and max = 1.25452
+
+ladder 14
+phi0 min = 5.24788 and max = 5.7954
+cotTheta min = -1.24377 and max = 1.017
+
+ladder 15
+phi0 min = 0.00106746 and max = 6.28251
+cotTheta min = -1.26411 and max = 1.26453
+
+ladder 16
+phi0 min = 0.116371 and max = 0.738464
+cotTheta min = -1.26411 and max = 1.26312
+
+ladder 17
+phi0 min = 0.653307 and max = 1.28297
+cotTheta min = -1.21553 and max = 1.26278
+
+ladder 18
+phi0 min = 1.43269 and max = 1.72411
+cotTheta min = -1.23606 and max = 1.18035
+
+ladder 19
+phi0 min = 1.73656 and max = 2.07238
+cotTheta min = -1.23548 and max = -0.434935
+
+ladder 20
+phi0 min = 2.07506 and max = 2.44487
+cotTheta min = -1.25516 and max = 1.17936
+
+ladder 21
+phi0 min = 2.43587 and max = 2.78089
+cotTheta min = -1.25998 and max = -0.331779
+
+ladder 22
+phi0 min = 2.7748 and max = 3.13996
+cotTheta min = -1.24321 and max = 1.25964
+
+ladder 23
+phi0 min = 3.13044 and max = 3.51145
+cotTheta min = -1.24993 and max = 1.25746
+
+ladder 24
+phi0 min = 3.4907 and max = 3.85628
+cotTheta min = -1.25545 and max = 1.26649
+
+ladder 25
+phi0 min = 3.85565 and max = 4.2032
+cotTheta min = -1.25224 and max = 1.25945
+
+ladder 26
+phi0 min = 4.23052 and max = 4.57247
+cotTheta min = -1.24149 and max = 1.14946
+
+ladder 27
+phi0 min = 4.56886 and max = 4.8999
+cotTheta min = -1.19705 and max = 1.25452
+
+ladder 28
+phi0 min = 4.90911 and max = 5.25791
+cotTheta min = -1.25416 and max = 1.23426
+
+ladder 29
+phi0 min = 5.25916 and max = 5.61551
+cotTheta min = -1.25278 and max = 1.24636
+
+ladder 30
+phi0 min = 5.61418 and max = 5.96148
+cotTheta min = -1.26128 and max = 0.30211
+
+ladder 31
+phi0 min = 0.00262151 and max = 6.28271
+cotTheta min = -1.26411 and max = 1.26453
+
+ladder 32
+phi0 min = 0.00106746 and max = 6.28014
+cotTheta min = -1.26411 and max = 1.26696
+
+ladder 33
+phi0 min = 0.350637 and max = 0.69552
+cotTheta min = -1.26619 and max = 1.26481
+
+ladder 34
+phi0 min = 0.685642 and max = 1.06197
+cotTheta min = -1.2516 and max = 1.26278
+
+ladder 35
+phi0 min = 1.05129 and max = 1.34629
+cotTheta min = -1.23561 and max = 0.224585
+
+ladder 36
+phi0 min = 1.43727 and max = 1.60063
+cotTheta min = 0.0881149 and max = 1.18035
+
+ladder 37
+phi0 min = 1.72411 and max = 1.92165
+cotTheta min = -1.23548 and max = 1.12179
+
+ladder 38
+phi0 min = 1.93189 and max = 2.15668
+cotTheta min = -1.19228 and max = 1.25736
+
+ladder 39
+phi0 min = 2.17668 and max = 2.41033
+cotTheta min = -1.25516 and max = 1.23865
+
+ladder 40
+phi0 min = 2.40794 and max = 2.65413
+cotTheta min = -1.25998 and max = 1.24229
+
+ladder 41
+phi0 min = 2.64548 and max = 2.89971
+cotTheta min = -1.2527 and max = 1.13254
+
+ladder 42
+phi0 min = 2.88409 and max = 3.081
+cotTheta min = -0.0875836 and max = 1.25862
+
+ladder 43
+phi0 min = 3.13456 and max = 3.39375
+cotTheta min = -1.25673 and max = 1.25486
+
+ladder 44
+phi0 min = 3.37751 and max = 3.63841
+cotTheta min = -1.26829 and max = 1.26649
+
+ladder 45
+phi0 min = 3.62528 and max = 3.88192
+cotTheta min = -1.26284 and max = 1.26108
+
+ladder 46
+phi0 min = 3.86452 and max = 4.12399
+cotTheta min = -1.25224 and max = 1.24508
+
+ladder 47
+phi0 min = 4.12399 and max = 4.363
+cotTheta min = -1.23312 and max = 1.24212
+
+ladder 48
+phi0 min = 4.35031 and max = 4.60581
+cotTheta min = -1.24149 and max = 1.25452
+
+ladder 49
+phi0 min = 4.60132 and max = 4.82653
+cotTheta min = -1.19705 and max = 1.03632
+
+ladder 50
+phi0 min = 4.85506 and max = 5.06549
+cotTheta min = -1.12844 and max = 1.23426
+
+ladder 51
+phi0 min = 5.09237 and max = 5.32004
+cotTheta min = -1.25416 and max = 1.23387
+
+ladder 52
+phi0 min = 5.32525 and max = 5.57323
+cotTheta min = -1.25278 and max = 1.25079
+
+ladder 53
+phi0 min = 5.56288 and max = 5.81116
+cotTheta min = -1.24858 and max = 1.26686
+
+ladder 54
+phi0 min = 5.8009 and max = 6.05056
+cotTheta min = -1.26128 and max = 1.25164
+
+ladder 55
+phi0 min = 6.03481 and max = 6.28193
+cotTheta min = -0.0120484 and max = 1.26453
+
+ladder 56
+phi0 min = 0.000846894 and max = 6.28271
+cotTheta min = -1.26406 and max = 1.26427
+
+ladder 57
+phi0 min = 0.230408 and max = 0.47251
+cotTheta min = -1.22539 and max = 1.26696
+
+ladder 58
+phi0 min = 0.465146 and max = 0.72254
+cotTheta min = -1.26619 and max = 1.26724
+
+ladder 59
+phi0 min = 0.711975 and max = 0.958277
+cotTheta min = -1.24517 and max = 0.115727
+
+ladder 60
+phi0 min = 0.948349 and max = 1.18672
+cotTheta min = -0.0346173 and max = 1.21173
+
+ladder 61
+phi0 min = 1.19522 and max = 1.4338
+cotTheta min = -1.23561 and max = 1.24327

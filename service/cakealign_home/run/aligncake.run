@@ -1,0 +1,11 @@
+#$ -l calibration
+#$ -o /cdat/tem/mccann/aligncake.log
+#$ -S /bin/bash
+#$ -j y
+
+cd /home/mccann/cakealign/run
+. /nfs/cleo3/scripts/cleo3defs
+c3rel Oct15_03_MC
+
+suez -f aligncake.tcl
+

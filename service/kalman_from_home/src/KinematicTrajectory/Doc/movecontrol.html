@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>The KTMoveControl Class</TITLE>
+<META NAME="Template" CONTENT="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot">
+</HEAD>
+<BODY LINK="#0000ff" VLINK="#800080">
+
+<H1 ALIGN="CENTER">The KTMoveControl Class</H1>
+<H2>Introduction</H2>
+<B><P>KTMoveControl</B> is a helper class for the <A HREF="basetracks.html">basic track classes</A> in the CLEO3 infrastructure. <B>KTHelix</B> and <B>KTMoveable</B> (and its descendents) use it in situations that require iterative movement to reach a desired point, such as the intersection with an arbitrary plane or the point of closest approach to a stereo wire. In that case, the helix is approximated by a parabola and the track is swum towards the final point in a series of steps, where the maximum step size, the direction of the steps and the convergence of the iteration process are controlled by <B>KTMoveControl</B>.</P>
+<H2><A HREF="movecontrol.gif">KTMoveControl class diagram</A></H2>
+<H2>Implementation</H2>
+<P>Only some of the functionality of KTMoveControl has been implemented so far, and I have not completely decided on how I will actually use this class.</P>
+<P><hr>
+<address><a href="mailto:avery@phys.ufl.edu/">Paul Avery
+&lt;avery@phys.ufl.edu&gt;</a></address>
+$Id: movecontrol.html,v 1.1 1998/05/27 17:06:22 avery Exp $
+<!-- 
+$Log: movecontrol.html,v $
+Revision 1.1  1998/05/27 17:06:22  avery
+First submission of documentation
+
+-->
+</BODY>
+</HTML>

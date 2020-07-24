@@ -1,0 +1,63 @@
+*** Begin of history file: Wed Oct 22 12:28:32 2003
+nt/hmerge rzn/db27_cs_again.rzn rzn/db27_cs_1.rzn rzn/db27_cs_2.rzn rzn/db27_cs_3.rzn rzn/db27_cs_4.rzn rzn/db27_cs_5.rzn rzn/db27_cs_6.rzn rzn/db27_cs_7.rzn rzn/db27_cs_8.rzn rzn/db27_cs_9.rzn rzn/db27_cs_10.rzn
+h/file 1 rzn/db27_cs_again.rzn
+cd twocyclehist
+h/list
+h/plot 999
+nt/hmerge rzn3/stretch_500_brandspanking.rzn rzn3/stretch_500_1.rzn rzn3/stretch_500_2.rzn rzn3/stretch_500_3.rzn rzn3/stretch_500_4.rzn rzn3/stretch_500_5.rzn rzn3/stretch_500_6.rzn rzn3/stretch_500_7.rzn rzn3/stretch_500_8.rzn rzn3/stretch_500_9.rzn rzn3/stretch_500_10.rzn
+h/file 2 rzn3/stretch_500_brandspanking.rzn
+znoe 2 2
+cd //lun1/twocyclehist
+min 999 -0.001
+max 999 0.001
+h/plot 999
+cd //lun1/twocyclehist
+min 999 -0.005
+max 999 0.005
+h/plot 999
+cd //lun2/twocyclehist
+min 999 -0.005
+max 999 0.005
+h/plot 999
+zone 2 2
+h/copy //lun1/twocyclehist/999 12345 'normal wire positions'
+h/copy //lun2/twocyclehist/999 54321 'increased radius 1/2 mm'
+min 12345 -0.005
+max 12345 0.005
+h/plot 12345
+min 54321 -0.005
+max 54321 0.005
+h/plot 54321
+zone 2 3
+h/copy //lun1/twocyclehist/999 12345 'normal wire positions'
+h/copy //lun2/twocyclehist/999 54321 'increased radius 1/2 mm'
+min 12345 -0.003
+max 12345 0.003
+h/plot 12345
+min 54321 -0.003
+max 54321 0.003
+h/plot 54321
+zone 2 4
+h/cr/title 'z0miss VS cotTheta'
+h/copy //lun1/twocyclehist/999 12345 'normal wire positions'
+h/copy //lun2/twocyclehist/999 54321 'increased radius (1/2 mm)'
+min 12345 -0.003
+max 12345 0.003
+h/plot 12345
+min 54321 -0.003
+max 54321 0.003
+h/plot 54321
+exec /tmp/pawtmp-7215.kumac
+zone 2 4
+h/cr/title 'z0miss VS cotTheta'
+h/copy //lun1/twocyclehist/999 12345 'normal wire positions'
+h/copy //lun2/twocyclehist/999 54321 'increased radius (1/2 mm)'
+min 12345 -0.003
+max 12345 0.003
+h/plot 12345
+min 54321 -0.003
+max 54321 0.003
+h/plot 54321
+pict/print 'z0miss_problem.eps'
+exit
+*** End   of history file: Wed Oct 22 12:36:19 2003

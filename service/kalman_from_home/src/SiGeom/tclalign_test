@@ -1,0 +1,15 @@
+source_format sel SVAlignmentGlobalFileSourceFormat
+source_format sel SVAlignmentLayerFileSourceFormat
+source_format sel SVAlignmentLadderFileSourceFormat
+source_format sel SVAlignmentSensorFileSourceFormat
+file in $env(C3_LIB)/data/si3.svalignmentglobal 
+file in $env(C3_LIB)/data/si3.svalignmentlayer 
+file in $env(C3_LIB)/data/si3.svalignmentladder 
+file in $env(C3_LIB)/data/si3.svalignmentsensor
+prod sel SiGeom
+param SiGeom phiz 0.2
+tcl_source $env(C3_SCRIPTS)/geomviewer.tcl
+geomviewer stream svalignment
+geomviewer usage_tag Si
+file in $env(C3_LIB)/data/material.asc basegeometry
+go

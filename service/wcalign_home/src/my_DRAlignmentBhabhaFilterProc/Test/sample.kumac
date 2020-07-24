@@ -1,0 +1,165 @@
+h/file 1 cuts.rzn
+cd DRAgnmntBhbhFltr
+
+fortran/file 65 'cuts.ps'
+graphics/metafile 65 -111
+igset mtype 1
+
+zone 3 3
+
+opt logy
+opt sta
+set stat 0000010
+
+sigma low = 0.1
+sigma high = 10*$HINFO(1,'MAX')
+min 1 $SIGMA(low)
+max 1 $SIGMA(high)
+h/plot 1
+set ltyp 2
+dline 1.5 1.5 $SIGMA(low) $SIGMA(high)
+dline 2.5 2.5 $SIGMA(low) $SIGMA(high)
+
+sigma low = 0.1
+sigma high = 10*$HINFO(2,'MAX')
+min 2 $SIGMA(low)
+max 2 $SIGMA(high)
+h/plot 2
+set ltyp 2
+dline 0.5 0.5 $SIGMA(low) $SIGMA(high)
+
+sigma low = 0.1
+sigma high = 10*$HINFO(3,'MAX')
+min 3 $SIGMA(low)
+max 3 $SIGMA(high)
+h/plot 3
+set ltyp 2
+dline -0.5 -0.5 $SIGMA(low) $SIGMA(high)
+dline 0.5 0.5 $SIGMA(low) $SIGMA(high)
+
+sigma low = 0.1
+sigma high = 10*$HINFO(4,'MAX')
+min 4 $SIGMA(low)
+max 4 $SIGMA(high)
+h/plot 4
+set ltyp 2
+dline -0.0005 -0.0005 $SIGMA(low) $SIGMA(high)
+dline 0.0005 0.0005 $SIGMA(low) $SIGMA(high)
+
+sigma low = 0.1
+sigma high = 10*$HINFO(5,'MAX')
+min 5 $SIGMA(low)
+max 5 $SIGMA(high)
+h/plot 5
+set ltyp 2
+dline -0.015 -0.015 $SIGMA(low) $SIGMA(high)
+dline 0.015 0.015 $SIGMA(low) $SIGMA(high)
+
+sigma low = 0.1
+sigma high = 10*$HINFO(6,'MAX')
+min 6 $SIGMA(low)
+max 6 $SIGMA(high)
+h/plot 6
+
+sigma low = 0.1
+sigma high = 10*$HINFO(7,'MAX')
+min 7 $SIGMA(low)
+max 7 $SIGMA(high)
+h/plot 7
+set ltyp 2
+dline 0.02 0.02 $SIGMA(low) $SIGMA(high)
+
+sigma low = 0.1
+sigma high = 10*$HINFO(8,'MAX')
+min 8 $SIGMA(low)
+max 8 $SIGMA(high)
+h/plot 8
+set ltyp 2
+dline -0.02 -0.02 $SIGMA(low) $SIGMA(high)
+dline 0.02 0.02 $SIGMA(low) $SIGMA(high)
+
+********************************************
+
+sigma low = 0.1
+sigma high = 10*$HINFO(9,'MAX')
+min 9 $SIGMA(low)
+max 9 $SIGMA(high)
+h/plot 9
+set ltyp 2
+dline 0.5 0.5 $SIGMA(low) $SIGMA(high)
+
+sigma low = 0.1
+sigma high = 10*$HINFO(10,'MAX')
+min 10 $SIGMA(low)
+max 10 $SIGMA(high)
+h/plot 10
+set ltyp 2
+dline 10. 10. $SIGMA(low) $SIGMA(high)
+
+sigma low = 0.1
+sigma high = 10*$HINFO(11,'MAX')
+min 11 $SIGMA(low)
+max 11 $SIGMA(high)
+h/plot 11
+set ltyp 2
+dline 0.5 0.5 $SIGMA(low) $SIGMA(high)
+dline 1.2 1.2 $SIGMA(low) $SIGMA(high)
+
+sigma low = 0.1
+sigma high = 10*$HINFO(12,'MAX')
+min 12 $SIGMA(low)
+max 12 $SIGMA(high)
+h/plot 12
+set ltyp 2
+dline -0.005 -0.005 $SIGMA(low) $SIGMA(high)
+dline 0.005 0.005 $SIGMA(low) $SIGMA(high)
+
+sigma low = 0.1
+sigma high = 10*$HINFO(13,'MAX')
+min 13 $SIGMA(low)
+max 13 $SIGMA(high)
+h/plot 13
+set ltyp 2
+dline -0.05 -0.05 $SIGMA(low) $SIGMA(high)
+dline 0.05 0.05 $SIGMA(low) $SIGMA(high)
+
+sigma low = 0.1
+sigma high = 10*$HINFO(14,'MAX')
+min 14 $SIGMA(low)
+max 14 $SIGMA(high)
+h/plot 14
+set ltyp 2
+dline 0.9 0.9 $SIGMA(low) $SIGMA(high)
+dline 1.1 1.1 $SIGMA(low) $SIGMA(high)
+
+sigma low = 0.1
+sigma high = 10*$HINFO(15,'MAX')
+min 15 $SIGMA(low)
+max 15 $SIGMA(high)
+h/plot 15
+
+sigma low = 0.1
+sigma high = 10*$HINFO(16,'MAX')
+min 16 $SIGMA(low)
+max 16 $SIGMA(high)
+h/plot 16
+set ltyp 2
+dline 0.5 0.5 $SIGMA(low) $SIGMA(high)
+
+sigma low = 0.1
+sigma high = 10*$HINFO(17,'MAX')
+min 17 $SIGMA(low)
+max 17 $SIGMA(high)
+h/plot 17
+set ltyp 2
+dline 0.25 0.25 $SIGMA(low) $SIGMA(high)
+
+sigma low = 0.1
+sigma high = 10*$HINFO(18,'MAX')
+min 18 $SIGMA(low)
+max 18 $SIGMA(high)
+h/plot 18
+set ltyp 2
+dline 0.5 0.5 $SIGMA(low) $SIGMA(high)
+
+close 65

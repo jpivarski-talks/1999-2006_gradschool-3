@@ -1,0 +1,12 @@
+gunzip -f *ps.gz 
+
+touch suez.ind 
+latex suez.tex 
+makeindex suez.idx
+latex suez.tex
+dvips suez.dvi
+gzip -f suez.ps
+
+latex2html suez.tex
+
+gzip -f *ps

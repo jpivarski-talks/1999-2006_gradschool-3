@@ -1,0 +1,14 @@
+
+Module : ZDDriftFunctionProd
+Date   : Thu Jun 26 15:06:44 2003
+User   : huanggs
+Old Tag: 
+New Tag: v01_00_00
+Message: first tag
+
+Module : ZDDriftFunctionProd
+Date   : Fri Oct 10 13:37:02 2003
+User   : mccann
+Old Tag: v01_00_00
+New Tag: v02_00_00
+Message: Totally vamped the fittingweights representation and delivery to use the new ZDWeight2* constants

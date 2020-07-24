@@ -1,0 +1,37 @@
+#
+# $Id: bugs.txt,v 1.1.1.1 1998/02/06 19:11:50 dpp Exp $
+#
+# $Log: bugs.txt,v $
+# Revision 1.1.1.1  1998/02/06 19:11:50  dpp
+# DOIT first release.
+#
+# Revision 1.1.1.1  1997/04/30 12:31:30  clib
+# Developmental version of DUET.
+#
+# Revision 1.1.1.1  1994/10/08 01:01:22  zfiles
+# first version of doit in CVS
+#
+#
+#CMZ :  5.54/15 29/09/92  19.56.29  by  Rob Kutschke
+#-- Author :
+
+List of known bugs.
+
+dsfhit - uses IADR before it is defined
+       - diagnostic routine, ignore for now
+
+tfplht - NBINX, RAD, NSTAR, used before they are defined
+       - diagnostic routine, ignore for now
+
+cfinit - JMLYR, used before it is defined
+       - probably just filling arrays used by diagnostic
+         code at lower levels.
+       - dpp is checking to see if this is a real problem
+
+cdptrk - no path to some statements
+       - After substition of parameters, one statement compiles
+         to if ( 0.gt.0 ).
+       - This is a diagnostic routine which is very out of date.
+       - ignore for now.
+
+

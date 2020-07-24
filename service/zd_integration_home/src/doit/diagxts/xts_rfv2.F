@@ -1,0 +1,172 @@
+*
+* $Id: xts_rfv2.F,v 1.5 2002/09/05 19:07:56 dpp Exp $
+*
+* $Log: xts_rfv2.F,v $
+* Revision 1.5  2002/09/05 19:07:56  dpp
+*     -> diagnostics
+*
+* Revision 1.4  1999/01/29 15:34:42  dpp
+* force update
+*
+* Revision 1.3  1998/07/09 00:36:21  lyon
+* seq/cdgeom -> cl3seq/cdgm3
+*
+* Revision 1.2  1998/05/08 14:13:50  pg
+*   Replaced "seq/zfiles/*.inc" with "cl3seq/zfiles/*.inc".
+*
+* Revision 1.1.1.1  1998/02/06 19:11:42  dpp
+* DOIT first release.
+*
+* Revision 1.1.1.1  1997/04/30 12:31:24  clib
+* Developmental version of DUET.
+*
+* Revision 1.2  1997/02/25 21:40:15  dpp
+* comments only
+*
+* Revision 1.1.1.1  1994/10/08 01:00:59  zfiles
+* first version of doit in CVS
+*
+*
+#include "sys/CLEO_machine.h"
+#include "pilot.h"
+*CMZ :  6.00/14 01/03/94  17.18.51  by  Rob Kutschke
+*CMZ :  6.00/07 31/08/93  14.19.05  by  Rob Kutschke
+*CMZ :  6.00/01 29/01/92  09.54.10  by  Dan Peterson
+*-- Author :dpp
+      SUBROUTINE XTS_RFVIEW2(CALLER)
+      IMPLICIT NONE
+      SAVE
+#include "cl3seq/cdgm3/cdgeompa.inc"
+#include "cl3seq/cdgm3/cdgeomcd.inc"
+#include "cl3seq/cdgm3/cdraw1in.inc"
+#include "cl3seq/zfiles/usbank.inc"
+#include "doit/sfseq/sfpar.inc"
+#include "doit/sfseq/sfxtsp.inc"
+#include "doit/sfseq/sfxtsc.inc"
+
+      INTEGER SET_BACKING_C
+
+      CHARACTER*(*) CALLER
+      CHARACTER*20 CALLED
+      INTEGER ICHAIN,IDUM,ITR
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C
+C ORIGINAL RFVIEW2:   REDRAWS THE EVENT WITHOUT TRACKS
+C
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+#if defined(CLEO_XTSDEBUG)
+      PRINT 1001,CALLER
+1001  FORMAT(' XTS_RFVIEW2:'
+     1 ' REFRESH FROM PIXMAP, DELETE TRACKS: CALLED BY ',A20)
+
+#endif
+      CALLED='XTS_RFVIEW2'
+      ITR=0
+      GO TO 11
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C
+C RFVIEW2_TRAKS: REDRAW THE EVENT, WITH TRACKS,
+C                 USES PIXMAP, NOT FOR ZOOMING
+C
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+      ENTRY XTS_RFVIEW2_TRAKS(CALLER)
+#if defined(CLEO_XTSDEBUG)
+      PRINT 2001,CALLER
+2001  FORMAT(' XTS_RFVIEW2_TRAKS:'
+     1 ' REFRESH FROM PIXMAP AND DRAW TRACKS: CALLED BY ',A20)
+#endif
+      CALLED='XTS_RFVIEW2_TRAKS'
+      ITR=1
+
+11    IDUM=SET_BACKING_C(0)
+      CALL UPDATE_C
+      IDUM=SET_BACKING_C(1)
+      CALL UPDATE_C
+      IDUM=SET_BACKING_C(0)
+      IF(ITR.EQ.0)GO TO 99
+      GO TO 61
+
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C
+C NEW_PIXMAP: REDRAWS THE EVENT
+C              WITH A NEW DRAW OF THE PIXMAP
+C              DELETES MEMORY OF TRACKS
+C
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+      ENTRY XTS_NEW_PIXMAP(CALLER)
+#if defined(CLEO_XTSDEBUG)
+      PRINT 3001,CALLER
+3001  FORMAT(' XTS_NEW_PIXMAP: ENTER: CALLED FROM ',A20)
+#endif
+      CALLED='XTS_NEW_PIXMAP'
+      ITR=0
+      GO TO 21
+
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C
+C NEW_PIXMAP_TRAKS: REDRAWS THE EVENT
+C                     WITH A NEW DRAW OF THE PIXMAP
+C                     REDRAWS THE TRACKS FROM MEMORY
+C
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+      ENTRY XTS_NEW_PIXMAP_TRAKS(CALLER)
+#if defined(CLEO_XTSDEBUG)
+      PRINT 4001,CALLER
+4001  FORMAT(' XTS_NEW_PIXMAP_TRAKS: ENTER: CALLED FROM ',A20)
+#endif
+      CALLED='XTS_NEW_PIXMAP_TRAKS'
+      ITR=1
+
+21    CONTINUE
+      CALL XTS_BORDR(CALLED)
+      CALL XTS_HITS(0,CALLED)
+      CALL UPDATE_C
+      IDUM=SET_BACKING_C(0)
+61    IF(ITR.EQ.1)GO TO 71
+
+
+C DELETE THE HISTORY OF THE CURRENT TRACKS
+      DO 65 ICHAIN=1,MCHAIN
+      SHOWCH(ICHAIN)=-1
+65    CONTINUE
+      GO TO 99
+
+71    CONTINUE
+      DO 75 ICHAIN=1,MCHAIN
+      IF(SHOWCH(ICHAIN).EQ.0)GO TO 73
+      IF(SHOWCH(ICHAIN).EQ.3)GO TO 73
+      SHOWCH(ICHAIN)=-1
+      GO TO 75
+73    CALL XTS_CHVIEW_SIMPLE(ICHAIN,SHOWCH(ICHAIN),CALLED)
+75    CONTINUE
+      CALL XTS_TRK2(CALLED)
+
+99    CONTINUE
+#if defined(CLEO_XTSDEBUG)
+      PRINT 1002,CALLED
+1002  FORMAT(' XTS_RFVIEW2:EXIT, ENTER WAS',A20)
+#endif
+      RETURN
+      END
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,9 @@
+We determine the di-electron widths of the Upsilon(1S), Upsilon(2S),
+and Upsilon(3S) resonances with better than 2% precision by
+integrating the cross-section of e+e- -> Upsilon over the e+e-
+center-of-mass energy. Using e+e- energy scans of the Upsilon
+resonances at the Cornell Electron Storage Ring and measuring Upsilon
+production with the CLEO detector, we find di-electron widths of 1.252
++- 0.004 (stat) +- 0.019 (syst) keV, 0.581 +- 0.004 +- 0.009 keV, and
+0.413 +- 0.004 +- 0.006 keV for the Upsilon(1S), Upsilon(2S), and
+Upsilon(3S), respectively.

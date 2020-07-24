@@ -1,0 +1,70 @@
+
+Module : BeamGasFilterProc
+Date   : Thu Oct 31 16:50:05 2002
+User   : mccann
+Old Tag: 
+New Tag: v01_00_00
+Message: imported BeamGasFilterProc sources (mostly copied from HadronFilterProc)
+
+Module : BeamGasFilterProc
+Date   : Tue Nov  5 12:21:02 2002
+User   : mccann
+Old Tag: v01_00_00
+New Tag: v01_00_01
+Message: Updated description to include measurement of beamgas cutting efficiency.
+
+Module : BeamGasFilterProc
+Date   : Fri Nov 22 15:04:15 2002
+User   : mccann
+Old Tag: v01_00_01
+New Tag: v01_01_00
+Message: I made zsep a more reasonable variable: the distance between the intersection according to one track minus the intersection according to the other track in z.  It is also now a signed quantity.  petez made some plots showing that it doesnt change the tails of the distribution much.
+
+Module : BeamGasFilterProc
+Date   : Fri Nov 22 15:41:25 2002
+User   : mccann
+Old Tag: v01_01_00
+New Tag: v01_01_01
+Message: I moved beginRun code to event.  It should never have been in beginRun, since it queries a kStartRun record.
+
+Module : BeamGasFilterProc
+Date   : Tue Mar  4 20:22:14 2003
+User   : mccann
+Old Tag: v01_01_01
+New Tag: v01_02_00
+Message: Removed neutral energy cut, added run-time estimation of how much beamgas PASSES cuts.
+
+Module : BeamGasFilterProc
+Date   : Wed Mar  5 16:09:28 2003
+User   : mccann
+Old Tag: v01_02_00
+New Tag: v01_02_01
+Message: Fixed version control problem with IntersectionInfo.h (not yet officially existant).
+
+Module : BeamGasFilterProc
+Date   : Mon Mar 10 10:36:53 2003
+User   : mccann
+Old Tag: v01_02_01
+New Tag: v01_03_00
+Message: Added a cosmics count and more parameter control over output; fixed a bug in beamgas estimation (previously forgot to apply RPHI cut to shoulder events)
+
+Module : BeamGasFilterProc
+Date   : Mon Mar 10 12:54:44 2003
+User   : mccann
+Old Tag: v01_03_00
+New Tag: v01_04_00
+Message: included check on beamspot determination and fixed another inconsistancy between cuts in analyzed sample VS cuts in BeamGasFilterProc (BGFP now consistently subtracts m_beam_z from weighted_z)
+
+Module : BeamGasFilterProc
+Date   : Tue May  6 10:10:50 2003
+User   : vk
+Old Tag: v01_04_00
+New Tag: v01_04_01
+Message: Fix required type for sqrt
+
+Module : BeamGasFilterProc
+Date   : Mon Apr 12 13:05:20 2004
+User   : mccann
+Old Tag: v01_04_01
+New Tag: v01_04_02
+Message: Fixed a division-by-zero bug.  (Thanks Istvan!)

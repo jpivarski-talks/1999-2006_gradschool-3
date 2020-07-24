@@ -1,0 +1,1122 @@
+with the debugger:
+
+ %% DEBUG-CDOffCal.DriftFunction: About to allocate m_LayerThetaWeight as a 47 x 5 array of floats.
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight == 7fe640
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[0] == 7fe680
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[0][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[0][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[0][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[0][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[1] == ab5f10
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[1][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[1][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[1][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[1][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[1][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[2] == ab5f30
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[2][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[2][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[2][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[2][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[2][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[3] == 7fe580
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[3][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[3][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[3][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[3][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[3][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[4] == 7fe560
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[4][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[4][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[4][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[4][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[4][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[5] == 7fe540
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[5][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[5][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[5][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[5][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[5][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[6] == ab5e90
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[6][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[6][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[6][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[6][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[6][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[7] == ab5eb0
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[7][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[7][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[7][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[7][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[7][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[8] == ab5ed0
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[8][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[8][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[8][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[8][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[8][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[9] == ab5ef0
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[9][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[9][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[9][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[9][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[9][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[10] == ab5f50
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[10][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[10][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[10][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[10][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[10][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[11] == ab5f70
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[11][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[11][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[11][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[11][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[11][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[12] == ab5f90
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[12][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[12][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[12][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[12][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[12][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[13] == ab5fb0
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[13][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[13][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[13][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[13][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[13][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[14] == ab5fd0
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[14][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[14][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[14][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[14][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[14][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[15] == ab5ff0
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[15][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[15][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[15][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[15][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[15][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[16] == ab6010
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[16][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[16][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[16][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[16][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[16][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[17] == ab6030
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[17][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[17][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[17][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[17][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[17][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[18] == ab6050
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[18][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[18][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[18][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[18][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[18][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[19] == ab6070
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[19][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[19][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[19][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[19][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[19][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[20] == ab6090
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[20][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[20][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[20][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[20][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[20][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[21] == ab60b0
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[21][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[21][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[21][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[21][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[21][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[22] == ab60d0
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[22][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[22][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[22][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[22][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[22][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[23] == ab60f0
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[23][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[23][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[23][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[23][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[23][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[24] == ab6110
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[24][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[24][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[24][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[24][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[24][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[25] == ab6130
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[25][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[25][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[25][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[25][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[25][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[26] == ab6150
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[26][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[26][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[26][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[26][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[26][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[27] == ab6170
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[27][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[27][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[27][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[27][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[27][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[28] == ab6190
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[28][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[28][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[28][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[28][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[28][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[29] == ab61b0
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[29][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[29][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[29][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[29][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[29][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[30] == ab61d0
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[30][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[30][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[30][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[30][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[30][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[31] == ab61f0
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[31][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[31][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[31][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[31][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[31][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[32] == ab6210
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[32][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[32][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[32][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[32][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[32][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[33] == ab6230
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[33][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[33][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[33][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[33][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[33][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[34] == ab6250
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[34][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[34][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[34][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[34][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[34][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[35] == ab6270
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[35][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[35][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[35][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[35][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[35][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[36] == ab6290
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[36][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[36][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[36][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[36][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[36][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[37] == ab62b0
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[37][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[37][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[37][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[37][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[37][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[38] == ab62d0
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[38][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[38][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[38][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[38][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[38][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[39] == ab62f0
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[39][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[39][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[39][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[39][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[39][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[40] == ab6310
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[40][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[40][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[40][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[40][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[40][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[41] == ab6330
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[41][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[41][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[41][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[41][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[41][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[42] == ab6350
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[42][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[42][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[42][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[42][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[42][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[43] == ab6370
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[43][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[43][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[43][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[43][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[43][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[44] == ab6390
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[44][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[44][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[44][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[44][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[44][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[45] == ab63b0
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[45][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[45][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[45][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[45][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[45][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[46] == ab63d0
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[46][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[46][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[46][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[46][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[46][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: Allocated.
+ %% DEBUG-CDOffCal.DriftFunction: reprise1: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: reprise2: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: reprise2: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: reprise2: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: reprise3: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% DEBUG-CDOffCal.DriftFunction: reprise4: m_LayerThetaWeight[0][0] == 1.57383e-38
+ %% EMERGENCY-CDOffCal.DriftFunction: Illegal line in DRWeight2LayerTheta: layer = 1 thetabin = 1 resolution = 1.5 (this bin has already been filled with 1.57383e-38)
+
+without the debugger:
+
+ %% DEBUG-CDOffCal.DriftFunction: About to allocate m_LayerThetaWeight as a 47 x 5 array of floats.
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight == 6ee080
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[0] == 9a56d8
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[0][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[0][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[0][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[0][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[1] == 9a5798
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[1][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[1][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[1][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[1][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[1][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[2] == 9a57b8
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[2][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[2][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[2][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[2][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[2][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[3] == 6edfc0
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[3][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[3][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[3][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[3][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[3][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[4] == 6edfa0
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[4][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[4][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[4][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[4][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[4][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[5] == 6edf80
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[5][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[5][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[5][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[5][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[5][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[6] == 9a5718
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[6][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[6][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[6][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[6][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[6][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[7] == 9a5738
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[7][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[7][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[7][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[7][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[7][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[8] == 9a5758
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[8][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[8][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[8][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[8][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[8][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[9] == 9a5778
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[9][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[9][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[9][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[9][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[9][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[10] == 9a57d8
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[10][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[10][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[10][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[10][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[10][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[11] == 9a57f8
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[11][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[11][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[11][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[11][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[11][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[12] == 9a5818
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[12][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[12][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[12][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[12][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[12][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[13] == 9a5838
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[13][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[13][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[13][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[13][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[13][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[14] == 9a5858
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[14][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[14][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[14][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[14][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[14][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[15] == 9a5878
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[15][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[15][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[15][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[15][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[15][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[16] == 9a5898
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[16][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[16][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[16][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[16][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[16][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[17] == 9a58b8
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[17][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[17][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[17][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[17][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[17][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[18] == 9a58d8
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[18][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[18][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[18][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[18][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[18][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[19] == 9a58f8
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[19][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[19][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[19][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[19][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[19][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[20] == 9a5918
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[20][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[20][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[20][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[20][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[20][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[21] == 9a5938
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[21][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[21][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[21][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[21][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[21][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[22] == 9a5958
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[22][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[22][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[22][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[22][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[22][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[23] == 9a5978
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[23][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[23][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[23][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[23][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[23][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[24] == 9a5998
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[24][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[24][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[24][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[24][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[24][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[25] == 9a59b8
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[25][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[25][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[25][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[25][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[25][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[26] == 9a59d8
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[26][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[26][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[26][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[26][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[26][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[27] == 9a59f8
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[27][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[27][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[27][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[27][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[27][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[28] == 9a5a18
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[28][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[28][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[28][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[28][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[28][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[29] == 9a5a38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[29][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[29][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[29][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[29][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[29][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[30] == 9a5a58
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[30][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[30][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[30][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[30][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[30][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[31] == 9a5a78
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[31][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[31][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[31][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[31][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[31][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[32] == 9a5a98
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[32][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[32][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[32][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[32][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[32][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[33] == 9a5ab8
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[33][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[33][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[33][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[33][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[33][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[34] == 9a5ad8
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[34][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[34][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[34][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[34][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[34][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[35] == 9a5af8
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[35][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[35][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[35][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[35][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[35][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[36] == 9a5b18
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[36][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[36][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[36][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[36][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[36][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[37] == 9a5b38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[37][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[37][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[37][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[37][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[37][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[38] == 9a5b58
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[38][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[38][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[38][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[38][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[38][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[39] == 9a5b78
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[39][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[39][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[39][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[39][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[39][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[40] == 9a5b98
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[40][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[40][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[40][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[40][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[40][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[41] == 9a5bb8
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[41][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[41][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[41][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[41][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[41][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[42] == 9a5bd8
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[42][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[42][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[42][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[42][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[42][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[43] == 9a5bf8
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[43][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[43][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[43][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[43][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[43][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[44] == 9a5c18
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[44][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[44][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[44][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[44][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[44][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[45] == 9a5c38
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[45][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[45][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[45][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[45][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[45][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: is it allocated?  m_LayerThetaWeight[46] == 9a5c58
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[46][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[46][1] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[46][2] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[46][3] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: m_LayerThetaWeight[46][4] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise0: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: Allocated.
+ %% DEBUG-CDOffCal.DriftFunction: reprise1: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise2: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise2: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise2: m_LayerThetaWeight[0][0] == -2648.01
+ %% DEBUG-CDOffCal.DriftFunction: reprise3: m_LayerThetaWeight[0][0] == -2648.01
+
+
+the code:
+
+     // Allocation block
+     report(DEBUG, kFacilityString)
+	<< "About to allocate m_LayerDriftEntAngWeight as a "
+	<< kmaxDRlayer << " x " << m_WeightDriftNBins << " x " << m_WeightEntAngNBins << " array of floats." << endl;
+     m_LayerDriftEntAngWeight = new floatPtrPtr[kmaxDRlayer];
+     if (true) { // to protect the "int l" declaration on some compilers
+	for (int l = 0;  l < kmaxDRlayer;  l++) {
+	   m_LayerDriftEntAngWeight[l] = new floatPtr[m_WeightDriftNBins];
+	   for (int d = 0;  d < m_WeightDriftNBins;  d++) {
+	      m_LayerDriftEntAngWeight[l][d] = new float[m_WeightEntAngNBins];
+	      for (int ea = 0;  ea < m_WeightEntAngNBins;  ea++) {
+		 m_LayerDriftEntAngWeight[l][d][ea] = kFavoriteNumber;
+	      }
+	   }
+	}
+     }
+     report(DEBUG, kFacilityString) << "Allocated." << endl;
+
+     for (lde_iter = m_dataHolder->LayerDriftEntAngWeight().begin();  lde_iter != lde_end;  ++lde_iter) {
+	if (lde_iter->get_layer() != 0) {
+	   int l = lde_iter->get_layer() - 1;
+	   int d = lde_iter->get_driftbin() - 1;
+	   int ea = lde_iter->get_entangbin() - 1;
+
+	   if (l < 0   ||  l >= kmaxDRlayer           ||
+	       d < 0   ||  d >= m_WeightDriftNBins    ||
+	       ea < 0  ||  ea >= m_WeightEntAngNBins     ) {
+	      report(EMERGENCY, kFacilityString)
+		 << "Illegal line in DRWeight2LayerDriftEntAng: layer = " << lde_iter->get_layer()
+		 << " driftbin = " << lde_iter->get_driftbin()
+		 << " entangbin = " << lde_iter->get_entangbin()
+		 << " resolution = " << lde_iter->get_resolution()
+		 << " (kmaxDRlayer = " << kmaxDRlayer
+		 << " m_WeightDriftNBins = " << m_WeightDriftNBins
+		 << " m_WeightEntAngNBins = " << m_WeightEntAngNBins << ")" << endl;
+	      assert(false);
+	   }
+
+	   if (m_LayerDriftEntAngWeight[l][d][ea] != kFavoriteNumber) {
+	    report(EMERGENCY, kFacilityString)
+		 << "Illegal line in DRWeight2LayerDriftEntAng: layer = " << lde_iter->get_layer()
+		 << " driftbin = " << lde_iter->get_driftbin()
+		 << " entangbin = " << lde_iter->get_entangbin()
+		 << " resolution = " << lde_iter->get_resolution()
+		 << " (this bin has already been filled with " << m_LayerDriftEntAngWeight[l][d][ea] << ")" << endl;
+	      assert(false);
+	   }  
+
+	   if (lde_iter->get_resolution() <= 0.) {
+	    report(EMERGENCY, kFacilityString)
+		 << "Illegal line in DRWeight2LayerDriftEntAng: layer = " << lde_iter->get_layer()
+		 << " driftbin = " << lde_iter->get_driftbin()
+		 << " entangbin = " << lde_iter->get_entangbin()
+		 << " resolution = " << lde_iter->get_resolution()
+		 << " (resolution must be positive!)" << endl;
+	      assert(false);
+	   }  
+
+	   m_LayerDriftEntAngWeight[l][d][ea] = lde_iter->get_resolution();
+	}
+     }

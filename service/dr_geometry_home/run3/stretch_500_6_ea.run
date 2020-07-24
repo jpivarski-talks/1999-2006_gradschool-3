@@ -1,0 +1,15 @@
+#$ -l calibration
+#$ -o /cdat/tem/mccann/stretch_500_6_ea.log
+#$ -S /bin/bash
+#$ -j y
+
+cd /home/mccann/dr_geometry/run3
+. /nfs/cleo3/scripts/cleo3defs
+c3rel Jul10_03
+
+DIRTY_WHICH=s
+export DIRTY_WHICH
+DIRTY_STRETCH=500
+export DIRTY_STRETCH
+
+suez -f stretch_6_ea.tcl

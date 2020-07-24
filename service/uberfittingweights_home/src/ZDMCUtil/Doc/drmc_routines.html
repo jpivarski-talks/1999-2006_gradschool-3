@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title> Drift Chamber Anode Monte Carlo Routines</title>
+</head>
+
+<body>
+<h1> Drift Chamber Anode Monte Carlo Introduction</h1>
+DR Monte Carlo routines for the anode simulation.
+If the routine was based on a CLEO-II routine that name is given.
+The constants should be reorganized as a few of the entities are no
+longer used and all names should be improved.
+<hr>
+
+<h1> Creation of DR Geant Hits </h1>
+<ul>
+  <li> guser_suez/cleog/gustep.F
+  <li> DRGeantHits/Fortran/cdhits.F
+  <li> Geant hits are stored in Geant Zebra banks
+</ul>
+<hr>
+
+
+<h1> Creation of DR Anode Responses </h1>
+<ul>
+  <li> <strong> MCResponseProd/Class/MCResponseProd.cc </strong>  <br>
+       <strong> Purpose: </strong> Producer for MC Response objects,
+                         registers proxies, etc. <p>
+       
+
+  <li> <strong> MCResponseProd/Class/MCDRResponseProxy.cc </strong>  <br>
+       <strong> Purpose: </strong> Proxy to serve DR Response objects.
+                         Trigger Geant for the event if it hasn't been triggered & call
+                         mc_dr_responses.F to create DR MC response objects based on the
+                         Geant hits. <p>
+       
+  <li> <strong> MCResponseProd/Fortran/mc_dr_responses.F </strong>  <br>
+       <strong> CLEO-II Routine: </strong> cleog/crawm/cdrawm.F <br>
+       <strong> Purpose: </strong> Creates DR MC Response objects from
+                         Geant DR hits. Called by
+                         MCDRResponseProxy::faultHandler  <p>  
+
+  <li> mc_dr_responses calls these routines:
+       <ul>
+	 <li> <strong> DRMCUtil/Fortran/fill_geant_drhits.F </strong> <br>
+	      <strong> CLEO-II Routine: </strong> part of cleog/cdrawm/cdrawm.F <br>
+	      <strong> Purpose:</strong> Returns Geant DR anode hits. <p>
+
+	      
+	 <li> <strong> DRMCUtil/Fortran/drhit_2_cleo_units.F </strong> <br>
+	      <strong> CLEO-II Routine: </strong> part of cleog/cdrawm/cdrawm.F <br>
+	      <strong> Purpose:</strong> Convert DR Geant Hit to CLEO
+	      units: cm->meters,s->picoseconds. <p>
+
+	      
+	 <li> <strong> DRMCUtil/Fortran/check_geant_hit.F </strong> <br>
+	      <strong> CLEO-II Routine: </strong> A new routine <br>
+	      <strong> Purpose:</strong> Check that the DR Geant hit is valid <p>
+
+
+	 <li> <strong> DRMCUtil/Fortran/get_cellid.F </strong> <br>
+	      <strong> CLEO-II Routine: </strong> new routine <br>
+	      <strong> Purpose:</strong> Calculate DR CellId based on wire, layer <p>
+	      
+
+	      
+	 <li> <strong> DRMCUtil/Fortran/get_deadwire.F </strong> <br>
+	      <strong> CLEO-II Routine: </strong> cdoffcal/cdcal/deadwr.F <br>
+	      <strong> Purpose: </strong> Does given DR cellId has a dead wire ? <br> 
+	      <strong> Status: </strong> Need constants - all hardwired to alive <p>
+
+	      
+	 <li> <strong> DRMCUtil/Fortran/dr_hit_eloss.F </strong> <br>
+	      <strong> CLEO-II Routine: </strong> New routine to have
+	      dE/dx related code in 1 routine <br>
+	      <strong> Purpose:</strong> Convert Eloss to pulse height +
+	               DOCA and wire corrections <p>
+
+	      
+	 <li> <strong> DRMCUtil/Fortran/wire_eff.F </strong> <br>
+	      <strong> CLEO-II Routine: </strong> cleog/crawm/cdreff.F <br>
+	      <strong> Purpose: </strong> Calculate efficiency for readout for a given CellId. <p>
+
+	      
+	 <li> <strong> DRMCUtil/Fortran/smear_drift.F </strong> <br>
+	      <strong> CLEO-II Routine: </strong> cleog/crawm/cdsmer.F <br>
+	      <strong> Purpose: </strong> Smears the distance DRIFT by a function described by
+	                                  two Gaussians (only 1st Gaussian used).  Accounts for
+	                                  ion statistics to trigger cell. <p>
+
+
+	 <li> <strong> drmc_drift2time() in DRMCUtil/Class/DRMCDriftFB.cc </strong> <br>
+	      <strong> CLEO-II Routine: </strong> cdoffcal/cdcal/ktofps.F <br>
+	      <strong> Purpose: </strong> <br> Compute ADC value from the drift time <p>
+
+
+	 <li> <strong> DRMCUtil/Fortran/check_dr_anode_time.F </strong> <br>
+	      <strong> CLEO-II Routine: </strong> cleog/crawm/chktim.F <br> 
+	      <strong> Purpose: </strong> Check DriftTime for an anode hit for anomolies. <p> 
+
+
+	 <li> <strong> DRMCUtil/Fortran/hit_intime.F.F </strong> <br>
+	      <strong> CLEO-II Routine: </strong> <br>
+	      <strong> Purpose: </strong> Check if hit is in time for charge integration.<br>
+	      <strong> Status: </strong>  Hardwired numbers from cleo2 - should 
+		                          be moved to digitization phase <p>
+
+
+	 <li> <strong> DRMCUtil/Fortran/dr_hit_is_eff.F </strong> <br>
+	      <strong> CLEO-II Routine: </strong> part of cleog/crawm/cdrawm.F <br>
+	      <strong> Purpose:</strong> Determine if DR Hit is efficient. <p>
+
+	 <li> The MCResponse objects are stored in the Frame
+       </ul>
+</ul>
+<hr>
+
+
+<h1> Anode Initialization Routines </h1>
+<ul>
+  <li> <strong>DRMCUtil/Class/InitDRMCFrameBrokers.cc</strong>
+       - C++ function that is passed a reference to
+       the Frame by MCResponseProd::updateCleogBeginRun() and extracts the 
+       what is needed from the Frame by the different Fortran interface routines.
+       These include: CD Geometry, DR Calibration, and DR Anode MC
+       Constants.
+</ul>
+<p>
+
+
+
+<hr>
+<address><a href="http://w4.lns.cornell.edu/~jjo/">John O'Neill &lt;jjo@mail.lns.cornell.edu &gt;</a></address>
+<!-- hhmts start -->
+Last modified: Mon Feb  7 14:54:15 EST 2000
+<!-- hhmts end -->
+</body> </html>

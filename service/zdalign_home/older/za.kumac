@@ -1,0 +1,63 @@
+nt/hmerge ../rzn/za1.rzn ../rzn/za_200500.rzn ../rzn/za_200501.rzn ../rzn/za_200504.rzn ../rzn/za_200506.rzn ../rzn/za_200516.rzn ../rzn/za_200518.rzn ../rzn/za_200520.rzn ../rzn/za_200525.rzn ../rzn/za_200526.rzn ../rzn/za_200527.rzn
+nt/hmerge ../rzn/za2.rzn ../rzn/za_200529.rzn ../rzn/za_200531.rzn ../rzn/za_200536.rzn ../rzn/za_200537.rzn ../rzn/za_200539.rzn ../rzn/za_200541.rzn ../rzn/za_200542.rzn ../rzn/za_200543.rzn ../rzn/za_200549.rzn ../rzn/za_200551.rzn
+nt/hmerge ../rzn/za3.rzn ../rzn/za_200552.rzn ../rzn/za_200554.rzn ../rzn/za_200556.rzn ../rzn/za_200557.rzn ../rzn/za_200558.rzn ../rzn/za_200567.rzn ../rzn/za_200572.rzn ../rzn/za_200598.rzn ../rzn/za_200652.rzn ../rzn/za_200669.rzn
+nt/hmerge ../rzn/za4.rzn ../rzn/za_200693.rzn ../rzn/za_200733.rzn ../rzn/za_200734.rzn ../rzn/za_200746.rzn ../rzn/za_200750.rzn ../rzn/za_200753.rzn ../rzn/za_200754.rzn ../rzn/za_200755.rzn ../rzn/za_200766.rzn ../rzn/za_200769.rzn
+nt/hmerge ../rzn/za5.rzn ../rzn/za_200772.rzn ../rzn/za_200775.rzn ../rzn/za_200778.rzn ../rzn/za_200785.rzn ../rzn/za_200786.rzn ../rzn/za_200787.rzn ../rzn/za_200788.rzn ../rzn/za_200791.rzn ../rzn/za_200794.rzn ../rzn/za_200797.rzn
+nt/hmerge ../rzn/za6.rzn ../rzn/za_200798.rzn ../rzn/za_200801.rzn ../rzn/za_200802.rzn ../rzn/za_200805.rzn ../rzn/za_200806.rzn ../rzn/za_200807.rzn ../rzn/za_200808.rzn ../rzn/za_200810.rzn ../rzn/za_200812.rzn ../rzn/za_200814.rzn
+nt/hmerge ../rzn/za7.rzn ../rzn/za_200815.rzn ../rzn/za_200817.rzn ../rzn/za_200818.rzn ../rzn/za_200819.rzn ../rzn/za_200822.rzn ../rzn/za_200823.rzn ../rzn/za_200824.rzn ../rzn/za_200825.rzn ../rzn/za_200826.rzn ../rzn/za_200828.rzn
+nt/hmerge ../rzn/za8.rzn ../rzn/za_200829.rzn ../rzn/za_200832.rzn ../rzn/za_200833.rzn ../rzn/za_200834.rzn ../rzn/za_200835.rzn ../rzn/za_200847.rzn ../rzn/za_200851.rzn ../rzn/za_200853.rzn ../rzn/za_200854.rzn ../rzn/za_200868.rzn
+nt/hmerge ../rzn/za9.rzn ../rzn/za_200870.rzn ../rzn/za_200871.rzn ../rzn/za_200872.rzn ../rzn/za_200873.rzn ../rzn/za_200876.rzn ../rzn/za_200879.rzn ../rzn/za_200880.rzn ../rzn/za_200897.rzn ../rzn/za_200898.rzn ../rzn/za_200901.rzn
+nt/hmerge ../rzn/za10.rzn ../rzn/za_200903.rzn ../rzn/za_200906.rzn ../rzn/za_200907.rzn ../rzn/za_200908.rzn ../rzn/za_200909.rzn ../rzn/za_200911.rzn ../rzn/za_200920.rzn ../rzn/za_200921.rzn ../rzn/za_200922.rzn ../rzn/za_200923.rzn
+nt/hmerge ../rzn/za11.rzn ../rzn/za_200925.rzn ../rzn/za_200926.rzn ../rzn/za_200927.rzn ../rzn/za_200932.rzn ../rzn/za_200935.rzn ../rzn/za_200936.rzn ../rzn/za_200937.rzn ../rzn/za_200940.rzn ../rzn/za_200941.rzn ../rzn/za_200942.rzn
+nt/hmerge ../rzn/za12.rzn ../rzn/za_200944.rzn ../rzn/za_200945.rzn ../rzn/za_200948.rzn ../rzn/za_200949.rzn ../rzn/za_200950.rzn ../rzn/za_200952.rzn ../rzn/za_200956.rzn ../rzn/za_200957.rzn ../rzn/za_200959.rzn ../rzn/za_200960.rzn
+nt/hmerge ../rzn/za13.rzn ../rzn/za_200961.rzn ../rzn/za_200962.rzn ../rzn/za_200963.rzn ../rzn/za_200964.rzn ../rzn/za_200965.rzn ../rzn/za_200966.rzn ../rzn/za_200967.rzn ../rzn/za_200968.rzn ../rzn/za_200969.rzn ../rzn/za_200970.rzn
+nt/hmerge ../rzn/za14.rzn ../rzn/za_200972.rzn ../rzn/za_200976.rzn ../rzn/za_200978.rzn ../rzn/za_200979.rzn ../rzn/za_200981.rzn ../rzn/za_200983.rzn ../rzn/za_200984.rzn ../rzn/za_201001.rzn ../rzn/za_201002.rzn ../rzn/za_201003.rzn
+nt/hmerge ../rzn/za15.rzn ../rzn/za_201004.rzn ../rzn/za_201007.rzn ../rzn/za_201008.rzn ../rzn/za_201013.rzn ../rzn/za_201014.rzn ../rzn/za_201016.rzn ../rzn/za_201017.rzn ../rzn/za_201018.rzn ../rzn/za_201019.rzn ../rzn/za_201021.rzn
+nt/hmerge ../rzn/za16.rzn ../rzn/za_201023.rzn ../rzn/za_201024.rzn ../rzn/za_201026.rzn ../rzn/za_201027.rzn ../rzn/za_201028.rzn ../rzn/za_201029.rzn ../rzn/za_201030.rzn ../rzn/za_201031.rzn
+
+nt/hmerge ../rzn/za.rzn ../rzn/za1.rzn ../rzn/za2.rzn ../rzn/za3.rzn ../rzn/za4.rzn ../rzn/za5.rzn ../rzn/za6.rzn ../rzn/za7.rzn ../rzn/za8.rzn ../rzn/za9.rzn ../rzn/za10.rzn ../rzn/za11.rzn ../rzn/za12.rzn ../rzn/za13.rzn ../rzn/za14.rzn ../rzn/za15.rzn ../rzn/za16.rzn
+
+h/file 1 ../rzn/za.rzn
+cd COMPAREDRANDZD
+
+zone 2 2
+
+opt sta
+set stat 0001110
+set fit 001
+h/plot 100
+set ltyp 3
+sigma down = $HINFO(100, 'MEAN') - $HINFO(100, 'RMS') / sqrt($HINFO(100, 'ENTRIES'))
+sigma up   = $HINFO(100, 'MEAN') + $HINFO(100, 'RMS') / sqrt($HINFO(100, 'ENTRIES'))
+dline $SIGMA(down) $SIGMA(down) $GRAFINFO('WNYMIN') $GRAFINFO('WNYMAX')
+dline $SIGMA(up) $SIGMA(up) $GRAFINFO('WNYMIN') $GRAFINFO('WNYMAX')
+
+ve/cr par(3)
+ve/inp par 0 0 0
+opt nsta
+opt fit
+set fit 111
+min 200 -0.5e-2
+max 200 0.5e-2
+h/fit 200 sincos.f ! 3 par
+
+opt sta
+set stat 0001110
+set fit 001
+h/plot 300
+set ltyp 3
+sigma down = $HINFO(300, 'MEAN') - $HINFO(300, 'RMS') / sqrt($HINFO(300, 'ENTRIES'))
+sigma up   = $HINFO(300, 'MEAN') + $HINFO(300, 'RMS') / sqrt($HINFO(300, 'ENTRIES'))
+dline $SIGMA(down) $SIGMA(down) $GRAFINFO('WNYMIN') $GRAFINFO('WNYMAX')
+dline $SIGMA(up) $SIGMA(up) $GRAFINFO('WNYMIN') $GRAFINFO('WNYMAX')
+
+ve/cr par(3)
+ve/inp par 0 0 0
+opt nsta
+opt fit
+set fit 111
+min 400 -0.5
+max 400 0.5
+h/fit 400 sincos.f ! 3 par
+
+pict/print 'iter1_no_movement.ps'

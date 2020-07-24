@@ -1,0 +1,115 @@
+#############################################################
+#############################################################
+##    trythis, for DATA                                    ##
+##    /home/ds/dpp/doit/trythis_pds_yomama 07-Feb-2003     ##
+#############################################################
+#############################################################
+
+tcl_source $env(C3_SUEZRC)/suezrc
+run_file $env(C3_SCRIPTS)/getConstants.tcl
+source_format sel SVHybridEfficiencyFileSourceFormat
+file in si_effic_run_all.svhybridefficiency
+
+proc sel DoitYoMaMaProcessor
+param DoitYoMaMaProcessor ContinueIfHitsMissing true
+param DoitYoMaMaProcessor DoitModeNumber 38
+#param DoitYoMaMaProcessor useZD true
+#param DoitYoMaMaProcessor useSilicon false
+
+
+# special procedures for ZD, worked out with GuangShun
+
+#run_file $env(C3_SCRIPTS)/trackingDataFull.tcl
+run_file trackingMCFull_GuangShunTracking.tcl
+
+#trackingDataFull_GuangShun required that these 
+# are taken from  /home/axp/huanggs/cleo3src/shlib/
+#       pro sel ZDHitCorrectorProd
+#trackingDataFull_GuangShun required that these are removed
+#	prod sel CorrectedSVStripProd
+#	prod sel SiHitsProd
+#	prod sel DoitProd
+#	param DoitProd ContinueIfHitsMissing true
+#       prod sel PreliminaryZDHitProd
+#trackingMCFull_GuangShunTracking required that these deselects are removed
+#        prod desel CorrectedSVStripProd
+#        prod desel SiHitsProd
+
+
+
+param DetectorConfigurationProd        Override      true
+param DetectorConfigurationProd        UseZDnotSI    true
+
+prod sel ZDWireLayerProd
+
+
+emptysource def myzd zdalignment
+source_format sel ZDGeomAlignmentFileSourceFormat
+file in /nfs/cleo3/Offline/rel/development/src/ZDGeomAlignmentFileSourceFormat/zd.zdgeomalignment zdalignment
+source_format sel AZDGeomLayerFileSourceFormat
+file in /nfs/cleo3/Offline/rel/development/src/AZDGeomLayerFileSourceFormat/zd.azdgeomlayer basegeometry
+
+source_format sel ZDadcpedestalFileSourceFormat
+file in /nfs/cleo3/Offline/rel/development/src/ZDadcpedestalFileSourceFormat/test.zdadcpedestal
+source_format sel ZDWeightDriftFileSourceFormat
+file in /home/huanggs/cleo3src/test.zdweightdrift
+source_format sel ZDWeightLayerFileSourceFormat
+file in /home/huanggs/cleo3src/test.zdweightlayer
+source_format sel ZDWeightPhiFileSourceFormat
+file in /home/huanggs/cleo3src/test.zdweightphi
+source_format sel ZDWeightThetaFileSourceFormat
+file in /home/huanggs/cleo3src/test.zdweighttheta
+source_format sel ZDDaqCellIDMapFileSourceFormat
+file in /nfs/cleo3/Offline/rel/development/src/ZDDaqCellIDMapFileSourceFormat/test.zddaqcellidmap
+source_format sel ZDWireQualityFileSourceFormat
+file in /nfs/cleo3/Offline/rel/development/src/ZDWireQualityFileSourceFormat/test.zdwirequality
+source_format sel ZDadc2chargeFileSourceFormat
+file in /nfs/cleo3/Offline/rel/development/src/ZDadc2chargeFileSourceFormat/test.zdadc2charge
+source_format sel ZDDriftDataFileSourceFormat
+file in /home/huanggs/cleo3src/test.zddriftdata
+source_format sel ZDt0channelFileSourceFormat
+file in /nfs/cleo3/Offline/rel/development/src/ZDt0channelFileSourceFormat/test.zdt0channel
+source_format sel ZDt0cardFileSourceFormat
+file in /nfs/cleo3/Offline/rel/development/src/ZDt0cardFileSourceFormat/test2.zdt0card
+source_format sel ZDt0hvcardFileSourceFormat
+file in /nfs/cleo3/Offline/rel/development/src/ZDt0hvcardFileSourceFormat/test.zdt0hvcard
+source_format sel ZDt0crateFileSourceFormat
+file in /nfs/cleo3/Offline/rel/development/src/ZDt0crateFileSourceFormat/test2.zdt0crate
+source_format sel ZDt0globalFileSourceFormat
+file in /home/huanggs/cleo3src/test.zdt0global
+
+
+
+#prod desel DoitProd
+proc sel RunEventNumberProc
+prod sel DBEventHeaderProd
+
+
+source_format sel PDSSourceFormat
+module sel RawDataStorageHelperModule
+sink_format sel PDSSinkFormat
+#########################################################################
+# 03-July-2003 GuangShun Huang ZD data
+# MC run 
+#
+#########################################################################
+file src /home/axp/huanggs/cleo3src/zdoutput.pds
+file out junk.pds beginrun event
+
+report level info
+exception continueEventLoop on
+go 1
+default prompt off
+go 10
+
+
+
+
+
+
+
+
+
+
+
+

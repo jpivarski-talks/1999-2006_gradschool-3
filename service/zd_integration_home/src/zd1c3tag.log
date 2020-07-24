@@ -1,0 +1,970 @@
+solfa3% c3tag -F -m "Added the ZD to track fitting" TrackRoot
+/nfs/cleo3/Offline/scripts/c3tag:20: DeprecationWarning: the regex module is deprecated; please use the re module
+  import sys, os, glob, string, regex
+c3tag> 
+c3tag> Creating new tag for TrackRoot
+c3tag> Continue?(y*/n)
+
+c3tag> Shall I try to detect any modifications,
+including files you may have not cvs-added yet?(y*/n)
+
+M Class/TRSubdetectorLists.cc
+M TrackRoot/TRSubdetectorLists.h
+You have [2] altered files in this repository.
+Are you sure you want to release directory `TrackRoot': ** `release' aborted by user choice.
+c3tag> Continue?(y*/n)
+
+c3tag> Shall I commit any changes(y*/n)
+
+c3tag> Running "update -d" ...
+cvs update: Updating TrackRoot
+cvs update: Updating TrackRoot/Class
+M TrackRoot/Class/TRSubdetectorLists.cc
+cvs update: Updating TrackRoot/Class/Storage
+cvs update: Updating TrackRoot/Doc
+cvs update: Updating TrackRoot/Instantiate
+cvs update: Updating TrackRoot/Instantiate/Storage
+cvs update: Updating TrackRoot/TrackRoot
+M TrackRoot/TrackRoot/TRSubdetectorLists.h
+cvs update: Updating TrackRoot/TrackRoot/Storage
+cvs update: Updating TrackRoot/TrackRoot/Storage/Template
+cvs update: Updating TrackRoot/TrackRoot/Template
+c3tag> Everything ok with update? Continue?(y*/n)
+
+c3tag> Shall I use the tag message for committing?(y*/n)
+
+cvs commit: Examining TrackRoot
+cvs commit: Examining TrackRoot/Class
+cvs commit: Examining TrackRoot/Class/Storage
+cvs commit: Examining TrackRoot/Doc
+cvs commit: Examining TrackRoot/Instantiate
+cvs commit: Examining TrackRoot/Instantiate/Storage
+cvs commit: Examining TrackRoot/TrackRoot
+cvs commit: Examining TrackRoot/TrackRoot/Storage
+cvs commit: Examining TrackRoot/TrackRoot/Storage/Template
+cvs commit: Examining TrackRoot/TrackRoot/Template
+Checking in TrackRoot/Class/TRSubdetectorLists.cc;
+/nfs/cleo3/cvsroot/Offline/src/TrackRoot/Class/TRSubdetectorLists.cc,v  <--  TRSubdetectorLists.cc
+new revision: 1.3; previous revision: 1.2
+done
+Sending mail to cdj,cleo3,jed,vk
+Sending mail to lyon,wsun
+Checking in TrackRoot/TrackRoot/TRSubdetectorLists.h;
+/nfs/cleo3/cvsroot/Offline/src/TrackRoot/TrackRoot/TRSubdetectorLists.h,v  <--  TRSubdetectorLists.h
+new revision: 1.3; previous revision: 1.2
+done
+Sending mail to cdj,cleo3,jed,vk
+Sending mail to lyon,wsun
+c3tag> Continue?(y*/n)
+
+c3tag> Trying to find a valid previous tag:
+c3tag> ... file TrackRoot/Makefile
+c3tag> ... match!
+c3tag> module has most recent tag v03_09_01
+c3tag> will tag with new tag v04_00_00; continue?(y*/n)
+
+c3tag> Running "update -d" ...
+cvs update: Updating TrackRoot
+cvs update: Updating TrackRoot/Class
+cvs update: Updating TrackRoot/Class/Storage
+cvs update: Updating TrackRoot/Doc
+cvs update: Updating TrackRoot/Instantiate
+cvs update: Updating TrackRoot/Instantiate/Storage
+cvs update: Updating TrackRoot/TrackRoot
+cvs update: Updating TrackRoot/TrackRoot/Storage
+cvs update: Updating TrackRoot/TrackRoot/Storage/Template
+cvs update: Updating TrackRoot/TrackRoot/Template
+c3tag> Everything ok with update? Continue?(y*/n)
+
+cvs tag: Tagging TrackRoot
+T TrackRoot/Makefile
+T TrackRoot/version.info
+cvs tag: Tagging TrackRoot/Class
+T TrackRoot/Class/Inserter_TRHelixFit.cc
+T TrackRoot/Class/TRHelixFit.cc
+T TrackRoot/Class/TRLayerMap.cc
+T TrackRoot/Class/TRSeedTrack.cc
+T TrackRoot/Class/TRSeedTrackQuality.cc
+T TrackRoot/Class/TRSubdetectorLists.cc
+T TrackRoot/Class/TRTrack.cc
+T TrackRoot/Class/TRTrackFitQuality.cc
+T TrackRoot/Class/TRTrackQuality.cc
+cvs tag: Tagging TrackRoot/Class/Storage
+T TrackRoot/Class/Storage/ManyTRSeedTrackQualityStorageHelper.cc
+T TrackRoot/Class/Storage/ManyTRSeedTrackStorageHelper.cc
+T TrackRoot/Class/Storage/ManyTRTrackStorageHelper.cc
+T TrackRoot/Class/Storage/TRSeedTrackQualityStorageHelper.cc
+T TrackRoot/Class/Storage/TRSeedTrackStorageHelper.cc
+T TrackRoot/Class/Storage/TRTrackStorageHelper.cc
+cvs tag: Tagging TrackRoot/Doc
+cvs tag: Tagging TrackRoot/Instantiate
+T TrackRoot/Instantiate/T_TRHelixElectronFit.cc
+T TrackRoot/Instantiate/T_TRHelixElectronFitField.cc
+T TrackRoot/Instantiate/T_TRHelixExitElectronFit.cc
+T TrackRoot/Instantiate/T_TRHelixExitElectronFitField.cc
+T TrackRoot/Instantiate/T_TRHelixExitKaonFit.cc
+T TrackRoot/Instantiate/T_TRHelixExitKaonFitField.cc
+T TrackRoot/Instantiate/T_TRHelixExitMuonFit.cc
+T TrackRoot/Instantiate/T_TRHelixExitMuonFitField.cc
+T TrackRoot/Instantiate/T_TRHelixExitPionFit.cc
+T TrackRoot/Instantiate/T_TRHelixExitPionFitField.cc
+T TrackRoot/Instantiate/T_TRHelixExitProtonFit.cc
+T TrackRoot/Instantiate/T_TRHelixExitProtonFitField.cc
+T TrackRoot/Instantiate/T_TRHelixFitField.cc
+T TrackRoot/Instantiate/T_TRHelixKaonFit.cc
+T TrackRoot/Instantiate/T_TRHelixKaonFitField.cc
+T TrackRoot/Instantiate/T_TRHelixMuonFit.cc
+T TrackRoot/Instantiate/T_TRHelixMuonFitField.cc
+T TrackRoot/Instantiate/T_TRHelixPionFit.cc
+T TrackRoot/Instantiate/T_TRHelixPionFitField.cc
+T TrackRoot/Instantiate/T_TRHelixProtonFit.cc
+T TrackRoot/Instantiate/T_TRHelixProtonFitField.cc
+T TrackRoot/Instantiate/T_TRSeedTrack.cc
+T TrackRoot/Instantiate/T_TRSeedTrackQuality.cc
+T TrackRoot/Instantiate/T_TRTrackElectronFitQuality.cc
+T TrackRoot/Instantiate/T_TRTrackElectronFitQualityField.cc
+T TrackRoot/Instantiate/T_TRTrackExitElectronFitQuality.cc
+T TrackRoot/Instantiate/T_TRTrackExitElectronFitQualityField.cc
+T TrackRoot/Instantiate/T_TRTrackExitKaonFitQuality.cc
+T TrackRoot/Instantiate/T_TRTrackExitKaonFitQualityField.cc
+T TrackRoot/Instantiate/T_TRTrackExitMuonFitQuality.cc
+T TrackRoot/Instantiate/T_TRTrackExitMuonFitQualityField.cc
+T TrackRoot/Instantiate/T_TRTrackExitPionFitQuality.cc
+T TrackRoot/Instantiate/T_TRTrackExitPionFitQualityField.cc
+T TrackRoot/Instantiate/T_TRTrackExitProtonFitQuality.cc
+T TrackRoot/Instantiate/T_TRTrackExitProtonFitQualityField.cc
+T TrackRoot/Instantiate/T_TRTrackField.cc
+T TrackRoot/Instantiate/T_TRTrackFitQualityField.cc
+T TrackRoot/Instantiate/T_TRTrackKaonFitQuality.cc
+T TrackRoot/Instantiate/T_TRTrackKaonFitQualityField.cc
+T TrackRoot/Instantiate/T_TRTrackMuonFitQuality.cc
+T TrackRoot/Instantiate/T_TRTrackMuonFitQualityField.cc
+T TrackRoot/Instantiate/T_TRTrackPionFitQuality.cc
+T TrackRoot/Instantiate/T_TRTrackPionFitQualityField.cc
+T TrackRoot/Instantiate/T_TRTrackProtonFitQuality.cc
+T TrackRoot/Instantiate/T_TRTrackProtonFitQualityField.cc
+T TrackRoot/Instantiate/T_vector_FAPtrTable_TRHelixFit_pointer.cc
+T TrackRoot/Instantiate/T_vector_TRHelixFit_pointer.cc
+cvs tag: Tagging TrackRoot/Instantiate/Storage
+T TrackRoot/Instantiate/Storage/T_TRElectronFitQualityStorageHelper.cc
+T TrackRoot/Instantiate/Storage/T_TRExitElectronFitQualityStorageHelper.cc
+T TrackRoot/Instantiate/Storage/T_TRExitKaonFitQualityStorageHelper.cc
+T TrackRoot/Instantiate/Storage/T_TRExitMuonFitQualityStorageHelper.cc
+T TrackRoot/Instantiate/Storage/T_TRExitPionFitQualityStorageHelper.cc
+T TrackRoot/Instantiate/Storage/T_TRExitProtonFitQualityStorageHelper.cc
+T TrackRoot/Instantiate/Storage/T_TRHelixElectronFitStorageHelper.cc
+T TrackRoot/Instantiate/Storage/T_TRHelixExitElectronFitStorageHelper.cc
+T TrackRoot/Instantiate/Storage/T_TRHelixExitKaonFitStorageHelper.cc
+T TrackRoot/Instantiate/Storage/T_TRHelixExitMuonFitStorageHelper.cc
+T TrackRoot/Instantiate/Storage/T_TRHelixExitPionFitStorageHelper.cc
+T TrackRoot/Instantiate/Storage/T_TRHelixExitProtonFitStorageHelper.cc
+T TrackRoot/Instantiate/Storage/T_TRHelixKaonFitStorageHelper.cc
+T TrackRoot/Instantiate/Storage/T_TRHelixMuonFitStorageHelper.cc
+T TrackRoot/Instantiate/Storage/T_TRHelixPionFitStorageHelper.cc
+T TrackRoot/Instantiate/Storage/T_TRHelixProtonFitStorageHelper.cc
+T TrackRoot/Instantiate/Storage/T_TRKaonFitQualityStorageHelper.cc
+T TrackRoot/Instantiate/Storage/T_TRMuonFitQualityStorageHelper.cc
+T TrackRoot/Instantiate/Storage/T_TRPionFitQualityStorageHelper.cc
+T TrackRoot/Instantiate/Storage/T_TRProtonFitQualityStorageHelper.cc
+cvs tag: Tagging TrackRoot/TrackRoot
+T TrackRoot/TrackRoot/TRHelixCandidateFit.h
+T TrackRoot/TrackRoot/TRHelixElectronFit.h
+T TrackRoot/TrackRoot/TRHelixExitElectronFit.h
+T TrackRoot/TrackRoot/TRHelixExitKaonFit.h
+T TrackRoot/TrackRoot/TRHelixExitMuonFit.h
+T TrackRoot/TrackRoot/TRHelixExitPionFit.h
+T TrackRoot/TrackRoot/TRHelixExitProtonFit.h
+T TrackRoot/TrackRoot/TRHelixFit.h
+T TrackRoot/TrackRoot/TRHelixKaonFit.h
+T TrackRoot/TrackRoot/TRHelixMuonFit.h
+T TrackRoot/TrackRoot/TRHelixPionFit.h
+T TrackRoot/TrackRoot/TRHelixProtonFit.h
+T TrackRoot/TrackRoot/TRLayerMap.h
+T TrackRoot/TrackRoot/TRSeedTrack.h
+T TrackRoot/TrackRoot/TRSeedTrackQuality.h
+T TrackRoot/TrackRoot/TRSubdetectorLists.h
+T TrackRoot/TrackRoot/TRTrack.h
+T TrackRoot/TrackRoot/TRTrackCandidateFitQuality.h
+T TrackRoot/TrackRoot/TRTrackElectronFitQuality.h
+T TrackRoot/TrackRoot/TRTrackExitElectronFitQuality.h
+T TrackRoot/TrackRoot/TRTrackExitKaonFitQuality.h
+T TrackRoot/TrackRoot/TRTrackExitMuonFitQuality.h
+T TrackRoot/TrackRoot/TRTrackExitPionFitQuality.h
+T TrackRoot/TrackRoot/TRTrackExitProtonFitQuality.h
+T TrackRoot/TrackRoot/TRTrackFitQuality.h
+T TrackRoot/TrackRoot/TRTrackKaonFitQuality.h
+T TrackRoot/TrackRoot/TRTrackMuonFitQuality.h
+T TrackRoot/TrackRoot/TRTrackPionFitQuality.h
+T TrackRoot/TrackRoot/TRTrackProtonFitQuality.h
+T TrackRoot/TrackRoot/TRTrackQuality.h
+cvs tag: Tagging TrackRoot/TrackRoot/Storage
+T TrackRoot/TrackRoot/Storage/ManyTRSeedTrackQualityStorageHelper.h
+T TrackRoot/TrackRoot/Storage/ManyTRSeedTrackStorageHelper.h
+T TrackRoot/TrackRoot/Storage/ManyTRTrackStorageHelper.h
+T TrackRoot/TrackRoot/Storage/TRHelixCandidateFitStorageHelper.h
+T TrackRoot/TrackRoot/Storage/TRSeedTrackQualityStorageHelper.h
+T TrackRoot/TrackRoot/Storage/TRSeedTrackStorageHelper.h
+T TrackRoot/TrackRoot/Storage/TRTrackCandidateFitQualityStorageHelper.h
+T TrackRoot/TrackRoot/Storage/TRTrackStorageHelper.h
+T TrackRoot/TrackRoot/Storage/instantiate_helix_field.h
+T TrackRoot/TrackRoot/Storage/instantiate_helix_store.h
+T TrackRoot/TrackRoot/Storage/instantiate_quality_field.h
+T TrackRoot/TrackRoot/Storage/instantiate_quality_store.h
+cvs tag: Tagging TrackRoot/TrackRoot/Storage/Template
+T TrackRoot/TrackRoot/Storage/Template/TRHelixCandidateFitStorageHelper.cc
+T TrackRoot/TrackRoot/Storage/Template/TRTrackCandidateFitQualityStorageHelper.cc
+cvs tag: Tagging TrackRoot/TrackRoot/Template
+T TrackRoot/TrackRoot/Template/TRHelixCandidateFit.cc
+T TrackRoot/TrackRoot/Template/TRTrackCandidateFitQuality.cc
+c3tag> Recording transaction in official version.info
+c3tag> Recording transaction in local TrackRoot/version.info
+/a/lns101/nfs/homes/cleo/mccann/zd_integration/src
+c3tag> Committing local transaction file TrackRoot/version.info
+Checking in TrackRoot/version.info;
+/nfs/cleo3/cvsroot/Offline/src/TrackRoot/version.info,v  <--  version.info
+new revision: 1.37; previous revision: 1.36
+done
+Sending mail to cdj,cleo3,jed,vk
+Sending mail to lyon,wsun
+solfa3% echo; sleep 1; echo; sleep 1; echo; sleep 1; echo; sleep 1; echo; sleep 1; echo; sleep 1; echo; sleep 1; echo; sleep 1; echo; sleep 1; 
+
+
+
+
+
+
+
+
+
+solfa3% for x in HelixIntersection ChisqFitter ChisqFitProducer KalmanFilter KalmanProd; do (echo; sleep 20; echo; sleep 20; echo; sleep 20; echo; sleep 20; echo; sleep 20; echo; sleep 20; echo; sleep 20; echo; sleep 20; echo; sleep 20) | c3tag -F -m "Added the ZD to track fitting" $x; done
+/nfs/cleo3/Offline/scripts/c3tag:20: DeprecationWarning: the regex module is deprecated; please use the re module
+  import sys, os, glob, string, regex
+c3tag> 
+c3tag> Creating new tag for HelixIntersection
+c3tag> Continue?(y*/n)
+c3tag> Shall I try to detect any modifications,
+including files you may have not cvs-added yet?(y*/n)
+M Class/HIDRSurfaceFactory.cc
+M Class/HIHelixIntersector.cc
+M Class/HISingleWireCylinder.cc
+? Class/HIZDSurfaceFactory.cc
+? Class/HIZDLayerCylinder.cc
+? HelixIntersection/HIZDSurfaceFactory.h
+? HelixIntersection/HIZDLayerCylinder.h
+You have [3] altered files in this repository.
+Are you sure you want to release directory `HelixIntersection': ** `release' aborted by user choice.
+c3tag> Continue?(y*/n)
+c3tag> Shall I commit any changes(y*/n)
+c3tag> Running "update -d" ...
+cvs update: Updating HelixIntersection
+cvs update: Updating HelixIntersection/Class
+M HelixIntersection/Class/HIDRSurfaceFactory.cc
+M HelixIntersection/Class/HIHelixIntersector.cc
+M HelixIntersection/Class/HISingleWireCylinder.cc
+? HelixIntersection/Class/HIZDSurfaceFactory.cc
+? HelixIntersection/Class/HIZDLayerCylinder.cc
+cvs update: Updating HelixIntersection/Doc
+cvs update: Updating HelixIntersection/HelixIntersection
+? HelixIntersection/HelixIntersection/HIZDSurfaceFactory.h
+? HelixIntersection/HelixIntersection/HIZDLayerCylinder.h
+cvs update: Updating HelixIntersection/HelixIntersection/Template
+cvs update: Updating HelixIntersection/Instantiate
+cvs update: Updating HelixIntersection/Test
+c3tag> Everything ok with update? Continue?(y*/n)
+c3tag> Shall I use the tag message for committing?(y*/n)
+cvs commit: Examining HelixIntersection
+cvs commit: Examining HelixIntersection/Class
+cvs commit: Examining HelixIntersection/Doc
+cvs commit: Examining HelixIntersection/HelixIntersection
+cvs commit: Examining HelixIntersection/HelixIntersection/Template
+cvs commit: Examining HelixIntersection/Instantiate
+cvs commit: Examining HelixIntersection/Test
+Checking in HelixIntersection/Class/HIDRSurfaceFactory.cc;
+/nfs/cleo3/cvsroot/Offline/src/HelixIntersection/Class/HIDRSurfaceFactory.cc,v  <--  HIDRSurfaceFactory.cc
+new revision: 1.30; previous revision: 1.29
+done
+Checking in HelixIntersection/Class/HIHelixIntersector.cc;
+/nfs/cleo3/cvsroot/Offline/src/HelixIntersection/Class/HIHelixIntersector.cc,v  <--  HIHelixIntersector.cc
+new revision: 1.20; previous revision: 1.19
+done
+Checking in HelixIntersection/Class/HISingleWireCylinder.cc;
+/nfs/cleo3/cvsroot/Offline/src/HelixIntersection/Class/HISingleWireCylinder.cc,v  <--  HISingleWireCylinder.cc
+new revision: 1.14; previous revision: 1.13
+done
+Sending mail to cdj,cleo3,jed,vk
+Sending mail to wsun
+c3tag> Continue?(y*/n)
+c3tag> Trying to find a valid previous tag:
+c3tag> ... file HelixIntersection/.depend
+c3tag> ... match!
+c3tag> module has most recent tag v12_01_03
+c3tag> will tag with new tag v13_00_00; continue?(y*/n)
+c3tag> Running "update -d" ...
+cvs update: Updating HelixIntersection
+cvs update: Updating HelixIntersection/Class
+? HelixIntersection/Class/HIZDSurfaceFactory.cc
+? HelixIntersection/Class/HIZDLayerCylinder.cc
+cvs update: Updating HelixIntersection/Doc
+cvs update: Updating HelixIntersection/HelixIntersection
+? HelixIntersection/HelixIntersection/HIZDSurfaceFactory.h
+? HelixIntersection/HelixIntersection/HIZDLayerCylinder.h
+cvs update: Updating HelixIntersection/HelixIntersection/Template
+cvs update: Updating HelixIntersection/Instantiate
+cvs update: Updating HelixIntersection/Test
+c3tag> Everything ok with update? Continue?(y*/n)
+cvs tag: Tagging HelixIntersection
+T HelixIntersection/.depend
+T HelixIntersection/Makefile
+T HelixIntersection/version.info
+cvs tag: Tagging HelixIntersection/Class
+T HelixIntersection/Class/HICalibratedCathodeHit.cc
+T HelixIntersection/Class/HICalibratedDRHit.cc
+T HelixIntersection/Class/HICalibratedHit.cc
+T HelixIntersection/Class/HICalibratedSVHit.cc
+T HelixIntersection/Class/HICathodeCylinder.cc
+T HelixIntersection/Class/HICathodeSurfaceFactory.cc
+T HelixIntersection/Class/HICompositeCondition.cc
+T HelixIntersection/Class/HICompositeFitConstraint.cc
+T HelixIntersection/Class/HICompositeOperation.cc
+T HelixIntersection/Class/HICompositePlane.cc
+T HelixIntersection/Class/HICompositeSurface.cc
+T HelixIntersection/Class/HICondition.cc
+T HelixIntersection/Class/HICorrectForBFieldOperation.cc
+T HelixIntersection/Class/HIDRLayerCylinder.cc
+T HelixIntersection/Class/HIDRSurfaceFactory.cc
+T HelixIntersection/Class/HIDedxCondition.cc
+T HelixIntersection/Class/HIDedxOperation.cc
+T HelixIntersection/Class/HIDualTrackConstraint.cc
+T HelixIntersection/Class/HIFitConstraint.cc
+T HelixIntersection/Class/HIFitHelix.cc
+T HelixIntersection/Class/HIHelix.cc
+T HelixIntersection/Class/HIHelixIntersector.cc
+T HelixIntersection/Class/HIHelixOperation.cc
+T HelixIntersection/Class/HIIRSurfaceFactory.cc
+T HelixIntersection/Class/HIIntersectionCylinder.cc
+T HelixIntersection/Class/HIIntersectionPlane.cc
+T HelixIntersection/Class/HIIntersectionSurface.cc
+T HelixIntersection/Class/HIMSDedxOperation.cc
+T HelixIntersection/Class/HIMagField.cc
+T HelixIntersection/Class/HIMomentumConstraint.cc
+T HelixIntersection/Class/HIMoveIterateOperation.cc
+T HelixIntersection/Class/HIMultScatOperation.cc
+T HelixIntersection/Class/HIMultiWireCylinder.cc
+T HelixIntersection/Class/HIRphiBoundaryCondition.cc
+T HelixIntersection/Class/HISiLadderPlane.cc
+T HelixIntersection/Class/HISiSensorPlane.cc
+T HelixIntersection/Class/HISiSurfaceFactory.cc
+T HelixIntersection/Class/HISingleWireCylinder.cc
+T HelixIntersection/Class/HITrackParameterConstraint.cc
+T HelixIntersection/Class/HIZBoundaryCondition.cc
+cvs tag: Tagging HelixIntersection/Doc
+cvs tag: Tagging HelixIntersection/HelixIntersection
+T HelixIntersection/HelixIntersection/HICalibratedCathodeHit.h
+T HelixIntersection/HelixIntersection/HICalibratedDRHit.h
+T HelixIntersection/HelixIntersection/HICalibratedHit.h
+T HelixIntersection/HelixIntersection/HICalibratedSVHit.h
+T HelixIntersection/HelixIntersection/HICathodeCylinder.h
+T HelixIntersection/HelixIntersection/HICathodeSurfaceFactory.h
+T HelixIntersection/HelixIntersection/HICompositeCondition.h
+T HelixIntersection/HelixIntersection/HICompositeFitConstraint.h
+T HelixIntersection/HelixIntersection/HICompositeOperation.h
+T HelixIntersection/HelixIntersection/HICompositePlane.h
+T HelixIntersection/HelixIntersection/HICompositeSurface.h
+T HelixIntersection/HelixIntersection/HICondition.h
+T HelixIntersection/HelixIntersection/HICorrectForBFieldOperation.h
+T HelixIntersection/HelixIntersection/HIDRLayerCylinder.h
+T HelixIntersection/HelixIntersection/HIDRSurfaceFactory.h
+T HelixIntersection/HelixIntersection/HIDedxCondition.h
+T HelixIntersection/HelixIntersection/HIDedxOperation.h
+T HelixIntersection/HelixIntersection/HIDualTrackConstraint.h
+T HelixIntersection/HelixIntersection/HIFitConstraint.h
+T HelixIntersection/HelixIntersection/HIFitHelix.h
+T HelixIntersection/HelixIntersection/HIHelix.h
+T HelixIntersection/HelixIntersection/HIHelixIntersector.h
+T HelixIntersection/HelixIntersection/HIHelixOperation.h
+T HelixIntersection/HelixIntersection/HIIRSurfaceFactory.h
+T HelixIntersection/HelixIntersection/HIIntersectionCylinder.h
+T HelixIntersection/HelixIntersection/HIIntersectionPlane.h
+T HelixIntersection/HelixIntersection/HIIntersectionSurface.h
+T HelixIntersection/HelixIntersection/HIMSDedxOperation.h
+T HelixIntersection/HelixIntersection/HIMagField.h
+T HelixIntersection/HelixIntersection/HIMomentumConstraint.h
+T HelixIntersection/HelixIntersection/HIMoveIterateOperation.h
+T HelixIntersection/HelixIntersection/HIMultScatOperation.h
+T HelixIntersection/HelixIntersection/HIMultiWireCylinder.h
+T HelixIntersection/HelixIntersection/HIRphiBoundaryCondition.h
+T HelixIntersection/HelixIntersection/HISiLadderPlane.h
+T HelixIntersection/HelixIntersection/HISiSensorPlane.h
+T HelixIntersection/HelixIntersection/HISiSurfaceFactory.h
+T HelixIntersection/HelixIntersection/HISingleWireCylinder.h
+T HelixIntersection/HelixIntersection/HITrackParameterConstraint.h
+T HelixIntersection/HelixIntersection/HIZBoundaryCondition.h
+cvs tag: Tagging HelixIntersection/HelixIntersection/Template
+cvs tag: Tagging HelixIntersection/Instantiate
+T HelixIntersection/Instantiate/STL_vectorOfASiLadder.cc
+T HelixIntersection/Instantiate/STL_vectorOfCalibratedCathodeHits.cc
+T HelixIntersection/Instantiate/STL_vectorOfCalibratedHits.cc
+T HelixIntersection/Instantiate/STL_vectorOfCalibratedSVHits.cc
+T HelixIntersection/Instantiate/STL_vectorOfCalibratedSVRphiHits.cc
+T HelixIntersection/Instantiate/STL_vectorOfCalibratedSVZHits.cc
+T HelixIntersection/Instantiate/STL_vectorOfCathodeHitAndUsed.cc
+T HelixIntersection/Instantiate/STL_vectorOfCathodeHitAndUsedP.cc
+T HelixIntersection/Instantiate/STL_vectorOfCompositePlanes.cc
+T HelixIntersection/Instantiate/STL_vectorOfCompositeSurfaces.cc
+T HelixIntersection/Instantiate/STL_vectorOfConditions.cc
+T HelixIntersection/Instantiate/STL_vectorOfConstDRHitAndDriftDistance.cc
+T HelixIntersection/Instantiate/STL_vectorOfConstraints.cc
+T HelixIntersection/Instantiate/STL_vectorOfDRHitAndDriftDistance.cc
+T HelixIntersection/Instantiate/STL_vectorOfHICalibratedHits.cc
+T HelixIntersection/Instantiate/STL_vectorOfHIFitHelix.cc
+T HelixIntersection/Instantiate/STL_vectorOfHep3Vector.cc
+T HelixIntersection/Instantiate/STL_vectorOfHitAndDist.cc
+T HelixIntersection/Instantiate/STL_vectorOfHitAndDistP.cc
+T HelixIntersection/Instantiate/STL_vectorOfMatchedSVHits.cc
+T HelixIntersection/Instantiate/STL_vectorOfMaterialElements.cc
+T HelixIntersection/Instantiate/STL_vectorOfOperations.cc
+T HelixIntersection/Instantiate/STL_vectorOfSurfaces.cc
+T HelixIntersection/Instantiate/T_CalibratedHit.cc
+T HelixIntersection/Instantiate/T_HIHelix.cc
+T HelixIntersection/Instantiate/T_deque_TrackFitCathodeHitLink.cc
+T HelixIntersection/Instantiate/T_deque_TrackFitDRHitLink.cc
+T HelixIntersection/Instantiate/T_deque_TrackFitSVRHitLink.cc
+T HelixIntersection/Instantiate/T_deque_TrackFitSVZHitLink.cc
+cvs tag: Tagging HelixIntersection/Test
+c3tag> Recording transaction in official version.info
+c3tag> Recording transaction in local HelixIntersection/version.info
+/a/lns101/nfs/homes/cleo/mccann/zd_integration/src
+c3tag> Committing local transaction file HelixIntersection/version.info
+Checking in HelixIntersection/version.info;
+/nfs/cleo3/cvsroot/Offline/src/HelixIntersection/version.info,v  <--  version.info
+new revision: 1.88; previous revision: 1.87
+done
+Sending mail to cdj,cleo3,jed,vk
+Sending mail to wsun
+/nfs/cleo3/Offline/scripts/c3tag:20: DeprecationWarning: the regex module is deprecated; please use the re module
+  import sys, os, glob, string, regex
+c3tag> 
+c3tag> Creating new tag for ChisqFitter
+c3tag> Continue?(y*/n)
+c3tag> Shall I try to detect any modifications,
+including files you may have not cvs-added yet?(y*/n)
+M ChisqFitter/ChisqTrackFitter.h
+M Class/ChisqTrackFitter.cc
+You have [2] altered files in this repository.
+Are you sure you want to release directory `ChisqFitter': ** `release' aborted by user choice.
+c3tag> Continue?(y*/n)
+c3tag> Shall I commit any changes(y*/n)
+c3tag> Running "update -d" ...
+cvs update: Updating ChisqFitter
+cvs update: Updating ChisqFitter/ChisqFitter
+M ChisqFitter/ChisqFitter/ChisqTrackFitter.h
+cvs update: Updating ChisqFitter/Class
+M ChisqFitter/Class/ChisqTrackFitter.cc
+cvs update: Updating ChisqFitter/Instantiate
+c3tag> Everything ok with update? Continue?(y*/n)
+c3tag> Shall I use the tag message for committing?(y*/n)
+cvs commit: Examining ChisqFitter
+cvs commit: Examining ChisqFitter/ChisqFitter
+cvs commit: Examining ChisqFitter/Class
+cvs commit: Examining ChisqFitter/Instantiate
+Checking in ChisqFitter/ChisqFitter/ChisqTrackFitter.h;
+/nfs/cleo3/cvsroot/Offline/src/ChisqFitter/ChisqFitter/ChisqTrackFitter.h,v  <--  ChisqTrackFitter.h
+new revision: 1.16; previous revision: 1.15
+done
+Sending mail to cdj,cleo3,jed,vk
+Sending mail to wsun
+Checking in ChisqFitter/Class/ChisqTrackFitter.cc;
+/nfs/cleo3/cvsroot/Offline/src/ChisqFitter/Class/ChisqTrackFitter.cc,v  <--  ChisqTrackFitter.cc
+new revision: 1.21; previous revision: 1.20
+done
+Sending mail to cdj,cleo3,jed,vk
+Sending mail to wsun
+c3tag> Continue?(y*/n)
+c3tag> Trying to find a valid previous tag:
+c3tag> ... file ChisqFitter/Makefile
+c3tag> ... match!
+c3tag> module has most recent tag v06_00_01
+c3tag> will tag with new tag v07_00_00; continue?(y*/n)
+c3tag> Running "update -d" ...
+cvs update: Updating ChisqFitter
+cvs update: Updating ChisqFitter/ChisqFitter
+cvs update: Updating ChisqFitter/Class
+cvs update: Updating ChisqFitter/Instantiate
+c3tag> Everything ok with update? Continue?(y*/n)
+cvs tag: Tagging ChisqFitter
+T ChisqFitter/Makefile
+T ChisqFitter/version.info
+cvs tag: Tagging ChisqFitter/ChisqFitter
+T ChisqFitter/ChisqFitter/ChisqAddHitOperation.h
+T ChisqFitter/ChisqFitter/ChisqCandidateQuality.h
+T ChisqFitter/ChisqFitter/ChisqHelix.h
+T ChisqFitter/ChisqFitter/ChisqTrackFitter.h
+cvs tag: Tagging ChisqFitter/Class
+T ChisqFitter/Class/ChisqAddHitOperation.cc
+T ChisqFitter/Class/ChisqHelix.cc
+T ChisqFitter/Class/ChisqTrackFitter.cc
+cvs tag: Tagging ChisqFitter/Instantiate
+T ChisqFitter/Instantiate/STL_vectorOfChisqHelix.cc
+T ChisqFitter/Instantiate/STL_vectorOfHitAndLinkData.cc
+T ChisqFitter/Instantiate/T_ChisqElectronQuality.cc
+T ChisqFitter/Instantiate/T_ChisqElectronQualityField.cc
+T ChisqFitter/Instantiate/T_ChisqExitElectronQuality.cc
+T ChisqFitter/Instantiate/T_ChisqExitElectronQualityField.cc
+T ChisqFitter/Instantiate/T_ChisqExitKaonQuality.cc
+T ChisqFitter/Instantiate/T_ChisqExitKaonQualityField.cc
+T ChisqFitter/Instantiate/T_ChisqExitMuonQuality.cc
+T ChisqFitter/Instantiate/T_ChisqExitMuonQualityField.cc
+T ChisqFitter/Instantiate/T_ChisqExitPionQuality.cc
+T ChisqFitter/Instantiate/T_ChisqExitPionQualityField.cc
+T ChisqFitter/Instantiate/T_ChisqExitProtonQuality.cc
+T ChisqFitter/Instantiate/T_ChisqExitProtonQualityField.cc
+T ChisqFitter/Instantiate/T_ChisqKaonQuality.cc
+T ChisqFitter/Instantiate/T_ChisqKaonQualityField.cc
+T ChisqFitter/Instantiate/T_ChisqMuonQuality.cc
+T ChisqFitter/Instantiate/T_ChisqMuonQualityField.cc
+T ChisqFitter/Instantiate/T_ChisqPionQuality.cc
+T ChisqFitter/Instantiate/T_ChisqPionQualityField.cc
+T ChisqFitter/Instantiate/T_ChisqProtonQuality.cc
+T ChisqFitter/Instantiate/T_ChisqProtonQualityField.cc
+T ChisqFitter/Instantiate/T_ChisqTrackFitter.cc
+c3tag> Recording transaction in official version.info
+c3tag> Recording transaction in local ChisqFitter/version.info
+/a/lns101/nfs/homes/cleo/mccann/zd_integration/src
+c3tag> Committing local transaction file ChisqFitter/version.info
+Checking in ChisqFitter/version.info;
+/nfs/cleo3/cvsroot/Offline/src/ChisqFitter/version.info,v  <--  version.info
+new revision: 1.32; previous revision: 1.31
+done
+Sending mail to cdj,cleo3,jed,vk
+Sending mail to wsun
+/nfs/cleo3/Offline/scripts/c3tag:20: DeprecationWarning: the regex module is deprecated; please use the re module
+  import sys, os, glob, string, regex
+c3tag> 
+c3tag> Creating new tag for ChisqFitProducer
+c3tag> Continue?(y*/n)
+c3tag> Shall I try to detect any modifications,
+including files you may have not cvs-added yet?(y*/n)
+M Makefile
+M ChisqFitProducer/Template/ChisqCandidateQualityProxy.cc
+M Class/ChisqTrackFitterProxy.cc
+You have [3] altered files in this repository.
+Are you sure you want to release directory `ChisqFitProducer': ** `release' aborted by user choice.
+c3tag> Continue?(y*/n)
+c3tag> Shall I commit any changes(y*/n)
+c3tag> Running "update -d" ...
+cvs update: Updating ChisqFitProducer
+M ChisqFitProducer/Makefile
+cvs update: Updating ChisqFitProducer/ChisqFitProducer
+cvs update: Updating ChisqFitProducer/ChisqFitProducer/Template
+M ChisqFitProducer/ChisqFitProducer/Template/ChisqCandidateQualityProxy.cc
+cvs update: Updating ChisqFitProducer/Class
+M ChisqFitProducer/Class/ChisqTrackFitterProxy.cc
+cvs update: Updating ChisqFitProducer/Doc
+cvs update: Updating ChisqFitProducer/Instantiate
+cvs update: Updating ChisqFitProducer/Test
+c3tag> Everything ok with update? Continue?(y*/n)
+c3tag> Shall I use the tag message for committing?(y*/n)
+cvs commit: Examining ChisqFitProducer
+cvs commit: Examining ChisqFitProducer/ChisqFitProducer
+cvs commit: Examining ChisqFitProducer/ChisqFitProducer/Template
+cvs commit: Examining ChisqFitProducer/Class
+cvs commit: Examining ChisqFitProducer/Doc
+cvs commit: Examining ChisqFitProducer/Instantiate
+cvs commit: Examining ChisqFitProducer/Test
+Checking in ChisqFitProducer/Makefile;
+/nfs/cleo3/cvsroot/Offline/src/ChisqFitProducer/Makefile,v  <--  Makefile
+new revision: 1.11; previous revision: 1.10
+done
+Sending mail to cdj,cleo3,jed,vk
+Sending mail to wsun
+Checking in ChisqFitProducer/ChisqFitProducer/Template/ChisqCandidateQualityProxy.cc;
+/nfs/cleo3/cvsroot/Offline/src/ChisqFitProducer/ChisqFitProducer/Template/ChisqCandidateQualityProxy.cc,v  <--  ChisqCandidateQualityProxy.cc
+new revision: 1.12; previous revision: 1.11
+done
+Sending mail to cdj,cleo3,jed,vk
+Sending mail to wsun
+Checking in ChisqFitProducer/Class/ChisqTrackFitterProxy.cc;
+/nfs/cleo3/cvsroot/Offline/src/ChisqFitProducer/Class/ChisqTrackFitterProxy.cc,v  <--  ChisqTrackFitterProxy.cc
+new revision: 1.10; previous revision: 1.9
+done
+Sending mail to cdj,cleo3,jed,vk
+Sending mail to wsun
+c3tag> Continue?(y*/n)
+c3tag> Trying to find a valid previous tag:
+c3tag> ... file ChisqFitProducer/README.ChisqFitProducer
+c3tag> ... match!
+c3tag> module has most recent tag v04_00_01
+c3tag> will tag with new tag v05_00_00; continue?(y*/n)
+c3tag> Running "update -d" ...
+cvs update: Updating ChisqFitProducer
+cvs update: Updating ChisqFitProducer/ChisqFitProducer
+cvs update: Updating ChisqFitProducer/ChisqFitProducer/Template
+cvs update: Updating ChisqFitProducer/Class
+cvs update: Updating ChisqFitProducer/Doc
+cvs update: Updating ChisqFitProducer/Instantiate
+cvs update: Updating ChisqFitProducer/Test
+c3tag> Everything ok with update? Continue?(y*/n)
+cvs tag: Tagging ChisqFitProducer
+T ChisqFitProducer/Makefile
+T ChisqFitProducer/README.ChisqFitProducer
+T ChisqFitProducer/version.info
+cvs tag: Tagging ChisqFitProducer/ChisqFitProducer
+T ChisqFitProducer/ChisqFitProducer/ChisqBaseQualityProxy.h
+T ChisqFitProducer/ChisqFitProducer/ChisqCandidateQualityProxy.h
+T ChisqFitProducer/ChisqFitProducer/ChisqDBTrackerValuesProxy.h
+T ChisqFitProducer/ChisqFitProducer/ChisqFitCathodeHitLatticeProxy.h
+T ChisqFitProducer/ChisqFitProducer/ChisqFitDRHitLatticeProxy.h
+T ChisqFitProducer/ChisqFitProducer/ChisqFitProducer.h
+T ChisqFitProducer/ChisqFitProducer/ChisqFitSVRHitLatticeProxy.h
+T ChisqFitProducer/ChisqFitProducer/ChisqFitSVZHitLatticeProxy.h
+T ChisqFitProducer/ChisqFitProducer/ChisqFitZDHitLatticeProxy.h
+T ChisqFitProducer/ChisqFitProducer/ChisqHelixFitProxy.h
+T ChisqFitProducer/ChisqFitProducer/ChisqTrackFitterProxy.h
+cvs tag: Tagging ChisqFitProducer/ChisqFitProducer/Template
+T ChisqFitProducer/ChisqFitProducer/Template/ChisqBaseQualityProxy.cc
+T ChisqFitProducer/ChisqFitProducer/Template/ChisqCandidateQualityProxy.cc
+T ChisqFitProducer/ChisqFitProducer/Template/ChisqFitCathodeHitLatticeProxy.cc
+T ChisqFitProducer/ChisqFitProducer/Template/ChisqFitDRHitLatticeProxy.cc
+T ChisqFitProducer/ChisqFitProducer/Template/ChisqFitSVRHitLatticeProxy.cc
+T ChisqFitProducer/ChisqFitProducer/Template/ChisqFitSVZHitLatticeProxy.cc
+T ChisqFitProducer/ChisqFitProducer/Template/ChisqFitZDHitLatticeProxy.cc
+T ChisqFitProducer/ChisqFitProducer/Template/ChisqHelixFitProxy.cc
+cvs tag: Tagging ChisqFitProducer/Class
+T ChisqFitProducer/Class/ChisqDBTrackerValuesProxy.cc
+T ChisqFitProducer/Class/ChisqFitProducer.cc
+T ChisqFitProducer/Class/ChisqFitProducer_DONT_TOUCH.cc
+T ChisqFitProducer/Class/ChisqTrackFitterProxy.cc
+cvs tag: Tagging ChisqFitProducer/Doc
+cvs tag: Tagging ChisqFitProducer/Instantiate
+T ChisqFitProducer/Instantiate/T_ChisqBaseQualityProxy.cc
+T ChisqFitProducer/Instantiate/T_ChisqElectronQualityProxy.cc
+T ChisqFitProducer/Instantiate/T_ChisqExitElectronQualityProxy.cc
+T ChisqFitProducer/Instantiate/T_ChisqExitKaonQualityProxy.cc
+T ChisqFitProducer/Instantiate/T_ChisqExitMuonQualityProxy.cc
+T ChisqFitProducer/Instantiate/T_ChisqExitPionQualityProxy.cc
+T ChisqFitProducer/Instantiate/T_ChisqExitProtonQualityProxy.cc
+T ChisqFitProducer/Instantiate/T_ChisqFitCathodeHitLatticeProxy.cc
+T ChisqFitProducer/Instantiate/T_ChisqFitDRHitLatticeProxy.cc
+T ChisqFitProducer/Instantiate/T_ChisqFitSVRHitLatticeProxy.cc
+T ChisqFitProducer/Instantiate/T_ChisqFitSVZHitLatticeProxy.cc
+T ChisqFitProducer/Instantiate/T_ChisqFitZDHitLatticeProxy.cc
+T ChisqFitProducer/Instantiate/T_ChisqHelixFitProxy.cc
+T ChisqFitProducer/Instantiate/T_ChisqKaonQualityProxy.cc
+T ChisqFitProducer/Instantiate/T_ChisqMuonQualityProxy.cc
+T ChisqFitProducer/Instantiate/T_ChisqPionQualityProxy.cc
+T ChisqFitProducer/Instantiate/T_ChisqProtonQualityProxy.cc
+cvs tag: Tagging ChisqFitProducer/Test
+c3tag> Recording transaction in official version.info
+c3tag> Recording transaction in local ChisqFitProducer/version.info
+/a/lns101/nfs/homes/cleo/mccann/zd_integration/src
+c3tag> Committing local transaction file ChisqFitProducer/version.info
+Checking in ChisqFitProducer/version.info;
+/nfs/cleo3/cvsroot/Offline/src/ChisqFitProducer/version.info,v  <--  version.info
+new revision: 1.36; previous revision: 1.35
+done
+Sending mail to cdj,cleo3,jed,vk
+Sending mail to wsun
+/nfs/cleo3/Offline/scripts/c3tag:20: DeprecationWarning: the regex module is deprecated; please use the re module
+  import sys, os, glob, string, regex
+c3tag> 
+c3tag> Creating new tag for KalmanFilter
+c3tag> Continue?(y*/n)
+c3tag> Shall I try to detect any modifications,
+including files you may have not cvs-added yet?(y*/n)
+M Class/KalmanAddHitOperation.cc
+M Class/KalmanTrackFitter.cc
+M KalmanFilter/KalmanTrackFitter.h
+You have [3] altered files in this repository.
+Are you sure you want to release directory `KalmanFilter': ** `release' aborted by user choice.
+c3tag> Continue?(y*/n)
+c3tag> Shall I commit any changes(y*/n)
+c3tag> Running "update -d" ...
+cvs update: Updating KalmanFilter
+cvs update: Updating KalmanFilter/Class
+M KalmanFilter/Class/KalmanAddHitOperation.cc
+M KalmanFilter/Class/KalmanTrackFitter.cc
+cvs update: Updating KalmanFilter/Doc
+cvs update: Updating KalmanFilter/Instantiate
+cvs update: Updating KalmanFilter/Instantiate/Storage
+cvs update: Updating KalmanFilter/KalmanFilter
+M KalmanFilter/KalmanFilter/KalmanTrackFitter.h
+cvs update: Updating KalmanFilter/KalmanFilter/Storage
+cvs update: Updating KalmanFilter/KalmanFilter/Storage/Template
+cvs update: Updating KalmanFilter/KalmanFilter/Template
+cvs update: Updating KalmanFilter/Test
+c3tag> Everything ok with update? Continue?(y*/n)
+c3tag> Shall I use the tag message for committing?(y*/n)
+cvs commit: Examining KalmanFilter
+cvs commit: Examining KalmanFilter/Class
+cvs commit: Examining KalmanFilter/Doc
+cvs commit: Examining KalmanFilter/Instantiate
+cvs commit: Examining KalmanFilter/Instantiate/Storage
+cvs commit: Examining KalmanFilter/KalmanFilter
+cvs commit: Examining KalmanFilter/KalmanFilter/Storage
+cvs commit: Examining KalmanFilter/KalmanFilter/Storage/Template
+cvs commit: Examining KalmanFilter/KalmanFilter/Template
+cvs commit: Examining KalmanFilter/Test
+Checking in KalmanFilter/Class/KalmanAddHitOperation.cc;
+/nfs/cleo3/cvsroot/Offline/src/KalmanFilter/Class/KalmanAddHitOperation.cc,v  <--  KalmanAddHitOperation.cc
+new revision: 1.23; previous revision: 1.22
+done
+Checking in KalmanFilter/Class/KalmanTrackFitter.cc;
+/nfs/cleo3/cvsroot/Offline/src/KalmanFilter/Class/KalmanTrackFitter.cc,v  <--  KalmanTrackFitter.cc
+new revision: 1.60; previous revision: 1.59
+done
+Sending mail to cdj,cleo3,jed,vk
+Sending mail to mccann
+Checking in KalmanFilter/KalmanFilter/KalmanTrackFitter.h;
+/nfs/cleo3/cvsroot/Offline/src/KalmanFilter/KalmanFilter/KalmanTrackFitter.h,v  <--  KalmanTrackFitter.h
+new revision: 1.33; previous revision: 1.32
+done
+Sending mail to cdj,cleo3,jed,vk
+Sending mail to mccann
+c3tag> Continue?(y*/n)
+c3tag> Trying to find a valid previous tag:
+c3tag> ... file KalmanFilter/Makefile
+c3tag> ... match!
+c3tag> module has most recent tag v12_04_02
+c3tag> will tag with new tag v13_00_00; continue?(y*/n)
+c3tag> Running "update -d" ...
+cvs update: Updating KalmanFilter
+cvs update: Updating KalmanFilter/Class
+cvs update: Updating KalmanFilter/Doc
+cvs update: Updating KalmanFilter/Instantiate
+cvs update: Updating KalmanFilter/Instantiate/Storage
+cvs update: Updating KalmanFilter/KalmanFilter
+cvs update: Updating KalmanFilter/KalmanFilter/Storage
+cvs update: Updating KalmanFilter/KalmanFilter/Storage/Template
+cvs update: Updating KalmanFilter/KalmanFilter/Template
+cvs update: Updating KalmanFilter/Test
+c3tag> Everything ok with update? Continue?(y*/n)
+cvs tag: Tagging KalmanFilter
+T KalmanFilter/Makefile
+T KalmanFilter/version.info
+cvs tag: Tagging KalmanFilter/Class
+T KalmanFilter/Class/KSurfaceVector.cc
+T KalmanFilter/Class/KalmanAddHitOperation.cc
+T KalmanFilter/Class/KalmanFitQualityCondition.cc
+T KalmanFilter/Class/KalmanHelix.cc
+T KalmanFilter/Class/KalmanHelixTransporter.cc
+T KalmanFilter/Class/KalmanTrackFitter.cc
+T KalmanFilter/Class/KalmanUpdateParamsCondition.cc
+T KalmanFilter/Class/KalmanUpdateParamsOperation.cc
+T KalmanFilter/Class/KalmanUpdateZParamsCondition.cc
+cvs tag: Tagging KalmanFilter/Doc
+cvs tag: Tagging KalmanFilter/Instantiate
+T KalmanFilter/Instantiate/STL_vectorOfHIMSDedxOperations.cc
+T KalmanFilter/Instantiate/STL_vectorOfHepSymMatrix.cc
+T KalmanFilter/Instantiate/STL_vectorOfHepVector.cc
+T KalmanFilter/Instantiate/STL_vectorOfHitAndLinkData.cc
+T KalmanFilter/Instantiate/STL_vectorOfKalmanAddHitOperations.cc
+T KalmanFilter/Instantiate/STL_vectorOfKalmanHelix.cc
+T KalmanFilter/Instantiate/STL_vectorOfKalmanUpdateParamsConditions.cc
+T KalmanFilter/Instantiate/STL_vectorOfKalmanUpdateParamsOperations.cc
+T KalmanFilter/Instantiate/T_KalmanDBTrackerValues.cc
+T KalmanFilter/Instantiate/T_KalmanElectronQuality.cc
+T KalmanFilter/Instantiate/T_KalmanElectronQualityField.cc
+T KalmanFilter/Instantiate/T_KalmanExitElectronQuality.cc
+T KalmanFilter/Instantiate/T_KalmanExitElectronQualityField.cc
+T KalmanFilter/Instantiate/T_KalmanExitKaonQuality.cc
+T KalmanFilter/Instantiate/T_KalmanExitKaonQualityField.cc
+T KalmanFilter/Instantiate/T_KalmanExitMuonQuality.cc
+T KalmanFilter/Instantiate/T_KalmanExitMuonQualityField.cc
+T KalmanFilter/Instantiate/T_KalmanExitPionQuality.cc
+T KalmanFilter/Instantiate/T_KalmanExitPionQualityField.cc
+T KalmanFilter/Instantiate/T_KalmanExitProtonQuality.cc
+T KalmanFilter/Instantiate/T_KalmanExitProtonQualityField.cc
+T KalmanFilter/Instantiate/T_KalmanHelix.cc
+T KalmanFilter/Instantiate/T_KalmanKaonQuality.cc
+T KalmanFilter/Instantiate/T_KalmanKaonQualityField.cc
+T KalmanFilter/Instantiate/T_KalmanMuonQuality.cc
+T KalmanFilter/Instantiate/T_KalmanMuonQualityField.cc
+T KalmanFilter/Instantiate/T_KalmanPionQuality.cc
+T KalmanFilter/Instantiate/T_KalmanPionQualityField.cc
+T KalmanFilter/Instantiate/T_KalmanProtonQuality.cc
+T KalmanFilter/Instantiate/T_KalmanProtonQualityField.cc
+T KalmanFilter/Instantiate/T_KalmanTrackFitter.cc
+cvs tag: Tagging KalmanFilter/Instantiate/Storage
+T KalmanFilter/Instantiate/Storage/T_KalmanElectronQualityStorageHelper.cc
+T KalmanFilter/Instantiate/Storage/T_KalmanExitElectronQualityStorageHelper.cc
+T KalmanFilter/Instantiate/Storage/T_KalmanExitKaonQualityStorageHelper.cc
+T KalmanFilter/Instantiate/Storage/T_KalmanExitMuonQualityStorageHelper.cc
+T KalmanFilter/Instantiate/Storage/T_KalmanExitPionQualityStorageHelper.cc
+T KalmanFilter/Instantiate/Storage/T_KalmanExitProtonQualityStorageHelper.cc
+T KalmanFilter/Instantiate/Storage/T_KalmanKaonQualityStorageHelper.cc
+T KalmanFilter/Instantiate/Storage/T_KalmanMuonQualityStorageHelper.cc
+T KalmanFilter/Instantiate/Storage/T_KalmanPionQualityStorageHelper.cc
+T KalmanFilter/Instantiate/Storage/T_KalmanProtonQualityStorageHelper.cc
+cvs tag: Tagging KalmanFilter/KalmanFilter
+T KalmanFilter/KalmanFilter/KSurfaceVector.h
+T KalmanFilter/KalmanFilter/KalmanAddHitOperation.h
+T KalmanFilter/KalmanFilter/KalmanCandidateQuality.h
+T KalmanFilter/KalmanFilter/KalmanElectronQuality.h
+T KalmanFilter/KalmanFilter/KalmanExitElectronQuality.h
+T KalmanFilter/KalmanFilter/KalmanExitKaonQuality.h
+T KalmanFilter/KalmanFilter/KalmanExitMuonQuality.h
+T KalmanFilter/KalmanFilter/KalmanExitPionQuality.h
+T KalmanFilter/KalmanFilter/KalmanExitProtonQuality.h
+T KalmanFilter/KalmanFilter/KalmanFitQualityCondition.h
+T KalmanFilter/KalmanFilter/KalmanHelix.h
+T KalmanFilter/KalmanFilter/KalmanHelixTransporter.h
+T KalmanFilter/KalmanFilter/KalmanKaonQuality.h
+T KalmanFilter/KalmanFilter/KalmanMuonQuality.h
+T KalmanFilter/KalmanFilter/KalmanPionQuality.h
+T KalmanFilter/KalmanFilter/KalmanProtonQuality.h
+T KalmanFilter/KalmanFilter/KalmanTrackFitter.h
+T KalmanFilter/KalmanFilter/KalmanUpdateParamsCondition.h
+T KalmanFilter/KalmanFilter/KalmanUpdateParamsOperation.h
+T KalmanFilter/KalmanFilter/KalmanUpdateZParamsCondition.h
+cvs tag: Tagging KalmanFilter/KalmanFilter/Storage
+T KalmanFilter/KalmanFilter/Storage/KalmanCandidateQualityStorageHelper.h
+T KalmanFilter/KalmanFilter/Storage/instantiate_quality_field.h
+T KalmanFilter/KalmanFilter/Storage/instantiate_quality_store.h
+cvs tag: Tagging KalmanFilter/KalmanFilter/Storage/Template
+T KalmanFilter/KalmanFilter/Storage/Template/KalmanCandidateQualityStorageHelper.cc
+cvs tag: Tagging KalmanFilter/KalmanFilter/Template
+T KalmanFilter/KalmanFilter/Template/KalmanCandidateQuality.cc
+cvs tag: Tagging KalmanFilter/Test
+c3tag> Recording transaction in official version.info
+c3tag> Recording transaction in local KalmanFilter/version.info
+/a/lns101/nfs/homes/cleo/mccann/zd_integration/src
+c3tag> Committing local transaction file KalmanFilter/version.info
+Checking in KalmanFilter/version.info;
+/nfs/cleo3/cvsroot/Offline/src/KalmanFilter/version.info,v  <--  version.info
+new revision: 1.84; previous revision: 1.83
+done
+Sending mail to cdj,cleo3,jed,vk
+Sending mail to mccann
+/nfs/cleo3/Offline/scripts/c3tag:20: DeprecationWarning: the regex module is deprecated; please use the re module
+  import sys, os, glob, string, regex
+c3tag> 
+c3tag> Creating new tag for KalmanProd
+c3tag> Continue?(y*/n)
+c3tag> Shall I try to detect any modifications,
+including files you may have not cvs-added yet?(y*/n)
+M Makefile
+M Class/KalmanTrackFitterProxy.cc
+M KalmanProd/Template/KalmanCandidateQualityProxy.cc
+M KalmanProd/Template/KalmanFitZDHitLatticeProxy.cc
+You have [4] altered files in this repository.
+Are you sure you want to release directory `KalmanProd': ** `release' aborted by user choice.
+c3tag> Continue?(y*/n)
+c3tag> Shall I commit any changes(y*/n)
+c3tag> Running "update -d" ...
+cvs update: Updating KalmanProd
+M KalmanProd/Makefile
+cvs update: Updating KalmanProd/Class
+M KalmanProd/Class/KalmanTrackFitterProxy.cc
+cvs update: Updating KalmanProd/Doc
+cvs update: Updating KalmanProd/Instantiate
+cvs update: Updating KalmanProd/KalmanProd
+cvs update: Updating KalmanProd/KalmanProd/Template
+M KalmanProd/KalmanProd/Template/KalmanCandidateQualityProxy.cc
+M KalmanProd/KalmanProd/Template/KalmanFitZDHitLatticeProxy.cc
+cvs update: Updating KalmanProd/Test
+c3tag> Everything ok with update? Continue?(y*/n)
+c3tag> Shall I use the tag message for committing?(y*/n)
+cvs commit: Examining KalmanProd
+cvs commit: Examining KalmanProd/Class
+cvs commit: Examining KalmanProd/Doc
+cvs commit: Examining KalmanProd/Instantiate
+cvs commit: Examining KalmanProd/KalmanProd
+cvs commit: Examining KalmanProd/KalmanProd/Template
+cvs commit: Examining KalmanProd/Test
+Checking in KalmanProd/Makefile;
+/nfs/cleo3/cvsroot/Offline/src/KalmanProd/Makefile,v  <--  Makefile
+new revision: 1.7; previous revision: 1.6
+done
+Sending mail to cdj,cleo3,jed,vk
+Sending mail to mccann
+Checking in KalmanProd/Class/KalmanTrackFitterProxy.cc;
+/nfs/cleo3/cvsroot/Offline/src/KalmanProd/Class/KalmanTrackFitterProxy.cc,v  <--  KalmanTrackFitterProxy.cc
+new revision: 1.17; previous revision: 1.16
+done
+Sending mail to cdj,cleo3,jed,vk
+Sending mail to mccann
+Checking in KalmanProd/KalmanProd/Template/KalmanCandidateQualityProxy.cc;
+/nfs/cleo3/cvsroot/Offline/src/KalmanProd/KalmanProd/Template/KalmanCandidateQualityProxy.cc,v  <--  KalmanCandidateQualityProxy.cc
+new revision: 1.11; previous revision: 1.10
+done
+Checking in KalmanProd/KalmanProd/Template/KalmanFitZDHitLatticeProxy.cc;
+/nfs/cleo3/cvsroot/Offline/src/KalmanProd/KalmanProd/Template/KalmanFitZDHitLatticeProxy.cc,v  <--  KalmanFitZDHitLatticeProxy.cc
+new revision: 1.2; previous revision: 1.1
+done
+Sending mail to cdj,cleo3,jed,vk
+Sending mail to mccann
+c3tag> Continue?(y*/n)
+c3tag> Trying to find a valid previous tag:
+c3tag> ... file KalmanProd/version.info
+c3tag> ... match!
+c3tag> module has most recent tag v02_03_01
+c3tag> will tag with new tag v03_00_00; continue?(y*/n)
+c3tag> Running "update -d" ...
+cvs update: Updating KalmanProd
+cvs update: Updating KalmanProd/Class
+cvs update: Updating KalmanProd/Doc
+cvs update: Updating KalmanProd/Instantiate
+cvs update: Updating KalmanProd/KalmanProd
+cvs update: Updating KalmanProd/KalmanProd/Template
+cvs update: Updating KalmanProd/Test
+c3tag> Everything ok with update? Continue?(y*/n)
+cvs tag: Tagging KalmanProd
+T KalmanProd/Makefile
+T KalmanProd/version.info
+cvs tag: Tagging KalmanProd/Class
+T KalmanProd/Class/KalmanDBTrackerValuesProxy.cc
+T KalmanProd/Class/KalmanProd.cc
+T KalmanProd/Class/KalmanProd_DONT_TOUCH.cc
+T KalmanProd/Class/KalmanTrackFitterProxy.cc
+cvs tag: Tagging KalmanProd/Doc
+cvs tag: Tagging KalmanProd/Instantiate
+T KalmanProd/Instantiate/STL_vectorOfHypos.cc
+T KalmanProd/Instantiate/T_KalmanBaseQualityProxy.cc
+T KalmanProd/Instantiate/T_KalmanElectronQualityProxy.cc
+T KalmanProd/Instantiate/T_KalmanExitElectronQualityProxy.cc
+T KalmanProd/Instantiate/T_KalmanExitKaonQualityProxy.cc
+T KalmanProd/Instantiate/T_KalmanExitMuonQualityProxy.cc
+T KalmanProd/Instantiate/T_KalmanExitPionQualityProxy.cc
+T KalmanProd/Instantiate/T_KalmanExitProtonQualityProxy.cc
+T KalmanProd/Instantiate/T_KalmanFitCathodeHitLatticeProxy.cc
+T KalmanProd/Instantiate/T_KalmanFitDRHitLatticeProxy.cc
+T KalmanProd/Instantiate/T_KalmanFitSVRHitLatticeProxy.cc
+T KalmanProd/Instantiate/T_KalmanFitSVZHitLatticeProxy.cc
+T KalmanProd/Instantiate/T_KalmanFitZDHitLatticeProxy.cc
+T KalmanProd/Instantiate/T_KalmanHelixFitProxy.cc
+T KalmanProd/Instantiate/T_KalmanKaonQualityProxy.cc
+T KalmanProd/Instantiate/T_KalmanMuonQualityProxy.cc
+T KalmanProd/Instantiate/T_KalmanPionQualityProxy.cc
+T KalmanProd/Instantiate/T_KalmanProtonQualityProxy.cc
+cvs tag: Tagging KalmanProd/KalmanProd
+T KalmanProd/KalmanProd/KalmanBaseQualityProxy.h
+T KalmanProd/KalmanProd/KalmanCandidateQualityProxy.h
+T KalmanProd/KalmanProd/KalmanDBTrackerValuesProxy.h
+T KalmanProd/KalmanProd/KalmanFitCathodeHitLatticeProxy.h
+T KalmanProd/KalmanProd/KalmanFitDRHitLatticeProxy.h
+T KalmanProd/KalmanProd/KalmanFitSVRHitLatticeProxy.h
+T KalmanProd/KalmanProd/KalmanFitSVZHitLatticeProxy.h
+T KalmanProd/KalmanProd/KalmanFitZDHitLatticeProxy.h
+T KalmanProd/KalmanProd/KalmanHelixFitProxy.h
+T KalmanProd/KalmanProd/KalmanProd.h
+T KalmanProd/KalmanProd/KalmanTrackFitterProxy.h
+cvs tag: Tagging KalmanProd/KalmanProd/Template
+T KalmanProd/KalmanProd/Template/KalmanBaseQualityProxy.cc
+T KalmanProd/KalmanProd/Template/KalmanCandidateQualityProxy.cc
+T KalmanProd/KalmanProd/Template/KalmanFitCathodeHitLatticeProxy.cc
+T KalmanProd/KalmanProd/Template/KalmanFitDRHitLatticeProxy.cc
+T KalmanProd/KalmanProd/Template/KalmanFitSVRHitLatticeProxy.cc
+T KalmanProd/KalmanProd/Template/KalmanFitSVZHitLatticeProxy.cc
+T KalmanProd/KalmanProd/Template/KalmanFitZDHitLatticeProxy.cc
+T KalmanProd/KalmanProd/Template/KalmanHelixFitProxy.cc
+cvs tag: Tagging KalmanProd/Test
+c3tag> Recording transaction in official version.info
+c3tag> Recording transaction in local KalmanProd/version.info
+/a/lns101/nfs/homes/cleo/mccann/zd_integration/src
+c3tag> Committing local transaction file KalmanProd/version.info
+Checking in KalmanProd/version.info;
+/nfs/cleo3/cvsroot/Offline/src/KalmanProd/version.info,v  <--  version.info
+new revision: 1.34; previous revision: 1.33
+done
+Sending mail to cdj,cleo3,jed,vk
+Sending mail to mccann

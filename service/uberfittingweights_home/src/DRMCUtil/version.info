@@ -1,0 +1,418 @@
+
+Module : DRMCUtil
+
+Date   : Mon Jun 21 11:54:12 1999
+User   : jjo
+Old Tag: 
+New Tag: v01_00_00
+Message: 
+Import DRMCUtil library - Utilities for DR MC libraries
+Module : DRMCUtil
+
+Date   : Tue Aug 10 15:47:30 1999
+User   : jjo
+Old Tag: v01_00_00
+New Tag: v02_00_00
+Message: 
+Major update - provide Fortran access for DR Monte Carlo constants
+Module : DRMCUtil
+
+Date   : Mon Sep 13 10:23:09 1999
+User   : jjo
+Old Tag: v02_00_00
+New Tag: v02_00_01
+Message: 
+Add fortran_types.h to header files which is now required.
+Module : DRMCUtil
+
+Date   : Mon Sep 20 18:49:26 1999
+User   : jjo
+Old Tag: v02_00_01
+New Tag: v02_01_00
+Message: 
+Imported files into cvs
+Module : DRMCUtil
+Date   : Sun Oct 10 10:33:55 1999
+User   : cdj
+Old Tag: v02_01_00
+New Tag: v02_01_01
+Message: removed BDLclient dirctory from include
+
+Module : DRMCUtil
+
+Date   : Wed Oct 20 18:33:40 1999
+User   : jjo
+Old Tag: v02_01_01
+New Tag: v03_00_00
+Message: 
+Added code for DR simulation based on CleoII/II.V simulation
+Module : DRMCUtil
+
+Date   : Thu Oct 21 15:57:16 1999
+User   : jjo
+Old Tag: v03_00_00
+New Tag: v03_00_01
+Message: 
+Remove dummy dr geant hits in official code
+Module : DRMCUtil
+Date   : Tue Oct 26 15:10:50 1999
+User   : jjo
+Old Tag: v03_00_01
+New Tag: v03_01_00
+Message: 
+Update to cleo3 geometry, added new routines (adc & tdc pedestals,
+dead wires) + misc updates.  Big improvement on web documentation.
+Module : DRMCUtil
+Date   : Wed Oct 27 10:56:47 1999
+User   : jjo
+Old Tag: v03_01_00
+New Tag: v03_02_00
+Message: 
+Don't include CDHitsProxy in InitDRMCFrameBrokers
+and improve comments in scale_phi_fit_wt
+Module : DRMCUtil
+Date   : Wed Oct 27 14:22:38 1999
+User   : jjo
+Old Tag: v03_02_00
+New Tag: v03_03_00
+Message: 
+Update documentation
+Module : DRMCUtil
+Date   : Wed Oct 27 18:42:14 1999
+User   : jjo
+Old Tag: v03_03_00
+New Tag: v03_04_00
+Message: 
+Fix CPP flag for dummy dr hits.  Fix bug in drmc_beginrun.F
+Module : DRMCUtil
+Date   : Thu Oct 28 15:43:40 1999
+User   : mclean
+Old Tag: v03_04_00
+New Tag: v03_05_00
+Message: 
+Added CDOffCal tdc/adc constants acess to DRMCDriftFB.cc
+Module : DRMCUtil
+Date   : Tue Nov  2 13:43:35 1999
+User   : lkg
+Old Tag: v03_05_00
+New Tag: v03_05_01
+Message: update to match changes to geometryForFortran
+
+Module : DRMCUtil
+Date   : Sun Nov 21 20:20:56 1999
+User   : jjo
+Old Tag: v03_05_01
+New Tag: v03_06_00
+Message: 
+Fix bugs & update DR simulation
+Module : DRMCUtil
+Date   : Mon Nov 22 18:11:12 1999
+User   : jjo
+Old Tag: v03_06_00
+New Tag: v03_07_00
+Message: 
+Initialize CDHitsProxy, improve debugging printout
+Module : DRMCUtil
+Date   : Mon Nov 22 18:16:41 1999
+User   : jjo
+Old Tag: v03_07_00
+New Tag: v03_07_01
+Message: 
+Fix typo
+Module : DRMCUtil
+Date   : Mon Nov 22 21:47:25 1999
+User   : jjo
+Old Tag: v03_07_01
+New Tag: v03_07_02
+Message: 
+Fix bug in calling get_coseff in wire_eff
+Module : DRMCUtil
+Date   : Mon Nov 22 21:51:16 1999
+User   : jjo
+Old Tag: v03_07_02
+New Tag: v03_07_03
+Message: 
+Fix bug in Index checking in Fortran constants access routines
+Module : DRMCUtil
+Date   : Tue Dec  7 19:20:43 1999
+User   : jjo
+Old Tag: v03_07_03
+New Tag: v03_08_00
+Message: 
+Added get_cellid, check_geant_hit & improve/reduce printouts
+Module : DRMCUtil
+Date   : Thu Dec  9 16:30:11 1999
+User   : mclean
+Old Tag: v03_08_00
+New Tag: v03_09_00
+Message: 
+Added drmc_adc2charge_
+      drmc_tdc2time_
+<Please type your Tag Message>
+Module : DRMCUtil
+Date   : Thu Dec  9 17:42:27 1999
+User   : jjo
+Old Tag: v03_09_00
+New Tag: v03_09_01
+Message: 
+Remove excessive printouts
+Module : DRMCUtil
+Date   : Sun Dec 12 20:52:50 1999
+User   : jjo
+Old Tag: v03_09_01
+New Tag: v03_10_00
+Message: 
+Use suezCleog version of cddspa.inc & use report/meslog
+for debugging messages
+Module : DRMCUtil
+Date   : Mon Dec 13 19:02:10 1999
+User   : jjo
+Old Tag: v03_10_00
+New Tag: v03_11_00
+Message: 
+Updates related to tdc<->time, adc<->charge
+Module : DRMCUtil
+Date   : Fri Dec 17 15:28:56 1999
+User   : mclean
+Old Tag: v03_11_00
+New Tag: v03_11_01
+Message: 
+Added extra wire/cellid argument to tdc2time,adc2charge and inverse routines
+to match recent updates in CDOffCal.
+<Please type your Tag Message>
+Module : DRMCUtil
+Date   : Fri Dec 17 16:41:35 1999
+User   : jjo
+Old Tag: v03_11_01
+New Tag: v03_11_02
+Message: 
+Fix bug in DRMCDriftFB.cc
+Module : DRMCUtil
+Date   : Tue Feb 15 11:49:15 2000
+User   : jjo
+Old Tag: v03_11_02
+New Tag: v03_12_00
+Message: 
+Add routines to make DR simulation more modular
+and update web pages.
+Module : DRMCUtil
+Date   : Mon Mar 27 11:28:21 2000
+User   : bkh
+Old Tag: v03_12_00
+New Tag: v03_12_01
+Message: 
+Tag Dan C-H's cathode changes
+Module : DRMCUtil
+Date   : Tue Apr 18 10:24:32 2000
+User   : pg
+Old Tag: v03_12_01
+New Tag: v03_12_02
+Message: Added protection against GFHITS overflow
+
+Module : DRMCUtil
+Date   : Tue Apr 18 13:48:48 2000
+User   : jjo
+Old Tag: v03_12_02
+New Tag: v03_13_00
+Message: 
+Change error messages to warnings
+Module : DRMCUtil
+Date   : Fri Apr 21 13:17:12 2000
+User   : pg
+Old Tag: v03_13_00
+New Tag: v03_13_01
+Message: Axtract DRAligned geometry
+
+Module : DRMCUtil
+Date   : Sun Apr 23 17:09:03 2000
+User   : mclean
+Old Tag: v03_13_01
+New Tag: v03_14_00
+Message: 
+Changed some constants-access functions to use the real CDOffCal internal
+values rather than hard coded values. So far as I know most of these
+functions are not yet used by anyone so this should have minimal impact.
+<Please type your Tag Message>
+Module : DRMCUtil
+Date   : Thu Jul  6 22:17:58 2000
+User   : lkg
+Old Tag: v03_14_00
+New Tag: v03_15_00
+Message: added x,y position information to the various response utilities
+
+Module : DRMCUtil
+Date   : Wed Aug  2 16:48:22 2000
+User   : dubrovin
+Old Tag: v03_15_00
+New Tag: v04_00_00
+Message: Paremeter ZMaX in check_geant_hit.F changed to 1.175
+
+Module : DRMCUtil
+Date   : Thu Aug 10 13:05:36 2000
+User   : dubrovin
+Old Tag: v04_00_00
+New Tag: v05_00_00
+Message: In fill_geant_drhits.F insert protection from NGeantHits overflow
+
+Module : DRMCUtil
+Date   : Fri Aug 11 15:57:50 2000
+User   : dubrovin
+Old Tag: v05_00_00
+New Tag: v06_00_00
+Message: Increase dimension of DR hits arrays from 2500 to 5000
+
+Module : DRMCUtil
+Date   : Sat Sep  9 15:15:51 2000
+User   : dubrovin
+Old Tag: v06_00_00
+New Tag: v07_00_00
+Message: Improve check_geant_hit.F modul for Nwire and Zmax
+
+Module : DRMCUtil
+Date   : Fri Sep 29 17:33:29 2000
+User   : dubrovin
+Old Tag: none
+New Tag: v07_00_01
+Message: First version of mult.scatt. on field wires
+
+Module : DRMCUtil
+Date   : Wed Oct 25 13:59:36 2000
+User   : dubrovin
+Old Tag: none
+New Tag: v07_00_02
+Message: Add drmc_iondist.F for DCA correction vs ion statistics
+
+Module : DRMCUtil
+Date   : Wed Nov  8 10:13:34 2000
+User   : dubrovin
+Old Tag: none
+New Tag: v07_00_03
+Message: Insert check for track point radius 
+
+Module : DRMCUtil
+Date   : Fri Dec  1 20:38:05 2000
+User   : mclean
+Old Tag: v07_00_03
+New Tag: v08_00_00
+Message: 
+Updated DRMCDriftFB.cc to be consistent with CDOffCal in terms
+of inverting drift function, entrance angle and time slewing corrections.
+<Please type your Tag Message>
+Module : ./DRMCUtil
+Date   : Fri Jan 26 12:51:24 2001
+User   : dubrovin
+Old Tag: none
+New Tag: v08_00_01
+Message: Multiple modifications to get tunned DRMC
+
+Module : DRMCUtil
+Date   : Mon Apr 23 16:42:29 2001
+User   : dubrovin
+Old Tag: none
+New Tag: v08_00_02
+Message: Prevent negative argument in sqrt
+
+Module : DRMCUtil
+Date   : Fri May 18 16:17:34 2001
+User   : dubrovin
+Old Tag: none
+New Tag: v08_00_03
+Message: New algorithm for ion statistics
+
+Module : DRMCUtil
+Date   : Tue Jun 12 11:17:23 2001
+User   : dubrovin
+Old Tag: none
+New Tag: v08_00_04
+Message: New generators of random numbers
+
+Module : DRMCUtil
+Date   : Sun Nov  4 15:49:58 2001
+User   : dubrovin
+Old Tag: none
+New Tag: v08_00_05
+Message: Fix the bug escaping the left right ambiguity of the drift.func.
+
+Module : DRMCUtil
+Date   : Tue Dec 18 15:45:43 2001
+User   : dubrovin
+Old Tag: none
+New Tag: v08_00_06
+Message: Add pulse high threshold for efficency (get_wireeff.F), Part.ID dependence for smearing, 2-nd Gaussiam smearing (smear_drift.F)
+
+Module : DRMCUtil
+Date   : Wed Aug  7 17:27:26 2002
+User   : bkh
+Old Tag: v08_00_06
+New Tag: v08_00_07
+Message: 
+Move to using guser_suez and Cleog3_suez in place of guser and Cleog3
+Module : DRMCUtil
+Date   : Wed Sep  4 15:18:11 2002
+User   : dubrovin
+Old Tag: none
+New Tag: v08_00_08
+Message: Web page update
+
+Module : DRMCUtil
+Date   : Thu Jan 30 14:24:24 2003
+User   : cleo3
+Old Tag: v08_00_08
+New Tag: v08_01_00
+Message: removed comments after include in order to compile using g77
+
+Module : DRMCUtil
+Date   : Tue Feb 25 10:25:12 2003
+User   : cleo3
+Old Tag: v08_01_00
+New Tag: v08_02_00
+Message: minor changes needed to compile under g77
+
+Module : DRMCUtil/
+Date   : Thu Jun  5 15:17:01 2003
+User   : dubrovin
+Old Tag: none
+New Tag: v08_02_01
+Message: Fix the bug in index for pathLengthGeantHit in drhit_2_cleo_units.F
+
+Module : DRMCUtil
+Date   : Fri Jun  6 10:34:51 2003
+User   : cdj
+Old Tag: v08_02_01
+New Tag: 
+Message: Deleting v08_02_01
+
+Module : DRMCUtil
+Date   : Thu Jun 26 13:47:25 2003
+User   : huanggs
+Old Tag: v08_02_00
+New Tag: v09_00_00
+Message: changed for ZD
+
+Module : DRMCUtil
+Date   : Fri Jun 27 16:11:41 2003
+User   : huanggs
+Old Tag: v09_00_00
+New Tag: v10_00_00
+Message: check if extracting ZD
+
+Module : DRMCUtil/
+Date   : Wed Aug 20 11:15:53 2003
+User   : dubrovin
+Old Tag: none
+New Tag: v10_00_01
+Message: Add cosTheta and Entrance Angle dependence
+
+Module : DRMCUtil
+Date   : Mon Oct 13 10:56:04 2003
+User   : mccann
+Old Tag: v10_00_01
+New Tag: v10_01_00
+Message: updated drmc_resolution_ call to use new DriftFunction::resolution(-, -, -, -, -) interface
+
+Module : DRMCUtil
+Date   : Mon Oct 13 15:53:38 2003
+User   : mccann
+Old Tag: v10_01_00
+New Tag: v10_01_01
+Message: removing drmc_resolution_ (temporarily?) to see if anything depends on it

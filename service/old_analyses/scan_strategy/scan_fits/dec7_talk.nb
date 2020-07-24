@@ -1,0 +1,4064 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 4.0,
+MathReader 4.0, or any compatible application. The data for the notebook 
+starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[    114855,       3981]*)
+(*NotebookOutlinePosition[    115861,       4013]*)
+(*  CellTagsIndexPosition[    115817,       4009]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[{
+    \(Off[General::spell1]\), "\[IndentingNewLine]", 
+    \(<< Statistics`DiscreteDistributions`\), "\[IndentingNewLine]", 
+    \(<< Statistics`ContinuousDistributions`\), "\[IndentingNewLine]", 
+    \(<< Graphics`MultipleListPlot`\), "\[IndentingNewLine]", 
+    \(<< Statistics`NonlinearFit`\), "\[IndentingNewLine]", 
+    \(<< Graphics`Graphics`\), "\[IndentingNewLine]", 
+    \(<< Statistics`DescriptiveStatistics`\)}], "Input"],
+
+Cell[BoxData[{
+    \(Chi2ToFunction[func_, params_List, 
+        data_List] := \(\(Plus @@ \((\(\((\((func @@ 
+                          Prepend[
+                            params, #[\([1]\)]] - \
+#[\([2]\)])\)^2/#[\([3]\)]^2)\) &\) /@ 
+            data)\)\)\(\[IndentingNewLine]\)\)\), "\[IndentingNewLine]", 
+    \(FitToFunction[func_, params_List, start_List, 
+        data_List] := \(\(\(\(({#1, Length[data] - Length[params], 
+              params /. #2})\) &\) @@ \((FindMinimum @@ 
+            Prepend[Table[{params[\([ftfi]\)], start[\([ftfi]\)]}, {ftfi, 1, 
+                  Length[params]}], 
+              Chi2ToFunction[func, params, 
+                data]])\)\)\(\[IndentingNewLine]\)\)\), \
+"\[IndentingNewLine]", 
+    \(FitReplacements[params_List, values_List] := 
+      Table[params[\([fri]\)] \[Rule] values[\([fri]\)], {fri, 1, 
+          Length[params]}]\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(ErrorMatrix[func_, params_List, values_List, 
+        data_List] := \(\(Inverse[
+          Table[ReplaceAll[
+              D[D[Chi2ToFunction[func, params, data], params[\([emi]\)]], 
+                params[\([emj]\)]], FitReplacements[params, values]], {emi, 
+              1, Length[params]}, {emj, 1, 
+              Length[params]}]]\)\(//\)\(Chop\)\(\[IndentingNewLine]\)\)\), "\
+\[IndentingNewLine]", 
+    \(FitCovariance[func_, params_List, values_List, data_List, param1_, 
+        param2_] := \(\(ErrorMatrix[func, params, values, 
+            data]\)[\([\(Position[params, param1] // Flatten\) // 
+              First]\)]\)[\([\(Position[params, param2] // Flatten\) // 
+            First]\)]\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(FitVariance[func_, params_List, values_List, data_List, param_] := 
+      FitCovariance[func, params, values, data, param, 
+        param]\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(FitError[func_, params_List, values_List, data_List, param_] := 
+      Sqrt[FitVariance[func, params, values, data, 
+          param]]\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(FitValueError[func_, params_List, start_List, data_List, 
+        interestingParams_List] := \((fveBestParams = \(FitToFunction[func, 
+              params, start, data]\)[\([3]\)]; 
+        fveErrorMatrix = ErrorMatrix[func, params, fveBestParams, data]; \ 
+        Table[\((fvePosition = \(Position[params, 
+                    interestingParams[\([fvei]\)]] // Flatten\) // 
+                First; {fveBestParams[\([fvePosition]\)], 
+              Sqrt[\(fveErrorMatrix[\([fvePosition]\)]\)[\([fvePosition]\)]]})\
+\), {fvei, 1, 
+            Length[interestingParams]}])\)\[IndentingNewLine]\), "\
+\[IndentingNewLine]", 
+    \(FitValueError[func_, params_List, start_List, data_List, 
+        interestingParam_Symbol] := \(\(FitValueError[func, params, start, 
+          data, {interestingParam}]\)\(//\)\(First\)\(\n\)\)\), "\n", 
+    \(PlotFit[func_, values_List, data_List] := 
+      Show[MultipleListPlot[\(\(({{#[\([1]\)], #[\([2]\)]}, 
+                  ErrorBar[#[\([3]\)]]})\) &\) /@ data, 
+          DisplayFunction \[Rule] Identity], \[IndentingNewLine]Plot[
+          func @@ Prepend[values, x], {x, 
+            Min @@ \((\(\((#[\([1]\)])\) &\) /@ data)\) - 0.005, 
+            Max @@ \((\(\((#[\([1]\)])\) &\) /@ data)\) + 0.005}, 
+          DisplayFunction \[Rule] Identity], 
+        DisplayFunction \[Rule] $DisplayFunction]\[IndentingNewLine]\), "\
+\[IndentingNewLine]", 
+    \(PlotFitFrame[func_, values_List, data_List, lower_Real, upper_Real, 
+        background_Real] := 
+      Show[MultipleListPlot[\(\(({{#[\([1]\)], #[\([2]\)]}, 
+                  ErrorBar[#[\([3]\)]]})\) &\) /@ data, 
+          PlotRange \[Rule] {{lower, upper}, {0. , 8. }}, Frame \[Rule] True, 
+          FrameLabel \[Rule] {"\<Energy in GeV\>", "\<Cross-section in \
+nb\>"}, Axes \[Rule] False, 
+          DisplayFunction \[Rule] 
+            Identity], \[IndentingNewLine]Plot[{func @@ Prepend[values, x], 
+            background*2.89966*\((2*5.17779)\)^2/x^2}, {x, lower, upper}, 
+          PlotStyle \[Rule] {Dashing[{1, 0}], Dashing[{0.03, 0.02}]}, 
+          DisplayFunction \[Rule] Identity], 
+        DisplayFunction \[Rule] $DisplayFunction]\[IndentingNewLine]\), "\
+\[IndentingNewLine]", 
+    \(FitAndPlot[func_, params_List, start_List, 
+        data_List] := \((fapBestFit = 
+          FitToFunction[func, params, start, data]; 
+        PlotFitFrame[func, fapBestFit[\([3]\)], data]; 
+        fapBestFit)\)\n\), "\n", 
+    \(DifferencePlot[func_, values_List, data_List] := \((\n
+        dpMin = Min @@ \((\(\((#[\([1]\)])\) &\) /@ data)\) - 0.005; \n
+        dpMax = Max @@ \((\(\((#[\([1]\)])\) &\) /@ data)\) + 0.005; \n
+        Show[ListPlot[\({#[\([1]\)], \((func @@ 
+                          Prepend[
+                            values, #[\([1]\)]] - #[\([2]\)])\)/#[\([3]\)]} &\
+\) /@ data, Axes \[Rule] True, AxesOrigin \[Rule] {dpMin, 0}, 
+            DisplayFunction \[Rule] Identity], 
+          Graphics[{Line[{{dpMin, 1. }, {dpMax, 1. }}], 
+              Line[{{dpMin, \(-1. \)}, {dpMax, \(-1. \)}}]}], 
+          DisplayFunction \[Rule] $DisplayFunction])\)\)}], "Input"],
+
+Cell[BoxData[{
+    \(\(Y3s1stScan = {{5.18941, 3.47, 0.06}, {5.1734, 3.31, 0.06}, {5.18648, 
+            3.56, 0.06}, {5.17551, 3.83, 0.16}, {5.17551, 4.03, 
+            0.07}, {5.18138, 6.15, 0.08}, {5.18341, 4.52, 0.06}, {5.17741, 
+            5.67, 0.07}, {5.16508, 3.27, 0.06}, {5.16483, 3.18, 
+            0.06}, {5.16483, 3.13, 0.10}, {5.16486, 3.22, 0.06}, {5.16489, 
+            3.29, 0.06}, {5.16483, 3.28, 0.06}, {5.16483, 3.20, 
+            0.08}, {5.16486, 3.05, 0.14}, {5.16486, 3.27, 0.06}, {5.16486, 
+            3.21, 0.06}, {5.16486, 3.30, 0.09}, {5.16483, 3.22, 
+            0.05}, {5.17917, 7.03, 0.09}, {5.17923, 6.87, 0.08}, {5.17921, 
+            6.92, 0.09}, {5.17923, 6.82, 0.09}, {5.17922, 7.04, 
+            0.18}, {5.17923, 6.92, 0.09}, {5.17936, 6.94, 0.08}, {5.17914, 
+            6.90, 0.07}, {5.17934, 6.93, 0.07}, {5.17916, 6.84, 
+            0.07}, {5.17913, 7.02, 0.07}, {5.17915, 6.77, 0.07}, {5.17918, 
+            6.61, 0.25}, {5.17918, 6.93, 0.09}, {5.17919, 6.75, 
+            0.13}, {5.17914, 6.88, 0.07}, {5.17919, 7.00, 0.12}, {5.17915, 
+            6.91, 0.08}};\)\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(\(Y3s1stScanCOM = \(\(({2*#[\([1]\)], #[\([2]\)], #[\([3]\)]})\) &\) /@ 
+          Y3s1stScan;\)\)}], "Input"],
+
+Cell[BoxData[{
+    \(\(jacksonSharreOnly[x_, norm_, mean_, 
+          sigma_] := \((\[IndentingNewLine]t = 
+              2*\((\(1/137.0359997650\)/
+                    Pi)\)*\((Log[\((x*1000)\)^2/0.51099890221^2 - 
+                      1. ])\); \[IndentingNewLine]z = \((x - mean)\)/
+                sigma; \[IndentingNewLine]F = 
+              Gamma[1 + t]*
+                  Exp[\(-z^2\)/2]/
+                    Sqrt[2*Pi]*\[IndentingNewLine]\((0.31 - 
+                        0.73*z/
+                            Sqrt[1 + \((z/\((1 + 
+                                        1.37*t)\))\)^2]\[IndentingNewLine] + 
+                        z^2)\)^\((\(-t\)/2)\) + \[IndentingNewLine]If[z > 0, 
+                    1, 0]*t*
+                  z^t*\[IndentingNewLine]\((z^2.18/\((1 + 
+                          z^3.18)\))\)*\[IndentingNewLine]\((1 + \((1 - 
+                            t)\)*\(\((2 - t)\)/
+                            2\)/\[IndentingNewLine]\((1.5*t + 
+                              2.44 + \((z - 
+                                    46/\((z^2 + 
+                                        21)\))\)^2)\))\); \
+\[IndentingNewLine]norm*\((2*sigma/mean)\)^t*F/sigma\[IndentingNewLine])\) // 
+          Chop;\)\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(\(jacksonSharre[x_, norm_, mean_, sigma_, 
+          back_] := \[IndentingNewLine]jacksonSharreOnly[x, norm, mean, 
+            sigma] + 
+          back*2.89966*\((2*5.17779)\)^2/
+              x^2;\)\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(\(jsParams = {norm, mean, sigma, back};\)\)}], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+    \({chi2, ndf, bestfitValues} = \[IndentingNewLine]FitToFunction[
+        jacksonSharre, jsParams, {0.0762, 10.3587, 0.00468, 1.07}, 
+        Y3s1stScanCOM]\), "\[IndentingNewLine]", 
+    \(errormatrix = 
+      ErrorMatrix[jacksonSharre, jsParams, bestfitValues, 
+        Y3s1stScanCOM]\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(\(Print["\<norm = \>", bestfitValues[\([1]\)], "\< +/- \>", 
+        Sqrt[\(errormatrix[\([1]\)]\)[\([1]\)]]];\)\), "\[IndentingNewLine]", \
+
+    \(\(Print["\<mean = \>", bestfitValues[\([2]\)], "\< +/- \>", 
+        Sqrt[\(errormatrix[\([2]\)]\)[\([2]\)]]];\)\), "\[IndentingNewLine]", \
+
+    \(\(Print["\<sigma = \>", bestfitValues[\([3]\)], "\< +/- \>", 
+        Sqrt[\(errormatrix[\([3]\)]\)[\([3]\)]]];\)\), "\[IndentingNewLine]", \
+
+    \(\(Print["\<back = \>", bestfitValues[\([4]\)], "\< +/- \>", 
+        Sqrt[\(errormatrix[\([4]\)]\)[\([4]\)]]];\)\[IndentingNewLine]\), "\
+\[IndentingNewLine]", 
+    \(\(PlotFitFrame[jacksonSharre, bestfitValues, Y3s1stScanCOM, 10.32, 
+        10.39, bestfitValues[\([4]\)]];\)\), "\[IndentingNewLine]", 
+    \(\(DifferencePlot[jacksonSharre, bestfitValues, 
+        Y3s1stScanCOM];\)\)}], "Input"],
+
+Cell[BoxData[
+    \({24.37772457265063`, 
+      34, {0.08144375208806609`, 10.358731798373812`, 0.0045926674039163595`, 
+        1.109253617815091`}}\)], "Output"],
+
+Cell[BoxData[
+    \({{9.332475532012957`*^-7, 6.742642939002412`*^-9, 
+        4.5862130783217034`*^-8, \(-2.3849921285777005`*^-6\)}, \
+{6.742642939002407`*^-9, 
+        3.877463981519202`*^-9, \(-2.895351259247472`*^-10\), 
+        6.538432693097257`*^-9}, {4.5862130783217014`*^-8, \
+\(-2.895351259247471`*^-10\), 
+        2.8617868631718046`*^-9, \(-8.092694238470051`*^-8\)}, \
+{\(-2.3849921285777017`*^-6\), 
+        6.538432693097238`*^-9, \(-8.092694238470058`*^-8\), 
+        0.000017916979858703842`}}\)], "Output"],
+
+Cell[BoxData[
+    InterpretationBox[\("norm = "\[InvisibleSpace]0.08144375208806609`\
+\[InvisibleSpace]" +/- "\[InvisibleSpace]0.0009660473866230868`\),
+      SequenceForm[ 
+      "norm = ", 0.08144375208806609, " +/- ", 0.00096604738662308678],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("mean = "\[InvisibleSpace]10.358731798373812`\
+\[InvisibleSpace]" +/- "\[InvisibleSpace]0.00006226928602063141`\),
+      SequenceForm[ 
+      "mean = ", 10.358731798373812, " +/- ", 6.2269286020631411*^-05],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("sigma = "\[InvisibleSpace]0.0045926674039163595`\
+\[InvisibleSpace]" +/- "\[InvisibleSpace]0.00005349567144332151`\),
+      SequenceForm[ 
+      "sigma = ", 0.0045926674039163595, " +/- ", 5.3495671443321511*^-05],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("back = "\[InvisibleSpace]1.109253617815091`\
+\[InvisibleSpace]" +/- "\[InvisibleSpace]0.004232845362011686`\),
+      SequenceForm[ 
+      "back = ", 1.1092536178150909, " +/- ", 0.0042328453620116861],
+      Editable->False]], "Print"],
+
+Cell[CellGroupData[{
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .61803 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-147.429 14.2857 0 0.0772542 [
+[.14286 -0.0125 -15 -9 ]
+[.14286 -0.0125 15 0 ]
+[.28571 -0.0125 -15 -9 ]
+[.28571 -0.0125 15 0 ]
+[.42857 -0.0125 -15 -9 ]
+[.42857 -0.0125 15 0 ]
+[.57143 -0.0125 -15 -9 ]
+[.57143 -0.0125 15 0 ]
+[.71429 -0.0125 -15 -9 ]
+[.71429 -0.0125 15 0 ]
+[.85714 -0.0125 -15 -9 ]
+[.85714 -0.0125 15 0 ]
+[1 -0.0125 -15 -9 ]
+[1 -0.0125 15 0 ]
+[ 0 0 -0.125 0 ]
+[.5 -0.0125 -41 -19.125 ]
+[.5 -0.0125 41 -9 ]
+[-0.0125 .07725 -6 -4.5 ]
+[-0.0125 .07725 0 4.5 ]
+[-0.0125 .15451 -6 -4.5 ]
+[-0.0125 .15451 0 4.5 ]
+[-0.0125 .23176 -6 -4.5 ]
+[-0.0125 .23176 0 4.5 ]
+[-0.0125 .30902 -6 -4.5 ]
+[-0.0125 .30902 0 4.5 ]
+[-0.0125 .38627 -6 -4.5 ]
+[-0.0125 .38627 0 4.5 ]
+[-0.0125 .46353 -6 -4.5 ]
+[-0.0125 .46353 0 4.5 ]
+[-0.0125 .54078 -6 -4.5 ]
+[-0.0125 .54078 0 4.5 ]
+[-0.0125 .61803 -6 -4.5 ]
+[-0.0125 .61803 0 4.5 ]
+[ 0 0 -0.125 0 ]
+[-0.01875 .30902 -16.125 -59 ]
+[-0.01875 .30902 -6 59 ]
+[ 0 .61803 .125 0 ]
+[ 1 0 .125 0 ]
+[ 0 0 0 0 ]
+[ 1 .61803 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 g
+.25 Mabswid
+[ ] 0 setdash
+.14286 0 m
+.14286 .00625 L
+s
+[(10.33)] .14286 -0.0125 0 1 Mshowa
+.28571 0 m
+.28571 .00625 L
+s
+[(10.34)] .28571 -0.0125 0 1 Mshowa
+.42857 0 m
+.42857 .00625 L
+s
+[(10.35)] .42857 -0.0125 0 1 Mshowa
+.57143 0 m
+.57143 .00625 L
+s
+[(10.36)] .57143 -0.0125 0 1 Mshowa
+.71429 0 m
+.71429 .00625 L
+s
+[(10.37)] .71429 -0.0125 0 1 Mshowa
+.85714 0 m
+.85714 .00625 L
+s
+[(10.38)] .85714 -0.0125 0 1 Mshowa
+1 0 m
+1 .00625 L
+s
+[(10.39)] 1 -0.0125 0 1 Mshowa
+.125 Mabswid
+.02857 0 m
+.02857 .00375 L
+s
+.05714 0 m
+.05714 .00375 L
+s
+.08571 0 m
+.08571 .00375 L
+s
+.11429 0 m
+.11429 .00375 L
+s
+.17143 0 m
+.17143 .00375 L
+s
+.2 0 m
+.2 .00375 L
+s
+.22857 0 m
+.22857 .00375 L
+s
+.25714 0 m
+.25714 .00375 L
+s
+.31429 0 m
+.31429 .00375 L
+s
+.34286 0 m
+.34286 .00375 L
+s
+.37143 0 m
+.37143 .00375 L
+s
+.4 0 m
+.4 .00375 L
+s
+.45714 0 m
+.45714 .00375 L
+s
+.48571 0 m
+.48571 .00375 L
+s
+.51429 0 m
+.51429 .00375 L
+s
+.54286 0 m
+.54286 .00375 L
+s
+.6 0 m
+.6 .00375 L
+s
+.62857 0 m
+.62857 .00375 L
+s
+.65714 0 m
+.65714 .00375 L
+s
+.68571 0 m
+.68571 .00375 L
+s
+.74286 0 m
+.74286 .00375 L
+s
+.77143 0 m
+.77143 .00375 L
+s
+.8 0 m
+.8 .00375 L
+s
+.82857 0 m
+.82857 .00375 L
+s
+.88571 0 m
+.88571 .00375 L
+s
+.91429 0 m
+.91429 .00375 L
+s
+.94286 0 m
+.94286 .00375 L
+s
+.97143 0 m
+.97143 .00375 L
+s
+.25 Mabswid
+0 0 m
+1 0 L
+s
+gsave
+.5 -0.0125 -102 -23.125 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 18.125 translate 1 -1 scale
+63.000 11.563 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+%%BeginResource: font Courier-MISO
+%%BeginFont: Courier-MISO
+/Courier /Courier-MISO MISOfy
+%%EndFont
+%%EndResource
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+63.000 11.563 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(Energy) show
+105.000 11.563 moveto
+(in) show
+123.000 11.563 moveto
+(GeV) show
+141.000 11.563 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+1.000 setlinewidth
+grestore
+0 .07725 m
+.00625 .07725 L
+s
+[(1)] -0.0125 .07725 1 0 Mshowa
+0 .15451 m
+.00625 .15451 L
+s
+[(2)] -0.0125 .15451 1 0 Mshowa
+0 .23176 m
+.00625 .23176 L
+s
+[(3)] -0.0125 .23176 1 0 Mshowa
+0 .30902 m
+.00625 .30902 L
+s
+[(4)] -0.0125 .30902 1 0 Mshowa
+0 .38627 m
+.00625 .38627 L
+s
+[(5)] -0.0125 .38627 1 0 Mshowa
+0 .46353 m
+.00625 .46353 L
+s
+[(6)] -0.0125 .46353 1 0 Mshowa
+0 .54078 m
+.00625 .54078 L
+s
+[(7)] -0.0125 .54078 1 0 Mshowa
+0 .61803 m
+.00625 .61803 L
+s
+[(8)] -0.0125 .61803 1 0 Mshowa
+.125 Mabswid
+0 .01545 m
+.00375 .01545 L
+s
+0 .0309 m
+.00375 .0309 L
+s
+0 .04635 m
+.00375 .04635 L
+s
+0 .0618 m
+.00375 .0618 L
+s
+0 .09271 m
+.00375 .09271 L
+s
+0 .10816 m
+.00375 .10816 L
+s
+0 .12361 m
+.00375 .12361 L
+s
+0 .13906 m
+.00375 .13906 L
+s
+0 .16996 m
+.00375 .16996 L
+s
+0 .18541 m
+.00375 .18541 L
+s
+0 .20086 m
+.00375 .20086 L
+s
+0 .21631 m
+.00375 .21631 L
+s
+0 .24721 m
+.00375 .24721 L
+s
+0 .26266 m
+.00375 .26266 L
+s
+0 .27812 m
+.00375 .27812 L
+s
+0 .29357 m
+.00375 .29357 L
+s
+0 .32447 m
+.00375 .32447 L
+s
+0 .33992 m
+.00375 .33992 L
+s
+0 .35537 m
+.00375 .35537 L
+s
+0 .37082 m
+.00375 .37082 L
+s
+0 .40172 m
+.00375 .40172 L
+s
+0 .41717 m
+.00375 .41717 L
+s
+0 .43262 m
+.00375 .43262 L
+s
+0 .44807 m
+.00375 .44807 L
+s
+0 .47898 m
+.00375 .47898 L
+s
+0 .49443 m
+.00375 .49443 L
+s
+0 .50988 m
+.00375 .50988 L
+s
+0 .52533 m
+.00375 .52533 L
+s
+0 .55623 m
+.00375 .55623 L
+s
+0 .57168 m
+.00375 .57168 L
+s
+0 .58713 m
+.00375 .58713 L
+s
+0 .60258 m
+.00375 .60258 L
+s
+.25 Mabswid
+0 0 m
+0 .61803 L
+s
+gsave
+-0.01875 .30902 -131.062 -9.0625 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+120 9.0625 translate
+90 rotate
+-120 -9.0625 translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 18.125 translate 1 -1 scale
+63.000 11.563 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+%%BeginResource: font Courier-MISO
+%%BeginFont: Courier-MISO
+/Courier /Courier-MISO MISOfy
+%%EndFont
+%%EndResource
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+63.000 11.563 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(Cross) show
+93.000 11.563 moveto
+%%IncludeResource: font Math1Mono
+%%IncludeFont: Math1Mono
+/Math1Mono findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(-) show
+99.000 11.563 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(section) show
+147.000 11.563 moveto
+(in) show
+165.000 11.563 moveto
+(nb) show
+177.000 11.563 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+1.000 setlinewidth
+grestore
+0 .61178 m
+0 .61803 L
+s
+.14286 .61178 m
+.14286 .61803 L
+s
+.28571 .61178 m
+.28571 .61803 L
+s
+.42857 .61178 m
+.42857 .61803 L
+s
+.57143 .61178 m
+.57143 .61803 L
+s
+.71429 .61178 m
+.71429 .61803 L
+s
+.85714 .61178 m
+.85714 .61803 L
+s
+.125 Mabswid
+.02857 .61428 m
+.02857 .61803 L
+s
+.05714 .61428 m
+.05714 .61803 L
+s
+.08571 .61428 m
+.08571 .61803 L
+s
+.11429 .61428 m
+.11429 .61803 L
+s
+.17143 .61428 m
+.17143 .61803 L
+s
+.2 .61428 m
+.2 .61803 L
+s
+.22857 .61428 m
+.22857 .61803 L
+s
+.25714 .61428 m
+.25714 .61803 L
+s
+.31429 .61428 m
+.31429 .61803 L
+s
+.34286 .61428 m
+.34286 .61803 L
+s
+.37143 .61428 m
+.37143 .61803 L
+s
+.4 .61428 m
+.4 .61803 L
+s
+.45714 .61428 m
+.45714 .61803 L
+s
+.48571 .61428 m
+.48571 .61803 L
+s
+.51429 .61428 m
+.51429 .61803 L
+s
+.54286 .61428 m
+.54286 .61803 L
+s
+.6 .61428 m
+.6 .61803 L
+s
+.62857 .61428 m
+.62857 .61803 L
+s
+.65714 .61428 m
+.65714 .61803 L
+s
+.68571 .61428 m
+.68571 .61803 L
+s
+.74286 .61428 m
+.74286 .61803 L
+s
+.77143 .61428 m
+.77143 .61803 L
+s
+.8 .61428 m
+.8 .61803 L
+s
+.82857 .61428 m
+.82857 .61803 L
+s
+.88571 .61428 m
+.88571 .61803 L
+s
+.91429 .61428 m
+.91429 .61803 L
+s
+.94286 .61428 m
+.94286 .61803 L
+s
+.97143 .61428 m
+.97143 .61803 L
+s
+.25 Mabswid
+0 .61803 m
+1 .61803 L
+s
+.99375 0 m
+1 0 L
+s
+.99375 .07725 m
+1 .07725 L
+s
+.99375 .15451 m
+1 .15451 L
+s
+.99375 .23176 m
+1 .23176 L
+s
+.99375 .30902 m
+1 .30902 L
+s
+.99375 .38627 m
+1 .38627 L
+s
+.99375 .46353 m
+1 .46353 L
+s
+.99375 .54078 m
+1 .54078 L
+s
+.125 Mabswid
+.99625 .01545 m
+1 .01545 L
+s
+.99625 .0309 m
+1 .0309 L
+s
+.99625 .04635 m
+1 .04635 L
+s
+.99625 .0618 m
+1 .0618 L
+s
+.99625 .09271 m
+1 .09271 L
+s
+.99625 .10816 m
+1 .10816 L
+s
+.99625 .12361 m
+1 .12361 L
+s
+.99625 .13906 m
+1 .13906 L
+s
+.99625 .16996 m
+1 .16996 L
+s
+.99625 .18541 m
+1 .18541 L
+s
+.99625 .20086 m
+1 .20086 L
+s
+.99625 .21631 m
+1 .21631 L
+s
+.99625 .24721 m
+1 .24721 L
+s
+.99625 .26266 m
+1 .26266 L
+s
+.99625 .27812 m
+1 .27812 L
+s
+.99625 .29357 m
+1 .29357 L
+s
+.99625 .32447 m
+1 .32447 L
+s
+.99625 .33992 m
+1 .33992 L
+s
+.99625 .35537 m
+1 .35537 L
+s
+.99625 .37082 m
+1 .37082 L
+s
+.99625 .40172 m
+1 .40172 L
+s
+.99625 .41717 m
+1 .41717 L
+s
+.99625 .43262 m
+1 .43262 L
+s
+.99625 .44807 m
+1 .44807 L
+s
+.99625 .47898 m
+1 .47898 L
+s
+.99625 .49443 m
+1 .49443 L
+s
+.99625 .50988 m
+1 .50988 L
+s
+.99625 .52533 m
+1 .52533 L
+s
+.99625 .55623 m
+1 .55623 L
+s
+.99625 .57168 m
+1 .57168 L
+s
+.99625 .58713 m
+1 .58713 L
+s
+.99625 .60258 m
+1 .60258 L
+s
+.25 Mabswid
+1 0 m
+1 .61803 L
+s
+0 0 m
+1 0 L
+1 .61803 L
+0 .61803 L
+closepath
+clip
+newpath
+.001 w
+.84029 .27271 m
+.84029 .26344 L
+s
+.84029 .27271 1.5 0 Mabsadd m
+.84029 .27271 -1.5 0 Mabsadd L s
+.84029 .26344 1.5 0 Mabsadd m
+.84029 .26344 -1.5 0 Mabsadd L s
+.38286 .26035 m
+.38286 .25108 L
+s
+.38286 .26035 1.5 0 Mabsadd m
+.38286 .26035 -1.5 0 Mabsadd L s
+.38286 .25108 1.5 0 Mabsadd m
+.38286 .25108 -1.5 0 Mabsadd L s
+.75657 .27966 m
+.75657 .27039 L
+s
+.75657 .27966 1.5 0 Mabsadd m
+.75657 .27966 -1.5 0 Mabsadd L s
+.75657 .27039 1.5 0 Mabsadd m
+.75657 .27039 -1.5 0 Mabsadd L s
+.44314 .30824 m
+.44314 .28352 L
+s
+.44314 .30824 1.5 0 Mabsadd m
+.44314 .30824 -1.5 0 Mabsadd L s
+.44314 .28352 1.5 0 Mabsadd m
+.44314 .28352 -1.5 0 Mabsadd L s
+.44314 .31674 m
+.44314 .30593 L
+s
+.44314 .31674 1.5 0 Mabsadd m
+.44314 .31674 -1.5 0 Mabsadd L s
+.44314 .30593 1.5 0 Mabsadd m
+.44314 .30593 -1.5 0 Mabsadd L s
+.61086 .48129 m
+.61086 .46893 L
+s
+.61086 .48129 1.5 0 Mabsadd m
+.61086 .48129 -1.5 0 Mabsadd L s
+.61086 .46893 1.5 0 Mabsadd m
+.61086 .46893 -1.5 0 Mabsadd L s
+.66886 .35382 m
+.66886 .34455 L
+s
+.66886 .35382 1.5 0 Mabsadd m
+.66886 .35382 -1.5 0 Mabsadd L s
+.66886 .34455 1.5 0 Mabsadd m
+.66886 .34455 -1.5 0 Mabsadd L s
+.49743 .44344 m
+.49743 .43262 L
+s
+.49743 .44344 1.5 0 Mabsadd m
+.49743 .44344 -1.5 0 Mabsadd L s
+.49743 .43262 1.5 0 Mabsadd m
+.49743 .43262 -1.5 0 Mabsadd L s
+.14514 .25726 m
+.14514 .24799 L
+s
+.14514 .25726 1.5 0 Mabsadd m
+.14514 .25726 -1.5 0 Mabsadd L s
+.14514 .24799 1.5 0 Mabsadd m
+.14514 .24799 -1.5 0 Mabsadd L s
+.138 .2503 m
+.138 .24103 L
+s
+.138 .2503 1.5 0 Mabsadd m
+.138 .2503 -1.5 0 Mabsadd L s
+.138 .24103 1.5 0 Mabsadd m
+.138 .24103 -1.5 0 Mabsadd L s
+.138 .24953 m
+.138 .23408 L
+s
+.138 .24953 1.5 0 Mabsadd m
+.138 .24953 -1.5 0 Mabsadd L s
+.138 .23408 1.5 0 Mabsadd m
+.138 .23408 -1.5 0 Mabsadd L s
+.13886 .25339 m
+.13886 .24412 L
+s
+.13886 .25339 1.5 0 Mabsadd m
+.13886 .25339 -1.5 0 Mabsadd L s
+.13886 .24412 1.5 0 Mabsadd m
+.13886 .24412 -1.5 0 Mabsadd L s
+.13971 .2588 m
+.13971 .24953 L
+s
+.13971 .2588 1.5 0 Mabsadd m
+.13971 .2588 -1.5 0 Mabsadd L s
+.13971 .24953 1.5 0 Mabsadd m
+.13971 .24953 -1.5 0 Mabsadd L s
+.138 .25803 m
+.138 .24876 L
+s
+.138 .25803 1.5 0 Mabsadd m
+.138 .25803 -1.5 0 Mabsadd L s
+.138 .24876 1.5 0 Mabsadd m
+.138 .24876 -1.5 0 Mabsadd L s
+.138 .25339 m
+.138 .24103 L
+s
+.138 .25339 1.5 0 Mabsadd m
+.138 .25339 -1.5 0 Mabsadd L s
+.138 .24103 1.5 0 Mabsadd m
+.138 .24103 -1.5 0 Mabsadd L s
+.13886 .24644 m
+.13886 .22481 L
+s
+.13886 .24644 1.5 0 Mabsadd m
+.13886 .24644 -1.5 0 Mabsadd L s
+.13886 .22481 1.5 0 Mabsadd m
+.13886 .22481 -1.5 0 Mabsadd L s
+.13886 .25726 m
+.13886 .24799 L
+s
+.13886 .25726 1.5 0 Mabsadd m
+.13886 .25726 -1.5 0 Mabsadd L s
+.13886 .24799 1.5 0 Mabsadd m
+.13886 .24799 -1.5 0 Mabsadd L s
+.13886 .25262 m
+.13886 .24335 L
+s
+.13886 .25262 1.5 0 Mabsadd m
+.13886 .25262 -1.5 0 Mabsadd L s
+.13886 .24335 1.5 0 Mabsadd m
+.13886 .24335 -1.5 0 Mabsadd L s
+.13886 .26189 m
+.13886 .24799 L
+s
+.13886 .26189 1.5 0 Mabsadd m
+.13886 .26189 -1.5 0 Mabsadd L s
+.13886 .24799 1.5 0 Mabsadd m
+.13886 .24799 -1.5 0 Mabsadd L s
+.138 .25262 m
+.138 .2449 L
+s
+.138 .25262 1.5 0 Mabsadd m
+.138 .25262 -1.5 0 Mabsadd L s
+.138 .2449 1.5 0 Mabsadd m
+.138 .2449 -1.5 0 Mabsadd L s
+.54771 .55005 m
+.54771 .53614 L
+s
+.54771 .55005 1.5 0 Mabsadd m
+.54771 .55005 -1.5 0 Mabsadd L s
+.54771 .53614 1.5 0 Mabsadd m
+.54771 .53614 -1.5 0 Mabsadd L s
+.54943 .53692 m
+.54943 .52456 L
+s
+.54943 .53692 1.5 0 Mabsadd m
+.54943 .53692 -1.5 0 Mabsadd L s
+.54943 .52456 1.5 0 Mabsadd m
+.54943 .52456 -1.5 0 Mabsadd L s
+.54886 .54155 m
+.54886 .52765 L
+s
+.54886 .54155 1.5 0 Mabsadd m
+.54886 .54155 -1.5 0 Mabsadd L s
+.54886 .52765 1.5 0 Mabsadd m
+.54886 .52765 -1.5 0 Mabsadd L s
+.54943 .53383 m
+.54943 .51992 L
+s
+.54943 .53383 1.5 0 Mabsadd m
+.54943 .53383 -1.5 0 Mabsadd L s
+.54943 .51992 1.5 0 Mabsadd m
+.54943 .51992 -1.5 0 Mabsadd L s
+.54914 .55778 m
+.54914 .52996 L
+s
+.54914 .55778 1.5 0 Mabsadd m
+.54914 .55778 -1.5 0 Mabsadd L s
+.54914 .52996 1.5 0 Mabsadd m
+.54914 .52996 -1.5 0 Mabsadd L s
+.54943 .54155 m
+.54943 .52765 L
+s
+.54943 .54155 1.5 0 Mabsadd m
+.54943 .54155 -1.5 0 Mabsadd L s
+.54943 .52765 1.5 0 Mabsadd m
+.54943 .52765 -1.5 0 Mabsadd L s
+.55314 .54232 m
+.55314 .52996 L
+s
+.55314 .54232 1.5 0 Mabsadd m
+.55314 .54232 -1.5 0 Mabsadd L s
+.55314 .52996 1.5 0 Mabsadd m
+.55314 .52996 -1.5 0 Mabsadd L s
+.54686 .53846 m
+.54686 .52765 L
+s
+.54686 .53846 1.5 0 Mabsadd m
+.54686 .53846 -1.5 0 Mabsadd L s
+.54686 .52765 1.5 0 Mabsadd m
+.54686 .52765 -1.5 0 Mabsadd L s
+.55257 .54078 m
+.55257 .52996 L
+s
+.55257 .54078 1.5 0 Mabsadd m
+.55257 .54078 -1.5 0 Mabsadd L s
+.55257 .52996 1.5 0 Mabsadd m
+.55257 .52996 -1.5 0 Mabsadd L s
+.54743 .53383 m
+.54743 .52301 L
+s
+.54743 .53383 1.5 0 Mabsadd m
+.54743 .53383 -1.5 0 Mabsadd L s
+.54743 .52301 1.5 0 Mabsadd m
+.54743 .52301 -1.5 0 Mabsadd L s
+.54657 .54773 m
+.54657 .53692 L
+s
+.54657 .54773 1.5 0 Mabsadd m
+.54657 .54773 -1.5 0 Mabsadd L s
+.54657 .53692 1.5 0 Mabsadd m
+.54657 .53692 -1.5 0 Mabsadd L s
+.54714 .52842 m
+.54714 .5176 L
+s
+.54714 .52842 1.5 0 Mabsadd m
+.54714 .52842 -1.5 0 Mabsadd L s
+.54714 .5176 1.5 0 Mabsadd m
+.54714 .5176 -1.5 0 Mabsadd L s
+.548 .52996 m
+.548 .49134 L
+s
+.548 .52996 1.5 0 Mabsadd m
+.548 .52996 -1.5 0 Mabsadd L s
+.548 .49134 1.5 0 Mabsadd m
+.548 .49134 -1.5 0 Mabsadd L s
+.548 .54232 m
+.548 .52842 L
+s
+.548 .54232 1.5 0 Mabsadd m
+.548 .54232 -1.5 0 Mabsadd L s
+.548 .52842 1.5 0 Mabsadd m
+.548 .52842 -1.5 0 Mabsadd L s
+.54829 .53151 m
+.54829 .51142 L
+s
+.54829 .53151 1.5 0 Mabsadd m
+.54829 .53151 -1.5 0 Mabsadd L s
+.54829 .51142 1.5 0 Mabsadd m
+.54829 .51142 -1.5 0 Mabsadd L s
+.54686 .53692 m
+.54686 .5261 L
+s
+.54686 .53692 1.5 0 Mabsadd m
+.54686 .53692 -1.5 0 Mabsadd L s
+.54686 .5261 1.5 0 Mabsadd m
+.54686 .5261 -1.5 0 Mabsadd L s
+.54829 .55005 m
+.54829 .53151 L
+s
+.54829 .55005 1.5 0 Mabsadd m
+.54829 .55005 -1.5 0 Mabsadd L s
+.54829 .53151 1.5 0 Mabsadd m
+.54829 .53151 -1.5 0 Mabsadd L s
+.54714 .54001 m
+.54714 .52765 L
+s
+.54714 .54001 1.5 0 Mabsadd m
+.54714 .54001 -1.5 0 Mabsadd L s
+.54714 .52765 1.5 0 Mabsadd m
+.54714 .52765 -1.5 0 Mabsadd L s
+.0001 w
+.84029 .26807 -1.875 0 Mabsadd m
+.84029 .26807 0 2.5 Mabsadd L
+.84029 .26807 1.875 0 Mabsadd L
+.84029 .26807 0 -2.5 Mabsadd L
+.84029 .26807 -1.875 0 Mabsadd L closepath F
+.38286 .25571 -1.875 0 Mabsadd m
+.38286 .25571 0 2.5 Mabsadd L
+.38286 .25571 1.875 0 Mabsadd L
+.38286 .25571 0 -2.5 Mabsadd L
+.38286 .25571 -1.875 0 Mabsadd L closepath F
+.75657 .27503 -1.875 0 Mabsadd m
+.75657 .27503 0 2.5 Mabsadd L
+.75657 .27503 1.875 0 Mabsadd L
+.75657 .27503 0 -2.5 Mabsadd L
+.75657 .27503 -1.875 0 Mabsadd L closepath F
+.44314 .29588 -1.875 0 Mabsadd m
+.44314 .29588 0 2.5 Mabsadd L
+.44314 .29588 1.875 0 Mabsadd L
+.44314 .29588 0 -2.5 Mabsadd L
+.44314 .29588 -1.875 0 Mabsadd L closepath F
+.44314 .31133 -1.875 0 Mabsadd m
+.44314 .31133 0 2.5 Mabsadd L
+.44314 .31133 1.875 0 Mabsadd L
+.44314 .31133 0 -2.5 Mabsadd L
+.44314 .31133 -1.875 0 Mabsadd L closepath F
+.61086 .47511 -1.875 0 Mabsadd m
+.61086 .47511 0 2.5 Mabsadd L
+.61086 .47511 1.875 0 Mabsadd L
+.61086 .47511 0 -2.5 Mabsadd L
+.61086 .47511 -1.875 0 Mabsadd L closepath F
+.66886 .34919 -1.875 0 Mabsadd m
+.66886 .34919 0 2.5 Mabsadd L
+.66886 .34919 1.875 0 Mabsadd L
+.66886 .34919 0 -2.5 Mabsadd L
+.66886 .34919 -1.875 0 Mabsadd L closepath F
+.49743 .43803 -1.875 0 Mabsadd m
+.49743 .43803 0 2.5 Mabsadd L
+.49743 .43803 1.875 0 Mabsadd L
+.49743 .43803 0 -2.5 Mabsadd L
+.49743 .43803 -1.875 0 Mabsadd L closepath F
+.14514 .25262 -1.875 0 Mabsadd m
+.14514 .25262 0 2.5 Mabsadd L
+.14514 .25262 1.875 0 Mabsadd L
+.14514 .25262 0 -2.5 Mabsadd L
+.14514 .25262 -1.875 0 Mabsadd L closepath F
+.138 .24567 -1.875 0 Mabsadd m
+.138 .24567 0 2.5 Mabsadd L
+.138 .24567 1.875 0 Mabsadd L
+.138 .24567 0 -2.5 Mabsadd L
+.138 .24567 -1.875 0 Mabsadd L closepath F
+.138 .24181 -1.875 0 Mabsadd m
+.138 .24181 0 2.5 Mabsadd L
+.138 .24181 1.875 0 Mabsadd L
+.138 .24181 0 -2.5 Mabsadd L
+.138 .24181 -1.875 0 Mabsadd L closepath F
+.13886 .24876 -1.875 0 Mabsadd m
+.13886 .24876 0 2.5 Mabsadd L
+.13886 .24876 1.875 0 Mabsadd L
+.13886 .24876 0 -2.5 Mabsadd L
+.13886 .24876 -1.875 0 Mabsadd L closepath F
+.13971 .25417 -1.875 0 Mabsadd m
+.13971 .25417 0 2.5 Mabsadd L
+.13971 .25417 1.875 0 Mabsadd L
+.13971 .25417 0 -2.5 Mabsadd L
+.13971 .25417 -1.875 0 Mabsadd L closepath F
+.138 .25339 -1.875 0 Mabsadd m
+.138 .25339 0 2.5 Mabsadd L
+.138 .25339 1.875 0 Mabsadd L
+.138 .25339 0 -2.5 Mabsadd L
+.138 .25339 -1.875 0 Mabsadd L closepath F
+.138 .24721 -1.875 0 Mabsadd m
+.138 .24721 0 2.5 Mabsadd L
+.138 .24721 1.875 0 Mabsadd L
+.138 .24721 0 -2.5 Mabsadd L
+.138 .24721 -1.875 0 Mabsadd L closepath F
+.13886 .23563 -1.875 0 Mabsadd m
+.13886 .23563 0 2.5 Mabsadd L
+.13886 .23563 1.875 0 Mabsadd L
+.13886 .23563 0 -2.5 Mabsadd L
+.13886 .23563 -1.875 0 Mabsadd L closepath F
+.13886 .25262 -1.875 0 Mabsadd m
+.13886 .25262 0 2.5 Mabsadd L
+.13886 .25262 1.875 0 Mabsadd L
+.13886 .25262 0 -2.5 Mabsadd L
+.13886 .25262 -1.875 0 Mabsadd L closepath F
+.13886 .24799 -1.875 0 Mabsadd m
+.13886 .24799 0 2.5 Mabsadd L
+.13886 .24799 1.875 0 Mabsadd L
+.13886 .24799 0 -2.5 Mabsadd L
+.13886 .24799 -1.875 0 Mabsadd L closepath F
+.13886 .25494 -1.875 0 Mabsadd m
+.13886 .25494 0 2.5 Mabsadd L
+.13886 .25494 1.875 0 Mabsadd L
+.13886 .25494 0 -2.5 Mabsadd L
+.13886 .25494 -1.875 0 Mabsadd L closepath F
+.138 .24876 -1.875 0 Mabsadd m
+.138 .24876 0 2.5 Mabsadd L
+.138 .24876 1.875 0 Mabsadd L
+.138 .24876 0 -2.5 Mabsadd L
+.138 .24876 -1.875 0 Mabsadd L closepath F
+.54771 .5431 -1.875 0 Mabsadd m
+.54771 .5431 0 2.5 Mabsadd L
+.54771 .5431 1.875 0 Mabsadd L
+.54771 .5431 0 -2.5 Mabsadd L
+.54771 .5431 -1.875 0 Mabsadd L closepath F
+.54943 .53074 -1.875 0 Mabsadd m
+.54943 .53074 0 2.5 Mabsadd L
+.54943 .53074 1.875 0 Mabsadd L
+.54943 .53074 0 -2.5 Mabsadd L
+.54943 .53074 -1.875 0 Mabsadd L closepath F
+.54886 .5346 -1.875 0 Mabsadd m
+.54886 .5346 0 2.5 Mabsadd L
+.54886 .5346 1.875 0 Mabsadd L
+.54886 .5346 0 -2.5 Mabsadd L
+.54886 .5346 -1.875 0 Mabsadd L closepath F
+.54943 .52687 -1.875 0 Mabsadd m
+.54943 .52687 0 2.5 Mabsadd L
+.54943 .52687 1.875 0 Mabsadd L
+.54943 .52687 0 -2.5 Mabsadd L
+.54943 .52687 -1.875 0 Mabsadd L closepath F
+.54914 .54387 -1.875 0 Mabsadd m
+.54914 .54387 0 2.5 Mabsadd L
+.54914 .54387 1.875 0 Mabsadd L
+.54914 .54387 0 -2.5 Mabsadd L
+.54914 .54387 -1.875 0 Mabsadd L closepath F
+.54943 .5346 -1.875 0 Mabsadd m
+.54943 .5346 0 2.5 Mabsadd L
+.54943 .5346 1.875 0 Mabsadd L
+.54943 .5346 0 -2.5 Mabsadd L
+.54943 .5346 -1.875 0 Mabsadd L closepath F
+.55314 .53614 -1.875 0 Mabsadd m
+.55314 .53614 0 2.5 Mabsadd L
+.55314 .53614 1.875 0 Mabsadd L
+.55314 .53614 0 -2.5 Mabsadd L
+.55314 .53614 -1.875 0 Mabsadd L closepath F
+.54686 .53305 -1.875 0 Mabsadd m
+.54686 .53305 0 2.5 Mabsadd L
+.54686 .53305 1.875 0 Mabsadd L
+.54686 .53305 0 -2.5 Mabsadd L
+.54686 .53305 -1.875 0 Mabsadd L closepath F
+.55257 .53537 -1.875 0 Mabsadd m
+.55257 .53537 0 2.5 Mabsadd L
+.55257 .53537 1.875 0 Mabsadd L
+.55257 .53537 0 -2.5 Mabsadd L
+.55257 .53537 -1.875 0 Mabsadd L closepath F
+.54743 .52842 -1.875 0 Mabsadd m
+.54743 .52842 0 2.5 Mabsadd L
+.54743 .52842 1.875 0 Mabsadd L
+.54743 .52842 0 -2.5 Mabsadd L
+.54743 .52842 -1.875 0 Mabsadd L closepath F
+.54657 .54232 -1.875 0 Mabsadd m
+.54657 .54232 0 2.5 Mabsadd L
+.54657 .54232 1.875 0 Mabsadd L
+.54657 .54232 0 -2.5 Mabsadd L
+.54657 .54232 -1.875 0 Mabsadd L closepath F
+.54714 .52301 -1.875 0 Mabsadd m
+.54714 .52301 0 2.5 Mabsadd L
+.54714 .52301 1.875 0 Mabsadd L
+.54714 .52301 0 -2.5 Mabsadd L
+.54714 .52301 -1.875 0 Mabsadd L closepath F
+.548 .51065 -1.875 0 Mabsadd m
+.548 .51065 0 2.5 Mabsadd L
+.548 .51065 1.875 0 Mabsadd L
+.548 .51065 0 -2.5 Mabsadd L
+.548 .51065 -1.875 0 Mabsadd L closepath F
+.548 .53537 -1.875 0 Mabsadd m
+.548 .53537 0 2.5 Mabsadd L
+.548 .53537 1.875 0 Mabsadd L
+.548 .53537 0 -2.5 Mabsadd L
+.548 .53537 -1.875 0 Mabsadd L closepath F
+.54829 .52147 -1.875 0 Mabsadd m
+.54829 .52147 0 2.5 Mabsadd L
+.54829 .52147 1.875 0 Mabsadd L
+.54829 .52147 0 -2.5 Mabsadd L
+.54829 .52147 -1.875 0 Mabsadd L closepath F
+.54686 .53151 -1.875 0 Mabsadd m
+.54686 .53151 0 2.5 Mabsadd L
+.54686 .53151 1.875 0 Mabsadd L
+.54686 .53151 0 -2.5 Mabsadd L
+.54686 .53151 -1.875 0 Mabsadd L closepath F
+.54829 .54078 -1.875 0 Mabsadd m
+.54829 .54078 0 2.5 Mabsadd L
+.54829 .54078 1.875 0 Mabsadd L
+.54829 .54078 0 -2.5 Mabsadd L
+.54829 .54078 -1.875 0 Mabsadd L closepath F
+.54714 .53383 -1.875 0 Mabsadd m
+.54714 .53383 0 2.5 Mabsadd L
+.54714 .53383 1.875 0 Mabsadd L
+.54714 .53383 0 -2.5 Mabsadd L
+.54714 .53383 -1.875 0 Mabsadd L closepath F
+.5 Mabswid
+[ 1 0 ] 0 setdash
+0 .2502 m
+.04057 .25006 L
+.08481 .24991 L
+.12636 .24977 L
+.16632 .24964 L
+.20885 .24949 L
+.2498 .24936 L
+.26052 .24933 L
+.26617 .24932 L
+.27217 .2493 L
+.27469 .2493 L
+.2774 .2493 L
+.27895 .2493 L
+.28037 .24929 L
+.28106 .24929 L
+.2818 .24929 L
+.28316 .24929 L
+.2845 .24929 L
+.28571 .24929 L
+.28638 .24929 L
+.28711 .24929 L
+.28843 .24929 L
+.28966 .2493 L
+.29097 .2493 L
+.29331 .2493 L
+.29459 .24931 L
+.29599 .24931 L
+.29852 .24932 L
+.30098 .24933 L
+.30326 .24934 L
+.30844 .24939 L
+.31105 .24941 L
+.31393 .24945 L
+.31871 .24953 L
+.32386 .24964 L
+.32872 .24978 L
+.33318 .24995 L
+.33816 .25018 L
+.34348 .25051 L
+.35305 .25133 L
+.35891 .25204 L
+.36444 .25288 L
+.36937 .2538 L
+.37479 .25504 L
+.385 .25816 L
+.39058 .26038 L
+.3958 .26287 L
+.40514 .26844 L
+.41518 .27632 L
+.42582 .28721 L
+Mistroke
+.43741 .30246 L
+.45852 .33999 L
+.50125 .44465 L
+.52103 .49175 L
+.53216 .51299 L
+.54239 .5275 L
+.54762 .53273 L
+.55059 .53495 L
+.55335 .53651 L
+.55485 .53715 L
+.55628 .53765 L
+.55755 .538 L
+.55894 .53829 L
+.55965 .5384 L
+.56045 .53849 L
+.56127 .53855 L
+.56205 .53856 L
+.56343 .53851 L
+.56421 .53844 L
+.56492 .53833 L
+.56615 .53808 L
+.56748 .53771 L
+.56985 .53676 L
+.57131 .53599 L
+.57268 .53514 L
+.57525 .5332 L
+.58046 .52796 L
+.58611 .52055 L
+.60702 .4828 L
+.62913 .43232 L
+.64996 .38469 L
+.66896 .34827 L
+.68942 .31886 L
+.70069 .30677 L
+.71138 .29764 L
+.7215 .29079 L
+.73226 .28511 L
+.74144 .2813 L
+.75159 .27797 L
+.77188 .27328 L
+.78329 .2714 L
+.79377 .26998 L
+.81361 .26785 L
+.83534 .26604 L
+.87789 .26337 L
+.91886 .26143 L
+.9624 .25981 L
+1 .25865 L
+Mfstroke
+[ .03 .02 ] 0 setdash
+0 .2502 m
+.04057 .25006 L
+.08481 .24991 L
+.12636 .24977 L
+.16632 .24964 L
+.20885 .24949 L
+.2498 .24936 L
+.29331 .24921 L
+.33524 .24907 L
+.37557 .24893 L
+.41848 .24879 L
+.4598 .24865 L
+.49953 .24851 L
+.54183 .24837 L
+.58254 .24824 L
+.62583 .24809 L
+.66752 .24795 L
+.70762 .24782 L
+.7503 .24767 L
+.79139 .24754 L
+.83505 .24739 L
+.87712 .24725 L
+.9176 .24712 L
+.96065 .24697 L
+1 .24684 L
+s
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+  ImageSize->{288, 177.937},
+  ImageMargins->{{43, 0}, {0, 0}},
+  ImageRegion->{{0, 1}, {0, 1}},
+  ImageCache->GraphicsData["Bitmap", "\<\
+CF5dJ6E]HGAYHf4PAg9QL6QYHg<PAVmbKF5d0`40004P0000/@P10`4000010?ooo`000063aP00002h
+Z2iLF0EkL:Cek/c<c6IVIXR8R?GemLZZTD]RM^[Mdg=QDZbANl30`61PH4iJJJ:ecH20P000ogmoO`00
+Rooo003o0000P8:2PZJVYU=CDnWYjG5aJG5aFG5YJG5Y@FUY>6UQFFUQ@FUQ:6UIHFUIDFUI>6UA@FUA
+86U9HFU9FFU9BF5QJF59:6596651>651064`FEUQ@EUIFEUAJEUABEUA>5U9<5U9:5U945U1FEU1BEU1
+05ThDETh@ETh<5Th85Th655A454h254X854X654PDE4PBDUADDUABDU9:4U1HDU1FDU1>4U104Th<4Th
+04TXDDTX<4TX24TP84TH64T84451BD51644hBD4h844h644`HD4`FOGN/d4PBD4P644H>44@844@2=:d
+S3QA83Q1@CQ1>3Q183Q103PhDCPh<3Ph03P`83PX@CPX<3PX63PX03PH<3PH63PH23P883P823P0430h
+@C0`HC0P830H82Q182Ph<2Ph42Ph02P`@BP`82PXDBPPBBPP62PH62P@<2P@02P8:2P0420X<20X820X
+220@820021P`<1P`01P@<1P@21P881P0410X:10P610P210H810@610020P@40P@00P8:00064PmReE[
+;om50?nPNP3ook34gXO>n^kMPYSkV7ooe?o0b`00E@00ZP1E001EE@1EZP1Eo`2Z002ZE@2ZZP2Zo`3o
+E@3oZUD005D0EED0ZUD0oeEE05EEEEEEZUEEoeFZ05FZEEFZZUFZoeGo05GoEEGoZUGoojX00:X0EJX0
+ZZX0ojYE0:YEEJYEZZYEojZZ0:ZZEJZZZZZZoj[o0:[oEJ[oZZ[oool00?l0EOl0Z_l0oomE0?mEEOmE
+Z_mEoonZ0?nZEOnZZ_nZooooEOooZ/BbShMjH^OWifm_Kj>SXiT0I_ooc80003<cIVIVc9VIob8R8X20
+0020P4:JY`0g?0200?mV<omVc<c<oooo_mCDok^k^h20ool08@0008@00`420081U@0008L000D10000
+0@2D0000J`050@0500410@000P4200<10P040@<00`4300812@080@03004100P00P4400<10`000`40
+001X0000K0001040004200040@000@8000<1000010000`40000200040@000@8000@100012P001@40
+0001008000<100001P001040004200030@0000<000<10040J@0006`000<100000`001040004200<1
+10000`40000200040@000@8000@100012P001@400001008000<100001P0010400@4200<10`000`40
+0@1Y0000K0030@<000@100010P001040004300030@00008000@100010P001040004:00050@000040
+0P000`40000600030@0000<000@100010P000`400@1Y0000K0001`4000400@000P4400810`000`40
+0@020@800P401@010@4000812@020@8000@100412@001040004300810P001@40000106P0001[00D1
+>@020@P00P400`010@1X0000V0000`4000250000o`0Q0000o`0Q0000;@040@<00P4400030@0000<0
+0P44008120040@<00P4400030@0000<00P4500030@0000D01043008110000`40000300810`030@P0
+1043008110000`400003008110020@P01043008110000`400003008110000`40000700@10`020@@0
+00<100000`020@@00P4700@10`020@@000<100000`020@<00`480000;`001@400001008000<10000
+1P001040004200040@000@T000D100000@0200030@0000H000@1000110000`40000700050@000040
+0P000`40000600040@000@D000<100001`001@400001008000<100001P001040004200040@000@T0
+00D100000@0200030@0000H000@100010`000`40000900050@0000400P000`40000600040@000@80
+00@1000120001@400001008000<100001P001040004500030@0000D0000_00050@0000400P000`40
+000900030@0000<000<100001`001@400001008000<100002@000`400@040@P000D100000@020003
+0@0000T000<100000`000`40000700050@0000400P000`40000900040@000@8000<100001`001@40
+0001008000<100002@000`40000200030@0000P000D100000@0200030@0000T000@100010P000`40
+000600050@0000400P000`40000900030@0000<000<100001@0002l000D100000@0200030@0000L0
+0P4400812P001@400001008000<100001`020@8000@100012@001@400001008000<100001`020@<0
+0`4:00050@0000400P000`40000700810`030@X000D100000@0200030@0000L00P4500030@0000P0
+00D100000@0200030@0000L00P4400812@001@400001008000<100001`020@@00`470000;`001@40
+0001008000<100002@000`40000300030@0000L000D100000@0200030@0000T000H1000100490005
+0@0000400P000`40000900040@000@`000D100000@0200030@0000T000@1000130001@4000010080
+00<100002@000`40000300030@0000L000D100000@0200030@0000T000@100010P000`4000060005
+0@0000400P000`40000900040@000@8000<100001@0002d00`4300040@000@P000@100010P001040
+004700<10`001040004800040@000@<00P4700<10`001040004800040@000@8000<1000020030@<0
+00@1000120001040004200030@0000P00`4300040@000@P000@100010P001040004700<10`001040
+004800040@000@8000@100011P030@<000@1000120001040004200040@000@L0000_00030@000080
+0P4:008110020@X000<100000P020@X00P4500030@0000L000<100000P020@X00P4300@12@000`40
+000200812P020@@00`4900030@0000800P4:00810`040@T000<100000P020@X00P4400812@000`40
+000200812P020@@00P480000o`0Q0000o`0Q0000o`0Q0000603d0A@0000H00030@0000@000<10000
+10000`40000400030@0000@000<1000010000`40000400030@0000@000<1000010000`4000040003
+0@0000@000<1000010000`40000400030@0000@000<1000010000`40000300030@0000@000<10000
+10000`40000400030@0000@000<1000010000`40000400030@0000@000<1000010000`4000040003
+0@0000@000<1000010000`40000400030@0000@000<1000010000`40000400030@0000@000<10000
+10000`40000400030@0000<000<1000010000`40000B000060000`40003`00030@000180000H0081
+l@000`40000B000060000`40003`00030@000180000H00030@000?0000<100004P0001P000<10000
+l0000`40000B000060020O4000<100004P0001P000<10000l0000`40000B000060000`40003`0003
+0@000180000H00030@000?0000<100004P0001P00P7a00030@000180000H00030@000?0000<10000
+4P0001P000<10000l0000`40000B000060000`40003`00030@000180000H0081l@000`40000B0000
+60000`40003`00030@000180000@00@110000`40003`00030@000180000B00030@0000<000<10000
+l0000`40000B00003@020@<000<100000`030Nl00P4D000030001040004200030@0000<000<10000
+l0000`40000B000030000`40000300030@0000<000<10000l0000`40000B00003000104000030@D0
+0P7a00030@000180000<00040@000@8000<100000`000`40003`00030@000180000=00812@000`40
+003`00030@000180000<00@120000`40003`00030@000180000=00030@0000P00P7a00030@000180
+000=00030@0000P000<10000l0000`40000B00003@000`40000800030@000?0000<100004P0000`0
+00<100400P4700030@000?0000<100004P0001P00P7a00030@000180000=00812@000`40003`0003
+0@000180000<00040@000@P000<10000l0000`40000B000030001040004800030@000?0000<10000
+4P0000`000@1000120020O4000<100004P0000d00P400`010@020@@000<10000l0000`40000B0000
+40000`40000500030@000?0000<100004P0000`00`4200030@0000@00`7_0081500000l000@10001
+1@000`40003`00030@000180000=008110000`40000200030@000?0000<100004P0000`000D10000
+0@0200030@00008000<10000l0000`40000B00003@030@03004100D00P7a00030@000180000H0003
+0@000?0000<100004P0000`00`4900030@000?0000<100004P0000l000<100001P000`40003`0003
+0@000180000=00812@020O4000<100004P0000`000<100002@000`40003`00030@000180000=00<1
+20000`40003`00030@000180000H00030@000?0000<100004P0001P00P7a00030@000180000H0003
+0@000?0000<100004P0000`0104800030@000?0000<100004P0001P00P7a00030@000180000H0003
+0@000?0000<100004P0001400P4500030@0001h0107>00030@000180000<00<100D00@000@040003
+0@0001l000<10000cP000`40000B00003`001@40000100@00`4N0081c`020A@0000=00810P020@D0
+00<100007@040Ll000<100004P0000`000<1000010000`40000200030@0001d0107?00030@000180
+000=00@10P000`40000200030@0001d01@7>00030@000180000A00811@020@h0@@4400T110080@@0
+204400P110080@@0204400T10`090@@0204400P110080@@0204400T10`000`40000B00003@030@P0
+5@4;00D1;00:0@0300410081T`000`40000B000030000`40000900030@0001d01P4e00@1U0000`40
+000B000030030@T000<100007P040CL0105]00030@0000/06@4D00003000104000480081GP020FL0
+4P4H00030@000180000=00812@000`40001O0081D`040@D02@4200<19@000`40000B000060000`40
+001Q00030@0005002@4;00@190000`40000B00003@020@T00P5S00030@0004h0104i00030@000180
+000<00040@000@P000<10000H`000`40001;008100<00@400P4h00030@000180000<00030@0000T0
+00<10000I000104000040D800`4o00030@000180000<00040@000@P000<10000I@001@40000104<0
+00<10000@0000`40000B00003@020@T00P5W00030@010081@0020D<000<100004P0001P000<10000
+I`040Cl000<10000@`000`40000B00003P020@8000<100000`000`40001X0081?`000`4000140003
+0@000180000=00060@000@011@000`40001X00@1?0000`40001500030@000180000=00030@0100@1
+10030FL01@4k00030@0004D00P4D00003@000`400@0200030@0000<000<10000J0030C/000<10000
+A`000`40000B000030050@03004000@000<10000J0040CT000<10000B0000`40000B00003@001040
+00020@D000<10000J`000`40000f00030@0004T000<100004P0000`01@400`0100040081K0000`40
+000f00030@0004T000<100004P0000h000<100001`000`40001/00030@0003@000<10000BP000`40
+000B00003P000`40000700030@0006`000<10000<`000`40001;00030@000180000>00030@0000L0
+0P5^00030@00034000<10000C0000`40000B00003@020@T000<10000K@000`40000`0081CP000`40
+000B000060000`40001^00030@0002d0105>00030@000180000=00812@000`40001^00030@0002d0
+105>00030@000180000<00040@000@P00P5`00030@0002`0105>00030@000180000<00040@000@P0
+00<10000K`000`40000/00030@0004l000<100004P0000`000@1000120000`40001_00030@0002`0
+00<10000C`000`40000B00003@020@T000<10000L0000`40000Z00030@00050000<100004P0001P0
+0P5a00030@0002X000<10000D0000`40000B00002`030@03004100L000<10000L0000`40000Y0003
+0@00054000<100004P0000`000<10000104500030@00074000<10000:0000`40001A00030@000180
+000<00040@000@<000<100000P000`40001a00030@0002L000<10000DP000`40000B000030001040
+004300030@0000800`5b00030@0002H000<10000D@020A@0000;00050@010@000`4500030@000780
+00<100009@000`40001C00030@000180000@00030@0000D000<10000LP000`40000U00030@0005<0
+00<100004P00010000<100001@020G@000<100008`000`40001D00030@000180000@00@110000`40
+001c00030@0002<000<10000E0000`40000B000060000`40001d00030@00028000<10000E0000`40
+000B000060000`40001d00030@00024000<10000E@000`40000B000060020GD000<100008@000`40
+001E00030@000180000H00030@0007D000<100007`000`40001F00030@000180000<00D11`000`40
+001e00030@0001l000<10000EP000`40000B00003P000`40000700030@0007D000<100007P000`40
+001G00030@000180000>00030@0000L00P5f00@17@000`40001G00030@000180000>00030@0000L0
+00<10000M0040Ah000<10000E`000`40000B00003@020@T000<10000M@030Ad000<10000F0000`40
+000B000060000`40001e00@170000`40001H00030@000180000;00H11`020GP000<100006P000`40
+001I00030@000180000<00050@000@000P4500030@0007P000<100006@000`40001I00030@000180
+000<00030@0000810P000`40000200030@0007P000<100006@000`40001I00030@000180000<0003
+0@0000810P000`40000200<1N@000`40000G00030@0005T00P4D00002`001@400@4000<11@000`40
+001i00030@0001L000<10000FP000`40000B000040000`40000500030@0007X000<100004`040E`0
+00<100004P00010000<100001@000`40001j00030@0001<0105L00030@000180000A00<110020G`0
+00<100004`030E`000<100004P0001P000<10000N`000`40000B00@1G0000`40000B000060000`40
+001l00030@00014000<10000G@000`40000B000060000`40001l00030@000080104;00030@0005d0
+00<100004P0001P00P5n00030@0000<000<100002@000`40001N00030@000180000;00<100<00@40
+1`000`40001m00030@0000<000<100002@000`40001N00030@000180000<00040@000@P000<10000
+OP000`40000200030@0000P000<10000G`000`40000B000030001040004800030@0007h000@10000
+0P4:00030@0005l000<100004P0000`000@1000120020H0000<100400`4800030@00060000<10000
+4P0000/000@100412@000`40002000040@010@T000<10000H0000`40000B000060000`40002000D1
+1`000`40001Q00030@000180000;00@12@020H401@4600030@00068000<100004P0000`000@10001
+20000`40002100@11@000`40001S00030@000180000<00060@000@011P000`40002000H10`000`40
+001T00030@000180000<00060@000@011P000`40002000H100@00@41IP000`40000B000030030@<0
+00<100000`030H401`5W0081500000`000<100000`000`40000300030@0008001P5Z00030@000180
+000;00811P000`40000200030@000840105[00030@000180000@00040@000@@000<10000P`000`40
+001Z00030@000180000@00@110020H80105[00030@000180000H00030@000?0000<100004P0001P0
+00<10000l0000`40000B000060000`40003`00030@000180000H0081l@000`40000B000060000`40
+003`00030@000180000H00030@000?0000<100004P0001P00P7a00030@000180000H00030@000?00
+00<100004P0001P000<10000l0000`40000B000060000`40003`00030@000180000H0081l@000`40
+000B000060000`40003`00030@000180000A00811@000`40000P00030@00020000<100007`000`40
+000P00030@00020000<1000080000`40000O00030@000180000@00040@000@@000<1000010000`40
+000400030@0000@000<1000010000`40000400030@0000@000<1000010000`40000400030@0000@0
+00<1000010000`40000400030@0000@000<1000010000`40000400030@0000<000<1000010000`40
+000400030@0000@000<1000010000`40000400030@0000@000<1000010000`40000400030@0000@0
+00<1000010000`40000400030@0000@000<1000010000`40000400030@0000@000<1000010000`40
+000400030@0000@000<100000`000`40000400030@000180000@00040@000@@0m04D00004@020Ol0
+3P00010000@10001o`0=000040001040007o00d0000A0081o`0>0000\
+\>"],
+  ImageRangeCache->{{{0, 287}, {176.937, 0}} -> {10.3129, -1.17999, \
+0.000287893, 0.0532366}}],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .61803 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-166.187 16.0984 0.326996 0.160582 [
+[.10977 .3145 -15 -9 ]
+[.10977 .3145 15 0 ]
+[.27076 .3145 -15 -9 ]
+[.27076 .3145 15 0 ]
+[.43174 .3145 -15 -9 ]
+[.43174 .3145 15 0 ]
+[.59273 .3145 -15 -9 ]
+[.59273 .3145 15 0 ]
+[.75371 .3145 -15 -9 ]
+[.75371 .3145 15 0 ]
+[.91469 .3145 -15 -9 ]
+[.91469 .3145 15 0 ]
+[.01131 .00583 -12 -4.5 ]
+[.01131 .00583 0 4.5 ]
+[.01131 .08612 -24 -4.5 ]
+[.01131 .08612 0 4.5 ]
+[.01131 .16641 -12 -4.5 ]
+[.01131 .16641 0 4.5 ]
+[.01131 .2467 -24 -4.5 ]
+[.01131 .2467 0 4.5 ]
+[.01131 .40729 -18 -4.5 ]
+[.01131 .40729 0 4.5 ]
+[.01131 .48758 -6 -4.5 ]
+[.01131 .48758 0 4.5 ]
+[.01131 .56787 -18 -4.5 ]
+[.01131 .56787 0 4.5 ]
+[ 0 0 0 0 ]
+[ 1 .61803 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 g
+.25 Mabswid
+[ ] 0 setdash
+.10977 .327 m
+.10977 .33325 L
+s
+[(10.33)] .10977 .3145 0 1 Mshowa
+.27076 .327 m
+.27076 .33325 L
+s
+[(10.34)] .27076 .3145 0 1 Mshowa
+.43174 .327 m
+.43174 .33325 L
+s
+[(10.35)] .43174 .3145 0 1 Mshowa
+.59273 .327 m
+.59273 .33325 L
+s
+[(10.36)] .59273 .3145 0 1 Mshowa
+.75371 .327 m
+.75371 .33325 L
+s
+[(10.37)] .75371 .3145 0 1 Mshowa
+.91469 .327 m
+.91469 .33325 L
+s
+[(10.38)] .91469 .3145 0 1 Mshowa
+.125 Mabswid
+.14197 .327 m
+.14197 .33075 L
+s
+.17417 .327 m
+.17417 .33075 L
+s
+.20637 .327 m
+.20637 .33075 L
+s
+.23856 .327 m
+.23856 .33075 L
+s
+.30296 .327 m
+.30296 .33075 L
+s
+.33515 .327 m
+.33515 .33075 L
+s
+.36735 .327 m
+.36735 .33075 L
+s
+.39955 .327 m
+.39955 .33075 L
+s
+.46394 .327 m
+.46394 .33075 L
+s
+.49614 .327 m
+.49614 .33075 L
+s
+.52833 .327 m
+.52833 .33075 L
+s
+.56053 .327 m
+.56053 .33075 L
+s
+.62492 .327 m
+.62492 .33075 L
+s
+.65712 .327 m
+.65712 .33075 L
+s
+.68932 .327 m
+.68932 .33075 L
+s
+.72151 .327 m
+.72151 .33075 L
+s
+.78591 .327 m
+.78591 .33075 L
+s
+.8181 .327 m
+.8181 .33075 L
+s
+.8503 .327 m
+.8503 .33075 L
+s
+.8825 .327 m
+.8825 .33075 L
+s
+.07758 .327 m
+.07758 .33075 L
+s
+.04538 .327 m
+.04538 .33075 L
+s
+.01318 .327 m
+.01318 .33075 L
+s
+.94689 .327 m
+.94689 .33075 L
+s
+.97909 .327 m
+.97909 .33075 L
+s
+.25 Mabswid
+0 .327 m
+1 .327 L
+s
+.02381 .00583 m
+.03006 .00583 L
+s
+[(-2)] .01131 .00583 1 0 Mshowa
+.02381 .08612 m
+.03006 .08612 L
+s
+[(-1.5)] .01131 .08612 1 0 Mshowa
+.02381 .16641 m
+.03006 .16641 L
+s
+[(-1)] .01131 .16641 1 0 Mshowa
+.02381 .2467 m
+.03006 .2467 L
+s
+[(-0.5)] .01131 .2467 1 0 Mshowa
+.02381 .40729 m
+.03006 .40729 L
+s
+[(0.5)] .01131 .40729 1 0 Mshowa
+.02381 .48758 m
+.03006 .48758 L
+s
+[(1)] .01131 .48758 1 0 Mshowa
+.02381 .56787 m
+.03006 .56787 L
+s
+[(1.5)] .01131 .56787 1 0 Mshowa
+.125 Mabswid
+.02381 .02189 m
+.02756 .02189 L
+s
+.02381 .03795 m
+.02756 .03795 L
+s
+.02381 .05401 m
+.02756 .05401 L
+s
+.02381 .07006 m
+.02756 .07006 L
+s
+.02381 .10218 m
+.02756 .10218 L
+s
+.02381 .11824 m
+.02756 .11824 L
+s
+.02381 .1343 m
+.02756 .1343 L
+s
+.02381 .15036 m
+.02756 .15036 L
+s
+.02381 .18247 m
+.02756 .18247 L
+s
+.02381 .19853 m
+.02756 .19853 L
+s
+.02381 .21459 m
+.02756 .21459 L
+s
+.02381 .23065 m
+.02756 .23065 L
+s
+.02381 .26276 m
+.02756 .26276 L
+s
+.02381 .27882 m
+.02756 .27882 L
+s
+.02381 .29488 m
+.02756 .29488 L
+s
+.02381 .31094 m
+.02756 .31094 L
+s
+.02381 .34305 m
+.02756 .34305 L
+s
+.02381 .35911 m
+.02756 .35911 L
+s
+.02381 .37517 m
+.02756 .37517 L
+s
+.02381 .39123 m
+.02756 .39123 L
+s
+.02381 .42335 m
+.02756 .42335 L
+s
+.02381 .4394 m
+.02756 .4394 L
+s
+.02381 .45546 m
+.02756 .45546 L
+s
+.02381 .47152 m
+.02756 .47152 L
+s
+.02381 .50364 m
+.02756 .50364 L
+s
+.02381 .51969 m
+.02756 .51969 L
+s
+.02381 .53575 m
+.02756 .53575 L
+s
+.02381 .55181 m
+.02756 .55181 L
+s
+.02381 .58393 m
+.02756 .58393 L
+s
+.02381 .59999 m
+.02756 .59999 L
+s
+.02381 .61604 m
+.02756 .61604 L
+s
+.25 Mabswid
+.02381 0 m
+.02381 .61803 L
+s
+0 0 m
+1 0 L
+1 .61803 L
+0 .61803 L
+closepath
+clip
+newpath
+.008 w
+.8957 .24412 Mdot
+.38023 .38574 Mdot
+.80136 .38203 Mdot
+.44816 .52847 Mdot
+.44816 .32871 Mdot
+.63716 .31325 Mdot
+.70252 .30131 Mdot
+.50934 .23082 Mdot
+.11235 .22612 Mdot
+.1043 .46783 Mdot
+.1043 .49179 Mdot
+.10527 .36067 Mdot
+.10623 .17323 Mdot
+.1043 .20019 Mdot
+.1043 .39247 Mdot
+.10527 .53642 Mdot
+.10527 .22685 Mdot
+.10527 .38744 Mdot
+.10527 .20671 Mdot
+.1043 .36753 Mdot
+.566 .08929 Mdot
+.56794 .41566 Mdot
+.56729 .30672 Mdot
+.56794 .49502 Mdot
+.56761 .2123 Mdot
+.56794 .3166 Mdot
+.57212 .33391 Mdot
+.56504 .29762 Mdot
+.57148 .34928 Mdot
+.56568 .45006 Mdot
+.56472 .01472 Mdot
+.56536 .60332 Mdot
+.56633 .51317 Mdot
+.56633 .27318 Mdot
+.56665 .51579 Mdot
+.56504 .3435 Mdot
+.56665 .19698 Mdot
+.56536 .28776 Mdot
+.5 Mabswid
+.02381 .48758 m
+.97619 .48758 L
+s
+.02381 .16641 m
+.97619 .16641 L
+s
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+  ImageSize->{288, 177.937},
+  ImageMargins->{{43, 0}, {0, 0}},
+  ImageRegion->{{0, 1}, {0, 1}},
+  ImageCache->GraphicsData["Bitmap", "\<\
+CF5dJ6E]HGAYHf4PAg9QL6QYHg<PAVmbKF5d0`40004P0000/@P10`4000010?ooo`000063aP00002h
+Z2iLF0EkL:Cek/c<c6IVIXR8R?GemLZZTD]RM^[Mdg=QDZbANl30`61PH4iJJJ:ecH20P000ogmoO`00
+Rooo003o0000P8:2PZJVYU=CDnWYjG5aJG5aFG5YJG5Y@FUY>6UQFFUQ@FUQ:6UIHFUIDFUI>6UA@FUA
+86U9HFU9FFU9BF5QJF59:6596651>651064`FEUQ@EUIFEUAJEUABEUA>5U9<5U9:5U945U1FEU1BEU1
+05ThDETh@ETh<5Th85Th655A454h254X854X654PDE4PBDUADDUABDU9:4U1HDU1FDU1>4U104Th<4Th
+04TXDDTX<4TX24TP84TH64T84451BD51644hBD4h844h644`HD4`FOGN/d4PBD4P644H>44@844@2=:d
+S3QA83Q1@CQ1>3Q183Q103PhDCPh<3Ph03P`83PX@CPX<3PX63PX03PH<3PH63PH23P883P823P0430h
+@C0`HC0P830H82Q182Ph<2Ph42Ph02P`@BP`82PXDBPPBBPP62PH62P@<2P@02P8:2P0420X<20X820X
+220@820021P`<1P`01P@<1P@21P881P0410X:10P610P210H810@610020P@40P@00P8:00064PmReE[
+;om50?nPNP3ook34gXO>n^kMPYSkV7ooe?o0b`00E@00ZP1E001EE@1EZP1Eo`2Z002ZE@2ZZP2Zo`3o
+E@3oZUD005D0EED0ZUD0oeEE05EEEEEEZUEEoeFZ05FZEEFZZUFZoeGo05GoEEGoZUGoojX00:X0EJX0
+ZZX0ojYE0:YEEJYEZZYEojZZ0:ZZEJZZZZZZoj[o0:[oEJ[oZZ[oool00?l0EOl0Z_l0oomE0?mEEOmE
+Z_mEoonZ0?nZEOnZZ_nZooooEOooZ/BbShMjH^OWifm_Kj>SXiT0I_ooc80003<cIVIVc9VIob8R8X20
+0020P4:JY`0g?0200?mV<omVc<c<oooo_mCDok^k^h20ool08@000?l08@000?l08@000?l08@000?l0
+8@000?l08@000?l08@0001<0104400030@000?l00`0001<000<100001@000`40003o00<0000D0003
+0@0000@00P7o00@0000=00@110000`40000300030@000?l00`0001H000<100000P000`40002<0081
+M00001<000@1000110000`40002=00030@000780000D00811@020Ol0100001/000<10000o`030000
+6`000`40003o00<0000K00030@000?l00`0001/00P7o00@0000K00030@000?l00`0001/000<10000
+o`0300006`000`40003o00<0000K00030@000?l00`0001/00P7o00@0000K00030@000?l00`0001/0
+00<10000o`0300006`000`40003o00<0000K0081o`0400006`000`40003o00<0000700@10`000`40
+000200<11@000`40003o00<0000900030@0000X000<100000P000`40003o00<0000900030@0000X0
+00<100000P020Ol0100000030041008110000`40000700<11@000`40002<0081M00000T000<10000
+1`000`40000500030@0008d000<10000LP0000L00`4900030@0000D000<10000o`0300002@000`40
+000700@110020Ol0100001/000<10000o`0300006`000`40003o00<0000K00030@000?l00`0001/0
+00<10000o`0300006`020Ol0100001/000<10000o`0300006`000`40003o00<0000K00030@000?l0
+0`0001/00P7o00@0000K00030@000?l00`0001/000<10000o`0300006`000`40003o00<0000K0081
+o`0400006`000`40003o00<0000K00030@000?l00`0001<0104400030@000?l00`0001D000<10000
+0`000`40003o00<0000E00030@0000<0oP4700003@040@@000<100000`000`40000B0081kP0001D0
+00<100000`000`40000C00030@000>`0000C00<11@000`40003o00<0000E00030@0000<00P7o00@0
+000K00030@000?l00`0001/000<10000o`0300006`000`40002=0081L`0001/00P4C0081NP000`40
+001a00006`000`40000C00030@000>`0000K00030@0001800P7^00006`000`40000C00030@0007L0
+0P5c00006`020Hl000<10000L@0001/000<10000o`0300006`000`40003o00<0000K00030@000180
+107/00006`000`40000C00030@0106L00P6300006`020Gl000<10000P@0001/000<10000o`030000
+20020@@000<100000P030@D000<10000o`0300001`001040004;00030@00008000<10000i0020A`0
+000700040@000@/000<100000P020NH000<100006P000003004100810P001040004800<11@000`40
+003o00<0000700040@000@P000<100001@000`40003o00<0000700040@000@P000<100001@000`40
+003o00<0000800812@040@@00P7o00@0000K00030@000?l00`0001/000<10000o`0300006`000`40
+002=0081L`0001/00P6?00030@000740000K00030@000?l00`0001/000<10000S0020G@0000K0003
+0@0000H01043008110000`400003008110020A001043008110000`40000300811@000`40000=00@1
+0`020@@000<100000`020@<00`4@00@10`020@@000<100000`020@@00P4@00@10`020@@000<10000
+0`020@@000<100003`040@<00P4400030@0000<00P4400812`0001/000<1000020001@4000010080
+00<100001P001040004200040@000A4000D100000@0200030@0000H000@1000110000`40000?0005
+0@0000400P000`40000600040@000@D000<100003`001@400001008000<100001P00104000420004
+0@000A4000D100000@0200030@0000H000@100010`000`40000A00050@0000400P000`4000060004
+0@000@8000@100012P0001/00P4900050@0000400P000`40000900030@0000<000<100003`001@40
+0001008000<100002@000`400@040A0000D100000@0200030@0000T000<100000`000`40000?0004
+0@00008100<00@002P001040004200030@0000l000D100000@0200030@0000T000<100000P000`40
+000@00050@0000400P000`40000900040@000@8000<10000200001/000<1000020001@4000010080
+00<100001`020@@00P4B00050@0000400P000`40000700810P001040004A00050@0000400P000`40
+000700810`030A8000@100000P400`01000800810`030A000`4300040@000@T00P4500030@000100
+00D100000@0200030@0000L00P4400812`0001/000<1000020001@400001008000<100002@000`40
+000300030@0000l000D100000@0200030@0000T000H10001004A00050@0000400P000`4000090004
+0@000A@000@10000104;00040@000A<00P4300040@000@/000<100000`000`40000?00050@000040
+0P000`40000900040@000@8000<10000200001/000<100001P030@<000@100012000104000420004
+0@000@l00`4300040@000@P000@100010`020@l00`4300040@000@P000@100010P000`40000@00<1
+0`0010400@4800040@000@8000<1000040030@<000@1000120001040004200040@000@l00`430004
+0@000@P000@100010P001040004:00006`020@T000<100000P020@X00P4400814P000`4000020081
+2P020@D000<100003`000`40000200812P020@<0104A00030@0000800P4:008110030A4000<10000
+0P020@X00P4300@14@000`40000200812P020@@00P4;00006`000`40002=00814@000`40001O0000
+6`000`40002>00030@000740000K00030@000?l00`0001@0o`4=0@0060001040004500030@0000D0
+00<100001P000`40000500030@0000H000<100001@000`40000600030@0000H000<100001@000`40
+000600030@0000D000<100001P000`40000500030@00008000D100000@0700030@0000H000<10000
+1P000`40000500030@0000H000<100001@000`40000600030@0000D000<100001P000`4000060003
+0@0000D000<100001P000`40000500030@0000H000<100001@000`40000600030@0000@0000K0003
+0@0001@000<10000:0000`40000W00030@0002800P4400030@0002P000<10000:0000`40000E0000
+6`000`40002?00030@000700000K00030@0008`00P5d00006`020Hh000<10000LP0001/000<10000
+SP020G80000K00030@0008l000<10000L00001/000<10000o`0300006`020A<00P7^00006`000`40
+000C00030@000>`0000K00030@0001800P7^00006`000`40000C00030@000>`0000K0081o`040000
+6`000`40003;0081=@0001/000<10000F`020Fl000<10000<`0001/000<100004P020DP000<10000
+X`0001/00P4C0081kP0001/000<100004`000`40003/00006`000`40003o00<00008008110000`40
+000200<11@000`40003o00<0000700040@000@/000<100000P000`40003o00<0000700040@000@/0
+00<100000P020Ol0100000L000@1000120030@D000<10000S@020G<0000700040@000@P000<10000
+1@000`40002>00030@000740000700040@000@P000<100001@000`40003o00<0000800812@040@@0
+0P7o00@0000K00030@000?l00`0001/000<10000o`0300006`000`40003o00<0000K0081o`040000
+6`000`40003o00<0000K00030@000?l00`0001/000<10000S0020G@0000K0081SP000`40001b0000
+6`000`40003o00<0000K00030@000?l00`0001/000<100004P020Nh0000K00030@0001<000<10000
+k00001/00P7o00@0000K00030@000?l00`0001<0104400030@000?l00`0001D000<100000`000`40
+003o00<0000E00030@0000<0oP4700005@000`40000300030@0001800P7^00005@000`4000030003
+0@0001<000<10000M`020G<0000C00<11@000`40002>00030@000740000E00030@0000<00P7o00@0
+000K00030@000?l00`0001/000<10000S@020G<0000K00030@0008d00P5c00006`000`40002>0003
+0@000740000K0081o`0400006`000`40001]0081T`0001/000<10000KP000`40002A00006`000`40
+003o00<0000K00814`020Nh0000K00030@0001<000<10000k00001/000<10000o`0300006`000`40
+003o00<0000K0081o`0400006`000`40003o00<0000700@10`000`40000200<11@000`40003o00<0
+000900030@0000X000<100000P000`40003o00<0000900030@0000X000<100000P020Ol0100000T0
+00<100001`030@D000<10000o`0300002@000`40000700030@0000D000<10000o`0300001`030@T0
+00<100001@000`40003o00<0000900030@0000L0104400030@000?l00`0001/00P7o00@0000K0003
+0@000?l00`0001/000<10000o`0300006`000`40003o00<0000K0081S@020G@0000K00030@0008d0
+00<10000LP0001/000<10000o`0300006`000`40003o00<0000K0081o`0400006`000`40003o00<0
+003o0240003o0240003o0240003o02400000\
+\>"],
+  ImageRangeCache->{{{0, 287}, {176.937, 0}} -> {10.3183, -2.2176, \
+0.000233521, 0.0234106}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[{
+    \(\(Y3sSecondPreliminary = {{5.189374, 3.54843\ , 0.107659}, {5.173328, 
+            3.38378, \ 0.0985999}, {5.186418, 3.64908\ , 
+            0.103877}, {5.175390, 3.76945\ , 0.107654}, {5.181413, 6.02261\ , 
+            0.153215}, {5.183338, 4.43745\ , 0.12198}, {5.177278, 5.26716\ , 
+            0.137282}, {5.181410, 5.9216\ , 0.180119}, {5.17939, 6.75984, 
+            0.142159}, {5.16473, 3.15318, 0.0789597}, {5.16476, 3.05193, 
+            0.0761753}, {5.16476, 3.30871, 0.372383}, {5.16479, 3.16403, 
+            0.0947327}, {5.16476, 3.09804, 0.0925601}, {5.16476, 3.59641, 
+            0.408451}, {5.16477, 3.16631, 0.0756305}, {5.17939, 6.71045, 
+            0.140938}, {5.17943, 6.66769, 0.151091}, {5.17946, 7.03816, 
+            0.18004}, {5.17939, 6.59126, 0.174062}, {5.17945, 6.7801, 
+            0.1595}, {5.17942, 6.65616, 0.148331}, {5.17946, 6.69467, 
+            0.140549}, {5.17946, 6.6901, 0.142486}};\)\n\), "\n", 
+    \(\(Y3s2stScanPreliminaryCOM = \(\(({2*#[\([1]\)], #[\([2]\)], \
+#[\([3]\)]})\) &\) /@ Y3sSecondPreliminary;\)\)}], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+    \({pre2chi2, pre2ndf, 
+        pre2bestfitValues} = \[IndentingNewLine]FitToFunction[jacksonSharre, 
+        jsParams, {0.0762, 10.3587, 0.00468, 1.07}, 
+        Y3s2stScanPreliminaryCOM]\), "\[IndentingNewLine]", 
+    \(pre2errormatrix = 
+      ErrorMatrix[jacksonSharre, jsParams, pre2bestfitValues, 
+        Y3s2stScanPreliminaryCOM]\[IndentingNewLine]\), \
+"\[IndentingNewLine]", 
+    \(\(Print["\<norm = \>", pre2bestfitValues[\([1]\)], "\< +/- \>", 
+        Sqrt[\(pre2errormatrix[\([1]\)]\)[\([1]\)]]];\)\), "\
+\[IndentingNewLine]", 
+    \(\(Print["\<mean = \>", pre2bestfitValues[\([2]\)], "\< +/- \>", 
+        Sqrt[\(pre2errormatrix[\([2]\)]\)[\([2]\)]]];\)\), "\
+\[IndentingNewLine]", 
+    \(\(Print["\<sigma = \>", pre2bestfitValues[\([3]\)], "\< +/- \>", 
+        Sqrt[\(pre2errormatrix[\([3]\)]\)[\([3]\)]]];\)\), "\
+\[IndentingNewLine]", 
+    \(\(Print["\<back = \>", pre2bestfitValues[\([4]\)], "\< +/- \>", 
+        Sqrt[\(pre2errormatrix[\([4]\)]\)[\([4]\)]]];\)\[IndentingNewLine]\), \
+"\[IndentingNewLine]", 
+    \(\(PlotFitFrame[jacksonSharre, pre2bestfitValues, 
+        Y3s2stScanPreliminaryCOM, 10.32, 10.39, 
+        pre2bestfitValues[\([4]\)]];\)\), "\[IndentingNewLine]", 
+    \(\(DifferencePlot[jacksonSharre, pre2bestfitValues, 
+        Y3s2stScanPreliminaryCOM];\)\)}], "Input"],
+
+Cell[BoxData[
+    \({15.33344728454336`, 
+      20, {0.07792892022283811`, 10.358890834049568`, 0.004590611549426179`, 
+        1.0888830648942136`}}\)], "Output"],
+
+Cell[BoxData[
+    \({{3.413358818945963`*^-6, 0, 
+        1.7553317078980822`*^-7, \(-9.0694126003994`*^-6\)}, {0, 
+        1.3565544486030864`*^-8, \(-8.670485289281126`*^-10\), 
+        5.133391580203971`*^-8}, {1.7553317078980827`*^-7, \
+\(-8.670485289281127`*^-10\), 
+        1.1824326529787635`*^-8, \(-3.450361442470741`*^-7\)}, \
+{\(-9.069412600399399`*^-6\), 
+        5.133391580203972`*^-8, \(-3.4503614424707407`*^-7\), 
+        0.00006476555945601279`}}\)], "Output"],
+
+Cell[BoxData[
+    InterpretationBox[\("norm = "\[InvisibleSpace]0.07792892022283811`\
+\[InvisibleSpace]" +/- "\[InvisibleSpace]0.0018475277586401681`\),
+      SequenceForm[ 
+      "norm = ", 0.077928920222838108, " +/- ", 0.0018475277586401681],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("mean = "\[InvisibleSpace]10.358890834049568`\
+\[InvisibleSpace]" +/- "\[InvisibleSpace]0.00011647121741456498`\),
+      SequenceForm[ 
+      "mean = ", 10.358890834049568, " +/- ", 0.00011647121741456498],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("sigma = "\[InvisibleSpace]0.004590611549426179`\
+\[InvisibleSpace]" +/- "\[InvisibleSpace]0.00010873971919123038`\),
+      SequenceForm[ 
+      "sigma = ", 0.0045906115494261787, " +/- ", 0.00010873971919123038],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("back = "\[InvisibleSpace]1.0888830648942136`\
+\[InvisibleSpace]" +/- "\[InvisibleSpace]0.008047705229195014`\),
+      SequenceForm[ 
+      "back = ", 1.0888830648942136, " +/- ", 0.0080477052291950141],
+      Editable->False]], "Print"],
+
+Cell[CellGroupData[{
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .61803 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-147.429 14.2857 0 0.0772542 [
+[.14286 -0.0125 -15 -9 ]
+[.14286 -0.0125 15 0 ]
+[.28571 -0.0125 -15 -9 ]
+[.28571 -0.0125 15 0 ]
+[.42857 -0.0125 -15 -9 ]
+[.42857 -0.0125 15 0 ]
+[.57143 -0.0125 -15 -9 ]
+[.57143 -0.0125 15 0 ]
+[.71429 -0.0125 -15 -9 ]
+[.71429 -0.0125 15 0 ]
+[.85714 -0.0125 -15 -9 ]
+[.85714 -0.0125 15 0 ]
+[1 -0.0125 -15 -9 ]
+[1 -0.0125 15 0 ]
+[ 0 0 -0.125 0 ]
+[.5 -0.0125 -41 -19.125 ]
+[.5 -0.0125 41 -9 ]
+[-0.0125 .07725 -6 -4.5 ]
+[-0.0125 .07725 0 4.5 ]
+[-0.0125 .15451 -6 -4.5 ]
+[-0.0125 .15451 0 4.5 ]
+[-0.0125 .23176 -6 -4.5 ]
+[-0.0125 .23176 0 4.5 ]
+[-0.0125 .30902 -6 -4.5 ]
+[-0.0125 .30902 0 4.5 ]
+[-0.0125 .38627 -6 -4.5 ]
+[-0.0125 .38627 0 4.5 ]
+[-0.0125 .46353 -6 -4.5 ]
+[-0.0125 .46353 0 4.5 ]
+[-0.0125 .54078 -6 -4.5 ]
+[-0.0125 .54078 0 4.5 ]
+[-0.0125 .61803 -6 -4.5 ]
+[-0.0125 .61803 0 4.5 ]
+[ 0 0 -0.125 0 ]
+[-0.01875 .30902 -16.125 -59 ]
+[-0.01875 .30902 -6 59 ]
+[ 0 .61803 .125 0 ]
+[ 1 0 .125 0 ]
+[ 0 0 0 0 ]
+[ 1 .61803 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 g
+.25 Mabswid
+[ ] 0 setdash
+.14286 0 m
+.14286 .00625 L
+s
+[(10.33)] .14286 -0.0125 0 1 Mshowa
+.28571 0 m
+.28571 .00625 L
+s
+[(10.34)] .28571 -0.0125 0 1 Mshowa
+.42857 0 m
+.42857 .00625 L
+s
+[(10.35)] .42857 -0.0125 0 1 Mshowa
+.57143 0 m
+.57143 .00625 L
+s
+[(10.36)] .57143 -0.0125 0 1 Mshowa
+.71429 0 m
+.71429 .00625 L
+s
+[(10.37)] .71429 -0.0125 0 1 Mshowa
+.85714 0 m
+.85714 .00625 L
+s
+[(10.38)] .85714 -0.0125 0 1 Mshowa
+1 0 m
+1 .00625 L
+s
+[(10.39)] 1 -0.0125 0 1 Mshowa
+.125 Mabswid
+.02857 0 m
+.02857 .00375 L
+s
+.05714 0 m
+.05714 .00375 L
+s
+.08571 0 m
+.08571 .00375 L
+s
+.11429 0 m
+.11429 .00375 L
+s
+.17143 0 m
+.17143 .00375 L
+s
+.2 0 m
+.2 .00375 L
+s
+.22857 0 m
+.22857 .00375 L
+s
+.25714 0 m
+.25714 .00375 L
+s
+.31429 0 m
+.31429 .00375 L
+s
+.34286 0 m
+.34286 .00375 L
+s
+.37143 0 m
+.37143 .00375 L
+s
+.4 0 m
+.4 .00375 L
+s
+.45714 0 m
+.45714 .00375 L
+s
+.48571 0 m
+.48571 .00375 L
+s
+.51429 0 m
+.51429 .00375 L
+s
+.54286 0 m
+.54286 .00375 L
+s
+.6 0 m
+.6 .00375 L
+s
+.62857 0 m
+.62857 .00375 L
+s
+.65714 0 m
+.65714 .00375 L
+s
+.68571 0 m
+.68571 .00375 L
+s
+.74286 0 m
+.74286 .00375 L
+s
+.77143 0 m
+.77143 .00375 L
+s
+.8 0 m
+.8 .00375 L
+s
+.82857 0 m
+.82857 .00375 L
+s
+.88571 0 m
+.88571 .00375 L
+s
+.91429 0 m
+.91429 .00375 L
+s
+.94286 0 m
+.94286 .00375 L
+s
+.97143 0 m
+.97143 .00375 L
+s
+.25 Mabswid
+0 0 m
+1 0 L
+s
+gsave
+.5 -0.0125 -102 -23.125 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 18.125 translate 1 -1 scale
+63.000 11.563 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+%%BeginResource: font Courier-MISO
+%%BeginFont: Courier-MISO
+/Courier /Courier-MISO MISOfy
+%%EndFont
+%%EndResource
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+63.000 11.563 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(Energy) show
+105.000 11.563 moveto
+(in) show
+123.000 11.563 moveto
+(GeV) show
+141.000 11.563 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+1.000 setlinewidth
+grestore
+0 .07725 m
+.00625 .07725 L
+s
+[(1)] -0.0125 .07725 1 0 Mshowa
+0 .15451 m
+.00625 .15451 L
+s
+[(2)] -0.0125 .15451 1 0 Mshowa
+0 .23176 m
+.00625 .23176 L
+s
+[(3)] -0.0125 .23176 1 0 Mshowa
+0 .30902 m
+.00625 .30902 L
+s
+[(4)] -0.0125 .30902 1 0 Mshowa
+0 .38627 m
+.00625 .38627 L
+s
+[(5)] -0.0125 .38627 1 0 Mshowa
+0 .46353 m
+.00625 .46353 L
+s
+[(6)] -0.0125 .46353 1 0 Mshowa
+0 .54078 m
+.00625 .54078 L
+s
+[(7)] -0.0125 .54078 1 0 Mshowa
+0 .61803 m
+.00625 .61803 L
+s
+[(8)] -0.0125 .61803 1 0 Mshowa
+.125 Mabswid
+0 .01545 m
+.00375 .01545 L
+s
+0 .0309 m
+.00375 .0309 L
+s
+0 .04635 m
+.00375 .04635 L
+s
+0 .0618 m
+.00375 .0618 L
+s
+0 .09271 m
+.00375 .09271 L
+s
+0 .10816 m
+.00375 .10816 L
+s
+0 .12361 m
+.00375 .12361 L
+s
+0 .13906 m
+.00375 .13906 L
+s
+0 .16996 m
+.00375 .16996 L
+s
+0 .18541 m
+.00375 .18541 L
+s
+0 .20086 m
+.00375 .20086 L
+s
+0 .21631 m
+.00375 .21631 L
+s
+0 .24721 m
+.00375 .24721 L
+s
+0 .26266 m
+.00375 .26266 L
+s
+0 .27812 m
+.00375 .27812 L
+s
+0 .29357 m
+.00375 .29357 L
+s
+0 .32447 m
+.00375 .32447 L
+s
+0 .33992 m
+.00375 .33992 L
+s
+0 .35537 m
+.00375 .35537 L
+s
+0 .37082 m
+.00375 .37082 L
+s
+0 .40172 m
+.00375 .40172 L
+s
+0 .41717 m
+.00375 .41717 L
+s
+0 .43262 m
+.00375 .43262 L
+s
+0 .44807 m
+.00375 .44807 L
+s
+0 .47898 m
+.00375 .47898 L
+s
+0 .49443 m
+.00375 .49443 L
+s
+0 .50988 m
+.00375 .50988 L
+s
+0 .52533 m
+.00375 .52533 L
+s
+0 .55623 m
+.00375 .55623 L
+s
+0 .57168 m
+.00375 .57168 L
+s
+0 .58713 m
+.00375 .58713 L
+s
+0 .60258 m
+.00375 .60258 L
+s
+.25 Mabswid
+0 0 m
+0 .61803 L
+s
+gsave
+-0.01875 .30902 -131.062 -9.0625 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+120 9.0625 translate
+90 rotate
+-120 -9.0625 translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 18.125 translate 1 -1 scale
+63.000 11.563 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+%%BeginResource: font Courier-MISO
+%%BeginFont: Courier-MISO
+/Courier /Courier-MISO MISOfy
+%%EndFont
+%%EndResource
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+63.000 11.563 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(Cross) show
+93.000 11.563 moveto
+%%IncludeResource: font Math1Mono
+%%IncludeFont: Math1Mono
+/Math1Mono findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(-) show
+99.000 11.563 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(section) show
+147.000 11.563 moveto
+(in) show
+165.000 11.563 moveto
+(nb) show
+177.000 11.563 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+1.000 setlinewidth
+grestore
+0 .61178 m
+0 .61803 L
+s
+.14286 .61178 m
+.14286 .61803 L
+s
+.28571 .61178 m
+.28571 .61803 L
+s
+.42857 .61178 m
+.42857 .61803 L
+s
+.57143 .61178 m
+.57143 .61803 L
+s
+.71429 .61178 m
+.71429 .61803 L
+s
+.85714 .61178 m
+.85714 .61803 L
+s
+.125 Mabswid
+.02857 .61428 m
+.02857 .61803 L
+s
+.05714 .61428 m
+.05714 .61803 L
+s
+.08571 .61428 m
+.08571 .61803 L
+s
+.11429 .61428 m
+.11429 .61803 L
+s
+.17143 .61428 m
+.17143 .61803 L
+s
+.2 .61428 m
+.2 .61803 L
+s
+.22857 .61428 m
+.22857 .61803 L
+s
+.25714 .61428 m
+.25714 .61803 L
+s
+.31429 .61428 m
+.31429 .61803 L
+s
+.34286 .61428 m
+.34286 .61803 L
+s
+.37143 .61428 m
+.37143 .61803 L
+s
+.4 .61428 m
+.4 .61803 L
+s
+.45714 .61428 m
+.45714 .61803 L
+s
+.48571 .61428 m
+.48571 .61803 L
+s
+.51429 .61428 m
+.51429 .61803 L
+s
+.54286 .61428 m
+.54286 .61803 L
+s
+.6 .61428 m
+.6 .61803 L
+s
+.62857 .61428 m
+.62857 .61803 L
+s
+.65714 .61428 m
+.65714 .61803 L
+s
+.68571 .61428 m
+.68571 .61803 L
+s
+.74286 .61428 m
+.74286 .61803 L
+s
+.77143 .61428 m
+.77143 .61803 L
+s
+.8 .61428 m
+.8 .61803 L
+s
+.82857 .61428 m
+.82857 .61803 L
+s
+.88571 .61428 m
+.88571 .61803 L
+s
+.91429 .61428 m
+.91429 .61803 L
+s
+.94286 .61428 m
+.94286 .61803 L
+s
+.97143 .61428 m
+.97143 .61803 L
+s
+.25 Mabswid
+0 .61803 m
+1 .61803 L
+s
+.99375 0 m
+1 0 L
+s
+.99375 .07725 m
+1 .07725 L
+s
+.99375 .15451 m
+1 .15451 L
+s
+.99375 .23176 m
+1 .23176 L
+s
+.99375 .30902 m
+1 .30902 L
+s
+.99375 .38627 m
+1 .38627 L
+s
+.99375 .46353 m
+1 .46353 L
+s
+.99375 .54078 m
+1 .54078 L
+s
+.125 Mabswid
+.99625 .01545 m
+1 .01545 L
+s
+.99625 .0309 m
+1 .0309 L
+s
+.99625 .04635 m
+1 .04635 L
+s
+.99625 .0618 m
+1 .0618 L
+s
+.99625 .09271 m
+1 .09271 L
+s
+.99625 .10816 m
+1 .10816 L
+s
+.99625 .12361 m
+1 .12361 L
+s
+.99625 .13906 m
+1 .13906 L
+s
+.99625 .16996 m
+1 .16996 L
+s
+.99625 .18541 m
+1 .18541 L
+s
+.99625 .20086 m
+1 .20086 L
+s
+.99625 .21631 m
+1 .21631 L
+s
+.99625 .24721 m
+1 .24721 L
+s
+.99625 .26266 m
+1 .26266 L
+s
+.99625 .27812 m
+1 .27812 L
+s
+.99625 .29357 m
+1 .29357 L
+s
+.99625 .32447 m
+1 .32447 L
+s
+.99625 .33992 m
+1 .33992 L
+s
+.99625 .35537 m
+1 .35537 L
+s
+.99625 .37082 m
+1 .37082 L
+s
+.99625 .40172 m
+1 .40172 L
+s
+.99625 .41717 m
+1 .41717 L
+s
+.99625 .43262 m
+1 .43262 L
+s
+.99625 .44807 m
+1 .44807 L
+s
+.99625 .47898 m
+1 .47898 L
+s
+.99625 .49443 m
+1 .49443 L
+s
+.99625 .50988 m
+1 .50988 L
+s
+.99625 .52533 m
+1 .52533 L
+s
+.99625 .55623 m
+1 .55623 L
+s
+.99625 .57168 m
+1 .57168 L
+s
+.99625 .58713 m
+1 .58713 L
+s
+.99625 .60258 m
+1 .60258 L
+s
+.25 Mabswid
+1 0 m
+1 .61803 L
+s
+0 0 m
+1 0 L
+1 .61803 L
+0 .61803 L
+closepath
+clip
+newpath
+.001 w
+.83926 .28245 m
+.83926 .26581 L
+s
+.83926 .28245 1.5 0 Mabsadd m
+.83926 .28245 -1.5 0 Mabsadd L s
+.83926 .26581 1.5 0 Mabsadd m
+.83926 .26581 -1.5 0 Mabsadd L s
+.3808 .26903 m
+.3808 .25379 L
+s
+.3808 .26903 1.5 0 Mabsadd m
+.3808 .26903 -1.5 0 Mabsadd L s
+.3808 .25379 1.5 0 Mabsadd m
+.3808 .25379 -1.5 0 Mabsadd L s
+.7548 .28993 m
+.7548 .27388 L
+s
+.7548 .28993 1.5 0 Mabsadd m
+.7548 .28993 -1.5 0 Mabsadd L s
+.7548 .27388 1.5 0 Mabsadd m
+.7548 .27388 -1.5 0 Mabsadd L s
+.43971 .29952 m
+.43971 .28289 L
+s
+.43971 .29952 1.5 0 Mabsadd m
+.43971 .29952 -1.5 0 Mabsadd L s
+.43971 .28289 1.5 0 Mabsadd m
+.43971 .28289 -1.5 0 Mabsadd L s
+.6118 .47711 m
+.6118 .45344 L
+s
+.6118 .47711 1.5 0 Mabsadd m
+.6118 .47711 -1.5 0 Mabsadd L s
+.6118 .45344 1.5 0 Mabsadd m
+.6118 .45344 -1.5 0 Mabsadd L s
+.6668 .35224 m
+.6668 .33339 L
+s
+.6668 .35224 1.5 0 Mabsadd m
+.6668 .35224 -1.5 0 Mabsadd L s
+.6668 .33339 1.5 0 Mabsadd m
+.6668 .33339 -1.5 0 Mabsadd L s
+.49366 .41752 m
+.49366 .3963 L
+s
+.49366 .41752 1.5 0 Mabsadd m
+.49366 .41752 -1.5 0 Mabsadd L s
+.49366 .3963 1.5 0 Mabsadd m
+.49366 .3963 -1.5 0 Mabsadd L s
+.61171 .47138 m
+.61171 .44355 L
+s
+.61171 .47138 1.5 0 Mabsadd m
+.61171 .47138 -1.5 0 Mabsadd L s
+.61171 .44355 1.5 0 Mabsadd m
+.61171 .44355 -1.5 0 Mabsadd L s
+.554 .53321 m
+.554 .51124 L
+s
+.554 .53321 1.5 0 Mabsadd m
+.554 .53321 -1.5 0 Mabsadd L s
+.554 .51124 1.5 0 Mabsadd m
+.554 .51124 -1.5 0 Mabsadd L s
+.13514 .2497 m
+.13514 .2375 L
+s
+.13514 .2497 1.5 0 Mabsadd m
+.13514 .2497 -1.5 0 Mabsadd L s
+.13514 .2375 1.5 0 Mabsadd m
+.13514 .2375 -1.5 0 Mabsadd L s
+.136 .24166 m
+.136 .22989 L
+s
+.136 .24166 1.5 0 Mabsadd m
+.136 .24166 -1.5 0 Mabsadd L s
+.136 .22989 1.5 0 Mabsadd m
+.136 .22989 -1.5 0 Mabsadd L s
+.136 .28438 m
+.136 .22684 L
+s
+.136 .28438 1.5 0 Mabsadd m
+.136 .28438 -1.5 0 Mabsadd L s
+.136 .22684 1.5 0 Mabsadd m
+.136 .22684 -1.5 0 Mabsadd L s
+.13686 .25175 m
+.13686 .23712 L
+s
+.13686 .25175 1.5 0 Mabsadd m
+.13686 .25175 -1.5 0 Mabsadd L s
+.13686 .23712 1.5 0 Mabsadd m
+.13686 .23712 -1.5 0 Mabsadd L s
+.136 .24649 m
+.136 .23219 L
+s
+.136 .24649 1.5 0 Mabsadd m
+.136 .24649 -1.5 0 Mabsadd L s
+.136 .23219 1.5 0 Mabsadd m
+.136 .23219 -1.5 0 Mabsadd L s
+.136 .30939 m
+.136 .24628 L
+s
+.136 .30939 1.5 0 Mabsadd m
+.136 .30939 -1.5 0 Mabsadd L s
+.136 .24628 1.5 0 Mabsadd m
+.136 .24628 -1.5 0 Mabsadd L s
+.13629 .25045 m
+.13629 .23877 L
+s
+.13629 .25045 1.5 0 Mabsadd m
+.13629 .25045 -1.5 0 Mabsadd L s
+.13629 .23877 1.5 0 Mabsadd m
+.13629 .23877 -1.5 0 Mabsadd L s
+.554 .5293 m
+.554 .50752 L
+s
+.554 .5293 1.5 0 Mabsadd m
+.554 .5293 -1.5 0 Mabsadd L s
+.554 .50752 1.5 0 Mabsadd m
+.554 .50752 -1.5 0 Mabsadd L s
+.55514 .52678 m
+.55514 .50343 L
+s
+.55514 .52678 1.5 0 Mabsadd m
+.55514 .52678 -1.5 0 Mabsadd L s
+.55514 .50343 1.5 0 Mabsadd m
+.55514 .50343 -1.5 0 Mabsadd L s
+.556 .55764 m
+.556 .52982 L
+s
+.556 .55764 1.5 0 Mabsadd m
+.556 .55764 -1.5 0 Mabsadd L s
+.556 .52982 1.5 0 Mabsadd m
+.556 .52982 -1.5 0 Mabsadd L s
+.554 .52265 m
+.554 .49576 L
+s
+.554 .52265 1.5 0 Mabsadd m
+.554 .52265 -1.5 0 Mabsadd L s
+.554 .49576 1.5 0 Mabsadd m
+.554 .49576 -1.5 0 Mabsadd L s
+.55571 .53611 m
+.55571 .51147 L
+s
+.55571 .53611 1.5 0 Mabsadd m
+.55571 .53611 -1.5 0 Mabsadd L s
+.55571 .51147 1.5 0 Mabsadd m
+.55571 .51147 -1.5 0 Mabsadd L s
+.55486 .52568 m
+.55486 .50276 L
+s
+.55486 .52568 1.5 0 Mabsadd m
+.55486 .52568 -1.5 0 Mabsadd L s
+.55486 .50276 1.5 0 Mabsadd m
+.55486 .50276 -1.5 0 Mabsadd L s
+.556 .52805 m
+.556 .50633 L
+s
+.556 .52805 1.5 0 Mabsadd m
+.556 .52805 -1.5 0 Mabsadd L s
+.556 .50633 1.5 0 Mabsadd m
+.556 .50633 -1.5 0 Mabsadd L s
+.556 .52785 m
+.556 .50583 L
+s
+.556 .52785 1.5 0 Mabsadd m
+.556 .52785 -1.5 0 Mabsadd L s
+.556 .50583 1.5 0 Mabsadd m
+.556 .50583 -1.5 0 Mabsadd L s
+.0001 w
+.83926 .27413 -1.875 0 Mabsadd m
+.83926 .27413 0 2.5 Mabsadd L
+.83926 .27413 1.875 0 Mabsadd L
+.83926 .27413 0 -2.5 Mabsadd L
+.83926 .27413 -1.875 0 Mabsadd L closepath F
+.3808 .26141 -1.875 0 Mabsadd m
+.3808 .26141 0 2.5 Mabsadd L
+.3808 .26141 1.875 0 Mabsadd L
+.3808 .26141 0 -2.5 Mabsadd L
+.3808 .26141 -1.875 0 Mabsadd L closepath F
+.7548 .28191 -1.875 0 Mabsadd m
+.7548 .28191 0 2.5 Mabsadd L
+.7548 .28191 1.875 0 Mabsadd L
+.7548 .28191 0 -2.5 Mabsadd L
+.7548 .28191 -1.875 0 Mabsadd L closepath F
+.43971 .29121 -1.875 0 Mabsadd m
+.43971 .29121 0 2.5 Mabsadd L
+.43971 .29121 1.875 0 Mabsadd L
+.43971 .29121 0 -2.5 Mabsadd L
+.43971 .29121 -1.875 0 Mabsadd L closepath F
+.6118 .46527 -1.875 0 Mabsadd m
+.6118 .46527 0 2.5 Mabsadd L
+.6118 .46527 1.875 0 Mabsadd L
+.6118 .46527 0 -2.5 Mabsadd L
+.6118 .46527 -1.875 0 Mabsadd L closepath F
+.6668 .34281 -1.875 0 Mabsadd m
+.6668 .34281 0 2.5 Mabsadd L
+.6668 .34281 1.875 0 Mabsadd L
+.6668 .34281 0 -2.5 Mabsadd L
+.6668 .34281 -1.875 0 Mabsadd L closepath F
+.49366 .40691 -1.875 0 Mabsadd m
+.49366 .40691 0 2.5 Mabsadd L
+.49366 .40691 1.875 0 Mabsadd L
+.49366 .40691 0 -2.5 Mabsadd L
+.49366 .40691 -1.875 0 Mabsadd L closepath F
+.61171 .45747 -1.875 0 Mabsadd m
+.61171 .45747 0 2.5 Mabsadd L
+.61171 .45747 1.875 0 Mabsadd L
+.61171 .45747 0 -2.5 Mabsadd L
+.61171 .45747 -1.875 0 Mabsadd L closepath F
+.554 .52223 -1.875 0 Mabsadd m
+.554 .52223 0 2.5 Mabsadd L
+.554 .52223 1.875 0 Mabsadd L
+.554 .52223 0 -2.5 Mabsadd L
+.554 .52223 -1.875 0 Mabsadd L closepath F
+.13514 .2436 -1.875 0 Mabsadd m
+.13514 .2436 0 2.5 Mabsadd L
+.13514 .2436 1.875 0 Mabsadd L
+.13514 .2436 0 -2.5 Mabsadd L
+.13514 .2436 -1.875 0 Mabsadd L closepath F
+.136 .23577 -1.875 0 Mabsadd m
+.136 .23577 0 2.5 Mabsadd L
+.136 .23577 1.875 0 Mabsadd L
+.136 .23577 0 -2.5 Mabsadd L
+.136 .23577 -1.875 0 Mabsadd L closepath F
+.136 .25561 -1.875 0 Mabsadd m
+.136 .25561 0 2.5 Mabsadd L
+.136 .25561 1.875 0 Mabsadd L
+.136 .25561 0 -2.5 Mabsadd L
+.136 .25561 -1.875 0 Mabsadd L closepath F
+.13686 .24443 -1.875 0 Mabsadd m
+.13686 .24443 0 2.5 Mabsadd L
+.13686 .24443 1.875 0 Mabsadd L
+.13686 .24443 0 -2.5 Mabsadd L
+.13686 .24443 -1.875 0 Mabsadd L closepath F
+.136 .23934 -1.875 0 Mabsadd m
+.136 .23934 0 2.5 Mabsadd L
+.136 .23934 1.875 0 Mabsadd L
+.136 .23934 0 -2.5 Mabsadd L
+.136 .23934 -1.875 0 Mabsadd L closepath F
+.136 .27784 -1.875 0 Mabsadd m
+.136 .27784 0 2.5 Mabsadd L
+.136 .27784 1.875 0 Mabsadd L
+.136 .27784 0 -2.5 Mabsadd L
+.136 .27784 -1.875 0 Mabsadd L closepath F
+.13629 .24461 -1.875 0 Mabsadd m
+.13629 .24461 0 2.5 Mabsadd L
+.13629 .24461 1.875 0 Mabsadd L
+.13629 .24461 0 -2.5 Mabsadd L
+.13629 .24461 -1.875 0 Mabsadd L closepath F
+.554 .51841 -1.875 0 Mabsadd m
+.554 .51841 0 2.5 Mabsadd L
+.554 .51841 1.875 0 Mabsadd L
+.554 .51841 0 -2.5 Mabsadd L
+.554 .51841 -1.875 0 Mabsadd L closepath F
+.55514 .51511 -1.875 0 Mabsadd m
+.55514 .51511 0 2.5 Mabsadd L
+.55514 .51511 1.875 0 Mabsadd L
+.55514 .51511 0 -2.5 Mabsadd L
+.55514 .51511 -1.875 0 Mabsadd L closepath F
+.556 .54373 -1.875 0 Mabsadd m
+.556 .54373 0 2.5 Mabsadd L
+.556 .54373 1.875 0 Mabsadd L
+.556 .54373 0 -2.5 Mabsadd L
+.556 .54373 -1.875 0 Mabsadd L closepath F
+.554 .5092 -1.875 0 Mabsadd m
+.554 .5092 0 2.5 Mabsadd L
+.554 .5092 1.875 0 Mabsadd L
+.554 .5092 0 -2.5 Mabsadd L
+.554 .5092 -1.875 0 Mabsadd L closepath F
+.55571 .52379 -1.875 0 Mabsadd m
+.55571 .52379 0 2.5 Mabsadd L
+.55571 .52379 1.875 0 Mabsadd L
+.55571 .52379 0 -2.5 Mabsadd L
+.55571 .52379 -1.875 0 Mabsadd L closepath F
+.55486 .51422 -1.875 0 Mabsadd m
+.55486 .51422 0 2.5 Mabsadd L
+.55486 .51422 1.875 0 Mabsadd L
+.55486 .51422 0 -2.5 Mabsadd L
+.55486 .51422 -1.875 0 Mabsadd L closepath F
+.556 .51719 -1.875 0 Mabsadd m
+.556 .51719 0 2.5 Mabsadd L
+.556 .51719 1.875 0 Mabsadd L
+.556 .51719 0 -2.5 Mabsadd L
+.556 .51719 -1.875 0 Mabsadd L closepath F
+.556 .51684 -1.875 0 Mabsadd m
+.556 .51684 0 2.5 Mabsadd L
+.556 .51684 1.875 0 Mabsadd L
+.556 .51684 0 -2.5 Mabsadd L
+.556 .51684 -1.875 0 Mabsadd L closepath F
+.5 Mabswid
+[ 1 0 ] 0 setdash
+0 .24561 m
+.04057 .24547 L
+.08481 .24532 L
+.12636 .24519 L
+.16632 .24505 L
+.20885 .24491 L
+.2498 .24478 L
+.26052 .24475 L
+.26617 .24474 L
+.27217 .24472 L
+.2774 .24471 L
+.27883 .24471 L
+.28037 .24471 L
+.28171 .24471 L
+.28316 .24471 L
+.28384 .24471 L
+.28457 .24471 L
+.28588 .24471 L
+.28723 .24471 L
+.28846 .24471 L
+.28966 .24471 L
+.29096 .24471 L
+.29219 .24471 L
+.29331 .24471 L
+.29464 .24471 L
+.29589 .24471 L
+.29825 .24472 L
+.30078 .24473 L
+.30354 .24474 L
+.30594 .24475 L
+.30849 .24477 L
+.31308 .24481 L
+.3184 .24488 L
+.32339 .24497 L
+.32887 .2451 L
+.33477 .2453 L
+.33998 .24553 L
+.34482 .2458 L
+.35014 .24618 L
+.35582 .24669 L
+.36179 .24739 L
+.36742 .24823 L
+.37245 .24916 L
+.37797 .2504 L
+.38818 .25348 L
+.39376 .25567 L
+.39899 .25811 L
+.40833 .26358 L
+.41836 .2713 L
+.429 .28194 L
+Mistroke
+.44059 .29681 L
+.4617 .33324 L
+.50443 .43386 L
+.52421 .47858 L
+.53534 .49853 L
+.54064 .50614 L
+.54558 .51197 L
+.5508 .5167 L
+.55357 .51856 L
+.55654 .52 L
+.55803 .52054 L
+.55965 .521 L
+.56039 .52117 L
+.56118 .52132 L
+.56185 .52142 L
+.56259 .5215 L
+.56396 .52158 L
+.56473 .52158 L
+.56543 .52155 L
+.56673 .52143 L
+.5681 .52119 L
+.56943 .52086 L
+.57064 .52046 L
+.57335 .51924 L
+.57586 .51769 L
+.57823 .51586 L
+.58354 .5105 L
+.58929 .50303 L
+.6102 .46631 L
+.63231 .41773 L
+.65314 .37234 L
+.67215 .33787 L
+.69261 .31016 L
+.70388 .2988 L
+.71456 .29024 L
+.72468 .28383 L
+.73544 .27852 L
+.74462 .27496 L
+.75477 .27185 L
+.77506 .26745 L
+.78648 .26568 L
+.79695 .26435 L
+.81848 .26219 L
+.83852 .26062 L
+.8785 .25821 L
+.91947 .25634 L
+.963 .25476 L
+1 .25366 L
+Mfstroke
+[ .03 .02 ] 0 setdash
+0 .24561 m
+.04057 .24547 L
+.08481 .24532 L
+.12636 .24519 L
+.16632 .24505 L
+.20885 .24491 L
+.2498 .24478 L
+.29331 .24463 L
+.33524 .24449 L
+.37557 .24436 L
+.41848 .24422 L
+.4598 .24408 L
+.49953 .24395 L
+.54183 .24381 L
+.58254 .24368 L
+.62583 .24353 L
+.66752 .2434 L
+.70762 .24327 L
+.7503 .24313 L
+.79139 .24299 L
+.83505 .24285 L
+.87712 .24271 L
+.9176 .24258 L
+.96065 .24244 L
+1 .24231 L
+s
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+  ImageSize->{475, 293.437},
+  ImageMargins->{{0, 0}, {0, 1}},
+  ImageRegion->{{0, 1}, {0, 1}},
+  ImageCache->GraphicsData["Bitmap", "\<\
+CF5dJ6E]HGAYHf4PAg9QL6QYHg<PAVmbKF5d0`40007K00019@P10`4000010?ooo`000063aP00002h
+Z2iLF0EkL:Cek/c<c6IVIXR8R?GemLZZTD]RM^[Mdg=QDZbANl30`61PH4iJJJ:ecH20P000ogmoO`00
+Rooo003o0000P8:2PZJVYU=CDnWYjG5aJG5aFG5YJG5Y@FUY>6UQFFUQ@FUQ:6UIHFUIDFUI>6UA@FUA
+86U9HFU9FFU9BF5QJF59:6596651>651064`FEUQ@EUIFEUAJEUABEUA>5U9<5U9:5U945U1FEU1BEU1
+05ThDETh@ETh<5Th85Th655A454h254X854X654PDE4PBDUADDUABDU9:4U1HDU1FDU1>4U104Th<4Th
+04TXDDTX<4TX24TP84TH64T84451BD51644hBD4h844h644`HD4`FOGN/d4PBD4P644H>44@844@2=:d
+S3QA83Q1@CQ1>3Q183Q103PhDCPh<3Ph03P`83PX@CPX<3PX63PX03PH<3PH63PH23P883P823P0430h
+@C0`HC0P830H82Q182Ph<2Ph42Ph02P`@BP`82PXDBPPBBPP62PH62P@<2P@02P8:2P0420X<20X820X
+220@820021P`<1P`01P@<1P@21P881P0410X:10P610P210H810@610020P@40P@00P8:00064PmReE[
+;om50?nPNP3ook34gXO>n^kMPYSkV7ooe?o0b`00E@00ZP1E001EE@1EZP1Eo`2Z002ZE@2ZZP2Zo`3o
+E@3oZUD005D0EED0ZUD0oeEE05EEEEEEZUEEoeFZ05FZEEFZZUFZoeGo05GoEEGoZUGoojX00:X0EJX0
+ZZX0ojYE0:YEEJYEZZYEojZZ0:ZZEJZZZZZZoj[o0:[oEJ[oZZ[oool00?l0EOl0Z_l0oomE0?mEEOmE
+Z_mEoonZ0?nZEOnZZ_nZooooEOooZ/BbShMjH^OWifm_Kj>SXiT0I_ooc80003<cIVIVc9VIob8R8X20
+0020P4:JY`0g?0200?mV<omVc<c<oooo_mCDok^k^h20ool0g0000?l0g0000><00`420081l@000>H0
+00D100000@3`0000bP050@0500410@000P4200<10P040@<00`4300812@080@03004100P00P4400<1
+0`000`4000340000b`001040004200040@000@8000<1000010000`40000200040@000@8000@10001
+2P001@400001008000<100001P001040004200030@0000<000<10040a@000</000<100000`001040
+004200<110000`40000200040@000@8000@100012P001@400001008000<100001P0010400@4200<1
+0`000`400@350000b`030@<000@100010P001040004300030@00008000@100010P001040004:0005
+0@0000400P000`40000600030@0000<000@100010P000`400@350000b`001`4000400@000P440081
+0`000`400@020@800P401@010@4000812@020@8000@100412@001040004300810P001@4000010<@0
+003:00D1>@020@P00P400`010@340000m`000`40003Q0000o`3L0000B`040@<00P4400030@0000<0
+0P4400818P040@<00P4400030@0000<00P4500030@0002001043008110000`40000300810`030B80
+1043008110000`400003008110020B401043008110000`400003008110000`40000Q00@10`020@@0
+00<100000`020@@00P4R00@10`020@@000<100000`020@<00`480000C@001@400001008000<10000
+1P001040004200040@000B<000D100000@0200030@0000H000@1000110000`40000R00050@000040
+0P000`40000600040@000@D000<100008@001@400001008000<100001P001040004200040@000B80
+00D100000@0200030@0000H000@100010`000`40000S00050@0000400P000`40000600040@000@80
+00@100018`001@400001008000<100001P001040004500030@0000D0001=00050@0000400P000`40
+000900030@0000<000<100008@001@400001008000<100002@000`400@040B<000D100000@020003
+0@0000T000<100000`000`40000Q00050@0000400P000`40000900040@000@8000<1000080001@40
+0001008000<100002@000`40000200030@00028000D100000@0200030@0000T000@100010P000`40
+000Q00050@0000400P000`40000900030@0000<000<100001@0004d000D100000@0200030@0000L0
+0P44008190001@400001008000<100001`020@8000@1000190001@400001008000<100001`020@<0
+0`4T00050@0000400P000`40000700810`030B<000D100000@0200030@0000L00P4500030@000280
+00D100000@0200030@0000L00P44008190001@400001008000<100001`020@@00`470000C@001@40
+0001008000<100002@000`40000300030@00024000D100000@0200030@0000T000H10001004T0005
+0@0000400P000`40000900040@000BH000D100000@0200030@0000T000@100019@001@4000010080
+00<100002@000`40000300030@00024000D100000@0200030@0000T000@100010P000`40000Q0005
+0@0000400P000`40000900040@000@8000<100001@0004/00`4300040@000@P000@100010P001040
+004Q00<10`001040004800040@000@<00P4R00<10`001040004800040@000@8000<100008P030@<0
+00@1000120001040004200030@0002400`4300040@000@P000@100010P001040004Q00<10`001040
+004800040@000@8000@100018@030@<000@1000120001040004200040@000@L0001=00030@000080
+0P4:008110020B@000<100000P020@X00P4500030@00028000<100000P020@X00P4300@18`000`40
+000200812P020@@00`4R00030@0000800P4:00810`040B<000<100000P020@X00P44008190000`40
+000200812P020@@00P480000o`3L0000o`3L0000o`3L0000o`3L0000o`3L0000o`3L0000703o0J`1
+500001`000<100002@000`40000900030@0000T000<100002P000`40000900030@0000T000<10000
+2@000`40000900030@0000X000<100002@000`40000900030@0000T000<100002@000`4000090003
+0@0000X000<100002@000`40000900030@0000T000<100002@000`40000:00030@0000T000<10000
+2@000`40000900030@0000T000<100002@000`40000:00030@0000T000<100002@000`4000090003
+0@0000T000<100002@000`40000:00030@0000T000<100002@000`40000900030@000180000L0003
+0@0003X000<10000>P000`40000j00030@0003X000<10000>@000`40000j00030@0003X000<10000
+4P0001`000<10000o`2X00030@000180000L00030@000?l0Z0000`40000B000070000`40003o0:P0
+00<100004P0001`00P7o0:P00P4D000070000`40003o0:P000<100004P0001`000<10000o`2X0003
+0@000180000L00030@000?l0Z0000`40000B000070000`40003o0:P000<100004P0001`000<10000
+o`2X00030@000180000L00030@000?l0Z0000`40000B000070020Ol0Z0020A@0000L00030@000?l0
+Z0000`40000B000070000`40003o0:P000<100004P0001`000<10000o`2X00030@000180000L0003
+0@000?l0Z0000`40000B000070000`40003o0:P000<100004P0001`00P7o0:P00P4D000070000`40
+003o0:P000<100004P0001`000<10000o`2X00030@000180000L00030@000?l0Z0000`40000B0000
+70000`40003o0:P000<100004P0001`000<10000o`2X00030@000180000L00030@000?l0Z0000`40
+000B000070020Ol0Z0020A@0000L00030@000?l0Z0000`40000B000070000`40003o0:P000<10000
+4P0001`000<10000o`2X00030@000180000B00@11P000`40003o0:P000<100004P0001@000<10000
+1@000`40003o0:P000<100004P0001@000<100001@040Ol0Y@030A@0000D00030@0000D000<10000
+o`2X00030@000180000D00030@0000D000<10000o`2X00030@000180000B00<11`000`40003o0:P0
+00<100004P0001@000<100001@000`40003o0:P000<100004P0001`000<10000o`2X00030@000180
+000L00030@000?l0Z0000`40000B000070020Ol0Z0020A@0000L00030@000?l0Z0000`40000B0000
+70000`40003o0:P000<100004P0001`000<10000o`2X00030@000180000L00030@000?l0Z0000`40
+000B000070000`40003o0:P000<100004P0001`000<10000o`2X00030@000180000L0081o`2X0081
+500001`000<10000o`2X00030@000180000L00030@000?l0Z0000`40000B000070000`40003o0:P0
+00<100004P0001`000<10000o`2X00030@000180000L00030@000?l0Z0000`40000B000070020Ol0
+Z0020A@0000L00030@000?l0Z0000`40000B000070000`40003o0:P000<100004P0001`000<10000
+o`2X00030@000180000L00030@000?l0Z0000`40000B000070000`40003o0:P000<100004P0001`0
+00<10000o`2X00030@000180000L0081o`2X0081500001`000<10000o`2X00030@000180000L0003
+0@000?l0Z0000`40000B000070000`40003o0:P000<100004P000180104600030@000?l0Z0000`40
+000B00004P000`40000700030@000?l0Z0000`40000B00004`000`40000600@1o`2U00<1500001@0
+00<100001@000`40003o0:P000<100004P0001D000<1000010000`40003o0:P000<100004P000180
+00@100011P000`40003o0:P000<100004P0001<00P4700030@000?l0Z0000`40000B000070000`40
+003o0:P000<100004P0001`000<10000o`2X00030@000180000L0081o`2X0081500001`000<10000
+o`2X00030@000180000L00030@000?l0Z0000`40000B00003@020@d000<10000o`2X00030@000180
+000<00040@000@`000<10000o`2X00030@000180000<00030@0000d000<10000o`2X00030@000180
+000<00030@0000d000<10000o`2X00030@000180000<00040@000@`00P7o0:P00P4D00003@020@d0
+00<10000o`2X00030@000180000<00@130000`40003o0:P000<100004P0000d000<1000030000`40
+003o0:P000<100004P0000d000<1000030000`40003o0:P000<100004P0000d000<1000030000`40
+003o0:P000<100004P0000`000<100400P4;0081o`2X0081500001`000<10000o`2X00030@000180
+000=00813@000`40003o0:P000<100004P0000`000@1000130000`40003o0:P000<100004P0000`0
+00@1000130000`40003o0:P000<100004P0000`000@1000130000`40003o0:P000<100004P0000d0
+0P4=00030@000?l0Z0000`40000B000070020Ol0Z0020A@0000<00<13@000`40003o0:P000<10000
+4P0000l000<100002P000`40003o0:P000<100004P0000d00P4=00030@000?l0Z0000`40000B0000
+30000`40000400811`000`40000e00@1o`1_00030@000180000=00<10P001040004600030@0003L0
+00<10000o`1^00030@000180000E00030@0000@0104d00@1o`1]00<1500000`00`4400811`000`40
+000e00@1o`1_00030@000180000?00030@0000<000<1000010000`40000e00@1o`1_00030@000180
+000=00810`001040004600030@0003D01@7o06h000<100004P0000`000<1000010020@L000<10000
+=@040Ol0K`000`40000B00003@030@`000<10000=@040Jh03P4800d1200>0@L03P4800d1200>0@L0
+3P4800d1200>0@L000<100004P0001`0X`4700h1200>0@L03P7700030@000180000L0081=P040E/0
+1`7o00`00P4D000070000`40000e00D1H@040Ol02@000`40000B000030040@`000<10000=P040FD0
+0P7o00L000<100004P0001`000<10000=@040FD01P7Z01X1500001`000<10000=P030FH000<10000
+0P020MH04P4I00030@000180000L00030@0003L000<10000I0030@D00P730141:`000`40000B0000
+30030@d00P4h00030@0006<010470081[00E0C/00P4D00003`000`40000:00030@0003L000<10000
+I0020@X00P6S00L1D@000`40000B00003@020@d000<10000=`000`40001U00030@0000X000<10000
+V`050A80105200030@000180000<00030@0000d000<10000=`000`40001T00@12`020I@01`4I0003
+0@00044000<100004P0000d00`4<00030@0003L000<10000M@000`40002<00D17`020D<000<10000
+4P0001`000<10000=`000`40001f00030@0008T01@4P00@1@P000`40000B00003@030@`000<10000
+=P030GP000<10000Q0040@<000<1000080030D8000<100004P0000`000<100003@020CH0105i0003
+0@0008400P4700030@00024000<10000@0020A@0000<00<13@000`40000f0081N`000`40001n0081
+20030B8000<10000@@000`40000B000030001040004<00030@0003L000<10000NP000`4000040GP0
+00<100001`040B00105200030@000180000=00813@000`40000e00@1O0001040005h00812`020FL0
+00<100004P0001`000<10000=`000`40001l00030@0107H00P4>00030@0006D000<100004P0000d0
+0P4=00030@0003L000<10000O@030G@000<1000030040FH000<100004P0000`000@1000130000`40
+000g00030@0007`0105c00030@0007L000<100004P0000`000<100003@020CP000<10000O@020G80
+0P5i0081500000`000@1000130000`40000g00030@0007h00P5`00030@0007X000<100004P0000d0
+0P4=00030@0003L000<10000O@040Fh000<10000N`000`40000B000070000`40000g00030@000800
+00<10000J`000`40001l00030@000180000>008110000`40000500030@0003L000<10000P@000`40
+001Y00030@0007d000<100004P0000d000@100010`000`40000500030@0003L000<10000P@000`40
+001X00030@0007h000<100004P0000d000@100001@4600@1=0040H<000<10000IP000`40001m00<1
+500000d000D100000@0200030@0000D000<10000_0000`40001U00030@00080000<100004P0000`0
+104200030@0100L000<10000_@000`40001S00030@00084000<100004P0000d000<100000`020@L0
+00<10000_P000`40001R00030@00084000<100004P0000`01@4300030@0000D000<10000_P000`40
+001Q00030@00088000<100004P0000h000<100002`000`40002o00030@0005l000<10000P`000`40
+000B00003P000`40000;00030@000;l000<10000GP000`40002400030@000180000>00030@0000/0
+0P7100030@0005d000<10000P`020A@0000=00813@000`40003000030@0005`000<10000Q@000`40
+000B000070000`40003100030@0005X000<10000QP000`40000B00003@020@d000<10000`@000`40
+001I00030@0008L000<100004P0000`000@1000130000`40003200030@0005<010400`0100280003
+0@000180000<00040@000@`000<10000`P000`40001D00040@000HX000<100004P0000`000@10001
+30020L@000<10000D`000`400@2:0081500000d00P4=00030@000<<000<10000DP030H`000<10000
+4P0001`000<10000a0000`40001@00@1S0000`40000B00002`030@03004100/000<10000a0000`40
+001A0081S@000`40000B000030001040004<00030@000<D000<10000D@000`40002;00030@000180
+000<00040@000@`000<10000a@000`40001@0081S@000`40000B000030001040004<00030@000<D0
+00<10000D0040H/000<100004P0000/000@100413@020LL000<10000CP000`40002<0081500001`0
+00<10000aP000`40001=00030@0008h000<100004P0001`000<10000a`000`40001<00030@0008h0
+00<100004P0001`000<10000a`000`40001;00030@0008l000<100004P0001`000<10000b0000`40
+001:00030@0008l000<100004P0001`000<10000b0000`40001900030@00090000<100004P0001`0
+00<10000b0000`40001900030@00090000<100004P0001`00P7:00030@0004L000<10000T0020A@0
+000<00D12`000`40003900030@0004L000<10000T@000`40000B00003P000`40000;00030@000<X0
+00<10000A@000`40002B00030@000180000>00030@0000/000<10000bP000`40001500030@000980
+00<100004P0000h000@100000`4700030@000</000<10000@`000`40002C00030@000180000=0081
+1P000`40000400030@000</000<10000@`000`40002C00030@000180000E00030@0000@0107:0003
+0@00048000<10000TP030A@0000;00H100@00@411`000`40003<00030@00044000<10000U0000`40
+000B000030001040004200030@0000L000<10000c0000`40001000030@0009D000<100004P0000`0
+00@100010P000`40000700030@000<d000<10000?`000`40002E00030@000180000<00040@000@80
+104600030@000<d01@4m00030@0009D000<100004P0000/000@100413@000`40003>0081?P000`40
+002F00030@000180000L00030@000<h00P4n00030@0009H000<100004P0001`00P7?0081?@000`40
+002F0081500001`000<10000cP030C`000<10000U`000`40000B000070000`40003=00@1>`000`40
+002H00030@000180000L00030@000<h00`4k00030@0009P000<100004P0001`000<10000c`020CX0
+00<10000V@000`40000B000070000`40003?00030@0103T000<10000V@000`40000B00002`030@03
+004100/00P7@00030@0103P000<10000V@020A@0000<00040@000@`000<10000cP040CP000<10000
+VP000`40000B000030001040004<00030@000=8000<10000=@000`40002J00030@000180000<0004
+0@000@`000<10000dP000`40000d00030@0009/000<100004P0000/000@100413@000`40003C0003
+0@0003<000<10000V`000`40000B000070000`40003C00030@00038000<10000W0000`40000B0000
+2`040@d000<10000e0000`40000a00030@0009`000<100004P0000`000@1000130020MD000<10000
+<0000`40002L0081500000`000@1000130000`40003D00030@00030000<10000W@000`40000B0000
+30001040004<00030@000=D000<10000;P000`40002N00030@000180000<00<13@000`40003E0003
+0@0002h000<10000WP000`40000B000030000`40000=00030@000=H000<10000;@000`40002N0003
+0@000180000;00813`000`40003F00030@0002L010400`01002P00030@000180000L00030@000=H0
+00<10000:@001040006Q00030@000180000L0081f0000`40000X00030@010:400P4D000070000`40
+003G00030@0002P000<10040XP000`40000B000070000`40003H00030@0002D0106S00030@000180
+000L00030@000=P000<100009P030J<000<100004P0001<00P4700030@000=P000<100009@040J<0
+00<100004P00018000@100011P000`40003I00030@0002D00P6T00030@000180000B00040@000@H0
+107H00030@0002D00`6Q00<1500001800`4700030@000=X000<100008`040J<000<100004P000180
+00<100001`000`40003J00030@0002<00`6T00030@000180000B00030@0000L000<10000fP000`40
+000S00@1X`000`40000B00004`030@H000<10000f`000`40000Q00040@000J@000<100004P0001`0
+00<10000f`000`40000Q00040@000J@000<100004P0001`000<10000g0000`40000O00030@0100<1
+X`000`40000B000070020Md000<100007`000`40002U0081500001`000<10000g@000`40000M0003
+0@000:L000<100004P0001`000<10000g@000`40000M00030@000:L000<100004P0001`000<10000
+gP000`40000K00030@000:P000<100004P0001`000<10000g`000`40000I00030@000:T000<10000
+4P0001`000<10000g`000`40000I00030@000:T000<100004P0001`00P7Q00030@0001L000<10000
+Z@020A@0000L00030@000>0000<100001@040@h000<10000ZP000`40000B000070000`40003Q0003
+0@0000D000<100003@000`40002[00030@000180000L00030@000>8000<1000010000`40000=0003
+0@000:/000<100004P0001`000<10000hP000`40000300@130000`40002/00030@000180000L0003
+0@000><000<100000P040@/000<10000[@000`40000B000070000`40003T00040@0000@12`000`40
+002]00030@000180000L0081i@000`4000050@X000<10000[@020A@0000L00030@000>D000<10000
+10480081/@000`40000B000070000`40003V00H11`000`40002a00030@000180000L00030@000>P0
+104600030@000;8000<100004P0001`000<10000i`050@@00P6e00030@000180000L00030@000>L0
+2P6f00030@000180000L0081j@040KX00P4D000070000`40003X00@1^`000`40000B000070000`40
+003X00@1^`000`40000B000070000`40003Y0081_0000`40000B000070000`40003X00@1^`000`40
+000B00004`000`40000600030@000>P0106k00030@000180000C00030@0000H000<10000jP000`40
+002j00030@000180000D00030@0000D0107X0081^P030A@0000D00030@0000D000<10000j0040K/0
+00<100004P0001D000<1000010000`40003Y00<1^`000`40000B00004P001040004600030@000>X0
+00<10000^P000`40000B00004P040@H000<10000jP000`40002j00030@000180000L00030@000>X0
+00<10000^P000`40000B000070000`40003Z00030@000;X000<100004P0001`00P7Y00@1^P020A@0
+000L00030@000?l0Z0000`40000B000070000`40003o0:P000<100004P0001`000<10000o`2X0003
+0@000180000L00030@000?l0Z0000`40000B000070000`40003o0:P000<100004P0001`00P7o0:P0
+0P4D000070000`40003o0:P000<100004P0001`000<10000o`2X00030@000180000L00030@000?l0
+Z0000`40000B000070000`40003o0:P000<100004P0001`000<10000o`2X00030@000180000L0003
+0@000?l0Z0000`40000B000070020Ol0Z0020A@0000L00030@000?l0Z0000`40000B000070000`40
+003o0:P000<100004P0001`000<10000o`2X00030@000180000L00030@000?l0Z0000`40000B0000
+70000`40003o0:P000<100004P0001`00P7o0:P00P4D000070000`40003o0:P000<100004P0001`0
+00<10000o`2X00030@000180000L00030@000?l0Z0000`40000B000070000`40000j00030@0003X0
+00<10000>P000`40000j00030@0003T000<10000>P000`40000j00030@000180000C00811`000`40
+000900030@0000T000<100002@000`40000:00030@0000T000<100002@000`40000900030@0000T0
+00<100002P000`40000900030@0000T000<100002@000`40000900030@0000T000<100002P000`40
+000900030@0000T000<100002@000`40000900030@0000X000<100002@000`40000900030@0000T0
+00<100002@000`40000900030@0000X000<100002@000`40000900030@0000T000<100002@000`40
+000900030@0000X000<100002@000`40000900030@0000T000<100004P00018000@100011P000`40
+000900030@0000T000<100002@000`40000:00030@0000T000<100002@000`40000900030@0000T0
+00<100002P000`40000900030@0000T000<100002@000`40000900030@0000T000<100002P000`40
+000900030@0000T000<100002@000`40000900030@0000X000<100002@000`40000900030@0000T0
+00<100002@000`40000900030@0000X000<100002@000`40000900030@0000T000<100002@000`40
+000900030@0000X000<100002@000`40000900030@0000T000<100004P00018000@100011P3o0J`1
+500001<00P7o0<L0000B00040@000Ol0aP00018000@10001o`3600004`020Ol0a`000001\
+\>"],
+  ImageRangeCache->{{{0, 474}, {292.437, 0}} -> {10.3154, -0.742528, \
+0.000164195, 0.0303626}}],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .61803 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-165.825 16.0636 0.320355 0.177535 [
+[.1128 .30785 -15 -9 ]
+[.1128 .30785 15 0 ]
+[.27344 .30785 -15 -9 ]
+[.27344 .30785 15 0 ]
+[.43407 .30785 -15 -9 ]
+[.43407 .30785 15 0 ]
+[.59471 .30785 -15 -9 ]
+[.59471 .30785 15 0 ]
+[.75535 .30785 -15 -9 ]
+[.75535 .30785 15 0 ]
+[.91598 .30785 -15 -9 ]
+[.91598 .30785 15 0 ]
+[.01131 .05405 -24 -4.5 ]
+[.01131 .05405 0 4.5 ]
+[.01131 .14282 -12 -4.5 ]
+[.01131 .14282 0 4.5 ]
+[.01131 .23159 -24 -4.5 ]
+[.01131 .23159 0 4.5 ]
+[.01131 .40912 -18 -4.5 ]
+[.01131 .40912 0 4.5 ]
+[.01131 .49789 -6 -4.5 ]
+[.01131 .49789 0 4.5 ]
+[.01131 .58666 -18 -4.5 ]
+[.01131 .58666 0 4.5 ]
+[ 0 0 0 0 ]
+[ 1 .61803 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 g
+.25 Mabswid
+[ ] 0 setdash
+.1128 .32035 m
+.1128 .3266 L
+s
+[(10.33)] .1128 .30785 0 1 Mshowa
+.27344 .32035 m
+.27344 .3266 L
+s
+[(10.34)] .27344 .30785 0 1 Mshowa
+.43407 .32035 m
+.43407 .3266 L
+s
+[(10.35)] .43407 .30785 0 1 Mshowa
+.59471 .32035 m
+.59471 .3266 L
+s
+[(10.36)] .59471 .30785 0 1 Mshowa
+.75535 .32035 m
+.75535 .3266 L
+s
+[(10.37)] .75535 .30785 0 1 Mshowa
+.91598 .32035 m
+.91598 .3266 L
+s
+[(10.38)] .91598 .30785 0 1 Mshowa
+.125 Mabswid
+.14493 .32035 m
+.14493 .3241 L
+s
+.17706 .32035 m
+.17706 .3241 L
+s
+.20918 .32035 m
+.20918 .3241 L
+s
+.24131 .32035 m
+.24131 .3241 L
+s
+.30557 .32035 m
+.30557 .3241 L
+s
+.33769 .32035 m
+.33769 .3241 L
+s
+.36982 .32035 m
+.36982 .3241 L
+s
+.40195 .32035 m
+.40195 .3241 L
+s
+.4662 .32035 m
+.4662 .3241 L
+s
+.49833 .32035 m
+.49833 .3241 L
+s
+.53046 .32035 m
+.53046 .3241 L
+s
+.56258 .32035 m
+.56258 .3241 L
+s
+.62684 .32035 m
+.62684 .3241 L
+s
+.65897 .32035 m
+.65897 .3241 L
+s
+.69109 .32035 m
+.69109 .3241 L
+s
+.72322 .32035 m
+.72322 .3241 L
+s
+.78747 .32035 m
+.78747 .3241 L
+s
+.8196 .32035 m
+.8196 .3241 L
+s
+.85173 .32035 m
+.85173 .3241 L
+s
+.88386 .32035 m
+.88386 .3241 L
+s
+.08067 .32035 m
+.08067 .3241 L
+s
+.04855 .32035 m
+.04855 .3241 L
+s
+.01642 .32035 m
+.01642 .3241 L
+s
+.94811 .32035 m
+.94811 .3241 L
+s
+.98024 .32035 m
+.98024 .3241 L
+s
+.25 Mabswid
+0 .32035 m
+1 .32035 L
+s
+.02381 .05405 m
+.03006 .05405 L
+s
+[(-1.5)] .01131 .05405 1 0 Mshowa
+.02381 .14282 m
+.03006 .14282 L
+s
+[(-1)] .01131 .14282 1 0 Mshowa
+.02381 .23159 m
+.03006 .23159 L
+s
+[(-0.5)] .01131 .23159 1 0 Mshowa
+.02381 .40912 m
+.03006 .40912 L
+s
+[(0.5)] .01131 .40912 1 0 Mshowa
+.02381 .49789 m
+.03006 .49789 L
+s
+[(1)] .01131 .49789 1 0 Mshowa
+.02381 .58666 m
+.03006 .58666 L
+s
+[(1.5)] .01131 .58666 1 0 Mshowa
+.125 Mabswid
+.02381 .07181 m
+.02756 .07181 L
+s
+.02381 .08956 m
+.02756 .08956 L
+s
+.02381 .10731 m
+.02756 .10731 L
+s
+.02381 .12507 m
+.02756 .12507 L
+s
+.02381 .16057 m
+.02756 .16057 L
+s
+.02381 .17833 m
+.02756 .17833 L
+s
+.02381 .19608 m
+.02756 .19608 L
+s
+.02381 .21383 m
+.02756 .21383 L
+s
+.02381 .24934 m
+.02756 .24934 L
+s
+.02381 .26709 m
+.02756 .26709 L
+s
+.02381 .28485 m
+.02756 .28485 L
+s
+.02381 .3026 m
+.02756 .3026 L
+s
+.02381 .33811 m
+.02756 .33811 L
+s
+.02381 .35586 m
+.02756 .35586 L
+s
+.02381 .37362 m
+.02756 .37362 L
+s
+.02381 .39137 m
+.02756 .39137 L
+s
+.02381 .42688 m
+.02756 .42688 L
+s
+.02381 .44463 m
+.02756 .44463 L
+s
+.02381 .46238 m
+.02756 .46238 L
+s
+.02381 .48014 m
+.02756 .48014 L
+s
+.02381 .51564 m
+.02756 .51564 L
+s
+.02381 .5334 m
+.02756 .5334 L
+s
+.02381 .55115 m
+.02756 .55115 L
+s
+.02381 .5689 m
+.02756 .5689 L
+s
+.02381 .0363 m
+.02756 .0363 L
+s
+.02381 .01855 m
+.02756 .01855 L
+s
+.02381 .00079 m
+.02756 .00079 L
+s
+.02381 .60441 m
+.02756 .60441 L
+s
+.25 Mabswid
+.02381 0 m
+.02381 .61803 L
+s
+0 0 m
+1 0 L
+1 .61803 L
+0 .61803 L
+closepath
+clip
+newpath
+.008 w
+.89587 .03082 Mdot
+.38036 .08113 Mdot
+.8009 .09767 Mdot
+.4466 .41319 Mdot
+.64011 .28692 Mdot
+.70195 .39414 Mdot
+.50726 .32418 Mdot
+.64001 .39373 Mdot
+.57511 .26497 Mdot
+.10413 .36577 Mdot
+.10509 .60332 Mdot
+.10509 .25582 Mdot
+.10606 .33774 Mdot
+.10509 .46479 Mdot
+.10509 .13647 Mdot
+.10541 .33683 Mdot
+.57511 .3267 Mdot
+.5764 .38554 Mdot
+.57736 .01472 Mdot
+.57511 .44706 Mdot
+.57704 .2608 Mdot
+.57608 .39838 Mdot
+.57736 .36272 Mdot
+.57736 .36784 Mdot
+.5 Mabswid
+.02381 .49789 m
+.97619 .49789 L
+s
+.02381 .14282 m
+.97619 .14282 L
+s
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+  ImageSize->{470, 290.187},
+  ImageMargins->{{0, 0}, {0, 0}},
+  ImageRegion->{{0, 1}, {0, 1}},
+  ImageCache->GraphicsData["Bitmap", "\<\
+CF5dJ6E]HGAYHf4PAg9QL6QYHg<PAVmbKF5d0`40007F00018PP10`4000010?ooo`000063aP00002h
+Z2iLF0EkL:Cek/c<c6IVIXR8R?GemLZZTD]RM^[Mdg=QDZbANl30`61PH4iJJJ:ecH20P000ogmoO`00
+Rooo003o0000P8:2PZJVYU=CDnWYjG5aJG5aFG5YJG5Y@FUY>6UQFFUQ@FUQ:6UIHFUIDFUI>6UA@FUA
+86U9HFU9FFU9BF5QJF59:6596651>651064`FEUQ@EUIFEUAJEUABEUA>5U9<5U9:5U945U1FEU1BEU1
+05ThDETh@ETh<5Th85Th655A454h254X854X654PDE4PBDUADDUABDU9:4U1HDU1FDU1>4U104Th<4Th
+04TXDDTX<4TX24TP84TH64T84451BD51644hBD4h844h644`HD4`FOGN/d4PBD4P644H>44@844@2=:d
+S3QA83Q1@CQ1>3Q183Q103PhDCPh<3Ph03P`83PX@CPX<3PX63PX03PH<3PH63PH23P883P823P0430h
+@C0`HC0P830H82Q182Ph<2Ph42Ph02P`@BP`82PXDBPPBBPP62PH62P@<2P@02P8:2P0420X<20X820X
+220@820021P`<1P`01P@<1P@21P881P0410X:10P610P210H810@610020P@40P@00P8:00064PmReE[
+;om50?nPNP3ook34gXO>n^kMPYSkV7ooe?o0b`00E@00ZP1E001EE@1EZP1Eo`2Z002ZE@2ZZP2Zo`3o
+E@3oZUD005D0EED0ZUD0oeEE05EEEEEEZUEEoeFZ05FZEEFZZUFZoeGo05GoEEGoZUGoojX00:X0EJX0
+ZZX0ojYE0:YEEJYEZZYEojZZ0:ZZEJZZZZZZoj[o0:[oEJ[oZZ[oool00?l0EOl0Z_l0oomE0?mEEOmE
+Z_mEoonZ0?nZEOnZZ_nZooooEOooZ/BbShMjH^OWifm_Kj>SXiT0I_ooc80003<cIVIVc9VIob8R8X20
+0020P4:JY`0g?0200?mV<omVc<c<oooo_mCDok^k^h20ool0e`000?l0e`000?l0e`000?l0e`000?l0
+e`000?l0e`0001d00`7o0;L0000M00030@000?l0]`0001d000<10000o`2g00007@000`40003o0;L0
+000M00030@000?l0]`0001d000<10000o`2g00007@000`40003f0081_P0001d000<10000mP020Kh0
+000M00<1o`2g00007@000`40003o0;L0000M00030@000?l0]`0001d000<10000o`2g00007@000`40
+003o0;L0000M00030@000?l0QP020Bl0000M00030@000?l0QP020Bl0000M00030@000?l0]`0001d0
+0`7o0;L0000M00030@000?l0]`0001d000<10000o`2g00007@000`40003o0;L0000M00030@000?l0
+]`0001d000<10000o`2g00001`040@<000<100000P030@L000<10000o`2g00002@000`40000:0003
+0@0000@000<10000o`2g00002@000`40000:00030@0000@0107o0;H000000`010@020@@000<10000
+1`030@L000<10000o`2g00002@000`40000700030@0000L000<10000o`2g00001`030@T000<10000
+1`000`40003o0;L0000900030@0000L0104600030@000?l0]`0001d000<10000o`2g00007@000`40
+003o0;L0000M00030@000?l0]`0001d00`7o0;L0000M00030@000?l0]`0001d000<10000o`2g0000
+7@000`40003o0;L0000M00030@0009d00P7o01P0000M00030@0009d00P7o01P0000M00030@000?l0
+]`0001d000<10000o`2g00007@030Ol0]`0001d000<10000o`2g00007@000`40003o0;L0000M0003
+0@000?l0G0020ET0000M00030@000?l0G0020ET0000M00030@000?l0]`0001d000<10000o`2g0000
+7@000`40003o0;L0000M00<1o`2g00007@000`40003o0;L0000M00030@000?l0]`0001d000<10000
+o`2g00007@000`40003o0;L0000M00030@000?l0]`0001d000<10000o`2g00007@000`40003o0;L0
+000M00<1o`2g00007@000`40003o0;L0000M00030@000?l0]`0001d000<10000o`2g00007@000`40
+000Q0081o`2D00007@000`40000Q0081o`2D00004`040@H000<10000o`2g00005@000`4000050003
+0@000?l0]`0001D000<100001@3o0Jl12`0000d0104400030@0000D000<10000o`2g00005@000`40
+000500030@000?l0]`0001<00`4700030@000?l0]`0001D000<100001@000`40003o0;L0000M0003
+0@000?l0]`0001d000<10000o`2g00007@000`40003o0;L0000M00<1o`2g00007@000`40003o0;L0
+000M00030@000?l0]`0001d000<10000o`2g00007@000`40003o0;L0000M00030@000?l0]`0001d0
+00<10000o`2g00007@000`40003o0;L0000M00<1o`2g00007@000`40003o0;L0000M00030@000?l0
+]`0001d000<10000o`2g00007@000`40003o0;L0000M00030@000?l0]`0001d000<10000o`2g0000
+7@000`40003o0;L0000M00<1o`2g00007@000`40003o0;L0000M00030@000?l0]`0001d000<10000
+o`2g00007@000`40003o0;L0000M00030@000?l0]`0001d000<10000o`2g00007@000`40003o0;L0
+000M00<1o`2g00007@000`40003o0;L0000M00030@000?l0]`0001d000<10000o`2g00007@000`40
+003o0;L0000M00030@000?l0]`0000P00P4400030@0000800`4700030@000?l0]`0000L000@10001
+2`000`40000400030@000?l0]`0000L000@100012`000`40000400@1o`2f000000<00@400P420004
+0@000@P00`4700030@000?l0]`0000L000@1000120000`40000700030@000?l0]`0000L000@10001
+20000`40000700030@000?l0]`0000P00P4900@11P000`40003o0;L0000M00030@000?l0]`0001d0
+00<10000o`2g00007@000`40003o0;L0000M00<1o`2g00007@000`40003o0;L0000M00030@000240
+0P7o09@0000M00030@0002400P7o09@0000M00030@000?H00P6n00007@000`40003f0081_P0001d0
+00<10000m@020Kl0000M00030@000?D00P6o00007@030Ol0]`0001d000<10000o`2g00007@000`40
+003o0;L0000M00030@000?l0]`0001d000<10000o`2g00007@000`40003o0;L0000M00030@000?l0
+]`0001d000<10000o`2g00007@030Ol04`020J80000M00030@000?l04`020J80000M00030@000?l0
+]`0001d000<100005`040@<00P4400030@0000<00P440081;@040@<00P4400030@0000<00P450003
+0@0002`01043008110000`40000300810`030Bd01043008110000`400003008110020Bd010430081
+10000`400003008110000`40000]00@10`020@@000<100000`020@@00P4J00007@000`40000I0005
+0@0000400P000`40000600040@000@8000@10001;P001@400001008000<100001P00104000440003
+0@0002h000D100000@0200030@0000H000@100011@000`40000/00050@0000400P000`4000060004
+0@000@8000@10001;P001@400001008000<100001P001040004300030@0002l000D100000@020003
+0@0000H000@100010P001040004I00007@000`40000I00050@0000400P000`40000900030@0000<0
+00<10000;0001@400001008000<100002@000`400@040Bl000D100000@0200030@0000T000<10000
+0`000`40000/00050@0000400P000`40000900040@000@8000<10000;0001@400001008000<10000
+2@000`40000200030@0002h000D100000@0200030@0000T000@100010P000`40000G00007@000`40
+000I00050@0000400P000`400007008110020Bl000D100000@0200030@0000L00P4200040@000C00
+00D100000@0200030@0000L00P4300<1;`001@400001008000<100001`020@<00`4_00050@000040
+0P000`40000700811@000`40000^00050@0000400P000`400007008110020AX0000M00030@0001T0
+00D100000@0200030@0000T000<100000`000`40000/00050@0000400P000`40000900060@000@01
+<0001@400001008000<100002@001040004a00050@0000400P000`40000900040@000C4000D10000
+0@0200030@0000T000<100000`000`40000]00050@0000400P000`40000900040@000@8000<10000
+5`0001d00`4G00<10`001040004800040@000@8000@10001;0030@<000@100012000104000430081
+;P030@<000@1000120001040004200030@0002d00`4300040@000@P000@100010P000`40000]00<1
+0`001040004800040@000@8000@10001;@030@<000@1000120001040004200040@000AT0000M0003
+0@0001T000<100000P020@X00P440081;`000`40000200812P020@D000<10000;P000`4000020081
+2P020@<0104^00030@0000800P4:008110030Bh000<100000P020@X00P4300@1;`000`4000020081
+2P020@@00P4J00007@000`40003o0;L0000M00030@000?l0]`0001d000<10000o`2g00007@000`40
+003o0;L0000M00030@000?l0]`0001d000<10000o`2g00004P3o0L@10@0001X000@100012P000`40
+000<00030@0000/000<1000030000`40000;00030@0000`000<100002`000`40000;00030@0000`0
+00<100002`000`40000<00030@0000/000<1000030000`40000;00030@0000`000<100000P490003
+0@0000`000<100002`000`40000<00030@0000/000<100002`000`40000<00030@0000/000<10000
+30000`40000;00030@0000`000<100002`000`40000<00030@0000/000<1000030000`4000070000
+6P001040004:00030@0000`000<100002`000`40000<00030@0000/000<1000030000`40000;0003
+0@0000/000<1000030000`40000;00030@0000`000<100002`000`40000<00030@0000/000<10000
+30000`4000020@T000<1000030000`40000200811`000`40000<00030@0000/000<100002`000`40
+000<00030@0000/000<1000030000`40000;00030@0000`000<100002`000`40000<00030@0000/0
+00<1000030000`40000700007@000`40000U00030@0004D000<10000AP000`40000l00811`000`40
+001500030@0004H000<10000900001d000<10000o`2g00007@000`40003o0;L0000M00030@000?l0
+]`0001d000<100008P020Ol0T`0001d00`4R0081o`2C00007@000`40003o0;L0000M00030@000?l0
+]`0001d000<10000o`2g00007@000`40003o0;L0000M00030@000?l0]`0001d000<10000o`2g0000
+7@000`40003o0;L0000M00<1o`2g00007@000`40003o0;L0000M00030@000?H00P6n00007@000`40
+003f0081_P0001d000<100008@020Ol0U00001d000<100008@020M<00P6n00007@000`40003f0081
+_P0001d000<10000o`2g00007@030Ol0]`0001d000<10000o`2g00007@000`40003o0;L0000M0003
+0@000?l0]`0001d000<10000o`2g00007@000`40003f0081_P0001d000<10000mP020Kh0000M0003
+0@000?l0]`0001d00`7o01<00P4J0081QP0001d000<10000o`0C00816P020HH0000M00030@000?D0
+0P6o00007@000`40003e0081_`0001d000<10000o`2g00007@000`40003o0;L00008008110000`40
+000200<11`000`40003o0;L0000700040@000@/000<1000010000`40003o0;L0000700040@000@/0
+00<1000010040Ol0]P0000L000@1000120030@L000<10000^`020OT0000700040@000@P000<10000
+1`000`40002k0081n@0000L000@1000120000`40000700030@000?l0]`0000P00P4900@11P000`40
+003o0;L0000M00030@000?l0]`0001d000<10000o`2g00007@000`40003o0;L0000M00<1o`2g0000
+7@000`40003o0;L0000M00030@000?l0]`0001d000<10000o`2g00007@000`40003o0;L0000M0003
+0@000?l0]`0001d000<10000o`2g00007@000`40003o0;L0000M00<1m@020Kl0000M00030@000?D0
+0P6o00007@000`40003o0;L0000M00030@000?l0]`0001d000<10000o`2g00007@000`40003o0;L0
+000M00030@000?l0]`0001d000<10000o`2g00007@030B400P7o09@0000M00030@0002400P7o09@0
+000M00030@000?l0]`0001d000<10000o`2g00007@000`40003o0;L0000M00030@000?l0]`0001d0
+00<10000o`2g00007@000`40003o0;L0000M00<1o`2g00007@000`40003o0;L0000M00030@000?l0
+]`0001d000<10000o`2g00007@000`40003o0;L0000M00030@000?l0]`0001<0104600030@000?l0
+]`0001D000<100001@000`40003o0;L0000E00030@0000D0o`6_0@/0000E00030@0000D000<10000
+o`2g00005@000`40000500030@000?l0]`0001<00`4700030@000?l0]`0001D000<100001@000`40
+003o0;L0000M00030@000?l0]`0001d000<10000o`2g00007@000`40003o0;L0000M00<1o`2g0000
+7@000`40003o0;L0000M00030@000?l0]`0001d000<10000o`2g00007@000`40003o0;L0000M0003
+0@000?l0]`0001d000<10000o`2g00007@000`40003o0;L0000M00<1o`2g00007@000`40003o0;L0
+000M00030@000?l0]`0001d000<10000o`2g00007@000`40003o0;L0000M00030@000?l0]`0001d0
+00<10000o`2g00007@000`40003o0;L0000M00<1o`2g00007@000`40003o0;L0000M00030@000?l0
+]`0001d000<10000o`2g00007@000`40003o0;L0000M00030@000?l0]`0001d000<10000o`2g0000
+7@000`40003o0;L0000M00<1o`2g00007@000`40003o0;L0000M00030@000?l0]`0001d000<10000
+o`2g00007@000`40003o0;L0000M00030@000?l0]`0000L0104300030@0000800`4700030@000?l0
+]`0000T000<100002P000`40000400030@000?l0]`0000T000<100002P000`40000400@1o`2f0000
+2@000`40000700<11`000`40003o0;L0000900030@0000L000<100001`000`40003o0;L0000700<1
+2@000`40000700030@000?l0]`0000T000<100001`040@H000<10000o`2g00007@000`40003o0;L0
+000M00030@000?l0]`0001d000<100008@020Ol0U00001d00`4Q0081o`2D00007@000`40003o0;L0
+000M00030@000?l0]`0001d000<10000o`2g00007@000`40003o0;L0000M00030@000?l0]`0001d0
+00<10000o`2g0000o`3G0000o`3G0000o`3G0000o`3G0000o`3G0000\
+\>"],
+  ImageRangeCache->{{{0, 469}, {289.187, 0}} -> {10.3204, -1.87342, \
+0.000138313, 0.0125147}}]
+}, Open  ]]
+}, Open  ]]
+},
+FrontEndVersion->"4.0 for X",
+ScreenRectangle->{{0, 1024}, {0, 768}},
+WindowSize->{774, 607},
+WindowMargins->{{Automatic, 75}, {Automatic, 2}},
+PrintingPageRange->{Automatic, Automatic},
+PrintingOptions->{"PaperSize"->{612, 792},
+"PaperOrientation"->"Portrait",
+"PostScriptOutputFile":>FrontEnd`FileName[{$RootDirectory, "a", "lns101", \
+"nfs", "homes", "cleo", "mccann", "scan_strategy"}, "just_fits.nb.ps", \
+CharacterEncoding -> "ISO8859-1"],
+"Magnification"->1},
+CellLabelAutoDelete->True,
+Magnification->1
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1717, 49, 446, 7, 123, "Input"],
+Cell[2166, 58, 5156, 90, 1003, "Input"],
+Cell[7325, 150, 1270, 18, 203, "Input"],
+Cell[8598, 170, 1578, 29, 283, "Input"],
+
+Cell[CellGroupData[{
+Cell[10201, 203, 1199, 22, 187, "Input"],
+Cell[11403, 227, 163, 3, 27, "Output"],
+Cell[11569, 232, 525, 10, 98, "Output"],
+Cell[12097, 244, 279, 5, 23, "Print"],
+Cell[12379, 251, 279, 5, 23, "Print"],
+Cell[12661, 258, 287, 5, 23, "Print"],
+Cell[12951, 265, 274, 5, 23, "Print"],
+
+Cell[CellGroupData[{
+Cell[13250, 274, 35334, 1418, 186, 24019, 1274, "GraphicsData", "PostScript", \
+"Graphics"],
+Cell[48587, 1694, 12235, 437, 186, 4829, 341, "GraphicsData", "PostScript", \
+"Graphics"]
+}, Open  ]]
+}, Open  ]],
+Cell[60849, 2135, 1089, 15, 187, "Input"],
+
+Cell[CellGroupData[{
+Cell[61963, 2154, 1327, 25, 235, "Input"],
+Cell[63293, 2181, 163, 3, 27, "Output"],
+Cell[63459, 2186, 478, 9, 98, "Output"],
+Cell[63940, 2197, 279, 5, 23, "Print"],
+Cell[64222, 2204, 278, 5, 23, "Print"],
+Cell[64503, 2211, 285, 5, 23, "Print"],
+Cell[64791, 2218, 275, 5, 23, "Print"],
+
+Cell[CellGroupData[{
+Cell[65091, 2227, 35636, 1312, 303, 19283, 1106, "GraphicsData", \
+"PostScript", "Graphics"],
+Cell[100730, 3541, 14097, 436, 299, 4403, 312, "GraphicsData", "PostScript", \
+"Graphics"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

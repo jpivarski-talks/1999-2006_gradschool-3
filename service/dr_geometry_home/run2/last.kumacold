@@ -1,0 +1,44 @@
+*** Begin of history file: Fri Oct  3 13:03:45 2003
+exec db9chi2
+exec db9chi2
+h/list
+h/plot 413
+opt nsta
+opt nfit
+set stat 0000110
+set fit 111
+sigma cttop = 1.5*$HINFO(10, 'MAX')
+ve/cr ne(30)
+ve/cr ct(30)
+ve/cr dm(30)
+ve/cr de(30)
+ve/cr zm(30)
+ve/cr ze(30)
+exec /tmp/pawtmp-7215.kumac
+exec /tmp/pawtmp-1550.kumac
+exec db9chi2
+exec db9chi2
+exec db9chi2
+h/file 1 ../rzn/db9chi2.rzn
+h/file 2 ../rzn/db9chi2_waxial.rzn
+h/file 3 ../rzn/db9chi2_wcathode.rzn
+h/file 4 ../rzn/db9chi2_waxialcathode.rzn
+h/plot //lun1/twocyclehist/999
+cd //lun1/twocyclehist
+min 999 -0.001
+max 999 0.001
+h/plot 999
+cd //lun2/twocyclehist
+min 999 -0.001
+max 999 0.001
+h/plot 999
+cd //lun3/twocyclehist
+min 999 -0.001
+max 999 0.001
+h/plot 999
+cd //lun4/twocyclehist
+min 999 -0.001
+max 999 0.001
+h/plot 999
+exit
+*** End   of history file: Fri Oct  3 13:15:17 2003

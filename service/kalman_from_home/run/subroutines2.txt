@@ -1,0 +1,31 @@
+HICompositePlane::propagateHelix(HIHelix&, KTMoveControl::MoveDirection)
+
+HIHelix::errorMatrixOK(which one?)
+HIHelix::HIHelix(const HIHelix&)
+HIHelix::newSnapshot(void)
+HIHelixIntersector::swimToNextIntersection(const KTMoveControl::MoveDirection)
+
+KTHelix::KTHelix(const KTHelix&)
+KTHelix::position()
+
+KalmanHelixTransporter::transportThroughMaterial(KTHelix&, double, HepPoint3D&) const
+
+
+
+
+
+ProxyTemplate<FAPtrTable<VXFitVeeConversion>>::get(const Record&, const DataKey&) const
+SMProxyWriter<FAPtrTable<VXFitVeeConversion>>::extractData(const DataKey&, const Record&, SMSinkStream&)
+VXFitVeeConversionProxy::faultHandler(const Record&, const DataKey&)
+VXFitVeeKShortProxy::faultHandler(const Record&, const DataKey&)
+
+
+%% DEBUG-VFinderProd.VXFitVeeConversionProxy: Conversion minimally OK.
+%% DEBUG-HelixIntersection.HIMSDedxOperation: Energy < mass after dE/dx.
+%% DEBUG-HelixIntersection.HIHelixIntersector: Problem with surface
+
+   Had the Vee fitting begun the next line would have been something
+   like:
+
+%% DEBUG-VXFit.VXFitInterfaceVertex: Adding "KTKinematicFixedBz" (7) as
+track.

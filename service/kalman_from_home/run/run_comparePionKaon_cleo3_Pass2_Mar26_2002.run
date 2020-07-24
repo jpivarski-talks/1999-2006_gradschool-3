@@ -1,0 +1,10 @@
+#$ -l calibration
+#$ -o /cdat/tem/mccann/run_comparePionKaon_cleo3_Pass2_Mar26_2002.out
+#$ -S /bin/bash
+#$ -j y
+
+cd /home/mccann/kalman/run
+. /nfs/cleo3/scripts/cleo3defs
+c3rel cleo3_Pass2_Mar26_2002
+
+suez -f run_comparePionKaon_cleo3_Pass2_Mar26_2002.tcl > /cdat/tem/mccann/run_comparePionKaon_cleo3_Pass2_Mar26_2002.log

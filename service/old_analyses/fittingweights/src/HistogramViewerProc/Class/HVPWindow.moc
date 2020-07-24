@@ -1,0 +1,104 @@
+/****************************************************************************
+** HVPWindow meta object code from reading C++ file 'HVPWindow.h'
+**
+** Created: Thu Oct 18 10:38:31 2001
+**      by: The Qt MOC ($Id: qt/src/moc/moc.y   2.2.0   edited 2000-08-31 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#define Q_MOC_HVPWindow
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#define Q_MOC_OUTPUT_REVISION 9
+#elif Q_MOC_OUTPUT_REVISION != 9
+#error "Moc format conflict - please regenerate all moc files"
+#endif
+
+#include <qmetaobject.h>
+#include <qapplication.h>
+
+#if defined(Q_SPARCWORKS_FUNCP_BUG)
+#define Q_AMPERSAND
+#else
+#define Q_AMPERSAND &
+#endif
+
+
+const char *HVPWindow::className() const
+{
+    return "HVPWindow";
+}
+
+QMetaObject *HVPWindow::metaObj = 0;
+
+void HVPWindow::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(QWidget::className(), "QWidget") != 0 )
+	badSuperclassWarning("HVPWindow","QWidget");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString HVPWindow::tr(const char* s)
+{
+    return qApp->translate( "HVPWindow", s, 0 );
+}
+
+QString HVPWindow::tr(const char* s, const char * c)
+{
+    return qApp->translate( "HVPWindow", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* HVPWindow::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) QWidget::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    typedef void(HVPWindow::*m1_t0)();
+    typedef void(HVPWindow::*m1_t1)();
+    typedef void(HVPWindow::*m1_t2)(const QString&);
+    typedef void(HVPWindow::*m1_t3)();
+    typedef void(HVPWindow::*m1_t4)(int);
+    m1_t0 v1_0 = Q_AMPERSAND HVPWindow::slotInteract;
+    m1_t1 v1_1 = Q_AMPERSAND HVPWindow::slotContinue;
+    m1_t2 v1_2 = Q_AMPERSAND HVPWindow::slotFrequencyText;
+    m1_t3 v1_3 = Q_AMPERSAND HVPWindow::slotPlotsMenuAboutToShow;
+    m1_t4 v1_4 = Q_AMPERSAND HVPWindow::slotPlotsMenuActivated;
+    QMetaData *slot_tbl = QMetaObject::new_metadata(5);
+    QMetaData::Access *slot_tbl_access = QMetaObject::new_metaaccess(5);
+    slot_tbl[0].name = "slotInteract()";
+    slot_tbl[0].ptr = (QMember)v1_0;
+    slot_tbl_access[0] = QMetaData::Public;
+    slot_tbl[1].name = "slotContinue()";
+    slot_tbl[1].ptr = (QMember)v1_1;
+    slot_tbl_access[1] = QMetaData::Public;
+    slot_tbl[2].name = "slotFrequencyText(const QString&)";
+    slot_tbl[2].ptr = (QMember)v1_2;
+    slot_tbl_access[2] = QMetaData::Public;
+    slot_tbl[3].name = "slotPlotsMenuAboutToShow()";
+    slot_tbl[3].ptr = (QMember)v1_3;
+    slot_tbl_access[3] = QMetaData::Public;
+    slot_tbl[4].name = "slotPlotsMenuActivated(int)";
+    slot_tbl[4].ptr = (QMember)v1_4;
+    slot_tbl_access[4] = QMetaData::Public;
+    metaObj = QMetaObject::new_metaobject(
+	"HVPWindow", "QWidget",
+	slot_tbl, 5,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}

@@ -1,0 +1,88 @@
+#0  0x7f479764 in __sigprocmask () from /usr/lib/libthread.so.1
+#1  0x7f46e978 in _resetsig () from /usr/lib/libthread.so.1
+#2  0x7f46e118 in _sigon () from /usr/lib/libthread.so.1
+#3  0x7f471158 in _thrp_kill () from /usr/lib/libthread.so.1
+#4  0x7f54ba24 in raise () from /usr/lib/libc.so.1
+#5  0x7f535904 in abort () from /usr/lib/libc.so.1
+#6  0x7f535be8 in _assert () from /usr/lib/libc.so.1
+#7  0x78d91140 in bool KalmanAddHitOperation::perform(HIHelix&,const HIHelix&,const HIHelix&,HIIntersectionSurface&,const HIIntersectionSurface&)const ()
+   from /a/lns101/nfs/homes/cleo/mccann/zd_integration/run/../build_SunOS/shlib/KalmanProd.so
+#8  0x7915e938 in bool HICompositeOperation::perform(HIHelix&,const HIHelix&,const HIHelix&,HIIntersectionSurface&,const HIIntersectionSurface&)const ()
+   from /a/lns101/nfs/homes/cleo/mccann/zd_integration/run/../build_SunOS/shlib/KalmanProd.so
+#9  0x79175f88 in bool HIIntersectionSurface::performOperation(HIHelix&,const HIHelix&,const HIIntersectionSurface&) ()
+   from /a/lns101/nfs/homes/cleo/mccann/zd_integration/run/../build_SunOS/shlib/KalmanProd.so
+#10 0x7916f698 in HIHelixIntersector::IntersectionStatus HIHelixIntersector::performOperation(const HIHelix&,HIIntersectionSurface**,const KTMoveControl::MoveDirection) ()
+   from /a/lns101/nfs/homes/cleo/mccann/zd_integration/run/../build_SunOS/shlib/KalmanProd.so
+---Type <return> to continue, or q <return> to quit---
+#11 0x7916f3cc in HIHelixIntersector::IntersectionStatus HIHelixIntersector::swimToNextIntersection(const KTMoveControl::MoveDirection) ()
+   from /a/lns101/nfs/homes/cleo/mccann/zd_integration/run/../build_SunOS/shlib/KalmanProd.so
+#12 0x78d1c1e0 in bool KalmanTrackFitter::fitTrackOneDirection(HIHelixIntersector&,KalmanHelix*,TrackFitter::FitDirection,bool)const ()
+   from /a/lns101/nfs/homes/cleo/mccann/zd_integration/run/../build_SunOS/shlib/KalmanProd.so
+#13 0x78d1a304 in KTHelix*KalmanTrackFitter::fittedTrack(const TRSeedTrack*,Frame&,const std::vector<HIDRSurfaceFactory::DRHitAndDriftDistance,std::allocator<HIDRSurfaceFactory::DRHitAndDriftDistance> >*,const std::vector<const CalibratedCathodeHit*,std::allocator<const CalibratedCathodeHit*> >*,const std::vector<const CalibratedSVRphiHit*,std::allocator<const CalibratedSVRphiHit*> >*,const std::vector<const CalibratedSVZHit*,std::allocator<const CalibratedSVZHit*> >*,const std::vector<HIZDSurfaceFactory::ZDHitAndDriftDistance,std::allocator<HIZDSurfaceFactory::ZDHitAndDriftDistance> >*,double,bool) ()
+   from /a/lns101/nfs/homes/cleo/mccann/zd_integration/run/../build_SunOS/shlib/KalmanProd.so
+#14 0x78d18ed4 in KTHelix*KalmanTrackFitter::fittedTrack(const TRSeedTrack*,Frame&,double,TrackFitter::FitDirection) ()
+   from /a/lns101/nfs/homes/cleo/mccann/zd_integration/run/../build_SunOS/shlib/KalmanProd.so
+#15 0x78d18cbc in bool KalmanTrackFitter::fitTrack(const TRSeedTrack*,Frame&,DBCandidate::Hypo) ()
+   from /a/lns101/nfs/homes/cleo/mccann/zd_integration/run/../build_SunOS/shlib/---Type <return> to continue, or q <return> to quit---
+KalmanProd.so
+#16 0x78d1e824 in bool KalmanTrackFitter::event(Frame&)const ()
+   from /a/lns101/nfs/homes/cleo/mccann/zd_integration/run/../build_SunOS/shlib/KalmanProd.so
+#17 0x78cbe86c in const KalmanTrackFitter*KalmanTrackFitterProxy::faultHandler(const Record&,const DataKey&) ()
+   from /a/lns101/nfs/homes/cleo/mccann/zd_integration/run/../build_SunOS/shlib/KalmanProd.so
+#18 0x78d68d04 in const KalmanTrackFitter*ProxyTemplate<KalmanTrackFitter>::get(const Record&,const DataKey&)const ()
+   from /a/lns101/nfs/homes/cleo/mccann/zd_integration/run/../build_SunOS/shlib/KalmanProd.so
+#19 0x78d69af0 in void extract<FAItem<KalmanTrackFitter> >(const Record&,__type_0&,const char*,const char*) ()
+   from /a/lns101/nfs/homes/cleo/mccann/zd_integration/run/../build_SunOS/shlib/KalmanProd.so
+#20 0x78d098ac in const FAPtrTable<TRHelixCandidateFit<(DBCandidate::Hypo)3> >*KalmanHelixFitProxy<(DBCandidate::Hypo)3>::faultHandler(const Record&,const DataKey&) ()
+   from /a/lns101/nfs/homes/cleo/mccann/zd_integration/run/../build_SunOS/shlib/KalmanProd.so
+#21 0x7e57eb80 in const FAPtrTable<TRHelixCandidateFit<(DBCandidate::Hypo)3> >*ProxyTemplate<FAPtrTable<TRHelixCandidateFit<(DBCandidate::Hypo)3> > >::get(const Record&,const DataKey&)const ()
+   from /nfs/cleo3/Offline/rel/Jul10_03/shlib/SunOS/CC/AsciiSourceFormat.so
+---Type <return> to continue, or q <return> to quit---
+#22 0x7e57fb80 in void extract<FATable<TRHelixCandidateFit<(DBCandidate::Hypo)3> > >(const Record&,__type_0&,const char*,const char*) ()
+   from /nfs/cleo3/Offline/rel/Jul10_03/shlib/SunOS/CC/AsciiSourceFormat.so
+#23 0x765618a4 in ActionBase::ActionResult ExtractFakes::event(Frame&) ()
+   from /a/lns101/nfs/homes/cleo/mccann/zd_integration/run/../build_SunOS/shlib/ExtractFakes.so
+#24 0x7fb221c8 in ActionBase::ActionResult Processor::execute(const StreamType&,Frame&) ()
+   from /nfs/solfa3/cleo3/Offline/rel/Jul10_03/build/SunOS/CC/Processor/../lib/libProcessor.so.v02_02_03
+#25 0x7fb1bcf0 in ActionBase::ActionResult MasterProcessor::executeActions(const StreamType&,Frame&) ()
+   from /nfs/solfa3/cleo3/Offline/rel/Jul10_03/build/SunOS/CC/Processor/../lib/libProcessor.so.v02_02_03
+#26 0x5e374 in bool JobControl::processStop(bool&) (this=0x2af528, 
+    oShallSink=@0xffbedc36)
+    at /nfs/solfa3/cleo3/Offline/rel/current_interim/src/../src/JobControl/Class/JobControl.cc:674
+#27 0x5ccd8 in bool JobControl::eventLoop(StopCounter&) (this=0x2af528, 
+    iStopCounter=@0xffbedd78)
+    at /nfs/solfa3/cleo3/Offline/rel/current_interim/src/../src/JobControl/Class/JobControl.cc:303
+---Type <return> to continue, or q <return> to quit---
+#28 0xdb30c in int StartCommand::execute(int,char**) (this=0x2af658, argc=2, 
+    argv=0xffbede68)
+    at /nfs/solfa3/cleo3/Offline/rel/current_interim/src/../src/JobControl/Class/StartCommand.cc:230
+#29 0x7f8a2bd4 in TclInvokeStringCommand ()
+   from /nfs/cleo3/Offline/rel/Jul10_03/other_sources/lib/SunOS/libtcl8.2.so
+#30 0x7f8e4a30 in EvalObjv ()
+   from /nfs/cleo3/Offline/rel/Jul10_03/other_sources/lib/SunOS/libtcl8.2.so
+#31 0x7f8e514c in Tcl_EvalEx ()
+   from /nfs/cleo3/Offline/rel/Jul10_03/other_sources/lib/SunOS/libtcl8.2.so
+#32 0x7f8e5370 in Tcl_Eval ()
+   from /nfs/cleo3/Offline/rel/Jul10_03/other_sources/lib/SunOS/libtcl8.2.so
+#33 0x199060 in int TclInterpreter::processCommandLine(const char*,Tcl_DString&)
+    ()
+#34 0x199e7c in int TclInterpreter::sourceCommand(const char*) ()
+#35 0x7f8a2bd4 in TclInvokeStringCommand ()
+   from /nfs/cleo3/Offline/rel/Jul10_03/other_sources/lib/SunOS/libtcl8.2.so
+#36 0x7f8e4a30 in EvalObjv ()
+   from /nfs/cleo3/Offline/rel/Jul10_03/other_sources/lib/SunOS/libtcl8.2.so
+#37 0x7f8e514c in Tcl_EvalEx ()
+   from /nfs/cleo3/Offline/rel/Jul10_03/other_sources/lib/SunOS/libtcl8.2.so
+#38 0x7f8e5370 in Tcl_Eval ()
+   from /nfs/cleo3/Offline/rel/Jul10_03/other_sources/lib/SunOS/libtcl8.2.so
+---Type <return> to continue, or q <return> to quit---
+#39 0x1991d8 in int TclInterpreter::runCommandFile(const char*) ()
+#40 0x56538 in bool SuezInit(Interpreter&,const std::basic_string<char,std::char_traits<char>,std::allocator<char> >&,bool) (interpreter=@0x29c380, runFile=@0xffbeec1c, 
+    runSetupFile=true, this=0x29c380, this=0x29c380, lhs=@0x29c380, 
+    rhs=0xffbeec1c "")
+    at /nfs/solfa3/cleo3/Offline/rel/current_interim/src/../src/Suez/SuezMain.cc:373
+#41 0x562c8 in int TheMain(int,char**) (argc=3, argv=0xffbeed14)
+    at /nfs/solfa3/cleo3/Offline/rel/current_interim/src/../src/Suez/SuezMain.cc:343
+#42 0x55758 in main (argc=3, argv=0xffbeed14)
+    at /nfs/solfa3/cleo3/Offline/rel/current_interim/src/../src/Suez/SuezMain.cc:99
+#43 0x554f0 in _start () at /opt/SUNWspro/WS6U2/include/CC/Cstd/./string:915

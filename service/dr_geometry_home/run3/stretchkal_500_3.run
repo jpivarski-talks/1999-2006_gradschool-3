@@ -1,0 +1,13 @@
+#$ -l calibration
+#$ -o /cdat/tem/mccann/stretchkal_500_3.log
+#$ -S /bin/bash
+#$ -j y
+
+cd /home/mccann/dr_geometry/run3
+. /nfs/cleo3/scripts/cleo3defs
+c3rel Jul10_03
+
+DIRTY_STRETCH=500
+export DIRTY_STRETCH
+
+suez -f stretchkal_3.tcl

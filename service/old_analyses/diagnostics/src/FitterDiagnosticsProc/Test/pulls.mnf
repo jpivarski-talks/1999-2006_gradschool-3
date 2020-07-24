@@ -1,0 +1,139 @@
+inquire 1 'Ntuple number' 1
+
+fun del 0
+fun add gau sig
+1000
+0
+1
+
+nt/pr @1 ((curvfit-curvtrue)/curverr) &1 50 -5 5
+nt/pr @1 ((phi0fit-phi0true)/phi0err) &2 50 -5 5
+nt/pr @1 ((d0fit-d0true)/d0err) &3 50 -5 5
+nt/pr @1 ((cottfit-cotttrue)/cotterr) &4 50 -5 5
+nt/pr @1 ((z0fit-z0true)/z0err) &5 50 -5 5
+nt/pr @1 cl &8 25 0 1
+
+do i = 1, 5
+fit @1&@i
+1
+mod 1 1000
+mod 2 0
+mod 3 1
+inc -2.5 2.5
+minim
+dep avg@i = P1(2)
+dep davg@i = ERR1(2)
+dep sigma@i = P1(3)
+dep dsigma@i = ERR1(3)
+dis
+exit
+rename @1&981 5@i
+
+set plot @1&@i default
+dep alpha = 1000/r125
+scale @1&@i @1&@i alpha
+scale 5@i 5@i alpha
+enddo
+
+fun del 0
+fun add pol 1
+0
+0
+0
+fit @1&8
+1
+fix 3
+minim
+dep clslope = P1(2)/P1(1)
+dep dclslope = abs(clslope) * sqrt( (ERR1(1)/P1(1))**2 + (ERR1(2)/P1(2))**2 )
+dis
+exit
+rename @1&981 58
+set plot @1&8 default
+dep alpha = 1000/r125
+scale @1&8 @1&8 alpha
+scale 58 58 alpha
+
+set ssize .2
+set thick 3
+set header off
+
+set window 2 3 0 0
+set y limits 0 150
+do i = 1, 5
+pl @1&@i 32
+over 5@i 1
+enddo
+set y limits 0 75
+pl @1&8 32
+over 58 1
+
+comment
+@1&1
+new
+K
+0 20 .5 0 centre plot 2000 red 5
+new
+mean = {avg1,(F6.3)} "a# {davg1,(F5.3)}
+0 125 .35 0 centre plot 2000 blue 5
+new
+sigma = {sigma1,(F5.3)} "a# {dsigma1,(F5.3)}
+0 105 .35 0 centre plot 2000 blue 5
+
+comment
+@1&2
+new
+[f]?0!
+0 20 .5 0 centre plot 2000 red 5
+new
+mean = {avg2,(F6.3)} "a# {davg2,(F5.3)}
+0 125 .35 0 centre plot 2000 blue 5
+new
+sigma = {sigma2,(F5.3)} "a# {dsigma2,(F5.3)}
+0 105 .35 0 centre plot 2000 blue 5
+
+comment
+@1&3
+new
+d?0!
+0 20 .5 0 centre plot 2000 red 5
+new
+mean = {avg3,(F6.3)} "a# {davg3,(F5.3)}
+0 125 .35 0 centre plot 2000 blue 5
+new
+sigma = {sigma3,(F5.3)} "a# {dsigma3,(F5.3)}
+0 105 .35 0 centre plot 2000 blue 5
+
+comment
+@1&4
+new
+t
+0 20 .5 0 centre plot 2000 red 5
+new
+mean = {avg4,(F6.3)} "a# {davg4,(F5.3)}
+0 125 .35 0 centre plot 2000 blue 5
+new
+sigma = {sigma4,(F5.3)} "a# {dsigma4,(F5.3)}
+0 105 .35 0 centre plot 2000 blue 5
+
+comment
+@1&5
+new
+z?0!
+0 20 .5 0 centre plot 2000 red 5
+new
+mean = {avg5,(F6.3)} "a# {davg5,(F5.3)}
+0 125 .35 0 centre plot 2000 blue 5
+new
+sigma = {sigma5,(F5.3)} "a# {dsigma5,(F5.3)}
+0 105 .35 0 centre plot 2000 blue 5
+
+comment
+@1&8
+new
+C.L.
+0.5 10 .5 0 centre plot 2000 red 5
+new
+slope = {clslope,(F5.3)} "a# {dclslope,(F5.3)}
+0.5 60 .35 0 centre plot 2000 blue 5
+

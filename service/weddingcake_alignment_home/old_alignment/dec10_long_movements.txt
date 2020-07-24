@@ -1,0 +1,133 @@
+PAW > exec calc_differences
+ Unit   1 already used by HBOOK   
+ RZCDIR. Unknown directory //LUN1/HITLEVEL/HITLEVEL
+ histograms declared
+ working on cake 1...
+ filled west 1 (all resid)
+ filled east 1 (all resid)
+ filled west 2 (cosphi)
+ filled east 2 (cosphi)
+ filled west 3 (-sinphi)
+ filled east 3 (-sinphi)
+ histograms filled
+  MINUIT RELEASE 96.03  INITIALIZED.   DIMENSIONS 100/ 50  EPSMAC=  0.89E-15
+ **********
+ **    1 **SET EPS  0.1000E-06
+ **********
+ FLOATING-POINT NUMBERS ASSUMED ACCURATE TO   0.100E-06
+ **********
+ **    2 **SET ERR   1.000    
+ **********
+ histograms fitted
+ ring 1 west rotation should be moved by 49.1269 microns
+ ring 1 east rotation should be moved by -28.7658 microns
+ ring 1 west x should be moved by 9.66731 microns
+ ring 1 east x should be moved by -16.3459 microns
+ ring 1 west y should be moved by -13.6595 microns
+ ring 1 east y should be moved by -3.96424 microns
+ working on cake ring 2...
+ filled west 1 (all resid)
+ filled east 1 (all resid)
+ filled west 2 (cosphi)
+ filled east 2 (cosphi)
+ filled west 3 (-sinphi)
+ filled east 3 (-sinphi)
+ histograms filled
+ histograms fitted
+ ring 2 west rotation should be moved by 47.8868 microns
+ ring 2 east rotation should be moved by -32.1077 microns
+ ring 2 west x should be moved by 6.60056 microns
+ ring 2 east x should be moved by -14.7483 microns
+ ring 2 west y should be moved by -1.03149 microns
+ ring 2 east y should be moved by -16 microns
+ working on cake ring 3...
+ filled west 1 (all resid)
+ filled east 1 (all resid)
+ filled west 2 (cosphi)
+ filled east 2 (cosphi)
+ filled west 3 (-sinphi)
+ filled east 3 (-sinphi)
+ histograms filled
+ histograms fitted
+ ring 3 west rotation should be moved by 33.6428 microns
+ ring 3 east rotation should be moved by -20.1307 microns
+ ring 3 west x should be moved by 0.255592 microns
+ ring 3 east x should be moved by -3.78703 microns
+ ring 3 west y should be moved by -4.08931 microns
+ ring 3 east y should be moved by -12.6948 microns
+ working on cake ring 4...
+ filled west 1 (all resid)
+ filled east 1 (all resid)
+ filled west 2 (cosphi)
+ filled east 2 (cosphi)
+ filled west 3 (-sinphi)
+ filled east 3 (-sinphi)
+ histograms filled
+ histograms fitted
+ ring 4 west rotation should be moved by 36.16 microns
+ ring 4 east rotation should be moved by -21.346 microns
+ ring 4 west x should be moved by 12.8312 microns
+ ring 4 east x should be moved by -14.1011 microns
+ ring 4 west y should be moved by -2.35165 microns
+ ring 4 east y should be moved by -5.74474 microns
+ working on cake ring 5...
+ filled west 1 (all resid)
+ filled east 1 (all resid)
+ filled west 2 (cosphi)
+ filled east 2 (cosphi)
+ filled west 3 (-sinphi)
+ filled east 3 (-sinphi)
+ histograms filled
+ histograms fitted
+ ring 5 west rotation should be moved by 25.187 microns
+ ring 5 east rotation should be moved by -12.0366 microns
+ ring 5 west x should be moved by -0.346562 microns
+ ring 5 east x should be moved by -0.668238 microns
+ ring 5 west y should be moved by -2.8285 microns
+ ring 5 east y should be moved by -1.20926 microns
+ working on cake ring 6...
+ filled west 1 (all resid)
+ filled east 1 (all resid)
+ filled west 2 (cosphi)
+ filled east 2 (cosphi)
+ filled west 3 (-sinphi)
+ filled east 3 (-sinphi)
+ histograms filled
+ histograms fitted
+ ring 6 west rotation should be moved by 24.7872 microns
+ ring 6 east rotation should be moved by -15.3983 microns
+ ring 6 west x should be moved by 0.5521 microns
+ ring 6 east x should be moved by 2.9101 microns
+ ring 6 west y should be moved by 5.83266 microns
+ ring 6 east y should be moved by -9.15637 microns
+ working on cake ring 7...
+ filled west 1 (all resid)
+ filled east 1 (all resid)
+ filled west 2 (cosphi)
+ filled east 2 (cosphi)
+ filled west 3 (-sinphi)
+ filled east 3 (-sinphi)
+ histograms filled
+ histograms fitted
+ ring 7 west rotation should be moved by 16.7801 microns
+ ring 7 east rotation should be moved by -9.05494 microns
+ ring 7 west x should be moved by 8.51604 microns
+ ring 7 east x should be moved by -3.71739 microns
+ ring 7 west y should be moved by 1.85274 microns
+ ring 7 east y should be moved by -4.96437 microns
+ working on cake ring 8...
+ filled west 1 (all resid)
+ filled east 1 (all resid)
+ filled west 2 (cosphi)
+ filled east 2 (cosphi)
+ filled west 3 (-sinphi)
+ filled east 3 (-sinphi)
+ histograms filled
+ histograms fitted
+ ring 8 west rotation should be moved by 12.7142 microns
+ ring 8 east rotation should be moved by -7.07967 microns
+ ring 8 west x should be moved by 6.4503 microns
+ ring 8 east x should be moved by -7.43956 microns
+ ring 8 west y should be moved by -5.19324 microns
+ ring 8 east y should be moved by 3.05675 microns
+PAW > quit 

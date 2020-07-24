@@ -1,0 +1,10 @@
+#$ -l calibration
+#$ -o /cdat/tem/mccann/checksimplething.log
+#$ -S /bin/bash
+#$ -j y
+
+cd /home/mccann/compiletest/run
+. /nfs/cleo3/scripts/cleo3defs
+c3cur
+
+suez -f checksimplething.tcl

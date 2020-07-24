@@ -1,0 +1,893 @@
+% Prepared by Karl Ecklund September 2002
+% Questions, Improvements, Comments to kme and CLEOAC
+%
+% LATEX 2e Template for CLEO Papers
+% YOU MUST USE REVTEX4 and latex 2e
+%
+% Checklist for Paper Drafts:
+% ---------------------------
+% 0) Use appropriate \documetclass line as indicated below
+% 1) Draft Number: Use latest CBX number, append A for the first vote
+%                                (B,C,... for subsequent if any votes)
+% 2) Don't use CLNS or CLEO numbers - this happens after your vote.
+% 3) Title; use \\ to break title over several lines.
+% 4) Abstract
+% 5) For the Author list use CLEO Collaboration only
+% 6) Body
+% 
+% Checklist for Journal Submissions:
+% ----------------------------------
+% 0) Use appropriate \documetclass line as indicated below
+%    - For CLNS, hep-ex, preprints, conf. paper use CLNS version
+%    - For PRL submission use PRL version
+%    - For PRD submission use PRD version 
+%      AND use \author{(CLEO Collaboration)} instead of \collaboration{CLEO}
+%      SEE PRD_SPECIAL_CHANGEME in author list during step 5 below
+% 1) CLEO paper number (from CLEOAC)
+% 2) CLNS preprint number (from CLEOAC)
+% 3) Title; use \\ to break title over several lines.
+% 4) Abstract
+% 5) Author list (from CLEOAC)
+% 6) PACS codes
+% 7) Body
+% 8) Add acknowledgments
+% 9) Hardcode the \date when ready to submit to journal and hep-ex.
+%
+% Checklist for Conference Papers:
+% --------------------------------
+% 0) Use appropriate \documetclass line as indicated below
+%    - For conf. paper use CLNS version
+% 1) CLEO conference paper number (from CLEOAC) (don't use CLNS)
+% 2) Title; use \\ to break title over several lines.
+% 3) To \thanks after title, add appropriate conference info.
+% 4) Abstract
+% 5) Author list (from CLEOAC)
+% 6) Body
+% 7) Add acknowledgments
+% 8) Hardcode the \date when ready to submit to conference and hep-ex.
+% 
+% KNOWN PROBLEMS with template and REVTEX4
+% - can't have \collaboration in PRD style grouped author list
+%   Using \author{(CLEO Collaboration)} instead
+% - can't make abstract appear before full author list ala CLNS notes
+%   Abandoning this as the format for CLNS.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Select one of the \documentclass lines below for your paper
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% Use for CLNS preprint (hep-ex) and Paper Drafts
+\documentclass[aps,prd,preprint,superscriptaddress,tightenlines,nofootinbib,floatfix]{revtex4}
+
+%%%%%%%%%%%%%% Use for PRL
+%\documentclass[aps,prl,twocolumn,superscriptaddress,showpacs]{revtex4}
+
+%%%%%%%%%%%%%% Use for PRD submission
+%\documentclass[aps,prd,preprint,nopreprintnumbers,nofootinbib,showpacs]{revtex4}
+%%%%%%%%%%%%%% Use for PRD formatting tables and figures in 2 column
+%\documentclass[aps,prd,twocolumn,nofootinbib,showpacs]{revtex4}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{multirow}% multirow table entries
+\usepackage{amsmath}
+
+\begin{document}
+
+%-Definitions-----------------------------------------------------------
+\newcommand{\barb}{\bar{B}}
+%\newcommand{\bbbar}{B\bar{B}}
+%\newcommand{\bm}{B^-}
+\newcommand{\bob}{\bar{B}^0}
+\newcommand{\bo}{B^0}
+\newcommand{\bp}{B^+}
+\newcommand{\dkpipiz}{D^0 \to K^-\pi^+\pi^0}
+\newcommand{\dkpi}{D^0 \to K^-\pi^+}
+\newcommand{\dkrho}{D^0 \to K^- \rho^+}
+\newcommand{\dobar}{\overline{D}^0}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\F}{$\cal F$}
+%\newcommand{\gev}{\ \rm GeV}
+\newcommand{\kpipiz}{K^-\pi^+\pi^0}
+%\newcommand{\kpi}{K^-\pi^+}
+\newcommand{\krho}{K^- \rho^+}
+%\newcommand{\mev}{\ \rm MeV}
+\newcommand{\piz}{\pi^0}
+\newcommand{\ra}{{\rightarrow}}
+\newcommand{\Ufs}{\Upsilon(4S)}
+
+\newcommand{\about}		{\mbox{$\sim$}}
+\newcommand{\aerr}[3]   {\mbox{${{#1}^{+ #2}_{- #3}}$}}
+\newcommand{\amp}    	{\mbox{${\cal A}$}}
+\newcommand{\avcb}		{\mbox{$|V_{cb}|$}}
+\newcommand{\avtb}		{\mbox{$|V_{tb}|$}}
+\newcommand{\avtd}		{\mbox{$|V_{td}|$}}
+\newcommand{\avts}		{\mbox{$|V_{ts}|$}}
+\newcommand{\avub}		{\mbox{$|V_{ub}|$}}
+\newcommand{\avud}		{\mbox{$|V_{ud}|$}}
+\newcommand{\avus}		{\mbox{$|V_{us}|$}}
+\newcommand{\BBbar}     {\mbox{$B\bar B$}}
+\newcommand{\bbbar}     {\mbox{$B\bar B$}}
+\newcommand{\bc}		{\mbox{$b\to c$}}
+\newcommand{\bdb}		{\mbox{$\bar B^0_d $}}
+\newcommand{\bd}		{\mbox{$B^0_d $}}
+\newcommand{\berr}[2]   {\mbox{${{}^{+ #1}_{- #2}}$}}
+\newcommand{\bmeson}	{\mbox{$B$}}
+\newcommand{\bqb}		{\mbox{$\bar B^0_q $}}
+\newcommand{\bq}		{\mbox{$B^0_q $}}
+\newcommand{\branch}    {\mbox{${\cal B}$}}
+\newcommand{\bsb}		{\mbox{$\bar B^0_s$}}
+\newcommand{\bs}		{\mbox{$B^0_s$}}
+\newcommand{\bu}		{\mbox{$b\to u$}}
+\newcommand{\cerr}[4]   {\mbox{${{}^{+ #1}_{- #2}{}^{+ #3}_{- #4}}$}}
+\newcommand{\chisq}		{\mbox{$\chi^2$}}
+\newcommand{\cosB}		{\mbox{${\cos\theta_{\rm B}}$}}
+\newcommand{\cossph}	{\mbox{$\cos \theta_{\rm sph}$}}
+\newcommand{\costhr}	{\mbox{$\cos \theta_{\rm thr}$}}
+\newcommand{\dedx}		{\mbox{$dE/dx$}}
+\newcommand{\derr}[5]   {\mbox{${{#1}^{+ #2}_{- #3}{}^{+ #4}_{- #5}}$}}
+\newcommand{\de}		{\mbox{$\Delta E$}}
+\newcommand{\dzerobar}	{\mbox{$\overline {D^0}$}}
+\newcommand{\dzero}		{\mbox{${D^0}$}}
+\newcommand{\ebeam}		{\mbox{$E_{\rm beam}$}}
+\newcommand{\eb}		{\mbox{$E_b$}}
+\newcommand{\eeqq}		{\mbox{$e^+e^-\to\qqb$}}
+\newcommand{\ee}		{\mbox{$e^+e^-$}}
+%\newcommand{\etal}		{\mbox{${\it et al}$}}
+\newcommand{\expt}		{\mbox{$_{\rm expt}$}}
+\newcommand{\fbinv}		{\mbox{${\rm fb}^{-1}$}}
+%\newcommand{\fisher}    {\mbox{${\cal F}$}}
+\newcommand{\fisher}    {\mbox{$x_{\cal F}$}}
+\newcommand{\gev}		{\mbox{${\rm ~GeV}$}}
+\newcommand{\hh}		{\mbox{$h^+h^-$}}
+\newcommand{\hpm}		{\mbox{$h^\pm$}}
+%\newcommand{\implies}	{\mbox{${\Longrightarrow}$}}
+\newcommand{\jimexp}[1]	{\mbox{${\rm e}^{{#1}}$}}
+\newcommand{\kk}		{\mbox{KK}}
+\newcommand{\Kpi}		{\mbox{$K\pi$}}
+\newcommand{\kpi}		{\mbox{$\Kpi$}}
+\newcommand{\kpz}		{\mbox{$K^+\pi^0$}}
+\newcommand{\KP}		{\mbox{$K\pi$}}
+\newcommand{\ksp}		{\mbox{$K^0_S\pi^+$}}
+\newcommand{\ks}		{\mbox{$K^0_S$}}
+\newcommand{\kz}		{\mbox{$K^0$}}
+\newcommand{\kzb}		{\mbox{$\overline{K^0}$}}
+\newcommand{\like}    	{\mbox{${\cal L}$}}
+\newcommand{\Lp}		{\mbox{$\Lambda \bar p$}}
+\newcommand{\lum}    	{\mbox{${\cal L}$}}
+\newcommand{\mb}		{\mbox{$M_B$}}
+\newcommand{\mev}		{\mbox{${\rm MeV}$}}
+\newcommand{\micron}	{\mbox{$~\mu{\rm m}$}}
+\newcommand{\mm}		{\mbox{$\mu^+\mu^-$}}
+\newcommand{\model}		{\mbox{$_{\rm mod}$}}
+\newcommand{\nbb}		{\mbox{$N_{B\bar B}$}}
+\newcommand{\nbinv}		{\mbox{${\rm nb}^{-1}$}}
+\newcommand{\pb}        {\mbox{$p_B$}}
+\newcommand{\pbinv}		{\mbox{${\rm pb}^{-1}$}}
+\newcommand{\pdf}		{\mbox{${PDF}$}}
+\newcommand{\pdfs}		{\mbox{${PDF}{\rm s}$}}
+\newcommand{\pidkpi}	{\mbox{$\Delta_{K\pi}$}}
+\newcommand{\pidkp}		{\mbox{$\Delta_{Kp}$}}
+\newcommand{\pid}		{\mbox{$\Delta_{PID}$}}
+\newcommand{\pipi}		{\mbox{$\Pipi$}}
+\newcommand{\Pipi}		{\mbox{$\pi\pi$}}
+\newcommand{\power}[1]  {\mbox{${\times 10^{#1}}$}}
+\newcommand{\ppz}		{\mbox{$\pi^+\pi^0$}}
+\newcommand{\pvec}		{\mbox{$\vec{p}$}}
+\newcommand{\pz}		{\mbox{$\pi^0$}}
+\newcommand{\qqb}		{\mbox{$q\bar q$}}
+\newcommand{\qq}		{\mbox{${q\bar q}$}}
+\newcommand{\stat}		{\mbox{$_{\rm stat}$}}
+\newcommand{\syst}		{\mbox{$_{\rm syst}$}}
+\newcommand{\theo}		{\mbox{$_{\rm theo}$}}
+\newcommand{\upsi}		{\mbox{$\Upsilon$({\rm 4S})}}
+\newcommand{\vcb}		{\mbox{$V_{cb}$}}
+\newcommand{\vcd}		{\mbox{$V_{cd}$}}
+\newcommand{\vcs}		{\mbox{$V_{cs}$}}
+\newcommand{\vtb}		{\mbox{$V_{tb}$}}
+\newcommand{\vtd}		{\mbox{$V_{td}$}}
+\newcommand{\vts}		{\mbox{$V_{ts}$}}
+\newcommand{\vub}		{\mbox{$V_{ub}$}}
+\newcommand{\vud}		{\mbox{$V_{ud}$}}
+\newcommand{\vus}		{\mbox{$V_{us}$}}
+\newcommand{\zhat}		{\mbox{$\hat{\bf z}$}}
+
+\newcommand{\ppbar}		{\mbox{${p\bar p}$}}
+\newcommand{\pL}		{\mbox{${p\bar\Lambda}$}}
+\newcommand{\LL}		{\mbox{${\Lambda\bar\Lambda}$}}
+
+\newcommand{\mpdf}    	{\mbox{${\cal M}$}}
+\newcommand{\epdf}    	{\mbox{${\cal E}$}}
+\newcommand{\fpdf}    	{\mbox{${\cal F}$}}
+\newcommand{\cpdf}    	{\mbox{${\cal C}$}}
+\newcommand{\dkmode}	{\mbox{${\mu}$}}
+\newcommand{\contrib}	{\mbox{${\kappa}$}}
+\newcommand{\mc}    	{\mbox{${}_{\dkmode\contrib}$}}
+\newcommand{\nk}    	{\mbox{${n}_{\contrib}$}}
+
+\newcommand{\G}		{\mbox{${G}$}}
+\newcommand{\GG}	{\mbox{${\cal G}$}}
+\newcommand{\ARG}	{\mbox{${A}$}}
+\newcommand{\LIN}	{\mbox{${L}$}}
+\newcommand{\BW}	{\mbox{${\cal R}$}}
+\newcommand{\FI}	{\mbox{${F_0}$}}
+\newcommand{\DG}	{\mbox{${a\G_1+b\G_2}$}}
+\newcommand{\GGG}	{\mbox{${a\G+b\GG}$}}
+\newcommand{\DGG}	{\mbox{${a\GG_1+b\GG_2}$}}
+
+\newcommand{\sba} 	{\mbox{${S/B}$}}
+\newcommand{\rfw}   {\mbox{$R_2$}}
+\newcommand{\effmc}     {\mbox{${\epsilon_{\rm MC}}$}}
+\newcommand{\effdata}     {\mbox{${\epsilon_{\rm DATA}}$}}
+
+\newcommand{\RR}	{\mbox{${\cal R}$}}
+
+\newcommand{\subs}[1]{{\mbox{\scriptsize #1}}}
+\newcommand{\re}{\mathrm{Re\:}}
+
+%-----------------------------------------------------------------------
+%-----------------------------------------------------------------------
+%-----------------------------------------------------------------------
+
+%\preprint line(s) will be ignored for PRL/PRD
+%\preprint{CLEO Draft YY-NNA} % For paper draft CBX YY-NN -> Draft YY-NNA
+%\preprint{CLEO CONF YY-NN}   % For conference papers
+%\preprint{ICHEP ABSnnn}      % For conference papers
+\preprint{CLNS 05/XXXX; CLEO 05-XX}       % for CLNS notes
+\preprint{EPS-XXX}         % for CLNS notes
+
+\title{Di-Lepton Widths of Upsilon(1S,2S,3S)~}
+
+\thanks{Archived as hep-ex/XXXXXXX; 
+submitted to {\it Phys. Rev. Q}}
+
+%-------- INSERT HERE ------------
+% Your author list goes here  REMOVE EVERYTHING to END INSERT and
+% replace with your authorlist (ask cleoac).
+
+
+\author{A.~Bornheim}
+\author{E.~Lipeles}
+\author{S.~P.~Pappas}
+\author{A.~Shapiro}
+\author{W.~M.~Sun}
+\author{A.~J.~Weinstein}
+\affiliation{California Institute of Technology, Pasadena, California 91125}
+\author{R.~A.~Briere}
+\author{G.~P.~Chen}
+\author{T.~Ferguson}
+\author{G.~Tatishvili}
+\author{H.~Vogel}
+\affiliation{Carnegie Mellon University, Pittsburgh, Pennsylvania 15213}
+\author{N.~E.~Adam}
+\author{J.~P.~Alexander}
+\author{K.~Berkelman}
+\author{F.~Blanc}
+\author{V.~Boisvert}
+\author{D.~G.~Cassel}
+\author{P.~S.~Drell}
+\author{J.~E.~Duboscq}
+\author{K.~M.~Ecklund}
+\author{R.~Ehrlich}
+\author{R.~S.~Galik}
+\author{L.~Gibbons}
+\author{B.~Gittelman}
+\author{S.~W.~Gray}
+\author{D.~L.~Hartill}
+\author{B.~K.~Heltsley}
+\author{L.~Hsu}
+\author{C.~D.~Jones}
+\author{J.~Kandaswamy}
+\author{D.~L.~Kreinick}
+\author{A.~Magerkurth}
+\author{H.~Mahlke-Kr\"uger}
+\author{T.~O.~Meyer}
+\author{N.~B.~Mistry}
+\author{J.~R.~Patterson}
+\author{D.~Peterson}
+\author{J.~Pivarski}
+\author{S.~J.~Richichi}
+\author{D.~Riley}
+\author{A.~J.~Sadoff}
+\author{H.~Schwarthoff}
+\author{M.~R.~Shepherd}
+\author{J.~G.~Thayer}
+\author{D.~Urner}
+\author{T.~Wilksen}
+\author{A.~Warburton}
+\author{M.~Weinberger}
+\affiliation{Cornell University, Ithaca, New York 14853}
+\author{S.~B.~Athar}
+\author{P.~Avery}
+\author{L.~Breva-Newell}
+\author{V.~Potlia}
+\author{H.~Stoeck}
+\author{J.~Yelton}
+\affiliation{University of Florida, Gainesville, Florida 32611}
+\author{K.~Benslama}
+\author{B.~I.~Eisenstein}
+\author{G.~D.~Gollin}
+\author{I.~Karliner}
+\author{N.~Lowrey}
+\author{C.~Plager}
+\author{C.~Sedlack}
+\author{M.~Selen}
+\author{J.~J.~Thaler}
+\author{J.~Williams}
+\affiliation{University of Illinois, Urbana-Champaign, Illinois 61801}
+\author{K.~W.~Edwards}
+\affiliation{Carleton University, Ottawa, Ontario, Canada K1S 5B6 \\
+and the Institute of Particle Physics, Canada M5S 1A7}
+\author{D.~Besson}
+\author{X.~Zhao}
+\affiliation{University of Kansas, Lawrence, Kansas 66045}
+\author{S.~Anderson}
+\author{V.~V.~Frolov}
+\author{D.~T.~Gong}
+\author{Y.~Kubota}
+\author{S.~Z.~Li}
+\author{R.~Poling}
+\author{A.~Smith}
+\author{C.~J.~Stepaniak}
+\author{J.~Urheim}
+\affiliation{University of Minnesota, Minneapolis, Minnesota 55455}
+\author{Z.~Metreveli}
+\author{K.K.~Seth}
+\author{A.~Tomaradze}
+\author{P.~Zweber}
+\affiliation{Northwestern University, Evanston, Illinois 60208}
+\author{S.~Ahmed}
+\author{M.~S.~Alam}
+\author{J.~Ernst}
+\author{L.~Jian}
+\author{M.~Saleem}
+\author{F.~Wappler}
+\affiliation{State University of New York at Albany, Albany, New York 12222}
+\author{K.~Arms}
+\author{E.~Eckhart}
+\author{K.~K.~Gan}
+\author{C.~Gwon}
+\author{K.~Honscheid}
+\author{D.~Hufnagel}
+\author{H.~Kagan}
+\author{R.~Kass}
+\author{T.~K.~Pedlar}
+\author{E.~von~Toerne}
+\author{M.~M.~Zoeller}
+\affiliation{Ohio State University, Columbus, Ohio 43210}
+\author{H.~Severini}
+\author{P.~Skubic}
+\affiliation{University of Oklahoma, Norman, Oklahoma 73019}
+\author{S.A.~Dytman}
+\author{J.A.~Mueller}
+\author{S.~Nam}
+\author{V.~Savinov}
+\affiliation{University of Pittsburgh, Pittsburgh, Pennsylvania 15260}
+\author{J.~W.~Hinson}
+\author{J.~Lee}
+\author{D.~H.~Miller}
+\author{V.~Pavlunin}
+\author{B.~Sanghi}
+\author{E.~I.~Shibata}
+\author{I.~P.~J.~Shipsey}
+\affiliation{Purdue University, West Lafayette, Indiana 47907}
+\author{D.~Cronin-Hennessy}
+\author{A.L.~Lyon}
+\author{C.~S.~Park}
+\author{W.~Park}
+\author{J.~B.~Thayer}
+\author{E.~H.~Thorndike}
+\affiliation{University of Rochester, Rochester, New York 14627}
+\author{T.~E.~Coan}
+\author{Y.~S.~Gao}
+\author{F.~Liu}
+\author{Y.~Maravin}
+\author{R.~Stroynowski}
+\affiliation{Southern Methodist University, Dallas, Texas 75275}
+\author{M.~Artuso}
+\author{C.~Boulahouache}
+\author{S.~Blusk}
+\author{K.~Bukin}
+\author{E.~Dambasuren}
+\author{R.~Mountain}
+\author{H.~Muramatsu}
+\author{R.~Nandakumar}
+\author{T.~Skwarnicki}
+\author{S.~Stone}
+\author{J.C.~Wang}
+\affiliation{Syracuse University, Syracuse, New York 13244}
+\author{A.~H.~Mahmood}
+\affiliation{University of Texas - Pan American, Edinburg, Texas 78539}
+\author{S.~E.~Csorna}
+\author{I.~Danko}
+\affiliation{Vanderbilt University, Nashville, Tennessee 37235}
+\author{G.~Bonvicini}
+\author{D.~Cinabro}
+\author{M.~Dubrovin}
+\author{S.~McGee}
+\affiliation{Wayne State University, Detroit, Michigan 48202}
+%\author{(CLEO Collaboration)} %FOR PRD_SPECIAL_CHANGEME
+\collaboration{CLEO Collaboration} %FOR PRL,CLNS
+\noaffiliation
+
+%\author{John Doe}
+%\affiliation{Physics Department, Cornell University
+%Ithaca, New York 14853}
+%\author{(CLEO Collaboration)}     %FOR PRD_SPECIAL_CHANGEME
+%\collaboration{CLEO Collaboration} %FOR PRL and CLNS (superscriptaddress)
+%\noaffiliation
+
+%-------- END INSERT ------------
+
+%please hard code the date when you have a final draft and submit to CLEOAC
+\date{\today}
+
+
+
+%---------------------------------------------------------------------
+%
+%\abstract
+%
+%---------------------------------------------------------------------
+
+\begin{abstract} 
+Abstracty-type stuff
+
+\end{abstract}
+\pacs{13.20.He}
+\maketitle
+
+%---------------------------------------------------------------------
+%
+\section{Introduction}
+%
+%---------------------------------------------------------------------
+
+%---------------------------------------------------------------------
+%
+\subsection{The Meaning of $\Gamma_{ee}$ and the Motivation for a
+High-Precision Measurement}
+%
+%---------------------------------------------------------------------
+
+$\Gamma_{ee}$ and why it matters: measures strength of $b\bar{b}$
+binding, predicted by lattice, related to $f_B$
+
+%---------------------------------------------------------------------
+%
+\subsection{Outline of the Experimental Method}
+%
+%---------------------------------------------------------------------
+
+experimental technique: measure coupling to incident $e^+e^-$ rather
+than final state, related to total energy-integrated cross-section of
+$\Upsilon$.  Resonance Breit-Wigner is convoluted with beam-energy
+spread and radiative corrections: the former is Gaussian and preserves
+area, but the latter diverges.  Technique: measure shape of
+cross-section versus energy and fit it to a three-way convolution of
+Breit-Wigner, Gaussian, and radiative corrections, with the area of
+the Breit-Wigner as a fit parameter.
+
+%---------------------------------------------------------------------
+%
+\section{Detectors and Datasets}
+%
+%---------------------------------------------------------------------
+
+%---------------------------------------------------------------------
+%
+\subsection{Relevant Parts of the CLEO Detector}
+%
+%---------------------------------------------------------------------
+
+Description of the DR, CC
+
+%---------------------------------------------------------------------
+%
+\subsection{The Beam Energy Measurement}
+%
+%---------------------------------------------------------------------
+
+Beam-energy measurement: NMR probe in a test magnet in series with
+CESR dipoles; may be displaced during weekly machine studies, so beam
+energy calibration isn't repeatable from one week to the next
+
+%---------------------------------------------------------------------
+%
+\subsection{Lineshape Datasets}
+%
+%---------------------------------------------------------------------
+
+Scan method: every week, do a complete and independent scan of an
+$\Upsilon$ resonance, about 10 scans per resonance.  Continuum data
+(20 MeV below resonance) and radiative corrections measurements
+(20--50 MeV above resonance) is shared by all scans of a particular
+resonance, insensitive to the observed $\lesssim$1 MeV shifts in beam
+energy calibration.  0.1 fb$^{-1}$ continuum data, 0.1 fb$^{-1}$ scan and
+radiative correction data, with 0.x fb$^{-1}$ on-resonance data that
+could be added as a scan point, taken in November 2001 -- September 2002.
+
+Tabulate the scans
+
+%---------------------------------------------------------------------
+%
+\section{Event Selection and Backgrounds}
+%
+%---------------------------------------------------------------------
+
+%---------------------------------------------------------------------
+%
+\subsection{Selection Criteria for Hadronic Events}
+%
+%---------------------------------------------------------------------
+
+Continuum processes are subtracted with a parameter that floats in the
+fit, pinned down by the high statistics in the continuum sample.  But
+lepton pairs should be rejected to avoid large continuum subtractions
+from Bhabhas: extrapolate from hadronic cross-section to total
+cross-section with a factor of $(1-3\mathcal{B}_{\mu\mu})$.  Describe
+cuts for hadronic events
+
+%---------------------------------------------------------------------
+%
+\subsection{Selection Criteria for Luminosity Measurement}
+%
+%---------------------------------------------------------------------
+
+As a measure of luminosity, we avoid $e^+e^-$ and $\mu^+\mu^-$ because
+this is a final state of $\Upsilon$, and $e^+e^- \to \ell^+\ell^-$ and
+$e^+e^- \to \Upsilon \to \ell^+\ell^-$ interfere destructively below
+the resonance and constructively above it: one would need to be very
+careful to account for interference correctly.  Instead, we use
+$e^+e^- \to \gamma\gamma$ (``Gamgam'') as a measure of luminosity from
+one scan point to the next: it will be calibrated (normalizing all
+cross-section measurements simultaneously) with a more sophisticated
+luminosity study which combines Bhabha, Gamgam, and $\mu^+\mu^-$
+(``Mupair'') measurements.
+
+Describe Gamgam cuts, explaining exclusion regions; bhabhas to measure
+trigger efficiency after cuts: it's stable.  Searched for $\Upsilon
+\to \gamma \chi_b \to \gamma \gamma \gamma$ as a background that would
+vary through the resonance, found nothing.  [Find a way to be
+quantitative or show Figure 10.1?]
+
+%---------------------------------------------------------------------
+%
+\subsection{Explicitly-Subtracted Backgrounds}
+%
+%---------------------------------------------------------------------
+
+Backgrounds that are proportional to luminosity will be subtracted in
+the fit, but beam-gas (describe) and cosmic rays are exceptions.  Cuts
+to identify and beam-gas and cosmic rays in each scan point,
+single-beam and no-beam samples to measure fraction of beam-gas and
+cosmic rays that survive hadron cuts.  [show Figures 5.5 without
+circles, 5.6] Surviving cosmic ray count is subtracted from every scan
+point as a correction ($\pm$ statistics), and 50\% $\pm$ 50\% of
+surviving beam-gas of each species is subtracted from every scan
+point, because of backgrounds in the beam-gas count
+
+%---------------------------------------------------------------------
+%
+\section{Stability of the Cross-Section Measurement}
+%
+%---------------------------------------------------------------------
+
+%---------------------------------------------------------------------
+%
+\subsection{Test of Drift Chamber/Calorimeter Synchronization}
+%
+%---------------------------------------------------------------------
+
+Hadronic event count relies primarily on the DR, Gamgam count relies
+entirely on CC, can measure the wrong cross-section if DR looses
+sensitivity (HV trip) while CC continues to take data.  [Is there a
+good reason the converse won't happen?]  Method: search for excesses
+of trackless bhabhas, 25 examples found, all but one at the beginning
+or end of the run.  [How to define a ``run''???]  10 were crucial to
+lineshape scans, so the 99\% of the run without this error was used
+for cross-section calculation.
+
+%---------------------------------------------------------------------
+%
+\subsection{Test of Cross-Section Stability}
+%
+%---------------------------------------------------------------------
+
+Cross-section during each scan point should be constant: fit a line to
+cross-section versus time within each and find only statistical
+deviations (and two outliers, which were dropped).
+
+%---------------------------------------------------------------------
+%
+\section{Fits to the Lineshape Scans}
+%
+%---------------------------------------------------------------------
+
+%---------------------------------------------------------------------
+%
+\subsection{Fits to Backgrounds Only}
+%
+%---------------------------------------------------------------------
+
+Energy dependence of continuum backgrounds is largely $1/s$, but can
+be modified three ways: the continuum sample may have a significant
+two-photon fusion component, which scales as $\log s$, $R$ may vary
+significantly through the $\Upsilon$ spectrum, and/or the Hadronic cut
+efficiency may vary significantly through the $\Upsilon$ spectrum.
+With three data points (the continuum below $\Upsilon(1S)$,
+$\Upsilon(2S)$, and $\Upsilon(3S)$), we can't resolve which of these
+effects are primarily responsible for deviations from $1/s$.  However,
+we only need to parameterize the energy dependence of these background
+processes, and as they are all approximately linear, they can be
+fitted to a single parameter.  We will first fit the three continuum
+points to a background function that includes a $1/s$ term and a $\log
+s$ term, as though the deviation were entirely due to a two-photon
+background, and then fix this effective ``two-photon fraction'' in the
+lineshape fits.
+
+Backgrounds are fit to the following function:
+\begin{multline}
+  \label{backgroundfit}
+  b(E) = b_0 \bigg( (1 - f_{9000}) \frac{\mbox{9000 MeV}}{E^2} +
+  f_{9000} \log\left(\frac{E^2}{\mbox{9000 MeV}}\right) \\
+  + A_{1S} \frac{\theta(E - M_{\Upsilon(1S)})}{E - M_{\Upsilon(1S)}} +
+  A_{2S} \frac{\theta(E - M_{\Upsilon(2S)})}{E - M_{\Upsilon(2S)}} \bigg)
+\end{multline}
+where $b_0$ sets the scale, $f_{9000}$ is the effective two-photon
+fraction at 9000 MeV, and $A_{1S}$ and $A_{2S}$ represent
+contributions to of $\Upsilon(1S)$ and $\Upsilon(2S)$ to
+$\Upsilon(2S)$ and $\Upsilon(3S)$ backgrounds, through initial state
+radiation.  (The parameters $A_{1S}$ and $A_{2S}$ were determined with
+preliminary lineshape fits, and the lineshape fits were iterated with
+the background fit.  Similar tails from $J/\psi$ and $\psi'$ are a
+factor of two smaller and much flatter: they contribute to
+$f_{9000}$.)
+
+Equation \ref{backgroundfit} is fitted to the three continuum points,
+whose luminosity has been measured with Bhabhas, rather than Gamgams,
+for extra statistical precision.  Only $b_0$ and $f_{9000}$ are
+allowed to float.  The scale parameter $b_0$ is ignored, as this will
+be a floating parameter in the lineshape fits, and it has no meaning
+without calibrating luminosity.  The effective two-photon fraction
+$f_{9000}$ is 7.9 $\pm$ 0.5.  Variation of this parameter will be
+shown to have a 0.003\% effect on fits for $\Gamma_{ee}$.
+
+[Show backgrounds fit Figure]
+
+%---------------------------------------------------------------------
+%
+\subsection{Fits to Each Resonance Lineshape}
+%
+%---------------------------------------------------------------------
+
+Each of the three resonances were fitted independently, but within
+each resonance, all scan data were combined.  Since the beam energy
+calibration can vary from one scan to the next, the centroid of the
+fit function was fixed at the PDG $\Upsilon$ mass and the beam energy
+calibration of each scan was included as a parameter in the fit.  The
+$\Upsilon(1S)$ was scanned 12 times, so the $\Upsilon(1S)$ fit has 15
+free parameters, including $\alpha\Gamma_{ee}$, the beam energy spread
+$\Delta E$, and the continuum background $b_0$.  The $\Upsilon(2S)$
+was scanned 6 times, and therefore has 9 free parameters, and the
+$\Upsilon(3S)$ was scanned 7 times, giving it 10 free parameters.
+
+The fit function is a convolution of a Breit-Wigner of area
+$\alpha\Gamma_{ee}$ and full width 53 $\pm$ 1.5 keV, 43 $\pm$ 6 keV,
+26.3 $\pm$ 3.4 keV (for the $\Upsilon(1S)$, $\Upsilon(2S)$, and
+$\Upsilon(2S)$, respectively), a beam energy spread Gaussian of unit
+area and width $\Delta E$, and an initial-state radiation tail which
+is determined by the Breit-Wigner area.  The full width is not allowed
+to float in the fit, though variation by its uncertainty has at most a
+0.03\% effect on $\Gamma_{ee}$.
+
+The fit function also includes interference between the Breit-Wigner
+and the continuum background.  If the resonance and the background
+have amplitudes $\mathcal{A}_{BW}(E)$ and $\mathcal{A}_C(E)$,
+respectively, the total cross-section is
+\begin{equation}
+  \sigma_\subs{tot}(E) = |\mathcal{A}_{BW}(E) + \mathcal{A}_C(E)|^2 =
+  \sigma_{BW}(E) + \sigma_C(E) + 2
+  \re\{\mathcal{A}_{BW}(E)^* \mathcal{A}_C(E)\}
+\end{equation}
+where $\sigma_{BW}(E)$ and $\sigma_C(E)$ are the Breit-Wigner and
+continuum cross-sections, respectively.  Assuming a $1/s$ continuum
+background, the remaining term can be parameterized as
+\begin{equation}
+  2 \re\{\mathcal{A}_{BW}(E)^* \mathcal{A}_C(E)\} =
+  y_\subs{int} \sigma_{BW}(E) \frac{2}{\Gamma} (E - M_{\Upsilon})
+\end{equation}
+where $\Gamma$ is the $\Upsilon$ full width, $M_{\Upsilon}$ is the
+mass of the $\Upsilon$, and $y_{int, q\bar{q}} = (2/3)\alpha R/(1-3 B_{\mu\mu})$
+for interference with $q\bar{q}$ and $y_{int, \tau^+\tau^-} =
+(2/3)\alpha/B_{\tau\tau}$ for interference with $\tau^+\tau^-$
+\cite{kb}.  The values of $y_{int, q\bar{q}}$ are 0.018 $\pm$ 0.0006
+for all three resonances, and $y_{int, \tau^+\tau^-}$ is 0.20, 0.37,
+and 0.27 for the three resonances, with a 6\% uncertainty for the
+$\Upsilon(1S)$ and a 100\% uncertainty for the $\Upsilon(2S)$ and
+$\Upsilon(3S)$.  (This is because $\mathcal{B}_{\tau\tau}$ is much
+better known for $\Upsilon(1S)$ than the other resonances.)  Variation
+of these interference terms will be shown to have at most a 0.2\%
+effect on fits for $\Gamma_{ee}$.
+
+The background term for the resonance fit functions is Equation
+\ref{backgroundfit}, where only $b_0$ is allowed to float in the fit.
+First the $\Upsilon(1S)$ is fitted, and its area is used to set
+$A_{1S}$ for the $\Upsilon(2S)$ and $\Upsilon(3S)$ fits, then the
+$\Upsilon(2S)$ is fitted, and its are is used to set $A_{2S}$ for the
+$\Upsilon(3S)$ fit.
+
+Fits to the $\Upsilon$ lineshapes are presented in Figures X, Y, and
+Z, with pull distributions (pull is the difference between a scan
+point and the fit value, divided by the scan point uncertainty) in
+Figures A, B, and C.  All fit results and systematics studies are
+presented in Table $\zeta$.  The $\Upsilon(1S)$ reduced $\chi^2$ is
+1.19, which has a 0.4\% confidence level.  This will be addressed in
+the following Subsection.
+
+%---------------------------------------------------------------------
+%
+\subsection{Upper Limit on Energy Miscalibrations During Each Scan}
+%
+%---------------------------------------------------------------------
+
+The beam energy calculation does not quote an uncertainty, so we
+couldn't set horizontal error bars on the scan points.  However, we
+can get a rough upper limit on the uncertainty in beam energy by
+adding random miscalibrations to the beam energy measurements and
+observing how this affects the fit $\chi^2$.
+
+If the beam energy calibration changes from one scan point to the
+next, it does so by way of a random walk: a shift in calibration while
+measuring one scan point one affects all subsequent scan points,
+unless the beam energy calibration randomly fluctuates back.
+Therefore, the sequence of measurements matters a great deal.  To
+simulate additional miscalibration, we randomly chose miscalibrations
+with a given RMS before every measurement and applied them
+cumulatively through each scan, then re-fit each resonance.  This
+process was repeated 100 times, and the resulting values for
+$\alpha\Gamma_{ee}$ and $\chi^2$ were averaged for successful fits
+(about 80--90\% of the fits were successful).
+
+blah\ldots blah\ldots blah\ldots
+
+
+
+%---------------------------------------------------------------------
+%
+\section{Hadronic Efficiency}
+%
+%---------------------------------------------------------------------
+
+Overview: how we will measure efficiency
+
+%---------------------------------------------------------------------
+%
+\subsection{Minimally-biased $\Upsilon(1S)$ from Di-Pion Cascades}
+%
+%---------------------------------------------------------------------
+
+Constraints on the two pions, including the exclusion of curlers and
+the requirement that they miss the calorimeter
+
+Randomly selecting a two-pion hypothesis (within window) to make the
+combinatoric background flat, plot the recoil mass and define signal,
+sideband.  Select ``Hadron'' trigger line for this study: two tracks
+are the pions, $\Upsilon(1S)$ must generate one track and one 150 MeV
+shower (which is less restrictive than the chosen trigger lines, a
+necessary condition for the trigger).  Can also 
+
+
+\ldots
+
+
+This study was repeated requiring the ``TwoTrack'' trigger line,
+rather than ``Hadron,'' which makes no requirements of the
+$\Upsilon(1S)$ at all.  (-3.2 $\pm$ 1.4)\% had no tracks.
+
+%---------------------------------------------------------------------
+%
+\subsection{Trigger Efficiency}
+%
+%---------------------------------------------------------------------
+
+%---------------------------------------------------------------------
+%
+\subsection{Constructing a Hadronic Efficiency Measurement}
+%
+%---------------------------------------------------------------------
+
+
+%---------------------------------------------------------------------
+%
+\section{Luminosity Calibration}
+%
+%---------------------------------------------------------------------
+
+%---------------------------------------------------------------------
+%
+\section{Conclusions}
+%
+%---------------------------------------------------------------------
+
+%---------------------------------------------------------------------
+%
+\section{Acknowledgements}
+%
+%---------------------------------------------------------------------
+We gratefully acknowledge the effort of the CESR staff in providing us
+with excellent luminosity and running conditions.  This work was
+supported by the National Science Foundation, and the U.S. Department
+of Energy.
+
+%---------------------------------------------------------------------
+%
+%\section{Figures}
+%
+%---------------------------------------------------------------------
+
+%---------------------------------------------------------------------
+%
+%\section{Bibliography}
+%
+%---------------------------------------------------------------------
+\def\endpoint{;~~}
+\def\Journal#1&#2&#3(#4){#1{\bf #2}, #3 (#4)}
+\def\NIM{Nucl. Instr. and Meth. }
+\def\NIMA{Nucl. Instr. and Meth. A }
+\def\NPB{Nucl. Phys. B }
+\def\PLB{Phys. Lett. B }
+\def\PRL{Phys. Rev. Lett. }
+\def\PRD{Phys. Rev. D }
+\newpage
+\begin{thebibliography}{99}
+
+\bibitem{cleo3det}     CLEO Collaboration, CLNS-94-1277; D.\ Peterson \etal, {\Journal\NIMA&478&142(2002)}
+
+\bibitem{kb}     Primer on Onium Widths, but a copy with interference; K.\ Berkelman, ???
+
+\end{thebibliography}
+
+\end{document}
+
+
+
+
+%% \begin{table}
+%% \begin{center}
+%% \caption{Features of Set A and Set B.}
+%% \smallskip
+%% \begin{tabular}{lcc}
+%% \hline
+%% Quantity & ~~~~Set A & ~~~~Set B\cr 
+%% \hline\hline
+%% Fraction of total \nbb\     & 55\%    & 45\%  \cr
+%% Track Resolution            &         &       \cr
+%% \hfil{`A' Coefficient}      & 0.0055  & 0.0044\cr
+%% \hfil{`B' Coefficient ($\gev^{-1}$)}      & 0.0011  & 0.0010\cr
+%% $K^+\pi^-$ Mode             &         &       \cr
+%% \hfil{$\sigma_{\mb}$ (\mev)}  & 2.7     & 2.7   \cr
+%% \hfil{$\sigma_{\de}$(\mev)}   & 22      & 19    \cr
+%% \hfil{Efficiency}           & 38\%    & 45\%  \cr
+%% $K^+\pi^0$ Mode             &         &       \cr
+%% \hfil{$\sigma_{\mb}$ (\mev)}  & 3.1     & 3.1   \cr
+%% \hfil{$\sigma_{\de}$(\mev)}   & 31      & 31    \cr
+%% \hfil{Efficiency}           & 33\%    & 35\%  \cr
+%% $\pi^0\pi^0$ Mode\footnote{Resolutions are given as average of low-side and high-side half-resolutions.}           &         &       \cr
+%% \hfil{$\sigma_{\mb}$ (\mev)}  & 3.6     & 3.6  \cr
+%% \hfil{$\sigma_{\de}$(\mev)}   & 43      & 43    \cr
+%% \hfil{Efficiency}           & 22\%    & 22\%  \cr
+%% \hline
+%% \end{tabular}
+%% \label{tab:oldnew}
+%% \end{center}
+%% \end{table}
+
+%% \bibitem{fleischeretal} 
+%% Y.-Y. Keum, H.-N. Li, and A.I. Sanda, arXiv:hep-ph/0201103; 
+%% M. Neubert,                  {JHEP} {\bf 9902} (1999) 014;
+%% M. Neubert and J.L. Rosner,  {\Journal\PRL&81&5076(1998)};
+
+%% \bibitem{cleo3det}     CLEO Collaboration, CLNS-94-1277; D. Peterson \etal, {\Journal\NIMA&478&142(2002)}
+
+%% \bibitem{pdg} Particle Data Group, {\Journal\PRD&66&010001(2002)}.\label{ref:pdg}

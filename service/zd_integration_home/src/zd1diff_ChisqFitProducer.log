@@ -1,0 +1,84 @@
+Index: ChisqFitProducer/Makefile
+===================================================================
+RCS file: /nfs/cleo3/cvsroot/Offline/src/ChisqFitProducer/Makefile,v
+retrieving revision 1.10
+diff -r1.10 Makefile
+118a119,120
+>                 AZDGeom \
+> 		ZDGeomProd  \
+Index: ChisqFitProducer/ChisqFitProducer/Template/ChisqCandidateQualityProxy.cc
+===================================================================
+RCS file: /nfs/cleo3/cvsroot/Offline/src/ChisqFitProducer/ChisqFitProducer/Template/ChisqCandidateQualityProxy.cc,v
+retrieving revision 1.11
+diff -r1.11 ChisqCandidateQualityProxy.cc
+75a76
+> #include "DataHandler/Frame.h"
+89a91,92
+> #include "DetectorConfiguration/DetectorConfiguration.h"
+> 
+192a196,203
+>    const Frame& theFrame = iRecord.frame();
+>    const Record& baseGeometryRecord = theFrame.record(Stream::kBaseGeometry);
+>    FAItem< DetectorConfiguration > detectorConfig;
+>    extract(baseGeometryRecord, detectorConfig);
+> 
+>    TRSubdetectorLists::Detectors detectorGeneration(
+>       detectorConfig->useZDnotSI() ? TRSubdetectorLists::kCLEOc : TRSubdetectorLists::kCLEOIII);
+> 
+291c302
+< 		 layerMap.setLayerHit(TRSubdetectorLists::kCLEOIII,
+---
+> 		 layerMap.setLayerHit(detectorGeneration,
+303c314
+< 				    TRSubdetectorLists::kCLEOIII,
+---
+> 				    detectorGeneration,
+306c317
+< 		 layerMap.setLayerHit(TRSubdetectorLists::kCLEOIII,
+---
+> 		 layerMap.setLayerHit(detectorGeneration,
+317c328
+< 	       layerMap.setLayerHit(TRSubdetectorLists::kCLEOIII,
+---
+> 	       layerMap.setLayerHit(detectorGeneration,
+330c341
+< 	       layerMap.setLayerHit(TRSubdetectorLists::kCLEOIII,
+---
+> 	       layerMap.setLayerHit(detectorGeneration,
+344c355
+< 	       layerMap.setLayerHit(TRSubdetectorLists::kCLEOIII,
+---
+> 	       layerMap.setLayerHit(detectorGeneration,
+472c483
+< 	    TRSubdetectorLists::kCLEOIII,
+---
+> 	    detectorGeneration,
+492c503
+< 		  TRSubdetectorLists::kCLEOIII,
+---
+> 		  detectorGeneration,
+Index: ChisqFitProducer/Class/ChisqTrackFitterProxy.cc
+===================================================================
+RCS file: /nfs/cleo3/cvsroot/Offline/src/ChisqFitProducer/Class/ChisqTrackFitterProxy.cc,v
+retrieving revision 1.9
+diff -r1.9 ChisqTrackFitterProxy.cc
+191a192,198
+>    m_ChisqTrackFitter->setUseZDStereoUHits(
+>       m_chisqFitProducer->useZDStereoUHits() ) ;
+>    m_ChisqTrackFitter->setUseZDStereoVHits(
+>       m_chisqFitProducer->useZDStereoVHits() ) ;
+>    m_ChisqTrackFitter->setCorrectZDHits(
+>       m_chisqFitProducer->correctZDHits() ) ;
+> 
+219a227,230
+>    m_ChisqTrackFitter->setZDHitUsageTag(
+>       m_chisqFitProducer->zdHitUsageTag() ) ;
+>    m_ChisqTrackFitter->setZDHitProductionTag(
+>       m_chisqFitProducer->zdHitProductionTag() ) ;
+241a253,258
+>    }
+> 
+>    if( m_chisqFitProducer->forceZDFittingWeight() )
+>    {
+>       m_ChisqTrackFitter->setZDFittingWeight(
+> 	 m_chisqFitProducer->zdFittingWeight() ) ;

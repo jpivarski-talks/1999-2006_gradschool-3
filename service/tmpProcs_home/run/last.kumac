@@ -1,0 +1,27 @@
+*** Begin of history file: Fri May 14 09:54:38 2004
+h/file 1 db18.rzn
+h/file 2 dbother.rzn
+h/plot //lun1/checkbunchbug/1
+h/plot //lun1/checkbunchbug/1(0.:20.)
+h/plot //lun2/checkbunchbug/1(0.:20.)
+h/plot //lun1/checkbunchbug/1(0.:20.)
+h/plot //lun2/checkbunchbug/1(0.:20.) 's'
+h/copy //lun1/checkbunchbug/1 100 'reduced chi2, odd runs are solid, other are dashed'
+h/copy //lun2/checkbunchbug/1 200
+normalize 100
+normalize 200
+h/plot 100
+h/plot 100(0.:20.)
+h/plot 200(0.:20.) 's'
+max 100 0.15
+h/plot 100(0.:20.)
+h/plot 200(0.:20.) 's'
+max 100 100
+h/plot 100(0.:20.)
+h/plot 200(0.:20.) 's'
+max 100 1000
+h/plot 100(0.:20.)
+h/plot 200(0.:20.) 's'
+max 100 10000
+h/plot 100(0.:20.)
+*** End   of history file: Fri May 14 09:57:00 2004

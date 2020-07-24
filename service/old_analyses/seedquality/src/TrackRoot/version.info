@@ -1,0 +1,255 @@
+
+Module : TrackRoot
+
+Date   : Fri Dec 18 14:49:02 1998
+User   : marsh
+Old Tag: v01_00_00
+New Tag: v01_01_00
+Message: 
+Added templated fit track quality object to provide type-differentiation
+for Frame storage.
+
+Module : TrackRoot
+
+Date   : Sun Dec 20 17:23:08 1998
+User   : marsh
+Old Tag: v01_01_00
+New Tag: v01_01_01
+Message: 
+Protected against multiple definition of constructor for
+TRTrackCandidateFitQuality<>, about which Solaris was complaining.
+
+Module : TrackRoot
+
+Date   : Tue Dec 22 15:47:09 1998
+User   : marsh
+Old Tag: v01_01_01
+New Tag: v01_01_02
+Message: Added instantiation files for track quality objects.
+
+Module : TrackRoot
+
+Date   : Fri May  7 18:39:08 1999
+User   : marsh
+Old Tag: v01_01_02
+New Tag: v01_02_00
+Message: Added remaining outgoing hypotheses.
+
+Module : TrackRoot
+
+Date   : Wed Jun 23 16:59:59 1999
+User   : marsh
+Old Tag: v01_02_00
+New Tag: v01_02_01
+Message: 
+Added more KTHelix constructors to TRSeedTrack.
+
+
+Module : TrackRoot
+
+Date   : Thu Jun 24 09:33:06 1999
+User   : marsh
+Old Tag: v01_02_01
+New Tag: v01_02_02
+Message: Moved DBTrack to TRTrack.
+
+Module : TrackRoot
+
+Date   : Thu Jun 24 09:56:57 1999
+User   : marsh
+Old Tag: v01_02_02
+New Tag: v01_02_03
+Message: 
+DBCandidate::Hypo is now TRTrack::Hypo, courtesy of Citizens for a
+CleoDB-less Distribution.
+
+
+Module : TrackRoot
+Date   : Thu Jul 15 19:00:17 1999
+User   : cdj
+Old Tag: v01_02_03
+New Tag: v01_03_00
+Message: now compiles with CC optimization on
+
+Module : TrackRoot
+
+Date   : Thu Oct  7 12:35:20 1999
+User   : marsh
+Old Tag: v01_03_00
+New Tag: v01_04_00
+Message: 
+All of the class header files now have doxygen-style comments.
+
+
+Module : TrackRoot
+Date   : Sat Oct 23 13:43:52 1999
+User   : cdj
+Old Tag: v01_04_00
+New Tag: v01_04_01
+Message: fixed improper use of typename
+
+Module : TrackRoot
+Date   : Thu Nov  4 09:45:26 1999
+User   : mkl
+Old Tag: v01_04_01
+New Tag: v01_05_00
+Message: added storage helper for TRTrack
+
+Module : TrackRoot
+Date   : Mon Nov 22 19:03:01 1999
+User   : wsun
+Old Tag: v01_05_00
+New Tag: v01_06_00
+Message: Added typedef files for TRTrackCandidateFitQuality< DBCandidate::kXXXX >.
+
+Module : TrackRoot
+Date   : Wed Jan  5 14:09:51 2000
+User   : cdj
+Old Tag: v01_06_00
+New Tag: v02_00_00
+Message: added storage helpers for CandidateHelicies
+
+Module : TrackRoot
+Date   : Wed Feb 23 13:41:19 2000
+User   : lyon
+Old Tag: v02_00_00
+New Tag: v02_01_00
+Message: Added storage helper for TRTrackQuality
+
+Module : TrackRoot
+Date   : Wed Feb 23 14:07:38 2000
+User   : lyon
+Old Tag: v02_01_00
+New Tag: v02_01_01
+Message: Handle DABoolean correctly in Track Quality storage helper
+
+Module : TrackRoot
+Date   : Thu Feb 24 17:51:08 2000
+User   : lyon
+Old Tag: v02_01_01
+New Tag: v02_01_02
+Message: Fixed default constructor and operator==
+
+Module : TrackRoot
+Date   : Thu Feb 24 20:11:56 2000
+User   : wsun
+Old Tag: v02_01_02
+New Tag: v02_02_00
+Message: Added storage helpers for TRTrackCandidateFitQuality classes.
+
+Module : TrackRoot
+Date   : Wed Apr  5 11:40:12 2000
+User   : marsh
+Old Tag: v02_02_00
+New Tag: v02_02_01
+Message: 
+Cleaned up destructor semantics for quality objects.
+
+
+Module : TrackRoot
+Date   : Mon Apr 17 14:50:33 2000
+User   : marsh
+Old Tag: v02_02_01
+New Tag: v02_03_00
+Message: 
+Typedef names for TRTrackCandidateFitQuality's specific instantiations
+now follow the usual convention of Candidate --> Hypo, so instead of
+TRElectronQuality we now have TRTrackElectronFitQuality.  It's longer,
+but more consistent with other multi-hypothesis objects.
+
+
+Module : TrackRoot
+Date   : Tue Apr 25 13:14:17 2000
+User   : marsh
+Old Tag: v02_03_00
+New Tag: v02_03_01
+Message: 
+Fixed stupid typo in quality typedef files.  I had a missing colon
+in the template argument.
+
+
+Module : TrackRoot
+Date   : Fri Apr 28 18:08:57 2000
+User   : wsun
+Old Tag: v02_03_01
+New Tag: v02_04_00
+Message: Added compression hints for quality objects.
+
+Module : TrackRoot
+Date   : Fri May  5 14:14:20 2000
+User   : wsun
+Old Tag: v02_04_00
+New Tag: v02_04_01
+Message: Fixed compression hints for quality objects.
+
+Module : TrackRoot
+Date   : Thu Jun 15 22:49:59 2000
+User   : marsh
+Old Tag: v02_04_01
+New Tag: v02_04_02
+Message: 
+Purged tool box (not its real name, but grep won't catch it) typedefs.
+
+
+Module : TrackRoot
+Date   : Thu Jul 13 14:47:11 2000
+User   : wsun
+Old Tag: v02_04_02
+New Tag: v02_04_03
+Message: Fixed quality storage helpers: ndof can be as low as -5.
+
+Module : TrackRoot
+Date   : Thu Jul 13 18:38:46 2000
+User   : cdj
+Old Tag: v02_04_03
+New Tag: v02_04_04
+Message: Can now properly read by TRTrackQuality's
+
+Module : TrackRoot
+Date   : Wed Aug 16 15:31:44 2000
+User   : wsun
+Old Tag: v02_04_04
+New Tag: v03_00_00
+Message: Added TRSeedTrackQuality in a branch separate from TRTrackFitQuality.
+
+Module : TrackRoot
+Date   : Tue Oct 31 16:45:18 2000
+User   : ajm36
+Old Tag: v03_00_00
+New Tag: v03_01_00
+Message: added multiple hits, extrapolation, number of layers to seed qualities
+
+Module : TrackRoot
+Date   : Thu Dec 14 11:03:01 2000
+User   : wsun
+Old Tag: v03_01_00
+New Tag: v03_02_00
+Message: Added #hits, avg residuals, and rms residuals by subdetector to fit quality.
+
+Module : TrackRoot
+Date   : Fri Jan  5 00:29:26 2001
+User   : lyon
+Old Tag: v03_02_00
+New Tag: v03_03_00
+Message: Added LayerMap and other changes to Quality object
+
+Module : TrackRoot
+Date   : Tue Mar  6 16:02:44 2001
+User   : wsun
+Old Tag: v03_03_00
+New Tag: v03_03_01
+Message: Fixed TRTrackFitQuality::ratioNumberHitsToExpected(): use number hit LAYERS on track.
+
+Module : TrackRoot
+Date   : Tue Apr  2 10:05:52 2002
+User   : cdj
+Old Tag: v03_03_01
+New Tag: v03_04_00
+Message: minor speed optimization for reading back data from storage
+
+Module : TrackRoot
+Date   : Thu Apr  4 16:27:26 2002
+User   : cdj
+Old Tag: v03_04_00
+New Tag: v03_05_00
+Message: avoid creation of temporary KTHelix when reading back HelixFits

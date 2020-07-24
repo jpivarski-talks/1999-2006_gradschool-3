@@ -1,0 +1,279 @@
+Index: KalmanFilter/Class/KalmanAddHitOperation.cc
+===================================================================
+RCS file: /nfs/cleo3/cvsroot/Offline/src/KalmanFilter/Class/KalmanAddHitOperation.cc,v
+retrieving revision 1.22
+diff -r1.22 KalmanAddHitOperation.cc
+122a123,124
+> #include <assert.h>
+> 
+182a185,186
+>    report(DEBUG, kFacilityString) << "start addHitOperation" << endl;
+> 
+223a228,229
+>       report(DEBUG, kFacilityString) << "begin do loop" << endl;
+> 
+226a233,241
+> 	 report(DEBUG, kFacilityString)
+> 	    << "aSurface.hiCalibratedHit() == " << aSurface.hiCalibratedHit();
+> 	 if (aSurface.hiCalibratedHit() != 0) {
+> 	    report(DEBUG, kFacilityString)
+> 	       << " " << "aSurface.hiCalibratedHit()->infoOnTrack() == "
+> 	       << aSurface.hiCalibratedHit()->infoOnTrack();
+> 	 }
+> 	 report(DEBUG, kFacilityString) << endl;
+> 
+477a493,496
+> 
+>       report(DEBUG, kFacilityString)
+> 	 << "push_back( " << aSurface.hiCalibratedHit()->calibratedHit()->deviceType()
+> 	 << " ) (DR = " << CalibratedHit::DR << " and ZD = " << CalibratedHit::ZD << ")" << endl;
+Index: KalmanFilter/Class/KalmanTrackFitter.cc
+===================================================================
+RCS file: /nfs/cleo3/cvsroot/Offline/src/KalmanFilter/Class/KalmanTrackFitter.cc,v
+retrieving revision 1.59
+diff -r1.59 KalmanTrackFitter.cc
+247a248
+> #include "HelixIntersection/HIZDSurfaceFactory.h"
+728a730,731
+>    const STL_VECTOR(
+>       HIZDSurfaceFactory::ZDHitAndDriftDistance )* aZDVector,
+737a741
+> 				      aZDVector,
+760c764
+<    return fittedTrack( theSeed, theFrame, 0, 0, 0, 0, aMass ) ;
+---
+>    return fittedTrack( theSeed, theFrame, 0, 0, 0, 0, 0, aMass ) ;
+773a778,779
+>    const STL_VECTOR(
+>       HIZDSurfaceFactory::ZDHitAndDriftDistance )* aZDVector,
+780c786,787
+<       ( aZVector == 0 ? 0 : aZVector->size() ) ;
+---
+>       ( aZVector == 0 ? 0 : aZVector->size() ) +
+>       ( aZDVector == 0 ? 0 : aZDVector->size() ) ;
+807c814
+< 			aDRVector, aCathodeVector, aRphiVector, aZVector,
+---
+> 			aDRVector, aCathodeVector, aRphiVector, aZVector, aZDVector,
+1054a1062,1063
+>    const STL_VECTOR(
+>       HIZDSurfaceFactory::ZDHitAndDriftDistance )* aZDVector,
+1096c1105
+< 			aDRVector, aCathodeVector, aRphiVector, aZVector,
+---
+> 			aDRVector, aCathodeVector, aRphiVector, aZVector, aZDVector,
+1999,2007c2008,2018
+< /*
+<    // DR inner tube.
+<    HIDRSurfaceFactory drFactory( theFrame,
+< 				 m_useDRAxialHits,
+< 				 m_useDRStereoUHits,
+< 				 m_useDRStereoVHits,
+< 				 m_correctDRHits ) ;
+< 
+<    if( drFactory.geometryAvailable() )
+---
+>    report(DEBUG, kFacilityString)
+>       << "I'm going to attempt to create a zdFactory object." << endl;
+>    HIZDSurfaceFactory zdFactory( theFrame,
+> 				 m_useZDStereoUHits,
+> 				 m_useZDStereoVHits,
+> 				 m_correctZDHits ) ;
+>    report(DEBUG, kFacilityString)
+>       << "Perhaps it worked." << endl;
+> 
+>    // ZD inner and outer tubes
+>    if ( zdFactory.geometryAvailable() )
+2009,2010c2020,2021
+<       drFactory.generateInnerTubeCylinders( *m_drCache, m_noFitOperation ) ;
+<       m_drCacheFilled = true ;
+---
+>       zdFactory.generateTubeCylinders( m_zdCache, m_noFitOperation ) ;
+>       m_zdCacheFilled = true;
+2012c2023,2025
+<    */
+---
+> 
+>    report(DEBUG, kFacilityString)
+>       << "Maybe I even have ZD tubes, now." << endl;
+2024a2038,2039
+>    const STL_VECTOR(
+>       HIZDSurfaceFactory::ZDHitAndDriftDistance )* aZDVector,
+2027a2043,2044
+>    report(DEBUG, kFacilityString) << "m_keepPreviousHitList is " << m_keepPreviousHitList << endl;
+> 
+2031c2048
+< 			   aDRVector, aCathodeVector, aRphiVector, aZVector,
+---
+> 			   aDRVector, aCathodeVector, aRphiVector, aZVector, aZDVector,
+2089a2107,2114
+>    // Merge the ZD cache.  (Even if there's nothing in it.)
+>    cacheItr = m_zdCache.begin();
+>    cacheEnd = m_zdCache.end() ;
+>    for( ; cacheItr != cacheEnd ; ++cacheItr )
+>    {
+>       surfaces.push_back( *cacheItr ) ;
+>    }
+> 
+2160a2186,2187
+>    const STL_VECTOR(
+>       HIZDSurfaceFactory::ZDHitAndDriftDistance )* aZDVector,
+2169a2197
+>        aZDVector == 0 &&
+2402a2431,2562
+> 
+>    report(DEBUG, kFacilityString) << "starting to add zd surfaces" << endl;
+> 
+>    if( aZDVector != 0 || aExtractHitsIfNull )
+>    {
+>       report(DEBUG, kFacilityString) << "(re-)creating zdFactory" << endl;
+> 
+>       HIZDSurfaceFactory zdFactory( theFrame,
+> 				    m_useZDStereoUHits,
+> 				    m_useZDStereoVHits,
+> 				    m_correctZDHits ) ;
+> 
+>       report(DEBUG, kFacilityString) << "Did it.  Is the geometry available?" << endl;
+> 
+>       if( zdFactory.geometryAvailable() )
+>       {
+> 	 report(DEBUG, kFacilityString) << "Why, yes it is." << endl;
+> 
+> 	 STL_VECTOR( HIZDSurfaceFactory::ZDHitAndDriftDistance ) zdHitInfos ;
+> 	 int maxHitZDLayer = 0 ;
+> 
+>          if( aZDVector == 0 )
+>          {
+> 	    report(DEBUG, kFacilityString) << "aZDVector is empty" << endl;
+> 
+> 	    // Catch exceptions from extracting ZD hits on track.
+> 	    try
+> 	    {
+> 	       report(DEBUG, kFacilityString) << "about to call getZDHits" << endl;
+> 
+> 	       maxHitZDLayer =
+> 		  zdFactory.getZDHits( theSeed,
+> 				       zdHitInfos,
+> 				       m_zdHitUsageTag,
+> 				       m_zdHitProdTag,
+> 				       true // fittable hits only
+> 		     ) ;
+> 
+> 	       report(DEBUG, kFacilityString) << "Did it! maxHitZDlayer is " << maxHitZDLayer << endl;
+> 	    }
+> 	    catch( NO_TABLE_EXCEPTION( CalibratedZDHit )& aException )
+> 	    {
+> 	       report(DEBUG, kFacilityString) << "there was a hits missing exception, check WARNING stream" << endl;
+> 
+> 	       // Exception is caught if specified by user.  Otherwise,
+> 	       // it is rethrown.
+> 	       if( m_continueIfHitsMissing )
+> 	       {
+> 		  report( WARNING, kFacilityString )
+> 		     << "Continuing without ZD hits." << endl;
+> 	       }
+> 	       else
+> 	       {
+> 		  // This rethrows the exception currently being handled.
+> 		  throw ;
+> 	       }
+> 	    }
+> 	    catch( DAExceptionBase& aException )
+> 	    {
+> 	       report(DEBUG, kFacilityString) << "there was a different exception, check WARNING stream" << endl;
+> 	       // Exception is caught if specified by user.  Otherwise,
+> 	       // it is rethrown.
+> 	       if( m_continueIfAnyException )
+> 	       {
+> 		  report( WARNING, kFacilityString )
+> 		     << "Continuing despite exception: \n "
+> 		     << aException.what() << endl ;
+> 	       }
+> 	       else
+> 	       {
+> 		  throw ;
+> 	       }
+> 	    }
+>          }
+>          else
+>          {
+> 	    report(DEBUG, kFacilityString) << "aZDVector is non-empty" << endl;
+> 
+> 	    // Find the largest ZD layer with a hit.
+> 	    STL_VECTOR(
+> 	       HIZDSurfaceFactory::ZDHitAndDriftDistance )::const_iterator
+> 	       itr = aZDVector->begin() ;
+> 	    STL_VECTOR(
+> 	       HIZDSurfaceFactory::ZDHitAndDriftDistance )::const_iterator
+> 	       end = aZDVector->end() ;
+> 
+> 	    report(DEBUG, kFacilityString) << "about to loop over aZDVector" << endl;
+> 
+> 	    for( ; itr != end ; ++itr )
+> 	    {
+> 	       report(DEBUG, kFacilityString) << "  layer" << itr->calibratedZDHit()->layer() << endl;
+> 
+> 	       if( itr->calibratedZDHit()->layer() > maxHitZDLayer )
+> 	       {
+> 		  maxHitZDLayer = itr->calibratedZDHit()->layer() ;
+> 	       }
+> 	    }
+> 
+> 	    report(DEBUG, kFacilityString) << "horrah!  maxHitZDLayer = " << maxHitZDLayer << endl;
+> 
+> 	    // Copy the user-provided vector.
+>             zdHitInfos = *aZDVector ;
+>          }
+> 
+> 	 if( zdHitInfos.size() > 0 )
+> 	 {
+> 	    report(DEBUG, kFacilityString) << "zdHitInfos.size() > 0: about to generateAllSurfacesMulti" << endl;
+> 
+> 	    zdFactory.generateAllSurfacesMulti( m_hitSurfaces,
+> 						zdHitInfos,
+> 						m_fitOperation,
+> 						m_noFitOperation,
+> 						AZDSenseWireStore::kFirstLayer,
+> 						maxHitZDLayer,
+> 						true, // check dir switch
+> 						m_forceZDFittingWeight,
+> 						m_zdFittingWeight) ;
+> 
+> 	    report(DEBUG, kFacilityString) << "generateAllSurfacesMulti worked." << endl;
+> 	 }
+> 	 else if( m_noFitOperation->numberOfChildren() > 0 )
+> 	 {
+> 	    report(DEBUG, kFacilityString) << "zdHitInfos.size() == 0, but noFitOperation->numberOfChildren() > 0, so we'll try to generateSufacesWithoutHits" << endl;
+> 
+> 	    zdFactory.generateSurfacesWithoutHits( m_hitSurfaces,
+> 						   m_noFitOperation ) ;
+> 
+> 	    report(DEBUG, kFacilityString) << "generateSufacesWithoutHits worked" << endl;
+> 	 }
+>       }
+>    }
+>    report(DEBUG, kFacilityString) << "finished adding ZD surfaces!" << endl;
+Index: KalmanFilter/KalmanFilter/KalmanTrackFitter.h
+===================================================================
+RCS file: /nfs/cleo3/cvsroot/Offline/src/KalmanFilter/KalmanFilter/KalmanTrackFitter.h,v
+retrieving revision 1.32
+diff -r1.32 KalmanTrackFitter.h
+132c132
+< //#include "HelixIntersection/HIZDSurfaceFactory.h"
+---
+> #include "HelixIntersection/HIZDSurfaceFactory.h"
+240a241,242
+> 	 const STL_VECTOR(
+> 	    HIZDSurfaceFactory::ZDHitAndDriftDistance )* aZDVector = 0,
+251a254,255
+> 	 const STL_VECTOR(
+> 	    HIZDSurfaceFactory::ZDHitAndDriftDistance )* aZDVector = 0,
+279a284,285
+> 	 const STL_VECTOR(
+> 	    HIZDSurfaceFactory::ZDHitAndDriftDistance )* aZDVector = 0,
+474a481,482
+> 	 const STL_VECTOR(
+> 	    HIZDSurfaceFactory::ZDHitAndDriftDistance )* aZDVector = 0,
+488a497,498
+> 	 const STL_VECTOR(
+> 	    HIZDSurfaceFactory::ZDHitAndDriftDistance )* aZDVector = 0,

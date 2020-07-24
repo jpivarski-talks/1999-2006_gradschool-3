@@ -1,0 +1,40 @@
+\documentclass[12pt]{article}
+
+\oddsidemargin  -0.5 cm
+\evensidemargin 0.0 cm
+\textwidth      6.5in
+\headheight     0.0in
+\topmargin      -1 cm
+\textheight=9.0in
+
+\begin{document}
+
+\section*{The question on my whiteboard}
+
+For what $\sigma_E$ is
+\begin{equation}
+  S(\Delta_E) = \sum_{i=1}^{30} \frac{(\sigma_{i,1} - \sigma_{i,2})^2}{\Delta_{i,1}^2 + \Delta_{i,2}^2 + (\Delta_E \times f')^2} \cdot \frac{1}{N-1} = 1
+\end{equation}
+(where $\sigma_{i,1} \pm \Delta_{i,1}$, $\sigma_{i,2} \pm
+\Delta_{i,2}$ are cross-sections and $f'$ is the derivative of the
+lineshape)?
+
+The answer to this question is $S(0) = 1.66$, $S(0.15\mbox{ MeV}) = 0.99$.
+
+I thought this might be a little unfair, since this formula assumes
+that the beam energy program reported the same beam energy for the
+pair of measurements: it doesn't subtract $\Delta_{E\mbox{,
+expected}}$.  I applied this formula to the 15 pairs that {\it did}
+report the same beam energy, and recieved the same result: $S'(0) =
+1.22$, $S'(0.15\mbox{ MeV}) = 0.97$.
+
+It also differs in that I first converted all pairs to energy shifts
+and then tried to extract a limit, rather than 
+
+
+
+
+
+
+
+\end{document}

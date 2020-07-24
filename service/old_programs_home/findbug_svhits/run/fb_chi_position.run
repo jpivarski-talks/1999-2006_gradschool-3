@@ -1,0 +1,21 @@
+#!/usr/local/bin/tcsh
+
+cd $HOME/findbug_svhits/run
+. /nfs/cleo3/scripts/cleo3defs
+c3rel cleo3_Nov08_2001
+
+#  OSAGENT_PORT=31416
+#  export OSAGENT_PORT
+#  C3_CONST=/nfs/c3con/ccon3/constants/Codi
+#  export C3_CONST
+
+USER_HISTOGRAM_FILE=fb_after_realignment.rzn
+export USER_HISTOGRAM_FILE
+USER_FITTER=ChisqFitProd
+export USER_FITTER
+USER_RUN_START=113243
+export USER_RUN_START
+USER_RUN_END=113272
+export USER_RUN_END
+
+suez -f run2.tcl > $USER_TMP/fb_chi_position.log

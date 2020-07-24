@@ -1,0 +1,10 @@
+#$ -l calibration
+#$ -o /cdat/tem/mccann/runover_piontrack.out
+#$ -S /bin/bash
+#$ -j y
+
+cd /home/mccann/dr_wiggle/run
+. /nfs/cleo3/scripts/cleo3defs
+c3rel Jul13_02_P2
+
+suez -f runover_piontrack.tcl > /cdat/tem/mccann/runover_piontrack.log

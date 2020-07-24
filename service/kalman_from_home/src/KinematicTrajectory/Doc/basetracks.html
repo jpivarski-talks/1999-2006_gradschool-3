@@ -1,0 +1,40 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>The Base Track Classes in CLEO3</TITLE>
+<META NAME="Template" CONTENT="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot">
+</HEAD>
+<BODY LINK="#0000ff" VLINK="#800080">
+
+<H1 ALIGN="CENTER">The Base Track Classes in CLEO3</H1>
+<H2>Introduction</H2>
+<P>This document provides an overview of the basic track classes used in CLEO3 from which all other classes inherit. The class diagram is shown below.</P>
+<P ALIGN="CENTER"><IMG SRC="basetracks.gif" WIDTH=563 HEIGHT=470></P>
+<P ALIGN="CENTER">&nbsp;</P>
+<P>The class <B>KTHelix</B> contains the basic helix information per hypothesis which is stored on disk or tape. The <B>KTKinematicData</B>, etc. classes deal with kinematic information such as momentum and position. Kinematic information is normally obtained from the helix parameters using the appropriate constructors.</P>
+<H2>List of classes</H2>
+<DL>
+<DD><A HREF="helix.html">KTHelix</A> (<A HREF="helix.gif">figure</A>) describes the helical path traversed by a charged particle in a solenoidal B field (B along z direction). You can think of a helix as the path traced by a particle moving in a circle in the XY plane while the circle moves at constant velocity along the z-axis. The helix is described by five parameters defined relative to a "reference point" (<FONT FACE="Courier New">xr,yr,zr</FONT>) plus the 5x5 covariance matrix.</DD>
+<P>
+<DD><A HREF="kinematicdata.html">KTKinematicData</A> (<A HREF="kinematicdata.gif">figure</A>) describes kinematic properties of charged tracks, photons, and virtual particles such as pi0, Ks, Lambda, D0, etc., so that a user can carry out standard operations such as calculating masses, adding 4-momenta together, etc. The basic information consists of the 3-momentum, 3-position, mass and charge. A 7x7 error matrix is stored for the quantities (Px,Py,Pz,E,x,y,z).</DD>
+<P>
+<DD><A HREF="kinematicmoveable.html">KTKinematicMoveable</A> (<A HREF="kinematicmoveable.gif">figure</A>) inherits directly from <B>KTKinematicData</B> and acts as the base class for all classes that move kinematic type objects. Since there is no specification of a magnetic field or material geometry in this class, all public move routines defined here are <I>pure virtual functions</I>, which means that <B>KTKinematicMoveable</B> is an abstract class and no objects of its type can be instantiated. Classes that inherit from <B>KTKinematicMoveable</B> must provide the required move functions.</DD>
+<P>
+<DD><A HREF="kinematicfixedbz.html">KTKinematicFixedBz</A> (<A HREF="kinematicfixedbz.gif">figure</A>) objects can be moved through a constant solenoidal B field. This class inherits directly from <B>KTKinematicMoveable</B>.</DD>
+<P>
+<B><DD>KTKinematicGeometry</B> is not defined yet. It will eventually allow tracks to be moved through a field map and material, probably with the help of the GEANT routines.</DD>
+<P>
+<DD><A HREF="movecontrol.html">KTMoveControl</A> (<A HREF="movecontrol.gif">figure</A>) is a helper class. <B>KTHelix</B> and <B>KTMoveable</B> (and its descendents) use it in situations that require iterative movement to reach a desired point, such as the intersection with an arbitrary plane or the point of closest approach to a stereo wire. In that case, the helix is approximated by a parabola and the track is swum towards the final point in a series of steps. The maximum step size, the direction of the steps and the convergence of the iteration process are controlled by <B>KTMoveControl</B>.</DD>
+<P><hr>
+<address><a href="mailto:avery@phys.ufl.edu/">Paul Avery
+&lt;avery@phys.ufl.edu&gt;</a></address>
+$Id: basetracks.html,v 1.1 1998/05/27 17:06:00 avery Exp $
+<!-- 
+$Log: basetracks.html,v $
+Revision 1.1  1998/05/27 17:06:00  avery
+First submission of documentation
+
+-->
+</DL></BODY>
+</HTML>

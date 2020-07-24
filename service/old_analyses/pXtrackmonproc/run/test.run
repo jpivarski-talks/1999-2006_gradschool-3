@@ -1,0 +1,12 @@
+#!/usr/local/bin/tcsh
+
+cd $HOME/pXtrackmonproc/run
+. /nfs/cleo3/scripts/cleo3defs
+c3cur
+
+#  OSAGENT_PORT=31416
+#  export OSAGENT_PORT
+#  C3_CONST=/nfs/c3con/ccon3/constants/Codi
+#  export C3_CONST
+
+suez -f run.tcl > $USER_TMP/p2trackmonproc_test.log

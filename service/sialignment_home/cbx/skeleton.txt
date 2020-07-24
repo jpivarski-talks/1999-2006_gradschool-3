@@ -1,0 +1,57 @@
+		    SILICON ALIGNMENT CBX SKELETON
+                    ------------------------------
+
+\section{Introduction} (Lauren)
+
+\section{Geometry} (Lauren)
+
+\section{Alignment Algorithms}
+
+  \subsection{Minuit Minimizations} (Lauren)
+
+  \subsection{Interactive Alignment} (Me!)
+
+   *    *    *
+Just the basic idea.
+   *    *    *
+
+\section{Diagnostic Tools} (Lauren)
+
+\section{Results}
+
+  \subsection{Starting Conditions and Brief History} (Lauren)
+
+  \subsection{The Final Constants} (Me!)
+
+   *    *    *
+Make some plots.
+   *    *    *
+
+  \subsection{Current Resolutions} (Me!)
+
+   *    *    *
+Not very much to say here.
+   *    *    *
+
+  \subsection{Variation with Dataset} (Me!)
+
+   *    *    *
+Be sure to distinguish alignment progress from real variation, and
+make some plots.
+   *    *    *
+
+\section{The Rage and the Frustration} (Me!)
+
+   *    *    *
+Why we can't go any further, and it wouldn't matter if we could.
+   *    *    *
+
+\section{Appendices}
+
+  \subsection{Minuit Minimization}
+
+  \subsection{Interactive Alignment}
+
+  \subsection{Ladder and Sensor Alignment Diagnostics}
+
+\section{Fin.}
